@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Electronics Introduction, Chaoqun Yin">
+    <meta name="keywords" content="Process management - OS basis, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Electronics Introduction | Chaoqun Yin</title>
+    <title>Process management - OS basis | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Electronics Introduction</h1>
+                    <h1 class="description center-align post-title">Process management - OS basis</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Technology-and-Applications-of-Electronics-and-Photonics/">
-                                <span class="chip bg-color">Technology and Applications of Electronics and Photonics</span>
+                            <a href="/tags/Operating-Systems-and-Security/">
+                                <span class="chip bg-color">Operating Systems and Security</span>
                             </a>
                         
                     </div>
@@ -477,105 +477,346 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Electronics-Introduction"><a href="#Electronics-Introduction" class="headerlink" title="Electronics: Introduction"></a>Electronics: Introduction</h1><h2 id="Technological-point-of-view"><a href="#Technological-point-of-view" class="headerlink" title="Technological point of view"></a>Technological point of view</h2><h3 id="Definition："><a href="#Definition：" class="headerlink" title="Definition："></a>Definition：</h3><p>The field of <strong>electronics</strong> refers to the study, design and use of systems that operate by controlling the flow of <strong>electrons</strong> (or other <strong>charge carriers</strong>) in <strong>active</strong> (semiconductor) and <strong>passive</strong> devices.</p>
+                <h1 id="Basis-of-Operating-Systems-Process-management"><a href="#Basis-of-Operating-Systems-Process-management" class="headerlink" title="Basis of Operating Systems - Process management"></a>Basis of Operating Systems - Process management</h1><h2 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h2><h3 id="The-process-model"><a href="#The-process-model" class="headerlink" title="The process model"></a>The process model</h3><p>A (sequential) process = an instance of an executing program, including the current values of the program counter, registers and variables.</p>
+<p>A (sequential) process = an instance of an executing program, including the current values of the program counter, registers and variables.</p>
+<p>A sequential program, typically an infinite loop</p>
 <ul>
-<li>Passive components: <strong>Limited</strong>: dissipate energy and exhibit <strong>linear</strong> behaviours</li>
-<li>Active components:  <strong>Semiconductors</strong>;  amplify incoming signals. exhibit complex, <strong>non-linear</strong> behaviour.</li>
+<li><p>Executes concurrently with other processes</p>
+</li>
+<li><p>We are about to enter the world of “concurrent programming”</p>
+<p><img src="/images/052316.png"></p>
+</li>
 </ul>
-<p>The difference between electricity/electrical circuits and electronics is the use of <strong>active components</strong>. </p>
-<h2 id="User’s-point-of-view"><a href="#User’s-point-of-view" class="headerlink" title="User’s point of view"></a>User’s point of view</h2><p>Most deal only with information:  capturing, transmission, processing, representation, visualization, and storage of information or power.</p>
-<p><img src="/images/221323.png"></p>
-<h2 id="Designer’s-point-of-view"><a href="#Designer’s-point-of-view" class="headerlink" title="Designer’s point of view"></a>Designer’s point of view</h2><h5 id="What-are-the-inputs-outputs-What-parameters-can-be-optimized-for"><a href="#What-are-the-inputs-outputs-What-parameters-can-be-optimized-for" class="headerlink" title="What are the inputs/outputs? What parameters can be optimized for?"></a>What are the inputs/outputs? What parameters can be optimized for?</h5><p><img src="/images/221429.png"></p>
-<p>Pic : 24:52 - 26:20 Video</p>
-<h3 id="Processing"><a href="#Processing" class="headerlink" title="Processing"></a>Processing</h3><ul>
-<li><p>Analog processing</p>
+<h3 id="Basic-operations-on-processes"><a href="#Basic-operations-on-processes" class="headerlink" title="Basic operations on processes"></a>Basic operations on processes</h3><ul>
+<li>Create and terminate<ul>
+<li>Create is like a procedure call but caller doesn’t wait</li>
+<li>Terminate kills a process, destroying all data</li>
+</ul>
+</li>
+<li>Suspend and resume<ul>
+<li>Suspend puts a process on hold, saving state for later execution</li>
+<li>Resume starts the process again where it left off</li>
+</ul>
+</li>
+<li>Join<ul>
+<li>A process <strong>suspends</strong> until a particular child process finishes execution</li>
+</ul>
+</li>
+</ul>
+<h4 id="Process-creation-and-termination"><a href="#Process-creation-and-termination" class="headerlink" title="Process creation and termination"></a>Process creation and termination</h4><h5 id="Events-which-cause-process-creation"><a href="#Events-which-cause-process-creation" class="headerlink" title="Events which cause process creation:"></a>Events which cause process creation:</h5><ul>
+<li>System initialization: launches <strong>foreground processes</strong> (interacting with users) and <strong>background processes</strong> (typically called daemons)</li>
+<li>Execution of a process creation system call by a running process.</li>
+<li>A user request to create a new process.</li>
+<li>Initiation of a batch job.</li>
+</ul>
+<h5 id="Events-which-cause-process-termination"><a href="#Events-which-cause-process-termination" class="headerlink" title="Events which cause process termination:"></a>Events which cause process termination:</h5><ul>
+<li>Normal exit (voluntary).</li>
+<li>Error exit (voluntary).</li>
+<li>Fatal error (involuntary).</li>
+<li>Killed by another process (involuntary).</li>
+</ul>
+<h3 id="Process-states"><a href="#Process-states" class="headerlink" title="Process states"></a>Process states</h3><ul>
+<li><p><strong>Running state</strong>: actually using the CPU at that instant</p>
+</li>
+<li><p><strong>Ready state</strong>: runnable; temporarily stopped to let another process run</p>
+</li>
+<li><p><strong>Blocked state</strong>: unable to run until some external event happens</p>
+</li>
+</ul>
+<p><img src="/images/053319.png"></p>
+<h3 id="Implementation-of-processes"><a href="#Implementation-of-processes" class="headerlink" title="Implementation of processes"></a>Implementation of processes</h3><p>The lowest layer of a process-structured operating system handles <strong>interrupts and scheduling</strong>. Above that layer are <strong>sequential processes</strong>.</p>
+<p><img src="/images/053844.png"></p>
+<p>The operating system maintains a table, called the <strong>process table</strong>.</p>
+<p>Contains one <strong>entry</strong> per process. </p>
+<p>Skeleton of what the lowest level of the operating system does when an <strong>interrupt</strong> occurs.</p>
+<h2 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h2><p>Thread =   light-weight processes, created by a mother process (program) for pseudo-parallel processing.</p>
+<p><strong>No memory protection</strong>: share memory with each other and the mother process.</p>
+<h3 id="Thread-usage"><a href="#Thread-usage" class="headerlink" title="Thread usage"></a>Thread usage</h3><p><img src="/images/183428.png"></p>
+<h3 id="The-classical-thread-model"><a href="#The-classical-thread-model" class="headerlink" title="The classical thread model"></a>The classical thread model</h3><p><img src="/images/83548.png"></p>
+<p>The first column lists some items shared by all threads in a process. </p>
+<p>The second one lists some items private to each thread.</p>
+<p><img src="/images/183727.png"></p>
+<p><strong>Each thread has its own stack.</strong></p>
+<p><img src="/images/183916.png"></p>
+<h3 id="Posix-Threads"><a href="#Posix-Threads" class="headerlink" title="Posix Threads"></a>Posix Threads</h3><p>IEEE standard 1003.1c: enables writing of portable threaded programs</p>
+<p>The threads package it defines is called <strong>Pthreads</strong></p>
+<p>The standard defines over 60 function calls, which is far too many to go over here.</p>
+<h3 id="Implementing-threads-in-user-space-or-in-kernel"><a href="#Implementing-threads-in-user-space-or-in-kernel" class="headerlink" title="Implementing threads in user space or in kernel"></a>Implementing threads in user space or in kernel</h3><ol>
+<li><p> A user-level threads package.</p>
+</li>
+<li><p>A threads package managed by the kernel.</p>
+<p><img src="/images/185004.png"></p>
+</li>
+</ol>
+<h3 id="Processes-vs-Threads"><a href="#Processes-vs-Threads" class="headerlink" title="Processes vs Threads"></a><strong>Processes vs Threads</strong></h3><h4 id="Regular-processes"><a href="#Regular-processes" class="headerlink" title="Regular processes"></a>Regular processes</h4><ul>
+<li>Heavyweight process</li>
+<li>Own virtual address space (stack, data, code)</li>
+<li>System resources (e.g., open files)</li>
+</ul>
+<h4 id="Threads-1"><a href="#Threads-1" class="headerlink" title="Threads"></a>Threads</h4><ul>
+<li>Lightweight process</li>
+<li>Sub-process within process </li>
+<li>Only program counter, stack, and registers</li>
+<li>Shares <strong>address space, system resources</strong> with other threads <ul>
+<li>Allows <u><strong>quicker</strong></u> communication between threads</li>
+</ul>
+</li>
+<li><u>Small compared to heavyweight processes</u><ul>
+<li>Can be created quickly</li>
+<li>Low cost switching between threads</li>
+</ul>
+</li>
+</ul>
+<h2 id="Interprocess-communication-IPC"><a href="#Interprocess-communication-IPC" class="headerlink" title="Interprocess communication (IPC)"></a>Interprocess communication (IPC)</h2><h3 id="Race-conditions"><a href="#Race-conditions" class="headerlink" title="Race conditions"></a>Race conditions</h3><p>Two processes want to access shared memory at the same time.</p>
+<p><strong>Race condition if the CPU decides to switch from the just initiated Process A</strong>, that has just received the information that in=7, <strong>to Process B</strong> that will also observe in=7. Both will write their file at the same location in the printer spooler directory.</p>
+<p><img src="/images/185758.png"></p>
+<h3 id="Critical-regions"><a href="#Critical-regions" class="headerlink" title="Critical regions"></a>Critical regions</h3><p>Conditions required to <u>avoid race condition</u>:</p>
 <ul>
-<li>Sensitive to noise</li>
-<li>Constrained dynamical range</li>
-<li>Important on input/output, but generally <strong>unfavourable for computation</strong></li>
+<li>No two processes may be simultaneously inside their <strong>critical regions</strong>.</li>
+<li>No assumptions may be made about <strong>speeds or the number of CPUs</strong>.</li>
+<li>No process running outside its critical region may block other processes.</li>
+<li>No process should have to wait forever to enter its critical region.</li>
 </ul>
-</li>
-<li><p>Digital processing 28:30</p>
-<p><img src="/images/Digital_Processing.png"></p>
+<p><img src="/images/190129.png"></p>
+<h3 id="Mutual-exclusion-with-busy-waiting"><a href="#Mutual-exclusion-with-busy-waiting" class="headerlink" title="Mutual exclusion with busy waiting"></a>Mutual exclusion with busy waiting</h3><p>Proposals for achieving mutual exclusion:</p>
 <ul>
-<li>Range: mostly fixed-point (integer) or floating-point </li>
-<li>Saturation / Overflow</li>
-<li>Noise also also <u>depends on quantization</u></li>
-<li>Flexible for (micro-)programming</li>
-<li><u>High</u> dynamic range</li>
-<li>Generic components</li>
-<li>Structured design methods, even for complex systems</li>
+<li>Disabling interrupts<ul>
+<li>Problems: race conditions, too much control to the user, multicore systems (interrupts handled per core)</li>
+</ul>
+</li>
+<li>Lock shared variables<ul>
+<li>lock=0: no process in critical region; lock=1: process in critical region</li>
+<li>Problem: race conditions remain (cfr. spooler directory)</li>
 </ul>
 </li>
 </ul>
-<h4 id="Conversion-between-analog-and-digital-32-34"><a href="#Conversion-between-analog-and-digital-32-34" class="headerlink" title="Conversion between analog and digital 32:34"></a>Conversion between analog and digital 32:34</h4><ul>
-<li><p>Sampling</p>
-</li>
-<li><p>Dynamic range </p>
-</li>
-<li><p>Quantization</p>
-</li>
-<li><p>Noise, dependencies on environment </p>
-</li>
-<li><p>**(Non-)linearity?**36:03 - 37:45</p>
-<p><img src="/images/strain_gauge.png"></p>
-</li>
-</ul>
-<h2 id="Micro-electronics"><a href="#Micro-electronics" class="headerlink" title="Micro-electronics"></a>Micro-electronics</h2><p><strong>Electronics</strong>: discrete components = building blocks for <strong><u>simple</u></strong> systems (specialized components: examples for implementation)</p>
-<p><strong>Micro-electronics</strong>: bigger building blocks on one chip (IC)= building blocks for <u><strong>complex</strong></u> systems</p>
-<h3 id="Why-semiconductors-40-48"><a href="#Why-semiconductors-40-48" class="headerlink" title="Why semiconductors? 40:48"></a><strong>Why semiconductors</strong>? 40:48</h3><p>Characteristics of both conductors (resistors) and isolators (capacitors)</p>
-<h4 id="Conductor-characteristics"><a href="#Conductor-characteristics" class="headerlink" title="Conductor characteristics"></a>Conductor characteristics</h4><ul>
-<li>Transport of charge carriers through (low) resistance</li>
-<li>Information and signal <strong>transport</strong></li>
-<li>Voltage -&gt; modulated conduction -&gt; information and signal <strong>processing</strong></li>
-</ul>
-<h4 id="Isolator-characteristics"><a href="#Isolator-characteristics" class="headerlink" title="Isolator characteristics"></a>Isolator characteristics</h4><ul>
-<li>Storage of charge carriers</li>
-<li>Controlled access to capacitors -&gt; controlled voltage -&gt; <strong>memory</strong></li>
-</ul>
-<h2 id="Electronics-for-computing"><a href="#Electronics-for-computing" class="headerlink" title="Electronics for computing"></a>Electronics for computing</h2><h3 id="Computing-speed-does-not-scale-linearly-with-the-number-of-cores-2-x-3-Ghz-lt-6Ghz"><a href="#Computing-speed-does-not-scale-linearly-with-the-number-of-cores-2-x-3-Ghz-lt-6Ghz" class="headerlink" title="Computing speed does not scale linearly with the number of cores! 2 x 3 Ghz &lt; 6Ghz"></a><strong>Computing speed does not scale linearly with the number of cores!</strong> 2 x 3 Ghz &lt; 6Ghz</h3><ul>
-<li>Coordination overhead, cache coherency</li>
-<li>Not all problems lend themselves to (much) parallelization</li>
-<li>Programming difficulty (harder to reason about, complex dependencies)</li>
-</ul>
-<h2 id="Solutions-increased-processor-complexity"><a href="#Solutions-increased-processor-complexity" class="headerlink" title="Solutions: increased processor complexity"></a>Solutions: increased processor complexity</h2><p>Modern processors are not just “faster” clones of older processor generations</p>
-<p>Some notable advances:</p>
+<p>Several alternatives:</p>
 <ul>
-<li>High core count (“AMD Threadripper” goes up to 64 cores as of 2020)</li>
-<li>Multi-threading within cores, context switching registers</li>
-<li>Write-combine on bus</li>
-<li>Instruction-level parallelism (pipelining, superscalar)</li>
-<li>Speculative execution (branch prediction)</li>
-<li>Out-of-order execution</li>
-<li>Single instruction, multiple data (SIMD)</li>
-<li>Advanced power management, even within chip regions</li>
-<li>Complex cache hierarchy</li>
+<li>Strict alternation</li>
+<li>Peterson’s solution</li>
+<li>The Test and Set Lock (TSL) instruction</li>
 </ul>
-<h2 id="Solutions-different-hardware-topologies-58-52"><a href="#Solutions-different-hardware-topologies-58-52" class="headerlink" title="Solutions: different hardware topologies 58:52"></a>Solutions: different hardware topologies 58:52</h2><h4 id="GPU-Graphics-Processing-Units-1-02-01"><a href="#GPU-Graphics-Processing-Units-1-02-01" class="headerlink" title="GPU (Graphics Processing Units) -1:02:01"></a>GPU (Graphics Processing Units) -1:02:01</h4><p>many tasks, especially involving signals, lend themselves to <strong>extreme parallelization</strong> (graphics, light transport, sound, weather systems, …)</p>
-<h4 id="TPU-Tensor-Processing-Units-1-02-54"><a href="#TPU-Tensor-Processing-Units-1-02-54" class="headerlink" title="TPU (Tensor Processing Units) - 1:02:54"></a>TPU (Tensor Processing Units) - 1:02:54</h4><p>deep learning requires large amounts of multiply-adds for computing convolutions -&gt; specialized hardware.</p>
-<p><img src="/images/GPUTPU.png"></p>
-<h2 id="Future-of-computing"><a href="#Future-of-computing" class="headerlink" title="Future of computing"></a>Future of computing</h2><p><strong>As complexity increases, optimization becomes increasingly important!</strong></p>
+<h3 id="Communication-among-processes"><a href="#Communication-among-processes" class="headerlink" title="Communication among processes"></a>Communication among processes</h3><ul>
+<li><p>Processes need to communicate data and signals to <u>solve their computation problem</u>. </p>
+<p>​    -&gt; Processes that don’t communicate are just independent programs solving separate problems</p>
+</li>
+<li><p>Basic example: <strong>producer/consumer</strong></p>
 <ul>
-<li>• Performance = Saving energy </li>
-<li>Tight feedback between software and hardware design </li>
-<li>Tune algorithms to specific architecture (Big-O analysis alone won’t do) </li>
-<li>New paradigms (quantum, neuromorphic, FPGA) </li>
-<li>Robustness and errors in algorithms (loss of determinism), Statistical analysis of run-time</li>
+<li>Process A produces data items, Process B consumes them </li>
+<li>E.g., A decodes video packets, B display decoded packets on a screen</li>
 </ul>
-<h3 id="New-manufacturing-technologies"><a href="#New-manufacturing-technologies" class="headerlink" title="New manufacturing technologies"></a><strong>New manufacturing technologies</strong></h3><h3 id="Extreme-Ultra-Violet-EUV-Lithography"><a href="#Extreme-Ultra-Violet-EUV-Lithography" class="headerlink" title="Extreme Ultra-Violet (EUV) Lithography"></a>Extreme Ultra-Violet (EUV) Lithography</h3><h3 id="Wafer-scale-integration"><a href="#Wafer-scale-integration" class="headerlink" title="Wafer-scale integration"></a>Wafer-scale integration</h3><p>Shrinking transistors reaches fundamental limits(1:22:48), Atomic-level manufacturing variations</p>
-<p><em>As a metal oxide–semiconductor field effect transistor (MOSFET) shrinks, the gate dielectric (yellow) thickness approaches several atoms (0.5 nm at the 22-nm technology node).</em></p>
-<h3 id="Heterogeneous-computing-at-all-scales"><a href="#Heterogeneous-computing-at-all-scales" class="headerlink" title="Heterogeneous computing at all scales"></a>Heterogeneous computing at all scales</h3><p>Arrange GPU CPU together: At chip-level, node-level, cluster-level and network-level</p>
-<p><img src="/images/HETRO.png"></p>
-<h3 id="Quantum-computing"><a href="#Quantum-computing" class="headerlink" title="Quantum computing"></a>Quantum computing</h3><ul>
-<li>Series of bits are encoded as quantum superpositions of 0 and 1, denoted qubits</li>
-<li>Myth: quantum computers can perform calculations exponentially faster than classical computers.</li>
-<li>Fact: they can solve specific problem classes highly efficiently, but not others. (Applications in cryptography, optimization, accurate physical simulations of quantum systems)</li>
-<li>Prediction: quantum computers will become a specialized unit for certain problem classes, like the GPU. (QPU?)</li>
+</li>
 </ul>
-<h2 id="Neuromorphic-computing-1-34-34"><a href="#Neuromorphic-computing-1-34-34" class="headerlink" title="Neuromorphic computing 1:34:34"></a>Neuromorphic computing 1:34:34</h2><p>Departure from von Neumann architecture</p>
-<p><img src="/images/vonneu.png"></p>
-<h2 id="New-types-of-memory-1-37-00"><a href="#New-types-of-memory-1-37-00" class="headerlink" title="New types of memory 1:37:00"></a>New types of memory 1:37:00</h2><p>Beyond simple caches, RAM and HDD</p>
-<p><img src="/images/new_type_me.png"></p>
+<p><img src="/images/91949.png"></p>
+<p>The producer-consumer problem (or bounded-buffer problem) with a fatal race condition -&gt; Possible solution = wake-up waiting bits</p>
+<p><img src="/images/92317.png"></p>
+<h3 id="How-do-we-achieve-this-communication"><a href="#How-do-we-achieve-this-communication" class="headerlink" title="How do we achieve this communication?"></a><strong>How do we achieve this communication?</strong></h3><h5 id="Shared-memory-Processes-read-and-write-shared-variables"><a href="#Shared-memory-Processes-read-and-write-shared-variables" class="headerlink" title="Shared memory: Processes read and write shared variables"></a>Shared memory: Processes read and write shared variables</h5><ul>
+<li>No time overhead, easy to implement</li>
+<li>But, hard to use – mistakes are common</li>
+</ul>
+<p><strong>Example</strong>: Producer/consumer with a mistake</p>
+<ul>
+<li><p>Share buffer[N], count</p>
+<p>▶ <em>count</em> = # of valid data items in <em>buffer</em></p>
+</li>
+<li><p><em>process</em>A produces data items and stores in <em>buffer</em></p>
+<p>▶ If <em>buffer</em> is full, must wait</p>
+</li>
+<li><p><em>process</em>B consumes data items from <em>buffer</em></p>
+<p>▶ If <em>buffer</em> is empty, must wait</p>
+</li>
+<li><p>Error when both processes try to update count concurrently (lines 10 and 19) and the following execution sequence occurs. Say “count” is 3. </p>
+<ol>
+<li>A loads count (count = 3) from memory into register R1 (R1 = 3)</li>
+<li>A increments R1 (R1 = 4)</li>
+<li>B loads count (count = 3) from memory into register R2 (R2 = 3)</li>
+<li>B decrements R2 (R2 = 2) </li>
+<li>A stores R1 back to count in memory (count = 4)</li>
+<li>B stores R2 back to count in memory (count = 2)</li>
+</ol>
+</li>
+<li><p>count now has incorrect value of 2</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">    while( count &#x3D;&#x3D; N );&#x2F;*loop*&#x2F;</span><br><span class="line">    buffer[i] &#x3D; data;</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count + 1;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    while( count &#x3D;&#x3D; 0 );&#x2F;*loop*&#x2F;</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA);</span><br><span class="line">  create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h5 id="Message-passing-Data-explicitly-sent-from-one-process-to-another"><a href="#Message-passing-Data-explicitly-sent-from-one-process-to-another" class="headerlink" title="Message passing: Data explicitly sent from one process to another"></a>Message passing: Data explicitly sent from one process to another</h5><p><strong>Safer model, but less flexible</strong></p>
+<ul>
+<li><p>Sending process performs special operation, <strong><em>send</em></strong></p>
+</li>
+<li><p>Receiving process must perform special operation, <strong><em>receive</em></strong>, to receive the data</p>
+</li>
+<li><p>Both operations must explicitly specify which process it is sending to or receiving from</p>
+</li>
+<li><p><strong><em>Receive</em></strong> is blocking, <strong><em>send</em></strong> may or may not be blocking</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void processA() &#123;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data)</span><br><span class="line">    send(B, &amp;data);</span><br><span class="line">    &#x2F;* region 1 *&#x2F;</span><br><span class="line">    receive(B, &amp;data);</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void processB() &#123;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    receive(A, &amp;data);</span><br><span class="line">    transform(&amp;data)</span><br><span class="line">    send(A, &amp;data);</span><br><span class="line">    &#x2F;* region 2 *&#x2F;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/195747.png"></p>
+</li>
+</ul>
+<h5 id="Shared-memory-and-mutexes"><a href="#Shared-memory-and-mutexes" class="headerlink" title="Shared memory and mutexes"></a>Shared memory and mutexes</h5><h6 id="Mutual-exclusion"><a href="#Mutual-exclusion" class="headerlink" title="Mutual exclusion"></a>Mutual exclusion</h6><ul>
+<li><p>Certain sections of code should not be performed concurrently</p>
+<p>Critical section: </p>
+<p>​    Possibly noncontiguous section of code where simultaneous updates, by multiple processes to a shared memory location, can occur</p>
+</li>
+<li><p>When a process enters the critical section, all other processes must be locked out until it leaves the critical section</p>
+<p><strong>Mutex</strong></p>
+<ul>
+<li>A shared object used for locking and unlocking segment of shared data</li>
+<li>Disallows read/write access to memory it guards</li>
+<li>Multiple processes can perform lock operation simultaneously, but only one process will acquire lock</li>
+<li>All other processes trying to obtain lock will be put in blocked state until unlock operation performed by acquiring process when it exits critical section</li>
+<li>These processes will then be placed in runnable state and will compete for lock again</li>
+</ul>
+</li>
+</ul>
+<h6 id="Correct-solution"><a href="#Correct-solution" class="headerlink" title="Correct solution"></a>Correct solution</h6><p>The primitive <strong><em>mutex</em></strong> is used to ensure critical sections are executed in mutual exclusion of each other</p>
+<p>Following the same execution sequence as before:</p>
+<ol>
+<li>A/B execute lock operation on count_mutex</li>
+<li>Either A or B will acquire lock<ol>
+<li>Say B acquires it</li>
+<li>A will be put in blocked state</li>
+</ol>
+</li>
+<li>B loads count (count = 3) from memory into register R2 (R2 = 3)</li>
+<li>B decrements R2 (R2 = 2)</li>
+<li>B stores R2 back to count in memory (count = 2)</li>
+<li>B executes unlock operation<ol>
+<li>A is placed in runnable state again</li>
+</ol>
+</li>
+<li>A loads count (count = 2) from memory into register R1 (R1 = 2) </li>
+<li>A increments R1 (R1 = 3) </li>
+<li>A stores R1 back to count in memory (count = 3)</li>
+<li>Count now has correct value of 3</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">mutex count_mutex;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">      while( count &#x3D;&#x3D; N );&#x2F;*loop*&#x2F;</span><br><span class="line">      buffer[i] &#x3D; data;</span><br><span class="line">      i &#x3D; (i + 1) % N;</span><br><span class="line">      count_mutex.lock();</span><br><span class="line">      count &#x3D; count + 1;</span><br><span class="line">      count_mutex.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    while( count &#x3D;&#x3D; 0 );&#x2F;*loop*&#x2F;</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count_mutex.lock();</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    count_mutex.unlock();</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA);</span><br><span class="line">  create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h6><p>A <strong>semaphore</strong> is a variable or abstract data type that provides a simple but useful abstraction for controlling access by multiple processes to a common resource in a parallel programming environment.</p>
+<p><img src="/images/195243.png"></p>
+<h6 id="Mutex-VS-Semaphore"><a href="#Mutex-VS-Semaphore" class="headerlink" title="Mutex VS Semaphore"></a>Mutex VS Semaphore</h6><ul>
+<li><p>A Mutex is different than a semaphore as it is a locking mechanism while a semaphore is a signaling mechanism.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wait (mutex);</span><br><span class="line">...</span><br><span class="line">Critical section</span><br><span class="line">...</span><br><span class="line">signal (mutex);</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>A binary semaphore can be used as a Mutex but a Mutex can never be used as a semaphore.</p>
+</li>
+<li><p>• A semaphore is a signalling mechanism and a thread that is waiting on a semaphore can be signaled by another thread. • This is different than a mutex as the mutex can be signaled only by the thread that called the wait function.</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wait(S)</span><br><span class="line">&#123;</span><br><span class="line">  while (S&lt;&#x3D;0);</span><br><span class="line">  S--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signal(S)</span><br><span class="line">&#123;</span><br><span class="line">  S++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Synchronization-among-processes"><a href="#Synchronization-among-processes" class="headerlink" title="Synchronization among processes"></a>Synchronization among processes</h2><p>Sometimes concurrently running processes must synchronize their execution: </p>
+<p>​    When a process must wait for:</p>
+<ul>
+<li>another process to compute some value</li>
+<li>reach a known point in their execution</li>
+<li>signal some condition</li>
+</ul>
+<p>Recall producer-consumer problem:</p>
+<ul>
+<li><em>process</em>A must wait if <em>buffer</em> is full</li>
+<li><em>process</em>B must wait if <em>buffer</em> is empty</li>
+<li>This is called busy-waiting <ul>
+<li>Process executing loops instead of being blocked</li>
+<li>CPU time wasted</li>
+</ul>
+</li>
+</ul>
+<p>More efficient methods:</p>
+<ul>
+<li>Join operation, and blocking send and receive discussed earlier<ul>
+<li>Both block the process so it doesn’t waste CPU time</li>
+</ul>
+</li>
+<li>Condition variables and monitors</li>
+</ul>
+<h3 id="Condition-variables"><a href="#Condition-variables" class="headerlink" title="Condition variables"></a>Condition variables</h3><p>Condition variables are a synchronization mechanism available in Pthreads.</p>
+<p>A condition variable is an object that has 2 operations, signal and wait.</p>
+<p>When process performs a wait on a condition variable, the process is blocked until another process performs a signal on the same condition variable.</p>
+<h4 id="How-is-this-done"><a href="#How-is-this-done" class="headerlink" title="How is this done?"></a>How is this done?</h4><ul>
+<li>Process A acquires lock on a mutex</li>
+<li>Process A performs wait, passing this mutex<ul>
+<li>Causes mutex to be unlocked</li>
+</ul>
+</li>
+<li>Process B can now acquire lock on same mutex</li>
+<li>Process B enters critical section<ul>
+<li>Computes some value and/or make condition true</li>
+</ul>
+</li>
+<li>Process B performs signal when condition true<ul>
+<li>Causes process A to implicitly reacquire mutex lock</li>
+<li>Process A becomes runnable</li>
+</ul>
+</li>
+</ul>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>2 condition variables:</p>
+<ol>
+<li><strong><em>buffer_empty</em></strong> : Signals at least 1 free location available in buffer</li>
+<li><strong><em>buffer_full</em></strong> : Signals at least 1 valid data item in buffer</li>
+</ol>
+<p><em>process</em>A: </p>
+<ul>
+<li><p>produces data item</p>
+</li>
+<li><p>acquires lock (<em>cs_mutex</em>) for critical section</p>
+</li>
+<li><p>checks value of <em>count</em></p>
+</li>
+<li><p>if <em>count</em> = N, <em>buffer</em> is full</p>
+<ul>
+<li>performs wait operation on <em>buffer_empty</em></li>
+<li>this releases the lock on <em>cs_mutex</em> allowing <em>process</em>B to enter critical section, consume data item and free location in <em>buffer</em></li>
+<li><em>process</em>B then performs signal</li>
+</ul>
+</li>
+<li><p>if <em>count</em> &lt; N, <em>buffer</em> is not full </p>
+<ul>
+<li><p><em>process</em>A inserts data into <em>buffer</em></p>
+</li>
+<li><p>increments <em>count</em></p>
+</li>
+<li><p>signals <em>process</em>B making it runnable if it has performed a wait operation on <em>buffer_full</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>using condition variables</span></figcaption><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">mutex cs_mutex;</span><br><span class="line">condition buffer_empty, buffer_full;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">    cs_mutex.lock();</span><br><span class="line">    if( count &#x3D;&#x3D; N ) buffer_empty.wait(cs_mutex);</span><br><span class="line">    buffer[i] &#x3D; data;</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count + 1;</span><br><span class="line">    cs_mutex.unlock();</span><br><span class="line">    buffer_full.signal();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    cs_mutex.lock();</span><br><span class="line">    if( count &#x3D;&#x3D; 0 ) buffer_full.wait(cs_mutex);</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    cs_mutex.unlock();</span><br><span class="line">    buffer_empty.signal();</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA); create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Monitors"><a href="#Monitors" class="headerlink" title="Monitors"></a>Monitors</h3><p>Definition: Collection of data and methods or subroutines that operate on data similar to an object-oriented paradigm</p>
+<p>Monitor guarantees only 1 process can execute inside monitor at a time</p>
+<ol>
+<li>Process X executes while Process Y has to wait</li>
+<li>Process X performs wait on a condition<ul>
+<li>Process Y allowed to enter and execute</li>
+</ul>
+</li>
+<li>Process Y signals condition Process X waiting on<ul>
+<li>Process Y blocked</li>
+<li>Process X allowed to continue executing </li>
+</ul>
+</li>
+<li>Process X finishes executing in monitor or waits on a condition again<ul>
+<li>Process Y made runnable again</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/200611.png"></p>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p>Single monitor encapsulates both processes along with <em>buffer</em> and <em>count</em></p>
+<p>One process will be allowed to begin executing firs</p>
+<p>If process B allowed to execute first:</p>
+<ol>
+<li>Will execute until it finds <em>count</em> = 0</li>
+<li>Will perform wait on <em>buffer_full</em> condition variable</li>
+<li><em>process</em>A now allowed to enter monitor and execute</li>
+<li><em>process</em>A produces data item</li>
+<li>finds <em>count</em> &lt; N so writes to <em>buffer</em> and increments <em>count</em></li>
+<li><em>process</em>A performs signal on <em>buffer_full</em> condition variable</li>
+<li><em>process</em>A blocked</li>
+<li><em>process</em>B reenters monitor and continues execution, consumes data, etc.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Monitor &#123;</span><br><span class="line">  data_type buffer[N];</span><br><span class="line">  int count &#x3D; 0;</span><br><span class="line">  condition buffer_full, condition buffer_empty;</span><br><span class="line">  void processA() &#123;</span><br><span class="line">    int i;</span><br><span class="line">    while ( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">    if( count &#x3D;&#x3D; N ) buffer_empty.wait();</span><br><span class="line">    buffer[i] &#x3D; data;</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count + 1;</span><br><span class="line">    buffer_full.signal();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    if( count &#x3D;&#x3D; 0 ) buffer_full.wait();</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    buffer_empty.signal();</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">    buffer_full.signal();</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125; &#x2F;* end monitor *&#x2F;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA); create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -602,7 +843,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/10/Electronics%20Introduction/">https://yintelligence.tech/2021/02/10/Electronics%20Introduction/</a>
+                    <a href="https://yintelligence.tech/2021/02/10/Basis%20of%20Operating%20Systems%20-%20Process%20management/">https://yintelligence.tech/2021/02/10/Basis%20of%20Operating%20Systems%20-%20Process%20management/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -640,8 +881,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Technology-and-Applications-of-Electronics-and-Photonics/">
-                                    <span class="chip bg-color">Technology and Applications of Electronics and Photonics</span>
+                                <a href="/tags/Operating-Systems-and-Security/">
+                                    <span class="chip bg-color">Operating Systems and Security</span>
                                 </a>
                             
                         </div>
@@ -685,66 +926,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/02/10/Introduction%20to%20operating%20systems/">
+                <a href="/2021/02/10/Basis%20of%20Operating%20Systems%20-%20Process%20management/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Introduction to operating systems">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Process management - OS basis">
                         
-                        <span class="card-title">Introduction to operating systems</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Operating-Systems-and-Security/">
-                        <span class="chip bg-color">Operating Systems and Security</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/10/Electronics%20Introduction/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Electronics Introduction">
-                        
-                        <span class="card-title">Electronics Introduction</span>
+                        <span class="card-title">Process management - OS basis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -773,8 +966,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Technology-and-Applications-of-Electronics-and-Photonics/">
-                        <span class="chip bg-color">Technology and Applications of Electronics and Photonics</span>
+                    <a href="/tags/Operating-Systems-and-Security/">
+                        <span class="chip bg-color">Operating Systems and Security</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/10/Introduction%20to%20operating%20systems/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Introduction to operating systems">
+                        
+                        <span class="card-title">Introduction to operating systems</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Operating-Systems-and-Security/">
+                        <span class="chip bg-color">Operating Systems and Security</span>
                     </a>
                     
                 </div>
