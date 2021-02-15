@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Introduction to operating systems, Chaoqun Yin">
+    <meta name="keywords" content="Memory management - OS basis, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Introduction to operating systems | Chaoqun Yin</title>
+    <title>Memory management - OS basis | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Introduction to operating systems</h1>
+                    <h1 class="description center-align post-title">Memory management - OS basis</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-10
+                    2021-02-15
                 </div>
                 
 
@@ -477,229 +477,157 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Introduction-to-operating-systems"><a href="#Introduction-to-operating-systems" class="headerlink" title="Introduction to operating systems"></a>Introduction to operating systems</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9U1pBOVNQVE4yRWc&amp;id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%201.mp4&amp;parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video: 10:45 ~ 50:29</a></p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Basis of Operating Systems (~3-4h)<ul>
-<li>Process management</li>
-<li>Memory management</li>
-<li>File management</li>
-<li>I/O Control</li>
-</ul>
-</li>
-<li>Virtualization and Cloud (~3h)</li>
-<li>Embedded OS and RTOS (~2h)</li>
-<li>Security (~3h)</li>
-</ul>
-<h2 id="What-is-an-operating-system"><a href="#What-is-an-operating-system" class="headerlink" title="What is an operating system?"></a>What is an operating system?</h2><p><img src="/images/205634.png"></p>
-<p>Managing all hardware requires a layer of software – <strong>the operating system</strong>.</p>
+                <h1 id="Basis-of-OS-Memory-management"><a href="#Basis-of-OS-Memory-management" class="headerlink" title="Basis of OS - Memory management"></a>Basis of OS - Memory management</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9U1pBOVNQVE4yRWc&amp;id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%201.mp4&amp;parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video 2:11:37</a></p>
+<p>Parkinson’s Law: ‘‘Programs expand to fill the memory available to hold them.’’</p>
+<p>Ideally programmers want memory that is</p>
 <ul>
-<li><p>Provide <strong>consistent abstractions</strong> to applications, even on different hardware</p>
-</li>
-<li><p>Manage <strong>sharing of resources</strong> among multiple applications</p>
-</li>
+<li>private</li>
+<li>large</li>
+<li>fast</li>
+<li>non volatile</li>
 </ul>
-<p>The one program running at all times on the computer” is the <u><strong>kernel</strong></u> – Everything else is either a system program (ships with the operating system) or an application program</p>
-<h2 id="OS-Abstracts-Underlying-Hardware-to-help-Tame-Complexity"><a href="#OS-Abstracts-Underlying-Hardware-to-help-Tame-Complexity" class="headerlink" title="OS Abstracts Underlying Hardware to help Tame Complexity"></a>OS Abstracts Underlying Hardware to help Tame Complexity</h2><ul>
-<li>Processor → Thread</li>
-<li>Memory → Address Space</li>
-<li>Disks, SSDs, … → Files</li>
-<li>Networks → Sockets</li>
-<li>Machines → Processes</li>
-</ul>
-<p><img src="/images/201621.png"></p>
+<p>Memory hierarchy</p>
 <ul>
-<li>What hardware interface to handle? (physical reality)</li>
-<li>What’s software interface to provide? (nicer abstraction)</li>
+<li>small amount of fast, expensive memory – cache</li>
+<li>some medium-speed, medium price main memory</li>
+<li>gigabytes of slow, cheap disk storage</li>
 </ul>
-<h2 id="Where-is-the-software"><a href="#Where-is-the-software" class="headerlink" title="Where is the software?"></a>Where is the software?</h2><p>Two modes: User mode and Kernel mode</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/whereislocation.png"></h2><h2 id="Why-do-you-need-an-operating-system"><a href="#Why-do-you-need-an-operating-system" class="headerlink" title="Why do you need an operating system?"></a>Why do you need an operating system?</h2><ul>
-<li>Allow multiple programs to run at the same time</li>
-<li>Manage and protect memory, I/O devices, and other resources</li>
-<li>Multiplexes (shares) resources in two different ways<ul>
-<li>In time</li>
-<li>In space</li>
-</ul>
-</li>
-</ul>
-<h2 id="Operating-system"><a href="#Operating-system" class="headerlink" title="Operating system"></a>Operating system</h2><p>This software layer provides low-level services to a program (application).</p>
-<ul>
-<li>Platform-specific hardware abstraction layers</li>
-<li>File management, disk access</li>
-<li>Keyboard/display interfacing</li>
-<li>Integrated power-management systems</li>
-<li>Device drivers for common peripherals</li>
-<li>Scheduling multiple programs for execution<ul>
-<li>Or even just multiple threads from one program</li>
+<p>O.S. abstracts the memory management</p>
+<p>A memory manager handles the memory hierarchy. </p>
+<p><img src="/images/045041.png"></p>
+<h2 id="Memory-Abstraction"><a href="#Memory-Abstraction" class="headerlink" title="Memory Abstraction"></a>Memory Abstraction</h2><h3 id="Monoprogramming-without-memory-abstraction"><a href="#Monoprogramming-without-memory-abstraction" class="headerlink" title="Monoprogramming without memory abstraction"></a>Monoprogramming without memory abstraction</h3><ul>
+<li>No abstraction (early technologies)<ul>
+<li>Every program simply see the physical memory</li>
+<li>It is not possible to have two running programs in memory at the same time!</li>
 </ul>
 </li>
-<li>Program makes system calls to the OS</li>
+<li>Basic memory organization (an operating system with one user process)</li>
 </ul>
-<p><img src="/images/203504.png"></p>
-<p>Pic: 29:14 - 30:27</p>
-<h1 id="Four-Fundamental-OS-Concepts"><a href="#Four-Fundamental-OS-Concepts" class="headerlink" title="Four Fundamental OS Concepts"></a>Four Fundamental OS Concepts</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iFBwI3ZMn3o&list=PLIMsSuI81pxq7c91oQMpmXgmGICbuDA_c&index=2">CS162 UCB VIDEO</a></p>
-<h3 id="1-Thread-of-Control-23-02-39-36"><a href="#1-Thread-of-Control-23-02-39-36" class="headerlink" title="1. Thread of Control 23:02 ~ 39:36"></a>1. Thread of Control 23:02 ~ 39:36</h3><ul>
-<li><strong>Thread</strong>: <strong><u>Single unique execution context</u></strong><ul>
-<li>Program Counter, Registers, Execution Flags, Stack, Memory State</li>
-</ul>
-</li>
-<li>A thread is <strong><em>executing</em></strong> on a processor (core) when it is <strong><em>resident</em></strong> in the processor registers </li>
-<li>A thread is <strong><em>suspended</em></strong> (not executing) when its state <strong><em>is not</em></strong> loaded (resident) into the processor<ul>
-<li>Processor state pointing at some other thread</li>
-<li>Program counter register <strong><em>is not</em></strong> pointing at next instruction from this thread</li>
-<li>Often: a copy of the last value for each register stored in memory</li>
-</ul>
-</li>
-</ul>
-<h4 id="Illusion-of-Multiple-Processors-31-38"><a href="#Illusion-of-Multiple-Processors-31-38" class="headerlink" title="Illusion of Multiple Processors 31:38"></a>Illusion of Multiple Processors 31:38</h4><p><img src="/images/204910.png"></p>
-<ul>
-<li><p>Multiplex in time!</p>
-<p><img src="/images/205354.png"></p>
-</li>
-<li><p>Threads are <strong><em>virtual cores</em></strong></p>
-</li>
-<li><p>Contents of virtual core (thread): </p>
-<ul>
-<li>Program counter, stack pointer</li>
-<li>Registers</li>
-</ul>
-</li>
-<li><p>Where is “it” (the thread)? </p>
-<ul>
-<li>On the real (physical) core, or </li>
-<li>Saved in chunk of memory – called the <strong>Thread Control Block (TCB)</strong></li>
-</ul>
-</li>
-</ul>
-<p>Consider: At T1: vCPU1 on real core, vCPU2 in memory and at T2: vCPU2 on real core, vCPU1 in memory, what happened? 38:21</p>
-<p><img src="/images/205355.png"></p>
-<ul>
-<li>OS Ran, triggering a <em>context switch</em></li>
-<li>Saved PC, SP, … in vCPU1’s thread control block (memory)</li>
-<li>Loaded PC, SP, … from vCPU2’s TCB, jumped to PC</li>
-</ul>
-<h3 id="2-Address-Space-43-56"><a href="#2-Address-Space-43-56" class="headerlink" title="2. Address Space 43:56"></a>2. Address Space 43:56</h3><ul>
-<li><p><strong>Address space</strong> ⇒ the set of accessible addresses + state associated with them</p>
-<ul>
-<li>For 32-bit processor: 2^32^ = 4 billion (10^9^) addresses</li>
-<li>For 64-bit processor: 2^64^ = 18 quintillion (10^18^) addresses</li>
-</ul>
-</li>
-<li><p>What happens when you read or write to an address?</p>
-<ul>
-<li><p>Perhaps acts like regular memory</p>
-</li>
-<li><p>Perhaps causes I/O operation </p>
-<p>» (Memory-mapped I/O)</p>
-</li>
-<li><p>Perhaps causes exception (fault)</p>
-</li>
-<li><p>Communicates with another program</p>
-</li>
-<li><p>….</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/addressspace.png" alt="47:04 - 49:46"></p>
-<h4 id="Very-Simple-Multiprogramming"><a href="#Very-Simple-Multiprogramming" class="headerlink" title="Very Simple Multiprogramming"></a>Very Simple Multiprogramming</h4><ul>
-<li>All vCPU’s share non-CPU resources<ul>
-<li>Memory, I/O Devices</li>
-</ul>
-</li>
-<li>Each thread can read/write memory<ul>
-<li>Perhaps data of others, including OS!</li>
-<li>can overwrite OS</li>
-</ul>
-</li>
-<li>Used in early days of computing or embedded systems.</li>
-<li>However it is <strong>risky</strong>!</li>
-</ul>
-<h4 id="Simple-Multiplexing-has-no-Protection"><a href="#Simple-Multiplexing-has-no-Protection" class="headerlink" title="Simple Multiplexing has no Protection!"></a>Simple Multiplexing has no Protection!</h4><ul>
-<li>OS must protect user programs from one another<ul>
-<li>Prevent threads owned by one user from impacting threads owned by another user</li>
-<li>Example: prevent one user from stealing secret information from another user</li>
-</ul>
-</li>
-<li>OS must protect itself from user programs<ul>
-<li>Reliability: compromising the operating system generally causes it to crash</li>
-<li>Security: limit the scope of what threads can do </li>
-<li>Privacy: limit each thread to the data it is permitted to access</li>
-<li>Fairness: each thread should be limited to its appropriate share of system resources (CPU, memory)</li>
-</ul>
-</li>
-</ul>
-<h4 id="What-can-the-hardware-do-to-help-the-OS-protect-itself-from-programs-54-20"><a href="#What-can-the-hardware-do-to-help-the-OS-protect-itself-from-programs-54-20" class="headerlink" title="What can the hardware do to help the OS protect itself from programs? 54:20"></a>What can the hardware do to help the OS protect itself from programs? 54:20</h4><ul>
-<li>Simple Protection: Base and Bound (B&amp;B) 55:48 - 1:06:06</li>
-<li>Address Space Translation 1:06:07 - 1:07:36</li>
-</ul>
-<h3 id="3-Process-1-10-57"><a href="#3-Process-1-10-57" class="headerlink" title="3. Process 1:10:57"></a>3. Process 1:10:57</h3><h4 id="Definition-execution-environment-with-restricted-rights"><a href="#Definition-execution-environment-with-restricted-rights" class="headerlink" title="Definition: execution environment with restricted rights"></a>Definition: execution environment with restricted rights</h4><ul>
-<li> <strong>(Protected) Address Space with One or More Threads</strong></li>
-<li>Owns memory (address space), file descriptors, sockets</li>
-<li>Encapsulate one or more threads sharing process resources</li>
-</ul>
-<h4 id="Why-processes-1-12-19"><a href="#Why-processes-1-12-19" class="headerlink" title="Why processes? 1:12:19"></a>Why processes? 1:12:19</h4><ul>
-<li>**Protected from each other! **</li>
-<li><strong>OS Protected from them</strong></li>
-<li>Processes provides memory protection</li>
-<li>Threads more efficient than processes for parallelism</li>
-</ul>
-<p>A process is a running program, with <strong>protection</strong>!</p>
-<h4 id="Single-and-Multithreaded-Processes"><a href="#Single-and-Multithreaded-Processes" class="headerlink" title="Single and Multithreaded Processes"></a>Single and Multithreaded Processes</h4><p><img src="/images/214705.png" alt="1:14:26 - 1:15:25"></p>
-<ul>
-<li>Threads encapsulate <strong>concurrency</strong> : “Active” component</li>
-<li>Address spaces encapsulate <strong>protection</strong>: “Passive” component<ul>
-<li>Keeps buggy program from trashing the system</li>
-</ul>
-</li>
-<li>Why have multiple threads per address space? <ul>
-<li>Parallelism: take advantage of actual hardware parallelism (e.g. multicore)</li>
-<li>Concurrency: ease of handling I/O and other simultaneous events</li>
-</ul>
-</li>
-</ul>
-<h4 id="Protection-and-Isolation"><a href="#Protection-and-Isolation" class="headerlink" title="Protection and Isolation"></a>Protection and Isolation</h4><ul>
-<li>Processes provide protection and isolation<ul>
-<li>Reliability: bugs can only overwrite memory of process they are in</li>
-<li>Security and privacy: malicious or compromised process can’t read or write other process’ data</li>
-</ul>
-</li>
-<li>Mechanisms: <ul>
-<li>Address translation: address space only contains its own data</li>
-<li>BUT: why can’t a process change the page table pointer? <ul>
-<li>Or use I/O instructions to bypass the system? </li>
-</ul>
-</li>
-<li>Hardware must support privilege levels</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-Dual-Mode-Operation-1-19-23"><a href="#4-Dual-Mode-Operation-1-19-23" class="headerlink" title="4. Dual Mode Operation 1:19:23"></a>4. Dual Mode Operation 1:19:23</h3><p><img src="/images/twomodes.png"></p>
-<p>Hardware provides at least <strong>two modes</strong>:</p>
+<p><img src="/images/045042.png"></p>
 <ol>
-<li>Kernel Mode (or “supervisor” mode)</li>
-<li>User Mode</li>
+<li>The operating system may be at the bottom of memory in RAM -&gt; Early mainframes</li>
+<li>At the top of memory in ROM -&gt; Embedded systems</li>
+<li>The device drivers may be at the top of memory in a ROM and the rest of the system in RAM down below -&gt; early PCs</li>
 </ol>
-<p>Certain operations are <strong>prohibited</strong> when running in user mode (privileged instructions).</p>
-<p>Carefully controlled transitions between user mode and kernel mode.</p>
-<p><img src="/images/UserKernelMode.png" alt="User/Kernel (Privileged) Mode"></p>
-<p>Pic: 1:20:31 - 1:22:07</p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ul>
-<li>Thread: Execution Context<ul>
-<li>Single thread of execution</li>
+<p>The core problem is the use of absolute physical memory addresses, which needs to be considered when running to programs</p>
+<ul>
+<li>First, if user programs can address every byte of memory, they can easily trash the operating system, intentionally or by accident, bringing the system to a grinding halt.</li>
+<li>Second, with this model, it is difficult to have multiple programs running at once (taking turns, if there is only one CPU).</li>
+</ul>
+<p>Nonetheless, the lack of a memory abstraction is still common in embedded and smart card systems.</p>
+<h3 id="Solution-Address-Space"><a href="#Solution-Address-Space" class="headerlink" title="Solution :Address  Space"></a>Solution :Address  Space</h3><p>An <strong>address space</strong> is the set of addresses that a process can use to address memory.</p>
+<p>Each process has its own address space, independent of those belonging to other processes</p>
+<p>Basic solution: <strong>Base</strong> and <strong>limit</strong> registers</p>
+<p><img src="/images/045800.png"></p>
+<h3 id="Swapping-and-virtual-memory"><a href="#Swapping-and-virtual-memory" class="headerlink" title="Swapping and virtual memory"></a>Swapping and virtual memory</h3><p><strong>Problem</strong>: The total amount of RAM needed by all the processes is often much more than can fit in physical memory.</p>
+<p>Two general approaches to dealing with memory overload have been developed over the years.</p>
+<ul>
+<li><strong>Swap memory</strong>: consists of bringing in each process in its entirety, running it for a while, then putting it back on the disk.</li>
+<li><strong>Virtual memory</strong>: allows programs to run even when they are only partially in main memory.</li>
+</ul>
+<h4 id="Swapping"><a href="#Swapping" class="headerlink" title="Swapping"></a>Swapping</h4><p>Memory allocation changes as</p>
+<ul>
+<li>processes come into memory</li>
+<li>leave memory</li>
+</ul>
+<p>Shaded regions are unused memory</p>
+<p><img src="/images/050227.png"></p>
+<p><strong>Problem</strong>: If processes are created with a fixed size that never changes, then the allocation is simple. This is usually not the case!</p>
+<p>By dynamically allocating memory from a heap, as in many programming languages, a problem occurs whenever a process tries to grow.</p>
+<p>If a process cannot grow in memory and the swap area on the disk is full, the process will have to suspended until some space is freed up (or it can be killed)</p>
+<p><strong>Solution</strong>: MEMORY ABSTRACTION</p>
+<ol>
+<li>Allocating space for a growing data segment.</li>
+<li>Allocating space for a growing stack and a growing data segment.</li>
+</ol>
+<p><img src="/images/050452.png"></p>
+<h4 id="Managing-free-memory"><a href="#Managing-free-memory" class="headerlink" title="Managing free memory"></a>Managing free memory</h4><p>When memory is assigned dynamically, the operating system must manage it.</p>
+<p>In general terms, there are two ways to keep track of memory usage:</p>
+<ul>
+<li>Bitmaps</li>
+<li>Linked Lists</li>
+</ul>
+<h4 id="Managing-memory-management-with-bitmaps"><a href="#Managing-memory-management-with-bitmaps" class="headerlink" title="Managing memory management with bitmaps"></a>Managing memory management with bitmaps</h4><p>Memory is divided into allocation units as small as a few words and as large as several kilobytes</p>
+<p>The size of the allocation unit is an important design issue. <strong>The smaller the allocation unit, the larger the bitmap.</strong></p>
+<p>Searching a bitmap for a run of a given length is a <strong>slow</strong> operation!</p>
+<p><img src="/images/050751.png"></p>
+<ol>
+<li>Part of memory with 5 processes, 3 holes<ul>
+<li>tick marks show allocation units</li>
+<li>shaded regions are free</li>
 </ul>
 </li>
-<li>Address space (with or w/o translation)<ul>
-<li>Set of memory addresses accessible to program (for read or write)</li>
+<li>Corresponding bit map</li>
+<li>Same information as a list</li>
+</ol>
+<h4 id="Managing-memory-management-with-linked-lists"><a href="#Managing-memory-management-with-linked-lists" class="headerlink" title="Managing memory management with linked lists"></a>Managing memory management with linked lists</h4><p>An <strong>linked list</strong> of allocated and free memory segments: each segment either contains a process or is an empty hole between two processes</p>
+<p>When the processes and holes are kept on a list sorted by address, <strong>several algorithms</strong> can be used to allocate memory for a created process (or an existing process being swapped in from disk).</p>
+<ul>
+<li>First fit</li>
+<li>Next fit</li>
+<li>Best fit</li>
+<li>Worst it</li>
+<li>Quick fit</li>
+</ul>
+<p><img src="/images/0501124.png" alt="Four neighbour combinations for the terminating process X"></p>
+<h4 id="Virtual-Memory"><a href="#Virtual-Memory" class="headerlink" title="Virtual Memory"></a>Virtual Memory</h4><ul>
+<li>There is a need to run programs that are too large to fit in memory</li>
+<li>Swapping can be <u>too slow</u> for certain applications</li>
+<li>The basic idea behind <strong>virtual memory</strong> is that each program has its own address space, which is broken up into chunks of fixed-size called <strong>pages</strong></li>
+<li>Each <strong>page</strong> is a contiguous range of addresses.</li>
+<li>These pages are mapped onto physical memory, but not all pages have to be in physical memory at the same time to run the program</li>
+<li>MMU (Memory Management Unit) that maps the <strong>virtual addresses</strong> onto the physical memory addresses</li>
+</ul>
+<p><img src="/images/051513.png"></p>
+<p>Divides physical memory and logical address space into fixed-size fragments called <strong>pages</strong>.</p>
+<p>The first 64 KB of <strong>virtual /logical address</strong> space divided into 16 pages, with each page being 4K.</p>
+<p>A 32 KB main memory divided up into eight <strong>page</strong> frames of 4 KB each.</p>
+<p><strong>Allow the use of more memory than the amount of physical memory in the machine</strong></p>
+<h5 id="Mapping-virtual-memory-pages-to-physical-memory-pages"><a href="#Mapping-virtual-memory-pages-to-physical-memory-pages" class="headerlink" title="Mapping virtual memory pages to physical memory pages"></a>Mapping virtual memory pages to physical memory pages</h5><ul>
+<li>Page table maps virtual/logical page numbers to physical page numbers.</li>
+<li>Contains for each logical page number:<ul>
+<li>status flag: in physical memory (1) or on disk (0). </li>
+<li>if in memory, corresponding physical page number.</li>
 </ul>
 </li>
-<li>Process: an instance of a running program<ul>
-<li>Protected Address Space + One or more Threads</li>
+<li>Code/programs reference logical addresses</li>
+<li>OS translates to physical addresses using <strong>page table</strong></li>
+<li>If virtual page is unmapped and it is referenced (a logical address lying in the logical page is referenced), <strong>the page is loaded from disk (page file)</strong> into a free physical memory page in a transparent way.</li>
+</ul>
+<p><img src="/images/051959.png"></p>
+<h5 id="Demand-paging"><a href="#Demand-paging" class="headerlink" title="Demand paging"></a>Demand paging</h5><p><img src="/images/052205.png"></p>
+<h5 id="Address-translation"><a href="#Address-translation" class="headerlink" title="Address translation"></a>Address translation</h5><p><img src="/images/052426.png"></p>
+<h5 id="Page-replacement"><a href="#Page-replacement" class="headerlink" title="Page replacement"></a>Page replacement</h5><p>Which page to be swapped out if there is a page fault and all physical pages are already in use?</p>
+<p>Algorithm</p>
+<ul>
+<li>The longest in the memory (First Come First Serve - FCFS) </li>
+<li>The least recently used (Least Recently Used - LRU) – the basis is locality</li>
+</ul>
+<p>Information on each page required (represented by bits)</p>
+<ul>
+<li>Reference – being referred or not in the last time slot (timer interrupt driven) -&gt; LRU</li>
+<li>Usage count -&gt; FCFS</li>
+</ul>
+<p><img src="/images/052630.png"></p>
+<h4 id="Segmented-memory"><a href="#Segmented-memory" class="headerlink" title="Segmented memory"></a>Segmented memory</h4><p><img src="/images/052818.png"></p>
+<p>Provides each Program / Process with one or more (code, data, stack) independent logical address spaces.</p>
+<ul>
+<li>Allows easy relocation of data and code in physical memory by moving segment (code accesses memory using logical addresses, so no change needed)</li>
+<li>Can be used to enforce memory protection<ul>
+<li>Can be used to protect processes from writing in each others memory.</li>
+<li>Can protect segments from being written to/read from. E.g. no writing in code segments</li>
+<li>Can provide layered access to memory (e.g. kernel mode can access all types of segments, when in user mode can only access user mode segments)</li>
 </ul>
 </li>
-<li>Dual mode operation / Protection<ul>
-<li>Only the “system” has the ability to access certain resources</li>
 </ul>
-</li>
+<p><img src="/images/052945.png"></p>
+<h5 id="Segmentation-VS-paging"><a href="#Segmentation-VS-paging" class="headerlink" title="Segmentation VS. paging"></a>Segmentation VS. paging</h5><p><img src="/images/053046.png"></p>
+<h5 id="Swapping-Pure-segmentation"><a href="#Swapping-Pure-segmentation" class="headerlink" title="Swapping (Pure segmentation)"></a>Swapping (Pure segmentation)</h5><p><img src="/images/053152.png"></p>
+<p>Issues:</p>
+<ul>
+<li>Management of free memory (bitmaps or linked lists)</li>
+<li>Memory compaction needed</li>
+<li>Slow mechanism -&gt; solution: combine with paging virtual memory</li>
 </ul>
 
                 
@@ -727,7 +655,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/10/Introduction%20to%20operating%20systems/">https://yintelligence.tech/2021/02/10/Introduction%20to%20operating%20systems/</a>
+                    <a href="https://yintelligence.tech/2021/02/15/2021-02-10-Memory-management---OS-basis/">https://yintelligence.tech/2021/02/15/2021-02-10-Memory-management---OS-basis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -810,17 +738,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/02/10/Basis%20of%20Operating%20Systems%20-%20Process%20management/">
+                <a href="/2021/02/15/2021-02-10-Memory-management---OS-basis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Process management - OS basis">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Memory management - OS basis">
                         
-                        <span class="card-title">Process management - OS basis</span>
+                        <span class="card-title">Memory management - OS basis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -830,9 +759,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -845,6 +774,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -863,7 +793,7 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/10/Electronics%20Introduction/">
+                <a href="/2021/02/14/2021-02-14-Electronics-Introduction/">
                     <div class="card-image">
                         
                         
@@ -880,7 +810,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-14
                             </span>
                         <span class="publish-author">
                             
@@ -897,8 +827,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Technology-and-Applications-of-Electronics-and-Photonics/">
-                        <span class="chip bg-color">Technology and Applications of Electronics and Photonics</span>
+                    <a href="/tags/Health-Information-Systems/">
+                        <span class="chip bg-color">Health Information Systems</span>
                     </a>
                     
                 </div>
