@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Memory management - OS basis, Chaoqun Yin">
+    <meta name="keywords" content="File System - OS basis, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Memory management - OS basis | Chaoqun Yin</title>
+    <title>File System - OS basis | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Memory management - OS basis</h1>
+                    <h1 class="description center-align post-title">File System - OS basis</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-15
+                    2021-02-16
                 </div>
                 
 
@@ -477,157 +477,214 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Basis-of-OS-Memory-management"><a href="#Basis-of-OS-Memory-management" class="headerlink" title="Basis of OS - Memory management"></a>Basis of OS - Memory management</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9U1pBOVNQVE4yRWc&amp;id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%201.mp4&amp;parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video 2:11:37</a></p>
-<p>Parkinson’s Law: ‘‘Programs expand to fill the memory available to hold them.’’</p>
-<p>Ideally programmers want memory that is</p>
+                <h1 id="Basis-of-OS-File-System"><a href="#Basis-of-OS-File-System" class="headerlink" title="Basis of OS - File System"></a>Basis of OS - File System</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9aFliRXdZM1MyRWc&id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%202.mp4&parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video ~57:51</a></p>
+<p>Long-term information storage</p>
 <ul>
-<li>private</li>
-<li>large</li>
-<li>fast</li>
-<li>non volatile</li>
+<li>Must store large amounts of data</li>
+<li>Information stored must survive the termination of the process using it</li>
+<li>Multiple processes must be able to access the information concurrently</li>
 </ul>
-<p>Memory hierarchy</p>
-<ul>
-<li>small amount of fast, expensive memory – cache</li>
-<li>some medium-speed, medium price main memory</li>
-<li>gigabytes of slow, cheap disk storage</li>
-</ul>
-<p>O.S. abstracts the memory management</p>
-<p>A memory manager handles the memory hierarchy. </p>
-<p><img src="/images/045041.png"></p>
-<h2 id="Memory-Abstraction"><a href="#Memory-Abstraction" class="headerlink" title="Memory Abstraction"></a>Memory Abstraction</h2><h3 id="Monoprogramming-without-memory-abstraction"><a href="#Monoprogramming-without-memory-abstraction" class="headerlink" title="Monoprogramming without memory abstraction"></a>Monoprogramming without memory abstraction</h3><ul>
-<li>No abstraction (early technologies)<ul>
-<li>Every program simply see the physical memory</li>
-<li>It is not possible to have two running programs in memory at the same time!</li>
-</ul>
-</li>
-<li>Basic memory organization (an operating system with one user process)</li>
-</ul>
-<p><img src="/images/045042.png"></p>
+<h2 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h2><p>Just a few of the questions that quickly arise are:</p>
 <ol>
-<li>The operating system may be at the bottom of memory in RAM -&gt; Early mainframes</li>
-<li>At the top of memory in ROM -&gt; Embedded systems</li>
-<li>The device drivers may be at the top of memory in a ROM and the rest of the system in RAM down below -&gt; early PCs</li>
+<li> How do you find information?</li>
+<li>How do you keep one user from reading another user’s data?</li>
+<li>How do you know which blocks are free?</li>
 </ol>
-<p>The core problem is the use of absolute physical memory addresses, which needs to be considered when running to programs</p>
-<ul>
-<li>First, if user programs can address every byte of memory, they can easily trash the operating system, intentionally or by accident, bringing the system to a grinding halt.</li>
-<li>Second, with this model, it is difficult to have multiple programs running at once (taking turns, if there is only one CPU).</li>
-</ul>
-<p>Nonetheless, the lack of a memory abstraction is still common in embedded and smart card systems.</p>
-<h3 id="Solution-Address-Space"><a href="#Solution-Address-Space" class="headerlink" title="Solution :Address  Space"></a>Solution :Address  Space</h3><p>An <strong>address space</strong> is the set of addresses that a process can use to address memory.</p>
-<p>Each process has its own address space, independent of those belonging to other processes</p>
-<p>Basic solution: <strong>Base</strong> and <strong>limit</strong> registers</p>
-<p><img src="/images/045800.png"></p>
-<h3 id="Swapping-and-virtual-memory"><a href="#Swapping-and-virtual-memory" class="headerlink" title="Swapping and virtual memory"></a>Swapping and virtual memory</h3><p><strong>Problem</strong>: The total amount of RAM needed by all the processes is often much more than can fit in physical memory.</p>
-<p>Two general approaches to dealing with memory overload have been developed over the years.</p>
-<ul>
-<li><strong>Swap memory</strong>: consists of bringing in each process in its entirety, running it for a while, then putting it back on the disk.</li>
-<li><strong>Virtual memory</strong>: allows programs to run even when they are only partially in main memory.</li>
-</ul>
-<h4 id="Swapping"><a href="#Swapping" class="headerlink" title="Swapping"></a>Swapping</h4><p>Memory allocation changes as</p>
-<ul>
-<li>processes come into memory</li>
-<li>leave memory</li>
-</ul>
-<p>Shaded regions are unused memory</p>
-<p><img src="/images/050227.png"></p>
-<p><strong>Problem</strong>: If processes are created with a fixed size that never changes, then the allocation is simple. This is usually not the case!</p>
-<p>By dynamically allocating memory from a heap, as in many programming languages, a problem occurs whenever a process tries to grow.</p>
-<p>If a process cannot grow in memory and the swap area on the disk is full, the process will have to suspended until some space is freed up (or it can be killed)</p>
-<p><strong>Solution</strong>: MEMORY ABSTRACTION</p>
+<p>and there are many more.</p>
+<p><u><strong>Files</strong> are logical units of information created by <strong>processes</strong>.</u> </p>
+<p>A disk will usually contain thousands or even millions of them, each one independent of the others. </p>
+<p>Information stored in files must be <strong>persistent</strong>, that is, <u>not be affected by process creation and termination</u>. </p>
+<p><strong>Files are managed by the operating system</strong>. How they are structured, named, accessed, used, protected, implemented, and managed are major topics in operating system design.</p>
+<h3 id="File-naming"><a href="#File-naming" class="headerlink" title="File naming"></a>File naming</h3><p><img src="/images/1628366.png" alt="Typical file extensions"></p>
+<h3 id="File-structures"><a href="#File-structures" class="headerlink" title="File structures"></a>File structures</h3><p>Three kinds of files:</p>
 <ol>
-<li>Allocating space for a growing data segment.</li>
-<li>Allocating space for a growing stack and a growing data segment.</li>
+<li>byte sequence</li>
+<li>record sequence</li>
+<li>tree</li>
 </ol>
-<p><img src="/images/050452.png"></p>
-<h4 id="Managing-free-memory"><a href="#Managing-free-memory" class="headerlink" title="Managing free memory"></a>Managing free memory</h4><p>When memory is assigned dynamically, the operating system must manage it.</p>
-<p>In general terms, there are two ways to keep track of memory usage:</p>
+<p><img src="/images/1628367.png"></p>
+<h3 id="File-types"><a href="#File-types" class="headerlink" title="File types"></a>File types</h3><p>(a) An executable file</p>
+<p>(b) An archive</p>
+<p><img src="/images/1638375.png"></p>
+<h3 id="File-attributes"><a href="#File-attributes" class="headerlink" title="File attributes"></a>File attributes</h3><p><img src="/images/1628365.png" alt="Possible file attributes"></p>
+<h3 id="File-operations"><a href="#File-operations" class="headerlink" title="File operations"></a>File operations</h3><ol>
+<li> Create</li>
+<li>Delete</li>
+<li>Open</li>
+<li>Close</li>
+<li>Read</li>
+<li>Write</li>
+<li>Append</li>
+<li>Seek</li>
+<li>Get attributes</li>
+<li>Set Attributes</li>
+<li>Rename</li>
+</ol>
+<h2 id="Directories"><a href="#Directories" class="headerlink" title="Directories"></a>Directories</h2><h3 id="Single-level-directory-systems"><a href="#Single-level-directory-systems" class="headerlink" title="Single-level directory systems"></a>Single-level directory systems</h3><p>A single level directory system</p>
 <ul>
-<li>Bitmaps</li>
-<li>Linked Lists</li>
+<li>contains 4 files</li>
+<li>owned by 3 different people, A, B, and C</li>
 </ul>
-<h4 id="Managing-memory-management-with-bitmaps"><a href="#Managing-memory-management-with-bitmaps" class="headerlink" title="Managing memory management with bitmaps"></a>Managing memory management with bitmaps</h4><p>Memory is divided into allocation units as small as a few words and as large as several kilobytes</p>
-<p>The size of the allocation unit is an important design issue. <strong>The smaller the allocation unit, the larger the bitmap.</strong></p>
-<p>Searching a bitmap for a run of a given length is a <strong>slow</strong> operation!</p>
-<p><img src="/images/050751.png"></p>
+<p><img src="/images/1638555.png"></p>
+<h3 id="Hierarchical-directory-systems"><a href="#Hierarchical-directory-systems" class="headerlink" title="Hierarchical directory systems"></a>Hierarchical directory systems</h3><p><img src="/images/1638556.png" alt="A hierarchical directory system"></p>
+<h3 id="Path-names"><a href="#Path-names" class="headerlink" title="Path names"></a>Path names</h3><p><img src="/images/1638455.png" alt="A UNIX directory tree"></p>
+<h3 id="Directory-operations"><a href="#Directory-operations" class="headerlink" title="Directory operations"></a>Directory operations</h3><ol>
+<li>Create</li>
+<li>Delete</li>
+<li>Opendir</li>
+<li>Closedir</li>
+<li>Readdir</li>
+<li>Rename</li>
+<li>Link</li>
+<li>Unlink</li>
+</ol>
+<h2 id="File-system-implementation"><a href="#File-system-implementation" class="headerlink" title="File system implementation"></a>File system implementation</h2><p>Implementer’s perspective</p>
+<p><img src="/images/2638455.png" alt="A possible file system layout"></p>
+<h3 id="Implementing-files"><a href="#Implementing-files" class="headerlink" title="Implementing files"></a>Implementing files</h3><p>(a) Contiguous allocation of disk space for 7 files</p>
+<p>(b) State of the disk <strong><em>after files D and F</em></strong> have been removed</p>
+<p><img src="/images/2638457.png"></p>
+<p>Storing a file as a linked list of disk blocks:</p>
+<p><img src="/images/2638456.png"></p>
+<p>Linked list allocation using a file allocation table in RAM:</p>
+<p><img src="/images/2638454.png"></p>
+<p><img src="/images/2638453.png" alt="An example i-node"></p>
+<h3 id="Implementing-directories"><a href="#Implementing-directories" class="headerlink" title="Implementing directories"></a>Implementing directories</h3><p>(a) A simple directory</p>
+<ul>
+<li>fixed size entries</li>
+<li>disk addresses and attributes in directory entry </li>
+</ul>
+<p>(b) Directory in which each entry just refers to an i-node</p>
+<p><img src="/images/2638452.png"></p>
+<p>In this example we have three files, project-budget, personnel, and foo. </p>
+<p>Two ways of handling long file names in directory:</p>
+<p><img src="/images/2638441.png" alt="(a) In-line"></p>
+<p><img src="/images/2638442.png" alt="(b) In a heap"></p>
+<h2 id="Shared-files"><a href="#Shared-files" class="headerlink" title="Shared files"></a>Shared files</h2><p>File system containing a shared file</p>
+<p><img src="/images/2638443.png" alt="Shared file"></p>
+<h3 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h3><p>(a) Situation prior to linking</p>
+<p>(b) After the link is created</p>
+<p>(c) After the original owner removes the file</p>
+<p><img src="/images/2638444.png"></p>
+<h2 id="Disk-space-management"><a href="#Disk-space-management" class="headerlink" title="Disk space management"></a>Disk space management</h2><p>Files are normally stored on disk, so management of disk space is a major concern to filesystem designers.</p>
+<p><strong>Strategies:</strong></p>
 <ol>
-<li>Part of memory with 5 processes, 3 holes<ul>
-<li>tick marks show allocation units</li>
-<li>shaded regions are free</li>
-</ul>
-</li>
-<li>Corresponding bit map</li>
-<li>Same information as a list</li>
+<li>n consecutive bytes of disk space are allocated</li>
+<li>the file is split up into a number of (not necessarily) contiguous blocks</li>
 </ol>
-<h4 id="Managing-memory-management-with-linked-lists"><a href="#Managing-memory-management-with-linked-lists" class="headerlink" title="Managing memory management with linked lists"></a>Managing memory management with linked lists</h4><p>An <strong>linked list</strong> of allocated and free memory segments: each segment either contains a process or is an empty hole between two processes</p>
-<p>When the processes and holes are kept on a list sorted by address, <strong>several algorithms</strong> can be used to allocate memory for a created process (or an existing process being swapped in from disk).</p>
+<p>The same trade-off is present in memory-management systems between pure segmentation and paging.</p>
+<p><strong>Problem:</strong> storing a file as a contiguous sequence of bytes has the obvious problem that if a file grows, it may have to be moved on the disk.</p>
+<p>For this reason, nearly all file systems chop files up into <strong>fixed-size blocks</strong> that need not be adjacent</p>
+<h3 id="Size-block"><a href="#Size-block" class="headerlink" title="Size block"></a>Size block</h3><p>What is the most adequate block size? </p>
+<p>If the allocation unit is too large, we waste space; if it is too small, we waste time.</p>
+<p><img src="/images/2638445.png" alt="Study of the file-size distribution"></p>
+<p><img src="/images/2638446.png"></p>
 <ul>
-<li>First fit</li>
-<li>Next fit</li>
-<li>Best fit</li>
-<li>Worst it</li>
-<li>Quick fit</li>
+<li>Solid line (right hand scale) shows the space efficiency as a function of block size.</li>
+<li>Dashed line (left hand scale) shows the data rate for such a disk as a function of block size.</li>
+<li>For simplicity, let us assume that all files are 4 KB.</li>
 </ul>
-<p><img src="/images/0501124.png" alt="Four neighbour combinations for the terminating process X"></p>
-<h4 id="Virtual-Memory"><a href="#Virtual-Memory" class="headerlink" title="Virtual Memory"></a>Virtual Memory</h4><ul>
-<li>There is a need to run programs that are too large to fit in memory</li>
-<li>Swapping can be <u>too slow</u> for certain applications</li>
-<li>The basic idea behind <strong>virtual memory</strong> is that each program has its own address space, which is broken up into chunks of fixed-size called <strong>pages</strong></li>
-<li>Each <strong>page</strong> is a contiguous range of addresses.</li>
-<li>These pages are mapped onto physical memory, but not all pages have to be in physical memory at the same time to run the program</li>
-<li>MMU (Memory Management Unit) that maps the <strong>virtual addresses</strong> onto the physical memory addresses</li>
-</ul>
-<p><img src="/images/051513.png"></p>
-<p>Divides physical memory and logical address space into fixed-size fragments called <strong>pages</strong>.</p>
-<p>The first 64 KB of <strong>virtual /logical address</strong> space divided into 16 pages, with each page being 4K.</p>
-<p>A 32 KB main memory divided up into eight <strong>page</strong> frames of 4 KB each.</p>
-<p><strong>Allow the use of more memory than the amount of physical memory in the machine</strong></p>
-<h5 id="Mapping-virtual-memory-pages-to-physical-memory-pages"><a href="#Mapping-virtual-memory-pages-to-physical-memory-pages" class="headerlink" title="Mapping virtual memory pages to physical memory pages"></a>Mapping virtual memory pages to physical memory pages</h5><ul>
-<li>Page table maps virtual/logical page numbers to physical page numbers.</li>
-<li>Contains for each logical page number:<ul>
-<li>status flag: in physical memory (1) or on disk (0). </li>
-<li>if in memory, corresponding physical page number.</li>
+<p>What the curves show, however, is that performance and space utilization are inherently in <strong>conflict</strong>. </p>
+<p>Small blocks are bad for performance but good for diskspace utilization.</p>
+<p><img src="/images/2638447.png"></p>
+<h3 id="Keeping-track-of-dree-blocks"><a href="#Keeping-track-of-dree-blocks" class="headerlink" title="Keeping track of dree blocks"></a>Keeping track of dree blocks</h3><p>Once a block size has been chosen, the next issue is how to keep track of free blocks.</p>
+<ol>
+<li>Storing the free list on a linked list</li>
+<li>A bit map</li>
+</ol>
+<p><img src="/images/2638448.png"></p>
+<p>Under certain circumstances, this method leads to unnecessary disk I/O.</p>
+<ol>
+<li>Almost-full block of pointers to free disk blocks in RAM<ul>
+<li>three blocks of pointers on disk</li>
 </ul>
 </li>
-<li>Code/programs reference logical addresses</li>
-<li>OS translates to physical addresses using <strong>page table</strong></li>
-<li>If virtual page is unmapped and it is referenced (a logical address lying in the logical page is referenced), <strong>the page is loaded from disk (page file)</strong> into a free physical memory page in a transparent way.</li>
+<li>Result of freeing a 3-block file</li>
+<li>Alternative strategy for handling 3 free blocks<ul>
+<li>shaded entries are pointers to free disk blocks</li>
 </ul>
-<p><img src="/images/051959.png"></p>
-<h5 id="Demand-paging"><a href="#Demand-paging" class="headerlink" title="Demand paging"></a>Demand paging</h5><p><img src="/images/052205.png"></p>
-<h5 id="Address-translation"><a href="#Address-translation" class="headerlink" title="Address translation"></a>Address translation</h5><p><img src="/images/052426.png"></p>
-<h5 id="Page-replacement"><a href="#Page-replacement" class="headerlink" title="Page replacement"></a>Page replacement</h5><p>Which page to be swapped out if there is a page fault and all physical pages are already in use?</p>
-<p>Algorithm</p>
-<ul>
-<li>The longest in the memory (First Come First Serve - FCFS) </li>
-<li>The least recently used (Least Recently Used - LRU) – the basis is locality</li>
+</li>
+</ol>
+<p><img src="/images/2638449.png"></p>
+<h3 id="Disk-quota"><a href="#Disk-quota" class="headerlink" title="Disk quota"></a>Disk quota</h3><p><u>To prevent people from hogging too much disk space</u>, multiuser operating systems often provide a mechanism for enforcing disk quotas.</p>
+<p>Quotas for keeping track of each user’s disk use:</p>
+<p><img src="/images/2628440.png"></p>
+<h2 id="File-system-reliability"><a href="#File-system-reliability" class="headerlink" title="File system reliability"></a>File system reliability</h2><h3 id="Backups"><a href="#Backups" class="headerlink" title="Backups"></a>Backups</h3><ul>
+<li>Destruction of a file system is often a far greater disaster than destruction of a computer.</li>
+<li>Largely sub-estimated.</li>
+<li>Backups to tape are generally made to handle one of two potential problems:<ol>
+<li>Recover from disaster. </li>
+<li>Recover from stupidity.</li>
+</ol>
+</li>
+<li>Incremental backups or dumps</li>
+<li>Two strategies can be used for dumping a disk to a backup disk:<ul>
+<li>a physical dump<ul>
+<li>Unused blocks</li>
+<li>Bad blocks</li>
 </ul>
-<p>Information on each page required (represented by bits)</p>
-<ul>
-<li>Reference – being referred or not in the last time slot (timer interrupt driven) -&gt; LRU</li>
-<li>Usage count -&gt; FCFS</li>
-</ul>
-<p><img src="/images/052630.png"></p>
-<h4 id="Segmented-memory"><a href="#Segmented-memory" class="headerlink" title="Segmented memory"></a>Segmented memory</h4><p><img src="/images/052818.png"></p>
-<p>Provides each Program / Process with one or more (code, data, stack) independent logical address spaces.</p>
-<ul>
-<li>Allows easy relocation of data and code in physical memory by moving segment (code accesses memory using logical addresses, so no change needed)</li>
-<li>Can be used to enforce memory protection<ul>
-<li>Can be used to protect processes from writing in each others memory.</li>
-<li>Can protect segments from being written to/read from. E.g. no writing in code segments</li>
-<li>Can provide layered access to memory (e.g. kernel mode can access all types of segments, when in user mode can only access user mode segments)</li>
+</li>
+<li>a logical dump.</li>
 </ul>
 </li>
 </ul>
-<p><img src="/images/052945.png"></p>
-<h5 id="Segmentation-VS-paging"><a href="#Segmentation-VS-paging" class="headerlink" title="Segmentation VS. paging"></a>Segmentation VS. paging</h5><p><img src="/images/053046.png"></p>
-<h5 id="Swapping-Pure-segmentation"><a href="#Swapping-Pure-segmentation" class="headerlink" title="Swapping (Pure segmentation)"></a>Swapping (Pure segmentation)</h5><p><img src="/images/053152.png"></p>
-<p>Issues:</p>
+<h3 id="Example-of-logical-dumpling"><a href="#Example-of-logical-dumpling" class="headerlink" title="Example of logical dumpling"></a>Example of logical dumpling</h3><p>A file system to be dumped</p>
 <ul>
-<li>Management of free memory (bitmaps or linked lists)</li>
-<li>Memory compaction needed</li>
-<li>Slow mechanism -&gt; solution: combine with paging virtual memory</li>
+<li>squares are directories, circles are files</li>
+<li>shaded items, modified since last dump</li>
+<li>each directory &amp; file labelled by i-node number</li>
+</ul>
+<p><img src="/images/2628441.png"></p>
+<p>The dump algorithm maintains a bitmap indexed by i-node number with several bits per i-node. </p>
+<p>Bit maps used by the logical dumping algorithm</p>
+<p>Four phases:</p>
+<p><img src="/images/2628442.png"></p>
+<h3 id="File-system-consistency"><a href="#File-system-consistency" class="headerlink" title="File-system consistency"></a>File-system consistency</h3><p><img src="/images/2628443.png"></p>
+<h2 id="File-system-performance"><a href="#File-system-performance" class="headerlink" title="File system performance"></a>File system performance</h2><p>Access to disk is much slower than access to memory. </p>
+<p>Three techniques to improve performance.</p>
+<ul>
+<li>Caching</li>
+<li>Block read Ahead</li>
+<li>Reducing Disk-Arm Motion</li>
+</ul>
+<h3 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h3><p>A cache is a collection of blocks that logically belong on the disk but are being kept in memory for performance reasons. </p>
+<p>The block cache data structures:</p>
+<p><img src="/images/26284443.png"></p>
+<p><strong>LRU: Least Recent Used</strong></p>
+<p><strong>MRU: Most Recent Used</strong></p>
+<h3 id="Block-read-ahead"><a href="#Block-read-ahead" class="headerlink" title="Block read ahead"></a>Block read ahead</h3><p>A second technique for improving perceived file-system performance is to try to get blocks into the cache <strong>before</strong> they are needed to increase the hit rate.</p>
+<ul>
+<li>This read-ahead strategy works only for files that are actually being read sequentially</li>
+<li>If a file is being randomly accessed, read ahead does not help<ul>
+<li>disk bandwidth reading in useless blocks</li>
+<li>removing potentially useful blocks from the cache</li>
+</ul>
+</li>
+<li>Continuous monitoring of the file access pattern</li>
+</ul>
+<h3 id="Another-important-technique"><a href="#Another-important-technique" class="headerlink" title="Another important technique"></a>Another important technique</h3><p>Another important technique is to reduce the amount of disk-arm motion by putting blocks that are likely to be accessed in sequence close to each other, preferably in the same cylinder.</p>
+<ol>
+<li>I-nodes placed at the start of the disk</li>
+<li>Disk divided into cylinder groups<ul>
+<li>each with its own blocks and i-nodes</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/26284440.png"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>Files and Directories<ul>
+<li>Operations</li>
+<li>Attributes</li>
+<li>Management</li>
+<li>Implementation -&gt; i-nodes</li>
+</ul>
+</li>
+<li>Sharing</li>
+<li>Disk space management </li>
+<li>File System<ul>
+<li>Reliability</li>
+<li>Performance</li>
+</ul>
+</li>
 </ul>
 
                 
@@ -655,7 +712,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/15/2021-02-10-Memory-management---OS-basis/">https://yintelligence.tech/2021/02/15/2021-02-10-Memory-management---OS-basis/</a>
+                    <a href="https://yintelligence.tech/2021/02/16/2021-02-16-File-System---OS-basis/">https://yintelligence.tech/2021/02/16/2021-02-16-File-System---OS-basis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -738,9 +795,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/02/16/2021-02-16-File-System---OS-basis/">
                     <div class="card-image">
@@ -758,9 +816,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -773,6 +831,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -791,13 +850,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/14/2021-02-14-Electronics-Introduction/">
+                <a href="/2021/02/15/2021-02-10-Memory-management---OS-basis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Health information systems">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Memory management - OS basis">
                         
-                        <span class="card-title">Health information systems</span>
+                        <span class="card-title">Memory management - OS basis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -808,7 +867,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
                             </span>
                         <span class="publish-author">
                             
@@ -825,8 +884,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Health-Information-Systems/">
-                        <span class="chip bg-color">Health Information Systems</span>
+                    <a href="/tags/Operating-Systems-and-Security/">
+                        <span class="chip bg-color">Operating Systems and Security</span>
                     </a>
                     
                 </div>
