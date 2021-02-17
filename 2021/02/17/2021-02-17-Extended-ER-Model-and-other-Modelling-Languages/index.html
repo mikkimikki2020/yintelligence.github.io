@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="File System - OS basis, Chaoqun Yin">
+    <meta name="keywords" content="Extended ER Model and other Modelling Languages, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>File System - OS basis | Chaoqun Yin</title>
+    <title>Extended ER Model and other Modelling Languages | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,7 +315,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">File System - OS basis</h1>
+                    <h1 class="description center-align post-title">Extended ER Model and other Modelling Languages</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Operating-Systems-and-Security/">
-                                <span class="chip bg-color">Operating Systems and Security</span>
+                            <a href="/tags/Databases/">
+                                <span class="chip bg-color">Databases</span>
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-16
+                    2021-02-17
                 </div>
                 
 
@@ -477,215 +477,207 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Basis-of-OS-File-System"><a href="#Basis-of-OS-File-System" class="headerlink" title="Basis of OS - File System"></a>Basis of OS - File System</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9aFliRXdZM1MyRWc&id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%202.mp4&parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video ~57:51</a></p>
-<p>Long-term information storage</p>
+                <h1 id="Extended-ER-Model-and-other-Modelling-Languages"><a href="#Extended-ER-Model-and-other-Modelling-Languages" class="headerlink" title="Extended ER Model and other Modelling Languages"></a>Extended ER Model and other Modelling Languages</h1><h2 id="Extended-Entity-Relationship-EER-Model"><a href="#Extended-Entity-Relationship-EER-Model" class="headerlink" title="Extended Entity-Relationship (EER) Model"></a>Extended Entity-Relationship (EER) Model</h2><p>Over the years the ER model has been <strong>extended</strong> with additional concepts to <u>increase its expressiveness</u></p>
 <ul>
-<li>Must store large amounts of data</li>
-<li>Information stored must survive the termination of the process using it</li>
-<li>Multiple processes must be able to access the information concurrently</li>
+<li>specialisation and generalisation (ISA relationship)</li>
+<li>ISA constraints</li>
+<li>aggregation</li>
 </ul>
-<h2 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h2><p>Just a few of the questions that quickly arise are:</p>
-<ol>
-<li> How do you find information?</li>
-<li>How do you keep one user from reading another user’s data?</li>
-<li>How do you know which blocks are free?</li>
-</ol>
-<p>and there are many more.</p>
-<p><u><strong>Files</strong> are logical units of information created by <strong>processes</strong>.</u> </p>
-<p>A disk will usually contain thousands or even millions of them, each one independent of the others. </p>
-<p>Information stored in files must be <strong>persistent</strong>, that is, <u>not be affected by process creation and termination</u>. </p>
-<p><strong>Files are managed by the operating system</strong>. How they are structured, named, accessed, used, protected, implemented, and managed are major topics in operating system design.</p>
-<h3 id="File-naming"><a href="#File-naming" class="headerlink" title="File naming"></a>File naming</h3><p><img src="/images/1628366.png" alt="Typical file extensions"></p>
-<h3 id="File-structures"><a href="#File-structures" class="headerlink" title="File structures"></a>File structures</h3><p>Three kinds of files:</p>
-<ol>
-<li>byte sequence</li>
-<li>record sequence</li>
-<li>tree</li>
-</ol>
-<p><img src="/images/1628367.png"></p>
-<h3 id="File-types"><a href="#File-types" class="headerlink" title="File types"></a>File types</h3><p>(a) An executable file</p>
-<p>(b) An archive</p>
-<p><img src="/images/1638375.png"></p>
-<h3 id="File-attributes"><a href="#File-attributes" class="headerlink" title="File attributes"></a>File attributes</h3><p><img src="/images/1628365.png" alt="Possible file attributes"></p>
-<h3 id="File-operations"><a href="#File-operations" class="headerlink" title="File operations"></a>File operations</h3><ol>
-<li> Create</li>
-<li>Delete</li>
-<li>Open</li>
-<li>Close</li>
-<li>Read</li>
-<li>Write</li>
-<li>Append</li>
-<li>Seek</li>
-<li>Get attributes</li>
-<li>Set Attributes</li>
-<li>Rename</li>
-</ol>
-<h2 id="Directories"><a href="#Directories" class="headerlink" title="Directories"></a>Directories</h2><h3 id="Single-level-directory-systems"><a href="#Single-level-directory-systems" class="headerlink" title="Single-level directory systems"></a>Single-level directory systems</h3><p>A single level directory system</p>
+<h3 id="Specialisation-and-Generalisation"><a href="#Specialisation-and-Generalisation" class="headerlink" title="Specialisation and Generalisation"></a>Specialisation and Generalisation</h3><p>An entity set can be further subgrouped or <strong><em>specialised</em></strong> into distinctive entity sets</p>
 <ul>
-<li>contains 4 files</li>
-<li>owned by 3 different people, A, B, and C</li>
+<li>an entity subset may for example have additional attributes</li>
+<li><strong><em>top-down approach</em></strong></li>
 </ul>
-<p><img src="/images/1638555.png"></p>
-<h3 id="Hierarchical-directory-systems"><a href="#Hierarchical-directory-systems" class="headerlink" title="Hierarchical directory systems"></a>Hierarchical directory systems</h3><p><img src="/images/1638556.png" alt="A hierarchical directory system"></p>
-<h3 id="Path-names"><a href="#Path-names" class="headerlink" title="Path names"></a>Path names</h3><p><img src="/images/1638455.png" alt="A UNIX directory tree"></p>
-<h3 id="Directory-operations"><a href="#Directory-operations" class="headerlink" title="Directory operations"></a>Directory operations</h3><ol>
-<li>Create</li>
-<li>Delete</li>
-<li>Opendir</li>
-<li>Closedir</li>
-<li>Readdir</li>
-<li>Rename</li>
-<li>Link</li>
-<li>Unlink</li>
-</ol>
-<h2 id="File-system-implementation"><a href="#File-system-implementation" class="headerlink" title="File system implementation"></a>File system implementation</h2><p>Implementer’s perspective</p>
-<p><img src="/images/2638455.png" alt="A possible file system layout"></p>
-<h3 id="Implementing-files"><a href="#Implementing-files" class="headerlink" title="Implementing files"></a>Implementing files</h3><p>(a) Contiguous allocation of disk space for 7 files</p>
-<p>(b) State of the disk <strong><em>after files D and F</em></strong> have been removed</p>
-<p><img src="/images/2638457.png"></p>
-<p>Storing a file as a linked list of disk blocks:</p>
-<p><img src="/images/2638456.png"></p>
-<p>Linked list allocation using a file allocation table in RAM:</p>
-<p><img src="/images/2638454.png"></p>
-<p><img src="/images/2638453.png" alt="An example i-node"></p>
-<h3 id="Implementing-directories"><a href="#Implementing-directories" class="headerlink" title="Implementing directories"></a>Implementing directories</h3><p>(a) A simple directory</p>
+<p>Parts of multiple entity sets may be <strong><em>generalised</em></strong> in a higher level entity set</p>
 <ul>
-<li>fixed size entries</li>
-<li>disk addresses and attributes in directory entry </li>
+<li><strong><em>bottom-up approach</em></strong></li>
 </ul>
-<p>(b) Directory in which each entry just refers to an i-node</p>
-<p><img src="/images/2638452.png"></p>
-<p>In this example we have three files, project-budget, personnel, and foo. </p>
-<p>Two ways of handling long file names in directory:</p>
-<p><img src="/images/2638441.png" alt="(a) In-line"></p>
-<p><img src="/images/2638442.png" alt="(b) In a heap"></p>
-<h2 id="Shared-files"><a href="#Shared-files" class="headerlink" title="Shared files"></a>Shared files</h2><p>File system containing a shared file</p>
-<p><img src="/images/2638443.png" alt="Shared file"></p>
-<h3 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h3><p>(a) Situation prior to linking</p>
-<p>(b) After the link is created</p>
-<p>(c) After the original owner removes the file</p>
-<p><img src="/images/2638444.png"></p>
-<h2 id="Disk-space-management"><a href="#Disk-space-management" class="headerlink" title="Disk space management"></a>Disk space management</h2><p>Files are normally stored on disk, so management of disk space is a major concern to filesystem designers.</p>
-<p><strong>Strategies:</strong></p>
-<ol>
-<li>n consecutive bytes of disk space are allocated</li>
-<li>the file is split up into a number of (not necessarily) contiguous blocks</li>
-</ol>
-<p>The same trade-off is present in memory-management systems between pure segmentation and paging.</p>
-<p><strong>Problem:</strong> storing a file as a contiguous sequence of bytes has the obvious problem that if a file grows, it may have to be moved on the disk.</p>
-<p>For this reason, nearly all file systems chop files up into <strong>fixed-size blocks</strong> that need not be adjacent</p>
-<h3 id="Size-block"><a href="#Size-block" class="headerlink" title="Size block"></a>Size block</h3><p>What is the most adequate block size? </p>
-<p>If the allocation unit is too large, we waste space; if it is too small, we waste time.</p>
-<p><img src="/images/2638445.png" alt="Study of the file-size distribution"></p>
-<p><img src="/images/2638446.png"></p>
+<p>Specialisations as well as generalisations are represented by the same <strong><em><u>ISA relationship</u></em></strong> construct</p>
 <ul>
-<li>Solid line (right hand scale) shows the space efficiency as a function of block size.</li>
-<li>Dashed line (left hand scale) shows the data rate for such a disk as a function of block size.</li>
-<li>For simplicity, let us assume that all files are 4 KB.</li>
+<li>represented by a triangle in the EER model</li>
+<li><em>A</em> <strong><em>ISA</em></strong> <em>B</em> implies that every <em>A</em> entity is also a <em>B</em> entity</li>
+<li>generalisation can be seen as the inversion of specialisation</li>
 </ul>
-<p>What the curves show, however, is that performance and space utilization are inherently in <strong>conflict</strong>. </p>
-<p>Small blocks are bad for performance but good for diskspace utilization.</p>
-<p><img src="/images/2638447.png"></p>
-<h3 id="Keeping-track-of-dree-blocks"><a href="#Keeping-track-of-dree-blocks" class="headerlink" title="Keeping track of dree blocks"></a>Keeping track of dree blocks</h3><p>Once a block size has been chosen, the next issue is how to keep track of free blocks.</p>
-<ol>
-<li>Storing the free list on a linked list</li>
-<li>A bit map</li>
-</ol>
-<p><img src="/images/2638448.png"></p>
-<p>Under certain circumstances, this method leads to unnecessary disk I/O.</p>
-<ol>
-<li>Almost-full block of pointers to free disk blocks in RAM<ul>
-<li>three blocks of pointers on disk</li>
-</ul>
-</li>
-<li>Result of freeing a 3-block file</li>
-<li>Alternative strategy for handling 3 free blocks<ul>
-<li>shaded entries are pointers to free disk blocks</li>
-</ul>
-</li>
-</ol>
-<p><img src="/images/2638449.png"></p>
-<h3 id="Disk-quota"><a href="#Disk-quota" class="headerlink" title="Disk quota"></a>Disk quota</h3><p><u>To prevent people from hogging too much disk space</u>, multiuser operating systems often provide a mechanism for enforcing disk quotas.</p>
-<p>Quotas for keeping track of each user’s disk use:</p>
-<p><img src="/images/2628440.png"></p>
-<h2 id="File-system-reliability"><a href="#File-system-reliability" class="headerlink" title="File system reliability"></a>File system reliability</h2><h3 id="Backups"><a href="#Backups" class="headerlink" title="Backups"></a>Backups</h3><ul>
-<li>Destruction of a file system is often a far greater disaster than destruction of a computer.</li>
-<li>Largely sub-estimated.</li>
-<li>Backups to tape are generally made to handle one of two potential problems:<ol>
-<li>Recover from disaster. </li>
-<li>Recover from stupidity.</li>
-</ol>
-</li>
-<li>Incremental backups or dumps</li>
-<li>Two strategies can be used for dumping a disk to a backup disk:<ul>
-<li>a physical dump<ul>
-<li>Unused blocks</li>
-<li>Bad blocks</li>
-</ul>
-</li>
-<li>a logical dump.</li>
-</ul>
-</li>
-</ul>
-<h3 id="Example-of-logical-dumpling"><a href="#Example-of-logical-dumpling" class="headerlink" title="Example of logical dumpling"></a>Example of logical dumpling</h3><p>A file system to be dumped</p>
+<p><img src="/images/125400.png" alt="ISA Relationship"></p>
+<p>The <strong><em>attributes</em></strong> of a higher level entity set (<strong><em>superclass</em></strong>) are <strong><em>inherited</em></strong> by the lower level entity set (<strong><em>subclass</em></strong>) via the <strong><u>ISA relationship</u></strong></p>
 <ul>
-<li>squares are directories, circles are files</li>
-<li>shaded items, modified since last dump</li>
-<li>each directory &amp; file labelled by i-node number</li>
+<li>e.g. <em>students</em> inherit the <em>id</em> attribute from <em>persons</em></li>
 </ul>
-<p><img src="/images/2628441.png"></p>
-<p>The dump algorithm maintains a bitmap indexed by i-node number with several bits per i-node. </p>
-<p>Bit maps used by the logical dumping algorithm</p>
-<p>Four phases:</p>
-<p><img src="/images/2628442.png"></p>
-<h3 id="File-system-consistency"><a href="#File-system-consistency" class="headerlink" title="File-system consistency"></a>File-system consistency</h3><p><img src="/images/2628443.png"></p>
-<h2 id="File-system-performance"><a href="#File-system-performance" class="headerlink" title="File system performance"></a>File system performance</h2><p>Access to disk is much slower than access to memory. </p>
-<p>Three techniques to improve performance.</p>
+<p>A subclass also <strong><em>inherits</em></strong> any <strong><em><u>relationship participation</u></em></strong> from its superclass</p>
 <ul>
-<li>Caching</li>
-<li>Block read Ahead</li>
-<li>Reducing Disk-Arm Motion</li>
+<li>e.g. <em>students</em>, <em>teachers</em> etc. can participate in the <em>LivesAt</em> relationship</li>
 </ul>
-<h3 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h3><p>A cache is a collection of blocks that logically belong on the disk but are being kept in memory for performance reasons. </p>
-<p>The block cache data structures:</p>
-<p><img src="/images/26284443.png"></p>
-<p><strong>LRU: Least Recent Used</strong></p>
-<p><strong>MRU: Most Recent Used</strong></p>
-<h3 id="Block-read-ahead"><a href="#Block-read-ahead" class="headerlink" title="Block read ahead"></a>Block read ahead</h3><p>A second technique for improving perceived file-system performance is to try to get blocks into the cache <strong>before</strong> they are needed to increase the hit rate.</p>
+<h3 id="ISA-Constraints"><a href="#ISA-Constraints" class="headerlink" title="ISA Constraints"></a>ISA Constraints</h3><p>To model an application domain more precisely, specific constraints can be defined over an ISA relationship.</p>
 <ul>
-<li>This read-ahead strategy works only for files that are actually being read sequentially</li>
-<li>If a file is being randomly accessed, read ahead does not help<ul>
-<li>disk bandwidth reading in useless blocks</li>
-<li>removing potentially useful blocks from the cache</li>
+<li><strong><em>Membership</em></strong> constraints<ul>
+<li>a <strong><em>condition-defined membership constraint</em></strong> assigns an entity to a specific subclass based on one or more attribute values</li>
+<li>a <strong><em>user-defined membership constraint</em></strong> can be used to manually assign entities to a specific subclass (<strong><em>manual classification</em></strong>)</li>
 </ul>
 </li>
-<li>Continuous monitoring of the file access pattern</li>
-</ul>
-<h3 id="Another-important-technique"><a href="#Another-important-technique" class="headerlink" title="Another important technique"></a>Another important technique</h3><p>Another important technique is to reduce the amount of disk-arm motion by putting blocks that are likely to be accessed in sequence close to each other, preferably in the same cylinder.</p>
-<ol>
-<li>I-nodes placed at the start of the disk</li>
-<li>Disk divided into cylinder groups<ul>
-<li>each with its own blocks and i-nodes</li>
+<li><strong><em>Disjointness</em></strong> constraints<ul>
+<li>an <strong><em>overlapping constraint</em></strong> over subclasses specifies that an entity may belong to multiple subclasses <ul>
+<li>e.g. a <em>person</em> may be a teacher as well as a student</li>
+<li>by default, subclasses participate in an overlapping constraint </li>
 </ul>
 </li>
-</ol>
-<p><img src="/images/26284440.png"></p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Files and Directories<ul>
-<li>Operations</li>
-<li>Attributes</li>
-<li>Management</li>
-<li>Implementation -&gt; i-nodes</li>
-</ul>
-</li>
-<li>Sharing</li>
-<li>Disk space management </li>
-<li>File System<ul>
-<li>Reliability</li>
-<li>Performance</li>
+<li>a <strong><em>disjoint constraint</em></strong> specifies that an entity can only belong to exactly one subclass<ul>
+<li>e.g. a <em>teacher</em> can be either a <em>PhD</em> <em>student</em> or a <em>professor</em> (but not both)</li>
+<li>expressed by writing the word <em>disjoint</em> next to the triangle</li>
 </ul>
 </li>
 </ul>
+</li>
+<li><strong><em>Completeness</em></strong> constraints<ul>
+<li>a <u><strong><em>partial</em></strong> <em>specialisation (generalisation) constraint</em></u> specifies that some superclass entities may not belong to any subclass - default completeness constraint<ul>
+<li>default completeness constraint </li>
+</ul>
+</li>
+<li>a <u><strong><em>total</em></strong> <em>specialisation (generalisation) constraint</em></u> defines that each superclass entity must belong to a subclass<ul>
+<li>e.g. each teacher must belong to the <em>PhD Students</em> or <em>Professors</em> subclass (or to both of them)</li>
+<li>represented by a <strong>double line</strong> connection to the triangle (like total participation)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/1254000.png"></p>
+<h3 id="Aggregation"><a href="#Aggregation" class="headerlink" title="Aggregation"></a>Aggregation</h3><p>A limitation of the ER model is that relationships cannot be modelled over other relationship sets. </p>
+<p>What if we would like to introduce a manager for some (employee, company, duration) combinations?</p>
+<p><img src="/images/1254001.png"></p>
+<p><img src="/images/1254002.png"></p>
+<p><img src="/images/1254003.png"></p>
+<p><img src="/images/1254004.png" alt="Part-Of Hierarchies"></p>
+<h2 id="ER-Design-Issues"><a href="#ER-Design-Issues" class="headerlink" title="ER Design Issues"></a>ER Design Issues</h2><p>When do we model something as an attribute and when as an entity set?</p>
+<ul>
+<li>there is <strong><em>no general answer</em></strong> and the choice depends on the specific application domain to be modelled</li>
+</ul>
+<p>When do we model something as a relationship set and when as an entity set?</p>
+<ul>
+<li>a relationship set often corresponds to an action between entities</li>
+</ul>
+<p>In general we should try to <strong><em>avoid higher level n-ary relationship sets</em></strong></p>
+<ul>
+<li><strong>3-ary</strong> relationship sets should be the <strong>maximum</strong> and even these should be used carefully</li>
+</ul>
+<h3 id="Attribute-or-Entity"><a href="#Attribute-or-Entity" class="headerlink" title="Attribute or Entity?"></a>Attribute or Entity?</h3><p>Should the address in the example be modelled as an attribute or as a separate entity?</p>
+<ul>
+<li>depends on the intended use of the address</li>
+<li>if we need an address for different entities (e.g. not just for employees) it is better to model the address as separate entity </li>
+</ul>
+<p><img src="/images/1254005.png"></p>
+<p>Should the duration be modelled as a <em>from</em> and <em>to</em> attribute or as a separate entity?</p>
+<p><strong>Depends again on the use</strong></p>
+<ul>
+<li>if we foresee that the same duration period is used by other entity sets, it should be modelled as a separate entity</li>
+</ul>
+<p><img src="/images/1254006.png"></p>
+<h3 id="N-ary-or-Binary-Relationships"><a href="#N-ary-or-Binary-Relationships" class="headerlink" title="N-ary or Binary Relationships?"></a>N-ary or Binary Relationships?</h3><p>Basically any n-ary relationship can be replaced by a number of binary relationship sets</p>
+<ul>
+<li>“real” 3-ary relationships should not be replaced<ul>
+<li>e.g. <em>WorksFor</em> presented earlier</li>
+</ul>
+</li>
+<li>the <em>Parents</em> relationship is a example of a non-real 3-ary relationship<ul>
+<li>have to use null values if there is either no father or mother</li>
+<li>better to model it as two separate binary relationships</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/1254007.png"></p>
+<h2 id="ER-Design-Principles"><a href="#ER-Design-Principles" class="headerlink" title="ER Design Principles"></a>ER Design Principles</h2><ul>
+<li>Make sure that you pay attention to <strong><em>all the entities</em></strong>, their <strong><em>relationships</em></strong> and any other <strong><em>constraints</em></strong> mentioned in the description (requirements) of a specific application domain<ul>
+<li>e.g. show cardinality constraints for all relationships</li>
+</ul>
+</li>
+<li><strong><em>Avoid redundancy!</em></strong></li>
+<li>The resulting conceptual model should be <strong><em>as simple as possible, but not simpler</em></strong><ul>
+<li>introduce only necessary entities and relationships</li>
+</ul>
+</li>
+<li>Some constraints (e.g. functional dependencies) cannot be expressed in the ER model<ul>
+<li>also write down any assumptions </li>
+</ul>
+</li>
+<li>In two weeks we will see how the <strong><em>conceptual ER model can be mapped to a logical database schema (e.g. relational database schema)</em></strong></li>
+<li>The resulting relational schema can be further analysed by using functional dependencies and normalisation</li>
+</ul>
+<h2 id="ER-Summary"><a href="#ER-Summary" class="headerlink" title="ER Summary"></a>ER Summary</h2><ul>
+<li>Entities and attributes</li>
+<li>Relationships<ul>
+<li>cardinality constraints</li>
+<li>participation constraints</li>
+</ul>
+</li>
+<li>Keys</li>
+<li>Weak entities</li>
+<li>ISA hierarchies</li>
+<li>Aggregation</li>
+</ul>
+<h2 id="Classification-and-Typing"><a href="#Classification-and-Typing" class="headerlink" title="Classification and Typing"></a>Classification and Typing</h2><p>Aristotle (384 BC-322 BC) introduced a biological classification (<em>ontology</em>)</p>
+<ul>
+<li><em>artificial classification system</em></li>
+<li><em>organisms</em> with the two subclasses <em>plants</em> and <em>animals</em></li>
+<li>animals further subclassified into <em>animals with blood</em> and <em>animals without blood</em></li>
+<li>animals also classified into <em>walking animals</em>, <em>flying animals</em> and <em>swimming animals</em> (habitat)</li>
+</ul>
+<p>Characteristics (problems) of Aristotle’s classification:</p>
+<ul>
+<li><strong><em>based on behaviour</em></strong> and not on similarities (<em>non-evolutionary</em>)</li>
+<li>animals can belong to multiple classes<ul>
+<li>e.g. a duck belongs to the walking animals as well as swimming animals class</li>
+</ul>
+</li>
+</ul>
+<p>Bertrand Russell defined the <strong><em>type</em></strong> of a given predicate <em>P</em> as the entity set spanned by <em>P</em></p>
+<ul>
+<li><strong><em>intensional</em></strong> notion of <strong><em>type</em></strong></li>
+</ul>
+<p>The notion of type for classifying entities based on a set of conditions was questionned by Wittgenstein</p>
+<ul>
+<li>there exists no precise definition (type) for some general concepts<ul>
+<li>e.g. no definition for the general concept of a <strong><em>game</em></strong></li>
+</ul>
+</li>
+</ul>
+<p>We can have a <strong><em>definitional</em></strong> (e.g. intensional) or <strong><em>prototypical</em></strong> definition of a type</p>
+<h2 id="OM-Model"><a href="#OM-Model" class="headerlink" title="OM Model"></a>OM Model</h2><p>Data model that integrates concepts from the entity-relationship and object-oriented data models:</p>
+<ul>
+<li>based on <em>objects</em>, <em>collections</em> and <em>associations</em> (binary collections)<ul>
+<li>supports associations over associations</li>
+</ul>
+</li>
+<li>different types of collections<ul>
+<li>sets, bags, rankings and sequences</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>Separates typing and classification (role modelling)</em></strong></p>
+<p>Operational part (algebra) over objects and collections</p>
+<p>A family of object database platforms have been realised based on the OM model (e.g. OMS Java)</p>
+<p><img src="/images/1254008.png" alt="OM Typing and Classification"></p>
+<p><img src="/images/12540009.png" alt="OM Example (RSL Link Model)"></p>
+<h2 id="The-Unified-Modelling-Language-UML"><a href="#The-Unified-Modelling-Language-UML" class="headerlink" title="The Unified Modelling Language (UML)"></a>The Unified Modelling Language (UML)</h2><p>UML is a standard developed by the <strong><u>Object Management Group</u></strong> (OMG)</p>
+<ul>
+<li>used to specify the components of a software system</li>
+<li>based on earlier work including the <strong><em>object-modelling technique (OMT)</em></strong> by Rumbaugh et al., the <strong><em>Booch method</em></strong> by Booch and <strong><em>objectoriented software engineering (OOSE)</em></strong> by Jacobson</li>
+</ul>
+<p>UML supports different types of diagrams</p>
+<ul>
+<li><strong><em>class diagrams</em></strong>, use case diagrams, package diagrams,…</li>
+</ul>
+<h3 id="UML-Class-Diagrams"><a href="#UML-Class-Diagrams" class="headerlink" title="UML Class Diagrams"></a>UML Class Diagrams</h3><p>A UML class diagram is similar to an ER model</p>
+<p>A UML class is “like” an ER entity set</p>
+<ul>
+<li>contains attributes as well as methods </li>
+</ul>
+<p><img src="/images/1254009.png"></p>
+<p>UML relationship class with attributes can be used like an ER aggregation in other UML relationships </p>
+<ul>
+<li>e.g. locatedAt in the example</li>
+</ul>
+<p>Note that the position of the cardinality constraints are switched in UML</p>
+<p><img src="/images/12540000.png"></p>
+<p><img src="/images/12540005.png"></p>
 
                 
             </div>
@@ -712,7 +704,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/16/2021-02-16-File-System---OS-basis/">https://yintelligence.tech/2021/02/16/2021-02-16-File-System---OS-basis/</a>
+                    <a href="https://yintelligence.tech/2021/02/17/2021-02-17-Extended-ER-Model-and-other-Modelling-Languages/">https://yintelligence.tech/2021/02/17/2021-02-17-Extended-ER-Model-and-other-Modelling-Languages/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -750,8 +742,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Operating-Systems-and-Security/">
-                                    <span class="chip bg-color">Operating Systems and Security</span>
+                                <a href="/tags/Databases/">
+                                    <span class="chip bg-color">Databases</span>
                                 </a>
                             
                         </div>
@@ -795,9 +787,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/02/17/2021-02-17-Extended-ER-Model-and-other-Modelling-Languages/">
                     <div class="card-image">
@@ -815,9 +808,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -830,6 +823,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -848,13 +842,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/15/2021-02-10-Memory-management---OS-basis/">
+                <a href="/2021/02/16/2021-02-16-File-System---OS-basis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Memory management - OS basis">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="File System - OS basis">
                         
-                        <span class="card-title">Memory management - OS basis</span>
+                        <span class="card-title">File System - OS basis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -865,7 +859,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
                             </span>
                         <span class="publish-author">
                             
