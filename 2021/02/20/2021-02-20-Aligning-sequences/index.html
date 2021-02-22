@@ -521,24 +521,24 @@
 <p>Meaning that the choice of each residue is independent from the other residues in the sequence</p>
 <ul>
 <li>The probability depends on the <strong>frequency</strong> of every amino acid in the population (= all characters in the sequences)</li>
-<li>When the frequency of the amino acids a is p<del>a</del>, the probability of having a at that position is also p<del>a</del></li>
+<li>When the frequency of the amino acids a is p<sub>a</sub>, the probability of having a at that position is also p<sub>a</sub></li>
 </ul>
-<p>When two residues a and b are aligned, the <strong>probability of the match is p<del>a</del> p<del>b</del></strong></p>
+<p>When two residues a and b are aligned, the <strong>probability of the match is p<sub>a</sub> p<sub>b</sub></strong></p>
 <h3 id="Non-random-or-evolutionary-mode"><a href="#Non-random-or-evolutionary-mode" class="headerlink" title="Non-random (or evolutionary) mode"></a>Non-random (or evolutionary) mode</h3><p>This model proposes that the sequences <strong>are related because of common descent</strong></p>
 <ul>
 <li>This implies that there are constraints on the composition of the sequence</li>
 </ul>
 <p>The probability of a match depends on the residue at the same position in the common ancestor</p>
 <ul>
-<li>This probability is q<del>a,b</del><ul>
-<li>The actual value of q<del>a,b</del> depends on the evolutionary mechanism</li>
+<li>This probability is q<sub>a,b</sub><ul>
+<li>The actual value of q<sub>a,b</sub> depends on the evolutionary mechanism</li>
 </ul>
 </li>
 </ul>
-<p>When two residues a and b are aligned, the <strong>probability of a match</strong> is <strong>q<del>a,b</del></strong> since the residues are correlated </p>
-<h2 id="Basic-idea-1"><a href="#Basic-idea-1" class="headerlink" title="Basic idea"></a>Basic idea</h2><p>The <strong>odds ratio</strong> q<del>a,b</del>/p<del>a</del>p<del>b</del> shows which model is more likely</p>
+<p>When two residues a and b are aligned, the <strong>probability of a match</strong> is <strong>q<sub>a,b</sub></strong> since the residues are correlated </p>
+<h2 id="Basic-idea-1"><a href="#Basic-idea-1" class="headerlink" title="Basic idea"></a>Basic idea</h2><p>The <strong>odds ratio</strong> q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> shows which model is more likely</p>
 <ul>
-<li>When q<del>a,b</del>/p<del>a</del>p<del>b</del> &gt;1 the evolutionary model explains better the alignment </li>
+<li>When q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> &gt;1 the evolutionary model explains better the alignment </li>
 </ul>
 <p>The model has to explain the complete alignment</p>
 <ul>
@@ -549,7 +549,7 @@
 <p><img src="/images/ADVMB/1914356.png"></p>
 <p>The <strong>log-odds ratio</strong> is the value that is written in a substitution matrix</p>
 <p><img src="/images/ADVMB/1914357.png"></p>
-<h2 id="Substitution-matrices"><a href="#Substitution-matrices" class="headerlink" title="Substitution matrices"></a>Substitution matrices</h2><p>Two methods have been used to determine the values of all S<del>a,b</del></p>
+<h2 id="Substitution-matrices"><a href="#Substitution-matrices" class="headerlink" title="Substitution matrices"></a>Substitution matrices</h2><p>Two methods have been used to determine the values of all S<sub>a,b</sub></p>
 <ul>
 <li>All PAM matrices were derived from one manually constructed matrix (PAM1)<ul>
 <li>71 groups of manually aligned protein sequences (no gaps) were used and in each group there was an identity of at least 85% between each sequence</li>
@@ -614,9 +614,9 @@
 <p>Make the penalties on <em>S(i,0)</em> en <em>S(0,j)</em> equal to <em>0</em>. in this way we remove the obligation that the sequences have to align at the start and the end of the sequences</p>
 <p><img src="/images/ADVMB/1984353.png" alt="The backtracking starts at the position in the last row that has the highest score"></p>
 <p>All the previous methods used a linear penalty for the gaps in the alignment</p>
-<p><em>g(n<del>gap</del>) = -n<del>gap</del>E</em> ~ linear gap penalty</p>
+<p><em>g(n<sub>gap</sub>) = -n<sub>gap</sub>E</em> ~ linear gap penalty</p>
 <p>As mentioned earlier, we an differentiate between starting a gap and extending one</p>
-<p><em>g(n<del>gap</del>) = -I-(n<del>gap</del>-1) E</em> ~ Affine gap penalty</p>
+<p><em>g(n<sub>gap</sub>) = -I-(n<sub>gap</sub>-1) E</em> ~ Affine gap penalty</p>
 <p><strong>How does the DP algorithm change?</strong></p>
 <p>Do we open or extend a gap?</p>
 <p><img src="/images/ADVMB/1984354.png"></p>

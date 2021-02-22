@@ -503,39 +503,39 @@
 <h2 id="Reduction"><a href="#Reduction" class="headerlink" title="Reduction"></a>Reduction</h2><p>A conceptual ER model can be <strong><em>reduced</em></strong> to a set of relation schemas (relational database schema)</p>
 <p>The quality of the resulting set of relation schemas depends on the quality of the original ER design (there is no magic)</p>
 <p>In the following we discuss the reduction of the different ER model concepts introduced earlier</p>
-<h3 id="Strong-Entity-Sets"><a href="#Strong-Entity-Sets" class="headerlink" title="Strong Entity Sets"></a>Strong Entity Sets</h3><p>A strong entity set <em>E</em> with only simple attributes <em>a<del>1</del></em>,…, <em>a<del>n</del></em> is mapped to a relation <em>R</em> with attributes <em>a<del>1</del></em>,…, <em>a<del>n</del></em></p>
+<h3 id="Strong-Entity-Sets"><a href="#Strong-Entity-Sets" class="headerlink" title="Strong Entity Sets"></a>Strong Entity Sets</h3><p>A strong entity set <em>E</em> with only simple attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> is mapped to a relation <em>R</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em></p>
 <ul>
 <li>the primary key of the entity set <em>E</em> becomes the primary key of the relation <em>R</em></li>
 </ul>
 <p><img src="/images/DB/134345.png"></p>
-<h4 id="Composite-Attributes"><a href="#Composite-Attributes" class="headerlink" title="Composite Attributes"></a>Composite Attributes</h4><p>For each component of a composite attribute, we create an attribute <em>a<del>i</del></em> in the relation <em>R</em></p>
+<h4 id="Composite-Attributes"><a href="#Composite-Attributes" class="headerlink" title="Composite Attributes"></a>Composite Attributes</h4><p>For each component of a composite attribute, we create an attribute <em>a<sub>i</sub></em> in the relation <em>R</em></p>
 <ul>
 <li>no special attribute is created for the composite attribute itself</li>
 </ul>
 <p><img src="/images/DB/1343450.png"></p>
 <h4 id="Multivalued-Attributes"><a href="#Multivalued-Attributes" class="headerlink" title="Multivalued Attributes"></a>Multivalued Attributes</h4><p>Multivalued attributes are treated separately since a relation should only contain attributes with atomic values</p>
 <ul>
-<li>for each multivalued attribute <em>a<del>i</del></em> of an entity set <em>E</em>, we create a new relation <em>S</em> containing the attribute <em>a<del>i</del></em> as well as the primary key attributes of the relation <em>R</em> that is created for the entity set <em>E</em><ul>
+<li>for each multivalued attribute <em>a<sub>i</sub></em> of an entity set <em>E</em>, we create a new relation <em>S</em> containing the attribute <em>a<sub>i</sub></em> as well as the primary key attributes of the relation <em>R</em> that is created for the entity set <em>E</em><ul>
 <li>define a foreign key constraint to the original relation <em>R</em></li>
 </ul>
 </li>
 </ul>
 <p><img src="/images/DB/1343451.png"></p>
-<h3 id="Weak-Entity-Sets"><a href="#Weak-Entity-Sets" class="headerlink" title="Weak Entity Sets"></a>Weak Entity Sets</h3><p>A weak entity set <em>E</em> with attributes <em>a<del>1</del></em>,…, <em>a<del>n</del></em> is mapped to a relation <em>R</em> with attributes <em>a<del>1</del></em>,…, <em>a<del>n</del></em> combined with the primary key attributes <em>b<del>1</del></em>,…, <em>b<del>m</del></em> of the identifying entity set <em>F</em></p>
+<h3 id="Weak-Entity-Sets"><a href="#Weak-Entity-Sets" class="headerlink" title="Weak Entity Sets"></a>Weak Entity Sets</h3><p>A weak entity set <em>E</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> is mapped to a relation <em>R</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> combined with the primary key attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> of the identifying entity set <em>F</em></p>
 <ul>
 <li>the primary key of <em>R</em> is defined by the primary key attributes of the <strong><em>identifying entity</em></strong> set <em>F</em> <strong><em>combined</em></strong> with the <strong><em>discriminator</em></strong> of <em>E</em></li>
-<li>a <strong><em>foreign key constraint</em></strong> is defined from the attributes <em>b<del>1</del></em>,…, <em>b<del>m</del></em> to the primary key of the relation that is created for the identifying entity set <em>F</em></li>
+<li>a <strong><em>foreign key constraint</em></strong> is defined from the attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> to the primary key of the relation that is created for the identifying entity set <em>F</em></li>
 </ul>
 <p><img src="/images/DB/1343452.png"></p>
-<h3 id="Relationship-Sets"><a href="#Relationship-Sets" class="headerlink" title="Relationship Sets"></a>Relationship Sets</h3><p>A relationship set over the entity sets <em>E<del>1</del></em>,…, <em>E<del>n</del></em> with the optional descriptive attributes <em>b<del>1</del></em>,…, <em>b<del>m</del></em> is mapped to a relation <em>R</em> with the primary key attributes of <em>E<del>1</del></em>,…, <em>E<del>n</del></em> combined with <em>b<del>1</del></em>,…, <em>b<del>m</del></em></p>
+<h3 id="Relationship-Sets"><a href="#Relationship-Sets" class="headerlink" title="Relationship Sets"></a>Relationship Sets</h3><p>A relationship set over the entity sets <em>E<sub>1</sub></em>,…, <em>E<sub>n</sub></em> with the optional descriptive attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> is mapped to a relation <em>R</em> with the primary key attributes of <em>E<sub>n</sub></em> combined with <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em></p>
 <p>The primary key of relation <em>R</em> is defined as follows</p>
 <ul>
 <li>binary many-to-many relationship<ul>
-<li>union of all primary key attributes of <em>E<del>1</del></em> and <em>E<del>2</del></em></li>
+<li>union of all primary key attributes of <em>E<sub>1</sub></em> and <em>E<sub>2</sub></em></li>
 </ul>
 </li>
 <li>binary one-to-one relationship<ul>
-<li>choose the primary key of <em>E<del>1</del></em> and <em>E<del>2</del></em></li>
+<li>choose the primary key of <em>E<sub>1</sub></em> and <em>E<sub>2</sub></em></li>
 </ul>
 </li>
 <li>binary one-to-many or many-to-one relationship<ul>
@@ -543,16 +543,16 @@
 </ul>
 </li>
 <li>n-ary relationship without cardinality constraints<ul>
-<li>union of all primary key attributes of <em>E<del>1</del></em>,…, <em>E<del>n</del></em></li>
+<li>union of all primary key attributes of <em>E<sub>1</sub></em>,…, <em>E<sub>n</sub></em></li>
 </ul>
 </li>
-<li>n-ary relationship with one 0..1 or 1..1 cardinality constraint over the entity set <em>E<del>j</del></em><ul>
-<li>union of all primary key attributes of <em>E<del>1</del></em>,…, <em>E<del>n</del></em> , except the primary key of <em>E<del>j</del></em></li>
+<li>n-ary relationship with one 0..1 or 1..1 cardinality constraint over the entity set <em>E<sub>j</sub></em><ul>
+<li>union of all primary key attributes of <em>E<sub>1</sub></em>,…, <em>E<sub>n</sub></em> , except the primary key of <em>E<sub>j</sub></em></li>
 <li>note that we allow only one such 0..1 or 1..1 cardinality constraint for n-ary relationships</li>
 </ul>
 </li>
 </ul>
-<p>A <strong><em>foreign key constraint</em></strong> is defined for each set of primary key attributes (provided by the entity set <em>E<del>i</del></em> ) to the primary key of the corresponding relation that is defined for <em>E<del>i</del></em></p>
+<p>A <strong><em>foreign key constraint</em></strong> is defined for each set of primary key attributes (provided by the entity set <em>E<sub>i</sub></em> ) to the primary key of the corresponding relation that is defined for <em>E<sub>i</sub></em></p>
 <p><img src="/images/DB/1343453.png"></p>
 <p><img src="/images/DB/1343454.png"></p>
 <h3 id="Weak-Entity-Existence-Relationship"><a href="#Weak-Entity-Existence-Relationship" class="headerlink" title="Weak Entity Existence Relationship"></a>Weak Entity Existence Relationship</h3><p>The special relationship set from a weak entity set to its defining entity set is always a many-to-one relationship</p>
@@ -586,7 +586,10 @@
 <li>allow us to <strong><em>easily retrieve information</em></strong></li>
 </ul>
 <p>The quality of the set of schemas resulting from a <strong><em>reduction</em></strong> (top-down design) depends on how good the original ER design was</p>
-<p>In a <strong><em>design by decomposition</em></strong> approach (bottom-up design) we need a way to reduce any redundancy via a decomposition process § split large relation schemas into multiple smaller relation schemas</p>
+<p>In a <strong><em>design by decomposition</em></strong> approach (bottom-up design) we need a way to reduce any redundancy via a decomposition process</p>
+<ul>
+<li>split large relation schemas into multiple smaller relation schemas</li>
+</ul>
 <h3 id="Update-Anomalies"><a href="#Update-Anomalies" class="headerlink" title="Update Anomalies"></a>Update Anomalies</h3><p><strong><em>Insertion anomaly</em></strong></p>
 <ul>
 <li>redundant information has to be kept consistent<ul>
@@ -674,7 +677,7 @@
 <li>multivalued attributes</li>
 </ul>
 <p>In the reduction process, we remove this substructure from attributes to create a relational model with atomic attribute values only</p>
-<p>A relation schema <em>R</em> is in <strong><em>first normal form (1NF)</em></strong> if the domains <em>D<del>1</del></em>,…, <em>D<del>n</del></em> of all attributes <em>a<del>1</del></em>,…, <em>a<del>n</del></em> of <em>R</em> are <strong><em>atomic</em></strong></p>
+<p>A relation schema <em>R</em> is in <strong><em>first normal form (1NF)</em></strong> if the domains <em>D<sub>1</sub></em>,…, <em>D<sub>n</sub></em> of all attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> of <em>R</em> are <strong><em>atomic</em></strong></p>
 <ul>
 <li>no composite attributes or attributes with a set of values</li>
 <li>the intersection of each row and column contains <strong><em>one and only one value</em></strong></li>
@@ -696,7 +699,7 @@
 <p>A <strong><em>functional dependency</em></strong> can be used to express constraints (generalisation of keys) over a set of <strong><em>attributes (determinant)</em></strong> that <strong><em>uniquely identify a set of other attributes (dependent attributes)</em></strong></p>
 <p>For a relation schema <em>R</em> with α <strong>⊆</strong> <em>R</em> and β <strong>⊆</strong> <em>R</em> the functional dependency α → β holds on <em>R</em>, if for any <em>r</em>(<em>R</em>)</p>
 <ul>
-<li>∀ <em>t<del>1</del></em>,<em>t<del>2</del></em> ∈ <em>r</em>(<em>R</em>) with <em>t<del>1</del></em>[α] = <em>t<del>2</del></em>[α] → <em>t<del>1</del></em>[β] = <em>t<del>2</del></em>[β]</li>
+<li>∀ <em>t<sub>1</sub></em>,<em>t<sub>2</sub></em> ∈ <em>r</em>(<em>R</em>) with <em>t<sub>1</sub></em>[α] = <em>t<sub>2</sub></em>[α] → <em>t<sub>1</sub></em>[β] = <em>t<sub>2</sub></em>[β]</li>
 </ul>
 <p>Note that any <em>K</em> <strong>⊆</strong> <em>R</em> is a superkey if <em>K</em> → <em>R</em></p>
 <ul>
@@ -718,7 +721,7 @@
 <li>if the determinant is not minimal, we talk about a <strong><em>partial functional dependency</em></strong> (e.g. <em>AD → B</em> in the example)</li>
 </ul>
 <p>For a relation <em>r</em>(<em>R</em>) with α → β and β → γ we say that γ is <strong><em>transitively dependent</em></strong> on α via β</p>
-<h4 id="Closure-of-Attributes"><a href="#Closure-of-Attributes" class="headerlink" title="Closure of Attributes"></a>Closure of Attributes</h4><p>For a given relation schema <em>R</em>, a number of functional dependencies and a set of attributes α <strong>⊆</strong> <em>R</em>, the <strong><em>closure</em></strong> a^+^ is defined by all attributes <em>B<del>i</del></em> such that α → <em>B<del>i</del></em></p>
+<h4 id="Closure-of-Attributes"><a href="#Closure-of-Attributes" class="headerlink" title="Closure of Attributes"></a>Closure of Attributes</h4><p>For a given relation schema <em>R</em>, a number of functional dependencies and a set of attributes α <strong>⊆</strong> <em>R</em>, the <strong><em>closure</em></strong> a^+^ is defined by all attributes <em>B<sub>i</sub></em> such that α → <em>B<sub>i</sub></em></p>
 <p>Computing the closure</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Initialise the set s with the attributes of α</span><br><span class="line">Repeat until the set s does not grow anymore &#123;</span><br><span class="line"> if there is a functional dependency β → γ and β is in s, then</span><br><span class="line"> add γ to the set s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If the closure a^+^ contains all attributes of the relation schema <em>R</em>, then the attributes α form a superkey of <em>R</em></p>
@@ -780,11 +783,11 @@
 <li>§ relations with single attribute keys are automatically in 2NF</li>
 </ul>
 <p><img src="/images/DB/2843454.png"></p>
-<h4 id="Lossless-Decomposition"><a href="#Lossless-Decomposition" class="headerlink" title="Lossless Decomposition"></a>Lossless Decomposition</h4><p>Given a relation schema <em>R</em> and the two decompositions <em>R<del>1</del></em> and <em>R<del>2</del></em> of R, we say that <em>R<del>1</del></em> and <em>R<del>2</del></em> form a <strong><em>lossless decomposition</em></strong> if <em>π<del>R1</del></em> (r) ⋈ <em>π<del>R2</del></em> (r) = r</p>
+<h4 id="Lossless-Decomposition"><a href="#Lossless-Decomposition" class="headerlink" title="Lossless Decomposition"></a>Lossless Decomposition</h4><p>Given a relation schema <em>R</em> and the two decompositions <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> of R, we say that <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a <strong><em>lossless decomposition</em></strong> if <em>π<sub>R1</sub></em> (r) ⋈ <em>π<sub>R2</sub></em> (r) = r</p>
 <p>Let <em>F</em> be a set of functional dependencies on <em>R</em></p>
 <ul>
-<li><em>R<del>1</del></em> and <em>R<del>2</del></em> form a lossless decomposition of <em>R</em> if either <em>R<del>1</del></em> ∩ <em>R<del>2</del></em> → <em>R<del>1</del></em> or <em>R<del>1</del></em> ∩ <em>R<del>2</del></em> → <em>R<del>1</del></em> are in <em>F^+^</em><ul>
-<li>this means that <em>R<del>1</del></em> ∩ <em>R<del>2</del></em> is a superkey of <em>R<del>1</del></em> or <em>R<del>2</del></em> </li>
+<li><em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a lossless decomposition of <em>R</em> if either <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> or <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> are in <em>F^+^</em><ul>
+<li>this means that <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> is a superkey of <em>R<sub>1</sub></em> or <em>R<sub>2</sub></em> </li>
 </ul>
 </li>
 </ul>
@@ -792,8 +795,8 @@
 <ul>
 <li>α → β is a trivial functional dependency (i.e. β <strong>⊆</strong> α)</li>
 <li>α is a superkey of <em>R</em></li>
-<li>each attribute <em>A<del>i</del></em> in β — α is contained in a candidate key of <em>R</em><ul>
-<li>note that each <em>A<del>i</del></em> can be in different candidate keys</li>
+<li>each attribute <em>A<sub>i</sub></em> in β — α is contained in a candidate key of <em>R</em><ul>
+<li>note that each <em>A<sub>i</sub></em> can be in different candidate keys</li>
 </ul>
 </li>
 </ul>
@@ -819,7 +822,7 @@
 <p>Any <strong><em>relation</em></strong> that is <strong><em>in BCNF is also in 3NF</em></strong> since the BCNF conditions are equivalent to the first two 3NF conditions</p>
 <h5 id="BCNF-Decomposition"><a href="#BCNF-Decomposition" class="headerlink" title="BCNF Decomposition"></a>BCNF Decomposition</h5><p>If a relation <em>R</em> is not in BCNF, then there exists a least one nontrivial functional dependency α → β where α is <strong><em>not a superkey</em></strong> of <em>R</em></p>
 <ul>
-<li>the relation <em>R</em> can then be <strong><em>decomposed</em></strong> into the two relation schemas <em>R<del>1</del></em> (α ∪ β) and <em>R<del>2</del></em> (<em>R</em> - (β - α))</li>
+<li>the relation <em>R</em> can then be <strong><em>decomposed</em></strong> into the two relation schemas <em>R<sub>1</sub></em> (α ∪ β) and <em>R<sub>2</sub></em> (<em>R</em> - (β - α))</li>
 </ul>
 <p>We can for example apply the BCNF decomposition to the previous Prize relation schema example with the functional dependency <em>winner</em> → <em>birthdate</em></p>
 <ul>
@@ -830,12 +833,12 @@
 <h5 id="Multivalued-Dependencies"><a href="#Multivalued-Dependencies" class="headerlink" title="Multivalued Dependencies"></a>Multivalued Dependencies</h5><p>Some relation schemas that are in BCNF may still contain redundant information </p>
 <p>The fourth normal form (4NF) deals with some of these problems based on multivalued dependencies</p>
 <ul>
-<li>for a given relation schema <em>R</em> with α <strong>⊆</strong> <em>R</em> and β <strong>⊆</strong> <em>R</em> the multivalued dependency α ↠ β holds if for all pairs of tuples <em>t<del>1</del></em> and <em>t<del>2</del></em> in <em>r</em>(<em>R</em>) (with <em>t<del>1</del></em>[α] = <em>t<del>2</del></em>[α]) there exist tuples <em>t<del>3</del></em> and <em>t<del>4</del></em> in <em>r</em>(<em>R</em>) such that<ul>
-<li><em>t<del>1</del></em>[α] = <em>t<del>2</del></em>[α] = <em>t<del>3</del></em>[α] = <em>t<del>4</del></em>[α]</li>
-<li><em>t<del>3</del></em>[β] = <em>t<del>1</del></em>[β]</li>
-<li><em>t<del>3</del></em>[<em>R</em> - β] = <em>t<del>2</del></em>[<em>R</em> - β]</li>
-<li><em>t<del>4</del></em>[β] = <em>t<del>2</del></em>[β]]</li>
-<li><em>t<del>4</del></em>[<em>R</em> - β] = <em>t<del>1</del></em>[<em>R</em> - β]</li>
+<li>for a given relation schema <em>R</em> with α <strong>⊆</strong> <em>R</em> and β <strong>⊆</strong> <em>R</em> the multivalued dependency α ↠ β holds if for all pairs of tuples <em>t<sub>1</sub></em> and <em>t<sub>2</sub></em> in <em>r</em>(<em>R</em>) (with <em>t<sub>1</sub></em>[α] = <em>t<sub>2</sub></em>[α]) there exist tuples <em>t<sub>3</sub></em> and <em>t<sub>4</sub></em> in <em>r</em>(<em>R</em>) such that<ul>
+<li><em>t<sub>1</sub></em>[α] = <em>t<sub>2</sub></em>[α] = <em>t<sub>3</sub></em>[α] = <em>t<sub>4</sub></em>[α]</li>
+<li><em>t<sub>3</sub></em>[β] = <em>t<sub>1</sub></em>[β]</li>
+<li><em>t<sub>3</sub></em>[<em>R</em> - β] = <em>t<sub>2</sub></em>[<em>R</em> - β]</li>
+<li><em>t<sub>4</sub></em>[β] = <em>t<sub>2</sub></em>[β]]</li>
+<li><em>t<sub>4</sub></em>[<em>R</em> - β] = <em>t<sub>1</sub></em>[<em>R</em> - β]</li>
 </ul>
 </li>
 </ul>

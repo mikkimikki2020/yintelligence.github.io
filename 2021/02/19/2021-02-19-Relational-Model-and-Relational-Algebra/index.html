@@ -521,10 +521,10 @@
 <ul>
 <li>data independence</li>
 </ul>
-<h2 id="Relation-52-23"><a href="#Relation-52-23" class="headerlink" title="Relation 52:23"></a>Relation 52:23</h2><p>The column headers of a table are called <strong><em>attributes</em></strong> and for each attribute <em>a<del>i</del></em> there is a set of permitted values called the <strong><em>domain D<del>i</del></em></strong> of <em>a<del>i</del></em></p>
-<p>Given the domains <em>D<del>1</del></em>, <em>D<del>2</del></em>, …, <em>D<del>n</del></em>, a <strong><em>relation r</em></strong> is defined as a subset of the cartesian product <em>D<del>1</del></em> × <em>D<del>2</del></em> × … × <em>D<del>n</del></em></p>
+<h2 id="Relation-52-23"><a href="#Relation-52-23" class="headerlink" title="Relation 52:23"></a>Relation 52:23</h2><p>The column headers of a table are called <strong><em>attributes</em></strong> and for each attribute <em>a<sub>i</sub></em> there is a set of permitted values called the <strong><em>domain D<sub>i</sub></em></strong> of <em>a<sub>i</sub></em></p>
+<p>Given the domains <em>D<sub>1</sub></em>, <em>D<sub>2</sub></em>, …, <em>D<sub>n</sub></em>, a <strong><em>relation r</em></strong> is defined as a subset of the cartesian product <em>D<sub>1</sub></em> × <em>D<sub>2</sub></em> × … × <em>D<sub>n</sub></em></p>
 <p><img src="/images/DB/0424290.png"></p>
-<p>A relation r is a <strong><em>set of n-ary tuples</em></strong> <em>t<del>i</del></em> = (<em>a<del>1</del></em>, <em>a<del>2</del></em>,…, <em>a<del>n</del></em>) where each <em>a<del>i</del></em> ∈ <em>D<del>i</del></em></p>
+<p>A relation r is a <strong><em>set of n-ary tuples</em></strong> <em>t<sub>i</sub></em> = (<em>a<sub>1</sub></em>, <em>a<sub>2</sub></em>,…, <em>a<sub>n</sub></em>) where each <em>a<sub>i</sub></em> ∈ <em>D<sub>i</sub></em></p>
 <ul>
 <li>the number of attributes is called a relation’s <strong><em>degree</em></strong></li>
 <li>the number of tuples is called a relation’s <strong><em>cardinality</em></strong></li>
@@ -539,7 +539,7 @@
 <li>all members of the domain have to be indivisible units</li>
 <li>a relation with only atomic values is <strong><em>normalised (first normal form)</em></strong></li>
 </ul>
-<p>Multiple attributes can have the same domain <em>D<del>i</del></em></p>
+<p>Multiple attributes can have the same domain <em>D<sub>i</sub></em></p>
 <ul>
 <li>we will see later how the domain types can be defined (in SQL)</li>
 </ul>
@@ -547,7 +547,7 @@
 <ul>
 <li>its domain is defined by the set of all tuples</li>
 </ul>
-<p>The special <strong><em>null</em></strong> value is part of any domain <em>D<del>i</del></em></p>
+<p>The special <strong><em>null</em></strong> value is part of any domain <em>D<sub>i</sub></em></p>
 <ul>
 <li>used to represent an <strong><em><u>unknown or non-existing value</u></em></strong></li>
 <li>null values are not easy to handle (not the same as empty string)<ul>
@@ -590,7 +590,7 @@
 </tbody></table>
 <h2 id="Database-Schema-1-04-28"><a href="#Database-Schema-1-04-28" class="headerlink" title="Database Schema 1:04:28"></a>Database Schema 1:04:28</h2><p>The logical design of a database is defined by the <strong><em>database schema</em></strong> </p>
 <p>A <strong><em>database</em></strong> <strong><em>instance</em></strong> is a snapshot of the data stored in a database at a given time </p>
-<p>A <strong><em>relation schema</em></strong> <em>R</em> = (<em>A<del>1</del></em>, <em>A<del>2</del></em>,…, <em>A<del>n</del></em>) is defined by a list of attributes</p>
+<p>A <strong><em>relation schema</em></strong> <em>R</em> = (<em>A<sub>1</sub></em>, <em>A<sub>2</sub></em>,…, <em>A<sub>n</sub></em>) is defined by a list of attributes</p>
 <ul>
 <li>by convention, the name of a relation schema starts with an uppercase letter (in contrast to relations)<ul>
 <li>e.g. Customer (<u>customerID</u>, name, street, postcode, city)</li>
@@ -605,7 +605,7 @@
 <h2 id="Keys-1-06-52"><a href="#Keys-1-06-52" class="headerlink" title="Keys 1:06:52"></a>Keys 1:06:52</h2><p>For the keys we use the same terminology as introduced earlier for the ER model</p>
 <p><em>K</em> <strong>⊆</strong> <em>R</em> is a <strong><em>superkey</em></strong> of <em>R</em> if the values of <em>K</em> uniquely identify any tuple of possible relation instances <em>r(R)</em></p>
 <ul>
-<li><em>t<del>1</del></em> and <em>t<del>2</del></em> ∈ <em>r</em> and <em>t<del>1</del></em> ≠ <em>t<del>2</del></em> -&gt; <em>t<del>1</del>[K]</em> ≠ <em>t<del>2</del>[K]</em> </li>
+<li><em>t<sub>1</sub></em> and <em>t<sub>2</sub></em> ∈ <em>r</em> and <em>t<sub>1</sub></em> ≠ <em>t<sub>2</sub></em> -&gt; <em>t<sub>1</sub>[K]</em> ≠ <em>t<sub>2</sub>[K]</em> </li>
 <li>e.g. {cdID} and {cdID, name} are both superkeys of CD</li>
 </ul>
 <p><em>K</em> is a <strong><em>candidate key</em></strong> if <em>K</em> is minimal</p>
@@ -666,13 +666,13 @@
 <li><em>outer join</em></li>
 </ul>
 <h3 id="Selection-σ"><a href="#Selection-σ" class="headerlink" title="Selection (σ)"></a>Selection (σ)</h3><p>Goal: <strong><em>Select specific tuples (rows) from a relation (table)</em></strong></p>
-<p><strong>σ<del>p</del>(<em>r</em>) = {<em>t</em> | <em>t</em> ∈ <em>r</em> and <em>p</em>(<em>t</em>)}</strong></p>
+<p><strong>σ<sub>p</sub>(<em>r</em>) = {<em>t</em> | <em>t</em> ∈ <em>r</em> and <em>p</em>(<em>t</em>)}</strong></p>
 <ul>
 <li><em>p</em> is a <strong>selection predicate</strong><ul>
-<li>consists of terms <em>p<del>i</del></em> connected by an <strong>and (∧)</strong>, <strong>or (∨)</strong> or <strong>not (¬)</strong></li>
+<li>consists of terms <em>p<sub>i</sub></em> connected by an <strong>and (∧)</strong>, <strong>or (∨)</strong> or <strong>not (¬)</strong></li>
 </ul>
 </li>
-<li>a term <em>p<del>i</del></em> has the form <em>attribute<del>m</del></em> <strong><em>operator</em></strong> <em>attribute<del>n</del></em> or <em>constant</em><ul>
+<li>a term <em>p<sub>i</sub></em> has the form <em>attribute<sub>m</sub></em> <strong><em>operator</em></strong> <em>attribute<sub>n</sub></em> or <em>constant</em><ul>
 <li>the available operators are: =, ≠, &gt;, &lt;, ≥, ≤</li>
 </ul>
 </li>
@@ -689,17 +689,17 @@
 <li>SELECT in SQL corresponds to a projection in relational algebra</li>
 </ul>
 <h3 id="Projection-π"><a href="#Projection-π" class="headerlink" title="Projection (π)"></a>Projection (π)</h3><p>Goal: <strong><em>Select specific attributes (columns) from a relation</em></strong></p>
-<p>π<del>A1,</del> <del>A2,…,</del> <del>Am</del>(<em>r</em>)</p>
+<p>π<sub>A1,</sub> <sub>A2,…,</sub> <sub>Am</sub>(<em>r</em>)</p>
 <ul>
-<li>returns a relation instance that only contains the columns for which an attribute <em>A<del>i</del></em> has been listed</li>
+<li>returns a relation instance that only contains the columns for which an attribute <em>A<sub>i</sub></em> has been listed</li>
 <li><strong><em>duplicate tuples</em></strong> are <strong><em>removed</em></strong> from the resulting relation (set)</li>
 </ul>
 <h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p><em>“Return the name and city of all tuples in the customer relation.”</em></p>
-<p>π<del>name,city</del>(<em>customer</em>)</p>
+<p>π<sub>name,city</sub>(<em>customer</em>)</p>
 <p><img src="/images/DB/0424296.png"></p>
 <h3 id="Composition-of-Relational-Operations"><a href="#Composition-of-Relational-Operations" class="headerlink" title="Composition of Relational Operations"></a>Composition of Relational Operations</h3><p>Since the result of a relational operation is a new single relation instance, multiple <strong><em>operations can be combined</em></strong></p>
 <h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of all customers who live in Zurich.”</em></p>
-<p>π<del>name</del> (σ<del>city</del> <del>=</del> <del>“Zurich”</del> (<em>customer</em>))</p>
+<p>π<sub>name</sub> (σ<sub>city</sub> <sub>=</sub> <sub>“Zurich”</sub> (<em>customer</em>))</p>
 <p><img src="/images/DB/0424291.png"></p>
 <h3 id="Union-⋃"><a href="#Union-⋃" class="headerlink" title="Union: ⋃"></a>Union: ⋃</h3><p>Goal: <strong><em>Unify tuples from two relations</em></strong></p>
 <p><em>r</em> ⋃ <em>s</em> = {<em>t</em> | <em>t</em> ∈ <em>r</em> or <em>t</em> ∈ <em>s</em>}</p>
@@ -708,7 +708,7 @@
 <li>the corresponding attribute domains must have a <strong><em>compatible type</em></strong></li>
 </ul>
 <h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of persons who are either customers or suppliers.”</em></p>
-<p>π<del>name</del> (<em>customer</em>) ⋃ π<del>name</del> (<em>supplier</em>)</p>
+<p>π<sub>name</sub> (<em>customer</em>) ⋃ π<sub>name</sub> (<em>supplier</em>)</p>
 <p><img src="/images/DB/0424292.png"></p>
 <h3 id="Set-Difference-—"><a href="#Set-Difference-—" class="headerlink" title="Set Difference (—)"></a>Set Difference (—)</h3><p>Goal: <strong><em>Find tuples that are in one relation but not in another relation</em></strong></p>
 <p><em>r</em> - <em>s</em> = {<em>t</em> | <em>t</em> ∈ <em>r</em> and <em>t</em> ∉ <em>s</em>}</p>
@@ -718,7 +718,7 @@
 <li>finds tuples that are in a relation <em>r</em> but not in another relation <em>s</em></li>
 </ul>
 <h4 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of suppliers who are no customers.”</em></p>
-<p>π<del>name</del> (<em>customer</em>) — π<del>name</del> (<em>supplier</em>)</p>
+<p>π<sub>name</sub> (<em>customer</em>) — π<sub>name</sub> (<em>supplier</em>)</p>
 <p><img src="/images/DB/0424297.png"></p>
 <h3 id="Cartesian-product-×"><a href="#Cartesian-product-×" class="headerlink" title="Cartesian product (×)"></a>Cartesian product (×)</h3><p>Goal: <strong><em>Combine information from any two relations</em></strong></p>
 <p><em>r</em> × <em>s</em> = {<em>tu</em> | <em>t</em> ∈ <em>r</em> and <em>u</em> ∈ <em>s</em>}</p>
@@ -728,35 +728,35 @@
 </ul>
 </li>
 </ul>
-<h4 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h4><p>π<del>name</del> (<em>customer</em>) × π<del>city</del> (<em>customer</em>)</p>
+<h4 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h4><p>π<sub>name</sub> (<em>customer</em>) × π<sub>city</sub> (<em>customer</em>)</p>
 <p><img src="/images/DB/0424298.png"></p>
 <h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><p><em>“List the names of all customers with at least one order.”</em></p>
-<p>π<del>name</del>(σ<del>customer.customerID</del> <del>=</del> <del>order.customerID</del> (<em>customer</em> × <em>order</em>) )</p>
+<p>π<sub>name</sub>(σ<sub>customer.customerID = order.customerID</sub> (<em>customer</em> × <em>order</em>) )</p>
 <p><img src="/images/DB/0924293.png"></p>
 <p><em>Note that we will later see another operator (natural join) for the combination of two tables based on common attributes</em></p>
 <h3 id="Rename-ρ"><a href="#Rename-ρ" class="headerlink" title="Rename (ρ)"></a>Rename (ρ)</h3><p>Goal: <strong><em>Rename a relation or an attribute</em></strong></p>
-<p>ρ<del>x</del>(<em>E</em>)</p>
+<p>ρ<sub>x</sub>(<em>E</em>)</p>
 <ul>
 <li>renames the result of expression <em>E</em> to <em>x</em></li>
 </ul>
-<p>ρ<del>x(A1,A2,…,An)</del>(<em>E</em>)</p>
+<p>ρ<sub>x(A1,A2,…,An)</sub>(<em>E</em>)</p>
 <ul>
-<li>renames the result of expression <em>E</em> to <em>x</em> and renames the attributes to <em>A<del>1</del></em>, <em>A<del>2</del></em>,…, <em>A<del>n</del></em></li>
+<li>renames the result of expression <em>E</em> to <em>x</em> and renames the attributes to <em>A<sub>1</sub></em>, <em>A<sub>2</sub></em>,…, <em>A<sub>n</sub></em></li>
 </ul>
-<h4 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h4><p>ρ<del>person(name,location)</del>(π<del>name,city</del> (<em>customer</em>))</p>
+<h4 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h4><p>ρ<sub>person(name,location)</sub>(π<sub>name,city</sub> (<em>customer</em>))</p>
 <p><img src="/images/DB/0924294.png"></p>
 <h4 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the price of the most expensive CD in the cd relation.”</em></p>
-<p>π<del>price</del>(<em>cd</em>) - π<del>cd.price</del>(σ<del>cd.price</del> <del>&lt;</del> <del>d.price</del> (<em>cd</em> × ρ*<del>d</del>* (<em>cd</em>)))</p>
+<p>π<sub>price</sub>(<em>cd</em>) - π<sub>cd.price</sub>(σ<sub>cd.price &lt; d.price</sub> (<em>cd</em> × ρ*<sub>d</sub>* (<em>cd</em>)))</p>
 <p><img src="/images/DB/0924295.png"></p>
 <h3 id="Formal-Definition"><a href="#Formal-Definition" class="headerlink" title="Formal Definition"></a>Formal Definition</h3><p>A <strong><em>basic relational algebra expression</em></strong> is either a <strong><em>relation from the database</em></strong> or a <strong><em>constant relation</em></strong></p>
 <p>The set of all relational algebra expressions is defined by：</p>
 <ul>
-<li><em>E<del>1</del></em> ⋃ <em>E<del>2</del></em></li>
-<li><em>E<del>1</del></em> — <em>E<del>2</del></em></li>
-<li><em>E<del>1</del></em> × <em>E<del>2</del></em></li>
-<li>σ<del>p</del>(<em>E<del>1</del></em>)</li>
-<li>π<del>A1,A2,…,Am</del>(<em>E<del>1</del></em>)</li>
-<li>ρ<del>x(A1,A2,…,An)</del>(E<del>1</del>)</li>
+<li><em>E<sub>1</sub></em> ⋃ <em>E<sub>2</sub></em></li>
+<li><em>E<sub>1</sub></em> — <em>E<sub>2</sub></em></li>
+<li><em>E<sub>1</sub></em> × <em>E<sub>2</sub></em></li>
+<li>σ<sub>p</sub>(<em>E<sub>1</sub></em>)</li>
+<li>π<sub>A1,A2,…,Am</sub>(<em>E<sub>1</sub></em>)</li>
+<li>ρ<sub>x(A1,A2,…,An)</sub>(E<sub>1</sub>)</li>
 </ul>
 <h3 id="Set-Intersection"><a href="#Set-Intersection" class="headerlink" title="Set Intersection"></a>Set Intersection</h3><p><em>r</em> ∩ <em>s</em> = {<em>t</em> | <em>t</em> ∈ <em>r</em> or <em>t</em> ∈ <em>s</em>}</p>
 <ul>
@@ -768,36 +768,36 @@
 <li>r ∩ s = r - (r - s)</li>
 </ul>
 <h4 id="Example-8"><a href="#Example-8" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of people who are customers and suppliers.”</em></p>
-<p>π<del>name</del>(<em>customer</em>) ∩ π<del>name</del>(<em>supplier</em>)</p>
+<p>π<sub>name</sub>(<em>customer</em>) ∩ π<sub>name</sub>(<em>supplier</em>)</p>
 <p><img src="/images/DB/0924296.png"></p>
-<h3 id="Natural-Join-⋈"><a href="#Natural-Join-⋈" class="headerlink" title="Natural Join (⋈)"></a>Natural Join (⋈)</h3><p><em>r</em> ⋈ <em>s</em> = π<del>R⋃S</del> (σ<del>r.A1</del> <del>=</del> <del>s.A1</del> <del>∧</del> <del>r.A2</del> <del>=</del> <del>s.A2</del> <del>∧</del> <del>…</del> <del>∧</del> <del>r.An</del> <del>=</del> <del>s.An</del> (<em>r</em> × <em>s</em>))</p>
+<h3 id="Natural-Join-⋈"><a href="#Natural-Join-⋈" class="headerlink" title="Natural Join (⋈)"></a>Natural Join (⋈)</h3><p><em>r</em> ⋈ <em>s</em> = π<sub>R⋃S</sub> (σ<sub>r.A1 = s.A1 ∧ r.A2 = s.A2 ∧ … ∧ r.An = s.An</sub> (<em>r</em> × <em>s</em>))</p>
 <p>Keep all tuples of the cartesian product <em>r</em> × <em>s</em> that have the same value for the shared attributes of <em>r</em>(<em>R</em>) and <em>s</em>(<em>S</em>)</p>
 <ul>
 <li>the natural join is an associative operation: <em>r</em> ⋈ <em>s</em> ⋈ <em>t</em> = <em>r</em> ⋈ (<em>s</em> ⋈ <em>t</em>)</li>
 </ul>
 <h4 id="Example-9"><a href="#Example-9" class="headerlink" title="Example"></a>Example</h4><p><em>“List the name and street of customers whose order is still open.”</em></p>
-<p>π<del>name,street</del>(σ<del>status=”open”</del>(<em>order</em> ⋈ <em>customer</em>))</p>
+<p>π<sub>name,street</sub>(σ<sub>status=”open”</sub>(<em>order</em> ⋈ <em>customer</em>))</p>
 <p><img src="/images/DB/0924297.png"></p>
 <p>note that we could do the selection first (more efficient)</p>
 <ul>
 <li>we will review this later when discussing query optimisation</li>
 </ul>
-<h3 id="Theta-Join-θ-and-Equijoin"><a href="#Theta-Join-θ-and-Equijoin" class="headerlink" title="Theta Join (θ) and Equijoin"></a>Theta Join (θ) and Equijoin</h3><p> <em>r</em> ⋈<del>p</del> <em>s</em> =σ<del>p</del>(<em>r</em> × <em>s</em>)</p>
-<p>where the predicate <em>p</em> is of the form r.A<del>i</del> θ s.A<del>j</del> and θ is a comparison operator ( =, ≠, &gt;, &lt;, ≥, ≤)</p>
-<h4 id="Example-10"><a href="#Example-10" class="headerlink" title="Example"></a>Example</h4><p><em>customer</em> ⋈<del>postcode</del> <del>≤</del> <del>duration</del> (ρ<del>cd(cdID,cdName,duration,price,year)</del> (<em>cd</em>))</p>
+<h3 id="Theta-Join-θ-and-Equijoin"><a href="#Theta-Join-θ-and-Equijoin" class="headerlink" title="Theta Join (θ) and Equijoin"></a>Theta Join (θ) and Equijoin</h3><p> <em>r</em> ⋈<sub>p</sub> <em>s</em> =σ<sub>p</sub>(<em>r</em> × <em>s</em>)</p>
+<p>where the predicate <em>p</em> is of the form r.A<sub>i</sub> θ s.A<sub>j</sub> and θ is a comparison operator ( =, ≠, &gt;, &lt;, ≥, ≤)</p>
+<h4 id="Example-10"><a href="#Example-10" class="headerlink" title="Example"></a>Example</h4><p><em>customer</em> ⋈<sub>postcode ≤ duration</sub> (ρ<sub>cd(cdID,cdName,duration,price,year)</sub> (<em>cd</em>))</p>
 <p><img src="/images/DB/0824295.png"></p>
-<p>An equijoin (<em>r</em> ⋈<del>p</del> <em>s</em>) is a special form of a theta join where only the equality operator (=) may be used</p>
+<p>An equijoin (<em>r</em> ⋈<sub>p</sub> <em>s</em>) is a special form of a theta join where only the equality operator (=) may be used</p>
 <ul>
 <li>note that a natural join is a equijoin over all common attributes of a relation r and s</li>
 </ul>
-<h3 id="Semijoin-⋉"><a href="#Semijoin-⋉" class="headerlink" title="Semijoin (⋉)"></a>Semijoin (⋉)</h3><p><em>r</em> ⋉ <em>s</em> = π<del>A1,A2,…,An</del> (<em>r</em> ⋈ <em>s</em>) </p>
+<h3 id="Semijoin-⋉"><a href="#Semijoin-⋉" class="headerlink" title="Semijoin (⋉)"></a>Semijoin (⋉)</h3><p><em>r</em> ⋉ <em>s</em> = π<sub>A1,A2,…,An</sub> (<em>r</em> ⋈ <em>s</em>) </p>
 <ul>
-<li>where <em>A<del>1</del></em>, <em>A<del>2</del></em>,…, <em>A<del>n</del></em> are all the attributes of <em>r</em></li>
+<li>where <em>A<sub>1</sub></em>, <em>A<sub>2</sub></em>,…, <em>A<sub>n</sub></em> are all the attributes of <em>r</em></li>
 </ul>
 <h4 id="Example-11"><a href="#Example-11" class="headerlink" title="Example"></a>Example</h4><p><em>“List the customers whose order is still open.”</em></p>
-<p><em>customer</em> ⋉ σ<del>status=”open”</del> (<em>order</em>)</p>
+<p><em>customer</em> ⋉ σ<sub>status=”open”</sub> (<em>order</em>)</p>
 <p><img src="/images/DB/08242951.png"></p>
-<h3 id="Division-÷"><a href="#Division-÷" class="headerlink" title="Division (÷)"></a>Division (÷)</h3><p><em>r</em> ÷ <em>s</em> =  {<em>t</em> | <em>t</em> ∈ π<del>R-S</del>(<em>r</em>) and ∀ <em>u</em> ∈ <em>s</em> → <em>tu</em> ∈ <em>r</em>}</p>
+<h3 id="Division-÷"><a href="#Division-÷" class="headerlink" title="Division (÷)"></a>Division (÷)</h3><p><em>r</em> ÷ <em>s</em> =  {<em>t</em> | <em>t</em> ∈ π<sub>R-S</sub>(<em>r</em>) and ∀ <em>u</em> ∈ <em>s</em> → <em>tu</em> ∈ <em>r</em>}</p>
 <ul>
 <li>for the relations <em>r</em>(<em>R</em>) and <em>s</em>(<em>S</em>) and <em>S</em> <strong>⊆</strong> <em>R</em></li>
 <li>suited for queries that include the phrase <strong><em>“for all”</em></strong></li>
@@ -805,21 +805,21 @@
 <h4 id="Example-12"><a href="#Example-12" class="headerlink" title="Example"></a>Example</h4><p><em>r</em> ÷ <em>s</em></p>
 <p><img src="/images/DB/08242952.png"></p>
 <h3 id="Assigment-←"><a href="#Assigment-←" class="headerlink" title="Assigment (←)"></a>Assigment (←)</h3><p><em>variable</em> ← <em>E</em></p>
-<p>Works like an assigment in programming languages</p>
-<p>Assigments must always be made to temporaray relation variables</p>
+<p>Works like an assignment in programming languages</p>
+<p>Assignments must always be made to temporary relation variables</p>
 <ul>
 <li>no database modification</li>
 </ul>
 <h4 id="Example-13"><a href="#Example-13" class="headerlink" title="Example"></a>Example</h4><ul>
-<li><em>temp<del>1</del></em> ← π<del>name,</del> <del>street</del>(σ<del>status</del> <del>=</del> <del>“open”</del>(<em>order</em> ⋈ <em>customer</em>))</li>
-<li><em>temp<del>2</del></em> ← π<del>name,</del> <del>street</del>(σ<del>city</del> <del>=</del> <del>“Brussels”</del> (<em>customer</em>))</li>
-<li><em>result</em> ← <em>temp<del>1</del></em> ∪ <em>temp<del>2</del></em></li>
+<li><em>temp<sub>1</sub></em> ← π<sub>name, street</sub>(σ<sub>status = “open”</sub>(<em>order</em> ⋈ <em>customer</em>))</li>
+<li><em>temp<sub>2</sub></em> ← π<sub>name, street</sub>(σ<sub>city = “Brussels”</sub> (<em>customer</em>))</li>
+<li><em>result</em> ← <em>temp<sub>1</sub></em> ∪ <em>temp<sub>2</sub></em></li>
 </ul>
 <p><img src="/images/DB/0824294.png"></p>
-<h3 id="Generalised-Projection-π"><a href="#Generalised-Projection-π" class="headerlink" title="Generalised Projection (π)"></a>Generalised Projection (π)</h3><p>π<del>F1,F2,…,Fm</del>(<em>E</em>)</p>
-<p>generalisation of the project operation that supports the projection to arithmetic expressions <em>F<del>1</del></em>, <em>F<del>2</del></em>,…, <em>F<del>m</del></em></p>
+<h3 id="Generalised-Projection-π"><a href="#Generalised-Projection-π" class="headerlink" title="Generalised Projection (π)"></a>Generalised Projection (π)</h3><p>π<sub>F1,F2,…,Fm</sub>(<em>E</em>)</p>
+<p>generalisation of the project operation that supports the projection to arithmetic expressions <em>F<sub>1</sub></em>, <em>F<sub>2</sub></em>,…, <em>F<sub>m</sub></em></p>
 <h4 id="Example-14"><a href="#Example-14" class="headerlink" title="Example"></a>Example</h4><p><em>“Show a list of the names of all CDs together with a reduced price (80% of the original price).”</em></p>
-<p>π<del>name,</del> <del>price</del> <del>·</del> <del>0.8</del> <del>as</del> <del>reducedPrice</del> (<em>cd</em>)</p>
+<p>π<sub>name, price · 0.8 as reducedPrice</sub> (<em>cd</em>)</p>
 <p><img src="/images/DB/0824293.png"></p>
 <h3 id="Aggregate-Function"><a href="#Aggregate-Function" class="headerlink" title="Aggregate Function"></a>Aggregate Function</h3><p><img src="/images/DB/0824291.png"></p>
 <h4 id="Examples-2"><a href="#Examples-2" class="headerlink" title="Examples"></a>Examples</h4><p><img src="/images/DB/0824292.png"></p>
@@ -847,7 +847,7 @@
 </ul>
 <h4 id="Example-15"><a href="#Example-15" class="headerlink" title="Example"></a>Example</h4><p><em>customer</em> ⟕ <em>order</em></p>
 <p><img src="/images/DB/0824290.png"></p>
-<h3 id="Null-Values"><a href="#Null-Values" class="headerlink" title="Null Values"></a>Null Values</h3><p>A null value means that the value is <strong><em>unknown</em></strong> or <strong><em>nonexistent</em></strong></p>
+<h3 id="Null-Values"><a href="#Null-Values" class="headerlink" title="Null Values"></a>Null Values</h3><p>A null value means that the value is <strong><em>unknown</em></strong> or <strong><em>non-existent</em></strong></p>
 <p>Primary key attributes can never be null (<strong><em>entity integrity</em></strong>)</p>
 <p>The result of an arithmetic operation that involves a null value is null</p>
 <p>For grouping and duplicate elimination null values are treated like other values (two null values are the same)</p>
@@ -858,7 +858,7 @@
 <li>update</li>
 <li>delete</li>
 </ul>
-<p>These operations are defined via the assigment operator</p>
+<p>These operations are defined via the assignment operator</p>
 <h3 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h3><p><em>r ← r</em> ∪ <em>E</em></p>
 <p>To insert new data into a relation we can</p>
 <ul>
@@ -871,13 +871,13 @@
 <p>Update specific values in a tuple <em>r</em></p>
 <p><em>F<del>i</del></em> is either the old value of <em>r</em> or a new value if the attribute has to be updated</p>
 <h4 id="Example-17"><a href="#Example-17" class="headerlink" title="Example"></a>Example</h4><p><em>“Increase the price of all CDs by 10%.”</em></p>
-<p><em>cd</em> ← π<del>cdID,</del> <del>name,</del> <del>duration,</del> <del>price</del> <del>·</del> <del>1.1,</del> <del>year</del> (<em>cd</em>)</p>
+<p><em>cd</em> ← π<sub>cdID, name, duration, price · 1.1, year</sub> (<em>cd</em>)</p>
 <p><img src="/images/DB/0924299.png"></p>
 <h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><p><em>r ← r - E</em></p>
 <p>A delete is expressed similar to a query except that the result is removed from the database</p>
 <p>Cannot remove single attributes</p>
 <h4 id="Example-18"><a href="#Example-18" class="headerlink" title="Example"></a>Example</h4><p><em>“Remove the CD with the name ‘Carcassonne’ from the database.”</em></p>
-<p><em>cd</em> ← <em>cd</em> - σ<del>name=”Carcassonne”</del> (<em>cd</em>)</p>
+<p><em>cd</em> ← <em>cd</em> - σ<sub>name=”Carcassonne”</sub> (<em>cd</em>)</p>
 <p><img src="/images/DB/0924298.png"></p>
 
                 

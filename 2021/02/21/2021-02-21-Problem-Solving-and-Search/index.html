@@ -999,12 +999,12 @@
 </ul>
 <h3 id="Analysing-search-algorithms-for-cost"><a href="#Analysing-search-algorithms-for-cost" class="headerlink" title="Analysing search algorithms for cost"></a>Analysing search algorithms for cost</h3><p>Proving optimality of A*</p>
 <ul>
-<li>Suppose there is a suboptimal goal G<del>2</del> in the agenda <ul>
+<li>Suppose there is a suboptimal goal G<sub>2</sub> in the agenda <ul>
 <li>Let n be an unexpanded node on a shortest path to an optimal goal G</li>
 </ul>
 </li>
-<li>f(G<del>2</del>) = g(G<del>2</del>)+ h(G<del>2</del>)<ul>
-<li>but h(G<del>2</del>) = 0, as it’s a goal </li>
+<li>f(G<sub>2</sub>) = g(G<sub>2</sub>)+ h(G<sub>2</sub>)<ul>
+<li>but h(G<sub>2</sub>) = 0, as it’s a goal </li>
 </ul>
 </li>
 <li>g(G<del>2</del>) &gt; g(G)<ul>
@@ -1015,7 +1015,7 @@
 <li>because h is admissible</li>
 </ul>
 </li>
-<li>Because f(G<del>2</del>) ≥ f(n),A* will never select G<del>2</del> for expansion</li>
+<li>Because f(G<del>2</del>) ≥ f(n),A* will never select G<sub>2</sub> for expansion</li>
 </ul>
 <p>The more accurate h is, the fewer unnecessary nodes will be expanded</p>
 <p><img src="/images/AI/1039152.png"></p>
@@ -1046,14 +1046,14 @@
 </ul>
 </li>
 <li>A* Heuristic must never over-estimate number of steps to goal<ul>
-<li>h<del>1</del> = number of tiles in wrong position</li>
-<li>h<del>2</del> = sum of Manhattan/city-block distances of tiles from their goals</li>
+<li>h<sub>1</sub> = number of tiles in wrong position</li>
+<li>h<sub>2</sub> = sum of Manhattan/city-block distances of tiles from their goals</li>
 </ul>
 </li>
 </ul>
-<p><img src="/images/AI/1039153.png" alt="Table comparing the search costs and eective branching factors for IDS and A* using h1 and h2. Data are averaged over 100 instances of the 8-puzzle, for various solution lengths."></p>
+<p><img src="/images/AI/1039153.png" alt="Table comparing the search costs and elective branching factors for IDS and A* using h1 and h2. Data are averaged over 100 instances of the 8-puzzle, for various solution lengths."></p>
 <ul>
-<li>h<del>2</del> is better than h<del>1</del> which is better than uninformed search</li>
+<li>h<sub>2</sub> is better than h<sub>1</sub> which is better than uninformed search</li>
 <li>Always use a heuristic with higher values,so long as it doesn’t overestimate</li>
 </ul>
 <h2 id="Further-Reading"><a href="#Further-Reading" class="headerlink" title="Further Reading"></a>Further Reading</h2><p>In Chapters 3 &amp; 4 of the textbook you can read more about search including</p>
