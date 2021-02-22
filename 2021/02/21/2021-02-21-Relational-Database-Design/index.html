@@ -725,17 +725,17 @@
 <p>Computing the closure</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Initialise the set s with the attributes of α</span><br><span class="line">Repeat until the set s does not grow anymore &#123;</span><br><span class="line"> if there is a functional dependency β → γ and β is in s, then</span><br><span class="line"> add γ to the set s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If the closure a^+^ contains all attributes of the relation schema <em>R</em>, then the attributes α form a superkey of <em>R</em></p>
-<h4 id="Computation-of-Superkeys"><a href="#Computation-of-Superkeys" class="headerlink" title="Computation of Superkeys"></a>Computation of Superkeys</h4><p>We can test whether α is a superkey for a given relation schema <em>R</em> by checking whether the closure a^+^ contains all attributes of <em>R</em></p>
+<h4 id="Computation-of-Superkeys"><a href="#Computation-of-Superkeys" class="headerlink" title="Computation of Superkeys"></a>Computation of Superkeys</h4><p>We can test whether α is a superkey for a given relation schema <em>R</em> by checking whether the closure a<sup>+</sup> contains all attributes of <em>R</em></p>
 <p>We can further use this approach to <strong><em>find all the superkeys</em></strong> for a relation schema <em>R</em> and a given set of functional dependencies</p>
 <ul>
-<li>check for each set α <strong>⊆</strong> <em>R</em> of attributes whether the closure a^+^ contains all attributes</li>
+<li>check for each set α <strong>⊆</strong> <em>R</em> of attributes whether the closure a<sup>+</sup> contains all attributes</li>
 <li>the search process can be slightly optimised by starting with the smallest possible subsets </li>
 </ul>
-<h4 id="Functional-Dependency-Inference"><a href="#Functional-Dependency-Inference" class="headerlink" title="Functional Dependency Inference"></a>Functional Dependency Inference</h4><p>For a given set <em>F</em> of functional dependencies we can derive new functional dependencies based on a set of <strong><em>axioms</em></strong> to compute the <strong>closure <em>F^+^</em></strong> of <em>F</em></p>
+<h4 id="Functional-Dependency-Inference"><a href="#Functional-Dependency-Inference" class="headerlink" title="Functional Dependency Inference"></a>Functional Dependency Inference</h4><p>For a given set <em>F</em> of functional dependencies we can derive new functional dependencies based on a set of <strong><em>axioms</em></strong> to compute the <strong>closure <em>F<sup>+</sup></em></strong> of <em>F</em></p>
 <ul>
-<li>the closure <em>F^+^</em> includes all functional dependencies that are logically implied by <em>F</em></li>
+<li>the closure <em>F<sup>+</sup></em> includes all functional dependencies that are logically implied by <em>F</em></li>
 </ul>
-<p>Three rules (<strong><em>Armstrong’s axioms</em></strong>) can be used to compute <em>F^+^</em></p>
+<p>Three rules (<strong><em>Armstrong’s axioms</em></strong>) can be used to compute <em>F<sup>+</sup></em></p>
 <ul>
 <li>reflexivity<ul>
 <li>for a given set of attributes α and β <strong>⊆</strong> α, α → β holds (see trivial dependency)</li>
@@ -750,9 +750,9 @@
 </ul>
 </li>
 </ul>
-<p>Armstrong’s axioms are <strong><em>sound</em></strong> (produce only elements of <em>F^+^</em>) and <strong><em>complete</em></strong> (produce all elements in <em>F^+^</em>)</p>
+<p>Armstrong’s axioms are <strong><em>sound</em></strong> (produce only elements of <em>F<sup>+</sup></em>) and <strong><em>complete</em></strong> (produce all elements in <em>F<sup>+</sup></em>)</p>
 <ul>
-<li>since it may take a lot of time to compute <em>F^+^</em> with Armstrong’s axioms only, there exist some additional rules</li>
+<li>since it may take a lot of time to compute <em>F<sup>+</sup></em> with Armstrong’s axioms only, there exist some additional rules</li>
 </ul>
 <p>Decomposition</p>
 <ul>
@@ -780,18 +780,18 @@
 </ul>
 <p>The original Lecturer relation can be losslessly decomposed into two relations which are both in 2NF</p>
 <ul>
-<li>§ relations with single attribute keys are automatically in 2NF</li>
+<li>relations with single attribute keys are automatically in 2NF</li>
 </ul>
 <p><img src="/images/DB/2843454.png"></p>
 <h4 id="Lossless-Decomposition"><a href="#Lossless-Decomposition" class="headerlink" title="Lossless Decomposition"></a>Lossless Decomposition</h4><p>Given a relation schema <em>R</em> and the two decompositions <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> of R, we say that <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a <strong><em>lossless decomposition</em></strong> if <em>π<sub>R1</sub></em> (r) ⋈ <em>π<sub>R2</sub></em> (r) = r</p>
 <p>Let <em>F</em> be a set of functional dependencies on <em>R</em></p>
 <ul>
-<li><em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a lossless decomposition of <em>R</em> if either <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> or <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> are in <em>F^+^</em><ul>
+<li><em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a lossless decomposition of <em>R</em> if either <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> or <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> are in <em>F<sup>+</sup></em><ul>
 <li>this means that <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> is a superkey of <em>R<sub>1</sub></em> or <em>R<sub>2</sub></em> </li>
 </ul>
 </li>
 </ul>
-<h4 id="Third-Normal-Form-3NF"><a href="#Third-Normal-Form-3NF" class="headerlink" title="Third Normal Form (3NF)"></a>Third Normal Form (3NF)</h4><p>A relation schema <em>R</em> is in <strong><em>third normal form</em></strong> <strong><em>(3NF)</em></strong> if it is in 2NF and <strong><em>no non-prime attribute is transitively dependent on a candidate key</em></strong>, i.e. for all functional dependencies α → β in <em>F^+^</em> one of the following has to hold</p>
+<h4 id="Third-Normal-Form-3NF"><a href="#Third-Normal-Form-3NF" class="headerlink" title="Third Normal Form (3NF)"></a>Third Normal Form (3NF)</h4><p>A relation schema <em>R</em> is in <strong><em>third normal form</em></strong> <strong><em>(3NF)</em></strong> if it is in 2NF and <strong><em>no non-prime attribute is transitively dependent on a candidate key</em></strong>, i.e. for all functional dependencies α → β in <em>F<sup>+</sup></em> one of the following has to hold</p>
 <ul>
 <li>α → β is a trivial functional dependency (i.e. β <strong>⊆</strong> α)</li>
 <li>α is a superkey of <em>R</em></li>
@@ -814,7 +814,7 @@
 <p>Decomposition of the Prize relation schema into two 3NF relation schemas</p>
 <p><img src="/images/DB/2843456.png"></p>
 <h4 id="Boyce-Codd-Normal-Form-BCNF"><a href="#Boyce-Codd-Normal-Form-BCNF" class="headerlink" title="Boyce-Codd Normal Form (BCNF)"></a>Boyce-Codd Normal Form (BCNF)</h4><p>The Boyce-Codd normal form is a stronger form of 3NF</p>
-<p>A relation schema <em>R</em> is in Boyce-Codd Normal Form (BCNF) if it is in 3NF and if <strong><em>every determinant is a candidate key</em></strong>, i.e. for all functional dependencies α → β in <em>F^+^</em> one of the following holds</p>
+<p>A relation schema <em>R</em> is in Boyce-Codd Normal Form (BCNF) if it is in 3NF and if <strong><em>every determinant is a candidate key</em></strong>, i.e. for all functional dependencies α → β in <em>F<sup>+</sup></em> one of the following holds</p>
 <ul>
 <li>α → β is a trivial functional dependency (i.e. β <strong>⊆</strong> α)</li>
 <li>α is a superkey of <em>R</em></li>

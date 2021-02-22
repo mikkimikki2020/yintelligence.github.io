@@ -539,7 +539,7 @@
 <p>Example:</p>
 <ul>
 <li>A square root agent<ul>
-<li>given a percept, x, display the positive number, z,such that z^2^ = x</li>
+<li>given a percept, x, display the positive number, z,such that z<sup>2</sup> = x</li>
 </ul>
 </li>
 <li>Ideal mapping could be a lookup table or a function:</li>
@@ -695,7 +695,7 @@
 <p>Example</p>
 <ul>
 <li>A taxi-driver agent wants to overtake but cannot tell if there are cars nearby</li>
-<li>By recording its last look in the rear-view mirror in its internal state, it can judge whether it is safe to pull o</li>
+<li>By recording its last look in the rear-view mirror in its internal state, it can judge whether it is safe to pull</li>
 </ul>
 <p><img src="/images/AI/2021472.png"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Reflex-Agent-State( percept ) returns action</span><br><span class="line">    static: rules, a set of productions</span><br><span class="line">            state, a description of the current world</span><br><span class="line">    state ← Update-State( state, percept )</span><br><span class="line">    rule ← Rule-Match( state, rules )</span><br><span class="line">    action ← Rule-Action( rule )</span><br><span class="line">    state ← Update-State( state, action )</span><br><span class="line">    return action</span><br></pre></td></tr></table></figure>

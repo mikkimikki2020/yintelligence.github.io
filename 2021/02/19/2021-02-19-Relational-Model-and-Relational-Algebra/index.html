@@ -678,11 +678,11 @@
 </li>
 </ul>
 <h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p><em>“Find all tuples in the customer relation that are in the city of Zurich and have a postcode greater than 8010.”</em></p>
-<p>σ<del>city</del> <del>=</del> <del>“Zurich”</del> <del>∧</del> <del>postcode</del> <del>&gt;</del> <del>8010</del> (<em>customer</em>)</p>
+<p>σ<sub>city = “Zurich” ∧ postcode &gt; 8010</sub> (<em>customer</em>)</p>
 <p><img src="/images/DB/0424294.png"></p>
 <h4 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h4><p>A selection predicate may contain a comparison between two attributes</p>
 <p><em>“Find all tuples in the cd relation with a value for the duration attribute that is equal to the year of release.”</em> </p>
-<p>σ<del>duration</del> <del>=</del> <del>year</del> (<em>cd</em>)</p>
+<p>σ<sub>duration = year</sub> (<em>cd</em>)</p>
 <p><img src="/images/DB/0424295.png"></p>
 <h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a><strong>Attention</strong></h4><p>The selection operation in relational algebra has a different meaning than the SELECT statement used in SQL</p>
 <ul>
@@ -867,7 +867,7 @@
 </ul>
 <h4 id="Example-16"><a href="#Example-16" class="headerlink" title="Example"></a>Example</h4><p><em>cd</em> ← <em>cd</em> ∪ {(3, “Chromatic”, 3012, 16.50, 1994)}</p>
 <p><img src="/images/DB/0924290.png"></p>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p><em>r</em> ← π<del>F1,F2,…,Fn</del>(<em>r</em>)</p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p><em>r</em> ← π<sub>F1,F2,…,Fn</sub>(<em>r</em>)</p>
 <p>Update specific values in a tuple <em>r</em></p>
 <p><em>F<del>i</del></em> is either the old value of <em>r</em> or a new value if the attribute has to be updated</p>
 <h4 id="Example-17"><a href="#Example-17" class="headerlink" title="Example"></a>Example</h4><p><em>“Increase the price of all CDs by 10%.”</em></p>
