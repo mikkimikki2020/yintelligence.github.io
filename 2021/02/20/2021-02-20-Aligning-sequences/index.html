@@ -477,11 +477,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Aligning-sequences"><a href="#Aligning-sequences" class="headerlink" title="Aligning sequences"></a>Aligning sequences</h1><h2 id="Why-alignment"><a href="#Why-alignment" class="headerlink" title="Why alignment?"></a>Why alignment?</h2><p><img src="/images/ADVMB/191435.png"></p>
-<h2 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h2><p>Comparison may be difficult due to</p>
+                <h1 id="Aligning-sequences"><a href="#Aligning-sequences" class="headerlink" title="Aligning sequences"></a>Aligning sequences</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=/personal/wim_vranken_vub_be/Documents/Opnamen/Algorithms%20in%20bioinfo_computational%20biology-20210218_100244-Meeting%20Recording.mp4&parent=/personal/wim_vranken_vub_be/Documents/Opnamen&originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0Vkazl3OWRfbXR4UGljMlk1MkJMbnRNQjNZZzZabEdhWlNldnRaNjlTNjE2MEE_cnRpbWU9WDV1eVYwTFkyRWc">Video 7:07 ~ end</a></p>
+<h2 id="Why-alignment-28-30"><a href="#Why-alignment-28-30" class="headerlink" title="Why alignment? 28:30"></a>Why alignment? 28:30</h2><p><img src="/images/ADVMB/191435.png"></p>
+<h2 id="The-problem-30-02"><a href="#The-problem-30-02" class="headerlink" title="The problem 30:02"></a>The problem 30:02</h2><p>Comparison may be difficult due to</p>
 <p><img src="/images/ADVMB/1914350.png"></p>
 <p><strong>Look for the alignment that produces the <u>maximum similarity</u></strong></p>
-<h2 id="Some-definitions"><a href="#Some-definitions" class="headerlink" title="Some definitions"></a>Some definitions</h2><p><strong>Identity</strong></p>
+<h2 id="Some-definitions-31-40"><a href="#Some-definitions-31-40" class="headerlink" title="Some definitions 31:40"></a>Some definitions 31:40</h2><p><strong>Identity</strong></p>
 <p>The level of identity is the fraction of residues which are identical between two sequences</p>
 <ul>
 <li>The identity between two randomly generated sequences is never 0%</li>
@@ -494,37 +495,37 @@
 <ul>
 <li>Homology is a binary relationship</li>
 </ul>
-<h2 id="Why-the-maximum-similarity"><a href="#Why-the-maximum-similarity" class="headerlink" title="Why the maximum similarity?"></a>Why the maximum similarity?</h2><p>If we have two genes or proteins that come from the same common ancestor, we want the <strong>amino acids, which are part of this common ancestor, to align properly</strong></p>
+<h2 id="Why-the-maximum-similarity-34-44"><a href="#Why-the-maximum-similarity-34-44" class="headerlink" title="Why the maximum similarity? 34:44"></a>Why the maximum similarity? 34:44</h2><p>If we have two genes or proteins that come from the same common ancestor, we want the <strong>amino acids, which are part of this common ancestor, to align properly</strong></p>
 <p><img src="/images/ADVMB/1914352.png" alt="The best way to find this mapping is to look for the maximum similarity between sequences"></p>
-<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention !!!"></a>Attention !!!</h2><p>Homology implies a common ancestor <strong>and at the same time it may mean that both sequences have a similar structure or function</strong></p>
+<h2 id="Attention-38-19"><a href="#Attention-38-19" class="headerlink" title="Attention !!! 38:19"></a>Attention !!! 38:19</h2><p>Homology implies a common ancestor <strong>and at the same time it may mean that both sequences have a similar structure or function</strong></p>
 <p>But this is not always the case:</p>
 <p><em>Mutation may result in sequences with different functions or some protein sequences may be completely different, but still perform the same function or two sequences may be similar but have no common ancestor</em></p>
 <p>One always has to be careful and look for additional information to make sure the claim sticks</p>
 <p><img src="/images/ADVMB/1914353.png" alt="Convergent evolution"></p>
 <p>Since the common ancestor is often not known, <strong>an alignment is just an hypothesis about a relationship between two sequences</strong> </p>
 <p><strong><u>A quantitative method is required that takes into account the changes accepted by evolution</u></strong></p>
-<h2 id="A-quantitative-score"><a href="#A-quantitative-score" class="headerlink" title="A quantitative score"></a>A quantitative score</h2><p>The idea is that a quantitative method provides a higher score to the alignment of sequences that are indeed derived from a common ancestor than between sequences that are related by chance </p>
+<h2 id="A-quantitative-score-46-12"><a href="#A-quantitative-score-46-12" class="headerlink" title="A quantitative score 46:12"></a>A quantitative score 46:12</h2><p>The idea is that a quantitative method provides a higher score to the alignment of sequences that are indeed derived from a common ancestor than between sequences that are related by chance </p>
 <p>The best score is for the exact alignment = <strong>Optimal alignment</strong></p>
 <p>There is currently no quantitative method that uses a complete and exact model of evolution</p>
 <p>The best score is therefore not necessarily the correct alignment (in terms of a common ancestor)</p>
 <ul>
 <li>These methods are used to look for similar (MAX) or different (MIN) sequences</li>
 </ul>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><img src="/images/ADVMB/1914354.png"></p>
-<h2 id="Basic-idea"><a href="#Basic-idea" class="headerlink" title="Basic idea"></a>Basic idea</h2><p>There are two models that can explain the similarities and differences between two sequences </p>
+<h2 id="Example-47-29"><a href="#Example-47-29" class="headerlink" title="Example 47:29"></a>Example 47:29</h2><p><img src="/images/ADVMB/1914354.png"></p>
+<h2 id="Basic-idea-49-23"><a href="#Basic-idea-49-23" class="headerlink" title="Basic idea 49:23"></a>Basic idea 49:23</h2><p>There are two models that can explain the similarities and differences between two sequences </p>
 <ul>
 <li>a <strong>random model</strong></li>
 <li>a <strong>non-random model</strong> (<strong>evolutionary</strong>)</li>
 </ul>
 <p>When the <strong>probability of a match</strong> between the sequences is determined, one can decide which of the two models is more likely</p>
-<h3 id="Random-model"><a href="#Random-model" class="headerlink" title="Random model"></a>Random model</h3><p>In this model there are <strong>no constraints on the sequence composition</strong></p>
+<h3 id="Random-model-50-09"><a href="#Random-model-50-09" class="headerlink" title="Random model 50:09"></a>Random model 50:09</h3><p>In this model there are <strong>no constraints on the sequence composition</strong></p>
 <p>Meaning that the choice of each residue is independent from the other residues in the sequence</p>
 <ul>
 <li>The probability depends on the <strong>frequency</strong> of every amino acid in the population (= all characters in the sequences)</li>
 <li>When the frequency of the amino acids a is p<sub>a</sub>, the probability of having a at that position is also p<sub>a</sub></li>
 </ul>
 <p>When two residues a and b are aligned, the <strong>probability of the match is p<sub>a</sub> p<sub>b</sub></strong></p>
-<h3 id="Non-random-or-evolutionary-mode"><a href="#Non-random-or-evolutionary-mode" class="headerlink" title="Non-random (or evolutionary) mode"></a>Non-random (or evolutionary) mode</h3><p>This model proposes that the sequences <strong>are related because of common descent</strong></p>
+<h3 id="Non-random-or-evolutionary-mode-51-50"><a href="#Non-random-or-evolutionary-mode-51-50" class="headerlink" title="Non-random (or evolutionary) mode 51:50"></a>Non-random (or evolutionary) mode 51:50</h3><p>This model proposes that the sequences <strong>are related because of common descent</strong></p>
 <ul>
 <li>This implies that there are constraints on the composition of the sequence</li>
 </ul>
@@ -536,7 +537,7 @@
 </li>
 </ul>
 <p>When two residues a and b are aligned, the <strong>probability of a match</strong> is <strong>q<sub>a,b</sub></strong> since the residues are correlated </p>
-<h2 id="Basic-idea-1"><a href="#Basic-idea-1" class="headerlink" title="Basic idea"></a>Basic idea</h2><p>The <strong>odds ratio</strong> q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> shows which model is more likely</p>
+<h2 id="Basic-idea-53-12"><a href="#Basic-idea-53-12" class="headerlink" title="Basic idea 53:12"></a>Basic idea 53:12</h2><p>The <strong>odds ratio</strong> q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> shows which model is more likely</p>
 <ul>
 <li>When q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> &gt;1 the evolutionary model explains better the alignment </li>
 </ul>
@@ -549,7 +550,7 @@
 <p><img src="/images/ADVMB/1914356.png"></p>
 <p>The <strong>log-odds ratio</strong> is the value that is written in a substitution matrix</p>
 <p><img src="/images/ADVMB/1914357.png"></p>
-<h2 id="Substitution-matrices"><a href="#Substitution-matrices" class="headerlink" title="Substitution matrices"></a>Substitution matrices</h2><p>Two methods have been used to determine the values of all S<sub>a,b</sub></p>
+<h2 id="Substitution-matrices-1-03-13"><a href="#Substitution-matrices-1-03-13" class="headerlink" title="Substitution matrices 1:03:13"></a>Substitution matrices 1:03:13</h2><p>Two methods have been used to determine the values of all S<sub>a,b</sub></p>
 <ul>
 <li>All PAM matrices were derived from one manually constructed matrix (PAM1)<ul>
 <li>71 groups of manually aligned protein sequences (no gaps) were used and in each group there was an identity of at least 85% between each sequence</li>
@@ -565,7 +566,7 @@
 </li>
 </ul>
 <p><img src="/images/ADVMB/1914359.png"></p>
-<h3 id="PAM-matrices"><a href="#PAM-matrices" class="headerlink" title="PAM matrices"></a>PAM matrices</h3><p><img src="/images/ADVMB/1924350.png"></p>
+<h3 id="PAM-matrices-1-05-23"><a href="#PAM-matrices-1-05-23" class="headerlink" title="PAM matrices 1:05:23"></a>PAM matrices 1:05:23</h3><p><img src="/images/ADVMB/1924350.png"></p>
 <p>The idea was to create a <strong>similarity distance measure</strong></p>
 <p><strong><u>Which requires the definition of a unit of distance</u></strong></p>
 <ul>
@@ -575,28 +576,28 @@
 <p>(multiple mutations at same position possible!)</p>
 </li>
 </ul>
-<h4 id="Substitution-matrices-1"><a href="#Substitution-matrices-1" class="headerlink" title="Substitution matrices"></a>Substitution matrices</h4><p>The PAM matrices, build by Margaret Dayhoff, provide a similarity score between amino acids</p>
+<h4 id="Substitution-matrices"><a href="#Substitution-matrices" class="headerlink" title="Substitution matrices"></a>Substitution matrices</h4><p>The PAM matrices, build by Margaret Dayhoff, provide a similarity score between amino acids</p>
 <p><img src="/images/ADVMB/1924351.png"></p>
 <p>When two sequence have an identity of 40%, which matrix should we use ?</p>
 <p><img src="/images/ADVMB/1924352.png"></p>
 <p>BLOSUM matrices were created by using blocks of conserved amino acids in clusters of sequences</p>
 <p><img src="/images/ADVMB/1924353.png" alt="The 62 is the percentage of identity between the sequences used that were used to determine the substitutions values"></p>
-<h3 id="Analysis-of-BLOSUM62"><a href="#Analysis-of-BLOSUM62" class="headerlink" title="Analysis of BLOSUM62"></a>Analysis of BLOSUM62</h3><p><img src="/images/ADVMB/1924354.png" alt="The substitutions within families of amino acids are often favourable"></p>
+<h3 id="Analysis-of-BLOSUM62-1-12-22"><a href="#Analysis-of-BLOSUM62-1-12-22" class="headerlink" title="Analysis of BLOSUM62 1:12:22"></a>Analysis of BLOSUM62 1:12:22</h3><p><img src="/images/ADVMB/1924354.png" alt="The substitutions within families of amino acids are often favourable"></p>
 <p><img src="/images/ADVMB/1924355.png"></p>
 <p><img src="/images/ADVMB/1924356.png"></p>
 <p><img src="/images/ADVMB/1924357.png"></p>
-<h4 id="Substitution-matrices-2"><a href="#Substitution-matrices-2" class="headerlink" title="Substitution matrices"></a>Substitution matrices</h4><p>Which matrix should be used ????</p>
+<h4 id="Substitution-matrices-1"><a href="#Substitution-matrices-1" class="headerlink" title="Substitution matrices"></a>Substitution matrices</h4><p>Which matrix should be used ????</p>
 <p><img src="/images/ADVMB/1924358.png"></p>
 <p>To evaluate similar sequences one needs matrices that give high values voor identical matches : e.g. BLOSUM 80 or PAM50</p>
 <p>If one is not sure it’s good to start with BLOSUM62 and PAM120</p>
 <p><strong>The matrix choice is biased by the percentage of conservation the biologist expects to find between the sequences</strong> </p>
-<h3 id="Which-PAM-or-BLOSUM"><a href="#Which-PAM-or-BLOSUM" class="headerlink" title="Which PAM or BLOSUM?"></a>Which PAM or BLOSUM?</h3><p>Using relative entropy (H) one can verify whether the matrix is still capable of making the distinction between the evolutionary and the random model</p>
+<h3 id="Which-PAM-or-BLOSUM-1-17-28"><a href="#Which-PAM-or-BLOSUM-1-17-28" class="headerlink" title="Which PAM or BLOSUM? 1:17:28"></a>Which PAM or BLOSUM? 1:17:28</h3><p>Using relative entropy (H) one can verify whether the matrix is still capable of making the distinction between the evolutionary and the random model</p>
 <p><img src="/images/ADVMB/1924359.png"></p>
-<h2 id="The-gaps"><a href="#The-gaps" class="headerlink" title="The gaps"></a>The gaps</h2><p>Homologous sequences often have a different length</p>
+<h2 id="The-gaps-1-18-04"><a href="#The-gaps-1-18-04" class="headerlink" title="The gaps 1:18:04"></a>The gaps 1:18:04</h2><p>Homologous sequences often have a different length</p>
 <p><img src="/images/ADVMB/1984350.png"></p>
 <p>If one wants to align these to sequences in an optimal manner, gaps need to be introduced</p>
 <p>One often makes the difference between the start of a gap (penalty of -10 and -15) or the extension of existing gaps (penalty of -0.5 or -2) </p>
-<h2 id="Different-kinds-of-alignment"><a href="#Different-kinds-of-alignment" class="headerlink" title="Different kinds of alignment"></a>Different kinds of alignment</h2><p>There are two big classes of alignment methods</p>
+<h2 id="Different-kinds-of-alignment-1-19-25"><a href="#Different-kinds-of-alignment-1-19-25" class="headerlink" title="Different kinds of alignment 1:19:25"></a>Different kinds of alignment 1:19:25</h2><p>There are two big classes of alignment methods</p>
 <ul>
 <li><strong>Global alignment</strong> : The alignment between the complete sequences<ul>
 <li>Interesting to compare two related sequences</li>
@@ -607,7 +608,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="Global-alignment"><a href="#Global-alignment" class="headerlink" title="Global alignment"></a>Global alignment</h2><p>Dynamic programming to align two sequences by Saul Needleman and Christian Wunsch in 1970</p>
+<h2 id="Global-alignment-1-20-21"><a href="#Global-alignment-1-20-21" class="headerlink" title="Global alignment 1:20:21"></a>Global alignment 1:20:21</h2><p>Dynamic programming to align two sequences by Saul Needleman and Christian Wunsch in 1970</p>
 <p><img src="/images/ADVMB/1984351.png"></p>
 <p><img src="/images/ADVMB/1984352.png"></p>
 <p>The semiglobal alignment</p>
@@ -622,10 +623,10 @@
 <p><img src="/images/ADVMB/1984354.png"></p>
 <p>The algorithm can be adapted so that we obtain a solution in O(mn)</p>
 <p><img src="/images/ADVMB/1984355.png"></p>
-<h2 id="An-example"><a href="#An-example" class="headerlink" title="An example"></a>An example</h2><p><img src="/images/ADVMB/1984356.png"></p>
+<h2 id="An-example-1-42-25"><a href="#An-example-1-42-25" class="headerlink" title="An example 1:42:25"></a>An example 1:42:25</h2><p><img src="/images/ADVMB/1984356.png"></p>
 <p><img src="/images/ADVMB/1984358.png"></p>
 <p><img src="/images/ADVMB/1984359.png"></p>
-<h2 id="Local-alignment"><a href="#Local-alignment" class="headerlink" title="Local alignment"></a>Local alignment</h2><p><img src="/images/ADVMB/1984550.png"></p>
+<h2 id="Local-alignment-1-46-11"><a href="#Local-alignment-1-46-11" class="headerlink" title="Local alignment 1:46:11"></a>Local alignment 1:46:11</h2><p><img src="/images/ADVMB/1984550.png"></p>
 <p><img src="/images/ADVMB/1984551.png"></p>
 <p><img src="/images/ADVMB/1984552.png"></p>
 <p>Sub-optimal alignments provide information concerning other repetitions common between the two sequences(for instance in case of multiple similar domains)</p>
