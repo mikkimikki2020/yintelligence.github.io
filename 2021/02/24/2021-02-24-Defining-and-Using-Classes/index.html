@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Proving Things - Why and How, Chaoqun Yin">
+    <meta name="keywords" content="Defining and Using Classes, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Proving Things - Why and How | Chaoqun Yin</title>
+    <title>Defining and Using Classes | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Proving Things - Why and How</h1>
+                    <h1 class="description center-align post-title">Defining and Using Classes</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Fundamentals-of-Computer-Science/">
-                                <span class="chip bg-color">Fundamentals of Computer Science</span>
+                            <a href="/tags/Data-Structures/">
+                                <span class="chip bg-color">Data Structures</span>
                             </a>
                         
                     </div>
@@ -477,470 +477,131 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Proving-Things-Why-and-How"><a href="#Proving-Things-Why-and-How" class="headerlink" title="Proving Things: Why and How"></a>Proving Things: Why and How</h1><h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><ul>
-<li><strong>Reasoning</strong> allows us to <strong>expand our knowledge and beliefs</strong></li>
-<li>In order to yield correct results, reasoning should be <strong>sound</strong></li>
-<li><strong>Proofs</strong> are a form of <strong>particularly careful reasoning</strong> in the form of a <strong>sequence of justified steps</strong></li>
-</ul>
-<h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><ul>
-<li>A proof is a <strong>sequence of assertions</strong> meant to convince the reader of the <strong>truth of a statement</strong></li>
-<li>Proofs convince by:<ul>
-<li>starting from agreed truths: <strong>axioms</strong></li>
-<li>continuing by agreed methods: <strong>inference rules</strong></li>
-</ul>
-</li>
-<li>A proved statement is called a <strong>theorem</strong></li>
-<li>Similar to ordinary reasoning, but <strong>symbols</strong> are used for <strong>precision</strong></li>
-</ul>
-<h2 id="Propositional-logic"><a href="#Propositional-logic" class="headerlink" title="Propositional logic"></a>Propositional logic</h2><p><strong>Propositional logic</strong> (PL) is used for <strong>all aspects</strong> of the proof:</p>
+                <h1 id="Defining-and-Using-Classes"><a href="#Defining-and-Using-Classes" class="headerlink" title="Defining and Using Classes"></a>Defining and Using Classes</h1><p><a target="_blank" rel="noopener" href="http://fa20.datastructur.es/">Website</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Berkeley-CS61B/lectureCode-fa20/tree/master/intro2">Code</a></p>
+<p><a target="_blank" rel="noopener" href="http://fa20.datastructur.es/materials/hw/hw0/hw0">Homework</a></p>
+<h2 id="Compilation"><a href="#Compilation" class="headerlink" title="Compilation"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Y2vC_SW00TE&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=1">Compilation</a></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The standard tools for executing Java programs use a <strong>two step</strong> process:</p>
 <ul>
-<li>Axioms and theorems are propositions</li>
-<li>Rules of inference are based on PL</li>
+<li>This is not the only way to run Java code. </li>
 </ul>
-<h3 id="Three-kinds-of-proofs"><a href="#Three-kinds-of-proofs" class="headerlink" title="Three kinds of proofs"></a>Three kinds of proofs</h3><p>Proof by <strong>Truth Table</strong></p>
+<p><img src="/images/CS61B/1.png"></p>
+<p>Why make a class file at all?</p>
 <ul>
-<li>justified by definitions of operators</li>
-<li>justified by exhaustive case analysis</li>
+<li>.class file has been type checked. Distributed code is safer.</li>
+<li>.class files are ‘simpler’ for machine to execute. Distributed code is faster.</li>
+<li>Minor benefit: Protects your intellectual property. No need to give out source.</li>
 </ul>
-<p>Proof by <strong>Substitution</strong></p>
+<p><em>Note: .class files are easily reversible into similar looking Java files.</em></p>
+<h2 id="Defining-and-Instantiating-Classes"><a href="#Defining-and-Instantiating-Classes" class="headerlink" title="Defining and Instantiating Classes"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xDPUHRjsgA4&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=2">Defining and Instantiating Classes</a></h2><h3 id="Dog"><a href="#Dog" class="headerlink" title="Dog"></a>Dog</h3><p>As we saw last time: </p>
 <ul>
-<li>justified by equivalence</li>
-<li>also called ‘algebraic proof’ </li>
-</ul>
-<p>Proof by <strong>Inference Rules</strong></p>
-<ul>
-<li>justified by rules proved within logic</li>
-<li>often mixed with substitution</li>
-</ul>
-<h2 id="Rules-of-inference"><a href="#Rules-of-inference" class="headerlink" title="Rules of inference"></a>Rules of inference</h2><p><img src="/images/FOCS/6417380.png"></p>
-<h3 id="General-idea"><a href="#General-idea" class="headerlink" title="General idea"></a>General idea</h3><p>Need to proof <em>premises</em> → conclusion</p>
-<p>α<sub>1</sub> ∧ α<sub>2</sub> ∧ … ∧ α<sub>n</sub> → β</p>
-<p>Recall implication truth table:</p>
-<ul>
-<li>When α → β and α = <em>TRUE</em>, β cannot be <em>FALSE</em></li>
-<li>If α = <em>TRUE</em> when β = <em>FALSE</em>, we do not have α → β</li>
-</ul>
-<p>Importantly, each rule of inference is <strong>equivalent to a PL expression</strong> and can be <strong>evaluated using truth tables</strong>.</p>
-<h3 id="Example-contradiction-inference-rule"><a href="#Example-contradiction-inference-rule" class="headerlink" title="Example: contradiction inference rule"></a>Example: contradiction inference rule</h3><ul>
-<li>Need to prove: p ∧ ¬p → FALSE</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">p</th>
-<th align="center">¬p</th>
-<th align="center">p ∧ ¬p</th>
-<th align="center">FALSE</th>
-<th align="center">(p ∧ ¬p) → FALSE</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-</tbody></table>
-<ul>
-<li>Need to prove: p → (p ∨ q)</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">p</th>
-<th align="center">Q</th>
-<th align="center">p ∨ Q</th>
-<th align="center">p → (p ∨ q)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-</tbody></table>
-<ul>
-<li>Need to prove: ((p → q) ∧ ¬q)) → ¬p</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">p</th>
-<th align="center">Q</th>
-<th align="center">p → q</th>
-<th align="center">¬q</th>
-<th align="center">(p → q) ∧ ¬q</th>
-<th align="center">¬p</th>
-<th align="center">((p → q) ∧ ¬q)) → ¬p</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-</tbody></table>
-<ul>
-<li>Need to prove: ((p ∨ q) ∧ (p → r) ∧ (q → r)) → r</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">p</th>
-<th align="center">q</th>
-<th align="center">r</th>
-<th align="center">p ∨ q</th>
-<th align="center">p → r</th>
-<th align="center">q → r</th>
-<th align="center">(p ∨ q) ∧ (p → r) ∧ (q → r)</th>
-<th align="center">((p ∨ q) ∧ (p → r) ∧ (q → r)) → r</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-</tbody></table>
-<h3 id="Without-assumptions"><a href="#Without-assumptions" class="headerlink" title="Without assumptions"></a>Without assumptions</h3><p>Checking a <strong>proof</strong></p>
-<ul>
-<li>Proof = list of assertions</li>
-<li>Each assertion needs to be checked</li>
-</ul>
-<p>Checking an <strong>assertion</strong></p>
-<ul>
-<li>Find an inference rule that matches the conclusion being considered</li>
-<li>Find earlier assertions that match the premises of the inference rule</li>
-</ul>
-<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h4><p>Prove that given (p ∨ q) ∧ ¬p is <em>TRUE</em> that q is <em>TRUE</em> as well</p>
-<ol>
-<li>(p ∨ q) ∧ ¬p   given</li>
-<li>p ∨ q               ∧ elimination, with line 1</li>
-<li>¬p                    ∧ elimination, with line</li>
-<li>p → q              vacuous proof, with line 3</li>
-<li>q → q              tautology</li>
-<li>q                       case analysis, with lines 2, 4, 5</li>
-</ol>
-<h5 id="Alternative-elimination"><a href="#Alternative-elimination" class="headerlink" title="Alternative elimination"></a>Alternative elimination</h5><p>We proved the validity of the following inference rule:</p>
-<p> (p ∨ q) ∧ ¬p → q</p>
-<p>Once a theorem has been proved, it can be <strong>used in other proofs</strong></p>
-<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h4><p>Prove that given p ∧ ¬p is TRUE that q is TRUE as well</p>
-<ol>
-<li>p ∧ ¬p   given</li>
-<li>¬p          ∧ elimination, with line 1</li>
-<li>p → q    vacuous proof, with line 2</li>
-<li>p             ∧ elimination, with line 1</li>
-<li>q             modus ponens, with lines 3, 4</li>
-</ol>
-<p>If p ∧ ¬p are taken to be both TRUE, then <strong>any proposition can be proven.</strong></p>
-<p>This outcome would be <strong>bizarre and undesirable</strong></p>
-<h3 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h3><h4 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h4><p>In proofs, <strong>assumptions</strong> can be introduced tentatively, to test their consequences</p>
-<p>When introduced, we do not know whether an assumption is TRUE</p>
-<p>Assumptions are written between [ ]</p>
-<h4 id="Absurdity-and-implication"><a href="#Absurdity-and-implication" class="headerlink" title="Absurdity and implication"></a>Absurdity and implication</h4><ul>
-<li>Reduction to absurdity<ul>
-<li>[p] ∧ FALSE → ¬p</li>
-</ul>
-</li>
-<li>Introduction of implication<ul>
-<li>[p] ∧ q → (p → q)</li>
+<li>Every method (a.k.a. function) is associated with some class.</li>
+<li>To run a class, we must define a main method. <ul>
+<li>Not all classes have a main method!</li>
 </ul>
 </li>
 </ul>
-<h4 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h4><p><img src="/images/FOCS/6417381.png"></p>
-<h4 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h4><p><img src="/images/FOCS/6417382.png"></p>
-<p><img src="/images/FOCS/6417383.png" alt="Solution"></p>
-<h4 id="Nested-assumptions"><a href="#Nested-assumptions" class="headerlink" title="Nested assumptions"></a>Nested assumptions</h4><p>Prove: ((p → q) ∧ (q → r)) → (p → r)</p>
-<p><img src="/images/FOCS/6417384.png"></p>
-<h3 id="Transitivity-of-implication"><a href="#Transitivity-of-implication" class="headerlink" title="Transitivity of implication"></a>Transitivity of implication</h3><ul>
-<li><p>Previous proof establishes a theorem in the form of</p>
-<p>α<sub>1</sub> ∧ α<sub>2</sub> → β</p>
-</li>
-<li><p>New inference rule: <strong>transitivity of implication</strong></p>
-</li>
-</ul>
-<p><img src="/images/FOCS/6417385.png"></p>
-<h2 id="Different-proof-methods"><a href="#Different-proof-methods" class="headerlink" title="Different proof methods"></a>Different proof methods</h2><ul>
-<li>Truth tables</li>
-<li>Substitution</li>
-<li>Inference</li>
-<li>Others, e.g. semantic tableaux</li>
-</ul>
-<h3 id="Proving-the-modus-tollens-using-truth-tables"><a href="#Proving-the-modus-tollens-using-truth-tables" class="headerlink" title="Proving the modus tollens using truth tables"></a>Proving the modus tollens using truth tables</h3><table>
-<thead>
-<tr>
-<th align="center">p</th>
-<th align="center">Q</th>
-<th align="center">p → q</th>
-<th align="center">¬q</th>
-<th align="center">(p → q) ∧ ¬q</th>
-<th align="center">¬p</th>
-<th align="center">((p → q) ∧ ¬q)) → ¬p</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
-</tr>
-</tbody></table>
-<p><img src="/images/FOCS/6417386.png"></p>
-<h3 id="Proving-the-modus-tollens-using-inference"><a href="#Proving-the-modus-tollens-using-inference" class="headerlink" title="Proving the modus tollens using inference"></a>Proving the modus tollens using inference</h3><p><img src="/images/FOCS/6417387.png"></p>
-<h2 id="Inference-proof"><a href="#Inference-proof" class="headerlink" title="Inference proof"></a>Inference proof</h2><h3 id="For-theorem-analogous-to-conditional-law"><a href="#For-theorem-analogous-to-conditional-law" class="headerlink" title="For theorem analogous to conditional law"></a>For theorem analogous to conditional law</h3><p>Prove: (p → q) ↔ (¬p ∨ q)</p>
-<p><img src="/images/FOCS/6417388.png" alt="First prove: (p → q) ← (¬p ∨ q)"></p>
-<p><img src="/images/FOCS/6417389.png" alt="Second prove: (p → q) → (¬p ∨ q)"></p>
-<p>We have proven:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Bark!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Can’t be run directly, since there is no main method.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog.makeNoise();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Calls a method from another class. </span></span><br><span class="line"><span class="comment">Can think of this as a class that tests out the Dog class.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="Object-Instantiation"><a href="#Object-Instantiation" class="headerlink" title="Object Instantiation"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Hsor-iZ6-a4&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=3"><strong>Object Instantiation</strong></a></h3><p>Not all dogs are equal!</p>
+<p>We could create a separate class for every single dog out there, but this is going to get redundant in a hurry.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MayaTheDog</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;arooooooooooooooo!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YapsterTheDog</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;awawawwwawwa awawaw&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Classes can contain not just functions (a.k.a. methods), but also data</p>
 <ul>
-<li>(p → q) ← (¬p ∨ q)</li>
-<li>(p → q) → (¬p ∨ q) </li>
+<li>For example, we might add a size variable to each Dog.</li>
 </ul>
-<p>This implies:</p>
+<p>Classes can be instantiated as objects.</p>
 <ul>
-<li>(p → q) ↔ (¬p ∨ q)</li>
+<li>We’ll create a single Dog class, and then create instances<sup>[1]</sup> of this Dog.</li>
+<li>The class provides a blueprint that all Dog objects will follow.</li>
 </ul>
-<h2 id="Proof-strategies"><a href="#Proof-strategies" class="headerlink" title="Proof strategies"></a>Proof strategies</h2><h3 id="Proving-a-conditional"><a href="#Proving-a-conditional" class="headerlink" title="Proving a conditional"></a>Proving a conditional</h3><p><strong>p → q</strong></p>
+<p>[1]: These instances are also called ‘objects</p>
+<h3 id="Defining-a-Typical-Class-Terminology"><a href="#Defining-a-Typical-Class-Terminology" class="headerlink" title="Defining a Typical Class (Terminology)"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ewMzZBy1RO4&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=4">Defining a Typical Class (Terminology)</a></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> weightInPounds;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Instance variable. </span></span><br><span class="line"><span class="comment">    Can have as many of these as you want.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String binomen = <span class="string">&quot;Canis familiaris&quot;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** One integer constructor for dogs. */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> startingWeight)</span> </span>&#123;</span><br><span class="line">		weightInPounds = startingWeight;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Constructor (similar to a method,but not a method). </span></span><br><span class="line"><span class="comment">    Determines how to instantiate the class.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (weightInPounds &lt; <span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;yip!&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (weightInPounds &lt; <span class="number">30</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;bark.&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;woooof!&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Non-static method, a.k.a.Instance Method.</span></span><br><span class="line"><span class="comment">    Idea: If the method is going to be invoked by an instance of the class (as in the next slide), then it should be non-static.</span></span><br><span class="line"><span class="comment">    Roughly speaking: If the method needs to use “my instance variables”, the method must be non-static.  </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title">maxDog</span><span class="params">(Dog d1, Dog d2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (d1.weightInPounds &gt; d2.weightInPounds) &#123;</span><br><span class="line">			<span class="keyword">return</span> d1;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> d2;</span><br><span class="line">	&#125;	</span><br><span class="line">    </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLauncher</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Dog smallDog; <span class="comment">//Declaration of a Dog variable.</span></span><br><span class="line">        <span class="keyword">new</span> Dog(<span class="number">20</span>); <span class="comment">// Instantiation of the Dog class as a Dog Object</span></span><br><span class="line">        smallDog = <span class="keyword">new</span> Dog(<span class="number">5</span>); <span class="comment">//Instantiation and Assignment.</span></span><br><span class="line">        Dog hugeDog = <span class="keyword">new</span> Dog(<span class="number">150</span>); <span class="comment">//Declaration, Instantiation and Assignment.</span></span><br><span class="line">        smallDog.makeNoise();</span><br><span class="line">        hugeDog.makeNoise(); <span class="comment">//Invocation of the 150 lb Dog’s makeNoise method.</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        The dot notation means that we want to use a method or variable belonging to hugeDog, or more succinctly, a member of hugeDog</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Arrays-of-Objects"><a href="#Arrays-of-Objects" class="headerlink" title="Arrays of Objects"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GgoszMH1ak8&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=5">Arrays of Objects</a></h3><p>To create an array of objects: </p>
 <ul>
-<li>Direct proof: <ul>
-<li>Assume: p = TRUE</li>
-<li>Show: q = TRUE</li>
-<li>Therefore: p → q (→ introduction)</li>
+<li>First use the <strong>new</strong> keyword to create the array.</li>
+<li>Then use <strong>new</strong> again for each object that you want to put in the array.</li>
 </ul>
-</li>
-<li>Indirect proof: <ul>
-<li>Assume: q = FALSE</li>
-<li>Show: p = FALSE</li>
-<li>Therefore: ¬q → ¬p (→ introduction)</li>
-<li>p → q (contrapositive law)</li>
-</ul>
-</li>
-<li>Proof by contradiction: <ul>
-<li>Assume: p → q = FALSE</li>
-<li>Show that this assumption leads to a contradiction</li>
-</ul>
-</li>
-</ul>
-<h3 id="Proving-a-biconditional"><a href="#Proving-a-biconditional" class="headerlink" title="Proving a biconditional"></a>Proving a biconditional</h3><p><strong>p ↔ q</strong></p>
+<p>Example:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Dog[] dogs = <span class="keyword">new</span> Dog[<span class="number">2</span>]; <span class="comment">// Creates an array of Dogs of size 2.</span></span><br><span class="line">dogs[<span class="number">0</span>] = <span class="keyword">new</span> Dog(<span class="number">8</span>);</span><br><span class="line">dogs[<span class="number">1</span>] = <span class="keyword">new</span> Dog(<span class="number">20</span>);</span><br><span class="line">dogs[<span class="number">0</span>].makeNoise(); <span class="comment">// Yipping occurs.</span></span><br></pre></td></tr></table></figure>
+<p>After code runs:</p>
+<p><img src="/images/CS61B/2.png"></p>
+<h2 id="Static-vs-Instance-Members"><a href="#Static-vs-Instance-Members" class="headerlink" title="Static vs. Instance Members"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=l8Q6NXbAwNk&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=6">Static vs. Instance Members</a></h2><h3 id="Static-vs-Non-static"><a href="#Static-vs-Non-static" class="headerlink" title="Static vs. Non-static"></a>Static vs. Non-static</h3><p>Key differences between static and non-static (a.k.a. instance) methods:</p>
 <ul>
-<li>Two-way proof:<ul>
-<li>Prove: p → q</li>
-<li>Prove: p ← q</li>
+<li>Static methods are invoked using the class name, e.g. Dog.makeNoise();</li>
+<li>Instance methods are invoked using an instance name, e.g. maya.makeNoise();</li>
+<li>Static methods can’t access “my” instance variables, because there is no “me”.</li>
 </ul>
-</li>
-<li>Special case of two-way proof:<ul>
-<li>Set equality</li>
-<li>A theorem that states that set A and set B are equal can be written as: x ∈ A ↔ x ∈ B</li>
-</ul>
-</li>
-</ul>
-<h3 id="Proofs-with-disjunctions"><a href="#Proofs-with-disjunctions" class="headerlink" title="Proofs with disjunctions"></a>Proofs with disjunctions</h3><p><strong>p ∨ q</strong></p>
+<p><img src="/images/CS61B/3.png"></p>
+<h3 id="Why-Static-Methods"><a href="#Why-Static-Methods" class="headerlink" title="Why Static Methods?"></a>Why Static Methods?</h3><p>Some classes are never instantiated. For example, Math.</p>
 <ul>
-<li>Case analysis I:<ul>
-<li>Given: p ∨ q</li>
-<li>To prove: r</li>
-<li>Prove that r holds in either case: prove p → r and q → r</li>
-</ul>
+<li><p>x = Math.round(5.6);</p>
 </li>
-<li>Case analysis II:<ul>
-<li>Given: p ∨ q</li>
-<li>To prove: r ∨ s</li>
-<li>Prove: p → r and q → s</li>
-</ul>
-</li>
-<li>Excluded middle:<ul>
-<li>For either kind of case analysis, it may be helpful to introduce the tautology u ∨ ¬u</li>
-<li>Prove p → u and q → ¬u</li>
-</ul>
-</li>
-<li>Eliminating an alternative:<ul>
-<li>Given: p ∨ q</li>
-<li>Eliminate: p</li>
-<li>Therefore: q = TRUE</li>
-</ul>
-</li>
-</ul>
-<h2 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h2><p><img src="/images/FOCS/6417390.png"></p>
-<h3 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h3><ul>
-<li>i. (¬p ∨ ¬q) → (r ∧ s)</li>
-<li>ii. r → t</li>
-<li>iii. ¬t</li>
-</ul>
-<p><img src="/images/FOCS/6417391.png"></p>
-<h2 id="Exercise-5"><a href="#Exercise-5" class="headerlink" title="Exercise 5"></a>Exercise 5</h2><p>Give a much shorter equivalence proof of Theorem 3.2 by making use of one of De Morgan’s laws right after the conditional law</p>
+<li><p>Much nicer than: </p>
 <ul>
-<li> ((p → q) ∧ ¬q) → ¬p</li>
+<li><p>Math m = new Math(); </p>
+<p>x = m.round(x);</p>
+</li>
 </ul>
-<h3 id="Solutions-1"><a href="#Solutions-1" class="headerlink" title="Solutions:"></a>Solutions:</h3><p><img src="/images/FOCS/6417392.png"></p>
-<h2 id="Exercise-6"><a href="#Exercise-6" class="headerlink" title="Exercise 6"></a>Exercise 6</h2><p>Prove each of these equivalences by substitution, one step at a time. State which equivalence justifies each step</p>
+</li>
+</ul>
+<p>Sometimes, classes may have a mix of static and non-static methods, e.g. </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title">maxDog</span><span class="params">(Dog d1, Dog d2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (d1.weightInPounds &gt; d2.weightInPounds) &#123;</span><br><span class="line">        <span class="keyword">return</span> d1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Static-vs-Non-static-1"><a href="#Static-vs-Non-static-1" class="headerlink" title="Static vs. Non-static"></a>Static vs. Non-static</h3><p>A class may have a mix of static and non-static <strong><em>members</em></strong>.</p>
 <ul>
-<li>(a) ((p ∨ q) ∧ (¬p ∧ ¬q)) ≡ FALSE</li>
-<li>(b) p ∨ q ∨ r ∨ s ≡ (¬p ∧ ¬q ∧ ¬r) → s</li>
+<li>A variable or method defined in a class is also called a member of that class.</li>
+<li>Static members are accessed using class name, e.g. Dog.binomen.</li>
+<li>Non-static members <strong>cannot</strong> be invoked using class name: <del>Dog.makeNoise()</del></li>
+<li>Static methods must access instance variables via a specific instance, e.g. d1. </li>
 </ul>
-<h3 id="Solution-A"><a href="#Solution-A" class="headerlink" title="Solution A"></a>Solution A</h3><p><img src="/images/FOCS/6417393.png"></p>
-<h3 id="Solution-B"><a href="#Solution-B" class="headerlink" title="Solution B"></a>Solution B</h3><p><img src="/images/FOCS/6417394.png"></p>
+<p><img src="/images/CS61B/4.png"></p>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8Gq-8mVbyFU&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=7">Question</a></h3><p>Will this program compile? If so, what will it print?</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogLoop</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Dog smallDog = <span class="keyword">new</span> Dog(<span class="number">5</span>);</span><br><span class="line">        Dog mediumDog = <span class="keyword">new</span> Dog(<span class="number">25</span>);</span><br><span class="line">        Dog hugeDog = <span class="keyword">new</span> Dog(<span class="number">150</span>);</span><br><span class="line">        </span><br><span class="line">        Dog[] manyDogs = <span class="keyword">new</span> Dog[<span class="number">4</span>];</span><br><span class="line">        manyDogs[<span class="number">0</span>] = smallDog;</span><br><span class="line">        manyDogs[<span class="number">1</span>] = hugeDog;</span><br><span class="line">        manyDogs[<span class="number">2</span>] = <span class="keyword">new</span> Dog(<span class="number">130</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; manyDogs.length) &#123;</span><br><span class="line">            Dog.maxDog(manyDogs[i], mediumDog).makeNoise();</span><br><span class="line">            i = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Osuy8UEH03M&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=8">Answer</a> : Use the <a target="_blank" rel="noopener" href="https://cscircles.cemc.uwaterloo.ca//java_visualize/#">visualizer</a> to see the solution.</p>
+<h2 id="public-static-void-main-String-args"><a href="#public-static-void-main-String-args" class="headerlink" title="public static void main(String[] args)"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1ViQUHlRoyM&list=PL8FaHk7qbOD6XopUFumnRzFCgYXshKex3&index=9">public static void main(String[] args)</a></h2><p>One Special Role for Strings: Command Line Arguments</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArgsDemo</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** Prints out the 0th command line argument. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(args[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ArgsSum-Exercise"><a href="#ArgsSum-Exercise" class="headerlink" title="ArgsSum Exercise"></a>ArgsSum Exercise</h3><p>Goal: Create a program ArgsSum that prints out the sum of the command line arguments, assuming they are numbers.</p>
+<ul>
+<li>Search engines are our friend!</li>
+</ul>
+<p><strong>One Special Role for Strings: Command Line Arguments</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArgsSum</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** Prints out the sum of arguments, assuming they are</span></span><br><span class="line"><span class="comment">    * integers.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; args.length) &#123;</span><br><span class="line">            sum = sum + Integer.parseInt(args[index]);</span><br><span class="line">            index = index + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Using-Libraries-e-g-StdDraw-In"><a href="#Using-Libraries-e-g-StdDraw-In" class="headerlink" title="Using Libraries (e.g. StdDraw, In)"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=C6kbrsdNQaQ&feature=emb_title">Using Libraries (e.g. StdDraw, In)</a></h2><p>As a programmer, you’ll want to leverage existing libraries whenever possible. </p>
+<ul>
+<li>Saves you the trouble of writing code.</li>
+<li>Existing widely used libraries are (probably) will probably be less buggy</li>
+<li>… but you’ll have to spend some time getting acquainted with the library</li>
+</ul>
+<p>Best ways to learn how to use an unfamiliar library:</p>
+<ul>
+<li>Find a tutorial (on the web, youtube, etc.) for the library.</li>
+<li>Read the documentation for the library (Java docs often very good). </li>
+<li>Look at example code snippets that use the library.</li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Client Programs and Main Methods.</strong> A Java program without a main method cannot be run directly using the <code>java</code> command. However, its methods can still be invoked using the <code>main</code> method of another class.</p>
+<p><strong>Class Declaration.</strong> Java classes can contain methods and/or variables. We say that such methods and variables are “members” of the class. Members can be <em>instance</em> members or <em>static</em> members. Static members are declared with the <code>static</code> keyword. Instance members are any members without the <code>static</code> keyword.</p>
+<p><strong>Class Instantiation.</strong> Instantiating a class is almost always done using the <code>new</code> keyword, e.g. <code>Dog d = new Dog()</code>. An instance of a class in Java is also called an “Object”.</p>
+<p><strong>Dot Notation.</strong> We access members of a class using dot notation, e.g. <code>d.bark()</code>. Class members can be accessed from within the same class or from other classes.</p>
+<p><strong>Constructors.</strong> Constructors tell Java what to do when a program tries to create an instance of a class, e.g. what it should do when it executes <code>Dog d = new Dog()</code>.</p>
+<p><strong>Array Instantiation.</strong> Arrays are also instantiated using the <code>new</code> keyword. For example <code>int[] arr = new int[10]</code> If we have an array of Objects, e.g. <code>Dog[] dogarray</code>, then each element of the array must also be instantiated separately.</p>
+<p><strong>Static vs. Instance methods.</strong> The distinction between static and instance methods is incredibly important. Instance methods are actions that can only be taken by an instance of the class (i.e. a specific object), whereas static methods are taken by the class itself. An instance method is invoked using a reference to a specific instance, e.g. <code>d.bark()</code>, whereas static methods should be invoked using the class name, e.g. <code>Math.sqrt()</code>. Know when to use each.</p>
+<p><strong>Static variables.</strong> Variables can also be static. Static variables should be accessed using the class name, e.g. <code>Dog.binomen</code> as opposed to <code>d.binomen</code>. Technically Java allows you to access using a specific instance, but we strongly encourage you not to do this to avoid confusion.</p>
+<p><strong>void methods.</strong> A method which does not return anything should be given a void return type.</p>
+<p><strong>The <code>this</code> keyword.</strong> Inside a method, we can use the <code>this</code> keyword to refer to the current instance. This is equivalent to <code>self</code> in Python.</p>
+<p><strong>public static void main(String[] args).</strong> We now know what each of these things means:</p>
+<ul>
+<li>public: So far, all of our methods start with this keyword.</li>
+<li>static: It is a static method, not associated with any particular instance.</li>
+<li>void: It has no return type.</li>
+<li>main: This is the name of the method.</li>
+<li>String[] args: This is a parameter that is passed to the main method.</li>
+</ul>
+<p><strong>Command Line Arguments.</strong> Arguments can be provided by the operating system to your program as “command line arguments,” and can be accessed using the <code>args</code> parameter in <code>main</code>. For example if we call our program from the command line like this <code>java ArgsDemo these are command line arguments</code>, then the <code>main</code> method of <code>ArgsDemo</code> will have an array containing the Strings “these”, “are”, “command”, “line”, and “arguments”.</p>
+<p><strong>Using Libraries.</strong> There’s no need in the year 2017 to build everything yourself from scratch. In our course, you are allowed to and highly encouraged to use Java’s built-in libraries, as well as libraries that we provide, e.g. the Princeton standard library. You should not use libraries other than those provided or built into Java because it may render some of the assignments moot, and also our autograder won’t have access to these libraries and your code won’t work.</p>
+<p><strong>Getting Help from the Internet.</strong> You’re welcome to seek help online. However, you should always cite your sources, and you should not seek help on specific homework problems or projects. For example, googling “how convert String Java” or “how read file Java” are fine, but you should not be searching “project 2 61b java berkeley”.</p>
 
                 
             </div>
@@ -967,7 +628,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/24/2021-02-24-Proving-Things---Why-and-How/">https://yintelligence.tech/2021/02/24/2021-02-24-Proving-Things---Why-and-How/</a>
+                    <a href="https://yintelligence.tech/2021/02/24/2021-02-24-Defining-and-Using-Classes/">https://yintelligence.tech/2021/02/24/2021-02-24-Defining-and-Using-Classes/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1005,8 +666,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Fundamentals-of-Computer-Science/">
-                                    <span class="chip bg-color">Fundamentals of Computer Science</span>
+                                <a href="/tags/Data-Structures/">
+                                    <span class="chip bg-color">Data Structures</span>
                                 </a>
                             
                         </div>
@@ -1050,9 +711,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/02/24/2021-02-24-Defining-and-Using-Classes/">
                     <div class="card-image">
@@ -1070,9 +732,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1085,6 +747,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1103,13 +766,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/24/2021-02-24-Control/">
+                <a href="/2021/02/24/2021-02-24-Proving-Things---Why-and-How/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Control">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Proving Things - Why and How">
                         
-                        <span class="card-title">Control</span>
+                        <span class="card-title">Proving Things - Why and How</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1137,8 +800,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
-                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    <a href="/tags/Fundamentals-of-Computer-Science/">
+                        <span class="chip bg-color">Fundamentals of Computer Science</span>
                     </a>
                     
                 </div>
