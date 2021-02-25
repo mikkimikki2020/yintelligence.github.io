@@ -477,7 +477,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MSA-profiles-and-motif-detection"><a href="#MSA-profiles-and-motif-detection" class="headerlink" title="MSA, profiles and motif detection"></a>MSA, profiles and motif detection</h1><h2 id="Multiple-sequence-alignment"><a href="#Multiple-sequence-alignment" class="headerlink" title="Multiple sequence alignment?"></a>Multiple sequence alignment?</h2><p>An alignment of 2 sequences is an hypothesis that is supported or rejected by the score one obtains for the alignment, but…</p>
+                <h1 id="MSA-profiles-and-motif-detection"><a href="#MSA-profiles-and-motif-detection" class="headerlink" title="MSA, profiles and motif detection"></a>MSA, profiles and motif detection</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=/personal/wim_vranken_vub_be/Documents/Opnamen/Algorithms%20in%20bioinfo_computational%20biology-20210225_100412-Meeting%20Recording.mp4&parent=/personal/wim_vranken_vub_be/Documents/Opnamen&originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VmNHlJT19TaE1GTnJGdDB1VlMxSnNvQlJlOV9heXRYanVKeGZqSGtJQ2UxSHc_cnRpbWU9TnpDSFk1cloyRWc">Video</a></p>
+<h2 id="Multiple-sequence-alignment-25-42"><a href="#Multiple-sequence-alignment-25-42" class="headerlink" title="Multiple sequence alignment? 25:42"></a>Multiple sequence alignment? 25:42</h2><p>An alignment of 2 sequences is an hypothesis that is supported or rejected by the score one obtains for the alignment, but…</p>
 <ul>
 <li>the score does not guarantee that there really is a common ancestor</li>
 <li>no guarantee that the elements are correctly aligned, only that the alignment is the one with maximum similarity </li>
@@ -488,7 +489,7 @@
 <li>The similarity between positions</li>
 <li>The <strong>conservation</strong> of certain amino acids within a family of homologous proteins</li>
 </ul>
-<h3 id="Why-MSA"><a href="#Why-MSA" class="headerlink" title="Why MSA?"></a>Why MSA?</h3><ul>
+<h3 id="Why-MSA-30-14"><a href="#Why-MSA-30-14" class="headerlink" title="Why MSA? 30:14"></a>Why MSA? 30:14</h3><ul>
 <li><p>Improve the alignment between two sequences</p>
 <p><img src="/images/ADVMB/1011170.png"></p>
 </li>
@@ -500,13 +501,13 @@
 </li>
 </ul>
 <h3 id="Many-MSA-methods"><a href="#Many-MSA-methods" class="headerlink" title="Many MSA methods"></a>Many MSA methods</h3><p><img src="/images/ADVMB/1011173.png"></p>
-<h3 id="The-MSA-problem"><a href="#The-MSA-problem" class="headerlink" title="The MSA problem"></a>The MSA problem</h3><p>Determining the alignment between N sequences is a hard problem = <strong>Combinatorial optimisation problem (COP)</strong></p>
+<h3 id="The-MSA-problem-35-52"><a href="#The-MSA-problem-35-52" class="headerlink" title="The MSA problem 35:52"></a>The MSA problem 35:52</h3><p>Determining the alignment between N sequences is a hard problem = <strong>Combinatorial optimisation problem (COP)</strong></p>
 <p>To solve this COP we need provide two systems:</p>
 <ol>
 <li><strong>Calculating the score of the alignment</strong></li>
 <li><strong>Algorithm that finds the MSA with the optimal (or close to optimal) score</strong></li>
 </ol>
-<h3 id="The-scoring-system"><a href="#The-scoring-system" class="headerlink" title="The scoring system"></a>The scoring system</h3><p>How can we calculate the score of an MSA?</p>
+<h3 id="The-scoring-system-36-28"><a href="#The-scoring-system-36-28" class="headerlink" title="The scoring system 36:28"></a>The scoring system 36:28</h3><p>How can we calculate the score of an MSA?</p>
 <ul>
 <li>The total score: S(m)=∑ S(m<sub>i</sub>)<ul>
 <li>So the assumption is made that the score of one column (i) is independent of the other columns</li>
@@ -523,7 +524,7 @@
 <p><img src="/images/ADVMB/1011174.png"></p>
 <p>Minimum entropy: <strong>S(m<sub>i</sub>)=∑ <em>f<sup>k</sup><sub>i</sub>ln(f<sup>k</sup><sub>i</sub>)</em></strong></p>
 <p>Maximum likelihood</p>
-<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><p><strong>Well-known methods:</strong></p>
+<h3 id="Methods-3-40-20"><a href="#Methods-3-40-20" class="headerlink" title="Methods 3 40:20"></a>Methods 3 40:20</h3><p><strong>Well-known methods:</strong></p>
 <ul>
 <li>An optimised version of the standard pairwise <strong>DP algorithms</strong>; limited applicability but exact</li>
 <li><strong>Progressive alignment</strong> (the CLUSTAL system)</li>
@@ -532,7 +533,7 @@
 <ul>
 <li><strong>Iterative improvement</strong> methods for multiple sequence alignment (the SAGA system)</li>
 </ul>
-<h4 id="Progressive-alignment-problems"><a href="#Progressive-alignment-problems" class="headerlink" title="Progressive alignment problems"></a>Progressive alignment problems</h4><p>This method suffers from at least 2 problems:</p>
+<h4 id="Progressive-alignment-problems-45-25"><a href="#Progressive-alignment-problems-45-25" class="headerlink" title="Progressive alignment problems 45:25"></a>Progressive alignment problems 45:25</h4><p>This method suffers from at least 2 problems:</p>
 <ul>
 <li><strong>The local minimum problem</strong><ul>
 <li>New sequences are added on top of existing alignments.</li>
@@ -545,15 +546,15 @@
 </ul>
 </li>
 </ul>
-<h4 id="Iterative-improvement"><a href="#Iterative-improvement" class="headerlink" title="Iterative improvement"></a>Iterative improvement</h4><p><img src="/images/ADVMB/1011176.png"></p>
-<h2 id="Profiles"><a href="#Profiles" class="headerlink" title="Profiles"></a>Profiles</h2><p>Using a <strong>profile</strong> we can better detect similarities between distantly related proteins.</p>
+<h4 id="Iterative-improvement-46-22"><a href="#Iterative-improvement-46-22" class="headerlink" title="Iterative improvement 46:22"></a>Iterative improvement 46:22</h4><p><img src="/images/ADVMB/1011176.png"></p>
+<h2 id="Profiles-57-04"><a href="#Profiles-57-04" class="headerlink" title="Profiles 57:04"></a>Profiles 57:04</h2><p>Using a <strong>profile</strong> we can better detect similarities between distantly related proteins.</p>
 <p>Profiles store general information properties of a MSA : </p>
 <ol>
 <li>Frequency information concerning the residues in each column of the MSA</li>
 <li>The evolutionary importance of every residue in that position</li>
 </ol>
 <p><strong>Position specific scoring matrix (PSSM)</strong></p>
-<h3 id="How-to-construct-a-PSSM"><a href="#How-to-construct-a-PSSM" class="headerlink" title="How to construct a PSSM ?"></a>How to construct a PSSM ?</h3><p><strong>Step 1</strong>: determine the frequencies for each amino acid b in every column u for N<sub>seq</sub> aligned sequences</p>
+<h3 id="How-to-construct-a-PSSM-57-56"><a href="#How-to-construct-a-PSSM-57-56" class="headerlink" title="How to construct a PSSM ? 57:56"></a>How to construct a PSSM ? 57:56</h3><p><strong>Step 1</strong>: determine the frequencies for each amino acid b in every column u for N<sub>seq</sub> aligned sequences</p>
 <p><img src="/images/ADVMB/1011177.png"></p>
 <p><img src="/images/ADVMB/1011178.png"></p>
 <p>A profile stores for <strong>each column</strong> in the MSA, the frequency multiplied by the alignment score with every other AA.</p>
@@ -580,7 +581,7 @@
 <p><img src="/images/ADVMB/1011186.png"></p>
 <p><img src="/images/ADVMB/1011187.png"></p>
 <p><img src="/images/ADVMB/1011188.png" alt="Profiles, sequence logo 11"></p>
-<h3 id="Aligning-to-a-profile"><a href="#Aligning-to-a-profile" class="headerlink" title="Aligning to a profile"></a>Aligning to a profile</h3><p>Simply use either Needleman-Wunsch (L3) or Smith-Waterman (L3) to make the alignment </p>
+<h3 id="Aligning-to-a-profile-1-33-17"><a href="#Aligning-to-a-profile-1-33-17" class="headerlink" title="Aligning to a profile 1:33:17"></a>Aligning to a profile 1:33:17</h3><p>Simply use either Needleman-Wunsch (L3) or Smith-Waterman (L3) to make the alignment </p>
 <p><img src="/images/ADVMB/1011189.png"></p>
 <p>But now use the information in the PSSM to calculate the score (<em>linear gap penalty</em>):</p>
 <p><img src="/images/ADVMB/1011190.png"></p>
@@ -695,18 +696,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/02/25/2021-02-25-MSA,-profiles-and-motif-detection/">
+                <a href="/2021/02/25/2021-02-25-References,-Recursion,-and-Lists/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="MSA, profiles and motif detection">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="References, Recursion, and Lists">
                         
-                        <span class="card-title">MSA, profiles and motif detection</span>
+                        <span class="card-title">References, Recursion, and Lists</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -716,9 +716,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -731,12 +731,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Computational-Biology-and-Bioinformatics/">
-                        <span class="chip bg-color">Computational Biology and Bioinformatics</span>
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
                     </a>
                     
                 </div>
