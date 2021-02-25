@@ -1,0 +1,1219 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Higher-Order Functions, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Higher-Order Functions | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Higher-Order Functions</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                                <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-02-25
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Higher-Order-Functions"><a href="#Higher-Order-Functions" class="headerlink" title="Higher-Order Functions"></a>Higher-Order Functions</h1><p><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~cs61a/fa20/">Website</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SsznmbwosLQ&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT">Video</a></p>
+<h2 id="Iteration-Example"><a href="#Iteration-Example" class="headerlink" title="Iteration Example"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pveIuZT0GJE&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=2">Iteration Example</a></h2><h3 id="The-Fibonacci-Sequence"><a href="#The-Fibonacci-Sequence" class="headerlink" title="The Fibonacci Sequence"></a>The Fibonacci Sequence</h3><p><img src="/images/CS61A/0606060.png"></p>
+<p>“k” is set to keep track the index</p>
+<p>Is this alternative definition of fib the same or different from original fib? </p>
+<p><img src="/images/CS61A/0606061.png" alt="Yes!"></p>
+<h2 id="Designing-Functions"><a href="#Designing-Functions" class="headerlink" title="Designing Functions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=FzbVzGnVBB4&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=3">Designing Functions</a></h2><h3 id="Describing-Functions"><a href="#Describing-Functions" class="headerlink" title="Describing Functions"></a>Describing Functions</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return X * X.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Compute the n-th Fibonacci number for N&gt;= 1&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p> function’s <strong><em>domain</em></strong> is the set of all <strong>inputs</strong> it might possibly take as arguments. </p>
+<ul>
+<li>x is a number</li>
+<li>n is a integer greater than or equal to 1</li>
+</ul>
+<p>A function’s <strong><em>range</em></strong> is the set of <strong>output</strong> values it might possibly return. </p>
+<ul>
+<li>square returns a nonnegative real number</li>
+<li>returns a Fibonacci number</li>
+</ul>
+<p>A pure function’s <strong><em>behaviour</em></strong> is the <strong>relationship</strong> it creates between input and output.</p>
+<ul>
+<li>square returns the square of x</li>
+<li>return value is the n-th Fibonacci number</li>
+</ul>
+<h3 id="A-Guide-to-Designing-Function"><a href="#A-Guide-to-Designing-Function" class="headerlink" title="A Guide to Designing Function"></a>A Guide to Designing Function</h3><ul>
+<li>Give each function exactly one job, but make it apply to many related situations</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&gt;&gt;&gt; round(1.23)</th>
+<th>&gt;&gt;&gt; round(1.23, 1)</th>
+<th>&gt;&gt;&gt; round(1.23, 0)</th>
+<th>&gt;&gt;&gt; round(1.23, 5)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1.2</td>
+<td>1</td>
+<td>1.23</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>Don’t repeat yourself (DRY): Implement a process just once, but execute it many times</p>
+</li>
+<li><p>Define functions generally.</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># DRY</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">same_length</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return whether positive integers a and b have the same number of digits.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; same_length(50, 70)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; same_length(50, 100)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; same_length(1000, 100000)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> digits(a) == digits(b)</span><br><span class="line">    <span class="comment"># a_digits = 0</span></span><br><span class="line">    <span class="comment"># while a &gt; 0:</span></span><br><span class="line">    <span class="comment">#     a = a // 10</span></span><br><span class="line">    <span class="comment">#     a_digits = a_digits + 1</span></span><br><span class="line">    <span class="comment"># b_digits = 0</span></span><br><span class="line">    <span class="comment"># while b &gt; 0:</span></span><br><span class="line">    <span class="comment">#     b = b // 10</span></span><br><span class="line">    <span class="comment">#     b_digits = b_digits + 1</span></span><br><span class="line">    <span class="comment"># return a_digits == b_digits</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">digits</span>(<span class="params">a</span>):</span></span><br><span class="line">    a_digits = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> a &gt; <span class="number">0</span>:</span><br><span class="line">        a = a // <span class="number">10</span></span><br><span class="line">        a_digits = a_digits + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> a_digits</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Generalization"><a href="#Generalization" class="headerlink" title="Generalization"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UlXvz-34Me0&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=4">Generalization</a></h2><h3 id="Generalizing-Patterns-with-Arguments"><a href="#Generalizing-Patterns-with-Arguments" class="headerlink" title="Generalizing Patterns with Arguments"></a>Generalizing Patterns with Arguments</h3><p>Regular geometric shapes relate length and area.</p>
+<p><img src="/images/CS61A/0606062.png" alt="Finding common structure allows for shared implementation"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Generalizing patterns using arguments</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area_square</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="keyword">assert</span> r &gt; <span class="number">0</span>, <span class="string">&#x27;A length must be positive&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> r * r</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area_circle</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="keyword">assert</span> r &gt; <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">return</span> r * r * pi</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area_hexagon</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="keyword">assert</span> r &gt; <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">return</span> r * r * <span class="number">3</span> *sqrt(<span class="number">3</span>) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;Generalization&quot;&quot;&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area</span>(<span class="params">r, shape_constant</span>):</span></span><br><span class="line">    <span class="keyword">assert</span> r &gt; <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">return</span> r * r * shape_constant</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area_square</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="keyword">return</span> area(r, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area_circle</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="keyword">return</span> area(r, pi)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area_hexagon</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="keyword">return</span> area(r, <span class="number">3</span> *sqrt(<span class="number">3</span>) / <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Generalizing-Over-Computational-Processes"><a href="#Generalizing-Over-Computational-Processes" class="headerlink" title="Generalizing Over Computational Processes"></a>Generalizing Over Computational Processes</h3><p>The common structure among functions may be a computational process, rather than a number.</p>
+<p><img src="/images/CS61A/0606063.png"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Functions as arguments</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_naturals</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Sum the first N natural numbers.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; sum_naturals(5)</span></span><br><span class="line"><span class="string">    15</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total, k = total + k, k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_cubes</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Sum the first N cubes of natural numbers.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; sum_cubes(5)</span></span><br><span class="line"><span class="string">    225</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total, k = total + <span class="built_in">pow</span>(k, <span class="number">3</span>), k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">identity</span>(<span class="params">k</span>):</span></span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cube</span>(<span class="params">k</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(k, <span class="number">3</span>) </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">summation</span>(<span class="params">n, term</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Sum the first N terms of a sequence.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; summation(5, cube)</span></span><br><span class="line"><span class="string">    225</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    total, k = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        total, k = total + term(k), k + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> mul</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pi_term</span>(<span class="params">k</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">8</span> / mul(k * <span class="number">4</span> - <span class="number">3</span>, k * <span class="number">4</span> - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">summation(<span class="number">1000000</span>, pi_term)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CS61A/0606064.png" alt="Summation Example"></p>
+<h2 id="Functions-as-Return-Values"><a href="#Functions-as-Return-Values" class="headerlink" title="Functions as Return Values"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Q9ztlG4ezVs&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=5">Functions as Return Values</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local function definitions; returning functions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_adder</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return a function that takes one argument K and returns K + N.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; add_three = make_adder(3)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; add_three(4)</span></span><br><span class="line"><span class="string">    7</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adder</span>(<span class="params">k</span>):</span></span><br><span class="line">        <span class="keyword">return</span> k + n</span><br><span class="line">    <span class="keyword">return</span> adder</span><br><span class="line"></span><br><span class="line">make_adder(<span class="number">2000</span>)(<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<p>Functions defined <strong>within other function bodies</strong> are <strong>bound to names in a <em>local</em> frame</strong></p>
+<p><img src="/images/CS61A/0606065.png" alt="Locally Defined Functions"></p>
+<p><img src="/images/CS61A/0606066.png" alt="Call Expressions as Operator Expressions"></p>
+<h3 id="The-purpose-of-Higher-Order-Functions"><a href="#The-purpose-of-Higher-Order-Functions" class="headerlink" title="The purpose of Higher-Order Functions"></a>The purpose of Higher-Order Functions</h3><p><strong>Functions are first-class</strong>: Functions can be manipulated as values in our programming languages.</p>
+<p><strong>Higher-order functions</strong>: A function that takes a function as an argument value or returns a function as a return value.</p>
+<p>Higher order functions;</p>
+<ul>
+<li>Express general methods of computation</li>
+<li>Remove repetition from programs</li>
+<li>Separate concerns among functions</li>
+</ul>
+<h2 id="Lambda-Expressions"><a href="#Lambda-Expressions" class="headerlink" title="Lambda Expressions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vCeNq_P3akI&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=6">Lambda Expressions</a></h2><p><img src="/images/CS61A/0606067.png"></p>
+<p>Lambda expressions are not common in Python, but important in general</p>
+<p>Lambda expressions in Python cannot contain statements at all!</p>
+<h4 id="Lambda-Expressions-Versus-Def-Statements"><a href="#Lambda-Expressions-Versus-Def-Statements" class="headerlink" title="Lambda Expressions Versus Def Statements"></a>Lambda Expressions Versus Def Statements</h4><p><img src="/images/CS61A/0606068.png"></p>
+<h2 id="Return"><a href="#Return" class="headerlink" title="Return"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=QIh6CyrWhvw&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=7">Return</a></h2><h3 id="Return-Statements"><a href="#Return-Statements" class="headerlink" title="Return Statements"></a>Return Statements</h3><p>A return statement completes the evaluation of a call expression and provides its value: </p>
+<p>f(x) for user-defined function f: switch to a new environment; </p>
+<p>execute f’s body <strong>return</strong> statement within f: switch back to the previous environment; </p>
+<p>f(x) now has a value Only one return statement is ever executed while executing the body of a function</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Return </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">end</span>(<span class="params">n, d</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Print the final digits of N in reverse order until D is found.    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; end(34567, 5)</span></span><br><span class="line"><span class="string">    7</span></span><br><span class="line"><span class="string">    6</span></span><br><span class="line"><span class="string">    5</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        last, n = n % <span class="number">10</span>, n // <span class="number">10</span></span><br><span class="line">        print(last)</span><br><span class="line">        <span class="keyword">if</span> d == last:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span>(<span class="params">f</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the smallest non-negative integer x for which f(x) is a true value.&quot;&quot;&quot;</span></span><br><span class="line">    x = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> f(x):</span><br><span class="line">            <span class="keyword">return</span> x</span><br><span class="line">        x += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_three</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return whether x is three.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; search(is_three)</span></span><br><span class="line"><span class="string">    3</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x == <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x * x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">positive</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;A function that is 0 until square(x)-100 is positive.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; search(positive)</span></span><br><span class="line"><span class="string">    11</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span>(<span class="number">0</span>, square(x) - <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inverse</span>(<span class="params">f</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return a function g(y) that returns x such that f(x) == y.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; sqrt = inverse(square)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; sqrt(16)</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> y: search(<span class="keyword">lambda</span> x: f(x) == y)</span><br></pre></td></tr></table></figure>
+<h2 id="Control"><a href="#Control" class="headerlink" title="Control"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iMyeU4QKl8Q&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=8">Control</a></h2><h3 id="If-Statements-and-Call-Expressions"><a href="#If-Statements-and-Call-Expressions" class="headerlink" title="If Statements and Call Expressions"></a>If Statements and Call Expressions</h3><p><img src="/images/CS61A/0606069.png"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Control</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">if_</span>(<span class="params">c, t, f</span>):</span></span><br><span class="line">    <span class="keyword">if</span> c:</span><br><span class="line">        t</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        f</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">real_sqrt</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the real part of the square root of x.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; real_sqrt(4)</span></span><br><span class="line"><span class="string">    2.0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; real_sqrt(-4)</span></span><br><span class="line"><span class="string">    0.0</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> x &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> sqrt(x)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span></span><br><span class="line">    <span class="comment"># if_(x &gt; 0, sqrt(x), 0.0)</span></span><br></pre></td></tr></table></figure>
+<h2 id="Control-Expressions"><a href="#Control-Expressions" class="headerlink" title="Control Expressions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DDcYvnqUCNA&list=PL6BsET-8jgYXeefqDPnwLJ03jyw5-KKTT&index=9">Control Expressions</a></h2><h3 id="Logical-Operators"><a href="#Logical-Operators" class="headerlink" title="Logical Operators"></a>Logical Operators</h3><p>To evaluate the expression <strong>&lt;left&gt;</strong> and <strong>&lt;right&gt;</strong>: </p>
+<ol>
+<li>Evaluate the subexpression &lt;left&gt;.</li>
+<li>If the result is a false value <strong>v</strong>, then the expression evaluates to <strong>v</strong>.</li>
+<li>Otherwise, the expression evaluates to the value of the subexpression <strong>&lt;right&gt;</strong>. </li>
+</ol>
+<p>To evaluate the expression  <strong>&lt;left&gt;</strong> or <strong>&lt;right&gt;</strong> :</p>
+<ol>
+<li>Evaluate the subexpression <strong>&lt;left&gt;</strong>.</li>
+<li>If the result is a true value <strong>v</strong>, then the expression evaluates to <strong>v</strong>.</li>
+<li>Otherwise, the expression evaluates to the value of the subexpression <strong>&lt;right&gt;</strong>.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Control Expressions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">has_big_sqrt</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return whether x has a big square root.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; has_big_sqrt(1000)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; has_big_sqrt(100)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; has_big_sqrt(0)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; has_big_sqrt(-1000)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x &gt; <span class="number">0</span> <span class="keyword">and</span> sqrt(x) &gt; <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reasonable</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Is N small enough that 1/N can be represented?</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; reasonable(100)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; reasonable(0)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; reasonable(-100)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; reasonable(10 ** 1000)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> n == <span class="number">0</span> <span class="keyword">or</span> <span class="number">1</span>/n != <span class="number">0.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Conditional-Expressions"><a href="#Conditional-Expressions" class="headerlink" title="Conditional Expressions"></a>Conditional Expressions</h3><p>A conditional expression has the form </p>
+<p><strong>&lt;consequent&gt;</strong> if  <strong>&lt;predicate&gt;</strong>  else <strong>&lt;alternative&gt;</strong>  </p>
+<p>Evaluation rule: </p>
+<ol>
+<li>Evaluate the <strong>&lt;predicate&gt;</strong> expression.</li>
+<li>If it’s a true value, the value of the whole expression is the value of the <strong>&lt;consequent&gt;</strong>.</li>
+<li>Otherwise, the value of the whole expression is the value of the <strong>&lt;alternative&gt;</strong>.</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/02/25/2021-02-25-Higher-Order-Functions/">https://yintelligence.tech/2021/02/25/2021-02-25-Higher-Order-Functions/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                                    <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/02/25/2021-02-25-Control-and-Environments/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Control and Environments">
+                        
+                        <span class="card-title">Control and Environments</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Discussions/" class="post-category">
+                                    Discussions
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/24/2021-02-24-Introduction/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Introduction">
+                        
+                        <span class="card-title">Introduction</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
