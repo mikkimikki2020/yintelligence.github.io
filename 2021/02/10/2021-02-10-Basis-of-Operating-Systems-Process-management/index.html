@@ -495,7 +495,7 @@
 <li><p>Executes concurrently with other processes</p>
 </li>
 <li><p>We are about to enter the world of “concurrent programming”</p>
-<p><img src="/images/052316.png"></p>
+<p><img src="/images/OP/052316.png"></p>
 </li>
 </ul>
 <h3 id="Basic-operations-on-processes-58-23"><a href="#Basic-operations-on-processes-58-23" class="headerlink" title="Basic operations on processes  58:23"></a>Basic operations on processes  58:23</h3><ul>
@@ -534,22 +534,22 @@
 <li><p><strong>Blocked state</strong>: unable to run until some external event happens</p>
 </li>
 </ul>
-<p><img src="/images/053319.png"></p>
+<p><img src="/images/OP/053319.png"></p>
 <h3 id="Implementation-of-processes-1-09-24"><a href="#Implementation-of-processes-1-09-24" class="headerlink" title="Implementation of processes 1: 09:24"></a>Implementation of processes 1: 09:24</h3><p>The lowest layer of a process-structured operating system handles <strong>interrupts and scheduling</strong>.</p>
 <p>Above that layer are <strong>sequential processes</strong>.</p>
-<p><img src="/images/053844.png"></p>
+<p><img src="/images/OP/053844.png"></p>
 <p>The operating system maintains a table, called the <strong>process table</strong>.</p>
 <p>Contains one <strong>entry</strong> per process. </p>
 <p>Skeleton of what the lowest level of the operating system does when an <strong>interrupt</strong> occurs.</p>
 <h2 id="Threads-1-12-36"><a href="#Threads-1-12-36" class="headerlink" title="Threads 1:12:36"></a>Threads 1:12:36</h2><p><strong>Thread</strong> =   light-weight processes, created by a mother process (program) for pseudo-parallel processing.</p>
 <p><strong>No memory protection</strong>: share memory with each other and the mother process.</p>
-<h3 id="Thread-usage"><a href="#Thread-usage" class="headerlink" title="Thread usage"></a>Thread usage</h3><p><img src="/images/183428.png"></p>
-<h3 id="The-classical-thread-model-1-18-33"><a href="#The-classical-thread-model-1-18-33" class="headerlink" title="The classical thread model 1:18:33"></a>The classical thread model 1:18:33</h3><p><img src="/images/83548.png"></p>
+<h3 id="Thread-usage"><a href="#Thread-usage" class="headerlink" title="Thread usage"></a>Thread usage</h3><p><img src="/images/OP/183428.png"></p>
+<h3 id="The-classical-thread-model-1-18-33"><a href="#The-classical-thread-model-1-18-33" class="headerlink" title="The classical thread model 1:18:33"></a>The classical thread model 1:18:33</h3><p><img src="/images/OP/83548.png"></p>
 <p>The first column lists some items shared by all threads in a process. </p>
 <p>The second one lists some items private to each thread.</p>
-<p><img src="/images/183727.png"></p>
+<p><img src="/images/OP/183727.png"></p>
 <p><strong>Each thread has its own stack.</strong></p>
-<p><img src="/images/183916.png"></p>
+<p><img src="/images/OP/183916.png"></p>
 <h3 id="Posix-Threads-How-to-make-a-thread-1-24-42"><a href="#Posix-Threads-How-to-make-a-thread-1-24-42" class="headerlink" title="Posix Threads  (How to make a thread? 1:24:42)"></a>Posix Threads  (How to make a thread? 1:24:42)</h3><p>IEEE standard 1003.1c: enables writing of portable threaded programs</p>
 <p>The threads package it defines is called <strong>Pthreads</strong></p>
 <p>The standard defines over 60 function calls, which is far too many to go over here.</p>
@@ -557,7 +557,7 @@
 <li><p> A user-level threads package.</p>
 </li>
 <li><p>A threads package managed by the kernel.</p>
-<p><img src="/images/185004.png"></p>
+<p><img src="/images/OP/185004.png"></p>
 </li>
 </ol>
 <h3 id="Processes-vs-Threads"><a href="#Processes-vs-Threads" class="headerlink" title="Processes vs Threads"></a><strong>Processes vs Threads</strong></h3><h4 id="Regular-processes"><a href="#Regular-processes" class="headerlink" title="Regular processes"></a>Regular processes</h4><ul>
@@ -581,7 +581,7 @@
 </ul>
 <h2 id="Interprocess-communication-IPC-1-36-36"><a href="#Interprocess-communication-IPC-1-36-36" class="headerlink" title="Interprocess communication (IPC) 1:36:36"></a>Interprocess communication (IPC) 1:36:36</h2><h3 id="Race-conditions"><a href="#Race-conditions" class="headerlink" title="Race conditions"></a>Race conditions</h3><p>Two processes want to access shared memory at the same time.</p>
 <p><strong>Race condition if the CPU decides to switch from the just initiated Process A</strong>, that has just received the information that in=7, <strong>to Process B</strong> that will also observe in=7. Both will write their file at the same location in the printer spooler directory.</p>
-<p><img src="/images/185758.png"></p>
+<p><img src="/images/OP/185758.png"></p>
 <h3 id="Critical-regions"><a href="#Critical-regions" class="headerlink" title="Critical regions"></a>Critical regions</h3><p>Conditions required to <u>avoid race condition</u>:</p>
 <ul>
 <li>No two processes may be simultaneously inside their <strong>critical regions</strong>.</li>
@@ -589,7 +589,7 @@
 <li>No process running outside its critical region may block other processes.</li>
 <li>No process should have to wait forever to enter its critical region.</li>
 </ul>
-<p><img src="/images/190129.png" alt="1:40:37-1:41:13"></p>
+<p><img src="/images/OP/190129.png" alt="1:40:37-1:41:13"></p>
 <h3 id="Mutual-exclusion-with-busy-waiting"><a href="#Mutual-exclusion-with-busy-waiting" class="headerlink" title="Mutual exclusion with busy waiting"></a>Mutual exclusion with busy waiting</h3><p>Proposals for achieving mutual exclusion:</p>
 <ul>
 <li>Disabling interrupts<ul>
@@ -619,9 +619,9 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/91949.png"></p>
+<p><img src="/images/OP/91949.png"></p>
 <p>The producer-consumer problem (or bounded-buffer problem) with a fatal race condition -&gt; Possible solution = wake-up waiting bits</p>
-<p><img src="/images/92317.png"></p>
+<p><img src="/images/OP/92317.png"></p>
 <h3 id="How-do-we-achieve-this-communication"><a href="#How-do-we-achieve-this-communication" class="headerlink" title="How do we achieve this communication?"></a><strong>How do we achieve this communication?</strong></h3><h5 id="Shared-memory-Processes-read-and-write-shared-variables"><a href="#Shared-memory-Processes-read-and-write-shared-variables" class="headerlink" title="Shared memory: Processes read and write shared variables"></a>Shared memory: Processes read and write shared variables</h5><ul>
 <li>No time overhead, easy to implement</li>
 <li>But, hard to use – mistakes are common</li>
@@ -663,7 +663,7 @@
 </li>
 <li><p><strong><em>Receive</em></strong> is blocking, <strong><em>send</em></strong> may or may not be blocking</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void processA() &#123;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data)</span><br><span class="line">    send(B, &amp;data);</span><br><span class="line">    &#x2F;* region 1 *&#x2F;</span><br><span class="line">    receive(B, &amp;data);</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void processB() &#123;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    receive(A, &amp;data);</span><br><span class="line">    transform(&amp;data)</span><br><span class="line">    send(A, &amp;data);</span><br><span class="line">    &#x2F;* region 2 *&#x2F;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/195747.png"></p>
+<p><img src="/images/OP/195747.png"></p>
 </li>
 </ul>
 <h5 id="Shared-memory-and-mutexes"><a href="#Shared-memory-and-mutexes" class="headerlink" title="Shared memory and mutexes"></a>Shared memory and mutexes</h5><h6 id="Mutual-exclusion"><a href="#Mutual-exclusion" class="headerlink" title="Mutual exclusion"></a>Mutual exclusion</h6><ul>
@@ -705,7 +705,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">mutex count_mutex;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">      while( count &#x3D;&#x3D; N );&#x2F;*loop*&#x2F;</span><br><span class="line">      buffer[i] &#x3D; data;</span><br><span class="line">      i &#x3D; (i + 1) % N;</span><br><span class="line">      count_mutex.lock();</span><br><span class="line">      count &#x3D; count + 1;</span><br><span class="line">      count_mutex.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    while( count &#x3D;&#x3D; 0 );&#x2F;*loop*&#x2F;</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count_mutex.lock();</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    count_mutex.unlock();</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA);</span><br><span class="line">  create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h6 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h6><p>A <strong>semaphore</strong> is a variable or abstract data type that provides a simple but useful abstraction for controlling access by multiple processes to a common resource in a parallel programming environment.</p>
-<p><img src="/images/195243.png"></p>
+<p><img src="/images/OP/195243.png"></p>
 <h6 id="Mutex-VS-Semaphore"><a href="#Mutex-VS-Semaphore" class="headerlink" title="Mutex VS Semaphore"></a>Mutex VS Semaphore</h6><ul>
 <li><p>A Mutex is different than a semaphore as it is a <strong>locking mechanism</strong> while a semaphore is a <strong>signaling mechanism</strong>.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wait (mutex);</span><br><span class="line">...</span><br><span class="line">Critical section</span><br><span class="line">...</span><br><span class="line">signal (mutex);</span><br></pre></td></tr></table></figure>
@@ -814,7 +814,7 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/200611.png"></p>
+<p><img src="/images/OP/200611.png"></p>
 <h4 id="Example-2-02-57-2-04-37"><a href="#Example-2-02-57-2-04-37" class="headerlink" title="Example 2:02:57-2:04:37"></a>Example 2:02:57-2:04:37</h4><p>Single monitor encapsulates both processes along with <em>buffer</em> and <em>count</em></p>
 <p>One process will be allowed to begin executing firs</p>
 <p>If process B allowed to execute first:</p>

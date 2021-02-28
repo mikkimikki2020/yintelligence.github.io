@@ -494,7 +494,7 @@
 </ul>
 <p>O.S. abstracts the memory management</p>
 <p>A memory manager handles the memory hierarchy. </p>
-<p><img src="/images/045041.png"></p>
+<p><img src="/images/OP/045041.png"></p>
 <h2 id="Memory-Abstraction"><a href="#Memory-Abstraction" class="headerlink" title="Memory Abstraction"></a>Memory Abstraction</h2><h3 id="Monoprogramming-without-memory-abstraction-2-15-46"><a href="#Monoprogramming-without-memory-abstraction-2-15-46" class="headerlink" title="Monoprogramming without memory abstraction 2:15:46"></a>Monoprogramming without memory abstraction 2:15:46</h3><ul>
 <li>No abstraction (early technologies)<ul>
 <li>Every program simply see the physical memory</li>
@@ -503,7 +503,7 @@
 </li>
 <li>Basic memory organization (an operating system with one user process)</li>
 </ul>
-<p><img src="/images/045042.png"></p>
+<p><img src="/images/OP/045042.png"></p>
 <ol>
 <li>The operating system may be at the bottom of memory in RAM -&gt; Early mainframes</li>
 <li>At the top of memory in ROM -&gt; Embedded systems</li>
@@ -518,7 +518,7 @@
 <h3 id="Solution-Address-Space-2-18-00"><a href="#Solution-Address-Space-2-18-00" class="headerlink" title="Solution :Address  Space 2:18:00"></a>Solution :Address  Space 2:18:00</h3><p>An <strong>address space</strong> is <u>the set of addresses that a process can use to address memory</u>.</p>
 <p>Each process has its own address space, independent of those belonging to other processes</p>
 <p>Basic solution: <strong>Base</strong> and <strong>limit</strong> registers</p>
-<p><img src="/images/045800.png"></p>
+<p><img src="/images/OP/045800.png"></p>
 <h3 id="Swapping-and-virtual-memory-2-19-44"><a href="#Swapping-and-virtual-memory-2-19-44" class="headerlink" title="Swapping and virtual memory 2:19:44"></a>Swapping and virtual memory 2:19:44</h3><p><strong>Problem</strong>: The total amount of RAM needed by all the processes is often much more than can fit in physical memory.</p>
 <p>Two general approaches to dealing with memory overload have been developed over the years.</p>
 <ul>
@@ -531,7 +531,7 @@
 <li>leave memory</li>
 </ul>
 <p>Shaded regions are unused memory</p>
-<p><img src="/images/050227.png"></p>
+<p><img src="/images/OP/050227.png"></p>
 <p><strong>Problem</strong>: If processes are created with a fixed size that never changes, then the allocation is simple. This is usually not the case!</p>
 <p>By dynamically allocating memory from a heap, as in many programming languages, a problem occurs whenever a process tries to grow.</p>
 <p>If a process cannot grow in memory and the swap area on the disk is full, the process will have to suspended until some space is freed up (or it can be killed)</p>
@@ -540,7 +540,7 @@
 <li>Allocating space for a <strong>growing</strong> data segment.</li>
 <li>Allocating space for a <strong>growing</strong> stack and a growing data segment.</li>
 </ol>
-<p><img src="/images/050452.png"></p>
+<p><img src="/images/OP/050452.png"></p>
 <h4 id="Managing-free-memory-2-23-20"><a href="#Managing-free-memory-2-23-20" class="headerlink" title="Managing free memory 2:23:20"></a>Managing free memory 2:23:20</h4><p>When memory is assigned <strong>dynamically</strong>, the operating system must manage it.</p>
 <p>In general terms, there are two ways to keep track of memory usage:</p>
 <ul>
@@ -552,7 +552,7 @@
 <li>The size of the allocation unit is an important design issue. <strong>The smaller the allocation unit, the larger the bitmap.</strong></li>
 <li>Searching a bitmap for a run of a given length is <u>a <strong>slow</strong> operation</u>!</li>
 </ul>
-<p><img src="/images/050751.png"></p>
+<p><img src="/images/OP/050751.png"></p>
 <ol>
 <li>Part of memory with 5 processes, 3 holes<ul>
 <li>tick marks show allocation units</li>
@@ -571,7 +571,7 @@
 <li>Worst it</li>
 <li>Quick fit</li>
 </ul>
-<p><img src="/images/0501124.png" alt="Four neighbour combinations for the terminating process X"></p>
+<p><img src="/images/OP/051124.png" alt="Four neighbour combinations for the terminating process X"></p>
 <h4 id="Virtual-Memory-2-28-17"><a href="#Virtual-Memory-2-28-17" class="headerlink" title="Virtual Memory 2:28:17"></a>Virtual Memory 2:28:17</h4><ul>
 <li>There is a need to run programs that are too large to fit in memory</li>
 <li>Swapping can be <strong><u>too slow</u></strong> for certain applications</li>
@@ -580,12 +580,12 @@
 <li>These pages are mapped onto physical memory, but not all pages have to be in physical memory at the same time to run the program</li>
 <li>MMU (Memory Management Unit) that maps the <strong>virtual addresses</strong> onto the physical memory addresses</li>
 </ul>
-<p><img src="/images/051513.png" alt="2:29:30 - 2:29:49"></p>
+<p><img src="/images/OP/051513.png" alt="2:29:30 - 2:29:49"></p>
 <p>Divides physical memory and logical address space into fixed-size fragments called <strong>pages</strong>.</p>
 <p>The first 64 KB of <strong>virtual /logical address</strong> space divided into 16 pages, with each page being 4K.</p>
 <p>A 32 KB main memory divided up into eight <strong>page</strong> frames of 4 KB each.</p>
 <p><strong>Allow the use of more memory than the amount of physical memory in the machine</strong></p>
-<p><img src="/images/0515131.png"></p>
+<p><img src="/images/OP/0515131.png"></p>
 <h5 id="Mapping-virtual-memory-pages-to-physical-memory-pages-2-32-10"><a href="#Mapping-virtual-memory-pages-to-physical-memory-pages-2-32-10" class="headerlink" title="Mapping virtual memory pages to physical memory pages 2:32:10"></a>Mapping virtual memory pages to <strong>physical</strong> memory pages 2:32:10</h5><ul>
 <li>Page table maps virtual/logical page numbers to physical page numbers.</li>
 <li>Contains for each logical page number:<ul>
@@ -597,9 +597,9 @@
 <li>OS translates to physical addresses using <strong>page table</strong></li>
 <li>If virtual page is unmapped and it is referenced (a logical address lying in the logical page is referenced), <strong>the page is loaded from disk (page file)</strong> into a free physical memory page in a transparent way.</li>
 </ul>
-<p><img src="/images/051959.png"></p>
-<h5 id="Demand-paging-2-32-50"><a href="#Demand-paging-2-32-50" class="headerlink" title="Demand paging 2:32:50"></a>Demand paging 2:32:50</h5><p><img src="/images/052205.png"></p>
-<h5 id="Address-translation-2-33-26"><a href="#Address-translation-2-33-26" class="headerlink" title="Address translation 2:33:26"></a>Address translation 2:33:26</h5><p><img src="/images/052426.png"></p>
+<p><img src="/images/OP/051959.png"></p>
+<h5 id="Demand-paging-2-32-50"><a href="#Demand-paging-2-32-50" class="headerlink" title="Demand paging 2:32:50"></a>Demand paging 2:32:50</h5><p><img src="/images/OP/052205.png"></p>
+<h5 id="Address-translation-2-33-26"><a href="#Address-translation-2-33-26" class="headerlink" title="Address translation 2:33:26"></a>Address translation 2:33:26</h5><p><img src="/images/OP/052426.png"></p>
 <h5 id="Page-replacement-2-33-52"><a href="#Page-replacement-2-33-52" class="headerlink" title="Page replacement 2:33:52"></a>Page replacement 2:33:52</h5><p>Which page to be swapped out if there is a page fault and all physical pages are already in use?</p>
 <p>Algorithm</p>
 <ul>
@@ -611,8 +611,8 @@
 <li>Reference – being referred or not in the last time slot (timer interrupt driven) -&gt; LRU</li>
 <li>Usage count -&gt; FCFS</li>
 </ul>
-<p><img src="/images/052630.png"></p>
-<h4 id="Segmented-memory-2-36-45"><a href="#Segmented-memory-2-36-45" class="headerlink" title="Segmented memory 2:36:45"></a>Segmented memory 2:36:45</h4><p><img src="/images/052818.png"></p>
+<p><img src="/images/OP/052630.png"></p>
+<h4 id="Segmented-memory-2-36-45"><a href="#Segmented-memory-2-36-45" class="headerlink" title="Segmented memory 2:36:45"></a>Segmented memory 2:36:45</h4><p><img src="/images/OP/052818.png"></p>
 <p>Provides each Program / Process with one or more (code, data, stack) independent logical address spaces.</p>
 <ul>
 <li>Allows easy relocation of data and code in physical memory by moving segment (code accesses memory using logical addresses, so no change needed)</li>
@@ -623,9 +623,9 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/052945.png"></p>
-<h5 id="Segmentation-VS-paging-2-39-27"><a href="#Segmentation-VS-paging-2-39-27" class="headerlink" title="Segmentation VS. paging 2:39:27"></a>Segmentation VS. paging 2:39:27</h5><p><img src="/images/053046.png"></p>
-<h5 id="Swapping-Pure-segmentation-2-40-11"><a href="#Swapping-Pure-segmentation-2-40-11" class="headerlink" title="Swapping (Pure segmentation) 2:40:11"></a>Swapping (Pure segmentation) 2:40:11</h5><p><img src="/images/053152.png"></p>
+<p><img src="/images/OP/052945.png"></p>
+<h5 id="Segmentation-VS-paging-2-39-27"><a href="#Segmentation-VS-paging-2-39-27" class="headerlink" title="Segmentation VS. paging 2:39:27"></a>Segmentation VS. paging 2:39:27</h5><p><img src="/images/OP/053046.png"></p>
+<h5 id="Swapping-Pure-segmentation-2-40-11"><a href="#Swapping-Pure-segmentation-2-40-11" class="headerlink" title="Swapping (Pure segmentation) 2:40:11"></a>Swapping (Pure segmentation) 2:40:11</h5><p><img src="/images/OP/053152.png"></p>
 <p>Issues:</p>
 <ul>
 <li>Management of free memory (bitmaps or linked lists)</li>

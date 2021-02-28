@@ -491,7 +491,7 @@
 <li>Embedded OS and RTOS (~2h)</li>
 <li>Security (~3h)</li>
 </ul>
-<h2 id="What-is-an-operating-system"><a href="#What-is-an-operating-system" class="headerlink" title="What is an operating system?"></a>What is an operating system?</h2><p><img src="/images/205634.png"></p>
+<h2 id="What-is-an-operating-system"><a href="#What-is-an-operating-system" class="headerlink" title="What is an operating system?"></a>What is an operating system?</h2><p><img src="/images/OP/205634.png"></p>
 <p>Managing all hardware requires a layer of software – <strong>the operating system</strong>.</p>
 <ul>
 <li><p>Provide <strong>consistent abstractions</strong> to applications, even on different hardware</p>
@@ -507,13 +507,14 @@
 <li>Networks → Sockets</li>
 <li>Machines → Processes</li>
 </ul>
-<p><img src="/images/201621.png"></p>
+<p><img src="/images/OP/201621.png"></p>
 <ul>
 <li>What hardware interface to handle? (physical reality)</li>
 <li>What’s software interface to provide? (nicer abstraction)</li>
 </ul>
 <h2 id="Where-is-the-software"><a href="#Where-is-the-software" class="headerlink" title="Where is the software?"></a>Where is the software?</h2><p>Two modes: User mode and Kernel mode</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/whereislocation.png"></h2><h2 id="Why-do-you-need-an-operating-system"><a href="#Why-do-you-need-an-operating-system" class="headerlink" title="Why do you need an operating system?"></a>Why do you need an operating system?</h2><ul>
+<p><img src="/images/OP/whereislocation.png"></p>
+<h2 id="Why-do-you-need-an-operating-system"><a href="#Why-do-you-need-an-operating-system" class="headerlink" title="Why do you need an operating system?"></a>Why do you need an operating system?</h2><ul>
 <li>Allow multiple programs to run at the same time</li>
 <li>Manage and protect memory, I/O devices, and other resources</li>
 <li>Multiplexes (shares) resources in two different ways<ul>
@@ -535,7 +536,7 @@
 </li>
 <li>Program makes system calls to the OS</li>
 </ul>
-<p><img src="/images/203504.png"></p>
+<p><img src="/images/OP/203504.png"></p>
 <p>Pic: 29:14 - 30:27</p>
 <h1 id="Four-Fundamental-OS-Concepts"><a href="#Four-Fundamental-OS-Concepts" class="headerlink" title="Four Fundamental OS Concepts"></a>Four Fundamental OS Concepts</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iFBwI3ZMn3o&list=PLIMsSuI81pxq7c91oQMpmXgmGICbuDA_c&index=2">CS162 UCB VIDEO</a></p>
 <h3 id="1-Thread-of-Control-23-02-39-36"><a href="#1-Thread-of-Control-23-02-39-36" class="headerlink" title="1. Thread of Control 23:02 ~ 39:36"></a>1. Thread of Control 23:02 ~ 39:36</h3><ul>
@@ -551,10 +552,10 @@
 </ul>
 </li>
 </ul>
-<h4 id="Illusion-of-Multiple-Processors-31-38"><a href="#Illusion-of-Multiple-Processors-31-38" class="headerlink" title="Illusion of Multiple Processors 31:38"></a>Illusion of Multiple Processors 31:38</h4><p><img src="/images/204910.png"></p>
+<h4 id="Illusion-of-Multiple-Processors-31-38"><a href="#Illusion-of-Multiple-Processors-31-38" class="headerlink" title="Illusion of Multiple Processors 31:38"></a>Illusion of Multiple Processors 31:38</h4><p><img src="/images/OP/204910.png"></p>
 <ul>
 <li><p>Multiplex in time!</p>
-<p><img src="/images/205354.png"></p>
+<p><img src="/images/OP/205354.png"></p>
 </li>
 <li><p>Threads are <strong><em>virtual cores</em></strong></p>
 </li>
@@ -572,7 +573,7 @@
 </li>
 </ul>
 <p>Consider: At T1: vCPU1 on real core, vCPU2 in memory and at T2: vCPU2 on real core, vCPU1 in memory, what happened? 38:21</p>
-<p><img src="/images/205355.png"></p>
+<p><img src="/images/OP/205355.png"></p>
 <ul>
 <li>OS Ran, triggering a <em>context switch</em></li>
 <li>Saved PC, SP, … in vCPU1’s thread control block (memory)</li>
@@ -601,7 +602,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/addressspace.png" alt="47:04 - 49:46"></p>
+<p><img src="/images/OP/addressspace.png" alt="47:04 - 49:46"></p>
 <h4 id="Very-Simple-Multiprogramming"><a href="#Very-Simple-Multiprogramming" class="headerlink" title="Very Simple Multiprogramming"></a>Very Simple Multiprogramming</h4><ul>
 <li>All vCPU’s share non-CPU resources<ul>
 <li>Memory, I/O Devices</li>
@@ -645,7 +646,7 @@
 <li>Threads more efficient than processes for parallelism</li>
 </ul>
 <p>A process is a running program, with <strong>protection</strong>!</p>
-<h4 id="Single-and-Multithreaded-Processes"><a href="#Single-and-Multithreaded-Processes" class="headerlink" title="Single and Multithreaded Processes"></a>Single and Multithreaded Processes</h4><p><img src="/images/214705.png" alt="1:14:26 - 1:15:25"></p>
+<h4 id="Single-and-Multithreaded-Processes"><a href="#Single-and-Multithreaded-Processes" class="headerlink" title="Single and Multithreaded Processes"></a>Single and Multithreaded Processes</h4><p><img src="/images/OP/214705.png" alt="1:14:26 - 1:15:25"></p>
 <ul>
 <li>Threads encapsulate <strong>concurrency</strong> : “Active” component</li>
 <li>Address spaces encapsulate <strong>protection</strong>: “Passive” component<ul>
@@ -674,7 +675,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="4-Dual-Mode-Operation-1-19-23"><a href="#4-Dual-Mode-Operation-1-19-23" class="headerlink" title="4. Dual Mode Operation 1:19:23"></a>4. Dual Mode Operation 1:19:23</h3><p><img src="/images/twomodes.png"></p>
+<h3 id="4-Dual-Mode-Operation-1-19-23"><a href="#4-Dual-Mode-Operation-1-19-23" class="headerlink" title="4. Dual Mode Operation 1:19:23"></a>4. Dual Mode Operation 1:19:23</h3><p><img src="/images/OP/twomodes.png"></p>
 <p>Hardware provides at least <strong>two modes</strong>:</p>
 <ol>
 <li>Kernel Mode (or “supervisor” mode)</li>
@@ -682,7 +683,7 @@
 </ol>
 <p>Certain operations are <strong>prohibited</strong> when running in user mode (privileged instructions).</p>
 <p>Carefully controlled transitions between user mode and kernel mode.</p>
-<p><img src="/images/UserKernelMode.png" alt="User/Kernel (Privileged) Mode"></p>
+<p><img src="/images/OP/UserKernelMode.png" alt="User/Kernel (Privileged) Mode"></p>
 <p>Pic: 1:20:31 - 1:22:07</p>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ul>
 <li>Thread: Execution Context<ul>
