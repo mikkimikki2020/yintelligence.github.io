@@ -477,7 +477,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Relational-Database-Design"><a href="#Relational-Database-Design" class="headerlink" title="Relational Database Design"></a>Relational Database Design</h1><p>There are two major relational database design approaches</p>
+                <h1 id="Relational-Database-Design"><a href="#Relational-Database-Design" class="headerlink" title="Relational Database Design"></a>Relational Database Design</h1><p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/63fc6c8b3b2cfb27ca278201c48d1baf5b85c309-1614775485263/capture/">Video</a></p>
+<p>There are two major relational database design approaches</p>
 <p>Top-down design</p>
 <ul>
 <li>develop a conceptual model (e.g. ER model)</li>
@@ -500,20 +501,20 @@
 <ul>
 <li>we have to ensure that the resulting larger relation schema does not introduce new <strong><em>undesirable dependencies</em></strong></li>
 </ul>
-<h2 id="Reduction"><a href="#Reduction" class="headerlink" title="Reduction"></a>Reduction</h2><p>A conceptual ER model can be <strong><em>reduced</em></strong> to a set of relation schemas (relational database schema)</p>
+<h2 id="Reduction-3-51"><a href="#Reduction-3-51" class="headerlink" title="Reduction 3:51"></a>Reduction 3:51</h2><p>A conceptual ER model can be <strong><em>reduced</em></strong> to a set of relation schemas (relational database schema)</p>
 <p>The quality of the resulting set of relation schemas depends on the quality of the original ER design (there is no magic)</p>
 <p>In the following we discuss the reduction of the different ER model concepts introduced earlier</p>
-<h3 id="Strong-Entity-Sets"><a href="#Strong-Entity-Sets" class="headerlink" title="Strong Entity Sets"></a>Strong Entity Sets</h3><p>A strong entity set <em>E</em> with only simple attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> is mapped to a relation <em>R</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em></p>
+<h3 id="Strong-Entity-Sets-4-05"><a href="#Strong-Entity-Sets-4-05" class="headerlink" title="Strong Entity Sets 4:05"></a>Strong Entity Sets 4:05</h3><p>A strong entity set <em>E</em> with only simple attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> is mapped to a relation <em>R</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em></p>
 <ul>
 <li>the primary key of the entity set <em>E</em> becomes the primary key of the relation <em>R</em></li>
 </ul>
 <p><img src="/images/DB/134345.png"></p>
-<h4 id="Composite-Attributes"><a href="#Composite-Attributes" class="headerlink" title="Composite Attributes"></a>Composite Attributes</h4><p>For each component of a composite attribute, we create an attribute <em>a<sub>i</sub></em> in the relation <em>R</em></p>
+<h4 id="Composite-Attributes-5-11"><a href="#Composite-Attributes-5-11" class="headerlink" title="Composite Attributes 5:11"></a>Composite Attributes 5:11</h4><p>For each component of a composite attribute, we create an attribute <em>a<sub>i</sub></em> in the relation <em>R</em></p>
 <ul>
 <li>no special attribute is created for the composite attribute itself</li>
 </ul>
 <p><img src="/images/DB/1343450.png"></p>
-<h4 id="Multivalued-Attributes"><a href="#Multivalued-Attributes" class="headerlink" title="Multivalued Attributes"></a>Multivalued Attributes</h4><p>Multivalued attributes are treated separately since a relation should only contain attributes with atomic values</p>
+<h4 id="Multivalued-Attributes-6-28"><a href="#Multivalued-Attributes-6-28" class="headerlink" title="Multivalued Attributes 6:28"></a>Multivalued Attributes 6:28</h4><p>Multivalued attributes are treated separately since a relation should only contain attributes with atomic values</p>
 <ul>
 <li>for each multivalued attribute <em>a<sub>i</sub></em> of an entity set <em>E</em>, we create a new relation <em>S</em> containing the attribute <em>a<sub>i</sub></em> as well as the primary key attributes of the relation <em>R</em> that is created for the entity set <em>E</em><ul>
 <li>define a foreign key constraint to the original relation <em>R</em></li>
@@ -521,13 +522,13 @@
 </li>
 </ul>
 <p><img src="/images/DB/1343451.png"></p>
-<h3 id="Weak-Entity-Sets"><a href="#Weak-Entity-Sets" class="headerlink" title="Weak Entity Sets"></a>Weak Entity Sets</h3><p>A weak entity set <em>E</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> is mapped to a relation <em>R</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> combined with the primary key attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> of the identifying entity set <em>F</em></p>
+<h3 id="Weak-Entity-Sets-8-31"><a href="#Weak-Entity-Sets-8-31" class="headerlink" title="Weak Entity Sets 8:31"></a>Weak Entity Sets 8:31</h3><p>A weak entity set <em>E</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> is mapped to a relation <em>R</em> with attributes <em>a<sub>1</sub></em>,…, <em>a<sub>n</sub></em> combined with the primary key attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> of the identifying entity set <em>F</em></p>
 <ul>
 <li>the primary key of <em>R</em> is defined by the primary key attributes of the <strong><em>identifying entity</em></strong> set <em>F</em> <strong><em>combined</em></strong> with the <strong><em>discriminator</em></strong> of <em>E</em></li>
 <li>a <strong><em>foreign key constraint</em></strong> is defined from the attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> to the primary key of the relation that is created for the identifying entity set <em>F</em></li>
 </ul>
 <p><img src="/images/DB/1343452.png"></p>
-<h3 id="Relationship-Sets"><a href="#Relationship-Sets" class="headerlink" title="Relationship Sets"></a>Relationship Sets</h3><p>A relationship set over the entity sets <em>E<sub>1</sub></em>,…, <em>E<sub>n</sub></em> with the optional descriptive attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> is mapped to a relation <em>R</em> with the primary key attributes of <em>E<sub>n</sub></em> combined with <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em></p>
+<h3 id="Relationship-Sets-10-37"><a href="#Relationship-Sets-10-37" class="headerlink" title="Relationship Sets 10:37"></a>Relationship Sets 10:37</h3><p>A relationship set over the entity sets <em>E<sub>1</sub></em>,…, <em>E<sub>n</sub></em> with the optional descriptive attributes <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em> is mapped to a relation <em>R</em> with the primary key attributes of <em>E<sub>n</sub></em> combined with <em>b<sub>1</sub></em>,…, <em>b<sub>m</sub></em></p>
 <p>The primary key of relation <em>R</em> is defined as follows</p>
 <ul>
 <li>binary many-to-many relationship<ul>
@@ -555,7 +556,7 @@
 <p>A <strong><em>foreign key constraint</em></strong> is defined for each set of primary key attributes (provided by the entity set <em>E<sub>i</sub></em> ) to the primary key of the corresponding relation that is defined for <em>E<sub>i</sub></em></p>
 <p><img src="/images/DB/1343453.png"></p>
 <p><img src="/images/DB/1343454.png"></p>
-<h3 id="Weak-Entity-Existence-Relationship"><a href="#Weak-Entity-Existence-Relationship" class="headerlink" title="Weak Entity Existence Relationship"></a>Weak Entity Existence Relationship</h3><p>The special relationship set from a weak entity set to its defining entity set is always a many-to-one relationship</p>
+<h3 id="Weak-Entity-Existence-Relationship-16-46"><a href="#Weak-Entity-Existence-Relationship-16-46" class="headerlink" title="Weak Entity Existence Relationship 16:46"></a>Weak Entity Existence Relationship 16:46</h3><p>The special relationship set from a weak entity set to its defining entity set is always a many-to-one relationship</p>
 <ul>
 <li>the special weak entity existence relationship does <strong><em>not</em></strong> have to be <strong><em>mapped</em></strong> to a separate relation since it is already covered by the relation that is created for the weak entity set<ul>
 <li>e.g. potential Offers relation schema already covered by Seat relation schema</li>
@@ -563,12 +564,12 @@
 </li>
 </ul>
 <p><img src="/images/DB/1343455.png"></p>
-<h3 id="Combination-of-Schemas"><a href="#Combination-of-Schemas" class="headerlink" title="Combination of Schemas"></a>Combination of Schemas</h3><p>Relations resulting from the mapping of a relationship set with a <strong><em>total participation</em></strong> constraint can be integrated with the relation over which the constraint is defined</p>
+<h3 id="Combination-of-Schemas-18-39"><a href="#Combination-of-Schemas-18-39" class="headerlink" title="Combination of Schemas 18:39"></a>Combination of Schemas 18:39</h3><p>Relations resulting from the mapping of a relationship set with a <strong><em>total participation</em></strong> constraint can be integrated with the relation over which the constraint is defined</p>
 <ul>
 <li>key of the relation with the constraint (1..1) used as primary key</li>
 </ul>
 <p><img src="/images/DB/1343456.png"></p>
-<h3 id="Specialisation-and-Generalisation"><a href="#Specialisation-and-Generalisation" class="headerlink" title="Specialisation and Generalisation"></a>Specialisation and Generalisation</h3><p>Create a new relation <em>R</em> for each entity subset</p>
+<h3 id="Specialisation-and-Generalisation-20-25"><a href="#Specialisation-and-Generalisation-20-25" class="headerlink" title="Specialisation and Generalisation 20:25"></a>Specialisation and Generalisation 20:25</h3><p>Create a new relation <em>R</em> for each entity subset</p>
 <ul>
 <li>combine the attributes of the entity set with the primary key attributes of the superclass</li>
 </ul>
@@ -578,9 +579,9 @@
 <li>saves some join operations but it is no longer possible to define a foreign key constraint on the id attribute (now at two places)</li>
 </ul>
 <p><img src="/images/DB/1343458.png"></p>
-<h3 id="Aggregations"><a href="#Aggregations" class="headerlink" title="Aggregations"></a>Aggregations</h3><p>Like the regular relationship set mapping</p>
+<h3 id="Aggregations-23-53"><a href="#Aggregations-23-53" class="headerlink" title="Aggregations 23:53"></a>Aggregations 23:53</h3><p>Like the regular relationship set mapping</p>
 <p><img src="/images/DB/1343459.png" alt="note that the name attribute is the one from the Companies entity set"></p>
-<h2 id="Relational-Database-Design-1"><a href="#Relational-Database-Design-1" class="headerlink" title="Relational Database Design"></a>Relational Database Design</h2><p>The goal of relational database design is to create a set of relation schemas that</p>
+<h2 id="Relational-Database-Design-25-10"><a href="#Relational-Database-Design-25-10" class="headerlink" title="Relational Database Design 25:10"></a>Relational Database Design 25:10</h2><p>The goal of relational database design is to create a set of relation schemas that</p>
 <ul>
 <li>can be used to store information <strong><em>without unnecessary redundancy</em></strong></li>
 <li>allow us to <strong><em>easily retrieve information</em></strong></li>
@@ -590,7 +591,7 @@
 <ul>
 <li>split large relation schemas into multiple smaller relation schemas</li>
 </ul>
-<h3 id="Update-Anomalies"><a href="#Update-Anomalies" class="headerlink" title="Update Anomalies"></a>Update Anomalies</h3><p><strong><em>Insertion anomaly</em></strong></p>
+<h3 id="Update-Anomalies-27-52"><a href="#Update-Anomalies-27-52" class="headerlink" title="Update Anomalies 27:52"></a>Update Anomalies 27:52</h3><p><strong><em>Insertion anomaly</em></strong></p>
 <ul>
 <li>redundant information has to be kept consistent<ul>
 <li>e.g. insertion of a new order for an already existing CD</li>
@@ -652,7 +653,7 @@
 <td>15.50</td>
 </tr>
 </tbody></table>
-<h3 id="Normalisation"><a href="#Normalisation" class="headerlink" title="Normalisation"></a>Normalisation</h3><p>Normalisation is a <strong><em>formal method</em></strong> to analyse relation schemas based on their keys, <strong><em>functional dependencies (FD)</em></strong> as well as <strong><em>multivalued dependencies (MVD)</em></strong></p>
+<h3 id="Normalisation-33-11"><a href="#Normalisation-33-11" class="headerlink" title="Normalisation 33:11"></a>Normalisation 33:11</h3><p>Normalisation is a <strong><em>formal method</em></strong> to analyse relation schemas based on their keys, <strong><em>functional dependencies (FD)</em></strong> as well as <strong><em>multivalued dependencies (MVD)</em></strong></p>
 <ul>
 <li><strong><em>remove redundancy</em></strong></li>
 <li><strong><em>prevent</em></strong> certain <strong><em>update anomalies</em></strong><ul>
@@ -671,7 +672,7 @@
 <li>a higher normal form means a more restricted format and less problems with update anomalies</li>
 <li>note that only the <strong><em>first normal form (1NF) is mandatory</em></strong> for the relational model and all the other normal forms are optional</li>
 </ul>
-<h4 id="First-Normal-Form-1NF"><a href="#First-Normal-Form-1NF" class="headerlink" title="First Normal Form (1NF)"></a>First Normal Form (1NF)</h4><p>As we have seen earlier, the ER model supports complex attributes</p>
+<h4 id="First-Normal-Form-1NF-37-17"><a href="#First-Normal-Form-1NF-37-17" class="headerlink" title="First Normal Form (1NF) 37:17"></a>First Normal Form (1NF) 37:17</h4><p>As we have seen earlier, the ER model supports complex attributes</p>
 <ul>
 <li>composite attributes</li>
 <li>multivalued attributes</li>
@@ -682,7 +683,7 @@
 <li>no composite attributes or attributes with a set of values</li>
 <li>the intersection of each row and column contains <strong><em>one and only one value</em></strong></li>
 </ul>
-<h4 id="Functional-Dependencies"><a href="#Functional-Dependencies" class="headerlink" title="Functional Dependencies"></a>Functional Dependencies</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TeacherDept (teacherID, teacher, salary, department, building, budget)</span><br></pre></td></tr></table></figure>
+<h4 id="Functional-Dependencies-38-16"><a href="#Functional-Dependencies-38-16" class="headerlink" title="Functional Dependencies 38:16"></a><strong>Functional Dependencies</strong> 38:16</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TeacherDept (teacherID, teacher, salary, department, building, budget)</span><br></pre></td></tr></table></figure>
 <p>In this example, there are various sets of attributes that <strong><em>uniquely identify</em></strong> a set of other attributes</p>
 <ul>
 <li>teacherID → teacher</li>
@@ -721,7 +722,7 @@
 <li>if the determinant is not minimal, we talk about a <strong><em>partial functional dependency</em></strong> (e.g. <em>AD → B</em> in the example)</li>
 </ul>
 <p>For a relation <em>r</em>(<em>R</em>) with α → β and β → γ we say that γ is <strong><em>transitively dependent</em></strong> on α via β</p>
-<h4 id="Closure-of-Attributes"><a href="#Closure-of-Attributes" class="headerlink" title="Closure of Attributes"></a>Closure of Attributes</h4><p>For a given relation schema <em>R</em>, a number of functional dependencies and a set of attributes α <strong>⊆</strong> <em>R</em>, the <strong><em>closure</em></strong> a^+^ is defined by all attributes <em>B<sub>i</sub></em> such that α → <em>B<sub>i</sub></em></p>
+<h4 id="Closure-of-Attributes-47-51"><a href="#Closure-of-Attributes-47-51" class="headerlink" title="Closure of Attributes 47:51"></a>Closure of Attributes 47:51</h4><p>For a given relation schema <em>R</em>, a number of functional dependencies and a set of attributes α <strong>⊆</strong> <em>R</em>, the <strong><em>closure</em></strong> a^+^ is defined by all attributes <em>B<sub>i</sub></em> such that α → <em>B<sub>i</sub></em></p>
 <p>Computing the closure</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Initialise the set s with the attributes of α</span><br><span class="line">Repeat until the set s does not grow anymore &#123;</span><br><span class="line"> if there is a functional dependency β → γ and β is in s, then</span><br><span class="line"> add γ to the set s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If the closure a^+^ contains all attributes of the relation schema <em>R</em>, then the attributes α form a superkey of <em>R</em></p>
@@ -731,7 +732,7 @@
 <li>check for each set α <strong>⊆</strong> <em>R</em> of attributes whether the closure a<sup>+</sup> contains all attributes</li>
 <li>the search process can be slightly optimised by starting with the smallest possible subsets </li>
 </ul>
-<h4 id="Functional-Dependency-Inference"><a href="#Functional-Dependency-Inference" class="headerlink" title="Functional Dependency Inference"></a>Functional Dependency Inference</h4><p>For a given set <em>F</em> of functional dependencies we can derive new functional dependencies based on a set of <strong><em>axioms</em></strong> to compute the <strong>closure <em>F<sup>+</sup></em></strong> of <em>F</em></p>
+<h4 id="Functional-Dependency-Inference-52-48"><a href="#Functional-Dependency-Inference-52-48" class="headerlink" title="Functional Dependency Inference 52:48"></a>Functional Dependency Inference 52:48</h4><p>For a given set <em>F</em> of functional dependencies we can derive new functional dependencies based on a set of <strong><em>axioms</em></strong> to compute the <strong>closure <em>F<sup>+</sup></em></strong> of <em>F</em></p>
 <ul>
 <li>the closure <em>F<sup>+</sup></em> includes all functional dependencies that are logically implied by <em>F</em></li>
 </ul>
@@ -767,7 +768,7 @@
 <li>if α → β, then α → α ∪ β holds</li>
 <li>if α → β, then α → α ∪ β holds</li>
 </ul>
-<h4 id="Second-Normal-Form-2NF"><a href="#Second-Normal-Form-2NF" class="headerlink" title="Second Normal Form (2NF)"></a>Second Normal Form (2NF)</h4><p>A relation schema R is in <strong><em>second normal form (2NF)</em></strong> if it is in 1NF and if <strong><em>there</em></strong> exists <strong><em>no non-prime attribute that is functionally dependent on a <u>part</u> of a candidate key</em></strong></p>
+<h4 id="Second-Normal-Form-2NF-58-10"><a href="#Second-Normal-Form-2NF-58-10" class="headerlink" title="Second Normal Form (2NF) 58:10"></a>Second Normal Form (2NF) 58:10</h4><p>A relation schema R is in <strong><em>second normal form (2NF)</em></strong> if it is in 1NF and if <strong><em>there</em></strong> exists <strong><em>no non-prime attribute that is functionally dependent on a <u>part</u> of a candidate key</em></strong></p>
 <ul>
 <li><strong><em>every non-prime attribute has to be fully functionally dependent on a candidate key</em></strong></li>
 <li>a <strong><em>non-prime attribute</em></strong> is an attribute that is not part of any candidate key</li>
@@ -783,7 +784,7 @@
 <li>relations with single attribute keys are automatically in 2NF</li>
 </ul>
 <p><img src="/images/DB/2843454.png"></p>
-<h4 id="Lossless-Decomposition"><a href="#Lossless-Decomposition" class="headerlink" title="Lossless Decomposition"></a>Lossless Decomposition</h4><p>Given a relation schema <em>R</em> and the two decompositions <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> of R, we say that <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a <strong><em>lossless decomposition</em></strong> if <em>π<sub>R1</sub></em> (r) ⋈ <em>π<sub>R2</sub></em> (r) = r</p>
+<h4 id="Lossless-Decomposition-1-07-11"><a href="#Lossless-Decomposition-1-07-11" class="headerlink" title="Lossless Decomposition 1:07:11"></a>Lossless Decomposition 1:07:11</h4><p>Given a relation schema <em>R</em> and the two decompositions <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> of R, we say that <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a <strong><em>lossless decomposition</em></strong> if <em>π<sub>R1</sub></em> (r) ⋈ <em>π<sub>R2</sub></em> (r) = r</p>
 <p>Let <em>F</em> be a set of functional dependencies on <em>R</em></p>
 <ul>
 <li><em>R<sub>1</sub></em> and <em>R<sub>2</sub></em> form a lossless decomposition of <em>R</em> if either <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> or <em>R<sub>1</sub></em> ∩ <em>R<sub>2</sub></em> → <em>R<sub>1</sub></em> are in <em>F<sup>+</sup></em><ul>
@@ -791,7 +792,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="Third-Normal-Form-3NF"><a href="#Third-Normal-Form-3NF" class="headerlink" title="Third Normal Form (3NF)"></a>Third Normal Form (3NF)</h4><p>A relation schema <em>R</em> is in <strong><em>third normal form</em></strong> <strong><em>(3NF)</em></strong> if it is in 2NF and <strong><em>no non-prime attribute is transitively dependent on a candidate key</em></strong>, i.e. for all functional dependencies α → β in <em>F<sup>+</sup></em> one of the following has to hold</p>
+<h4 id="Third-Normal-Form-3NF-1-08-00"><a href="#Third-Normal-Form-3NF-1-08-00" class="headerlink" title="Third Normal Form (3NF) 1:08:00"></a>Third Normal Form (3NF) 1:08:00</h4><p>A relation schema <em>R</em> is in <strong><em>third normal form</em></strong> <strong><em>(3NF)</em></strong> if it is in 2NF and <strong><em>no non-prime attribute is transitively dependent on a candidate key</em></strong>, i.e. for all functional dependencies α → β in <em>F<sup>+</sup></em> one of the following has to hold</p>
 <ul>
 <li>α → β is a trivial functional dependency (i.e. β <strong>⊆</strong> α)</li>
 <li>α is a superkey of <em>R</em></li>
@@ -813,7 +814,7 @@
 </ul>
 <p>Decomposition of the Prize relation schema into two 3NF relation schemas</p>
 <p><img src="/images/DB/2843456.png"></p>
-<h4 id="Boyce-Codd-Normal-Form-BCNF"><a href="#Boyce-Codd-Normal-Form-BCNF" class="headerlink" title="Boyce-Codd Normal Form (BCNF)"></a>Boyce-Codd Normal Form (BCNF)</h4><p>The Boyce-Codd normal form is a stronger form of 3NF</p>
+<h4 id="Boyce-Codd-Normal-Form-BCNF-1-16-30"><a href="#Boyce-Codd-Normal-Form-BCNF-1-16-30" class="headerlink" title="Boyce-Codd Normal Form (BCNF) 1:16:30"></a>Boyce-Codd Normal Form (BCNF) 1:16:30</h4><p>The Boyce-Codd normal form is a stronger form of 3NF</p>
 <p>A relation schema <em>R</em> is in Boyce-Codd Normal Form (BCNF) if it is in 3NF and if <strong><em>every determinant is a candidate key</em></strong>, i.e. for all functional dependencies α → β in <em>F<sup>+</sup></em> one of the following holds</p>
 <ul>
 <li>α → β is a trivial functional dependency (i.e. β <strong>⊆</strong> α)</li>
@@ -844,7 +845,7 @@
 </ul>
 <p><img src="/images/DB/2843457.png"></p>
 <p>Every functional dependency is also a multivalued dependency, e.g. if α → β then α ↠ β</p>
-<h4 id="Fourth-Normal-Form-4NF"><a href="#Fourth-Normal-Form-4NF" class="headerlink" title="Fourth Normal Form (4NF)"></a>Fourth Normal Form (4NF)</h4><p>A relation schema <em>R</em> is in <strong><em>fourth normal form (4NF)</em></strong> if it is in BCNF and if <strong><em>any non-trivial multivalued dependency is a dependency on a candidate key</em></strong>, i.e. for all multivalued dependencies a ↠ b in D^+^ one of the following has to hold</p>
+<h4 id="Fourth-Normal-Form-4NF-1-21-16"><a href="#Fourth-Normal-Form-4NF-1-21-16" class="headerlink" title="Fourth Normal Form (4NF) 1:21:16"></a>Fourth Normal Form (4NF) 1:21:16</h4><p>A relation schema <em>R</em> is in <strong><em>fourth normal form (4NF)</em></strong> if it is in BCNF and if <strong><em>any non-trivial multivalued dependency is a dependency on a candidate key</em></strong>, i.e. for all multivalued dependencies a ↠ b in D^+^ one of the following has to hold</p>
 <ul>
 <li>α ↠ β is a trivial functional dependency (i.e. β <strong>⊆</strong> α or β ∪ α = R)</li>
 <li>α is a superkey of <em>R</em></li>
@@ -854,17 +855,17 @@
 <ul>
 <li><strong><em>remove</em></strong> any <strong><em>multivalued attributes</em></strong> from the relation and place them in a new relation together with their determinant </li>
 </ul>
-<h4 id="Fifth-Normal-Form-5NF"><a href="#Fifth-Normal-Form-5NF" class="headerlink" title="Fifth Normal Form (5NF)"></a>Fifth Normal Form (5NF)</h4><p>There are some forms of constraints called join dependencies that generalise multivalued dependencies</p>
+<h4 id="Fifth-Normal-Form-5NF-1-22-32"><a href="#Fifth-Normal-Form-5NF-1-22-32" class="headerlink" title="Fifth Normal Form (5NF) 1:22:32"></a>Fifth Normal Form (5NF) 1:22:32</h4><p>There are some forms of constraints called join dependencies that generalise multivalued dependencies</p>
 <ul>
 <li>leads to the <strong><em>project-join normal form</em></strong> or <strong><em>fifth normal form (5NF)</em></strong></li>
 <li>not discussed in detail in this course</li>
 </ul>
-<h3 id="Normalisation-Summary"><a href="#Normalisation-Summary" class="headerlink" title="Normalisation Summary"></a>Normalisation Summary</h3><p>Relations in higher normal forms are less vulnerable to update anomalies</p>
+<h3 id="Normalisation-Summary-1-23-41"><a href="#Normalisation-Summary-1-23-41" class="headerlink" title="Normalisation Summary 1:23:41"></a>Normalisation Summary 1:23:41</h3><p>Relations in higher normal forms are less vulnerable to update anomalies</p>
 <ul>
 <li>generally it is recommended that relations are at least in 3NF</li>
 </ul>
 <p><img src="/images/DB/2843458.png"></p>
-<h3 id="Denormalization"><a href="#Denormalization" class="headerlink" title="Denormalization"></a>Denormalization</h3><p>Sometimes a database designer decides to store information in a redundant way to save join operations and improve the performance</p>
+<h3 id="Denormalization-1-25-09"><a href="#Denormalization-1-25-09" class="headerlink" title="Denormalization 1:25:09"></a>Denormalization 1:25:09</h3><p>Sometimes a database designer decides to store information in a redundant way to save join operations and improve the performance</p>
 <ul>
 <li>may result in additional work for insert, update and delete operations</li>
 </ul>
