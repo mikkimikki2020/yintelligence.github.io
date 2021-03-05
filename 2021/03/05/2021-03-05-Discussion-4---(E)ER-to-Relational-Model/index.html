@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Language and Models, Chaoqun Yin">
+    <meta name="keywords" content="Discussion 4 - (E)ER to Relational Model, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Language and Models | Chaoqun Yin</title>
+    <title>Discussion 4 - (E)ER to Relational Model | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Language and Models</h1>
+                    <h1 class="description center-align post-title">Discussion 4 - (E)ER to Relational Model</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Fundamentals-of-Computer-Science/">
-                                <span class="chip bg-color">Fundamentals of Computer Science</span>
+                            <a href="/tags/Databases/">
+                                <span class="chip bg-color">Databases</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Discussions/" class="post-category">
+                                Discussions
                             </a>
                         
                     </div>
@@ -477,411 +477,257 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Language-and-Models"><a href="#Language-and-Models" class="headerlink" title="Language and Models"></a>Language and Models</h1><h2 id="Programming-languages-and-computer-science"><a href="#Programming-languages-and-computer-science" class="headerlink" title="Programming languages and computer science"></a>Programming languages and computer science</h2><h3 id="Motivation-for-modelling"><a href="#Motivation-for-modelling" class="headerlink" title="Motivation for modelling"></a>Motivation for modelling</h3><p>Programming Languages</p>
+                <h1 id="E-ER-to-Relational-Model"><a href="#E-ER-to-Relational-Model" class="headerlink" title="(E)ER to Relational Model"></a>(E)ER to Relational Model</h1><p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/1de88b7bb42489772156b621280549001d079e6f-1614948775792/capture/">Video</a></p>
+<h2 id="Aggregate-Function-Ꮆ"><a href="#Aggregate-Function-Ꮆ" class="headerlink" title="Aggregate Function (Ꮆ)"></a>Aggregate Function (Ꮆ)</h2><table>
+<thead>
+<tr>
+<th>loginId</th>
+<th>name</th>
+<th>dateTime</th>
+<th>device</th>
+<th>duration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Maxim Van de Wynckel</td>
+<td>2020-03-01 12:12</td>
+<td>Android</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Yunior Pacheco Correa</td>
+<td>2020-03-01 13:58</td>
+<td>iOS</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Maxim Van de Wynckel</td>
+<td>2020-03-02 10:01</td>
+<td>Windows</td>
+<td>8</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Maxim Van de Wynckel</td>
+<td>2020-03-02 10:12</td>
+<td>macOS</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Bas Ketsman</td>
+<td>2020-03-03 06:04</td>
+<td>Windows</td>
+<td>20</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Yunior Pacheco Correa</td>
+<td>2020-03-04 10:58</td>
+<td>macOS</td>
+<td>9</td>
+</tr>
+</tbody></table>
 <ul>
-<li><p>Why do they take the form they do?</p>
+<li><p>Get the amount of times each user logged in</p>
+<p>π<sub>name,totalLogins</sub>(<sub>nameᎶcount(loginId) as totalLogins </sub>(Logins))</p>
 </li>
-<li><p>How are they processed by a computer?</p>
-<p>To gain insight into these questions, we model:</p>
+<li><p>Get the amount of logins for each device type</p>
+<p>π<sub>device,totalLogins</sub>(<sub>deviceᎶcount(loginId) as totalLogins</sub>(Logins))</p>
 </li>
-<li><p>Language</p>
+<li><p>Get the total amount of minutes each user spent while logged in</p>
+<p>π<sub>name,totalTime</sub>(<sub>nameᎶsum(duration) as totalTime</sub>(Logins))</p>
 </li>
-<li><p>Mechanisms for processing language</p>
-</li>
-</ul>
-<h3 id="Key-aspects"><a href="#Key-aspects" class="headerlink" title="Key aspects"></a>Key aspects</h3><ul>
-<li>Language is about<ul>
-<li>Structure (form)</li>
-<li>Meaning</li>
-</ul>
-</li>
-<li>Formal models of language deal with <strong>structure only</strong></li>
-<li><strong>Meaning</strong> often studied through predicate logic (see Part I of the course)</li>
-</ul>
-<h2 id="Ambiguity-and-language-design"><a href="#Ambiguity-and-language-design" class="headerlink" title="Ambiguity and language design"></a>Ambiguity and language design</h2><h3 id="Human-natural-VS-programming-languages"><a href="#Human-natural-VS-programming-languages" class="headerlink" title="Human (natural) VS. programming languages"></a>Human (natural) VS. programming languages</h3><h4 id="Natural-languages"><a href="#Natural-languages" class="headerlink" title="Natural languages"></a>Natural languages</h4><ul>
-<li>The result of evolutionary processes</li>
-<li>Guided by communicative needs and cognitive capacities</li>
-<li>No central control / design</li>
-<li>Vagueness<ul>
-<li>E.g. When does a wide chair become a bench?</li>
-</ul>
-</li>
-<li>Ambiguity<ul>
-<li>Word-level ambiguity: figure out meaning from context (e.g. bank or trip)</li>
-<li>Structural ambiguity: different groupings for the same words (e.g. old men and women)</li>
-</ul>
+<li><p>Get the average login duration</p>
+<p>Ꮆ<sub>avg(duration)</sub></p>
 </li>
 </ul>
-<p><img src="/images/FOCS/1026370.png" alt="Example of structural ambiguity in natural languages"></p>
-<h4 id="Programming-languages"><a href="#Programming-languages" class="headerlink" title="Programming languages"></a>Programming languages</h4><ul>
-<li>Tightly organised, controlled design</li>
-<li>No vagueness<ul>
-<li>E.g. clear boundary between integers and reals</li>
-</ul>
-</li>
-<li>Ambiguity<ul>
-<li>Sometimes word-level amibuity: e.g. in certain programming languages keywords can also be used as variable names</li>
-<li>No structural ambiguity: precedence rules, parentheses, …</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/FOCS/1026371.png" alt="Example of structural ambiguity when precedence rules and parentheses are ignored"></p>
+<p><img src="/images/DB/1921470.png" alt="(E)ER to Relational Model"></p>
+<p>Start by converting the entities and one-to-one one relations:</p>
 <ul>
-<li>X = Y = 2<sup>5</sup> = 32, <em>log</em> = <em>log</em><sub>2</sub></li>
-<li>6 or 37 ?</li>
+<li>Actor(<strong>firstName, lastName</strong>)</li>
+<li>Movie(<strong>title, year</strong>)</li>
+<li>Producer(<strong>firstName, lastName</strong>)</li>
 </ul>
-<h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>The study of formals models of language provides insights in:</p>
+<p>Next, create schemas for the * relations: </p>
 <ul>
-<li>Ambiguity of statements</li>
-<li>Efficiency in processing of programming languages</li>
+<li><strong>MovieActors(title, year, firstName, lastName)</strong></li>
+<li><strong>MovieProducers(title, year, firstName, lastName)</strong></li>
 </ul>
-<h2 id="Formal-languages"><a href="#Formal-languages" class="headerlink" title="Formal languages"></a>Formal languages</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
-<li>Formal language models focus on <strong>sequences of symbols</strong> (strings) </li>
-<li>No meaning, except for structural differences</li>
-</ul>
-<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><ul>
-<li><strong>Alphabet</strong><ul>
-<li>An alphabet (Σ) is a finite set of symbols</li>
-</ul>
-</li>
-<li><strong>String</strong><ul>
-<li>A string is a finite sequence of symbols from an alphabet</li>
-</ul>
-</li>
-<li><strong>Language</strong><ul>
-<li>A language is a set of strings</li>
-</ul>
-</li>
-</ul>
-<h3 id="Central-question"><a href="#Central-question" class="headerlink" title="Central question"></a>Central question</h3><p><strong>For any particular language, how can we specify precisely the correct strings and no others?</strong></p>
-<h4 id="Alphabet-and-strings"><a href="#Alphabet-and-strings" class="headerlink" title="Alphabet and strings"></a>Alphabet and strings</h4><ul>
-<li>For convenience, we use small symbol sets as alphabets</li>
-<li>E.g.: <ul>
-<li>Let Σ = {a, b, c} be the set of symbols. Some strings composed from the symbols of Σ are ab, bbc, and abcba. These are <strong>strings over Σ</strong></li>
-<li>Let Σ = {0, 1, +} be the set of symbols. Some strings over Σ are 0,1+1 and 10+11+1010</li>
-</ul>
-</li>
-</ul>
-<h4 id="Length-of-strings"><a href="#Length-of-strings" class="headerlink" title="Length of strings"></a>Length of strings</h4><p>The length of the string =</p>
+<p><img src="/images/DB/1921471.png"></p>
+<p>Start by converting the entities and one-to-one one relations: </p>
 <ul>
-<li>The number of symbols in it</li>
-<li>E.g. |abc| = 3</li>
+<li>Recipe(<strong>rname, author</strong>)</li>
+<li>Ingredient(<strong>iname</strong>, calories)</li>
+<li>RecipeStep(<strong>rname, author, stepNr,</strong> instructions)</li>
 </ul>
-<h4 id="Empty-string"><a href="#Empty-string" class="headerlink" title="Empty string"></a>Empty string</h4><ul>
-<li>Empty string =<ul>
-<li>Λ</li>
-<li>|Λ| = 0</li>
-</ul>
-</li>
-<li><strong>Λ is a string, NOT a symbol!!</strong></li>
-<li><strong>Λ is not listed in Σ</strong></li>
-</ul>
-<h4 id="Set-of-strings"><a href="#Set-of-strings" class="headerlink" title="Set of strings"></a>Set of strings</h4><p>E.g.</p>
+<p><em>Note: the name attribute of ingredients and recipes is renamed to avoid confusion</em></p>
 <ul>
-<li>Finite set:<ul>
-<li>The set of strings over Σ = {a, b} of length ≤ 2 is {Λ, a, b, aa, ab, ba, bb} </li>
-<li>Cf. variable names in e.g. Fortran, Pascal</li>
+<li>RecipeIngredient(<strong>rname, author, iname,</strong> weight, unit)</li>
 </ul>
-</li>
-<li>Infinite set:<ul>
-<li>The set of strings over Σ = {0, 1, +} that represent sums of 0s and 1s is {0 + 0, 0 + 1, 1 + 0, 1 + 1, 0 + 0 + 0, 0 + 0 + 1, …}</li>
-</ul>
-</li>
-</ul>
-<h4 id="Language-Σ∗"><a href="#Language-Σ∗" class="headerlink" title="Language Σ∗"></a>Language Σ<sup>∗</sup></h4><ul>
-<li>Σ<sup>∗</sup> is the language consisting of <strong>all possible strings</strong> over Σ</li>
-<li>Any language over Σ is a subset of Σ<sup>∗</sup></li>
-<li>E.g.:<ul>
-<li>Any language over {a, b} is a subset of {a, b} <sup>∗</sup></li>
-<li>{a, b, } <sup>∗</sup> = {Λ, a, b, aa, bb, ba, bb, aaa, aab, …}</li>
-</ul>
-</li>
-</ul>
-<h4 id="Set-formats"><a href="#Set-formats" class="headerlink" title="Set formats"></a>Set formats</h4><ul>
-<li>Extensional format<ul>
-<li>Explicit list of arguments</li>
-<li>E.g.: L = {Λ, a, b, aa, ab, ba, bb}</li>
-</ul>
-</li>
-<li>Intentional format<ul>
-<li>E.g.: L = the set of strings over {a, b}, of length no more than two</li>
-<li>E.g.: L = {x|x ∈ {a, b} <sup>∗</sup> ∧ |x| ≤ 2}</li>
-</ul>
-</li>
-</ul>
-<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><p>Write the extension of each of the following sets: </p>
+<h2 id="Twitter-Description"><a href="#Twitter-Description" class="headerlink" title="Twitter: Description"></a>Twitter: Description</h2><p>Twitter is a platform where users can register with a unique username (their Twitter handle). When logged in, they can post messages called ’ Tweets ’ that are max 120 characters long and optionally can contain an image, video or poll. However, a tweet can only contain one interactive component (either an image, video or poll). These tweets are uniquely identified by a number and can be liked by other users. Any user can reply to tweets and even ’ retweet ’/repost the tweet on their own homepage. Users can choose to follow other users to get notified on their activity.</p>
+<p><img src="/images/DB/1921472.png" alt="Twitter: (E)ER"></p>
+<h3 id="Step-7-Reduce-the-E-ER-to-schemas"><a href="#Step-7-Reduce-the-E-ER-to-schemas" class="headerlink" title="Step 7: Reduce the (E)ER to schemas"></a>Step 7: Reduce the (E)ER to schemas</h3><p><strong>Create the user entity</strong></p>
 <ul>
-<li>{x|x ∈ {a, b} <sup>∗</sup> ∧ |x| = 3}.</li>
-<li>{x|x ∈ {a, b} <sup>∗</sup> ∧ |x| =4 ∧ ∃y: (x =aya)}.</li>
+<li>User(<strong>handle</strong>, firstName, lastName, email)</li>
+<li>Tweet(<strong>tweetUID</strong>, text, dateTime)</li>
 </ul>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><ul>
-<li>{aaa, baa, aba, bba, aab, bab, abb, bbb}</li>
-<li>{abba, aaba, abaa, aaaa}</li>
-</ul>
-<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><p>Express the following sets intentionally using formal language terminology:</p>
+<p><strong>Create the relation ’author’</strong></p>
 <ul>
-<li>{aa, ab, ac, ba, bb, bc, ca, cb, cc}</li>
-<li>{αa}<sup>∗</sup></li>
+<li>User(<strong>handle</strong>, firstName, lastName, email)</li>
+<li>Tweet(<strong>tweetUID</strong>, <em>handle</em>, text, dateTime)</li>
+<li>TweetLikes(<strong>tweetUID, handle</strong>, dateTime)</li>
 </ul>
-<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><ul>
-<li>{x|x ∈ {a, b, c} <sup>∗</sup> ∧ |x| = 2}</li>
-<li>{x|x ∈ {a} <sup>∗</sup> ∧ ∃y ∈ <strong>I</strong> : |x| = 2y}</li>
-</ul>
-<h2 id="Operations-on-languages"><a href="#Operations-on-languages" class="headerlink" title="Operations on languages"></a>Operations on languages</h2><h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><p>Language are <strong>sets</strong> (of strings), notated here as L<sub>1</sub> , L<sub>2</sub></p>
+<p><strong>Create the ’replyTo’ relation</strong></p>
 <ul>
-<li>Union: L<sub>1</sub> ∪ L<sub>2</sub></li>
-<li>Intersection: L<sub>1</sub> ∩ L<sub>2</sub></li>
-<li>Difference: L<sub>1</sub> \ L<sub>2</sub></li>
-<li>Symmetric difference: L<sub>1</sub> ∆ L<sub>2</sub></li>
-<li>Complement: Σ<sup>∗</sup> \ L</li>
+<li>User(<strong>handle</strong>, firstName, lastName, email)</li>
+<li>Tweet(<strong>tweetUID</strong>, <em>handle, parentUID</em>, text, dateTime)</li>
+<li>TweetLikes(<strong>tweetUID, handle</strong>, dateTime)</li>
 </ul>
-<h3 id="Empty-language"><a href="#Empty-language" class="headerlink" title="Empty language"></a>Empty language</h3><ul>
-<li>Empty language: ∅<ul>
-<li>Has no strings</li>
-</ul>
-</li>
-<li>Language {Λ}<ul>
-<li>Has 1 string, the empty string, which has length 0</li>
-</ul>
-</li>
-<li>Language {Λ, a, aa}<ul>
-<li>Has 3 strings, of length 0, 1 and 2</li>
-</ul>
-</li>
-</ul>
-<h3 id="Concatenation-of-strings"><a href="#Concatenation-of-strings" class="headerlink" title="Concatenation of strings"></a>Concatenation of strings</h3><p><strong>Definition:</strong>  Concatenation of <strong>strings</strong></p>
+<p><strong>Create the ’follow’ relation</strong></p>
 <ul>
-<li>x and y are strings: xy is their concatenation</li>
-<li>x is a string: xΛ = x = Λx</li>
-<li>x is a string: xx<sup>k</sup> = x<sup>k+1</sup></li>
-<li>x is a string: x<sup>0</sup> = Λ</li>
+<li>User(<strong>handle</strong>, firstName, lastName, email)</li>
+<li>UserFollowers(<strong>handle, followerHandle</strong>, dateTime)</li>
+<li>Tweet(<strong>tweetUID</strong>, <em>handle, parentUID</em>, text, dateTime)</li>
+<li>TweetLikes(<strong>tweetUID, handle,</strong> dateTime)</li>
 </ul>
-<p><strong>Concatenation is NOT commutative!!!</strong></p>
-<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><p>Give the length of each of the following strings: </p>
+<p><strong>Create photo, video and retweet schemas</strong></p>
 <ul>
-<li>b<sup>3</sup>c<sup>4</sup> </li>
-<li>(aΛaΛbΛb)<sup>2</sup> </li>
-<li>Λ<Sup>5</sup></li>
+<li>User(<strong>handle</strong>, firstName, lastName, email)</li>
+<li>UserFollowers(<strong>handle, followerHandle</strong>, dateTime)</li>
+<li>Tweet(<strong>tweetUID</strong>, <em>handle, parentUID</em>, text, dateTime) TweetLikes(<strong>tweetUID</strong>, <strong>handle</strong>, dateTime)</li>
+<li>TweetPhoto(<strong>tweetUID</strong>, url)</li>
+<li>TweetVideo(<strong>tweetUID</strong>, url, service)</li>
+<li>TweetRetweet(<strong>tweetUID</strong>, <em>retweetUID</em>)</li>
 </ul>
-<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><ul>
-<li>7</li>
-<li>8</li>
-<li>0</li>
-</ul>
-<h3 id="Concatenation-of-languages"><a href="#Concatenation-of-languages" class="headerlink" title="Concatenation of languages"></a>Concatenation of languages</h3><p><strong>Definition:</strong> Concatenation of <strong>languages</strong></p>
+<p><em>Note: <a href="https://yintelligence.tech/2021/02/21/2021-02-21-Relational-Database-Design/#toc-heading-10">Lecture 4, Specialisation and Generalisation 20:25</a> - we would create a “Media” schema to enforce our disjoint ISA.</em></p>
+<p><strong>Create the poll schemas</strong></p>
 <ul>
-<li><p>For language L<sub>1</sub> and L<sub>2</sub>, their concatenation is written as L<sub>1</sub>L<sub>2</sub></p>
-</li>
-<li><p>L<sub>1</sub>L<sub>2</sub> = {xy|x ∈ L<sub>1</sub> ∧ y ∈ L<sub>2</sub>}</p>
-<p>E.g.: Let L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}. Then the concatenations L<sub>1</sub>L<sub>2</sub> and L<sub>2</sub>L<sub>1</sub> are as follows:</p>
-</li>
-<li><p>L<sub>1</sub>L<sub>2</sub> = {ab, abb, abbb, aab, aabb, aabbb}</p>
-</li>
-<li><p>L<sub>2</sub>L<sub>1</sub> = {ba, bba, bbba, baa, bbaa, bbbaa}</p>
-</li>
+<li>User(<strong>handle</strong>, firstName, lastName, email)</li>
+<li>UserFollowers(<strong>handle</strong>, <strong>followerHandle</strong>, dateTime)</li>
+<li>Tweet(<strong>tweetUID</strong>, handle, parentUID, text, dateTime)</li>
+<li>TweetLikes(<strong>tweetUID</strong>, <strong>handle</strong>, dateTime)</li>
+<li>TweetPhoto(<strong>tweetUID</strong>, url)</li>
+<li>TweetVideo(<strong>tweetUID</strong>, url, service)</li>
+<li>TweetRetweet(<strong>tweetUID</strong>, retweetUID)</li>
+<li>TweetPoll(<strong>tweetUID</strong>, endDate)</li>
+<li>TweetPollItem(<strong>tweetUID, optionNr</strong>, text)</li>
+<li>TweetPollItemVote(<strong>tweetUID, optionNr, handle</strong>, dateTime)</li>
 </ul>
-<p><strong>Concatenation is NOT commutative!!!</strong></p>
-<h3 id="More-concatenation"><a href="#More-concatenation" class="headerlink" title="More concatenation"></a>More concatenation</h3><p>L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}</p>
+<p><strong>Create the report schema</strong></p>
 <ul>
-<li>L<sub>1</sub>L<sub>2</sub>: 2 x 3 unique concatenations<ul>
-<li>{ab, abb, abbb, aab, aabb, aabbb}</li>
+<li>User(<strong>handle</strong>, firstName, lastName, email)</li>
+<li>UserFollowers(<strong>handle, followerHandle</strong>, dateTime)</li>
+<li>Tweet(<strong>tweetUID</strong>, handle, parentUID, text, dateTime)</li>
+<li>TweetLikes(<strong>tweetUID, handle</strong>, dateTime)</li>
+<li>TweetPhoto(<strong>tweetUID</strong>, url)</li>
+<li>TweetVideo(<strong>tweetUID</strong>, url, service)</li>
+<li>TweetRetweet(<strong>tweetUID</strong>, <em>retweetUID</em>)</li>
+<li>TweetPoll(<strong>tweetUID</strong>, endDate)</li>
+<li>TweetPollItem(<strong>tweetUID</strong>, optionNr, text)</li>
+<li>TweetPollItemVote(<strong>tweetUID</strong>, <strong>optionNr</strong>, <strong>handle</strong>, dateTime)</li>
+<li>TweetReport(<strong>tweetUID, handle, reason</strong>, dateTime, status)</li>
 </ul>
-</li>
-<li>L<sub>2</sub>L<sub>2</sub>: 3 x 3 concatenations, but only 5 unique ones<ul>
-<li>{bb, bbb, bbbb, bbbbb, bbbbbb}</li>
-</ul>
-</li>
-</ul>
-<h3 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h3><p>How many of the strings over the symbol set Σ = {a, b, c} are of length exactly 5?</p>
-<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p>n<sup>k</sup> = 3<sup>5</sup> = 243</p>
-<h3 id="Exercise-5"><a href="#Exercise-5" class="headerlink" title="Exercise 5"></a>Exercise 5</h3><p>Use the notation of formal languages, sets, logic, and arithmetic to express in intentional form each of the following sets, using no English.</p>
+<h2 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h2><h3 id="1-Relational-Algebra"><a href="#1-Relational-Algebra" class="headerlink" title="1: Relational Algebra"></a>1: Relational Algebra</h3><p>Given the following relational database:</p>
 <ul>
-<li>The set of strings of length 5 over {0, 1}.</li>
-<li>The set of strings over {0, 1} that begin with 1 and that represent, as binary numbers, the values from 1 to 31 (in decimal notation).</li>
+<li>Employee(<u>person-name</u>, street, city) </li>
+<li>Works(<u>person-name</u>, company-name, salary) </li>
+<li>Company(<u>company-name</u>, city) </li>
+<li>Manages(<u>person-name</u>, manager-name)</li>
 </ul>
-<h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><ul>
-<li>{x|x ∈ {0, 1} <sup>∗</sup> ∧ |x| = 5}</li>
-<li>{x|y ∈ {0, 1} <sup>∗</sup> ∧ |y| ≤ 4 ∧ x = 1y}</li>
+<p>Give an expression in relational algebra to express each of the following queries:</p>
+<ol>
+<li>Find the names of all employees who live in the same city and street as their managers. </li>
+<li>Find the names of all employees in this database who do not work for ”First Bank Corporation”.</li>
+<li> Find the names of all employees who earn more than every employee of ”Small Bank Corporation”. </li>
+<li>Find those companies whose employees earn a higher salary, on average, than the average salary at “First Bank Corporation”.</li>
+</ol>
+<p><em>Note: Watch out, in this database we assume that employees work for only one company. We do not keep temporal aspects of contracts between companies and employees.</em></p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><ol>
+<li><p><strong>Find the names of all employees who live in the same city and street as their managers.</strong></p>
+<p>π<sub>person−name</sub>((Employee ⋈ Manages) ⋈ ρ<sub>E2(manager−name,street,city)</sub>(Employee))</p>
+</li>
+<li><p><strong>Find the names of all employees in this database who do not work for “First Bank Corporation”.</strong></p>
+<p>π<sub>person−name</sub>(σ<sub>company−name ≠ ”First Bank Corporation”</sub>(Works))</p>
+</li>
+<li><p><strong>Find the names of all employees who earn more than every employee of “Small Bank Corporation”.</strong></p>
+<p>MS ← Ꮆ<sub>max(salary) as max−sal−sbc</sub>(σ<sub>company−name=”Small Bank Corporation”</sub>(Works))</p>
+<p>π<sub>person−name</sub>(σ<sub>salary &gt; max−sal−sbc</sub>(Works × MS))</p>
+</li>
+<li><p><strong>Find those companies whose employees earn a higher salary, on average, than the average salary at “First Bank Corporation”.</strong></p>
+<p>AS ← Ꮆ<sub>avg(salary) as avg−sal−fbc</sub>(σ<sub>company−name=”First Bank Corporation”</sub>(Works))</p>
+<p>AS2 ←<sub>company−name Ꮆavg(salary) as avg−sal−comp</sub>(Works)</p>
+<p>π<sub>company−name</sub>(σ<sub>avg−sal−comp &gt; avg−sal−fbc</sub>(AS2 × AS))</p>
+</li>
+</ol>
+<h3 id="2-Reduction-of-E-ER-to-Relational-Model"><a href="#2-Reduction-of-E-ER-to-Relational-Model" class="headerlink" title="2: Reduction of (E)ER to Relational Model"></a>2: Reduction of (E)ER to Relational Model</h3><ol>
+<li><p>Reduce the first ER model you made during the <a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">first exercise session</a> (Video Rental Store) to the relational model.</p>
+</li>
+<li><p>Reduce the second ER model you made during the <a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">first exercise session</a> (DIGI-BIKE) to the relational model.</p>
+</li>
+<li><p>Reduce the EER model you made during the <a href="https://yintelligence.tech/2021/02/20/2021-02-20-Exercise-2---Extended-Entity-Relationship-Model/">second exercise session</a> (Medical Database) to the relational model. </p>
+<p><em>Note: You will have to find a way to model the ISA relationships, You can use the solutions of the first and second exercise session.</em></p>
+</li>
+</ol>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><h5 id="1-Video-store"><a href="#1-Video-store" class="headerlink" title="1. Video store"></a>1. Video store</h5><ul>
+<li>Movie(<strong>catalogNr</strong>, releaseYear, title, category, dailyRate, nrOfCoppies) </li>
+<li>Supplier(<strong>supplierNr</strong>, faxNumber, address, name, phoneNumber) </li>
+<li>Copy(<strong>copyNr</strong>, status, catalogNr, supplierNr)</li>
+<li>ContractCoppies(<strong>copyNr</strong>, <strong>contractNr</strong>)</li>
+<li>Contract(<strong>contractNr</strong>, totalPrice, dateOut, dateBack, nrOfDays, memberNr)</li>
+<li>Member(<strong>memberNr</strong>, birthDate, lastName, firstName, address, phoneNumber, dateJoined)</li>
 </ul>
-<h3 id="Exercise-6"><a href="#Exercise-6" class="headerlink" title="Exercise 6"></a>Exercise 6</h3><ul>
-<li>L = {x|x ∈ {a, b} <sup>∗</sup> ∧ |x| ≤ 2} = {Λ, a, b, aa, ab, ba, bb}</li>
-<li>L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}</li>
-<li>Give the extensional form of (L<sub>1</sub>L<sub>2</sub>) ∩ L</li>
+<h5 id="2-Digi-Bike"><a href="#2-Digi-Bike" class="headerlink" title="2. Digi-Bike"></a>2. Digi-Bike</h5><ul>
+<li>AnnualFee(<strong>year</strong>, amount)</li>
+<li>Member(<strong>membershipNr</strong>, name, emailAddress, paidStatus) </li>
+<li>Paid(<strong>membershipNr</strong>, <strong>year</strong>)</li>
+<li>Request(<strong>membershipNr</strong>, <strong>date</strong>, minKM, maxKM, maxFee)</li>
+<li>Race(<strong>name</strong>, date, startHour, fee, nrOfKM) </li>
+<li>MatchesWith(<strong>membershipNr</strong>, <strong>date</strong>, <strong>name</strong>, emailSendDate)</li>
 </ul>
-<h4 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h4><ul>
-<li>L<sub>1</sub>L<sub>2</sub> = {ab, abb, abbb, aab, aabb, aabbb}</li>
-<li>(L<sub>1</sub>L<sub>2</sub>) ∩ L = {ab}</li>
-</ul>
-<h3 id="Superscript-for-languages"><a href="#Superscript-for-languages" class="headerlink" title="Superscript for languages"></a>Superscript for languages</h3><p><strong>Definition</strong>: Superscript for Languages</p>
-<p>For each language L:</p>
+<h5 id="3-Medical-Database"><a href="#3-Medical-Database" class="headerlink" title="3. Medical Database"></a>3. Medical Database</h5><p><em>The reduction of ISA relationships can be done in different ways. Sometimes it is as easy as adding a column to the schema, sometimes you create different schemas and sometimes you create a relation to another schema.</em></p>
 <ul>
-<li>L<sup>0</sup> = {Λ}</li>
-<li>L<sup>k+1</sup> = LL<sup>k</sup> , for any integer k</li>
-</ul>
-<h3 id="Closure-for-Languages"><a href="#Closure-for-Languages" class="headerlink" title="Closure for Languages"></a>Closure for Languages</h3><p><strong>Definition</strong>: Closure for Languages</p>
-<ul>
-<li><p>L<sup>∗</sup> = L<sup>0</sup> ∪ L<sup>1</sup> ∪ L<sup>2</sup> ∪, …</p>
+<li><p>Person(<strong>ssn</strong>, address, telephoneNumber, birthDate)</p>
 </li>
-<li><p>$$<br>L^*=U_{i=0}^∞L^i<br>$$</p>
+<li><p>Patient(<strong>ssn</strong>, name)</p>
 </li>
-<li><p>For any language, except ∅ and {Λ}, L<sup>∗</sup> has infinitely many strings</p>
+<li><p>ContactPerson(<strong>ssn</strong>, email)</p>
 </li>
-</ul>
-<p>Eg.: </p>
-<p>Let L = {a, bb}. Then L<sup>0</sup> = {Λ}, which is true for any language. Also,</p>
-<ul>
-<li>L<sup>1</sup> = L = {a, bb}</li>
-<li>L<sup>2</sup> = LL = {a, abb, bba, bbbb}</li>
-<li>L<sup>3</sup> = LL<sup>2</sup> = {aaa, aabb, abba. abbbb, bbaa, bbabb. bbbba, bbbbbb}</li>
-<li>L<sup>*</sup> = L = {Λ, a , bb. aa. abb. bba, bbbb, aaa, aabb, abba, abbbb, bbaa, …}</li>
-</ul>
-<h3 id="Exercise-7"><a href="#Exercise-7" class="headerlink" title="Exercise 7"></a>Exercise 7</h3><p>Express each of the following as briefly as possible using correct notation: an alphabet, the set of all strings over that alphabet, the empty string, the empty language, the length of string x, and the closure of language L.</p>
-<h4 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h4><ul>
-<li>alphabet: Σ</li>
-<li>set of all strings over alphabet: Σ<sup>∗</sup></li>
-<li>empty string: Λ</li>
-<li>empty language: ∅</li>
-<li>length of string x: |x|</li>
-<li>closure of language L: L<sup>∗</sup></li>
-</ul>
-<h3 id="Exercise-8"><a href="#Exercise-8" class="headerlink" title="Exercise 8"></a>Exercise 8</h3><p> Let L be the language {a, bb} and consider its closure, L<sup>∗</sup><em>.</em></p>
-<ul>
-<li>How many strings in L<sup>∗</sup> are of length 4?</li>
-<li>How many strings in L<sup>∗</sup> are of length 5?</li>
-</ul>
-<h4 id="Solution-7"><a href="#Solution-7" class="headerlink" title="Solution"></a>Solution</h4><ul>
-<li>L<sup>0</sup> : 0</li>
-<li>L<sup>1</sup> : 0</li>
-<li>L<sup>2</sup> : 1</li>
-<li>L<sup>3</sup> : 3</li>
-<li>L<sup>4</sup> : 1</li>
-<li>4 strings: {bbbb, aabb, abba, bbaa, aaaa}</li>
-</ul>
-<h2 id="Two-levels-and-two-language-classes"><a href="#Two-levels-and-two-language-classes" class="headerlink" title="Two levels and two language classes"></a>Two levels and two language classes</h2><h3 id="Words-and-sentences"><a href="#Words-and-sentences" class="headerlink" title="Words and sentences"></a>Words and sentences</h3><p>Human Language</p>
-<ul>
-<li>Symbols: individual letters<ul>
-<li>Σ is called the <strong>alphabet</strong></li>
-<li>Strings of the language are called <strong>words</strong></li>
-</ul>
+<li><p>MedicalPerson(<strong>ssn</strong>, medicalperson-ssn)</p>
+<p><em>The intermediate MedicalPerson still allows us to join data from patient to a medical person</em></p>
 </li>
-<li>Symbols: individual words<ul>
-<li>Σ is called the <strong>vocabulary</strong></li>
-<li>Strings of the language are called <strong>sentences</strong></li>
-</ul>
+<li><p>Doctor(<strong>medicalperson-ssn</strong>, address, telephoneNumber, birthDate, name) </p>
+<p><em>We copy the data from person to make sure that we can not have foreign key contraints (<a href="https://yintelligence.tech/2021/02/21/2021-02-21-Relational-Database-Design/#toc-heading-10">Lecture 4, Specialisation and Generalisation 20:25</a>)</em></p>
+</li>
+<li><p>DoctorSpecialisations(<strong>medicalperson-ssn</strong>, specialisation)</p>
+</li>
+<li><p>Apothecary(<strong>medicalperson-ssn</strong>, address, telephoneNumber, birthDate) </p>
+</li>
+<li><p>Prescription(<strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>)</p>
+</li>
+<li><p>Medicine(<strong>medicine-name</strong>, formula) </p>
+</li>
+<li><p>PharmaceuticalCompany(<strong>pharmaceuticalcompany-name</strong>, address, telephoneNumber, contactpersonssn)</p>
+</li>
+<li><p>Pharmacy(<strong>pharmacy-address</strong>, medicalperson-ssn)</p>
+<p><em>The medicalperson-ssn is a link to Apothecary (1 for each pharmacy)</em> </p>
+</li>
+<li><p>LongtermContract(<strong>pharmaceuticalcompany-name</strong>, <strong>pharmacy-address</strong>, <strong>startDate</strong>, <strong>endDate</strong>, text)</p>
+</li>
+<li><p>DoctorPrescriptions(<strong>medicalperson-ssn</strong>, <strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>)</p>
+</li>
+<li><p>PrescriptionMedicine(<strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>, <strong>medicine-name</strong>, dose)</p>
+</li>
+<li><p>PharmacyMedicine(<strong>pharmacy-addres</strong>s,<strong>medicine-name</strong>, price) </p>
+</li>
+<li><p>MedicineManufacturers(<strong>medicine-name</strong>, <strong>pharmaceuticalcompmany-name</strong>)</p>
+</li>
+<li><p>LongtermContractMedicines(<strong>pharmaceuticalcompany-name</strong>, <strong>pharmacy-address</strong>, <strong>startDate</strong>, <strong>endDate</strong>, <strong>medicine-name</strong>)</p>
 </li>
 </ul>
-<h3 id="Tokens-and-statements"><a href="#Tokens-and-statements" class="headerlink" title="Tokens and statements"></a>Tokens and statements</h3><ul>
-<li><p>Programming Languages</p>
-<ul>
-<li><p>Characters combine into tokens</p>
-<ul>
-<li>Tokens correspond to words in human languages</li>
-<li>E.g. for, &lt;=, and try in Java</li>
-</ul>
-</li>
-<li><p>Tokens combine into statements</p>
-<ul>
-<li><p>Statements correspond to words in human languages</p>
-</li>
-<li><p>E.g. (loop for el in list do (format t “ a %” el))</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>One is interested at on particular symbol set at any particular time</p>
-</li>
-<li><p>Combining tokens to form statements is more complex than combining characters to make tokens</p>
-</li>
-<li><p>Language classes:</p>
-<ul>
-<li>Class of regular languages<ul>
-<li>For forming tokens out of characters</li>
-<li>No recursion</li>
-</ul>
-</li>
-<li>Class of context-free languages<ul>
-<li>For forming statements out of tokens</li>
-<li>Can have recursion</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Notion-of-recursion"><a href="#Notion-of-recursion" class="headerlink" title="Notion of recursion"></a>Notion of recursion</h3><p><strong>Definition</strong>: Recursive Construct</p>
-<ul>
-<li>A construct is recursive if it can contain within itself a structure of the same type</li>
-</ul>
-<ul>
-<li><p>No restrictions on nested, ‘inner’ statements:</p>
-</li>
-<li><p>E.g. (loop for sublist in list do</p>
-<p>​           (loop for el in sublist do (print el)))</p>
-</li>
-</ul>
-<h2 id="Questions-of-formal-language-theory"><a href="#Questions-of-formal-language-theory" class="headerlink" title="Questions of formal language theory"></a>Questions of formal language theory</h2><h3 id="Language-specification"><a href="#Language-specification" class="headerlink" title="Language specification"></a>Language specification</h3><p>How is a language specified?</p>
-<ul>
-<li>Extensional format<ul>
-<li>Explicitly enumerates elements</li>
-</ul>
-</li>
-<li>Intentional format<ul>
-<li>Uses a specification of the properties of the strings it contains</li>
-<li>e.g. L = {x|x ∈ {a, b} <sup>∗</sup> ∧ N<sub>a</sub>(x) = N<sub>b</sub>(x)}</li>
-<li>N<sub>a</sub>(x) denotes the number of occurrences of the symbol a in the string x</li>
-</ul>
-</li>
-</ul>
-<h3 id="Generation"><a href="#Generation" class="headerlink" title="Generation"></a>Generation</h3><p>How can we generate the sentences of a language?</p>
-<ul>
-<li>Problem:<ul>
-<li>Generate an unlimited number of strings of an infinite language such that any particular string would ultimately occur</li>
-</ul>
-</li>
-<li>Solution<ul>
-<li>Building a <strong>grammar</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Recognition"><a href="#Recognition" class="headerlink" title="Recognition"></a>Recognition</h3><p>How can we recognize the sentences of a language?</p>
-<ul>
-<li>Problem:<ul>
-<li>Given language L and any string x over the alphabet of the language, how can we determine whether x ∈ L</li>
-</ul>
-</li>
-<li>Solution<ul>
-<li>Building an <strong>automaton</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Language-specification-1"><a href="#Language-specification-1" class="headerlink" title="Language specification"></a>Language specification</h3><p>What is the best way to specify a language?</p>
-<ul>
-<li>There are 3 ways to specify an infinite language:<ul>
-<li>Intentional format</li>
-<li>Grammar that generates the language</li>
-<li>Automaton that recognizes the language</li>
-</ul>
-</li>
-<li>There are correspondences between these ways<ul>
-<li>E.g. Use grammar to produce automaton</li>
-<li>Translations can be done mechanically</li>
-</ul>
-</li>
-</ul>
-<h3 id="Languages-classes"><a href="#Languages-classes" class="headerlink" title="Languages classes"></a>Languages classes</h3><ul>
-<li>There are an infinite number of different languages over Σ</li>
-<li>Some are more complex than others</li>
-<li>E.g. some might be recursive</li>
-</ul>
-<p><strong>Definition</strong>: Language class</p>
-<ul>
-<li>A language class is a set of languages that can be recognized by some automaton that abides certain restrictions</li>
-<li>Or parallel to this, that can be generated by grammars that abide certain restrictions</li>
-</ul>
-<p><strong>The same language classes can be defined in terms of automata and grammars!!</strong></p>
-<p>Language classes are sets that are subets of other classes</p>
-<p>E.g. Regular languages are context-free languages</p>
-<p><img src="/images/FOCS/1490250.png"></p>
 
                 
             </div>
@@ -908,7 +754,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/03/05/2021-03-05-Language-and-Models/">https://yintelligence.tech/2021/03/05/2021-03-05-Language-and-Models/</a>
+                    <a href="https://yintelligence.tech/2021/03/05/2021-03-05-Discussion-4---(E)ER-to-Relational-Model/">https://yintelligence.tech/2021/03/05/2021-03-05-Discussion-4---(E)ER-to-Relational-Model/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -946,8 +792,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Fundamentals-of-Computer-Science/">
-                                    <span class="chip bg-color">Fundamentals of Computer Science</span>
+                                <a href="/tags/Databases/">
+                                    <span class="chip bg-color">Databases</span>
                                 </a>
                             
                         </div>
@@ -991,66 +837,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/05/2021-03-05-Inheritance,-Implements/">
+                <a href="/2021/03/05/2021-03-05-Discussion-4---(E)ER-to-Relational-Model/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Inheritance, Implements">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Discussion 4 - (E)ER to Relational Model">
                         
-                        <span class="card-title">Inheritance, Implements</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Data-Structures/">
-                        <span class="chip bg-color">Data Structures</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/05/2021-03-05-Containers/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Containers">
-                        
-                        <span class="card-title">Containers</span>
+                        <span class="card-title">Discussion 4 - (E)ER to Relational Model</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1067,8 +865,58 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Discussions/" class="post-category">
+                                    Discussions
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Databases/">
+                        <span class="chip bg-color">Databases</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/05/2021-03-05-Linked-Lists-&-Arrays/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Linked Lists &amp; Arrays">
+                        
+                        <span class="card-title">Linked Lists &amp; Arrays</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Discussions/" class="post-category">
+                                    Discussions
                                 </a>
                             
                             
@@ -1078,8 +926,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
-                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
                     </a>
                     
                 </div>
