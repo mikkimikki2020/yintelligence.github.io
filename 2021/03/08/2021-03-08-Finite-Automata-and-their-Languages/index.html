@@ -567,7 +567,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h3><p>1. Draw a transition diagram without a trap state for an FA that recognizes the language L, where: L = {x|x ∈ {a, b}<sup>∗</sup> and there is no odd block of bs in x}</p>
+<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><p>1. Draw a transition diagram without a trap state for an FA that recognizes the language L, where: L = {x|x ∈ {a, b}<sup>∗</sup> and there is no odd block of bs in x}</p>
 <p><img src="/images/FOCS/0931273.png" alt="Solution"></p>
 <p>2. Draw a transition diagram without a trap state for an FA that recognizes the language L over Σ = {<em>a, b, c, d</em>} that contains all and only the strings over x such that:</p>
 <ol>
@@ -622,7 +622,7 @@
 <li>f the first symbol is a, the automaton will always stay in the accepting state q<sub>1</sub>, no matter what other symbols follow</li>
 <li>If the first symbol is d, it will be trapped in the state q<sub>2</sub>, no matter what other symbols follow</li>
 </ul>
-<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><p>Draw a state transition diagram for comments in C or C++. These are the strings that </p>
+<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><p>Draw a state transition diagram for comments in C or C++. These are the strings that </p>
 <ol>
 <li>begin with /*, </li>
 <li>end in */ without overlap (so /*/ is excluded), and</li>
@@ -630,7 +630,7 @@
 </ol>
 <p><img src="/images/FOCS/0931276.png"></p>
 <h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p><img src="/images/FOCS/0931282.png"></p>
-<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><p>Formally specify a machine <em>M</em> = (<em>Q</em>, Σ, q<sub>0</sub>, δ, <em>A</em>) by giving the values of <em>Q</em>, Σ, q<sub>0</sub>, δ and <em>A</em> corresponding to</p>
+<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><p>Formally specify a machine <em>M</em> = (<em>Q</em>, Σ, q<sub>0</sub>, δ, <em>A</em>) by giving the values of <em>Q</em>, Σ, q<sub>0</sub>, δ and <em>A</em> corresponding to</p>
 <ol>
 <li>the state transition diagram in Example 9.4, as shown, with 6 being a partial function.</li>
 <li>the same diagram except that you first add the trap state and the transitions associated with it. Note that 6 is now a total function.</li>
@@ -645,7 +645,7 @@
 <p><img src="/images/FOCS/0931285.png"></p>
 </li>
 </ol>
-<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><p>Let M = ({q<sub>0</sub>, q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub>}, {a}, q<sub>0</sub>, δ, {q, q<sub>3</sub>}), where δ is specified by the following table.</p>
+<h3 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h3><p>Let M = ({q<sub>0</sub>, q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub>}, {a}, q<sub>0</sub>, δ, {q, q<sub>3</sub>}), where δ is specified by the following table.</p>
 <p><img src="/images/FOCS/0931286.png"></p>
 <ol>
 <li>Draw the state transition diagram for this finite automaton.</li>
@@ -659,6 +659,404 @@
 <li>M = ({q<sub>0</sub>, q<sub>1</sub>}, {a}, q<sub>0</sub>, δ, {q<sub>1</sub>})</li>
 <li><img src="/images/FOCS/0931289.png"></li>
 </ul>
+<h3 id="Closure-of-the-transition-function"><a href="#Closure-of-the-transition-function" class="headerlink" title="Closure of the transition function"></a>Closure of the transition function</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition:"></a><strong>Definition:</strong></h4><ul>
+<li><p>M = (Q, Σ, q<sub>0</sub>, δ, A)</p>
+</li>
+<li><p>δ<sup>∗</sup> : Q × Σ<sup>∗</sup> → Q</p>
+</li>
+<li><p>For any q ∈ Q, δ<sup>∗</sup> (q,Λ) = q</p>
+</li>
+<li><p>For any q ∈ Q, any σ ∈ Σ and any x ∈ Σ<sup>∗</sup> , δ<sup>∗</sup> (q, xσ) = δ(δ<sup>∗</sup> (q, x), σ)</p>
+<p><em>Note that the definition is recursive!</em></p>
+</li>
+</ul>
+<h4 id="Theorem-δ∗-for-strings-of-length-1"><a href="#Theorem-δ∗-for-strings-of-length-1" class="headerlink" title="Theorem : δ∗ for strings of length 1"></a>Theorem : δ<sup>∗</sup> for strings of length 1</h4><ul>
+<li><p>Theorem: ∀q ∈ Q : ∀σ ∈ Σ for which |σ| = 1 : δ<sup>∗</sup> (q, σ) = δ(q, σ)</p>
+</li>
+<li><p>Proof:</p>
+<ul>
+<li><p>δ<sup>∗</sup> (q, σ) = δ<sup>∗</sup> (q,Λσ)    Substitution </p>
+<p>​                = δ(δ<sup>∗</sup> (q,Λ), σ)    Closure of δ (recursive case) </p>
+<p>​                = δ(q, σ)    Closure of δ (base case)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><ul>
+<li><p>M = ({q<sub>0</sub>, q<sub>1</sub>, q<sub>2</sub>}, {a, d}, q<sub>0</sub>, δ, {q<sub>1</sub>})</p>
+</li>
+<li><p><img src="/images/CS61A/0931290.png"></p>
+</li>
+<li><p>Proof that ad takes M to state q<sub>1</sub></p>
+</li>
+<li><p>Proof:</p>
+<ul>
+<li><p>δ<sup>∗</sup>(q<sub>0</sub>, ad) = δ(δ<sup>∗</sup>(q<sub>0</sub>, a), d)    Closure of δ (recursive case)</p>
+<p>​                  = δ(δ(q<sub>0</sub>, a), d)    Theorem δ<sup>∗</sup> for strings of length 1 </p>
+<p>​                  = δ(q<sub>1</sub>, d)    Evaluation </p>
+<p>​                  = q<sub>1</sub>    Evaluation</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Exercise-5"><a href="#Exercise-5" class="headerlink" title="Exercise 5"></a>Exercise 5</h3><p>Specify just the the transition function of a finite automaton for the second state transition diagram in Exercise 1.3. Omit the trap state. Label the states q<sub>0</sub>, q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub> and q<sub>4</sub>.</p>
+<p><img src="/images/FOCS/0931276.png"></p>
+<h4 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>q<sub>0</sub></td>
+<td></td>
+<td></td>
+<td></td>
+<td>q<sub>1</sub></td>
+</tr>
+<tr>
+<td>q<sub>1</sub></td>
+<td></td>
+<td></td>
+<td>q<sub>2</sub></td>
+<td></td>
+</tr>
+<tr>
+<td>q<sub>2</sub></td>
+<td>q<sub>2</sub></td>
+<td>q<sub>2</sub></td>
+<td>q<sub>3</sub></td>
+<td>q<sub>2</sub></td>
+</tr>
+<tr>
+<td>q<sub>3</sub></td>
+<td>q<sub>2</sub></td>
+<td>q<sub>2</sub></td>
+<td>q<sub>3</sub></td>
+<td>q<sub>4</sub></td>
+</tr>
+<tr>
+<td>q<sub>4</sub></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Exercise-6"><a href="#Exercise-6" class="headerlink" title="Exercise 6"></a>Exercise 6</h3><p>For your automaton in Exercise 5, give the values of δ<sup>∗</sup> for the arguments shown here:</p>
+<ol>
+<li>δ<sup>∗</sup>(q<sub>1</sub>, dcba) </li>
+<li>δ<sup>∗</sup>(q<sub>0</sub>, dcd)</li>
+<li>δ<sup>∗</sup>(q<sub>0</sub>, dccccd)</li>
+</ol>
+<p>Solution</p>
+<ol>
+<li><img src="/images/CS61A/0931291.png"></li>
+<li><img src="/images/CS61A/0931292.png"></li>
+<li><img src="/images/CS61A/0931293.png"></li>
+</ol>
+<h3 id="Recognized-language"><a href="#Recognized-language" class="headerlink" title="Recognized language"></a>Recognized language</h3><h4 id="Definition-Language-recognized-by-a-FA"><a href="#Definition-Language-recognized-by-a-FA" class="headerlink" title="Definition: Language recognized by a FA"></a>Definition: Language recognized by a FA</h4><ul>
+<li>The language L(M) <strong>recognized</strong> by a finite automaton M = (Q, Σ, q<sub>0</sub>, δ, A) is the set of all strings x ∈ Σ<sup>∗</sup> such that δ<sup>∗</sup> (q<sub>0</sub>, x) ∈ A</li>
+<li>M <strong>accepts</strong> the strings of L(M)</li>
+<li>M <strong>rejects</strong> the strings of Σ<sup>∗</sup> \ L(M)</li>
+</ul>
+<h4 id="Algorithm-Recognizing-the-language-of-a-FA"><a href="#Algorithm-Recognizing-the-language-of-a-FA" class="headerlink" title="Algorithm: Recognizing the language of a FA"></a>Algorithm: Recognizing the language of a FA</h4><p><img src="/images/FOCS/0931290.png"></p>
+<ul>
+<li>q: current state, x: input string, σ: current symbol, ⇐: assignment</li>
+<li>dequeue: remove an element from the front and return it</li>
+<li>Algorithm returns <em>TRUE</em> (accept) or <em>FALSE</em> (reject)</li>
+</ul>
+<h2 id="Nondeterministic-finite-automata"><a href="#Nondeterministic-finite-automata" class="headerlink" title="Nondeterministic finite automata"></a>Nondeterministic finite automata</h2><h3 id="General-idea"><a href="#General-idea" class="headerlink" title="General idea"></a>General idea</h3><p>In contrast to Deterministic Finite Automata (DFAs), Nondeterministic Finite Automata (NFAs) can have <u><strong>more than 1 transition</strong></u> for a single symbol out of a state</p>
+<h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h3><p>For the finite language <em>L</em> = {ab, ac}, draw an NFA state transition diagram, giving each string of <em>L</em> its own states and transitions, sharing only the start state</p>
+<p><img src="/images/FOCS/0931291.png"></p>
+<h3 id="Characteristics"><a href="#Characteristics" class="headerlink" title="Characteristics"></a>Characteristics</h3><ul>
+<li>An NFA makes a series of choices that lead to acceptance of the input whenever this is possible</li>
+<li>Codomain of δ:<ul>
+<li>DFA: Q : Set of states</li>
+<li>DFA: 2<sup>Q</sup> : Powerset (all subsets) of the set of states</li>
+</ul>
+</li>
+</ul>
+<h3 id="Definition-nondeterministic-FA"><a href="#Definition-nondeterministic-FA" class="headerlink" title="Definition: nondeterministic FA"></a>Definition: nondeterministic FA</h3><ul>
+<li>M = (Q, Σ, q<sub>0</sub>, δ, A)</li>
+<li>δ : Q × Σ → 2<sup>Q</sup></li>
+</ul>
+<h3 id="Definition-nondeterministic-generalized-transition-function"><a href="#Definition-nondeterministic-generalized-transition-function" class="headerlink" title="Definition: nondeterministic generalized transition function"></a>Definition: nondeterministic generalized transition function</h3><ul>
+<li><p>M = (Q, Σ, q<sub>0</sub>, δ, A)</p>
+</li>
+<li><p>δ : Q × Σ → 2<sup>Q</sup></p>
+</li>
+<li><p>For any q ∈ Q, δ<sup>∗</sup> (q,Λ) = {q}</p>
+</li>
+<li><p>For any q ∈ Q, any σ ∈ Σ, and any x ∈ Σ<sup>∗</sup><br>$$<br>δ^∗(q,xσ)=∪_{p∈δ^∗(q,x)}δ(p, σ)<br>$$</p>
+</li>
+</ul>
+<h3 id="Definition-Language-recognized-by-a-NFA"><a href="#Definition-Language-recognized-by-a-NFA" class="headerlink" title="Definition: Language recognized by a NFA"></a>Definition: Language recognized by a NFA</h3><ul>
+<li>The language L(M) recognized by a NFA M = (Q, Σ, q<sub>0</sub>, δ, A) is the set of all strings x ∈ Σ<sup>∗</sup> such that δ<sup>∗</sup>(q<sub>0</sub>, x) ∩ A ≠ ∅</li>
+<li>The NFA accepts the strings of L(M)</li>
+<li>The NFA rejects the strings of Σ<sup>∗</sup> \ L(M)</li>
+</ul>
+<h4 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h4><p>Consider the language <em>L</em> = {x | x ∈ {a, b}<sup>*</sup>} and x ends with ab}. This language contains, for example, the string <em>bbab</em>, but not <em>abba</em>. Draw a state transition diagram for both a DFA and an NFA to recognize <em>L</em>. Make each as simple as possible. </p>
+<p><img src="/images/FOCS/0931292.png"></p>
+<h5 id="Solution-7"><a href="#Solution-7" class="headerlink" title="Solution"></a>Solution</h5><p><img src="/images/FOCS/0931293.png"></p>
+<h2 id="Removing-nondeterminism"><a href="#Removing-nondeterminism" class="headerlink" title="Removing nondeterminism"></a>Removing nondeterminism</h2><h3 id="Simulating-NFAs"><a href="#Simulating-NFAs" class="headerlink" title="Simulating NFAs"></a>Simulating NFAs</h3><ul>
+<li><p>How to turn NFAs into real computational devices?</p>
+<ul>
+<li>backtracking</li>
+<li>parallel computing</li>
+<li><strong>simulate it using a DFA</strong></li>
+</ul>
+</li>
+<li><p>Simulation also proofs that NFAs are not more powerful than DFAs: they recognize the <strong>same class of language</strong></p>
+</li>
+</ul>
+<p><img src="/images/FOCS/0931294.png"></p>
+<ul>
+<li>After consuming a, there is no way to know whether the NFA is in q<sub>0</sub> or q<sub>1</sub></li>
+<li>We tolerate this uncertainty: our <strong>state of knowledge</strong> about the current state is {q<sub>0</sub>, q<sub>1</sub>}</li>
+<li>The states of knowledge become the states of a new, deterministic automaton</li>
+</ul>
+<h3 id="Subset-construction"><a href="#Subset-construction" class="headerlink" title="Subset construction"></a>Subset construction</h3><h4 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h4><p>The subset construction, S, is a function, S : N → D, that applies to any NFA, M = (Q, Σ, q<sub>0</sub>, δ, A), to yield a DFA M′ = S(M) = (Q′ , Σ′ , q′<sub>0</sub> , δ′ , A′), where the following relationships hold between the parts of M and M′ :</p>
+<ul>
+<li><p>Σ′ = Σ</p>
+</li>
+<li><p>q′<sub>0</sub> = {q<sub>0</sub>}</p>
+</li>
+<li><p>Q′ ⊆ 2<sup>Q</sup></p>
+</li>
+<li><p>δ′ : Q′ × Σ → Q′ , where<br>$$<br>∀q′∈ Q : ∀σ ∈ Σ : δ ′ (q ′ , σ) = ∪_{q ∈ q′} δ(q, σ)<br>$$</p>
+</li>
+<li><p>A′ = {q′ ∈ Q′ |q′ ∩ A ≠ ∅}</p>
+</li>
+</ul>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p><img src="/images/FOCS/0931295.png"></p>
+<h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><p>Find a DFA equivalent to this NFA:</p>
+<p><img src="/images/FOCS/0931294.png"></p>
+<p><img src="/images/FOCS/0931296.png"></p>
+<p>Note:</p>
+<ul>
+<li>No row stating where to go from q<sub>1</sub></li>
+<li>This is reasonable as we are never sure to be in state q<sub>1</sub></li>
+<li>Table is complete, as it has a row for every “state of knowledge” that can be reached directly or indirectly from q<sub>0</sub></li>
+</ul>
+<h3 id="Exercise-7"><a href="#Exercise-7" class="headerlink" title="Exercise 7"></a>Exercise 7</h3><p>For both the DFA and NFA in Example, evaluate δ<sup>∗</sup>(q<sub>0</sub>, x) for each of the following strings:</p>
+<ol>
+<li>ab</li>
+<li>abab</li>
+<li>a<sup>k</sup> , where k ≥ 1</li>
+</ol>
+<p><img src="/images/FOCS/0931297.png"></p>
+<h3 id="Exercise-8"><a href="#Exercise-8" class="headerlink" title="Exercise 8"></a>Exercise 8</h3><p>Create an NFA for the set of all strings over {a, b} ending in abab and use the subset construction to convert it to a DFA. The NFA should have a self-loop on the start state labeled with both a and b. Transitions labeled a and then b, a, and b should take the NFA from q<sub>0</sub> to q<sub>1</sub> and then to q<sub>2</sub>, q<sub>3</sub> and q<sub>4</sub>, which is accepting.</p>
+<h3 id="Exercise-9"><a href="#Exercise-9" class="headerlink" title="Exercise 9"></a>Exercise 9</h3><p>This problem concerns automata for the language L consisting of all strings over {a, b} that end in either adab or baa.</p>
+<ol>
+<li>Draw the transition diagram of an NFA for L starting with the same states and transitions as in Exercise 8 and adding some states by a similar technique, so that transitions labeled b and then a take the NFA from q<sub>0</sub> to a new accepting state. Label the new states q<sub>5</sub>, …</li>
+<li>Use the subset construction to convert your NFA to a DFA expressed as a quintuple.</li>
+</ol>
+<h2 id="Λ-transitions"><a href="#Λ-transitions" class="headerlink" title="Λ-transitions"></a>Λ-transitions</h2><h3 id="General-idea-1"><a href="#General-idea-1" class="headerlink" title="General idea"></a>General idea</h3><ul>
+<li><p>Just like nondeterminism, <strong>Λ-transitions</strong> allow simpler solutions</p>
+</li>
+<li><p>They can also be converted into a <strong>deterministic</strong> form by simulation</p>
+</li>
+<li><p>An NFA that allows Λ-transitions is called a <strong>Λ-NFA</strong></p>
+</li>
+<li><p>Λ-NFA allow Λ as a label on transitions</p>
+<ul>
+<li>Such a transition consumes no symbol</li>
+</ul>
+</li>
+</ul>
+<h3 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h3><p><img src="/images/FOCS/0931298.png"></p>
+<h3 id="Λ-NFA-formal-definition"><a href="#Λ-NFA-formal-definition" class="headerlink" title="Λ-NFA formal definition"></a>Λ-NFA formal definition</h3><ul>
+<li><p>M = (Q, Σ, q<sub>0</sub>, δ, λ, A)</p>
+</li>
+<li><p>λ : Q → 2 Q</p>
+</li>
+<li><p>For any state q<sub>i</sub> and input σ: the next state q<sub>j</sub> ∈ δ(qi , σ) ∪ λ(q<sub>i</sub>)</p>
+<ul>
+<li>Using σ if choice was based on δ</li>
+<li>Not using σ if choice was based on λ</li>
+<li>Using or not using σ if both sets or non-empty</li>
+</ul>
+</li>
+</ul>
+<h3 id="λ-closure"><a href="#λ-closure" class="headerlink" title="λ-closure"></a>λ-closure</h3><p>Yields the set of all states reachable by zero or more Λ-transitions</p>
+<p><strong>Definition:</strong> </p>
+<p><img src="/images/FOCS/0931299.png"></p>
+<ul>
+<li><strong>n = |Q|</strong></li>
+</ul>
+<h3 id="Λ-Elimination"><a href="#Λ-Elimination" class="headerlink" title="Λ-Elimination"></a>Λ-Elimination</h3><ul>
+<li><p>M = (Q′ , Σ, q<sub>0</sub>, δ′ , A′ )</p>
+<ol>
+<li><p>For each q ∈ Q, compute and record λ<sup>∗</sup> (q) (needed for the next two steps)</p>
+</li>
+<li><p>For each q ∈ Q and σ ∈ Σ, compute δ′ , knowing that<br>$$<br>δ′ (q, σ) = ∪_{p∈λ^∗(q)}δ(p, σ)<br>$$</p>
+</li>
+<li><p>For each q ∈ Q, if λ<sup>∗</sup>(q) ∩ A ≠ ∅, then make q a member of A′</p>
+</li>
+<li><p>Compute Q′ by eliminating unreachable states</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/FOCS/0931230.png"></p>
+<h4 id="Solution-8"><a href="#Solution-8" class="headerlink" title="Solution"></a>Solution</h4><p>(a):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Λ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>q<sub>0</sub></td>
+<td>{q<sub>1</sub>, q<sub>2</sub>}</td>
+</tr>
+<tr>
+<td>q<sub>1</sub></td>
+<td>∅</td>
+</tr>
+<tr>
+<td>q<sub>2</sub></td>
+<td>∅</td>
+</tr>
+<tr>
+<td>q<sub>3</sub></td>
+<td>∅</td>
+</tr>
+<tr>
+<td>q<sub>4</sub></td>
+<td>∅</td>
+</tr>
+</tbody></table>
+<p>(b):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>b</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>q<sub>0</sub></td>
+<td>{q<sub>1</sub>, q<sub>2</sub>}</td>
+<td>{q<sub>3</sub>}</td>
+</tr>
+<tr>
+<td>q<sub>1</sub></td>
+<td>{q<sub>1</sub>}</td>
+<td>{q<sub>3</sub>}</td>
+</tr>
+<tr>
+<td>q<sub>2</sub></td>
+<td>{q<sub>4</sub>}</td>
+<td>∅</td>
+</tr>
+<tr>
+<td>q<sub>3</sub></td>
+<td>∅</td>
+<td>∅</td>
+</tr>
+<tr>
+<td>q<sub>4</sub></td>
+<td>∅</td>
+<td>{q<sub>4</sub>}</td>
+</tr>
+</tbody></table>
+<p>(c) : A ′ = A = {q<sub>3</sub>, q<sub>4</sub>}</p>
+<p>(d): Eliminate q<sub>2</sub></p>
+<p><img src="/images/FOCS/0931231.png"></p>
+<h3 id="Exercise-10"><a href="#Exercise-10" class="headerlink" title="Exercise 10"></a>Exercise 10</h3><p>Give both a nondeterministic and a deterministic finite automaton for the language L in which each string contains the substring aa and at some later point the substring bb. Thus, for example, <em>baaababba</em> ∈ <em>L</em> but <em>bbaa</em> ∉ <em>L</em>.</p>
+<h3 id="Exercise-11"><a href="#Exercise-11" class="headerlink" title="Exercise 11"></a>Exercise 11</h3><p>Carry out the following steps to get a simple, correct state-transition diagram for a<sup>∗</sup> b<sup>∗</sup>. Begin with the simple diagram for a<sup>∗</sup> in Exercise 3 and a similar one for b∗. Use these two diagrams together with the correct diagram construction operation for concatenation (introducing a Λ-transition). to get a diagram for a<sup>∗</sup> b<sup>∗</sup>. Draw this diagram. Then demonstrate the process of Λ-elimination by showing the successive results of applying steps (i)-(iii) of Algorithm 9.3.</p>
+<h3 id="Exercise-12"><a href="#Exercise-12" class="headerlink" title="Exercise 12"></a>Exercise 12</h3><p>Give an automaton with Λ and another without Λ for the language L in which each string consists of an even number of as followed by an even number of bs. Recall that 0 is even.</p>
+<h3 id="Previous-exam-questions"><a href="#Previous-exam-questions" class="headerlink" title="Previous exam questions"></a>Previous exam questions</h3><ul>
+<li>Convert the following Λ-NFA into a DFA</li>
+<li>M = ({q<sub>0</sub>, q<sub>1</sub>, q<sub>2</sub>}, {a, b}, q<sub>0</sub>, δ, {q<sub>2</sub>})</li>
+</ul>
+<p><img src="/images/FOCS/0931232.png"></p>
+<h2 id="Regular-languages"><a href="#Regular-languages" class="headerlink" title="Regular languages"></a>Regular languages</h2><h3 id="Definition-Regular-Languages"><a href="#Definition-Regular-Languages" class="headerlink" title="Definition: Regular Languages"></a>Definition: Regular Languages</h3><p>A language L is a regular language if (and only if) there exists an FA M such that L = L(M)</p>
+<h3 id="Closure-properties"><a href="#Closure-properties" class="headerlink" title="Closure properties"></a>Closure properties</h3><ul>
+<li>The set of regular languages is closed for:<ul>
+<li>Concatenation</li>
+<li>Closure</li>
+<li>Union</li>
+<li>Intersection</li>
+<li>Set Difference </li>
+<li>Symmetric difference </li>
+<li>Complementation</li>
+</ul>
+</li>
+<li>This means that the result of applying these operations to regular languages L<sub>1</sub> and L<sub>2</sub> always is a regular language itself</li>
+<li>Closure can be proven by constructing an FA for the result</li>
+</ul>
+<h3 id="Closure-of-L1L2"><a href="#Closure-of-L1L2" class="headerlink" title="Closure of L1L2"></a>Closure of L<sub>1</sub>L<sub>2</sub></h3><ul>
+<li><p><strong>Theorem</strong>: If L<sub>1</sub> and L<sub>2</sub> are regular languages, then their concatenation L = L<sub>1</sub>L<sub>2</sub> is a regular language</p>
+</li>
+<li><p>Proof:</p>
+<ul>
+<li>L<sub>1</sub> = L(M<sub>1</sub>) where M<sub>1</sub> = (Q<sub>1</sub>, Σ<sub>1</sub>, q<sub>0,1</sub>, δ<sub>1</sub>, A<sub>1</sub>)</li>
+<li>L<sub>2</sub> = L(M<sub>2</sub>) where M2 = (Q<sub>2</sub>, Σ<sub>2</sub>, q<sub>0,2</sub>, δ<sub>2</sub>, A<sub>2</sub>)</li>
+<li>New machine L = L(M) where M = (Q<sub>1</sub> ∪ Q<sub>2</sub>, Σ<sub>1</sub> ∪ Σ<sub>2</sub>, q<sub>0,1</sub>, δ, A<sub>2</sub>)</li>
+<li>New transition function contains all transitions from δ<sub>1</sub> and δ<sub>2</sub> and Λ-transitions from each state in A<sub>1</sub> to q<sub>0,2</sub></li>
+<li>Finish proof by showing that L = L(M) = L<sub>1</sub>L<sub>2</sub></li>
+</ul>
+</li>
+</ul>
+<h3 id="Closure-OF-L1"><a href="#Closure-OF-L1" class="headerlink" title="Closure OF L1*"></a>Closure OF L<sub>1</sub><sup>*</sup></h3><ul>
+<li><p><strong>Theorem</strong>: If L<sub>1</sub> is a regular language, then L = L<sub>1</sub><sup>*</sup> is a regular language.</p>
+</li>
+<li><p><strong>Proof</strong>: </p>
+<ul>
+<li>New machine L = L(M) where M = (Q<sub>1</sub> ∪ {q<sub>0</sub>}, q<sub>0</sub>, δ, {q<sub>0</sub>})</li>
+<li>New transition function contains all transitions from δ<sub>1</sub> and Λ-transitions from q<sub>0</sub> to q{0, 1} and from each state in A<sub>1</sub> back to to q<sub>0</sub></li>
+<li>Finish proof by showing that L = L(M) = L<sub>1</sub><sup>*</sup></li>
+</ul>
+</li>
+</ul>
+<h3 id="Closure-of-L1-∪-L2"><a href="#Closure-of-L1-∪-L2" class="headerlink" title="Closure of L1 ∪ L2"></a>Closure of L<sub>1</sub> ∪ L<sub>2</sub></h3><ul>
+<li><p><strong>Theorem</strong>: If L<sub>1</sub> and L<sub>2</sub> are regular languages, then L = L<sub>1</sub> ∪ L<sub>2</sub> is a regular language.</p>
+</li>
+<li><p><strong>Proof</strong>:</p>
+<ul>
+<li>New machine L = L(M) where M = (Q<sub>1</sub> × Q<sub>2</sub>, Σ,(q<sub>0,1</sub>, q<sub>0,2</sub>) , δ, A)</li>
+<li>New transition function: δ((q<sub>1</sub>, q<sub>2</sub>), σ) = (δ<sub>1</sub>(q<sub>1</sub>, σ), δ<sub>2</sub>(q<sub>2</sub>, σ)) for every q<sub>1</sub> ∈ Q<sub>1</sub>, q<sub>2</sub> ∈ Q<sub>2</sub> and σ ∈ Σ</li>
+<li>New accepting states: A = {(q<sub>1</sub>, q<sub>2</sub>)|q<sub>1</sub> ∈ A<sub>1</sub> or q<sub>2</sub> ∈ A<sub>2</sub>}</li>
+</ul>
+</li>
+</ul>
+<h3 id="Closure-of-L1-∩-L2"><a href="#Closure-of-L1-∩-L2" class="headerlink" title="Closure of L1 ∩  L2"></a>Closure of L<sub>1</sub> ∩  L<sub>2</sub></h3><ul>
+<li><p><strong>Theorem</strong>: If L<sub>1</sub> and L<sub>2</sub> are regular languages, then L = L<sub>1</sub> ∩ L<sub>2</sub> is a regular language.</p>
+</li>
+<li><p><strong>Proof</strong>:</p>
+<ul>
+<li>New machine L = L(M) where M = (Q<sub>1</sub> × Q<sub>2</sub>, Σ,(q<sub>0,1</sub>, q<sub>0,2</sub>) , δ, A)</li>
+<li>New transition function: δ((q<sub>1</sub>, q<sub>2</sub>), σ) = (δ<sub>1</sub>(q<sub>1</sub>, σ), δ<sub>2</sub>(q<sub>2</sub>, σ)) for every q<sub>1</sub> ∈ Q<sub>1</sub>, q<sub>2</sub> ∈ Q<sub>2</sub> and σ ∈ Σ</li>
+<li>New accepting states: A = {(q<sub>1</sub>, q<sub>2</sub>)|q<sub>1</sub> ∈ A<sub>1</sub> and q<sub>2</sub> ∈ A<sub>2</sub>}</li>
+</ul>
+</li>
+</ul>
+<h4 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h4><p>Find an FA for the language <em>L</em>, over Σ = {a,b}. of strings that have both an odd number of <em>as</em> and an odd number of <em>bs</em>. Now clearly L<sub>1</sub> ∩ L<sub>2</sub>  where</p>
+<p>L<sub>1</sub> = {x | x ∈ {a,b}<sup><em></sup> ∧ x contains an odd number of <em>as</em>}, and L<sub>1</sub> = {x | x ∈ {a,b}<sup></em></sup> x ∧ contains an odd number of <em>bs</em>}</p>
+<p><img src="/images/FOCS/0931233.png"></p>
+<h3 id="Closure-of-Σ-L1"><a href="#Closure-of-Σ-L1" class="headerlink" title="Closure of Σ \ L1"></a>Closure of Σ \ L<sub>1</sub></h3><ul>
+<li><p><strong>Theorem</strong>: If L<sub>1</sub> is a regular language, then L = Σ \ L<sub>1</sub> is a regular language.</p>
+</li>
+<li><p><strong>Proof</strong>:</p>
+<ul>
+<li>New machine L = L(M) where M = (Q, Σ, q<sub>0</sub>, δ, Q \ A) </li>
+<li>Transition function must be total (add trap state if necessary)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Exercise-13"><a href="#Exercise-13" class="headerlink" title="Exercise 13"></a>Exercise 13</h3><p>Show that the regular languages are closed under set difference. In particular, show that if L<sub>1</sub> and L<sub>2</sub> are regular then L<sub>1</sub> \ L<sub>2</sub> is also regular.</p>
+<h3 id="Exercise-14"><a href="#Exercise-14" class="headerlink" title="Exercise 14"></a>Exercise 14</h3><p>Use the cross-product technique to build an FA for this language over E = {a, b}: </p>
+<p>L = {x | there is at most one a in x ∧ there is at least one b in x}.</p>
+<h3 id="Exercise-15"><a href="#Exercise-15" class="headerlink" title="Exercise 15"></a>Exercise 15</h3><p>Prove by mathematical induction that if <em>L</em> is a regular language (an FA language), then ∀k ∈ N: L<sup>k</sup> is a regular language (an FA language)</p>
 
                 
             </div>
