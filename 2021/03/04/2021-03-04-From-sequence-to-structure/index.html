@@ -651,7 +651,328 @@
 </li>
 </ul>
 <p><img src="/images/ADVMB/2002191.png"></p>
-<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=/personal/wim_vranken_vub_be/Documents/Opnamen/Algorithms%20in%20bioinfo_computational%20biology-20210311_100144-Meeting%20Recording.mp4&parent=/personal/wim_vranken_vub_be/Documents/Opnamen&originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VlQ2JydHBTTHRGQ2tQclFhV0Jhd3hJQnc2UnVQWXdoc0dVdzBNQ0tPY0pTX2c_cnRpbWU9TEZoQTM2UGsyRWc">Video Part 2</a></p>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=/personal/wim_vranken_vub_be/Documents/Opnamen/Algorithms%20in%20bioinfo_computational%20biology-20210311_100144-Meeting%20Recording.mp4&parent=/personal/wim_vranken_vub_be/Documents/Opnamen&originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VlQ2JydHBTTHRGQ2tQclFhV0Jhd3hJQnc2UnVQWXdoc0dVdzBNQ0tPY0pTX2c_cnRpbWU9TEZoQTM2UGsyRWc">Video Part 2 1:02 ~ 1:50:17</a></p>
+<h3 id="How-do-we-prepare-and-clean-up-the-data"><a href="#How-do-we-prepare-and-clean-up-the-data" class="headerlink" title="How do we prepare and clean  up the data?"></a>How do we prepare and clean  up the data?</h3><h4 id="Input-data-2-27"><a href="#Input-data-2-27" class="headerlink" title="Input data 2:27"></a>Input data 2:27</h4><ul>
+<li><p>Need clean protein structure data with bias  removed as much as possible</p>
+<ul>
+<li>What about sequence overlap? Relatively common problem, does  someone already have a solution</li>
+</ul>
+</li>
+<li><p>Look for servers/articles/… – Common bioinformatics approach 3:56</p>
+<ul>
+<li>With a bit of luck the data are still live and accessible</li>
+</ul>
+</li>
+<li><p>Determine which cutoffs/dataset to use for your approach 5:25</p>
+<ul>
+<li>Very strict:<ul>
+<li>Only X-ray crystallography</li>
+<li>Resolution of 1.6 Å or better (lower value)</li>
+<li>Sequence identity cutoff of 25%</li>
+<li>cullpdb_pc20_res1.6_R0.25_d120323_chains1998</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p> What is in the PISCES file? 6:27</p>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002192.png"></p>
+<ul>
+<li>Run DSSP and STRIDE on 498 PDB structure 8:16<ul>
+<li>Original set reduced for computational reasons</li>
+</ul>
+</li>
+<li>Parse and interpret results<ul>
+<li>Files for DSSP and for STRIDE</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002193.png"></p>
+<ul>
+<li>Associated information 9:26<ul>
+<li> Protein family, from CATH</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002194.png"></p>
+<h3 id="Other-issues-11-39"><a href="#Other-issues-11-39" class="headerlink" title="Other issues 11:39"></a>Other issues 11:39</h3><h4 id="Proteins-are-dynamic"><a href="#Proteins-are-dynamic" class="headerlink" title="Proteins are dynamic"></a>Proteins are dynamic</h4><h5 id="Example-12-22"><a href="#Example-12-22" class="headerlink" title="Example 12:22:"></a><strong>Example</strong> 12:22:</h5><p>Does a given amino acid always fully adopt one  type of secondary structure in reality?</p>
+<ul>
+<li>No!</li>
+<li>Even possible that it switches secondary structure<ul>
+<li>E.g. plaque formation in Alzheimers, where α helices  from native protein form βstrands in plaques.</li>
+</ul>
+</li>
+</ul>
+<h5 id="Could-you-avoid-using-structures-15-47"><a href="#Could-you-avoid-using-structures-15-47" class="headerlink" title="Could you avoid using structures? 15:47"></a>Could you avoid using structures? 15:47</h5><ul>
+<li><p>Develop predictions directly from data for protein  in solution</p>
+</li>
+<li><p><strong>NMR</strong> data is recorded on proteins in solution</p>
+<ul>
+<li>Estimate in-solution secondary structure  populations from NMR observations</li>
+<li>Get secondary structure fractions, not states…</li>
+</ul>
+</li>
+</ul>
+<h3 id="Variability-16-50"><a href="#Variability-16-50" class="headerlink" title="Variability! 16:50"></a>Variability! 16:50</h3><p><img src="/images/ADVMB/2002195.png" alt="Many combinations and variations!"></p>
+<p>How will we  validate how  well our  approach  works? 18:02</p>
+<h4 id="Validation-20-35"><a href="#Validation-20-35" class="headerlink" title="Validation 20:35"></a>Validation 20:35</h4><ul>
+<li>Understand how well the method works<ul>
+<li>Plan ahead</li>
+</ul>
+</li>
+<li>Need independent test set<ul>
+<li>Cannot use data that is included in statistical analysis or  training of method</li>
+</ul>
+</li>
+<li>Jackknife (leave-one-out)  23:50<ul>
+<li>If method can be primed fast enough, leave out one  protein, train the method, test it on the protein that  you took out, …</li>
+</ul>
+</li>
+<li>But what measures or scores do you use to assess  how well your method works? 25:03</li>
+<li>Do you look at only what you predict correctly?  Or also at what you predict incorrectly?</li>
+</ul>
+<h2 id="Protein-secondary-structure-prediction"><a href="#Protein-secondary-structure-prediction" class="headerlink" title="Protein secondary structure prediction"></a>Protein secondary structure prediction</h2><h3 id="Q3-measure-35-35"><a href="#Q3-measure-35-35" class="headerlink" title="Q3 measure 35:35"></a>Q<sub>3</sub> measure 35:35</h3><p>$$<br>Q_3 = \frac{N_{residues_correctly_predicted}}{N_{residues_total}}<br>$$</p>
+<ul>
+<li>Random prediction should give 0.33</li>
+<li>Real random prediction gives 0.38<ul>
+<li>Frequencies of secondary structure are not the same</li>
+</ul>
+</li>
+<li>Bad predictions can give <strong>high</strong> scores …</li>
+</ul>
+<p><img src="/images/ADVMB/2002196.png"></p>
+<h3 id="Matthews-correlation-coefficient-MCC-40-48"><a href="#Matthews-correlation-coefficient-MCC-40-48" class="headerlink" title="Matthews correlation coefficient (MCC) 40:48"></a>Matthews correlation coefficient (MCC) 40:48</h3><ul>
+<li>Predicted for each secondary structure state</li>
+<li>Uses false/true positives and false/true negative</li>
+</ul>
+<p><img src="/images/ADVMB/2002197.png"><br>$$<br>MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}<br>$$</p>
+<ul>
+<li><p>Sensitivity (hit rate, recall)</p>
+<p><em>TPR = TP / (TP + FN)</em></p>
+</li>
+<li><p>Specificity</p>
+<p><em>SPC = TN / (FP + TN)</em></p>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002198.png" alt="Always has to add up to number of residues!"></p>
+<ul>
+<li>Report MCC always <strong><u>per secondary  structure class</u></strong></li>
+<li>Multi-class definition also available</li>
+</ul>
+<p>$$<br>MCC_{multiclass} = \frac{\sum_k\sum_l\sum_mC_{kk}C_{lm}-C_{kl}C_{mk}}{\sqrt{\sum_k(\sum_lC_{kl})(\sum_{k’|k’≠k}\sum_{l’}C_{k’l’})}\sqrt{\sum_k(\sum_lC_{lk})(\sum_{k’|k’≠k}\sum_{l’}C_{l’k’})}}<br>$$</p>
+<h3 id="Sov-measure-50-29"><a href="#Sov-measure-50-29" class="headerlink" title="Sov measure 50:29"></a>Sov measure 50:29</h3><p>Segment-based, heuristic</p>
+<ul>
+<li>Punishes broken predictions</li>
+</ul>
+<p><img src="/images/ADVMB/2002199.png"></p>
+<h3 id="Predictions-53-30"><a href="#Predictions-53-30" class="headerlink" title="Predictions 53:30"></a>Predictions 53:30</h3><p><img src="/images/ADVMB/2002200.png" alt="A bit of history… how predictions evolve"></p>
+<ul>
+<li>Model based<ul>
+<li>Preferably using some actual experimental data</li>
+</ul>
+</li>
+<li>Machine learning<ul>
+<li>Many approaches, training steps essentia</li>
+</ul>
+</li>
+</ul>
+<h4 id="Chou-Fasman-54-42"><a href="#Chou-Fasman-54-42" class="headerlink" title="Chou-Fasman 54:42"></a>Chou-Fasman 54:42</h4><ul>
+<li>Original attempt at predicting secondary  structure</li>
+<li>Chou and Fasman (1970s)</li>
+<li>Based on very limited number of protein  structures</li>
+</ul>
+<p>Statistical propensity for each amino acid (R)  to adopt a certain secondary structure (S)</p>
+<p><img src="/images/ADVMB/2002201.png"></p>
+<h5 id="Chou-Fasman-algorithm"><a href="#Chou-Fasman-algorithm" class="headerlink" title="Chou-Fasman algorithm"></a>Chou-Fasman algorithm</h5><ul>
+<li>Assign α/β propensities to each amino acid</li>
+</ul>
+<p><img src="/images/ADVMB/2002202.png"></p>
+<ul>
+<li>Find region with 4/6 connected residues p<sub>α</sub> &gt; 1.0<ul>
+<li>Extend on both ends until:<ul>
+<li>4 connected residues have average p<sub>α</sub> &lt; 1.0 → End of α helix</li>
+</ul>
+</li>
+<li>Total segment longer than 5 residues, average p<sub>α</sub> &gt; p<sub>β</sub> ?<ul>
+<li>Assign as α helix</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002203.png"></p>
+<ul>
+<li>Find region with 3/5 connected residues p<sub>β</sub> &gt; 1.0 <ul>
+<li>Extend on both ends until:<ul>
+<li>4 connected residues have average p<sub>β</sub> &lt; 1.0 → End of β sheet</li>
+</ul>
+</li>
+<li>Average p<sub>β</sub> &gt; 1.05 and average p<sub>β</sub> &gt; p<sub>α</sub>?<ul>
+<li>Assign as β sheet</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Repeat for whole sequence</li>
+<li>If α/β overlap, choose which one by highest average p</li>
+</ul>
+<p>Overall Chou-Fasman algorithm:</p>
+<ul>
+<li>Based on statistics </li>
+<li>Very simple <ul>
+<li>Per-residue, no residue interactions included</li>
+<li>Algorithm <strong>cutoffs</strong> are pretty arbitrary</li>
+</ul>
+</li>
+<li>But gives better than random results!<ul>
+<li>Q<sub>3</sub> score of 42-52% depending on protein family</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002204.png"></p>
+<h4 id="GOR-method-1-11-22"><a href="#GOR-method-1-11-22" class="headerlink" title="GOR method 1:11:22"></a>GOR method 1:11:22</h4><ul>
+<li><p>Evolved from GOR to GOR-V</p>
+<ul>
+<li><em>Jean Garnier, David Osguthorpe, Barry Robson</em></li>
+</ul>
+</li>
+<li><p>Based on information theory approach (Bayes) </p>
+<ul>
+<li>Self-information</li>
+<li>Directional information</li>
+<li>Pair information</li>
+</ul>
+</li>
+<li><p>Clearly defined model to get to results</p>
+</li>
+<li><p>Self-information (related to Chou-Fasman)</p>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002205.png"></p>
+<ul>
+<li>Self-information, more general</li>
+</ul>
+<p><img src="/images/ADVMB/2002206.png"></p>
+<p><em>Calculated for the three conformations, the highest value of Eq. (2) for one of the conformations S will be the predicted  conformation and will be the propensity for that residue to be in that conformation, usually expressed in centinat units when  natural logarithms are used.</em> </p>
+<ul>
+<li>Include local sequence information<ul>
+<li>How often do you see a residue in relation to a  secondary structure element at position j?</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>I(ΔS_j;R_1,…, R_n ) = \log[P(S_j<br>, R_1,…, R_n )/ P(n − S_j<br>, R_1,…, R_n )]<br>+log[P(n − S)/ P(S)]<br>$$</p>
+<h5 id="GOR-I-II-1-21-22"><a href="#GOR-I-II-1-21-22" class="headerlink" title="GOR I/II 1:21:22"></a>GOR I/II 1:21:22</h5><h6 id="GOR-I-and-II-approximation"><a href="#GOR-I-and-II-approximation" class="headerlink" title="GOR I and II approximation"></a>GOR I and II approximation</h6><ul>
+<li>Self and directional information<ul>
+<li>26 proteins, ~4500 residues (1978, GOR I)</li>
+</ul>
+</li>
+<li>Uses windows of 17 residues<ul>
+<li>For residue at position j, consider j-8 to j+8</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002207.png"></p>
+<ul>
+<li>GOR I and II implementation</li>
+</ul>
+<p><img src="/images/ADVMB/2002208.png"></p>
+<p><img src="/images/ADVMB/2002209.png"></p>
+<p><img src="/images/ADVMB/2002210.png"></p>
+<ul>
+<li>GOR I results…<ul>
+<li>Has Q<sub>3</sub> around 49%, but includes turns</li>
+<li>Bad at β sheet, tweaks get higher Q<sub>3</sub> (up to 60%)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002211.png"></p>
+<h5 id="GOR-III-1-35-05"><a href="#GOR-III-1-35-05" class="headerlink" title="GOR III 1:35:05"></a>GOR III 1:35:05</h5><h6 id="GOR-III-approximation"><a href="#GOR-III-approximation" class="headerlink" title="GOR III approximation"></a>GOR III approximation</h6><ul>
+<li>68 proteins, 12000 residues (1987)</li>
+</ul>
+<p><img src="/images/ADVMB/2002212.png"></p>
+<ul>
+<li>The results<ul>
+<li>GOR III has Q<sub>3</sub> around 63%</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002213.png"></p>
+<p> How to improve this method?</p>
+<h5 id="GOR-IV-1-37-06"><a href="#GOR-IV-1-37-06" class="headerlink" title="GOR IV 1:37:06"></a>GOR IV 1:37:06</h5><h6 id="GOR-IV-approximation"><a href="#GOR-IV-approximation" class="headerlink" title="GOR IV approximation"></a>GOR IV approximation</h6><ul>
+<li>267 proteins, 63000 residues (1996)</li>
+<li>Consider information for all residue pairs</li>
+</ul>
+<p><img src="/images/ADVMB/2002214.png"></p>
+<ul>
+<li>GOR IV implementation</li>
+</ul>
+<p><img src="/images/ADVMB/2002215.png"></p>
+<ul>
+<li>Residue at position j in conformation S (and n-S): <ul>
+<li>For threonine T at position j-8: <ul>
+<li>Probability of histidine H at position j-7</li>
+<li>Same for j-6 to j+8</li>
+</ul>
+</li>
+<li>For histidine H at position j-7:<ul>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002216.png"></p>
+<ul>
+<li><p>Residue at position j in conformation S (and n-S):</p>
+</li>
+<li><p>Probability threonine T at position j-8 </p>
+</li>
+<li><p>Probability histidine H at position j-7 </p>
+</li>
+<li><p>…</p>
+</li>
+<li><p>The results</p>
+<ul>
+<li>have mean Q<sub>3</sub> of 64.4%</li>
+<li>Example sequence of each protein class<ul>
+<li><em>Zvelebil and Baum, Understanding Bioinformatics, Garland Science.</em></li>
+<li>All α, all β, α/β and α+β</li>
+</ul>
+</li>
+<li>Ranges from 39.2% (α+β) to 67.2% (α/β)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002217.png"></p>
+<h5 id="GOR-V-1-45-06"><a href="#GOR-V-1-45-06" class="headerlink" title="GOR V 1:45:06"></a>GOR V 1:45:06</h5><ul>
+<li>Uses multiple sequence alignment<ul>
+<li>Structure is more conserved than sequence<ul>
+<li>Insertions/deletions not as common in αhelices  andβsheets, more so in loops. </li>
+</ul>
+</li>
+<li>PSI-BLAST on query sequence<ul>
+<li>Get set of sequences with high identity<ul>
+<li>Cutoff 30% if lots of hits, lower to 20% if not that many</li>
+</ul>
+</li>
+<li>Predict secondary structure for each sequence</li>
+<li>Average predictions for each residue</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Various other improvements<ul>
+<li>513 proteins, 84107 residues (2002)</li>
+</ul>
+</li>
+<li>The results…<ul>
+<li>Has mean Q<sub>3</sub> of 73.5%</li>
+<li>Q<sub>3</sub> ranges from 60.3% (allβ) to 84.3% (allα)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/ADVMB/2002218.png"></p>
 
                 
             </div>
