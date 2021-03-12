@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Health Information &amp; Decision Support Systems, Chaoqun Yin">
+    <meta name="keywords" content="Mutable Values, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Health Information &amp; Decision Support Systems | Chaoqun Yin</title>
+    <title>Mutable Values | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Health Information &amp; Decision Support Systems</h1>
+                    <h1 class="description center-align post-title">Mutable Values</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Health-Information-Systems/">
-                                <span class="chip bg-color">Health Information Systems</span>
+                            <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                                <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
                             </a>
                         
                     </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-11
+                    2021-03-12
                 </div>
                 
 
@@ -477,261 +477,96 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Storing-and-exchanging-medical-images-mobile-health"><a href="#Storing-and-exchanging-medical-images-mobile-health" class="headerlink" title="Storing and exchanging medical images mobile health"></a>Storing and exchanging medical images mobile health</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p><em>“Mobile Health (mHealth) is a sub-segment of eHealth and covers medical and public health practice supported by mobile devices. It especially includes the use of mobile communication devices for health and well-being services and information purposes as well as mobile health applications.”</em></p>
-<h2 id="The-EU-infographic-on-mHealth"><a href="#The-EU-infographic-on-mHealth" class="headerlink" title="The EU infographic on mHealth"></a><a target="_blank" rel="noopener" href="https://ec.europa.eu/digital-single-market/en/mhealth">The EU infographic on mHealth</a></h2><p>This one has a strong unilateral approach:</p>
+                <h1 id="Mutable-Values"><a href="#Mutable-Values" class="headerlink" title="Mutable Values"></a>Mutable Values</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3tNpezAAgx0&list=PL6BsET-8jgYVDEchBIdQeqrUhlN2MZE6F">Video</a></p>
+<p><a target="_blank" rel="noopener" href="http://composingprograms.com/pages/24-mutable-data.html">Textbook</a></p>
+<h2 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Q-CewobDFZM&list=PL6BsET-8jgYVDEchBIdQeqrUhlN2MZE6F&index=2">Objects</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># def date_demos():</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date</span><br><span class="line">today = date(<span class="number">2020</span>, <span class="number">2</span>, <span class="number">24</span>)</span><br><span class="line">freedom = date(<span class="number">2020</span>, <span class="number">5</span>, <span class="number">12</span>)</span><br><span class="line"><span class="built_in">str</span>(freedom - today)</span><br><span class="line">today.year</span><br><span class="line">today.strftime(<span class="string">&#x27;%A, %B %d&#x27;</span>)</span><br><span class="line"><span class="built_in">type</span>(today)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>The patient collects data, </li>
-<li>the doctor consumes the data</li>
+<li>Objects represent information</li>
+<li>They consist of data and behaviour, bundled together to create abstractions</li>
+<li>Objects can represent things, but also properties, interactions, &amp; processes</li>
+<li>A type of object is called a class; <strong>classes</strong> are first-class values in Python</li>
+<li>Object-oriented programming:<ul>
+<li>A metaphor for organizing large programs</li>
+<li>Special syntax that can improve the composition of programs</li>
 </ul>
-<p>There are other perspectives as well.</p>
-<p><img src="/images/HMS/17001700.png"></p>
-<h2 id="Smartphones"><a href="#Smartphones" class="headerlink" title="Smartphones"></a>Smartphones</h2><ul>
-<li>Defined as having an operating systems capable of hosting medical software or it Internet capable</li>
-<li>Cloud computing allowed more medical programs of higher complexity to be accessed</li>
-<li>Majority of adults and 80% of physicians carry a smartphone</li>
-<li>Many access medical issues on the phone and a minority have at least one medical app and/or receive text messages from a healthcare system</li>
+</li>
+<li>In Python, every value is an object<ul>
+<li>All <strong>objects</strong> have <strong>attributes</strong> </li>
+<li>A lot of data manipulation happens through object <strong>methods</strong> </li>
+<li>Functions do one thing; objects do many related things</li>
 </ul>
-<h3 id="In-particular-developing-countries"><a href="#In-particular-developing-countries" class="headerlink" title="In particular developing countries"></a>In particular developing countries</h3><ul>
-<li><p>Large distance between patient and caregiver </p>
 </li>
-<li><p>Shortage of skilled people</p>
-</li>
-<li><p>More smartphones than landlines</p>
-</li>
-<li><p>So mHealth could potentially</p>
+</ul>
+<h2 id="Example-Strings"><a href="#Example-Strings" class="headerlink" title="Example: Strings"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kMxbPtD3ytc&list=PL6BsET-8jgYVDEchBIdQeqrUhlN2MZE6F&index=3">Example: Strings</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># def string_demos():</span></span><br><span class="line"><span class="string">&quot;Hello&quot;</span>.lower()</span><br><span class="line"><span class="string">&quot;Hello&quot;</span>.upper()</span><br><span class="line"><span class="string">&quot;Hello&quot;</span>.swapcase()</span><br><span class="line"><span class="built_in">hex</span>(<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>))</span><br><span class="line">print(<span class="string">&#x27;\a&#x27;</span>)</span><br><span class="line">print(<span class="string">&#x27;1\n2\n3&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> unicodedata <span class="keyword">import</span> lookup, name</span><br><span class="line">name(<span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">lookup(<span class="string">&#x27;SNOWMAN&#x27;</span>)</span><br><span class="line">lookup(<span class="string">&#x27;SOCCER BALL&#x27;</span>)</span><br><span class="line">lookup(<span class="string">&#x27;BABY&#x27;</span>)</span><br><span class="line">s = lookup(<span class="string">&#x27;SNOWMAN&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Representing-Strings-the-ASCII-Standard"><a href="#Representing-Strings-the-ASCII-Standard" class="headerlink" title="Representing Strings: the ASCII Standard"></a>Representing Strings: the ASCII Standard</h3><p><img src="/images/CS61A/0810540.png" alt="American Standard Code for Information Interchange"></p>
 <ul>
-<li>increase access to healthcare </li>
-<li>improve ability to diagnose and track diseases</li>
-<li>Provide timelier, more actionable public health information</li>
-<li>expand access to ongoing medical education and training for health workers</li>
+<li>Layout was chosen to support sorting by character code</li>
+<li>Rows indexed 2-5 are a useful 6-bit (64 element) subset</li>
+<li>Control characters were designed for transmission</li>
 </ul>
-</li>
+<h3 id="Representing-Strings-the-Unicode-Standard"><a href="#Representing-Strings-the-Unicode-Standard" class="headerlink" title="Representing Strings: the Unicode Standard"></a>Representing Strings: the Unicode Standard</h3><ul>
+<li>137,994 characters in Unicode 12.1</li>
+<li>150 scripts (organized)</li>
+<li>Enumeration of character properties, such as case</li>
+<li>Supports bidirectional display order</li>
+<li>A canonical name for every character</li>
 </ul>
-<h2 id="Taxonomy-Bringing-some-structure"><a href="#Taxonomy-Bringing-some-structure" class="headerlink" title="Taxonomy: Bringing some structure"></a>Taxonomy: Bringing some structure</h2><p>Who creates the data?</p>
+<h2 id="Mutation-Operations"><a href="#Mutation-Operations" class="headerlink" title="Mutation Operations"></a>Mutation Operations</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># def list_demos():</span></span><br><span class="line">suits = [<span class="string">&#x27;coin&#x27;</span>, <span class="string">&#x27;string&#x27;</span>, <span class="string">&#x27;myriad&#x27;</span>]  <span class="comment"># A list literal</span></span><br><span class="line">original_suits = suits</span><br><span class="line">suits.pop()             <span class="comment"># Removes and returns the final element</span></span><br><span class="line">suits.remove(<span class="string">&#x27;string&#x27;</span>)  <span class="comment"># Removes the first element that equals the argument</span></span><br><span class="line">suits.append(<span class="string">&#x27;cup&#x27;</span>)              <span class="comment"># Add an element to the end</span></span><br><span class="line">suits.extend([<span class="string">&#x27;sword&#x27;</span>, <span class="string">&#x27;club&#x27;</span>])  <span class="comment"># Add all elements of a list to the end</span></span><br><span class="line">suits[<span class="number">2</span>] = <span class="string">&#x27;spade&#x27;</span>  <span class="comment"># Replace an element</span></span><br><span class="line">suits</span><br><span class="line">original_suits</span><br><span class="line">suits[<span class="number">0</span>:<span class="number">2</span>] = [<span class="string">&#x27;heart&#x27;</span>, <span class="string">&#x27;diamond&#x27;</span>]  <span class="comment"># Replace a slice</span></span><br><span class="line">[suit.upper() <span class="keyword">for</span> suit <span class="keyword">in</span> suits]</span><br><span class="line">[suit[<span class="number">1</span>:<span class="number">4</span>] <span class="keyword">for</span> suit <span class="keyword">in</span> suits <span class="keyword">if</span> <span class="built_in">len</span>(suit) == <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="Some-Objects-Can-Change"><a href="#Some-Objects-Can-Change" class="headerlink" title="Some Objects Can Change"></a>Some Objects Can Change</h3><p>First example in the course of an object <strong>changing state</strong> </p>
+<p>The same object can change in value throughout the course of computation</p>
+<p><img src="/images/CS61A/0810541.png"></p>
+<p>All names that refer to the same object are affected by a mutation</p>
+<p>Only objects of mutable types can change: lists &amp; dictionaries</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># def dict_demos():</span></span><br><span class="line">numerals = &#123;<span class="string">&#x27;I&#x27;</span>: <span class="number">1.0</span>, <span class="string">&#x27;V&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">10</span>&#125;</span><br><span class="line">numerals[<span class="string">&#x27;X&#x27;</span>]</span><br><span class="line">numerals[<span class="string">&#x27;I&#x27;</span>] = <span class="number">1</span></span><br><span class="line">numerals[<span class="string">&#x27;L&#x27;</span>] = <span class="number">50</span></span><br><span class="line">numerals</span><br><span class="line"><span class="built_in">sum</span>(numerals.values())</span><br><span class="line"><span class="built_in">dict</span>([(<span class="number">3</span>, <span class="number">9</span>), (<span class="number">4</span>, <span class="number">16</span>), (<span class="number">5</span>, <span class="number">25</span>)])</span><br><span class="line">numerals.get(<span class="string">&#x27;A&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">numerals.get(<span class="string">&#x27;V&#x27;</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Mutation-Can-Happen-Within-a-Function-Call"><a href="#Mutation-Can-Happen-Within-a-Function-Call" class="headerlink" title="Mutation Can Happen Within a Function Call"></a>Mutation Can Happen Within a Function Call</h3><p>A function can change the value of any object in its scope</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>four = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(four)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mystery(four)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(four)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>four = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(four)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mystery</span>(<span class="params">s</span>):</span></span><br><span class="line">    s.pop()</span><br><span class="line"> 	s.pop()</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mystery</span>(<span class="params">s</span>):</span></span><br><span class="line"> 	s[<span class="number">2</span>:] = []</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>another_mystery() <span class="comment"># No arguments!</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(four)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">another_mystery</span>():</span></span><br><span class="line">	four.pop()</span><br><span class="line"> 	four.pop()</span><br></pre></td></tr></table></figure>
+<h2 id="Tuples"><a href="#Tuples" class="headerlink" title="Tuples"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Dd2AxpOiHGg&list=PL6BsET-8jgYVDEchBIdQeqrUhlN2MZE6F&index=5">Tuples</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># def tuple_demos():</span></span><br><span class="line">(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line"><span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span></span><br><span class="line">()</span><br><span class="line"><span class="built_in">tuple</span>()</span><br><span class="line"><span class="built_in">tuple</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># tuple(2)</span></span><br><span class="line">(<span class="number">2</span>,)</span><br><span class="line">(<span class="number">3</span>, <span class="number">4</span>) + (<span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>) * <span class="number">2</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">in</span> (<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;[1]: 2&#125;</span></span><br><span class="line">&#123;<span class="number">1</span>: [<span class="number">2</span>]&#125;</span><br><span class="line">&#123;(<span class="number">1</span>, <span class="number">2</span>): <span class="number">3</span>&#125;</span><br><span class="line"><span class="comment"># &#123;([1], 2): 3&#125;</span></span><br><span class="line">&#123;<span class="built_in">tuple</span>([<span class="number">1</span>, <span class="number">2</span>]): <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>Tuples are <strong>Immutable</strong> Sequences</p>
+<p>Immutable values are protected from mutation</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>turtle = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ooze() <span class="comment"># Next lecture: ooze can change turtle&#x27;s binding</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>turtle</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>turtle = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ooze()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>turtle</span><br><span class="line">[<span class="string">&#x27;Anything could be inside!&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<p>The value of an expression can change because of changes in names or objects</p>
+<p><strong>Name change:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Name change:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x + x</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x + x</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p><strong>Object mutation:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Object mutation:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x + x</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.append(<span class="number">3</span>) </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x + x</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>An immutable sequence may still change if it <strong><em>contains</em></strong> a mutable value as an element</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = ([<span class="number">1</span>, <span class="number">2</span>], <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line">ERROR</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = ([<span class="number">1</span>, <span class="number">2</span>], <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">([<span class="number">4</span>, <span class="number">2</span>], <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WlEBqLgSk5o&list=PL6BsET-8jgYVDEchBIdQeqrUhlN2MZE6F&index=7">Mutation</a></h2><h3 id="Sameness-and-Change"><a href="#Sameness-and-Change" class="headerlink" title="Sameness and Change"></a>Sameness and Change</h3><ul>
+<li>As long as we never modify objects, a compound object is just the totality of its pieces</li>
+<li>A rational number is just its numerator and denominator </li>
+<li>This view is no longer valid in the presence of change</li>
+<li>A compound data object has an “identity” in addition to the pieces of which it is composed</li>
+<li>A list is still “the same” list even if we change its contents</li>
+<li>Conversely, we could have two lists that happen to have the same contents, but are different</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">10</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a == b</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.append(<span class="number">20</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[<span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">[<span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a == b</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">10</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = [<span class="number">10</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a == b</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.append(<span class="number">20</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[<span class="number">10</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">[<span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a == b</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h3 id="Identity-Operators"><a href="#Identity-Operators" class="headerlink" title="Identity Operators"></a>Identity Operators</h3><h4 id="Identity"><a href="#Identity" class="headerlink" title="Identity"></a>Identity</h4><ul>
+<li><strong>&lt;exp0&gt;</strong> is  <strong>&lt;exp1&gt;</strong></li>
+<li>evaluates to <strong>True</strong> if both  <strong>&lt;exp0&gt;</strong> and  <strong>&lt;exp1&gt;</strong>  evaluate to the <u>same object</u> </li>
+</ul>
+<h4 id="Equality"><a href="#Equality" class="headerlink" title="Equality"></a>Equality</h4><ul>
+<li><strong>&lt;exp0&gt;</strong> ==  <strong>&lt;exp1&gt;</strong></li>
+<li>evaluates to <strong>True</strong> if both  <strong>&lt;exp0&gt;</strong> and  <strong>&lt;exp1&gt;</strong>  evaluate to the <u>equal values</u> </li>
+</ul>
+<p><strong>Identical objects are always equal values</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divide_exact</span>(<span class="params">n, d</span>):</span></span><br><span class="line">    <span class="keyword">return</span> n // d, n % d</span><br><span class="line"></span><br><span class="line"><span class="comment"># def identity_demos():</span></span><br><span class="line">a = [<span class="number">10</span>]</span><br><span class="line">b = a</span><br><span class="line">a == b</span><br><span class="line">a <span class="keyword">is</span> b</span><br><span class="line">a.extend([<span class="number">20</span>, <span class="number">30</span>])</span><br><span class="line">a == b</span><br><span class="line">a <span class="keyword">is</span> b</span><br><span class="line">    </span><br><span class="line">a = [<span class="number">10</span>]</span><br><span class="line">b = [<span class="number">10</span>]</span><br><span class="line">a == b</span><br><span class="line">a <span class="keyword">is</span> <span class="keyword">not</span> b</span><br><span class="line">a.append(<span class="number">20</span>)</span><br><span class="line">a != b</span><br></pre></td></tr></table></figure>
+<h3 id="Mutable-Default-Arguments-are-Dangerous"><a href="#Mutable-Default-Arguments-are-Dangerous" class="headerlink" title="Mutable Default Arguments are Dangerous"></a>Mutable Default Arguments are Dangerous</h3><p>A default argument value is part of a function value, not generated by a call</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">s=[]</span>):</span></span><br><span class="line"><span class="meta">... </span>s.append(<span class="number">3</span>)</span><br><span class="line"><span class="meta">... </span><span class="keyword">return</span> <span class="built_in">len</span>(s)</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f()</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f()</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f()</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/CS61A/0810542.png"></p>
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tpfpNR3u4zk&list=PL6BsET-8jgYVDEchBIdQeqrUhlN2MZE6F&index=7">Lists</a></h2><h3 id="Lists-in-Environment-Diagrams"><a href="#Lists-in-Environment-Diagrams" class="headerlink" title="Lists in Environment Diagrams"></a>Lists in Environment Diagrams</h3><p><strong>Assume that before each example below we execute</strong>: </p>
 <ul>
-<li>Healthcare professionals</li>
-<li>Patients</li>
-<li>General population</li>
-<li>Researchers</li>
-<li>Others</li>
+<li>s = [2, 3]</li>
+<li>t = [5, 6]</li>
 </ul>
-<p>Who consumes the data?</p>
-<ul>
-<li>Healthcare professionals</li>
-<li>Patients</li>
-<li>General populations</li>
-<li>researchers</li>
-<li>Others</li>
-</ul>
-<p><img src="/images/HMS/17001701.png" alt="mHealth conceptual framework"></p>
-<h2 id="Apps-for-doctors"><a href="#Apps-for-doctors" class="headerlink" title="Apps for doctors"></a>Apps for doctors</h2><h3 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h3><p><img src="/images/HMS/17001702.png"></p>
-<h3 id="Diagnosis"><a href="#Diagnosis" class="headerlink" title="Diagnosis"></a>Diagnosis</h3><p><img src="/images/HMS/17001703.png"></p>
-<h3 id="EHR-on-the-smartphone"><a href="#EHR-on-the-smartphone" class="headerlink" title="EHR on the smartphone"></a>EHR on the smartphone</h3><p><img src="/images/HMS/17001704.png"></p>
-<h3 id="Clinical-decision-support"><a href="#Clinical-decision-support" class="headerlink" title="Clinical decision support"></a>Clinical decision support</h3><p><img src="/images/HMS/17001705.png"></p>
-<h2 id="Apps-used-by-patients"><a href="#Apps-used-by-patients" class="headerlink" title="Apps used by patients"></a>Apps used by patients</h2><h3 id="Category"><a href="#Category" class="headerlink" title="Category"></a>Category</h3><p><img src="/images/HMS/17001706.png"></p>
-<h3 id="Personal-data-storage"><a href="#Personal-data-storage" class="headerlink" title="Personal data storage"></a>Personal data storage</h3><ul>
-<li><p>Apple Health App</p>
-</li>
-<li><p>Microsoft Health Vault</p>
-</li>
-<li><p>Fitness trackers</p>
-</li>
-<li><p>Diet trackers</p>
-</li>
-<li><p>Either manual data input or sensors</p>
-</li>
-</ul>
-<h3 id="Communities-and-groups"><a href="#Communities-and-groups" class="headerlink" title="Communities and groups"></a>Communities and groups</h3><ul>
-<li>Patient communities (e.g. Esperity) for information exchange</li>
-<li>Fitness / workout team challenges and competitions (e.g teemo</li>
-</ul>
-<h3 id="Medication-reminders"><a href="#Medication-reminders" class="headerlink" title="Medication reminders"></a>Medication reminders</h3><ul>
-<li>SMS smartphone based service</li>
-<li>Standallone app or online service</li>
-</ul>
-<p><img src="/images/HMS/17001707.png"></p>
-<h3 id="Real-diagnostic-apps"><a href="#Real-diagnostic-apps" class="headerlink" title="Real diagnostic apps?"></a>Real diagnostic apps?</h3><p><img src="/images/HMS/17001708.png"></p>
-<h3 id="Patient-education"><a href="#Patient-education" class="headerlink" title="Patient education"></a>Patient education</h3><p><img src="/images/HMS/17001709.png" alt="Breast Check Now"></p>
-<h3 id="Telemonitoring-home-monitoring"><a href="#Telemonitoring-home-monitoring" class="headerlink" title="Telemonitoring / home monitoring"></a>Telemonitoring / home monitoring</h3><p><img src="/images/HMS/17001710.png"></p>
-<h3 id="Benefits-of-using-apps"><a href="#Benefits-of-using-apps" class="headerlink" title="Benefits of using apps"></a>Benefits of using apps</h3><ul>
-<li><p><strong>Improve Patient Engagement</strong></p>
-<ul>
-<li>Complexity, long lines, lack of transparency of quality, etc. discourages patient engagement. Having medical application minimizes complexity. Suppose, you are using a medication reminder application, it knows how many tablets you have taken and when you have to take your next pills.</li>
-</ul>
-</li>
-<li><p><strong>Reduced Healthcare Fraud</strong></p>
-<ul>
-<li>An increase in the number of patient access to healthcare also results in huge medical cost and frauds. With the help of digital health care system, frauds can minimize around $60 billion annually. Mobile applications are best to trace people and transactions that ultimately minimizes frauds.</li>
-</ul>
-</li>
-<li><p><strong>Instant Healthcare Service</strong></p>
-<ul>
-<li><p>Without any wait, mobile technology delivers patients a quick way to access doctor’s advice or treatment information. It is useful for rural areas, where patients haven’t found physicians or limited access to them.</p>
-<p>Moreover, it is also helpful when patients are unable to visit the physicians because of chronic diseases. It enables patients and physicians to decide whether a visit to them is essential or not. Giving better care, checking prescriptions, monitoring improvements, etc. become easy with mobile healthcare app.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Why-Health-Apps"><a href="#Why-Health-Apps" class="headerlink" title="Why Health Apps?"></a>Why Health Apps?</h3><p><img src="/images/HMS/17001711.png"></p>
-<h3 id="Current-trend-the-quantified-self"><a href="#Current-trend-the-quantified-self" class="headerlink" title="Current trend: the quantified self"></a>Current trend: the quantified self</h3><ul>
-<li><p>New movement (“wearable HIT” and “quantified self”)</p>
-</li>
-<li><p>New devices and sensors to monitor diet, exercise, sleep, heart rate, respiratory rate, oxygen level, skin temperature, hydration, etc.</p>
-</li>
-<li><p>Oriented towards patients</p>
-</li>
-<li><p>Communicate with smartphone via Bluetooth LE</p>
-</li>
-<li><p>Smart watches a new platform</p>
-</li>
-<li><p>We cannot add more and more sensors the way we are doing</p>
-</li>
-</ul>
-<p><img src="/images/HMS/17001712.png" alt="The near future"></p>
-<h4 id="Wearables-beyond-sensors"><a href="#Wearables-beyond-sensors" class="headerlink" title="Wearables: beyond sensors"></a>Wearables: beyond sensors</h4><p><img src="/images/HMS/17001713.png"></p>
-<h4 id="Game-based-rehabilitation"><a href="#Game-based-rehabilitation" class="headerlink" title="Game based rehabilitation"></a>Game based rehabilitation</h4><p>Apps unifying diagnosis, treatment and monitoring</p>
-<p><img src="/images/HMS/17001714.png"></p>
-<h4 id="Clinical-trials-will-go-digital"><a href="#Clinical-trials-will-go-digital" class="headerlink" title="Clinical trials will go digital"></a>Clinical trials will go digital</h4><p><img src="/images/HMS/17001715.png"></p>
-<p><img src="/images/HMS/17001716.png"></p>
-<h2 id="Challenges-for-mHealth"><a href="#Challenges-for-mHealth" class="headerlink" title="Challenges for mHealth"></a>Challenges for mHealth</h2><p><strong>Information overload and the need for multiple devices</strong></p>
-<ul>
-<li>Cost, business models, reimbursement schemes</li>
-<li>Data storage, security and ownership</li>
-<li>Interoperability issues</li>
-<li>Connecting EHR</li>
-<li>Regulatory: they may need FDA clearance</li>
-<li>Are they evidence based? Too early to know for many. Chicken and Egg</li>
-<li>Accountability: the guarantee that somebody acts upon the collected data</li>
-<li>…</li>
-</ul>
-<h3 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h3><p>Core ideas exist for a very long time</p>
-<p>Barriers:</p>
-<ul>
-<li>Technology</li>
-<li>Policy</li>
-<li>Legal</li>
-<li>Ethical</li>
-<li>Business</li>
-</ul>
-<h2 id="Technical-background"><a href="#Technical-background" class="headerlink" title="Technical background"></a>Technical background</h2><h3 id="Database-at-the-server-side"><a href="#Database-at-the-server-side" class="headerlink" title="Database at the server side"></a>Database at the server side</h3><ul>
-<li><p>“A <strong>database</strong> is an organized collection of data, generally stored and accessed electronically from a computer system.” (Wikipedia)</p>
-</li>
-<li><p>There are different ways for organising data in a database. The most common kind of database is the <strong>Relational Database</strong>, based on the <strong>Relational Model</strong> (Codd, IBM, 1970).</p>
-</li>
-<li><p>In the Relation Model, data is structured in tables (relations), with rows and columns.</p>
-</li>
-<li><p>Every row has a unique identifier, a primary key</p>
-</li>
-<li><p>Examples: mysql, postgresql, …</p>
-</li>
-<li><p>Simple python bindings available</p>
-</li>
-</ul>
-<h3 id="Example-relational-DB-structure"><a href="#Example-relational-DB-structure" class="headerlink" title="Example relational DB structure"></a>Example relational DB structure</h3><p>staff:</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>firstname</th>
-<th>lastname</th>
-<th>profession</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>John</td>
-<td>Doe</td>
-<td>Physiotherapist</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Eva</td>
-<td>Max</td>
-<td>Surgeon</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>patient:</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>firstname</th>
-<th>lastname</th>
-<th>address</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>Marc</td>
-<td>Brigs</td>
-<td>A street 12</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Taylor</td>
-<td>Jennings</td>
-<td>B street 77</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p><img src="/images/HMS/17001717.png" alt="The information is linked"></p>
-<h3 id="SQL-structured-query-language"><a href="#SQL-structured-query-language" class="headerlink" title="SQL (structured query language)"></a>SQL (structured query language)</h3><p>SQL is a standard language for storing, manipulating and retrieving data in databases.</p>
-<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>Get all patients with first name Marc</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">from</span> patients <span class="keyword">WHERE</span> firstname<span class="operator">=</span><span class="string">&#x27;Marc’</span></span><br></pre></td></tr></table></figure>
-<p>Get the names of all patients who visited a surgeon</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> patients.firstname, patients.lastname, cases.date <span class="keyword">from</span> patients,cases,staff</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span> patients.id <span class="operator">=</span> cases.patient_id <span class="keyword">AND</span> staff.id <span class="operator">=</span> cases.dr_id <span class="keyword">AND</span> staff.profession<span class="operator">=</span><span class="string">&#x27;Surgeon&#x27;</span> </span><br></pre></td></tr></table></figure>
-<h3 id="Relational-data-model-strengths"><a href="#Relational-data-model-strengths" class="headerlink" title="Relational data model strengths"></a>Relational data model strengths</h3><ul>
-<li>Data model is clear.</li>
-<li>Data is comosed into atomic units.</li>
-<li>Data is stored once.</li>
-<li>Data integrity.</li>
-<li>Complex join queries are nit that fast.</li>
-</ul>
-<h3 id="NoSQL-document-databases"><a href="#NoSQL-document-databases" class="headerlink" title="NoSQL: document databases"></a>NoSQL: document databases</h3><p><img src="/images/HMS/17001718.png"></p>
-<h4 id="Strengths-of-noSQL"><a href="#Strengths-of-noSQL" class="headerlink" title="Strengths of noSQL"></a>Strengths of noSQL</h4><ul>
-<li><p><strong>Intuitive data model:</strong> The documtn model directly maps onto objects in code. Easier to wrk with froma coding perspective</p>
-</li>
-<li><p><strong>Flexible schema:</strong> The database struture is not pre-defined, so it is adaptive, flexible, …</p>
-</li>
-<li><p><strong>Distributed and Scalable:</strong> Documents are independent “units”, so super easy to distribute over multiple databases etc.</p>
-</li>
-</ul>
-<p><img src="/images/HMS/17001719.png" alt="Client – server Web browsing"></p>
-<p><img src="/images/HMS/17001720.png"></p>
-<h3 id="4-types-of-http-requests"><a href="#4-types-of-http-requests" class="headerlink" title="4 types of http requests"></a>4 types of http requests</h3><p><img src="/images/HMS/17001721.png"></p>
-<h4 id="Example-requests-to-the-webservice"><a href="#Example-requests-to-the-webservice" class="headerlink" title="Example requests to the webservice"></a>Example requests to the webservice</h4><p><img src="/images/HMS/17001722.png"></p>
-<h3 id="Response-of-by-the-webservice"><a href="#Response-of-by-the-webservice" class="headerlink" title="Response of by the webservice"></a>Response of by the webservice</h3><ul>
-<li>Response can be anything: data, images, html, sound, …</li>
-<li>When response is data, it is often json</li>
-</ul>
-<h3 id="Communication-between-wearable-and-DB"><a href="#Communication-between-wearable-and-DB" class="headerlink" title="Communication between wearable and DB"></a>Communication between wearable and DB</h3><p><strong>Data format</strong></p>
-<ul>
-<li><p>JSON (Javascript Object Notation) is more or less standard lightweigth data-interchange format</p>
-</li>
-<li><p>Text format</p>
-</li>
-<li><p>Completely program language independent</p>
-</li>
-<li><p>Consists of 2 elements</p>
-<ul>
-<li>Objects: an unordered set of name/value pairs {“firstname”:”john”, “lastname:doe”}</li>
-<li>Arrays: an ordered collection of values [“apple”,”pear”]</li>
-</ul>
-</li>
-<li><p>SEE NOSQL SLIDE </p>
-</li>
-</ul>
+<p><img src="/images/CS61A/0810543.png"></p>
+<p><img src="/images/CS61A/0810544.png"></p>
+<p><img src="/images/CS61A/0810545.png"></p>
+<p><img src="/images/CS61A/0810546.png"></p>
+<p><img src="/images/CS61A/0810547.png"></p>
+<h3 id="Lists-in-Lists-in-Lists-in-Environment-Diagrams"><a href="#Lists-in-Lists-in-Lists-in-Environment-Diagrams" class="headerlink" title="Lists in Lists in Lists in Environment Diagrams"></a>Lists in Lists in Lists in Environment Diagrams</h3><p><img src="/images/CS61A/0810548.png"></p>
 
                 
             </div>
@@ -758,7 +593,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/03/11/2021-03-11-Health-Information-&-Decision-Support-Systems/">https://yintelligence.tech/2021/03/11/2021-03-11-Health-Information-&-Decision-Support-Systems/</a>
+                    <a href="https://yintelligence.tech/2021/03/12/2021-03-12-Mutable-Values/">https://yintelligence.tech/2021/03/12/2021-03-12-Mutable-Values/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -796,8 +631,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Health-Information-Systems/">
-                                    <span class="chip bg-color">Health Information Systems</span>
+                                <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                                    <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
                                 </a>
                             
                         </div>
@@ -845,13 +680,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/12/2021-03-12-Mutable-Values/">
+                <a href="/2021/03/12/2021-03-12-Trees,-Data-Abstraction/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Mutable Values">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Trees, Data Abstraction">
                         
-                        <span class="card-title">Mutable Values</span>
+                        <span class="card-title">Trees, Data Abstraction</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -868,8 +703,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Exercises/" class="post-category">
+                                    Exercises
                                 </a>
                             
                             
@@ -894,13 +729,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/11/2021-03-11-Extends,-Casting,-Higher-Order-Functions/">
+                <a href="/2021/03/11/2021-03-11-Health-Information-&-Decision-Support-Systems/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Extends, Casting, Higher Order Functions">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Health Information &amp; Decision Support Systems">
                         
-                        <span class="card-title">Extends, Casting, Higher Order Functions</span>
+                        <span class="card-title">Health Information &amp; Decision Support Systems</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -928,8 +763,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Data-Structures/">
-                        <span class="chip bg-color">Data Structures</span>
+                    <a href="/tags/Health-Information-Systems/">
+                        <span class="chip bg-color">Health Information Systems</span>
                     </a>
                     
                 </div>
