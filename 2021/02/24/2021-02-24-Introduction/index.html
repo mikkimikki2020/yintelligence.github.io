@@ -477,14 +477,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/syllabus-spring2020.html">Website</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=jGwO_UgTS7I&list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&index=1">Video</a></p>
+                <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h2><ul>
+<li>Grew out of work in AI</li>
+<li>New capability for computers</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><p>Database mining Large datasets from growth of automation/web. </p>
+<ul>
+<li>E.g., Web click data, medical records, biology, engineering </li>
+</ul>
+</li>
+<li><p>Applications can’t program by hand. </p>
+<ul>
+<li>E.g., Autonomous helicopter, handwriting recognition, most of Natural Language Processing (NLP), Computer Vision.</li>
+</ul>
+</li>
+<li><p>Self-customizing programs</p>
+<ul>
+<li>E.g., Amazon, Netflix product recommendations</li>
+</ul>
+</li>
+<li><p>Understanding human learning (brain, real AI).</p>
+</li>
+</ul>
 <h2 id="What-is-machine-learning"><a href="#What-is-machine-learning" class="headerlink" title="What is machine learning?"></a>What is machine learning?</h2><ul>
 <li>Term “Machine Learning” coined by Arthur Samuel in 1959.<ul>
 <li>Samuel Checkers-playing Program</li>
+<li><strong><em>Field of study that gives computers the ability to learn without being explicitly programmed.</em></strong></li>
 </ul>
 </li>
 <li>Common definition (by Tom Mitchell): <ul>
+<li><em>“A computer program is said to learn from <strong>experience E</strong> with respect to some <strong>task T</strong> and some <strong>performance measure P</strong>, if its performance on T, as measured by P, improves with experience E. “</em><ul>
+<li>Example: playing checkers.<ul>
+<li>E = the experience of playing many games of checkers</li>
+<li>T = the task of playing checkers.</li>
+<li>P = the probability that the program will win the next game.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><strong><em>Machine Learning is the study of computer algorithms that improve automatically through experience</em></strong></li>
 </ul>
 </li>
@@ -493,7 +525,20 @@
 </ul>
 </li>
 </ul>
-<h2 id="Supervised-learning-40-23"><a href="#Supervised-learning-40-23" class="headerlink" title="Supervised learning 40:23"></a>Supervised learning 40:23</h2><p>Let’s start by talking about a few examples of supervised learning problems. Suppose we have a dataset giving the living areas and prices of 47 houses from Portland, Oregon:</p>
+<p><strong>Question</strong>:</p>
+<p>Suppose your email program watches which emails you do or do not mark as spam, and based on that learns how to better filter spam. What is the task T in this setting? </p>
+<ul>
+<li><strong><em>Classifying emails</em> as spam or not spam.</strong></li>
+<li><del>Watching you <strong>label emails (E)</strong> as spam or not spam.</del> </li>
+<li><del>The number (or fraction) of emails <strong>correctly classified as spam/not spam (P)</strong>.</del> </li>
+<li>~~None of the above—this is not a machine learning problem.</li>
+</ul>
+<h2 id="Machine-learning-algorithms"><a href="#Machine-learning-algorithms" class="headerlink" title="Machine learning algorithms"></a>Machine learning algorithms</h2><ul>
+<li>Supervised learning</li>
+<li>Unsupervised learning</li>
+<li>Others: Reinforcement learning, recommender systems. </li>
+</ul>
+<h3 id="Supervised-learning"><a href="#Supervised-learning" class="headerlink" title="Supervised learning"></a>Supervised learning</h3><p>Let’s start by talking about a few examples of supervised learning problems. Suppose we have a dataset giving the living areas and prices of 47 houses from Portland, Oregon:</p>
 <table>
 <thead>
 <tr>
@@ -533,6 +578,9 @@
 <p>To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : <em>X</em> → <em>Y</em> so that h(x) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a <strong>hypothesis</strong>. Seen pictorially, the process is therefore like this:</p>
 <p><img src="/images/CS229/1.png"></p>
 <p>When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a <strong>regression</strong> problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a <strong>classification</strong> problem.</p>
+<ul>
+<li>~~</li>
+</ul>
 
                 
             </div>
