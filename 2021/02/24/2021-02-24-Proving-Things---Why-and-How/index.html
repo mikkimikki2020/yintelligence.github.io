@@ -497,27 +497,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Proving-Things-Why-and-How"><a href="#Proving-Things-Why-and-How" class="headerlink" title="Proving Things: Why and How"></a>Proving Things: Why and How</h1><h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><ul>
+                <h1 id="proving-things-why-and-how">Proving Things: Why and How</h1>
+<h2 id="why">Why?</h2>
+<ul>
 <li><strong>Reasoning</strong> allows us to <strong>expand our knowledge and beliefs</strong></li>
 <li>In order to yield correct results, reasoning should be <strong>sound</strong></li>
 <li><strong>Proofs</strong> are a form of <strong>particularly careful reasoning</strong> in the form of a <strong>sequence of justified steps</strong></li>
 </ul>
-<h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><ul>
+<h2 id="what">What?</h2>
+<ul>
 <li>A proof is a <strong>sequence of assertions</strong> meant to convince the reader of the <strong>truth of a statement</strong></li>
-<li>Proofs convince by:<ul>
+<li>Proofs convince by:
+<ul>
 <li>starting from agreed truths: <strong>axioms</strong></li>
 <li>continuing by agreed methods: <strong>inference rules</strong></li>
-</ul>
-</li>
+</ul></li>
 <li>A proved statement is called a <strong>theorem</strong></li>
 <li>Similar to ordinary reasoning, but <strong>symbols</strong> are used for <strong>precision</strong></li>
 </ul>
-<h2 id="Propositional-logic"><a href="#Propositional-logic" class="headerlink" title="Propositional logic"></a>Propositional logic</h2><p><strong>Propositional logic</strong> (PL) is used for <strong>all aspects</strong> of the proof:</p>
+<h2 id="propositional-logic">Propositional logic</h2>
+<p><strong>Propositional logic</strong> (PL) is used for <strong>all aspects</strong> of the proof:</p>
 <ul>
 <li>Axioms and theorems are propositions</li>
 <li>Rules of inference are based on PL</li>
 </ul>
-<h3 id="Three-kinds-of-proofs"><a href="#Three-kinds-of-proofs" class="headerlink" title="Three kinds of proofs"></a>Three kinds of proofs</h3><p>Proof by <strong>Truth Table</strong></p>
+<h3 id="three-kinds-of-proofs">Three kinds of proofs</h3>
+<p>Proof by <strong>Truth Table</strong></p>
 <ul>
 <li>justified by definitions of operators</li>
 <li>justified by exhaustive case analysis</li>
@@ -525,237 +530,259 @@
 <p>Proof by <strong>Substitution</strong></p>
 <ul>
 <li>justified by equivalence</li>
-<li>also called ‘algebraic proof’ </li>
+<li>also called ‘algebraic proof’</li>
 </ul>
 <p>Proof by <strong>Inference Rules</strong></p>
 <ul>
 <li>justified by rules proved within logic</li>
 <li>often mixed with substitution</li>
 </ul>
-<h2 id="Rules-of-inference"><a href="#Rules-of-inference" class="headerlink" title="Rules of inference"></a>Rules of inference</h2><p><img src="/images/FOCS/6417380.png"></p>
-<h3 id="General-idea"><a href="#General-idea" class="headerlink" title="General idea"></a>General idea</h3><p>Need to proof <em>premises</em> → conclusion</p>
-<p>α<sub>1</sub> ∧ α<sub>2</sub> ∧ … ∧ α<sub>n</sub> → β</p>
+<h2 id="rules-of-inference">Rules of inference</h2>
+<p><img src="/images/FOCS/6417380.png" /></p>
+<h3 id="general-idea">General idea</h3>
+<p>Need to proof <em>premises</em> → conclusion</p>
+<p>α<sub>1</sub> ∧ α<sub>2</sub> ∧ ... ∧ α<sub>n</sub> → β</p>
 <p>Recall implication truth table:</p>
 <ul>
 <li>When α → β and α = <em>TRUE</em>, β cannot be <em>FALSE</em></li>
 <li>If α = <em>TRUE</em> when β = <em>FALSE</em>, we do not have α → β</li>
 </ul>
 <p>Importantly, each rule of inference is <strong>equivalent to a PL expression</strong> and can be <strong>evaluated using truth tables</strong>.</p>
-<h3 id="Example-contradiction-inference-rule"><a href="#Example-contradiction-inference-rule" class="headerlink" title="Example: contradiction inference rule"></a>Example: contradiction inference rule</h3><ul>
+<h3 id="example-contradiction-inference-rule">Example: contradiction inference rule</h3>
+<ul>
 <li>Need to prove: p ∧ ¬p → FALSE</li>
 </ul>
 <table>
 <thead>
-<tr>
-<th align="center">p</th>
-<th align="center">¬p</th>
-<th align="center">p ∧ ¬p</th>
-<th align="center">FALSE</th>
-<th align="center">(p ∧ ¬p) → FALSE</th>
+<tr class="header">
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">¬p</th>
+<th style="text-align: center;">p ∧ ¬p</th>
+<th style="text-align: center;">FALSE</th>
+<th style="text-align: center;">(p ∧ ¬p) → FALSE</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>Need to prove: p → (p ∨ q)</li>
 </ul>
 <table>
 <thead>
-<tr>
-<th align="center">p</th>
-<th align="center">Q</th>
-<th align="center">p ∨ Q</th>
-<th align="center">p → (p ∨ q)</th>
+<tr class="header">
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">Q</th>
+<th style="text-align: center;">p ∨ Q</th>
+<th style="text-align: center;">p → (p ∨ q)</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>Need to prove: ((p → q) ∧ ¬q)) → ¬p</li>
 </ul>
 <table>
 <thead>
-<tr>
-<th align="center">p</th>
-<th align="center">Q</th>
-<th align="center">p → q</th>
-<th align="center">¬q</th>
-<th align="center">(p → q) ∧ ¬q</th>
-<th align="center">¬p</th>
-<th align="center">((p → q) ∧ ¬q)) → ¬p</th>
+<tr class="header">
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">Q</th>
+<th style="text-align: center;">p → q</th>
+<th style="text-align: center;">¬q</th>
+<th style="text-align: center;">(p → q) ∧ ¬q</th>
+<th style="text-align: center;">¬p</th>
+<th style="text-align: center;">((p → q) ∧ ¬q)) → ¬p</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li>Need to prove: ((p ∨ q) ∧ (p → r) ∧ (q → r)) → r</li>
 </ul>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 31%" />
+<col style="width: 37%" />
+</colgroup>
 <thead>
-<tr>
-<th align="center">p</th>
-<th align="center">q</th>
-<th align="center">r</th>
-<th align="center">p ∨ q</th>
-<th align="center">p → r</th>
-<th align="center">q → r</th>
-<th align="center">(p ∨ q) ∧ (p → r) ∧ (q → r)</th>
-<th align="center">((p ∨ q) ∧ (p → r) ∧ (q → r)) → r</th>
+<tr class="header">
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">q</th>
+<th style="text-align: center;">r</th>
+<th style="text-align: center;">p ∨ q</th>
+<th style="text-align: center;">p → r</th>
+<th style="text-align: center;">q → r</th>
+<th style="text-align: center;">(p ∨ q) ∧ (p → r) ∧ (q → r)</th>
+<th style="text-align: center;">((p ∨ q) ∧ (p → r) ∧ (q → r)) → r</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-</tbody></table>
-<h3 id="Without-assumptions"><a href="#Without-assumptions" class="headerlink" title="Without assumptions"></a>Without assumptions</h3><p>Checking a <strong>proof</strong></p>
+</tbody>
+</table>
+<h3 id="without-assumptions">Without assumptions</h3>
+<p>Checking a <strong>proof</strong></p>
 <ul>
 <li>Proof = list of assertions</li>
 <li>Each assertion needs to be checked</li>
@@ -765,202 +792,244 @@
 <li>Find an inference rule that matches the conclusion being considered</li>
 <li>Find earlier assertions that match the premises of the inference rule</li>
 </ul>
-<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h4><p>Prove that given (p ∨ q) ∧ ¬p is <em>TRUE</em> that q is <em>TRUE</em> as well</p>
-<ol>
-<li>(p ∨ q) ∧ ¬p   given</li>
-<li>p ∨ q               ∧ elimination, with line 1</li>
-<li>¬p                    ∧ elimination, with line</li>
-<li>p → q              vacuous proof, with line 3</li>
-<li>q → q              tautology</li>
-<li>q                       case analysis, with lines 2, 4, 5</li>
+<h4 id="example-1">Example 1</h4>
+<p>Prove that given (p ∨ q) ∧ ¬p is <em>TRUE</em> that q is <em>TRUE</em> as well</p>
+<ol type="1">
+<li>(p ∨ q) ∧ ¬p given</li>
+<li>p ∨ q ∧ elimination, with line 1</li>
+<li>¬p ∧ elimination, with line</li>
+<li>p → q vacuous proof, with line 3</li>
+<li>q → q tautology</li>
+<li>q case analysis, with lines 2, 4, 5</li>
 </ol>
-<h5 id="Alternative-elimination"><a href="#Alternative-elimination" class="headerlink" title="Alternative elimination"></a>Alternative elimination</h5><p>We proved the validity of the following inference rule:</p>
-<p> (p ∨ q) ∧ ¬p → q</p>
+<h5 id="alternative-elimination">Alternative elimination</h5>
+<p>We proved the validity of the following inference rule:</p>
+<p>(p ∨ q) ∧ ¬p → q</p>
 <p>Once a theorem has been proved, it can be <strong>used in other proofs</strong></p>
-<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h4><p>Prove that given p ∧ ¬p is TRUE that q is TRUE as well</p>
-<ol>
-<li>p ∧ ¬p   given</li>
-<li>¬p          ∧ elimination, with line 1</li>
-<li>p → q    vacuous proof, with line 2</li>
-<li>p             ∧ elimination, with line 1</li>
-<li>q             modus ponens, with lines 3, 4</li>
+<h4 id="example-2">Example 2</h4>
+<p>Prove that given p ∧ ¬p is TRUE that q is TRUE as well</p>
+<ol type="1">
+<li>p ∧ ¬p given</li>
+<li>¬p ∧ elimination, with line 1</li>
+<li>p → q vacuous proof, with line 2</li>
+<li>p ∧ elimination, with line 1</li>
+<li>q modus ponens, with lines 3, 4</li>
 </ol>
 <p>If p ∧ ¬p are taken to be both TRUE, then <strong>any proposition can be proven.</strong></p>
 <p>This outcome would be <strong>bizarre and undesirable</strong></p>
-<h3 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h3><h4 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h4><p>In proofs, <strong>assumptions</strong> can be introduced tentatively, to test their consequences</p>
+<h3 id="assumptions">Assumptions</h3>
+<h4 id="principle">Principle</h4>
+<p>In proofs, <strong>assumptions</strong> can be introduced tentatively, to test their consequences</p>
 <p>When introduced, we do not know whether an assumption is TRUE</p>
 <p>Assumptions are written between [ ]</p>
-<h4 id="Absurdity-and-implication"><a href="#Absurdity-and-implication" class="headerlink" title="Absurdity and implication"></a>Absurdity and implication</h4><ul>
-<li>Reduction to absurdity<ul>
+<h4 id="absurdity-and-implication">Absurdity and implication</h4>
+<ul>
+<li>Reduction to absurdity
+<ul>
 <li>[p] ∧ FALSE → ¬p</li>
-</ul>
-</li>
-<li>Introduction of implication<ul>
+</ul></li>
+<li>Introduction of implication
+<ul>
 <li>[p] ∧ q → (p → q)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h4><p><img src="/images/FOCS/6417381.png"></p>
-<h4 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h4><p><img src="/images/FOCS/6417382.png"></p>
-<p><img src="/images/FOCS/6417383.png" alt="Solution"></p>
-<h4 id="Nested-assumptions"><a href="#Nested-assumptions" class="headerlink" title="Nested assumptions"></a>Nested assumptions</h4><p>Prove: ((p → q) ∧ (q → r)) → (p → r)</p>
-<p><img src="/images/FOCS/6417384.png"></p>
-<h3 id="Transitivity-of-implication"><a href="#Transitivity-of-implication" class="headerlink" title="Transitivity of implication"></a>Transitivity of implication</h3><ul>
+<h4 id="example-3">Example 3</h4>
+<p><img src="/images/FOCS/6417381.png" /></p>
+<h4 id="exercise">Exercise</h4>
+<p><img src="/images/FOCS/6417382.png" /></p>
+<figure>
+<img src="/images/FOCS/6417383.png" alt="" /><figcaption>Solution</figcaption>
+</figure>
+<h4 id="nested-assumptions">Nested assumptions</h4>
+<p>Prove: ((p → q) ∧ (q → r)) → (p → r)</p>
+<p><img src="/images/FOCS/6417384.png" /></p>
+<h3 id="transitivity-of-implication">Transitivity of implication</h3>
+<ul>
 <li><p>Previous proof establishes a theorem in the form of</p>
-<p>α<sub>1</sub> ∧ α<sub>2</sub> → β</p>
-</li>
-<li><p>New inference rule: <strong>transitivity of implication</strong></p>
-</li>
+<p>α<sub>1</sub> ∧ α<sub>2</sub> → β</p></li>
+<li><p>New inference rule: <strong>transitivity of implication</strong></p></li>
 </ul>
-<p><img src="/images/FOCS/6417385.png"></p>
-<h2 id="Different-proof-methods"><a href="#Different-proof-methods" class="headerlink" title="Different proof methods"></a>Different proof methods</h2><ul>
+<p><img src="/images/FOCS/6417385.png" /></p>
+<h2 id="different-proof-methods">Different proof methods</h2>
+<ul>
 <li>Truth tables</li>
 <li>Substitution</li>
 <li>Inference</li>
 <li>Others, e.g. semantic tableaux</li>
 </ul>
-<h3 id="Proving-the-modus-tollens-using-truth-tables"><a href="#Proving-the-modus-tollens-using-truth-tables" class="headerlink" title="Proving the modus tollens using truth tables"></a>Proving the modus tollens using truth tables</h3><table>
+<h3 id="proving-the-modus-tollens-using-truth-tables">Proving the modus tollens using truth tables</h3>
+<table>
 <thead>
-<tr>
-<th align="center">p</th>
-<th align="center">Q</th>
-<th align="center">p → q</th>
-<th align="center">¬q</th>
-<th align="center">(p → q) ∧ ¬q</th>
-<th align="center">¬p</th>
-<th align="center">((p → q) ∧ ¬q)) → ¬p</th>
+<tr class="header">
+<th style="text-align: center;">p</th>
+<th style="text-align: center;">Q</th>
+<th style="text-align: center;">p → q</th>
+<th style="text-align: center;">¬q</th>
+<th style="text-align: center;">(p → q) ∧ ¬q</th>
+<th style="text-align: center;">¬p</th>
+<th style="text-align: center;">((p → q) ∧ ¬q)) → ¬p</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-<tr>
-<td align="center">F</td>
-<td align="center">F</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center">T</td>
-<td align="center"><strong>T</strong></td>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;"><strong>T</strong></td>
 </tr>
-</tbody></table>
-<p><img src="/images/FOCS/6417386.png"></p>
-<h3 id="Proving-the-modus-tollens-using-inference"><a href="#Proving-the-modus-tollens-using-inference" class="headerlink" title="Proving the modus tollens using inference"></a>Proving the modus tollens using inference</h3><p><img src="/images/FOCS/6417387.png"></p>
-<h2 id="Inference-proof"><a href="#Inference-proof" class="headerlink" title="Inference proof"></a>Inference proof</h2><h3 id="For-theorem-analogous-to-conditional-law"><a href="#For-theorem-analogous-to-conditional-law" class="headerlink" title="For theorem analogous to conditional law"></a>For theorem analogous to conditional law</h3><p>Prove: (p → q) ↔ (¬p ∨ q)</p>
-<p><img src="/images/FOCS/6417388.png" alt="First prove: (p → q) ← (¬p ∨ q)"></p>
-<p><img src="/images/FOCS/6417389.png" alt="Second prove: (p → q) → (¬p ∨ q)"></p>
+</tbody>
+</table>
+<p><img src="/images/FOCS/6417386.png" /></p>
+<h3 id="proving-the-modus-tollens-using-inference">Proving the modus tollens using inference</h3>
+<p><img src="/images/FOCS/6417387.png" /></p>
+<h2 id="inference-proof">Inference proof</h2>
+<h3 id="for-theorem-analogous-to-conditional-law">For theorem analogous to conditional law</h3>
+<p>Prove: (p → q) ↔︎ (¬p ∨ q)</p>
+<figure>
+<img src="/images/FOCS/6417388.png" alt="" /><figcaption>First prove: (p → q) ← (¬p ∨ q)</figcaption>
+</figure>
+<figure>
+<img src="/images/FOCS/6417389.png" alt="" /><figcaption>Second prove: (p → q) → (¬p ∨ q)</figcaption>
+</figure>
 <p>We have proven:</p>
 <ul>
 <li>(p → q) ← (¬p ∨ q)</li>
-<li>(p → q) → (¬p ∨ q) </li>
+<li>(p → q) → (¬p ∨ q)</li>
 </ul>
 <p>This implies:</p>
 <ul>
-<li>(p → q) ↔ (¬p ∨ q)</li>
+<li>(p → q) ↔︎ (¬p ∨ q)</li>
 </ul>
-<h2 id="Proof-strategies"><a href="#Proof-strategies" class="headerlink" title="Proof strategies"></a>Proof strategies</h2><h3 id="Proving-a-conditional"><a href="#Proving-a-conditional" class="headerlink" title="Proving a conditional"></a>Proving a conditional</h3><p><strong>p → q</strong></p>
+<h2 id="proof-strategies">Proof strategies</h2>
+<h3 id="proving-a-conditional">Proving a conditional</h3>
+<p><strong>p → q</strong></p>
 <ul>
-<li>Direct proof: <ul>
+<li>Direct proof:
+<ul>
 <li>Assume: p = TRUE</li>
 <li>Show: q = TRUE</li>
 <li>Therefore: p → q (→ introduction)</li>
-</ul>
-</li>
-<li>Indirect proof: <ul>
+</ul></li>
+<li>Indirect proof:
+<ul>
 <li>Assume: q = FALSE</li>
 <li>Show: p = FALSE</li>
 <li>Therefore: ¬q → ¬p (→ introduction)</li>
 <li>p → q (contrapositive law)</li>
-</ul>
-</li>
-<li>Proof by contradiction: <ul>
+</ul></li>
+<li>Proof by contradiction:
+<ul>
 <li>Assume: p → q = FALSE</li>
 <li>Show that this assumption leads to a contradiction</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Proving-a-biconditional"><a href="#Proving-a-biconditional" class="headerlink" title="Proving a biconditional"></a>Proving a biconditional</h3><p><strong>p ↔ q</strong></p>
+<h3 id="proving-a-biconditional">Proving a biconditional</h3>
+<p><strong>p ↔︎ q</strong></p>
 <ul>
-<li>Two-way proof:<ul>
+<li>Two-way proof:
+<ul>
 <li>Prove: p → q</li>
 <li>Prove: p ← q</li>
-</ul>
-</li>
-<li>Special case of two-way proof:<ul>
-<li>Set equality</li>
-<li>A theorem that states that set A and set B are equal can be written as: x ∈ A ↔ x ∈ B</li>
-</ul>
-</li>
-</ul>
-<h3 id="Proofs-with-disjunctions"><a href="#Proofs-with-disjunctions" class="headerlink" title="Proofs with disjunctions"></a>Proofs with disjunctions</h3><p><strong>p ∨ q</strong></p>
+</ul></li>
+<li>Special case of two-way proof:
 <ul>
-<li>Case analysis I:<ul>
+<li>Set equality</li>
+<li>A theorem that states that set A and set B are equal can be written as: x ∈ A ↔︎ x ∈ B</li>
+</ul></li>
+</ul>
+<h3 id="proofs-with-disjunctions">Proofs with disjunctions</h3>
+<p><strong>p ∨ q</strong></p>
+<ul>
+<li>Case analysis I:
+<ul>
 <li>Given: p ∨ q</li>
 <li>To prove: r</li>
 <li>Prove that r holds in either case: prove p → r and q → r</li>
-</ul>
-</li>
-<li>Case analysis II:<ul>
+</ul></li>
+<li>Case analysis II:
+<ul>
 <li>Given: p ∨ q</li>
 <li>To prove: r ∨ s</li>
 <li>Prove: p → r and q → s</li>
-</ul>
-</li>
-<li>Excluded middle:<ul>
+</ul></li>
+<li>Excluded middle:
+<ul>
 <li>For either kind of case analysis, it may be helpful to introduce the tautology u ∨ ¬u</li>
 <li>Prove p → u and q → ¬u</li>
-</ul>
-</li>
-<li>Eliminating an alternative:<ul>
+</ul></li>
+<li>Eliminating an alternative:
+<ul>
 <li>Given: p ∨ q</li>
 <li>Eliminate: p</li>
 <li>Therefore: q = TRUE</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h2><p><img src="/images/FOCS/6417390.png"></p>
-<h3 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h3><ul>
-<li>i. (¬p ∨ ¬q) → (r ∧ s)</li>
-<li>ii. r → t</li>
-<li>iii. ¬t</li>
-</ul>
-<p><img src="/images/FOCS/6417391.png"></p>
-<h2 id="Exercise-5"><a href="#Exercise-5" class="headerlink" title="Exercise 5"></a>Exercise 5</h2><p>Give a much shorter equivalence proof of Theorem 3.2 by making use of one of De Morgan’s laws right after the conditional law</p>
+<h2 id="exercise-4">Exercise 4</h2>
+<p><img src="/images/FOCS/6417390.png" /></p>
+<h3 id="solutions">Solutions:</h3>
 <ul>
-<li> ((p → q) ∧ ¬q) → ¬p</li>
+<li><ol type="i">
+<li>(¬p ∨ ¬q) → (r ∧ s)</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>r → t</li>
+</ol></li>
+<li><ol start="3" type="i">
+<li>¬t</li>
+</ol></li>
 </ul>
-<h3 id="Solutions-1"><a href="#Solutions-1" class="headerlink" title="Solutions:"></a>Solutions:</h3><p><img src="/images/FOCS/6417392.png"></p>
-<h2 id="Exercise-6"><a href="#Exercise-6" class="headerlink" title="Exercise 6"></a>Exercise 6</h2><p>Prove each of these equivalences by substitution, one step at a time. State which equivalence justifies each step</p>
+<p><img src="/images/FOCS/6417391.png" /></p>
+<h2 id="exercise-5">Exercise 5</h2>
+<p>Give a much shorter equivalence proof of Theorem 3.2 by making use of one of De Morgan’s laws right after the conditional law</p>
 <ul>
-<li>(a) ((p ∨ q) ∧ (¬p ∧ ¬q)) ≡ FALSE</li>
-<li>(b) p ∨ q ∨ r ∨ s ≡ (¬p ∧ ¬q ∧ ¬r) → s</li>
+<li>((p → q) ∧ ¬q) → ¬p</li>
 </ul>
-<h3 id="Solution-A"><a href="#Solution-A" class="headerlink" title="Solution A"></a>Solution A</h3><p><img src="/images/FOCS/6417393.png"></p>
-<h3 id="Solution-B"><a href="#Solution-B" class="headerlink" title="Solution B"></a>Solution B</h3><p><img src="/images/FOCS/6417394.png"></p>
+<h3 id="solutions-1">Solutions:</h3>
+<p><img src="/images/FOCS/6417392.png" /></p>
+<h2 id="exercise-6">Exercise 6</h2>
+<p>Prove each of these equivalences by substitution, one step at a time. State which equivalence justifies each step</p>
+<ul>
+<li><ol type="a">
+<li>((p ∨ q) ∧ (¬p ∧ ¬q)) ≡ FALSE</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>p ∨ q ∨ r ∨ s ≡ (¬p ∧ ¬q ∧ ¬r) → s</li>
+</ol></li>
+</ul>
+<h3 id="solution-a">Solution A</h3>
+<p><img src="/images/FOCS/6417393.png" /></p>
+<h3 id="solution-b">Solution B</h3>
+<p><img src="/images/FOCS/6417394.png" /></p>
 
                 
             </div>

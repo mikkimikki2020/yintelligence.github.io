@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    9 Min
+                    10 Min
                 </div>
                 
 
@@ -497,179 +497,206 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Language-and-Models"><a href="#Language-and-Models" class="headerlink" title="Language and Models"></a>Language and Models</h1><h2 id="Programming-languages-and-computer-science"><a href="#Programming-languages-and-computer-science" class="headerlink" title="Programming languages and computer science"></a>Programming languages and computer science</h2><h3 id="Motivation-for-modelling"><a href="#Motivation-for-modelling" class="headerlink" title="Motivation for modelling"></a>Motivation for modelling</h3><p>Programming Languages</p>
+                <h1 id="language-and-models">Language and Models</h1>
+<h2 id="programming-languages-and-computer-science">Programming languages and computer science</h2>
+<h3 id="motivation-for-modelling">Motivation for modelling</h3>
+<p>Programming Languages</p>
 <ul>
-<li><p>Why do they take the form they do?</p>
-</li>
-<li><p>How are they processed by a computer?</p>
-<p>To gain insight into these questions, we model:</p>
-</li>
-<li><p>Language</p>
-</li>
-<li><p>Mechanisms for processing language</p>
-</li>
+<li>Why do they take the form they do?</li>
+<li>How are they processed by a computer?</li>
 </ul>
-<h3 id="Key-aspects"><a href="#Key-aspects" class="headerlink" title="Key aspects"></a>Key aspects</h3><ul>
-<li>Language is about<ul>
+<p>To gain insight into these questions, we model:</p>
+<ul>
+<li>Language</li>
+<li>Mechanisms for processing language</li>
+</ul>
+<h3 id="key-aspects">Key aspects</h3>
+<ul>
+<li>Language is about
+<ul>
 <li>Structure (form)</li>
 <li>Meaning</li>
-</ul>
-</li>
+</ul></li>
 <li>Formal models of language deal with <strong>structure only</strong></li>
 <li><strong>Meaning</strong> often studied through predicate logic (see Part I of the course)</li>
 </ul>
-<h2 id="Ambiguity-and-language-design"><a href="#Ambiguity-and-language-design" class="headerlink" title="Ambiguity and language design"></a>Ambiguity and language design</h2><h3 id="Human-natural-VS-programming-languages"><a href="#Human-natural-VS-programming-languages" class="headerlink" title="Human (natural) VS. programming languages"></a>Human (natural) VS. programming languages</h3><h4 id="Natural-languages"><a href="#Natural-languages" class="headerlink" title="Natural languages"></a>Natural languages</h4><ul>
+<h2 id="ambiguity-and-language-design">Ambiguity and language design</h2>
+<h3 id="human-natural-vs.-programming-languages">Human (natural) VS. programming languages</h3>
+<h4 id="natural-languages">Natural languages</h4>
+<ul>
 <li>The result of evolutionary processes</li>
 <li>Guided by communicative needs and cognitive capacities</li>
 <li>No central control / design</li>
-<li>Vagueness<ul>
+<li>Vagueness
+<ul>
 <li>E.g. When does a wide chair become a bench?</li>
-</ul>
-</li>
-<li>Ambiguity<ul>
+</ul></li>
+<li>Ambiguity
+<ul>
 <li>Word-level ambiguity: figure out meaning from context (e.g. bank or trip)</li>
 <li>Structural ambiguity: different groupings for the same words (e.g. old men and women)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/FOCS/1026370.png" alt="Example of structural ambiguity in natural languages"></p>
-<h4 id="Programming-languages"><a href="#Programming-languages" class="headerlink" title="Programming languages"></a>Programming languages</h4><ul>
+<figure>
+<img src="/images/FOCS/1026370.png" alt="" /><figcaption>Example of structural ambiguity in natural languages</figcaption>
+</figure>
+<h4 id="programming-languages">Programming languages</h4>
+<ul>
 <li>Tightly organised, controlled design</li>
-<li>No vagueness<ul>
+<li>No vagueness
+<ul>
 <li>E.g. clear boundary between integers and reals</li>
-</ul>
-</li>
-<li>Ambiguity<ul>
+</ul></li>
+<li>Ambiguity
+<ul>
 <li>Sometimes word-level amibuity: e.g. in certain programming languages keywords can also be used as variable names</li>
-<li>No structural ambiguity: precedence rules, parentheses, …</li>
+<li>No structural ambiguity: precedence rules, parentheses, ...</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/FOCS/1026371.png" alt="Example of structural ambiguity when precedence rules and parentheses are ignored"></p>
+<figure>
+<img src="/images/FOCS/1026371.png" alt="" /><figcaption>Example of structural ambiguity when precedence rules and parentheses are ignored</figcaption>
+</figure>
 <ul>
 <li>X = Y = 2<sup>5</sup> = 32, <em>log</em> = <em>log</em><sub>2</sub></li>
 <li>6 or 37 ?</li>
 </ul>
-<h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>The study of formals models of language provides insights in:</p>
+<h4 id="motivation">Motivation</h4>
+<p>The study of formals models of language provides insights in:</p>
 <ul>
 <li>Ambiguity of statements</li>
 <li>Efficiency in processing of programming languages</li>
 </ul>
-<h2 id="Formal-languages"><a href="#Formal-languages" class="headerlink" title="Formal languages"></a>Formal languages</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
-<li>Formal language models focus on <strong>sequences of symbols</strong> (strings) </li>
+<h2 id="formal-languages">Formal languages</h2>
+<h3 id="introduction">Introduction</h3>
+<ul>
+<li>Formal language models focus on <strong>sequences of symbols</strong> (strings)</li>
 <li>No meaning, except for structural differences</li>
 </ul>
-<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><ul>
-<li><strong>Alphabet</strong><ul>
+<h3 id="definition">Definition</h3>
+<ul>
+<li><strong>Alphabet</strong>
+<ul>
 <li>An alphabet (Σ) is a finite set of symbols</li>
-</ul>
-</li>
-<li><strong>String</strong><ul>
+</ul></li>
+<li><strong>String</strong>
+<ul>
 <li>A string is a finite sequence of symbols from an alphabet</li>
-</ul>
-</li>
-<li><strong>Language</strong><ul>
+</ul></li>
+<li><strong>Language</strong>
+<ul>
 <li>A language is a set of strings</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Central-question"><a href="#Central-question" class="headerlink" title="Central question"></a>Central question</h3><p><strong>For any particular language, how can we specify precisely the correct strings and no others?</strong></p>
-<h4 id="Alphabet-and-strings"><a href="#Alphabet-and-strings" class="headerlink" title="Alphabet and strings"></a>Alphabet and strings</h4><ul>
+<h3 id="central-question">Central question</h3>
+<p><strong>For any particular language, how can we specify precisely the correct strings and no others?</strong></p>
+<h4 id="alphabet-and-strings">Alphabet and strings</h4>
+<ul>
 <li>For convenience, we use small symbol sets as alphabets</li>
-<li>E.g.: <ul>
+<li>E.g.:
+<ul>
 <li>Let Σ = {a, b, c} be the set of symbols. Some strings composed from the symbols of Σ are ab, bbc, and abcba. These are <strong>strings over Σ</strong></li>
 <li>Let Σ = {0, 1, +} be the set of symbols. Some strings over Σ are 0,1+1 and 10+11+1010</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Length-of-strings"><a href="#Length-of-strings" class="headerlink" title="Length of strings"></a>Length of strings</h4><p>The length of the string =</p>
+<h4 id="length-of-strings">Length of strings</h4>
+<p>The length of the string =</p>
 <ul>
 <li>The number of symbols in it</li>
 <li>E.g. |abc| = 3</li>
 </ul>
-<h4 id="Empty-string"><a href="#Empty-string" class="headerlink" title="Empty string"></a>Empty string</h4><ul>
-<li>Empty string =<ul>
+<h4 id="empty-string">Empty string</h4>
+<ul>
+<li>Empty string =
+<ul>
 <li>Λ</li>
 <li>|Λ| = 0</li>
-</ul>
-</li>
+</ul></li>
 <li><strong>Λ is a string, NOT a symbol!!</strong></li>
 <li><strong>Λ is not listed in Σ</strong></li>
 </ul>
-<h4 id="Set-of-strings"><a href="#Set-of-strings" class="headerlink" title="Set of strings"></a>Set of strings</h4><p>E.g.</p>
+<h4 id="set-of-strings">Set of strings</h4>
+<p>E.g.</p>
 <ul>
-<li>Finite set:<ul>
-<li>The set of strings over Σ = {a, b} of length ≤ 2 is {Λ, a, b, aa, ab, ba, bb} </li>
+<li>Finite set:
+<ul>
+<li>The set of strings over Σ = {a, b} of length ≤ 2 is {Λ, a, b, aa, ab, ba, bb}</li>
 <li>Cf. variable names in e.g. Fortran, Pascal</li>
+</ul></li>
+<li>Infinite set:
+<ul>
+<li>The set of strings over Σ = {0, 1, +} that represent sums of 0s and 1s is {0 + 0, 0 + 1, 1 + 0, 1 + 1, 0 + 0 + 0, 0 + 0 + 1, ...}</li>
+</ul></li>
 </ul>
-</li>
-<li>Infinite set:<ul>
-<li>The set of strings over Σ = {0, 1, +} that represent sums of 0s and 1s is {0 + 0, 0 + 1, 1 + 0, 1 + 1, 0 + 0 + 0, 0 + 0 + 1, …}</li>
-</ul>
-</li>
-</ul>
-<h4 id="Language-Σ∗"><a href="#Language-Σ∗" class="headerlink" title="Language Σ∗"></a>Language Σ<sup>∗</sup></h4><ul>
+<h4 id="language-σ">Language Σ<sup>∗</sup></h4>
+<ul>
 <li>Σ<sup>∗</sup> is the language consisting of <strong>all possible strings</strong> over Σ</li>
 <li>Any language over Σ is a subset of Σ<sup>∗</sup></li>
-<li>E.g.:<ul>
+<li>E.g.:
+<ul>
 <li>Any language over {a, b} is a subset of {a, b} <sup>∗</sup></li>
-<li>{a, b, } <sup>∗</sup> = {Λ, a, b, aa, bb, ba, bb, aaa, aab, …}</li>
+<li>{a, b, } <sup>∗</sup> = {Λ, a, b, aa, bb, ba, bb, aaa, aab, ...}</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Set-formats"><a href="#Set-formats" class="headerlink" title="Set formats"></a>Set formats</h4><ul>
-<li>Extensional format<ul>
+<h4 id="set-formats">Set formats</h4>
+<ul>
+<li>Extensional format
+<ul>
 <li>Explicit list of arguments</li>
 <li>E.g.: L = {Λ, a, b, aa, ab, ba, bb}</li>
-</ul>
-</li>
-<li>Intentional format<ul>
+</ul></li>
+<li>Intentional format
+<ul>
 <li>E.g.: L = the set of strings over {a, b}, of length no more than two</li>
 <li>E.g.: L = {x|x ∈ {a, b} <sup>∗</sup> ∧ |x| ≤ 2}</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><p>Write the extension of each of the following sets: </p>
+<h3 id="exercise-1">Exercise 1</h3>
+<p>Write the extension of each of the following sets:</p>
 <ul>
 <li>{x|x ∈ {a, b} <sup>∗</sup> ∧ |x| = 3}.</li>
 <li>{x|x ∈ {a, b} <sup>∗</sup> ∧ |x| =4 ∧ ∃y: (x =aya)}.</li>
 </ul>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<h4 id="solution">Solution</h4>
+<ul>
 <li>{aaa, baa, aba, bba, aab, bab, abb, bbb}</li>
 <li>{abba, aaba, abaa, aaaa}</li>
 </ul>
-<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><p>Express the following sets intentionally using formal language terminology:</p>
+<h3 id="exercise-2">Exercise 2</h3>
+<p>Express the following sets intentionally using formal language terminology:</p>
 <ul>
 <li>{aa, ab, ac, ba, bb, bc, ca, cb, cc}</li>
 <li>{αa}<sup>∗</sup></li>
 </ul>
-<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<h4 id="solution-1">Solution</h4>
+<ul>
 <li>{x|x ∈ {a, b, c} <sup>∗</sup> ∧ |x| = 2}</li>
 <li>{x|x ∈ {a} <sup>∗</sup> ∧ ∃y ∈ <strong>I</strong> : |x| = 2y}</li>
 </ul>
-<h2 id="Operations-on-languages"><a href="#Operations-on-languages" class="headerlink" title="Operations on languages"></a>Operations on languages</h2><h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><p>Language are <strong>sets</strong> (of strings), notated here as L<sub>1</sub> , L<sub>2</sub></p>
+<h2 id="operations-on-languages">Operations on languages</h2>
+<h3 id="operations">Operations</h3>
+<p>Language are <strong>sets</strong> (of strings), notated here as L<sub>1</sub> , L<sub>2</sub></p>
 <ul>
 <li>Union: L<sub>1</sub> ∪ L<sub>2</sub></li>
 <li>Intersection: L<sub>1</sub> ∩ L<sub>2</sub></li>
-<li>Difference: L<sub>1</sub> \ L<sub>2</sub></li>
+<li>Difference: L<sub>1</sub>  L<sub>2</sub></li>
 <li>Symmetric difference: L<sub>1</sub> ∆ L<sub>2</sub></li>
-<li>Complement: Σ<sup>∗</sup> \ L</li>
+<li>Complement: Σ<sup>∗</sup>  L</li>
 </ul>
-<h3 id="Empty-language"><a href="#Empty-language" class="headerlink" title="Empty language"></a>Empty language</h3><ul>
-<li>Empty language: ∅<ul>
+<h3 id="empty-language">Empty language</h3>
+<ul>
+<li>Empty language: ∅</li>
 <li>Has no strings</li>
-</ul>
-</li>
-<li>Language {Λ}<ul>
+<li>Language {Λ}
+<ul>
 <li>Has 1 string, the empty string, which has length 0</li>
-</ul>
-</li>
-<li>Language {Λ, a, aa}<ul>
+</ul></li>
+<li>Language {Λ, a, aa}
+<ul>
 <li>Has 3 strings, of length 0, 1 and 2</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Concatenation-of-strings"><a href="#Concatenation-of-strings" class="headerlink" title="Concatenation of strings"></a>Concatenation of strings</h3><p><strong>Definition:</strong>  Concatenation of <strong>strings</strong></p>
+<h3 id="concatenation-of-strings">Concatenation of strings</h3>
+<p><strong>Definition:</strong> Concatenation of <strong>strings</strong></p>
 <ul>
 <li>x and y are strings: xy is their concatenation</li>
 <li>x is a string: xΛ = x = Λx</li>
@@ -677,86 +704,97 @@
 <li>x is a string: x<sup>0</sup> = Λ</li>
 </ul>
 <p><strong>Concatenation is NOT commutative!!!</strong></p>
-<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><p>Give the length of each of the following strings: </p>
+<h3 id="exercise-3">Exercise 3</h3>
+<p>Give the length of each of the following strings:</p>
 <ul>
-<li>b<sup>3</sup>c<sup>4</sup> </li>
-<li>(aΛaΛbΛb)<sup>2</sup> </li>
+<li>b<sup>3</sup>c<sup>4</sup></li>
+<li>(aΛaΛbΛb)<sup>2</sup></li>
 <li>Λ<Sup>5</sup></li>
 </ul>
-<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<h4 id="solution-2">Solution</h4>
+<ul>
 <li>7</li>
 <li>8</li>
 <li>0</li>
 </ul>
-<h3 id="Concatenation-of-languages"><a href="#Concatenation-of-languages" class="headerlink" title="Concatenation of languages"></a>Concatenation of languages</h3><p><strong>Definition:</strong> Concatenation of <strong>languages</strong></p>
+<h3 id="concatenation-of-languages">Concatenation of languages</h3>
+<p><strong>Definition:</strong> Concatenation of <strong>languages</strong></p>
 <ul>
-<li><p>For language L<sub>1</sub> and L<sub>2</sub>, their concatenation is written as L<sub>1</sub>L<sub>2</sub></p>
-</li>
-<li><p>L<sub>1</sub>L<sub>2</sub> = {xy|x ∈ L<sub>1</sub> ∧ y ∈ L<sub>2</sub>}</p>
+<li>For language L<sub>1</sub> and L<sub>2</sub>, their concatenation is written as L<sub>1</sub>L<sub>2</sub></li>
+<li>L<sub>1</sub>L<sub>2</sub> = {xy|x ∈ L<sub>1</sub> ∧ y ∈ L<sub>2</sub>}</li>
+</ul>
 <p>E.g.: Let L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}. Then the concatenations L<sub>1</sub>L<sub>2</sub> and L<sub>2</sub>L<sub>1</sub> are as follows:</p>
-</li>
-<li><p>L<sub>1</sub>L<sub>2</sub> = {ab, abb, abbb, aab, aabb, aabbb}</p>
-</li>
-<li><p>L<sub>2</sub>L<sub>1</sub> = {ba, bba, bbba, baa, bbaa, bbbaa}</p>
-</li>
+<ul>
+<li>L<sub>1</sub>L<sub>2</sub> = {ab, abb, abbb, aab, aabb, aabbb}</li>
+<li>L<sub>2</sub>L<sub>1</sub> = {ba, bba, bbba, baa, bbaa, bbbaa}</li>
 </ul>
 <p><strong>Concatenation is NOT commutative!!!</strong></p>
-<h3 id="More-concatenation"><a href="#More-concatenation" class="headerlink" title="More concatenation"></a>More concatenation</h3><p>L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}</p>
+<h3 id="more-concatenation">More concatenation</h3>
+<p>L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}</p>
 <ul>
-<li>L<sub>1</sub>L<sub>2</sub>: 2 x 3 unique concatenations<ul>
+<li>L<sub>1</sub>L<sub>2</sub>: 2 x 3 unique concatenations
+<ul>
 <li>{ab, abb, abbb, aab, aabb, aabbb}</li>
-</ul>
-</li>
-<li>L<sub>2</sub>L<sub>2</sub>: 3 x 3 concatenations, but only 5 unique ones<ul>
+</ul></li>
+<li>L<sub>2</sub>L<sub>2</sub>: 3 x 3 concatenations, but only 5 unique ones
+<ul>
 <li>{bb, bbb, bbbb, bbbbb, bbbbbb}</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h3><p>How many of the strings over the symbol set Σ = {a, b, c} are of length exactly 5?</p>
-<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p>n<sup>k</sup> = 3<sup>5</sup> = 243</p>
-<h3 id="Exercise-5"><a href="#Exercise-5" class="headerlink" title="Exercise 5"></a>Exercise 5</h3><p>Use the notation of formal languages, sets, logic, and arithmetic to express in intentional form each of the following sets, using no English.</p>
+<h3 id="exercise-4">Exercise 4</h3>
+<p>How many of the strings over the symbol set Σ = {a, b, c} are of length exactly 5?</p>
+<h4 id="solution-3">Solution</h4>
+<p>n<sup>k</sup> = 3<sup>5</sup> = 243</p>
+<h3 id="exercise-5">Exercise 5</h3>
+<p>Use the notation of formal languages, sets, logic, and arithmetic to express in intentional form each of the following sets, using no English.</p>
 <ul>
 <li>The set of strings of length 5 over {0, 1}.</li>
 <li>The set of strings over {0, 1} that begin with 1 and that represent, as binary numbers, the values from 1 to 31 (in decimal notation).</li>
 </ul>
-<h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<h4 id="solution-4">Solution</h4>
+<ul>
 <li>{x|x ∈ {0, 1} <sup>∗</sup> ∧ |x| = 5}</li>
 <li>{x|y ∈ {0, 1} <sup>∗</sup> ∧ |y| ≤ 4 ∧ x = 1y}</li>
 </ul>
-<h3 id="Exercise-6"><a href="#Exercise-6" class="headerlink" title="Exercise 6"></a>Exercise 6</h3><ul>
+<h3 id="exercise-6">Exercise 6</h3>
+<ul>
 <li>L = {x|x ∈ {a, b} <sup>∗</sup> ∧ |x| ≤ 2} = {Λ, a, b, aa, ab, ba, bb}</li>
 <li>L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}</li>
 <li>Give the extensional form of (L<sub>1</sub>L<sub>2</sub>) ∩ L</li>
 </ul>
-<h4 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<h4 id="solution-5">Solution</h4>
+<ul>
 <li>L<sub>1</sub>L<sub>2</sub> = {ab, abb, abbb, aab, aabb, aabbb}</li>
 <li>(L<sub>1</sub>L<sub>2</sub>) ∩ L = {ab}</li>
 </ul>
-<h3 id="Superscript-for-languages"><a href="#Superscript-for-languages" class="headerlink" title="Superscript for languages"></a>Superscript for languages</h3><p><strong>Definition</strong>: Superscript for Languages</p>
+<h3 id="superscript-for-languages">Superscript for languages</h3>
+<p><strong>Definition</strong>: Superscript for Languages</p>
 <p>For each language L:</p>
 <ul>
 <li>L<sup>0</sup> = {Λ}</li>
 <li>L<sup>k+1</sup> = LL<sup>k</sup> , for any integer k</li>
 </ul>
-<h3 id="Closure-for-Languages"><a href="#Closure-for-Languages" class="headerlink" title="Closure for Languages"></a>Closure for Languages</h3><p><strong>Definition</strong>: Closure for Languages</p>
+<h3 id="closure-for-languages">Closure for Languages</h3>
+<p><strong>Definition</strong>: Closure for Languages</p>
 <ul>
-<li><p>L<sup>∗</sup> = L<sup>0</sup> ∪ L<sup>1</sup> ∪ L<sup>2</sup> ∪, …</p>
-</li>
-<li><p>$$<br>L^*=U_{i=0}^∞L^i<br>$$</p>
-</li>
-<li><p>For any language, except ∅ and {Λ}, L<sup>∗</sup> has infinitely many strings</p>
-</li>
+<li><p>L<sup>∗</sup> = L<sup>0</sup> ∪ L<sup>1</sup> ∪ L<sup>2</sup> ∪, ...</p></li>
+<li><p><span class="math display">\[
+L^*=U_{i=0}^∞L^i
+\]</span></p></li>
+<li><p>For any language, except ∅ and {Λ}, L<sup>∗</sup> has infinitely many strings</p></li>
 </ul>
-<p>Eg.: </p>
+<p>Eg.:</p>
 <p>Let L = {a, bb}. Then L<sup>0</sup> = {Λ}, which is true for any language. Also,</p>
 <ul>
 <li>L<sup>1</sup> = L = {a, bb}</li>
 <li>L<sup>2</sup> = LL = {a, abb, bba, bbbb}</li>
 <li>L<sup>3</sup> = LL<sup>2</sup> = {aaa, aabb, abba. abbbb, bbaa, bbabb. bbbba, bbbbbb}</li>
-<li>L<sup>*</sup> = L = {Λ, a , bb. aa. abb. bba, bbbb, aaa, aabb, abba, abbbb, bbaa, …}</li>
+<li>L<sup>*</sup> = L = {Λ, a , bb. aa. abb. bba, bbbb, aaa, aabb, abba, abbbb, bbaa, ...}</li>
 </ul>
-<h3 id="Exercise-7"><a href="#Exercise-7" class="headerlink" title="Exercise 7"></a>Exercise 7</h3><p>Express each of the following as briefly as possible using correct notation: an alphabet, the set of all strings over that alphabet, the empty string, the empty language, the length of string x, and the closure of language L.</p>
-<h4 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<h3 id="exercise-7">Exercise 7</h3>
+<p>Express each of the following as briefly as possible using correct notation: an alphabet, the set of all strings over that alphabet, the empty string, the empty language, the length of string x, and the closure of language L.</p>
+<h4 id="solution-6">Solution</h4>
+<ul>
 <li>alphabet: Σ</li>
 <li>set of all strings over alphabet: Σ<sup>∗</sup></li>
 <li>empty string: Λ</li>
@@ -764,12 +802,14 @@
 <li>length of string x: |x|</li>
 <li>closure of language L: L<sup>∗</sup></li>
 </ul>
-<h3 id="Exercise-8"><a href="#Exercise-8" class="headerlink" title="Exercise 8"></a>Exercise 8</h3><p> Let L be the language {a, bb} and consider its closure, L<sup>∗</sup><em>.</em></p>
+<h3 id="exercise-8">Exercise 8</h3>
+<p>Let L be the language {a, bb} and consider its closure, L<sup>∗</sup><em>.</em></p>
 <ul>
 <li>How many strings in L<sup>∗</sup> are of length 4?</li>
 <li>How many strings in L<sup>∗</sup> are of length 5?</li>
 </ul>
-<h4 id="Solution-7"><a href="#Solution-7" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<h4 id="solution-7">Solution</h4>
+<ul>
 <li>L<sup>0</sup> : 0</li>
 <li>L<sup>1</sup> : 0</li>
 <li>L<sup>2</sup> : 1</li>
@@ -777,118 +817,116 @@
 <li>L<sup>4</sup> : 1</li>
 <li>4 strings: {bbbb, aabb, abba, bbaa, aaaa}</li>
 </ul>
-<h2 id="Two-levels-and-two-language-classes"><a href="#Two-levels-and-two-language-classes" class="headerlink" title="Two levels and two language classes"></a>Two levels and two language classes</h2><h3 id="Words-and-sentences"><a href="#Words-and-sentences" class="headerlink" title="Words and sentences"></a>Words and sentences</h3><p>Human Language</p>
+<h2 id="two-levels-and-two-language-classes">Two levels and two language classes</h2>
+<h3 id="words-and-sentences">Words and sentences</h3>
+<p>Human Language</p>
 <ul>
-<li>Symbols: individual letters<ul>
+<li>Symbols: individual letters
+<ul>
 <li>Σ is called the <strong>alphabet</strong></li>
 <li>Strings of the language are called <strong>words</strong></li>
-</ul>
-</li>
-<li>Symbols: individual words<ul>
+</ul></li>
+<li>Symbols: individual words
+<ul>
 <li>Σ is called the <strong>vocabulary</strong></li>
 <li>Strings of the language are called <strong>sentences</strong></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Tokens-and-statements"><a href="#Tokens-and-statements" class="headerlink" title="Tokens and statements"></a>Tokens and statements</h3><ul>
+<h3 id="tokens-and-statements">Tokens and statements</h3>
+<ul>
 <li><p>Programming Languages</p>
 <ul>
 <li><p>Characters combine into tokens</p>
 <ul>
 <li>Tokens correspond to words in human languages</li>
 <li>E.g. for, &lt;=, and try in Java</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Tokens combine into statements</p>
 <ul>
-<li><p>Statements correspond to words in human languages</p>
-</li>
-<li><p>E.g. (loop for el in list do (format t “ a %” el))</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>One is interested at on particular symbol set at any particular time</p>
-</li>
-<li><p>Combining tokens to form statements is more complex than combining characters to make tokens</p>
-</li>
+<li><p>Statements correspond to words in human languages</p></li>
+<li><p>E.g. (loop for el in list do (format t " a %" el))</p></li>
+</ul></li>
+</ul></li>
+<li><p>One is interested at on particular symbol set at any particular time</p></li>
+<li><p>Combining tokens to form statements is more complex than combining characters to make tokens</p></li>
 <li><p>Language classes:</p>
 <ul>
-<li>Class of regular languages<ul>
+<li>Class of regular languages
+<ul>
 <li>For forming tokens out of characters</li>
 <li>No recursion</li>
-</ul>
-</li>
-<li>Class of context-free languages<ul>
+</ul></li>
+<li>Class of context-free languages
+<ul>
 <li>For forming statements out of tokens</li>
 <li>Can have recursion</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Notion-of-recursion"><a href="#Notion-of-recursion" class="headerlink" title="Notion of recursion"></a>Notion of recursion</h3><p><strong>Definition</strong>: Recursive Construct</p>
+<h3 id="notion-of-recursion">Notion of recursion</h3>
+<p><strong>Definition</strong>: Recursive Construct</p>
 <ul>
-<li>A construct is recursive if it can contain within itself a structure of the same type</li>
-</ul>
-<ul>
-<li><p>No restrictions on nested, ‘inner’ statements:</p>
-</li>
+<li><p>A construct is recursive if it can contain within itself a structure of the same type</p></li>
+<li><p>No restrictions on nested, ‘inner’ statements:</p></li>
 <li><p>E.g. (loop for sublist in list do</p>
-<p>​           (loop for el in sublist do (print el)))</p>
-</li>
+<p>​ (loop for el in sublist do (print el)))</p></li>
 </ul>
-<h2 id="Questions-of-formal-language-theory"><a href="#Questions-of-formal-language-theory" class="headerlink" title="Questions of formal language theory"></a>Questions of formal language theory</h2><h3 id="Language-specification"><a href="#Language-specification" class="headerlink" title="Language specification"></a>Language specification</h3><p>How is a language specified?</p>
+<h2 id="questions-of-formal-language-theory">Questions of formal language theory</h2>
+<h3 id="language-specification">Language specification</h3>
+<p>How is a language specified?</p>
 <ul>
-<li>Extensional format<ul>
+<li>Extensional format
+<ul>
 <li>Explicitly enumerates elements</li>
-</ul>
-</li>
-<li>Intentional format<ul>
+</ul></li>
+<li>Intentional format
+<ul>
 <li>Uses a specification of the properties of the strings it contains</li>
 <li>e.g. L = {x|x ∈ {a, b} <sup>∗</sup> ∧ N<sub>a</sub>(x) = N<sub>b</sub>(x)}</li>
 <li>N<sub>a</sub>(x) denotes the number of occurrences of the symbol a in the string x</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Generation"><a href="#Generation" class="headerlink" title="Generation"></a>Generation</h3><p>How can we generate the sentences of a language?</p>
+<h3 id="generation">Generation</h3>
+<p>How can we generate the sentences of a language?</p>
 <ul>
-<li>Problem:<ul>
+<li>Problem:
+<ul>
 <li>Generate an unlimited number of strings of an infinite language such that any particular string would ultimately occur</li>
-</ul>
-</li>
-<li>Solution<ul>
+</ul></li>
+<li>Solution
+<ul>
 <li>Building a <strong>grammar</strong></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Recognition"><a href="#Recognition" class="headerlink" title="Recognition"></a>Recognition</h3><p>How can we recognize the sentences of a language?</p>
+<h3 id="recognition">Recognition</h3>
+<p>How can we recognize the sentences of a language?</p>
 <ul>
-<li>Problem:<ul>
+<li>Problem:
+<ul>
 <li>Given language L and any string x over the alphabet of the language, how can we determine whether x ∈ L</li>
-</ul>
-</li>
-<li>Solution<ul>
-<li>Building an <strong>automaton</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Language-specification-1"><a href="#Language-specification-1" class="headerlink" title="Language specification"></a>Language specification</h3><p>What is the best way to specify a language?</p>
+</ul></li>
+<li>Solution
 <ul>
-<li>There are 3 ways to specify an infinite language:<ul>
+<li>Building an <strong>automaton</strong></li>
+</ul></li>
+</ul>
+<h3 id="language-specification-1">Language specification</h3>
+<p>What is the best way to specify a language?</p>
+<ul>
+<li>There are 3 ways to specify an infinite language:
+<ul>
 <li>Intentional format</li>
 <li>Grammar that generates the language</li>
 <li>Automaton that recognizes the language</li>
-</ul>
-</li>
-<li>There are correspondences between these ways<ul>
+</ul></li>
+<li>There are correspondences between these ways
+<ul>
 <li>E.g. Use grammar to produce automaton</li>
 <li>Translations can be done mechanically</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Languages-classes"><a href="#Languages-classes" class="headerlink" title="Languages classes"></a>Languages classes</h3><ul>
+<h3 id="languages-classes">Languages classes</h3>
+<ul>
 <li>There are an infinite number of different languages over Σ</li>
 <li>Some are more complex than others</li>
 <li>E.g. some might be recursive</li>
@@ -901,7 +939,7 @@
 <p><strong>The same language classes can be defined in terms of automata and grammars!!</strong></p>
 <p>Language classes are sets that are subets of other classes</p>
 <p>E.g. Regular languages are context-free languages</p>
-<p><img src="/images/FOCS/1490250.png"></p>
+<p><img src="/images/FOCS/1490250.png" /></p>
 
                 
             </div>

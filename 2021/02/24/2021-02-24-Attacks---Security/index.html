@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-24
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    982
+                    1k
                 </div>
                 
 
@@ -497,97 +497,113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Security-Attacks"><a href="#Security-Attacks" class="headerlink" title="Security - Attacks"></a>Security - Attacks</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9LUpaZmJ0dlgyRWc&id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20Lecture%203.mp4&parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video</a></p>
-<h2 id="Exploiting-code-bugs"><a href="#Exploiting-code-bugs" class="headerlink" title="Exploiting code bugs"></a>Exploiting code bugs</h2><p>Example steps to exploit a bug:</p>
+                <h1 id="security---attacks">Security - Attacks</h1>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9LUpaZmJ0dlgyRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20Lecture%203%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video</a></p>
+<h2 id="exploiting-code-bugs">Exploiting code bugs</h2>
+<p>Example steps to exploit a bug:</p>
 <ul>
 <li>Run port scan to find machines that accept telnet connections.</li>
 <li>Try to log in by guessing login name and password combinations.</li>
-<li>Once in, run the flawed program with input that triggers the bug. </li>
-<li>If the buggy program is SETUID root, create a SETUID root shell. </li>
+<li>Once in, run the flawed program with input that triggers the bug.</li>
+<li>If the buggy program is SETUID root, create a SETUID root shell.</li>
 <li>Fetch and start a zombie program that listens to an IP port for cmds.</li>
 <li>Arrange that the zombie program is started when the system reboots.</li>
 </ul>
-<h2 id="Exploiting-software"><a href="#Exploiting-software" class="headerlink" title="Exploiting software"></a>Exploiting software</h2><ul>
+<h2 id="exploiting-software">Exploiting software</h2>
+<ul>
 <li><p>Buffer overflow attacks</p>
 <ul>
 <li>Control Flow Attacks</li>
 <li>Non-Control Flow Attacks</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Memory Corruption Attacks</p>
 <ul>
 <li>Format String Attack</li>
 <li>Dangling Pointers Attack</li>
+</ul></li>
+<li><p>Null Pointer Dereference Attacks</p></li>
+<li><p>Integer Overflow attacks</p></li>
+<li><p>Command Injection Attacks</p></li>
+<li><p>Time of Check to Tome of Use Attacks</p></li>
 </ul>
-</li>
-<li><p>Null Pointer Dereference Attacks</p>
-</li>
-<li><p>Integer Overflow attacks </p>
-</li>
-<li><p>Command Injection Attacks</p>
-</li>
-<li><p>Time of Check to Tome of Use Attacks</p>
-</li>
-</ul>
-<h3 id="Buffer-overflow-attacks"><a href="#Buffer-overflow-attacks" class="headerlink" title="Buffer overflow attacks"></a>Buffer overflow attacks</h3><p><img src="/images/OP/740047.png"></p>
-<p>(a) Situation when the main program is running. </p>
-<p>(b) After the procedure A has been called. </p>
-<p>(c) Buffer overflow shown in gray.</p>
-<h4 id="Defence-stack-canaries"><a href="#Defence-stack-canaries" class="headerlink" title="Defence: stack canaries"></a>Defence: stack canaries</h4><p>Modern computers use digital ‘canaries’ as an early warning system, detecting possible buffer overflow attack. </p>
-<p>In the code, at places where the program makes a function call, the compiler inserts code to save a random ‘canary’ value on the stack, just below the return address. </p>
-<p>The compiler inserts code at the return to check the canary value. </p>
+<h3 id="buffer-overflow-attacks">Buffer overflow attacks</h3>
+<p><img src="/images/OP/740047.png" /></p>
+<ol type="a">
+<li><p>Situation when the main program is running.</p></li>
+<li><p>After the procedure A has been called.</p></li>
+<li><p>Buffer overflow shown in gray.</p></li>
+</ol>
+<h4 id="defence-stack-canaries">Defence: stack canaries</h4>
+<p>Modern computers use digital ‘canaries’ as an early warning system, detecting possible buffer overflow attack.</p>
+<p>In the code, at places where the program makes a function call, the compiler inserts code to save a random ‘canary’ value on the stack, just below the return address.</p>
+<p>The compiler inserts code at the return to check the canary value.</p>
 <p>If the canary has changed… trouble!</p>
-<h4 id="Defence-data-execution-prevention"><a href="#Defence-data-execution-prevention" class="headerlink" title="Defence: data execution prevention"></a>Defence: data execution prevention</h4><p>Redefine the ‘real’ problem: The fact that the attacker can inject code and have it executed in the heap or stack! </p>
-<p>Defence: prevent the bytes provided by the attacker from being executed as legitimate code. </p>
-<p>Modern CPUs have a feature <strong>NX bit</strong> (No-eXecute bit): </p>
+<h4 id="defence-data-execution-prevention">Defence: data execution prevention</h4>
+<p>Redefine the ‘real’ problem: The fact that the attacker can inject code and have it executed in the heap or stack!</p>
+<p>Defence: prevent the bytes provided by the attacker from being executed as legitimate code.</p>
+<p>Modern CPUs have a feature <strong>NX bit</strong> (No-eXecute bit):</p>
 <ul>
 <li>It distinguishes between data segments and the code segments.</li>
 <li>This ensures data segments are writable, but not executable.</li>
 </ul>
-<h4 id="Code-reuse-attacks"><a href="#Code-reuse-attacks" class="headerlink" title="Code reuse attacks"></a>Code reuse attacks</h4><p>Attacker constructs the necessary functions out of existing functions and instructions in the existing binaries and libraries</p>
+<h4 id="code-reuse-attacks">Code reuse attacks</h4>
+<p>Attacker constructs the necessary functions out of existing functions and instructions in the existing binaries and libraries</p>
 <p><strong>Return to libc</strong></p>
-<p>Almost all c (C++) programs are linked with a shared library containing the function <em>system</em>. </p>
-<p><em>System</em> takes a string containing a command and passes it to the shell for execution. </p>
+<p>Almost all c (C++) programs are linked with a shared library containing the function <em>system</em>.</p>
+<p><em>System</em> takes a string containing a command and passes it to the shell for execution.</p>
 <p>Attack: Place a string containing commands to be executed and divert control the <em>system</em> function via the return address.</p>
-<h5 id="Return-Oriented-Programming-ROP"><a href="#Return-Oriented-Programming-ROP" class="headerlink" title="Return-Oriented Programming (ROP)"></a>Return-Oriented Programming (ROP)</h5><p>The concept of Return-Oriented Programming is to return to the entry points of library functions. </p>
-<p><img src="/images/OP/740048.png" alt="Return-oriented programming: linking gadgets"></p>
-<h4 id="Defence-address-space-layout-randomization-ASLR"><a href="#Defence-address-space-layout-randomization-ASLR" class="headerlink" title="Defence: address space layout randomization (ASLR)"></a>Defence: address space layout randomization (ASLR)</h4><ul>
+<h5 id="return-oriented-programming-rop">Return-Oriented Programming (ROP)</h5>
+<p>The concept of Return-Oriented Programming is to return to the entry points of library functions.</p>
+<figure>
+<img src="/images/OP/740048.png" alt="" /><figcaption>Return-oriented programming: linking gadgets</figcaption>
+</figure>
+<h4 id="defence-address-space-layout-randomization-aslr">Defence: address space layout randomization (ASLR)</h4>
+<ul>
 <li>Randomize the address of functions and data between every run of the program</li>
-<li>Supported with varying granularity. </li>
+<li>Supported with varying granularity.</li>
 <li>Few apply it to the system kernel</li>
 </ul>
-<h4 id="Non-Control-Flow-Attacks"><a href="#Non-Control-Flow-Attacks" class="headerlink" title="Non-Control Flow Attacks"></a>Non-Control Flow Attacks</h4><p>Change the data instead of the return addresses!!</p>
+<h4 id="non-control-flow-attacks">Non-Control Flow Attacks</h4>
+<p>Change the data instead of the return addresses!!</p>
 <p>Possible use: change the security credentials granting more or less protection on objects.</p>
-<p><img src="/images/OP/740049.png"></p>
-<h3 id="Memory-Corruption-Attacks"><a href="#Memory-Corruption-Attacks" class="headerlink" title="Memory Corruption Attacks"></a>Memory Corruption Attacks</h3><h4 id="Format-String-Attack"><a href="#Format-String-Attack" class="headerlink" title="Format String Attack"></a>Format String Attack</h4><p>In a C functions that perform formatting, (printf), when the application doesn’t properly validate the input, the attacker can causes the submitted data to be compromised.</p>
-<p><img src="/images/OP/740046.png"></p>
+<p><img src="/images/OP/740049.png" /></p>
+<h3 id="memory-corruption-attacks">Memory Corruption Attacks</h3>
+<h4 id="format-string-attack">Format String Attack</h4>
+<p>In a C functions that perform formatting, (printf), when the application doesn’t properly validate the input, the attacker can causes the submitted data to be compromised.</p>
+<p><img src="/images/OP/740046.png" /></p>
 <p>EX: By using exactly the right number of <strong>%08x</strong>, the attacker can use the first four characters of the format string as an address.</p>
-<p><img src="/images/OP/740045.png"></p>
-<h4 id="Dangling-Pointers-Attack"><a href="#Dangling-Pointers-Attack" class="headerlink" title="Dangling Pointers Attack"></a>Dangling Pointers Attack</h4><ul>
+<p><img src="/images/OP/740045.png" /></p>
+<h4 id="dangling-pointers-attack">Dangling Pointers Attack</h4>
+<ul>
 <li>User frees memory. But later tries to access it with the pointer.</li>
 <li>Attacker places a specific heap object in the memory location the user frees and re-uses</li>
 <li>Techniques like <strong>heap feng shui</strong> help attackers pull this off.</li>
 </ul>
-<h3 id="Null-Pointer-Dereference-Attacks"><a href="#Null-Pointer-Dereference-Attacks" class="headerlink" title="Null Pointer Dereference Attacks"></a>Null Pointer Dereference Attacks</h3><p>In linux, the kernel space is mapped to every process’ address space… and whenever the kernel executes it runs in a process’s address space. </p>
-<p>If a buggy kernel dereferences a NULL pointer, it usually leads to a crash. Or attacker triggers a NULL pointer dereference from the user process. </p>
-<p>Crash occurs because there is no code at page 0. </p>
-<p>Using a tool like mmap (Posix function that maps files into memory) attacker can map bad code at that location. </p>
+<h3 id="null-pointer-dereference-attacks">Null Pointer Dereference Attacks</h3>
+<p>In linux, the kernel space is mapped to every process’ address space… and whenever the kernel executes it runs in a process’s address space.</p>
+<p>If a buggy kernel dereferences a NULL pointer, it usually leads to a crash. Or attacker triggers a NULL pointer dereference from the user process.</p>
+<p>Crash occurs because there is no code at page 0.</p>
+<p>Using a tool like mmap (Posix function that maps files into memory) attacker can map bad code at that location.</p>
 <p>Defence: mmap no longer makes it possible to map to page 0.</p>
-<h3 id="Integer-Overflow-attacks"><a href="#Integer-Overflow-attacks" class="headerlink" title="Integer Overflow attacks"></a>Integer Overflow attacks</h3><p>Integer errors can happen when mathematical operations, and external input lead to a result that is too large to fit within the range of values that can be stored in variables of a given data type. </p>
-<p>Can be exploited to corrupt applications. </p>
+<h3 id="integer-overflow-attacks">Integer Overflow attacks</h3>
+<p>Integer errors can happen when mathematical operations, and external input lead to a result that is too large to fit within the range of values that can be stored in variables of a given data type.</p>
+<p>Can be exploited to corrupt applications.</p>
 <p>Integer overflow attacks are possible largely due to incorrectly defining numerical data.</p>
-<h3 id="Command-Injection-Attacks"><a href="#Command-Injection-Attacks" class="headerlink" title="Command Injection Attacks"></a>Command Injection Attacks</h3><p>The execution of arbitrary commands on the host operating system via a vulnerable application. </p>
+<h3 id="command-injection-attacks">Command Injection Attacks</h3>
+<p>The execution of arbitrary commands on the host operating system via a vulnerable application.</p>
 <p>Command injection attacks are possible largely <strong>due to insufficient input validation</strong> (a complete part of the Defensive Programming approach).</p>
-<p><img src="/images/OP/740044.png"></p>
-<p>Suppose user enters for the destination file: ‘file2.txt; rm –rf </p>
+<p><img src="/images/OP/740044.png" /></p>
+<p>Suppose user enters for the destination file: ‘file2.txt; rm –rf</p>
 <p>Command excited is then: system(“cp file1 file 2; rm –rf”)</p>
 <p>Command injection attacks are possible largely due to insufficient input validation</p>
-<h3 id="Time-of-Check-to-Tome-of-Use-Attacks"><a href="#Time-of-Check-to-Tome-of-Use-Attacks" class="headerlink" title="Time of Check to Tome of Use Attacks"></a>Time of Check to Tome of Use Attacks</h3><p>Exploits a race condition</p>
+<h3 id="time-of-check-to-tome-of-use-attacks">Time of Check to Tome of Use Attacks</h3>
+<p>Exploits a race condition</p>
 <p>Example:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> fd;</span><br><span class="line"><span class="keyword">if</span>(access(<span class="string">&quot;./my_document&quot;</span>, W_OK)!=<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">fd = open(<span class="string">&quot;./my_document&quot;</span>, O_WRONGLY)</span><br><span class="line">write(fd, user_input, <span class="keyword">sizeof</span>(user_input))</span><br></pre></td></tr></table></figure>
 <p>Between the statements, attacker creates a symbolic link with the same file name to the password file</p>
 <p>Then user writes password information to attackers file.</p>
-<h4 id="Insider-Attacks"><a href="#Insider-Attacks" class="headerlink" title="Insider Attacks"></a>Insider Attacks</h4><p>Executed by programmers from within the company. </p>
+<h4 id="insider-attacks">Insider Attacks</h4>
+<p>Executed by programmers from within the company.</p>
 <p>Attackers have specialized knowledge</p>
 <p>Insider Attacks</p>
 <ul>
@@ -595,14 +611,16 @@
 <li>Back Doors</li>
 <li>Login Spoofing</li>
 </ul>
-<h5 id="Logic-Bomb"><a href="#Logic-Bomb" class="headerlink" title="Logic Bomb"></a>Logic Bomb</h5><p>A <strong>logic bomb</strong> is a piece of code inserted into an operating system or software application that implements a malicious function after a certain time limit or specific conditions are met.</p>
+<h5 id="logic-bomb">Logic Bomb</h5>
+<p>A <strong>logic bomb</strong> is a piece of code inserted into an operating system or software application that implements a malicious function after a certain time limit or specific conditions are met.</p>
 <p>Company programmer writes program:</p>
 <ul>
 <li>potential to do harm</li>
 <li>OK as long as he/she enters password daily</li>
 <li>if programmer fired, no password and bomb explodes</li>
 </ul>
-<h6 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h6><p>Michelangelo (logic bomb)</p>
+<h6 id="example">Example</h6>
+<p>Michelangelo (logic bomb)</p>
 <ul>
 <li>discovered on 4 February 1991</li>
 <li>designed to infect DOS systems</li>
@@ -610,10 +628,16 @@
 <li>each year, the virus remained dormant until March 6, the birthday of Renaissance artist Michelangelo.</li>
 <li>The name was chosen by researchers who noticed the coincidence of the activation date</li>
 </ul>
-<h5 id="Back-Doors"><a href="#Back-Doors" class="headerlink" title="Back Doors"></a>Back Doors</h5><p><img src="/images/OP/740043.png" alt="Defense: Code reviews"></p>
-<p>(a) Normal code. </p>
-<p>(b) Code with a back door inserted.</p>
-<h5 id="Login-Spoofing"><a href="#Login-Spoofing" class="headerlink" title="Login Spoofing"></a>Login Spoofing</h5><p><img src="/images/OP/740042.png"></p>
+<h5 id="back-doors">Back Doors</h5>
+<figure>
+<img src="/images/OP/740043.png" alt="" /><figcaption>Defense: Code reviews</figcaption>
+</figure>
+<ol type="a">
+<li><p>Normal code.</p></li>
+<li><p>Code with a back door inserted.</p></li>
+</ol>
+<h5 id="login-spoofing">Login Spoofing</h5>
+<p><img src="/images/OP/740042.png" /></p>
 <p>Legitimate user attempting to collect other people’s passwords.</p>
 <p><strong>Defence</strong>: have a login sequence start with a key combination the user programs can’t catch: CTLRALT-DEL in Windows cause the current user to log out and system login program started.</p>
 

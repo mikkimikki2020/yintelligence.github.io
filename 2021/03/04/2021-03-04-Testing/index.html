@@ -497,8 +497,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT">Video</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wSuZmP-WE44&list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&index=2">How Does a Programmer Know That Their Code Works?</a></p>
+                <h1 id="testing">Testing</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wSuZmP-WE44&amp;list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&amp;index=2">How Does a Programmer Know That Their Code Works?</a></p>
 <p>In the real world, programmers believe their code works because of <strong>tests they write themselves</strong>.</p>
 <ul>
 <li>Knowing that it works for sure is usually impossible.</li>
@@ -509,46 +510,52 @@
 <ul>
 <li>Let’s try to write a method that sorts arrays of Strings.</li>
 </ul>
-<p><img src="/images/CS61B/1816110"></p>
+<p><img src="/images/CS61B/1816110" /></p>
 <p>In this lecture we’ll write sort, as well as our own test for sort.</p>
 <ul>
 <li>Even crazier idea: We’ll start by writing testSort first!</li>
 </ul>
-<p><img src="/images/CS61B/1816111"></p>
-<h2 id="Ad-Hoc-Testing-vs-JUnit"><a href="#Ad-Hoc-Testing-vs-JUnit" class="headerlink" title="Ad Hoc Testing vs. JUnit"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Y2_oyfQV52c&list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&index=3">Ad Hoc Testing vs. JUnit</a></h2><p><strong>Ad-Hoc Testing is Tedious</strong></p>
+<p><img src="/images/CS61B/1816111" /></p>
+<h2 id="ad-hoc-testing-vs.-junit"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Y2_oyfQV52c&amp;list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&amp;index=3">Ad Hoc Testing vs. JUnit</a></h2>
+<p><strong>Ad-Hoc Testing is Tedious</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSort</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** Tests the sort method of the Sort class. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String[] input = &#123;<span class="string">&quot;beware&quot;</span> , <span class="string">&quot;of&quot;</span>, <span class="string">&quot;falling&quot;</span>, <span class="string">&quot;rocks&quot;</span>&#125;;</span><br><span class="line">        String[] expected = &#123;<span class="string">&quot;beware&quot;</span> , <span class="string">&quot;falling&quot;</span>, <span class="string">&quot;of&quot;</span>, <span class="string">&quot;rocks&quot;</span>&#125;;</span><br><span class="line">        Sort.sort(input);</span><br><span class="line"> </span><br><span class="line"><span class="comment">/* JUnit saves us the trouble of writing code like this (and more!). */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">    	      <span class="keyword">if</span> (!input[i].equals(expected[i])) &#123;</span><br><span class="line">    	          System.out.println(<span class="string">&quot;Mismatch at position &quot;</span> + i + <span class="string">&quot;, expected: &#x27;&quot;</span> + expected[i] + </span><br><span class="line">                             <span class="string">&quot;&#x27;, but got &#x27;&quot;</span> + input[i] + <span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">    	          <span class="keyword">return</span>;</span><br><span class="line">  	      &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	  testSort();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>JUnit: A Library for Making Testing Easier (example below)</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSort</span> </span>&#123;</span><br><span class="line">  <span class="comment">/** Tests the sort method of the Sort class. */</span>  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">testSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String[] input = &#123;<span class="string">&quot;cows&quot;</span>, <span class="string">&quot;dwell&quot;</span>, <span class="string">&quot;above&quot;</span>, <span class="string">&quot;clouds&quot;</span>&#125;;</span><br><span class="line">    String[] expected = &#123;<span class="string">&quot;above&quot;</span>, <span class="string">&quot;cows&quot;</span>, <span class="string">&quot;clouds&quot;</span>, <span class="string">&quot;dwell&quot;</span>&#125;;</span><br><span class="line">    Sort.sort(input);</span><br><span class="line"> </span><br><span class="line">    org.junit.Assert.assertArrayEquals(expected, input);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    testSort();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h2><h3 id="Back-to-Sorting-Selection-Sort"><a href="#Back-to-Sorting-Selection-Sort" class="headerlink" title="Back to Sorting: Selection Sort"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aYuM9VQJcUs&list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&index=5">Back to Sorting: Selection Sort</a></h3><p>Selection sorting a list of N items:</p>
+<h2 id="selection-sort">Selection Sort</h2>
+<h3 id="back-to-sorting-selection-sort"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aYuM9VQJcUs&amp;list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&amp;index=5">Back to Sorting: Selection Sort</a></h3>
+<p>Selection sorting a list of N items:</p>
 <ul>
 <li>Find the smallest item.</li>
 <li>Move it to the front.</li>
 <li>Selection sort the remaining N-1 items (without touching front item!).</li>
 </ul>
-<p><img src="/images/CS61B/1816112" alt="As an aside: Can prove correctness of this sort using invariants."></p>
+<figure>
+<img src="/images/CS61B/1816112" alt="" /><figcaption>As an aside: Can prove correctness of this sort using invariants.</figcaption>
+</figure>
 <p><strong>Let’s try implementing this.</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sort</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** Sorts strings destructively. */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(String[] x)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Find the smallest item</span></span><br><span class="line">        <span class="comment">// Move it to the front</span></span><br><span class="line">        <span class="comment">// Selection sort the rest (using recursion)</span></span><br><span class="line">        sort(x, <span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Sorts x starting at position start. */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(String[] x, <span class="keyword">int</span> start)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (start == x.length) &#123;</span><br><span class="line">	        <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">	    <span class="keyword">int</span> smallestIndex = findSmallest(x, start);</span><br><span class="line">	    swap(x, start, smallestIndex);</span><br><span class="line">	    sort(x, start + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Swap item a with b. */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(String[] x, <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">	    String temp = x[a];</span><br><span class="line">	    x[a] = x[b];</span><br><span class="line">	    x[b] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Return the index of the smallest String in x, starting at start. */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findSmallest</span><span class="params">(String[] x, <span class="keyword">int</span> start)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> smallestIndex = start;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; x.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> cmp = x[i].compareTo(x[smallestIndex]);</span><br><span class="line">            <span class="comment">// from the internet, if x[i] &lt; x[smallestIndex], cmp will be -1.</span></span><br><span class="line">            <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                smallestIndex = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> smallestIndex;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="The-Evolution-of-Our-Design"><a href="#The-Evolution-of-Our-Design" class="headerlink" title="The Evolution of Our Design"></a>The Evolution of Our Design</h3><p><img src="/images/CS61B/1816113"></p>
+<h3 id="the-evolution-of-our-design">The Evolution of Our Design</h3>
+<p><img src="/images/CS61B/1816113" /></p>
 <p>Now we have all the helper methods we need, as well as tests that make us pretty sure that they work! All that’s left is to write the sort method itself.</p>
-<h3 id="Very-Tricky-Problem"><a href="#Very-Tricky-Problem" class="headerlink" title="Very Tricky Problem"></a>Very Tricky Problem</h3><h4 id="Bad-But-Tempting-Solution"><a href="#Bad-But-Tempting-Solution" class="headerlink" title="Bad But Tempting Solution"></a>Bad But Tempting Solution</h4><p>Without changing the signature of public static void sort(String[] a), how can we use recursion? What might the recursive call look like?</p>
+<h3 id="very-tricky-problem">Very Tricky Problem</h3>
+<h4 id="bad-but-tempting-solution">Bad But Tempting Solution</h4>
+<p>Without changing the signature of public static void sort(String[] a), how can we use recursion? What might the recursive call look like?</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(String[] x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> smallest = findSmallest(x);</span><br><span class="line">    swap(inputs, <span class="number">0</span>, smallest);</span><br><span class="line">    <span class="comment">// recursive call??</span></span><br><span class="line">    <span class="comment">// sort(x[1:]); ← Would be nice, but not possible!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Some languages support sub-indexing into arrays. Java does not.</p>
 <ul>
 <li>Bottom line: No way to get address of the middle of an array.</li>
 </ul>
-<h4 id="Good-Solution"><a href="#Good-Solution" class="headerlink" title="Good Solution"></a>Good Solution</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(String[] x)</span> </span>&#123;</span><br><span class="line">    sort(x, <span class="number">0</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="good-solution">Good Solution</h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(String[] x)</span> </span>&#123;</span><br><span class="line">    sort(x, <span class="number">0</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Destructively sorts x starting at index k */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(String[] x, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    sort(x, k + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Major-Design-Flaw-in-findSmallest"><a href="#Major-Design-Flaw-in-findSmallest" class="headerlink" title="Major Design Flaw in findSmallest"></a>Major Design Flaw in findSmallest</h3><p>We didn’t properly account for how findSmallest would be used.</p>
+<h3 id="major-design-flaw-in-findsmallest">Major Design Flaw in findSmallest</h3>
+<p>We didn’t properly account for how findSmallest would be used.</p>
 <ul>
 <li><p>Example: Want to find smallest item from among the last 4:</p>
-<p><img src="/images/CS61B/1816114"></p>
-</li>
-<li><p>We need another parameter so that it’s actually useful for sorting.</p>
-</li>
+<p><img src="/images/CS61B/1816114" /></p></li>
+<li><p>We need another parameter so that it’s actually useful for sorting.</p></li>
 </ul>
-<p><img src="/images/CS61B/1816115"></p>
+<p><img src="/images/CS61B/1816115" /></p>
 <p><strong>And We’re Done!</strong></p>
 <p>Often, development is an incremental process that involves lots of task switching and on the fly design modification.</p>
 <p>Tests provide stability and scaffolding.</p>
@@ -558,7 +565,9 @@
 </ul>
 <p>In larger projects, tests also allow you to safely <strong>refactor</strong>! Sometimes code gets ugly, necessitating redesign and rewrites (see project 2).</p>
 <p>One remaining problem: Sure was annoying to have to constantly edit which tests were running. Let’s take care of that.</p>
-<h2 id="Simpler-JUnit-Tests-using-two-new-syntax-tricks"><a href="#Simpler-JUnit-Tests-using-two-new-syntax-tricks" class="headerlink" title="Simpler JUnit Tests (using two new syntax tricks)"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hm5_pYuw-Dk&list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&index=13">Simpler JUnit Tests (using two new syntax tricks)</a></h2><h3 id="Simple-JUnit"><a href="#Simple-JUnit" class="headerlink" title="Simple JUnit"></a>Simple JUnit</h3><p>New Syntax #1: org.junit.Assert.assertEquals(expected, actual);</p>
+<h2 id="simpler-junit-tests-using-two-new-syntax-tricks"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hm5_pYuw-Dk&amp;list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&amp;index=13">Simpler JUnit Tests (using two new syntax tricks)</a></h2>
+<h3 id="simple-junit">Simple JUnit</h3>
+<p>New Syntax #1: org.junit.Assert.assertEquals(expected, actual);</p>
 <ul>
 <li>Tests that expected equals actual.</li>
 <li>If not, program terminates with verbose message.</li>
@@ -567,31 +576,32 @@
 <p>JUnit does much more:</p>
 <ul>
 <li>Other methods like assertEquals include assertFalse, assertNotNull, etc., <a target="_blank" rel="noopener" href="http://junit.org/junit4/javadoc/4.12/org/junit/Assert.htmlOther">Link.</a></li>
-<li>Other more complex behavior to support more sophisticated testing. </li>
+<li>Other more complex behavior to support more sophisticated testing.</li>
 </ul>
-<h3 id="Better-JUnit"><a href="#Better-JUnit" class="headerlink" title="Better JUnit"></a>Better JUnit</h3><p>The messages output by JUnit are kind of ugly, and invoking each test manually is annoying.</p>
+<h3 id="better-junit">Better JUnit</h3>
+<p>The messages output by JUnit are kind of ugly, and invoking each test manually is annoying.</p>
 <p>New Syntax #2 (just trust me):</p>
 <ul>
-<li><p><strong>Annotate</strong> each test with <strong>@org.junit.Test</strong>.</p>
-</li>
+<li><p><strong>Annotate</strong> each test with <strong><span class="citation" data-cites="org.junit.Test">@org.junit.Test</span></strong>.</p></li>
 <li><p>Change all test methods to non-static.</p>
-<p># <em>Yes this is weird, as it implies you’d be instantiating TestSort.java. In fact, JUnit runners do this. I don’t know wh</em>y.</p>
-</li>
+<p># <em>Yes this is weird, as it implies you’d be instantiating TestSort.java. In fact, JUnit runners do this. I don’t know wh</em>y.</p></li>
 <li><p>Use a JUnit runner to run all tests and tabulate results.</p>
 <ul>
 <li>IntelliJ provides a default runner/renderer. OK to delete main.</li>
 <li>If you want to use the command line instead, see the jh61b runner in the lab 3 supplement. Not preferred.</li>
 <li>Rendered output is easier to read, no need to manually invoke tests!</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>There is a lot of black magic happening here! Just accept it all for now.</strong></p>
-<h3 id="Even-Better-JUnit"><a href="#Even-Better-JUnit" class="headerlink" title="Even Better JUnit"></a>Even Better JUnit</h3><p>It is annoying to type out the name of the library repeatedly, e.g. <strong>org.junit.</strong></p>
-<p>Test and **org.junit.Assert.**assertEquals.</p>
+<h3 id="even-better-junit">Even Better JUnit</h3>
+<p>It is annoying to type out the name of the library repeatedly, e.g. <strong>org.junit.</strong></p>
+<p>Test and <strong>org.junit.Assert.</strong>assertEquals.</p>
 <p>New Syntax #3: To avoid this we’ll start every test file with:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br></pre></td></tr></table></figure>
 <p>This will magically eliminate the need to type ‘org.junit’ or ‘org.junit.Assert’ (more after the midterm on what these imports really mean).</p>
-<h2 id="Testing-Philosophy-Web-Video-Only"><a href="#Testing-Philosophy-Web-Video-Only" class="headerlink" title="Testing Philosophy (Web Video Only)"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pfGYUHUbfxA&list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&index=13">Testing Philosophy (Web Video Only)</a></h2><h3 id="Correctness-Tool-1-Autograder"><a href="#Correctness-Tool-1-Autograder" class="headerlink" title="Correctness Tool #1: Autograder"></a>Correctness Tool #1: Autograder</h3><p>Idea: Magic autograder tells you code works.</p>
+<h2 id="testing-philosophy-web-video-only"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pfGYUHUbfxA&amp;list=PL8FaHk7qbOD4ZfVY8g8lo5dFrLP-ctGmT&amp;index=13">Testing Philosophy (Web Video Only)</a></h2>
+<h3 id="correctness-tool-1-autograder">Correctness Tool #1: Autograder</h3>
+<p>Idea: Magic autograder tells you code works.</p>
 <ul>
 <li>We use JUnit + jh61b libraries.</li>
 </ul>
@@ -608,21 +618,23 @@
 <li>Slow workflow.</li>
 <li>No control if grader breaks / misbehaves.</li>
 </ul>
-<h4 id="Autograder-Driven-Development-ADD"><a href="#Autograder-Driven-Development-ADD" class="headerlink" title="Autograder Driven Development (ADD)"></a>Autograder Driven Development (ADD)</h4><p>The worst way to approach programming:</p>
+<h4 id="autograder-driven-development-add">Autograder Driven Development (ADD)</h4>
+<p>The worst way to approach programming:</p>
 <ul>
 <li>Read and (mostly) understand the spec.</li>
 <li>Write entire program.</li>
 <li>Compile. Fix all compilation errors.</li>
 <li>Send to autograder. Get many errors.</li>
-<li>Until correct, repeat randomly:<ul>
+<li>Until correct, repeat randomly:
+<ul>
 <li>Run autograder.</li>
 <li>Add print statements to zero in on the bug.</li>
 <li>Make changes to code to try to fix bug.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[63, 12, 91, 5, 0]</span><br><span class="line">got to this spot, lt is: 1</span><br><span class="line">got to this spot, lt is: 2</span><br><span class="line">got here!</span><br><span class="line">[63, 12, 0, 5, 91]</span><br><span class="line">got to this spot, lt is: 3</span><br><span class="line">got to this spot, lt is: 4</span><br><span class="line">got here!</span><br><span class="line">[5, 12, 0, 63, 91]</span><br><span class="line">Test Failed. Expected: ...</span><br></pre></td></tr></table></figure>
-<h3 id="Correctness-Tool-2-Unit-Tests"><a href="#Correctness-Tool-2-Unit-Tests" class="headerlink" title="Correctness Tool #2: Unit Tests"></a>Correctness Tool #2: Unit Tests</h3><p>Idea: Write tests for every “unit”.</p>
+<h3 id="correctness-tool-2-unit-tests">Correctness Tool #2: Unit Tests</h3>
+<p>Idea: Write tests for every “unit”.</p>
 <ul>
 <li>JUnit makes this easy!</li>
 </ul>
@@ -636,30 +648,33 @@
 <ul>
 <li>Building tests takes time.</li>
 <li>May provide false confidence.</li>
-<li>Hard to test units that rely on others.<ul>
+<li>Hard to test units that rely on others.
+<ul>
 <li>e.g. how do you test addFirst?</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/CS61B/1816116"></p>
-<h4 id="Test-Driven-Development-TDD"><a href="#Test-Driven-Development-TDD" class="headerlink" title="Test-Driven Development (TDD)"></a>Test-Driven Development (TDD)</h4><p>Steps to developing according to TDD:</p>
+<p><img src="/images/CS61B/1816116" /></p>
+<h4 id="test-driven-development-tdd">Test-Driven Development (TDD)</h4>
+<p>Steps to developing according to TDD:</p>
 <ul>
 <li>Identify a new feature.</li>
 <li>Write a unit test for that feature.</li>
 <li>Run the test. It should fail. (RED)</li>
-<li>Write code that passes test. (GREEN)<ul>
+<li>Write code that passes test. (GREEN)
+<ul>
 <li>Implementation is certifiably good!</li>
-</ul>
-</li>
+</ul></li>
 <li>Optional: Refactor code to make it faster, cleaner, etc.</li>
 </ul>
-<p><img src="/images/CS61B/1816117"></p>
-<h3 id="A-Tale-of-Two-Workflows"><a href="#A-Tale-of-Two-Workflows" class="headerlink" title="A Tale of Two Workflows"></a>A Tale of Two Workflows</h3><p>TDD is an extreme departure from the naive workflow.</p>
+<p><img src="/images/CS61B/1816117" /></p>
+<h3 id="a-tale-of-two-workflows">A Tale of Two Workflows</h3>
+<p>TDD is an extreme departure from the naive workflow.</p>
 <ul>
 <li>What’s best for you is probably in the middle.</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ python sort.py</span><br><span class="line">[63, 12, 91, 5, 0]</span><br><span class="line">got to this spot, lt is: 1</span><br><span class="line">got to this spot, lt is: 2</span><br><span class="line">got here!</span><br><span class="line">[63, 12, 0, 5, 91]</span><br><span class="line">got to this spot, lt is: 3</span><br><span class="line">got to this spot, lt is: 4</span><br><span class="line">got here!</span><br><span class="line">[5, 12, 0, 63, 91]</span><br></pre></td></tr></table></figure>
-<h3 id="Correctness-Tool-3-Integration-Testing"><a href="#Correctness-Tool-3-Integration-Testing" class="headerlink" title="Correctness Tool #3: Integration Testing"></a>Correctness Tool #3: Integration Testing</h3><p>Idea: Tests cover many units at once.</p>
+<h3 id="correctness-tool-3-integration-testing">Correctness Tool #3: Integration Testing</h3>
+<p>Idea: Tests cover many units at once.</p>
 <ul>
 <li>Not JUnit’s focus, but JUnit can do this.</li>
 </ul>
@@ -673,16 +688,20 @@
 <li>Can be challenging to automate.</li>
 <li>Testing at highest level of abstraction may miss subtle or rare errors.</li>
 </ul>
-<p><img src="/images/CS61B/1816118"></p>
-<h2 id="More-On-JUnit-Extra"><a href="#More-On-JUnit-Extra" class="headerlink" title="More On JUnit (Extra)"></a>More On JUnit (Extra)</h2><h3 id="What-is-an-Annotation"><a href="#What-is-an-Annotation" class="headerlink" title="What is an Annotation?"></a>What is an Annotation?</h3><p>Annotations (like org.junit.Test) don’t do anything on their own.</p>
+<p><img src="/images/CS61B/1816118" /></p>
+<h2 id="more-on-junit-extra">More On JUnit (Extra)</h2>
+<h3 id="what-is-an-annotation">What is an Annotation?</h3>
+<p>Annotations (like org.junit.Test) don’t do anything on their own.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Runner uses reflections library to iterate through all methods with “Test” annotation. Pseudocode on next slide.</p>
-<h3 id="Sample-Runner-Pseudocode"><a href="#Sample-Runner-Pseudocode" class="headerlink" title="Sample Runner Pseudocode"></a>Sample Runner Pseudocode</h3><p>Runner uses reflections library to iterate through all methods with “Test” annotation.</p>
+<h3 id="sample-runner-pseudocode">Sample Runner Pseudocode</h3>
+<p>Runner uses reflections library to iterate through all methods with “Test” annotation.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Method&gt; L = getMethodsWithAnnotation(TestSort.class, org.junit.Test);</span><br><span class="line"><span class="keyword">int</span> numTests = L.size();</span><br><span class="line"><span class="keyword">int</span> numPassed = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (Method m : L) &#123;</span><br><span class="line">    result r = m.execute();</span><br><span class="line">    <span class="keyword">if</span> (r.passed == <span class="keyword">true</span>) &#123; numPassed += <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="keyword">if</span> (r.passed == <span class="keyword">false</span>) &#123; System.out.println(r.message);&#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(numPassed + “/” + numTests + “ passed!”);</span><br></pre></td></tr></table></figure>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Why Test Code?</strong> In the real world, chances are you won’t have an autograder. When your code gets deployed into production, it is important that you know that it will work for simple cases as well as strange edge cases.</p>
+<h2 id="overview">Overview</h2>
+<p><strong>Why Test Code?</strong> In the real world, chances are you won’t have an autograder. When your code gets deployed into production, it is important that you know that it will work for simple cases as well as strange edge cases.</p>
 <p><strong>Test-Driven Development</strong> When provided an autograder, it is very easy to go “autograder happy”. Instead of actually understanding the spec and the requirements for a project, a student may write some base implementation, smash their code against the autograder, fix some parts, and repeat until a test is passed. This process tends to be a bit lengthy and really is not the best use of time. We will introduce a new programming method, Test-Driven Development (TDD), where the programmer writes the tests for a function BEFORE the actual function is written. Since unit tests are written before the function is, it becomes much easier to isolate errors in your code. Additionally, writing unit test requires that you have a relatively solid understanding of the task that you are undertaking. A drawback of this method is that it can be fairly slow and it can be easy to forget to test how functions interact with each other.</p>
 <p><strong>JUnit Tests</strong> JUnit is a package that is used to debug programs in Java. An example function that comes from JUnit is <code>assertEquals(expected, actual)</code>. This function asserts that expected and actual have the same value. There are a bunch of other JUnit functions such as <code>assertEquals</code>, <code>assertFalse</code>, and <code>assertNotNull</code>.</p>
-<p>When writing JUnit tests, it is good practice to write ‘@Test’ above the function that is testing. This allows for all your test methods to be run non statically.</p>
+<p>When writing JUnit tests, it is good practice to write ‘<span class="citation" data-cites="Test">@Test</span>’ above the function that is testing. This allows for all your test methods to be run non statically.</p>
 
                 
             </div>

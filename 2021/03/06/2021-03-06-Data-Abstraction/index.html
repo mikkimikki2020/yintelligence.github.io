@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    878
+                    890
                 </div>
                 
 
@@ -497,83 +497,110 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Data-Abstraction"><a href="#Data-Abstraction" class="headerlink" title="Data Abstraction"></a>Data Abstraction</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DarG5Ff9d0k&list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD">Video</a></p>
+                <h1 id="data-abstraction">Data Abstraction</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DarG5Ff9d0k&amp;list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD">Video</a></p>
 <p><a target="_blank" rel="noopener" href="http://composingprograms.com/pages/22-data-abstraction.html">Textbook</a></p>
-<h2 id="Data-Abstraction-1"><a href="#Data-Abstraction-1" class="headerlink" title="Data Abstraction"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nzP3nJ2np8w&list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&index=3">Data Abstraction</a></h2><p>All Programmers:</p>
+<h2 id="data-abstraction-1"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nzP3nJ2np8w&amp;list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&amp;index=3">Data Abstraction</a></h2>
+<p>All Programmers:</p>
 <ul>
-<li>Compound values combine other values together<ul>
+<li>Compound values combine other values together
+<ul>
 <li>A date: a year, a month, and a day</li>
-<li>A geographic position: latitude and longitude </li>
-</ul>
-</li>
+<li>A geographic position: latitude and longitude</li>
+</ul></li>
 </ul>
 <p>Great Programmers:</p>
 <ul>
 <li><strong>Data abstraction</strong> lets us manipulate compound values as units</li>
-<li>Isolate two parts of any program that uses data:<ul>
+<li>Isolate two parts of any program that uses data:
+<ul>
 <li>How data are represented (as parts)</li>
 <li>How data are manipulated (as units)</li>
-</ul>
-</li>
+</ul></li>
 <li>Data abstraction: A methodology by which functions enforce an abstraction barrier between <strong><em>representation</em></strong> and <strong><em>use</em></strong></li>
 </ul>
-<h3 id="Rational-Numbers"><a href="#Rational-Numbers" class="headerlink" title="Rational Numbers"></a>Rational Numbers</h3><p>$$<br>\frac{numerator}{denominator}<br>$$</p>
+<h3 id="rational-numbers">Rational Numbers</h3>
+<p><span class="math display">\[
+\frac{numerator}{denominator}
+\]</span></p>
 <ul>
 <li>Exact representation of fractions</li>
 <li>A pair of integers</li>
-<li>As soon as division occurs, the exact representation may be lost!  </li>
+<li>As soon as division occurs, the exact representation may be lost!</li>
 </ul>
 <p>Assume we can compose and decompose rational numbers:</p>
 <ul>
-<li>Constructor<ul>
-<li>rational(n, d)<ul>
-<li>returns a rational number x </li>
+<li>Constructor
+<ul>
+<li>rational(n, d)
+<ul>
+<li>returns a rational number x</li>
+</ul></li>
+</ul></li>
+<li>Selectors
+<ul>
+<li>numer(x)
+<ul>
+<li>returns the numerator of x</li>
+</ul></li>
+<li>denom(x)
+<ul>
+<li>returns the denominator of x</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-<li>Selectors<ul>
-<li>numer(x)<ul>
-<li>returns the numerator of x </li>
-</ul>
-</li>
-<li>denom(x)<ul>
-<li> returns the denominator of x</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Rational-Number-Arithmetic"><a href="#Rational-Number-Arithmetic" class="headerlink" title="Rational Number Arithmetic"></a>Rational Number Arithmetic</h3><p>Example:<br>$$<br>\frac{3}{2} * \frac{3}{5} = \frac{9}{10} \<br>\frac{3}{2} + \frac{3}{5} = \frac{21}{10}<br>$$<br>General Form:<br>$$<br>\frac{nx}{dx} * \frac{ny}{dy} = \frac{nx<em>ny}{dx</em>dy}\<br>\frac{nx}{dx} * \frac{ny}{dy} = \frac{nx<em>dy + ny</em>dx}{dx*dy}<br>$$</p>
-<h3 id="Rational-Number-Arithmetic-Implementation"><a href="#Rational-Number-Arithmetic-Implementation" class="headerlink" title="Rational Number Arithmetic Implementation"></a>Rational Number Arithmetic Implementation</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Rational arithmetic</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul_rational</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> rational(numer(x) * numer(y), denom(x) * denom(y))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_rational</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    nx, dx = numer(x), denom(x)</span><br><span class="line">    ny, dy = numer(y), denom(y)</span><br><span class="line">    <span class="keyword">return</span> rational(nx * dy + ny * dx, dx * dy)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_rational</span>(<span class="params">x</span>):</span></span><br><span class="line">    print(numer(x), <span class="string">&#x27;/&#x27;</span>, denom(x))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rationals_are_equal</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> numer(x) * denom(y) == numer(y) * denom(x)</span><br></pre></td></tr></table></figure>
+<h3 id="rational-number-arithmetic">Rational Number Arithmetic</h3>
+<p>Example: <span class="math display">\[
+\frac{3}{2} * \frac{3}{5} = \frac{9}{10} \\
+\frac{3}{2} + \frac{3}{5} = \frac{21}{10}
+\]</span> General Form: <span class="math display">\[
+\frac{nx}{dx} * \frac{ny}{dy} = \frac{nx*ny}{dx*dy}\\
+\frac{nx}{dx} * \frac{ny}{dy} = \frac{nx*dy + ny*dx}{dx*dy}
+\]</span></p>
+<h3 id="rational-number-arithmetic-implementation">Rational Number Arithmetic Implementation</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Rational arithmetic</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul_rational</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> rational(numer(x) * numer(y), denom(x) * denom(y))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_rational</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    nx, dx = numer(x), denom(x)</span><br><span class="line">    ny, dy = numer(y), denom(y)</span><br><span class="line">    <span class="keyword">return</span> rational(nx * dy + ny * dx, dx * dy)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_rational</span>(<span class="params">x</span>):</span></span><br><span class="line">    print(numer(x), <span class="string">&#x27;/&#x27;</span>, denom(x))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rationals_are_equal</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> numer(x) * denom(y) == numer(y) * denom(x)</span><br></pre></td></tr></table></figure>
 <p>These functions implement an abstract representation for rational numbers:</p>
 <ul>
 <li>rational(n, d) returns a rational number x</li>
 <li>numer(x) returns the numerator of x</li>
 <li>denom(x) returns the denominator of x</li>
 </ul>
-<h2 id="Pairs"><a href="#Pairs" class="headerlink" title="Pairs"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ptOghgWvAD0&list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&index=4">Pairs</a></h2><h3 id="Representing-Pairs-Using-Lists"><a href="#Representing-Pairs-Using-Lists" class="headerlink" title="Representing Pairs Using Lists"></a>Representing Pairs Using Lists</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># A list literal: Comma-separated expressions in brackets</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># &quot;Unpacking&quot; a list</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = pair</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Element selection using the selection operator</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair[<span class="number">1</span>]</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Element selection function</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> operator <span class="keyword">import</span> getitem</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getitem(pair, <span class="number">0</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getitem(pair, <span class="number">1</span>)</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h3 id="Representing-Rational-Numbers"><a href="#Representing-Rational-Numbers" class="headerlink" title="Representing Rational Numbers"></a>Representing Rational Numbers</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Constructor and selectors</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rational</span>(<span class="params">n, d</span>):</span></span><br><span class="line"> <span class="string">&quot;&quot;&quot;Construct a rational number that represents N/D.&quot;&quot;&quot;</span></span><br><span class="line">	<span class="keyword">return</span> [n, d] <span class="comment"># Construct a list</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">numer</span>(<span class="params">x</span>):</span></span><br><span class="line"> <span class="string">&quot;&quot;&quot;Return the numerator of rational number X.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x[<span class="number">0</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">denom</span>(<span class="params">x</span>):</span></span><br><span class="line"> <span class="string">&quot;&quot;&quot;Return the denominator of rational number X.&quot;&quot;&quot;</span></span><br><span class="line">	<span class="keyword">return</span> x[<span class="number">1</span>] <span class="comment"># Select item from a lis</span></span><br></pre></td></tr></table></figure>
-<h3 id="Reducing-to-Lowest-Terms"><a href="#Reducing-to-Lowest-Terms" class="headerlink" title="Reducing to Lowest Terms"></a>Reducing to Lowest Terms</h3><p><strong>Example</strong>:<br>$$<br>\frac{3}{2} * \frac{5}{3} = \frac{15}{6} = \frac{5}{3}<br>$$</p>
+<h2 id="pairs"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ptOghgWvAD0&amp;list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&amp;index=4">Pairs</a></h2>
+<h3 id="representing-pairs-using-lists">Representing Pairs Using Lists</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># A list literal: Comma-separated expressions in brackets</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># &quot;Unpacking&quot; a list</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y = pair</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Element selection using the selection operator</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pair[<span class="number">1</span>]</span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Element selection function</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> operator <span class="keyword">import</span> getitem</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getitem(pair, <span class="number">0</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>getitem(pair, <span class="number">1</span>)</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="representing-rational-numbers">Representing Rational Numbers</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Constructor and selectors</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rational</span>(<span class="params">n, d</span>):</span></span><br><span class="line"> <span class="string">&quot;&quot;&quot;Construct a rational number that represents N/D.&quot;&quot;&quot;</span></span><br><span class="line">	<span class="keyword">return</span> [n, d] <span class="comment"># Construct a list</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">numer</span>(<span class="params">x</span>):</span></span><br><span class="line"> <span class="string">&quot;&quot;&quot;Return the numerator of rational number X.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x[<span class="number">0</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">denom</span>(<span class="params">x</span>):</span></span><br><span class="line"> <span class="string">&quot;&quot;&quot;Return the denominator of rational number X.&quot;&quot;&quot;</span></span><br><span class="line">	<span class="keyword">return</span> x[<span class="number">1</span>] <span class="comment"># Select item from a lis</span></span><br></pre></td></tr></table></figure>
+<h3 id="reducing-to-lowest-terms">Reducing to Lowest Terms</h3>
+<p><strong>Example</strong>: <span class="math display">\[
+\frac{3}{2} * \frac{5}{3} = \frac{15}{6} = \frac{5}{3}
+\]</span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Improved specification</span></span><br><span class="line"><span class="keyword">from</span> fractions <span class="keyword">import</span> gcd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rational</span>(<span class="params">n, d</span>):</span> <span class="comment"># Greatest common divisor</span></span><br><span class="line"> <span class="string">&quot;&quot;&quot;Construct a rational that represents n/d in lowest terms.&quot;&quot;&quot;</span></span><br><span class="line">	g = gcd(n, d)</span><br><span class="line">    <span class="keyword">return</span> [n//g, d//g]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">numer</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the numerator of rational number X in lowest terms and having</span></span><br><span class="line"><span class="string">    the sign of X.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">denom</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the denominator of rational number X in lowest terms and positive.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Functional implementation</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rational</span>(<span class="params">n, d</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;A representation of the rational number N/D.&quot;&quot;&quot;</span></span><br><span class="line">    g = gcd(n, d)</span><br><span class="line">    n, d = n//g, d//g</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">select</span>(<span class="params">name</span>):</span></span><br><span class="line">        <span class="keyword">if</span> name == <span class="string">&#x27;n&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> n</span><br><span class="line">        <span class="keyword">elif</span> name == <span class="string">&#x27;d&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> d</span><br><span class="line">    <span class="keyword">return</span> select</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">numer</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the numerator of rational number X in lowest terms and having</span></span><br><span class="line"><span class="string">    the sign of X.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x(<span class="string">&#x27;n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">denom</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the denominator of rational number X in lowest terms and positive.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> x(<span class="string">&#x27;d&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Abstraction-Barriers"><a href="#Abstraction-Barriers" class="headerlink" title="Abstraction Barriers"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=7zu30DhJLKU&list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&index=5">Abstraction Barriers</a></h2><h3 id="Abstraction-Barriers-1"><a href="#Abstraction-Barriers-1" class="headerlink" title="Abstraction Barriers"></a>Abstraction Barriers</h3><p><img src="/images/CS61A/1431438.png"></p>
-<h3 id="Violating-Abstraction-Barriers-5-10"><a href="#Violating-Abstraction-Barriers-5-10" class="headerlink" title="Violating Abstraction Barriers 5:10"></a>Violating Abstraction Barriers 5:10</h3><p><img src="/images/CS61A/143143.png"></p>
-<h2 id="Data-Representations"><a href="#Data-Representations" class="headerlink" title="Data Representations"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NgL6JsQNTPg&list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&index=6">Data Representations</a></h2><h3 id="What-are-Data"><a href="#What-are-Data" class="headerlink" title="What are Data?"></a>What are Data?</h3><ul>
+<h2 id="abstraction-barriers"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=7zu30DhJLKU&amp;list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&amp;index=5">Abstraction Barriers</a></h2>
+<h3 id="abstraction-barriers-1">Abstraction Barriers</h3>
+<p><img src="/images/CS61A/1431438.png" /></p>
+<h3 id="violating-abstraction-barriers-510">Violating Abstraction Barriers 5:10</h3>
+<p><img src="/images/CS61A/143143.png" /></p>
+<h2 id="data-representations"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NgL6JsQNTPg&amp;list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&amp;index=6">Data Representations</a></h2>
+<h3 id="what-are-data">What are Data?</h3>
+<ul>
 <li>We need to guarantee that constructor and selector functions work together to specify the right behaviour</li>
 <li>Behaviour condition: If we construct rational number x from numerator n and denominator d, then numer(x)/denom(x) must equal n/d</li>
 <li>Data abstraction uses selectors and constructors to define behaviour</li>
 <li>If behaviour conditions are met, then the representation is valid</li>
 </ul>
 <p><strong>You can recognize an abstract data representation by its behaviour</strong></p>
-<h3 id="Rationals-Implemented-as-Functions"><a href="#Rationals-Implemented-as-Functions" class="headerlink" title="Rationals Implemented as Functions"></a>Rationals Implemented as Functions</h3><p><img src="/images/CS61A/1431430.png"></p>
-<h2 id="Dictionaries"><a href="#Dictionaries" class="headerlink" title="Dictionaries"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4sZQtQCZ-x0&list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&index=7">Dictionaries</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Dicts</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dict_demos</span>():</span></span><br><span class="line">    numerals = &#123;<span class="string">&#x27;I&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;V&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">10</span>&#125;</span><br><span class="line">    numerals[<span class="string">&#x27;X&#x27;</span>]</span><br><span class="line">    numerals.values()</span><br><span class="line">    <span class="built_in">list</span>(numerals.values())</span><br><span class="line">    <span class="built_in">sum</span>(numerals.values())</span><br><span class="line">    <span class="built_in">dict</span>([(<span class="number">3</span>, <span class="number">9</span>), (<span class="number">4</span>, <span class="number">16</span>), (<span class="number">5</span>, <span class="number">25</span>)])</span><br><span class="line">    numerals.get(<span class="string">&#x27;X&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">    numerals.get(<span class="string">&#x27;X-ray&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">    &#123;x: x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>,<span class="number">6</span>)&#125;</span><br><span class="line"></span><br><span class="line">    &#123;<span class="number">1</span>: <span class="number">2</span>, <span class="number">1</span>: <span class="number">3</span>&#125;</span><br><span class="line">    &#123;[<span class="number">1</span>]: <span class="number">2</span>&#125;</span><br><span class="line">    &#123;<span class="number">1</span>: [<span class="number">2</span>]&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Limitations-on-Dictionaries"><a href="#Limitations-on-Dictionaries" class="headerlink" title="Limitations on Dictionaries"></a>Limitations on Dictionaries</h3><p>Dictionaries are <strong>unordered</strong> collections of key-value pairs</p>
+<h3 id="rationals-implemented-as-functions">Rationals Implemented as Functions</h3>
+<p><img src="/images/CS61A/1431430.png" /></p>
+<h2 id="dictionaries"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4sZQtQCZ-x0&amp;list=PL6BsET-8jgYUYq2VR6hWSGLw2RvCWwPiD&amp;index=7">Dictionaries</a></h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Dicts</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dict_demos</span>():</span></span><br><span class="line">    numerals = &#123;<span class="string">&#x27;I&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;V&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">10</span>&#125;</span><br><span class="line">    numerals[<span class="string">&#x27;X&#x27;</span>]</span><br><span class="line">    numerals.values()</span><br><span class="line">    <span class="built_in">list</span>(numerals.values())</span><br><span class="line">    <span class="built_in">sum</span>(numerals.values())</span><br><span class="line">    <span class="built_in">dict</span>([(<span class="number">3</span>, <span class="number">9</span>), (<span class="number">4</span>, <span class="number">16</span>), (<span class="number">5</span>, <span class="number">25</span>)])</span><br><span class="line">    numerals.get(<span class="string">&#x27;X&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">    numerals.get(<span class="string">&#x27;X-ray&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">    &#123;x: x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>,<span class="number">6</span>)&#125;</span><br><span class="line"></span><br><span class="line">    &#123;<span class="number">1</span>: <span class="number">2</span>, <span class="number">1</span>: <span class="number">3</span>&#125;</span><br><span class="line">    &#123;[<span class="number">1</span>]: <span class="number">2</span>&#125;</span><br><span class="line">    &#123;<span class="number">1</span>: [<span class="number">2</span>]&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="limitations-on-dictionaries">Limitations on Dictionaries</h3>
+<p>Dictionaries are <strong>unordered</strong> collections of key-value pairs</p>
 <p>Dictionary keys do have two restrictions:</p>
 <ul>
 <li>A key of a dictionary <strong>cannot be</strong> a list or a dictionary (or any mutable type)</li>
 <li>Two <strong>keys cannot be equal</strong>; There can be at most one value for a given key</li>
 </ul>
-<p>This first restriction is tied to Python’s underlying implementation of dictionaries </p>
+<p>This first restriction is tied to Python's underlying implementation of dictionaries</p>
 <p>The second restriction is part of the dictionary abstraction</p>
 <p>If you want to associate multiple values with a key, store them all in a sequence value</p>
 

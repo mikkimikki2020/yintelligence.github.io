@@ -497,102 +497,97 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Car-Sales-Company"><a href="#Car-Sales-Company" class="headerlink" title="Car Sales Company"></a>Car Sales Company</h1><p><em>Note: Some parts of this description are intentionally left vague to allow you to implement parts with your own inspiration. Make sure to check question 4 during the modelling for a list of functional requirements. You can of course expand entities with additional attributes if needed.</em></p>
+                <h1 id="car-sales-company">Car Sales Company</h1>
+<p><em>Note: Some parts of this description are intentionally left vague to allow you to implement parts with your own inspiration. Make sure to check question 4 during the modelling for a list of functional requirements. You can of course expand entities with additional attributes if needed.</em></p>
 <p>In this project you will design a database for a car sales company. This company sells cars through dealerships in different cities throughout Belgium.</p>
 <p>Each dealership has its own employees, an inventory of cars available for sale and its own workshop to perform maintenance and repairs of the cars sold by the company. Each dealership is identified by a name and there is only one in the city where it is located. Among the employees of a dealership is one manager, who is in charge of directing other employees. The rest of the employees can be either a salesperson or a mechanic. Each employee’s <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belgian_identity_card">ID card number</a>, telephone number, name, surname, address, date of hiring in the company, professional category and gross annual salary are recorded. In addition, the total number of sales is recorded for salespeople and, in the case of mechanics, the repairs they have carried out.</p>
-<p>Each dealership has an inventory of cars available for sale and the number of cars in stock for each model. A car is identified by its <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vehicle_identification_number">VIN</a>, in addition to its colour, the corresponding brand and model are registered. A car brand may have several models and for each model a set of basic characteristics such as name, engine, fuel type (diesel, gasoline, electric, hybrid) and base price are registered. In addition to the basic features, each model may contain extra features or accessories (LED daytime running lights front and rear, Traffic Sign Recognition, Emergency Brake Assist, Lane Keeping Assist, …), each of them will have a different price for each model. The basic features of a car will always depend on the model of the vehicle, while the extra features vary in each sale.</p>
+<p>Each dealership has an inventory of cars available for sale and the number of cars in stock for each model. A car is identified by its <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vehicle_identification_number">VIN</a>, in addition to its colour, the corresponding brand and model are registered. A car brand may have several models and for each model a set of basic characteristics such as name, engine, fuel type (diesel, gasoline, electric, hybrid) and base price are registered. In addition to the basic features, each model may contain extra features or accessories (LED daytime running lights front and rear, Traffic Sign Recognition, Emergency Brake Assist, Lane Keeping Assist, ...), each of them will have a different price for each model. The basic features of a car will always depend on the model of the vehicle, while the extra features vary in each sale.</p>
 <p>The sale of a car will always be made by a salesperson. When a sale is made, the details of the vehicle sold are registered, including the basic characteristics and the selected extras, if any, the customer’s and the salesperson’s details and the total sale price. When a sale is made, it is also important to register the car’s plate number and date in order to be able to notify the customer when corresponding <a target="_blank" rel="noopener" href="https://www.vlaanderen.be/en/vehicle-inspection">inspection</a>s are due.</p>
-<p>The payment of the car can be in cash or by instalment financing, in which case it would be necessary to make it through a financial institution. If it is by means of financing, the initial payment, the number of months and the payment for each month must also be registered. </p>
+<p>The payment of the car can be in cash or by instalment financing, in which case it would be necessary to make it through a financial institution. If it is by means of financing, the initial payment, the number of months and the payment for each month must also be registered.</p>
 <p>Customers can be individuals or companies. In the case of individual customers, the ID card number, telephone number, name, surname, address and email address are registered. In the case of companies, the name, address and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/VAT_identification_number">commercial identification number</a> are registered.</p>
-<p>In the workshop of each dealership the mechanics carry out the revision and repair of the cars sold. For each of these maintenance tasks, the vehicle involved, the type of failure (Alternator, Electrical, Brakes, Clutch…), or failures in case there are several, the date and time of entry and exit of the workshop, the mechanics who have participated in the repair, time spent by each one and the customer’s data must be registered.</p>
-<h2 id="Question-1-E-ER-Modelling"><a href="#Question-1-E-ER-Modelling" class="headerlink" title="Question 1: (E)ER Modelling"></a>Question 1: (E)ER Modelling</h2><p>For the first question you have to create a complete (E)ER-model for the database with the above description. Additionally, we expect a small description (1 paragraph) for each entity and relation inside this model. This description is very important as an ER model is something unique for each student that can be implemented in various different ways.</p>
+<p>In the workshop of each dealership the mechanics carry out the revision and repair of the cars sold. For each of these maintenance tasks, the vehicle involved, the type of failure (Alternator, Electrical, Brakes, Clutch...), or failures in case there are several, the date and time of entry and exit of the workshop, the mechanics who have participated in the repair, time spent by each one and the customer’s data must be registered.</p>
+<h2 id="question-1-eer-modelling">Question 1: (E)ER Modelling</h2>
+<p>For the first question you have to create a complete (E)ER-model for the database with the above description. Additionally, we expect a small description (1 paragraph) for each entity and relation inside this model. This description is very important as an ER model is something unique for each student that can be implemented in various different ways.</p>
 <p><em>Tip: Check question 4 for the queries that you will have to perform on this database. This can help you to determine the functional requirements.</em></p>
 <p><strong>Instructions</strong></p>
-<p>You can use any drawing utility for the model. However, we do request a digitally created copy (not a scanned picture) creating using a tool such as <a target="_blank" rel="noopener" href="https://draw.io/">draw.io</a>. When including the image in your report, make sure it can be zoomed in. To do this in draw.io, you can export the image as an SVG or PDF. Some PDF renderers will cause draw.io primary keys to no longer be underlined after exporting it as a PDF (it will show an error underneath the drawing saying “svg 1.0 compatibility issue” or similar). Make sure and confirm that this is not the case. You can always include the SVG file to accompany your report PDF.</p>
-<h2 id="Question-2-E-ER-Reducing-Functional-Dependencies-and-Normalisation"><a href="#Question-2-E-ER-Reducing-Functional-Dependencies-and-Normalisation" class="headerlink" title="Question 2: (E)ER Reducing, Functional Dependencies and Normalisation"></a>Question 2: (E)ER Reducing, Functional Dependencies and Normalisation</h2><p>Reduce the above (E)ER-model to schemas. If you made changes to the names of entities, attributes or relations - add a small sentence where you explain your reasoning. </p>
-<p>Using the schemas from above, provide all possible functional dependencies for each schema. If not already, put the schemas in BCNF (Boyce-Codd Normal Form). Explain what you did in your schemas to reduce it in BCNF. </p>
+<p>You can use any drawing utility for the model. However, we do request a digitally created copy (not a scanned picture) creating using a tool such as <a target="_blank" rel="noopener" href="https://draw.io">draw.io</a>. When including the image in your report, make sure it can be zoomed in. To do this in draw.io, you can export the image as an SVG or PDF. Some PDF renderers will cause draw.io primary keys to no longer be underlined after exporting it as a PDF (it will show an error underneath the drawing saying “svg 1.0 compatibility issue” or similar). Make sure and confirm that this is not the case. You can always include the SVG file to accompany your report PDF.</p>
+<h2 id="question-2-eer-reducing-functional-dependencies-and-normalisation">Question 2: (E)ER Reducing, Functional Dependencies and Normalisation</h2>
+<p>Reduce the above (E)ER-model to schemas. If you made changes to the names of entities, attributes or relations - add a small sentence where you explain your reasoning.</p>
+<p>Using the schemas from above, provide all possible functional dependencies for each schema. If not already, put the schemas in BCNF (Boyce-Codd Normal Form). Explain what you did in your schemas to reduce it in BCNF.</p>
 <p><em>Note: Make sure to clearly describe any changes that you make when converting it to BCNF.</em></p>
-<h2 id="Question-3-SQL-Creating"><a href="#Question-3-SQL-Creating" class="headerlink" title="Question 3: SQL (Creating)"></a>Question 3: SQL (Creating)</h2><p>Provide SQL queries to create the schemas reduced in question 2. Adding some test data can be useful for question 3.</p>
+<h2 id="question-3-sql-creating">Question 3: SQL (Creating)</h2>
+<p>Provide SQL queries to create the schemas reduced in question 2. Adding some test data can be useful for question 3.</p>
 <p><strong>Instructions</strong></p>
 <p>You can provide the SQL CREATE statements to create the database. This can be as a separate SQL file or included in your report. While optional, we encourage extra checks and constraints on the data.</p>
-<h2 id="Question-4-Relational-Algebra-SQL-and-Optimising"><a href="#Question-4-Relational-Algebra-SQL-and-Optimising" class="headerlink" title="Question 4: Relational Algebra, SQL and Optimising"></a>Question 4: Relational Algebra, SQL and Optimising</h2><p>For this question we expect both SQL queries and Relational Algebra formulas to get the required information. </p>
+<h2 id="question-4-relational-algebra-sql-and-optimising">Question 4: Relational Algebra, SQL and Optimising</h2>
+<p>For this question we expect both SQL queries and Relational Algebra formulas to get the required information.</p>
 <p>For each query, provide a description on how to optimise the query. This should include the columns that you create an index on, the type of index and a motivation on your choices.</p>
-<ol>
+<ol type="1">
 <li><p>List all the car dealerships and the total amount of cars they have in stock.</p>
-<ol>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
-<li><p>List all cars with a base price below X euros that were sold last week and the name of the dealership they belong to. </p>
-<ol>
+</ol></li>
+<li><p>List all cars with a base price below X euros that were sold last week and the name of the dealership they belong to.</p>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
+</ol></li>
 <li><p>Obtain the best-selling car brand for electric or hybrid models.</p>
-<ol>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
+</ol></li>
 <li><p>Obtain a list with the brand and model of the 10 models that have been repaired the most.</p>
-<ol>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
+</ol></li>
 <li><p>Calculate how much money the company has earned through sales of extra features in the year 2020.</p>
-<ol>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
-<li><p>Calculate how much money a certain salesperson has made in 2020 based on his gross annual salary and a 5% commission fee per car sold. </p>
-<ol>
-<li>SQL Query to get the above information</li>
-<li>Relational Algebra formula to get the above information </li>
-<li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
-<li><p>List the names of all salespersons who have only made sales paid for by instalment financing. </p>
-<ol>
+</ol></li>
+<li><p>Calculate how much money a certain salesperson has made in 2020 based on his gross annual salary and a 5% commission fee per car sold.</p>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
-<li><p>List the name of all mechanics who have performed repairs to vehicles purchased by companies, sorted by time spent. </p>
+</ol></li>
+<li><p>List the names of all salespersons who have only made sales paid for by instalment financing.</p>
+<ol type="1">
+<li>SQL Query to get the above information</li>
+<li>Relational Algebra formula to get the above information</li>
+<li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
+</ol></li>
+<li><p>List the name of all mechanics who have performed repairs to vehicles purchased by companies, sorted by time spent.</p>
 <p><em>Note: The time spent should only include repairs to vehicles purchased by companies.</em></p>
-<ol>
-<li>SQL Query to get the above information</li>
-<li>Relational Algebra formula to get the above information</li>
-<li>How would you optimise this query (provide indexes, types of indexes and a motivation) </li>
-</ol>
-</li>
-<li><p>Obtain the name of the dealership where the most repairs have been made with type X. </p>
-<ol>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
-<li><p>Obtain a list with the personal data and the name of the dealership to which they belong, of the most successful salespersons. </p>
+</ol></li>
+<li><p>Obtain the name of the dealership where the most repairs have been made with type X.</p>
+<ol type="1">
+<li>SQL Query to get the above information</li>
+<li>Relational Algebra formula to get the above information</li>
+<li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
+</ol></li>
+<li><p>Obtain a list with the personal data and the name of the dealership to which they belong, of the most successful salespersons.</p>
 <p><em>Note: The success is based on: the total value of the sales made by the salesperson is higher than the average value of the sales made by the salespersons of the dealership to which he/she belongs.</em></p>
-<ol>
+<ol type="1">
 <li>SQL Query to get the above information</li>
 <li>Relational Algebra formula to get the above information</li>
 <li>How would you optimise this query (provide indexes, types of indexes and a motivation)</li>
-</ol>
-</li>
+</ol></li>
 </ol>
 <p><strong>Instructions</strong></p>
-<p>SQL queries have to be included in your report as written text (no photo or scan). Relational Algebra formulas also need to be included in your report. Preferably these formulas are created using LaTeX or <a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/office/insert-mathematical-symbols-91a4b04c-84a8-4de9-bd13-8609e14bed58?ui=en-us&rs=en-us&ad=us">the equation function in MS Word</a>. In case there is still an issue including the formulas, you can write them on paper an include a scanned copy of those formulas in your report. </p>
+<p>SQL queries have to be included in your report as written text (no photo or scan). Relational Algebra formulas also need to be included in your report. Preferably these formulas are created using LaTeX or <a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/office/insert-mathematical-symbols-91a4b04c-84a8-4de9-bd13-8609e14bed58?ui=en-us&amp;rs=en-us&amp;ad=us">the equation function in MS Word</a>. In case there is still an issue including the formulas, you can write them on paper an include a scanned copy of those formulas in your report.</p>
 <p>Do not forget to also provide the index columns, the types of indexes and a motivation on your choices.</p>
 
                 

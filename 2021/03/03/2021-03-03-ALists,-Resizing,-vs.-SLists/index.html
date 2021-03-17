@@ -497,38 +497,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ALists-Resizing-vs-SLists"><a href="#ALists-Resizing-vs-SLists" class="headerlink" title="ALists, Resizing, vs. SLists"></a>ALists, Resizing, vs. SLists</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy">Video</a></p>
-<h2 id="A-Last-Look-at-Linked-Lists"><a href="#A-Last-Look-at-Linked-Lists" class="headerlink" title="A Last Look at Linked Lists"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lrK07ed_Yqo&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=1">A Last Look at Linked Lists</a></h2><h3 id="Doubly-Linked-Lists"><a href="#Doubly-Linked-Lists" class="headerlink" title="Doubly Linked Lists"></a>Doubly Linked Lists</h3><p>Behold. The state of the art as we arrived at in last week’s lecture. Through various improvements, we made all of the following operations fast:</p>
+                <h1 id="alists-resizing-vs.-slists">ALists, Resizing, vs. SLists</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy">Video</a></p>
+<h2 id="a-last-look-at-linked-lists"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lrK07ed_Yqo&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=1">A Last Look at Linked Lists</a></h2>
+<h3 id="doubly-linked-lists">Doubly Linked Lists</h3>
+<p>Behold. The state of the art as we arrived at in last week’s lecture. Through various improvements, we made all of the following operations fast:</p>
 <ul>
 <li>addFirst, addLast</li>
 <li>getFirst, getLast</li>
 <li>removeFirst, removeLast</li>
 </ul>
-<h3 id="Arbitrary-Retrieval"><a href="#Arbitrary-Retrieval" class="headerlink" title="Arbitrary Retrieval"></a><strong>Arbitrary Retrieval</strong></h3><p>Suppose we added get(int i), which returns the ith item from the list.</p>
+<h3 id="arbitrary-retrieval"><strong>Arbitrary Retrieval</strong></h3>
+<p>Suppose we added get(int i), which returns the ith item from the list.</p>
 <p>Why would get be slow for long lists compared to getLast()? For what inputs?</p>
 <ul>
-<li>Have to scan to desired position. </li>
+<li>Have to scan to desired position.</li>
 <li>Slow for any i not near the sentinel node.</li>
-<li>How do we fix this?<ul>
+<li>How do we fix this?
+<ul>
 <li>Will discuss (much later) sophisticated changes that can speed up lists.</li>
 <li>For now: We’ll take a different tack: Using an array instead (no links!).</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/CS61B/190819.png"></p>
-<h2 id="Naive-Array-Lists"><a href="#Naive-Array-Lists" class="headerlink" title="Naive Array Lists"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2FmIfaHl2G4&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=2">Naive Array Lists</a></h2><h3 id="Random-Access-in-Arrays"><a href="#Random-Access-in-Arrays" class="headerlink" title="Random Access in Arrays"></a>Random Access in Arrays</h3><p>Retrieval from any position of an array is very fast.</p>
+<p><img src="/images/CS61B/190819.png" /></p>
+<h2 id="naive-array-lists"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2FmIfaHl2G4&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=2">Naive Array Lists</a></h2>
+<h3 id="random-access-in-arrays">Random Access in Arrays</h3>
+<p>Retrieval from any position of an array is very fast.</p>
 <ul>
 <li>Independent* of array size.</li>
 <li>Ultra fast random access results from the fact that memory boxes are the same size (in bits).</li>
 </ul>
-<h3 id="Our-Goal-AList-java"><a href="#Our-Goal-AList-java" class="headerlink" title="Our Goal: AList.java"></a>Our Goal: AList.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//         0 1  2 3 4 5 6 7</span></span><br><span class="line"><span class="comment">// items: [6 9 -1 2 0 0 0 0 ...]</span></span><br><span class="line"><span class="comment">// size: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Invariants:</span></span><br><span class="line"><span class="comment"> addLast: The next item we want to add, will go into position size</span></span><br><span class="line"><span class="comment"> getLast: The item we want to return is in position size - 1</span></span><br><span class="line"><span class="comment"> size: The number of items in the list should be size.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] items;    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        items[size] = x;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[size - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="our-goal-alist.java">Our Goal: AList.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//         0 1  2 3 4 5 6 7</span></span><br><span class="line"><span class="comment">// items: [6 9 -1 2 0 0 0 0 ...]</span></span><br><span class="line"><span class="comment">// size: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Invariants:</span></span><br><span class="line"><span class="comment"> addLast: The next item we want to add, will go into position size</span></span><br><span class="line"><span class="comment"> getLast: The item we want to return is in position size - 1</span></span><br><span class="line"><span class="comment"> size: The number of items in the list should be size.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] items;    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        items[size] = x;</span><br><span class="line">        size += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[size - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>AList <strong>Invariants</strong>:</p>
 <ul>
 <li>The position of the next item to be inserted is always size.</li>
 <li>size is always the number of items in the AList.</li>
 <li>The last item in the list is always in position size - 1.</li>
 </ul>
-<h3 id="The-Abstract-vs-the-Concrete"><a href="#The-Abstract-vs-the-Concrete" class="headerlink" title="The Abstract vs. the Concrete"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WK1Fg-bNoU8&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=4">The Abstract vs. the Concrete</a></h3><p>When we removeLast(), which memory boxes need to change? To what?-</p>
+<h3 id="the-abstract-vs.-the-concrete"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WK1Fg-bNoU8&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=4">The Abstract vs. the Concrete</a></h3>
+<p>When we removeLast(), which memory boxes need to change? To what?-</p>
 <ul>
 <li><strong>size</strong></li>
 <li><del>size and items</del></li>
@@ -537,18 +545,22 @@
 <li><del>size, items, and items[i] for many different i</del></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> returnItem = items[size - <span class="number">1</span>];</span><br><span class="line">    items[size - <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Setting deleted item to zero is not necessary to preserve invariants, and thus not necessary for correctness.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    size -= <span class="number">1</span>;  	</span><br><span class="line">    <span class="keyword">return</span> returnItem;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<h3 id="The-Mighty-AList"><a href="#The-Mighty-AList" class="headerlink" title="The Mighty AList"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IonBhRlyIPk&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=5">The Mighty AList</a></h3><p>Key Idea: Use some subset of the entries of an array.</p>
+<h3 id="the-mighty-alist"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IonBhRlyIPk&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=5">The Mighty AList</a></h3>
+<p>Key Idea: Use some subset of the entries of an array.</p>
 <p>What happens if we insert into the AList above? What should we do about it?</p>
-<h2 id="Resizing-Arrays"><a href="#Resizing-Arrays" class="headerlink" title="Resizing Arrays"></a>Resizing Arrays</h2><p>When the array gets too full (size==items.length), e.g. addLast(11), just make a new array:</p>
+<h2 id="resizing-arrays">Resizing Arrays</h2>
+<p>When the array gets too full (size==items.length), e.g. addLast(11), just make a new array:</p>
 <ul>
 <li>int[] a = new int[size+1];</li>
-<li>System.arraycopy(…) # we call this process “resizing”</li>
+<li>System.arraycopy(...) # we call this process “resizing”</li>
 <li>a[size] = 11;</li>
-<li>items = a;  size +=1;</li>
+<li>items = a; size +=1;</li>
 </ul>
-<h3 id="Resizing-Array-Code"><a href="#Resizing-Array-Code" class="headerlink" title="Resizing Array Code"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tLcinQx5VnY&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=6">Resizing Array Code</a></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[size + <span class="number">1</span>];</span><br><span class="line">    System.arraycopy(items, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">    items = a;  	</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="resizing-array-code"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tLcinQx5VnY&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=6">Resizing Array Code</a></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[size + <span class="number">1</span>];</span><br><span class="line">    System.arraycopy(items, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">    items = a;  	</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Much Better */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[capacity];</span><br><span class="line">    System.arraycopy(items, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">    items = a;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">	resize(size + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Runtime-and-Space-Usage-Analysis"><a href="#Runtime-and-Space-Usage-Analysis" class="headerlink" title="Runtime and Space Usage Analysis"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=oysadh63NxY&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=7">Runtime and Space Usage Analysis</a></h3><p>Suppose we have a full array of size 100. If we call addLast two times, how many <strong>total</strong> array memory boxes will we need to create and fill (for just these 2 calls)?</p>
+<h3 id="runtime-and-space-usage-analysis"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=oysadh63NxY&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=7">Runtime and Space Usage Analysis</a></h3>
+<p>Suppose we have a full array of size 100. If we call addLast two times, how many <strong>total</strong> array memory boxes will we need to create and fill (for just these 2 calls)?</p>
 <ul>
 <li><del>0</del></li>
 <li><del>101</del></li>
@@ -556,12 +568,13 @@
 <li><del>10302</del></li>
 </ul>
 <p>Bonus question: What is the maximum number of array boxes that Java will track at any given time? Assume that “garbage collection” happens immediately when all references to an object are lost.</p>
-<h3 id="Array-Resizing"><a href="#Array-Resizing" class="headerlink" title="Array Resizing"></a>Array Resizing</h3><p>Resizing twice requires us to create and fill 203 total memory boxes.</p>
+<h3 id="array-resizing">Array Resizing</h3>
+<p>Resizing twice requires us to create and fill 203 total memory boxes.</p>
 <ul>
 <li>Bonus answer: Most boxes at any one time is 203.</li>
 <li>When the second addLast is done, we are left with 102 boxes.</li>
 </ul>
-<p><img src="/images/CS61B/1908191.png"></p>
+<p><img src="/images/CS61B/1908191.png" /></p>
 <p>Suppose we have a full array of size 100. If we call addLast until size = 1000, roughly how many total array memory boxes will we need to create and fill?</p>
 <ul>
 <li><del>1,000</del></li>
@@ -572,15 +585,18 @@
 </ul>
 <p>Total array boxes created/copied: 101 + 102 + … + 1000Since sum of 1 + 2 + 3 + … + N = N(N+1)/2, sum(101, …, 1000) is close to 500,000.</p>
 <p>Bonus question: What is the maximum number of array boxes that Java will track at any given time? Assume that “garbage collection” happens immediately when all references to an object are lost.</p>
-<h3 id="Resizing-Slowness"><a href="#Resizing-Slowness" class="headerlink" title="Resizing Slowness"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8WtcaXATB-Y&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=9">Resizing Slowness</a></h3><p>Inserting 100,000 items requires roughly 5,000,000,000 new containers.</p>
+<h3 id="resizing-slowness"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8WtcaXATB-Y&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=9">Resizing Slowness</a></h3>
+<p>Inserting 100,000 items requires roughly 5,000,000,000 new containers.</p>
 <ul>
 <li>Computers operate at the speed of GHz (due billions of things per second).</li>
 <li>No huge surprise that 100,000 items took seconds.</li>
 </ul>
-<h3 id="Fixing-the-Resizing-Performance-Bug"><a href="#Fixing-the-Resizing-Performance-Bug" class="headerlink" title="Fixing the Resizing Performance Bug"></a>Fixing the Resizing Performance Bug</h3><p>How do we fix this?</p>
+<h3 id="fixing-the-resizing-performance-bug">Fixing the Resizing Performance Bug</h3>
+<p>How do we fix this?</p>
 <p>Geometric resizing is much faster: Just how much better will have to wait.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Unusably bad */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">        resize(size + RFACTOR);</span><br><span class="line">    &#125;</span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Great performance. This is how the Python list is implemented. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == items.length) &#123;</span><br><span class="line">	resize(size * RFACTOR);</span><br><span class="line">    &#125;</span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Performance-Problem-2"><a href="#Performance-Problem-2" class="headerlink" title="Performance Problem #2"></a>Performance Problem #2</h3><p>Suppose we have a very rare situation occur which causes us to:</p>
+<h3 id="performance-problem-2">Performance Problem #2</h3>
+<p>Suppose we have a very rare situation occur which causes us to:</p>
 <ul>
 <li>Insert 1,000,000,000 items.</li>
 <li>Then remove 990,000,000 items.</li>
@@ -594,8 +610,9 @@
 <li>Define the “usage ratio” R = size / items.length;</li>
 <li>Typical solution: Half array size when R &lt; 0.25.</li>
 </ul>
-<p><img src="/images/CS61B/1908192.png"></p>
-<h2 id="Generic-ALists"><a href="#Generic-ALists" class="headerlink" title="Generic ALists"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Qcrd80To-TM&list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&index=10">Generic ALists</a></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] items;    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8</span>];  </span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[capacity];</span><br><span class="line">        System.arraycopy(items, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">        items = a;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[i];</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CS61B/1908192.png" /></p>
+<h2 id="generic-alists"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Qcrd80To-TM&amp;list=PL8FaHk7qbOD4S8NCRyN3yQV2U2TpjWUhy&amp;index=10">Generic ALists</a></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] items;    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8</span>];  </span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[capacity];</span><br><span class="line">        System.arraycopy(items, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">        items = a;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[i];</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span>&lt;<span class="title">Glorp</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Glorp[] items;    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        items = (Glorp []) <span class="keyword">new</span> Object[<span class="number">8</span>];  </span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> cap)</span> </span>&#123;</span><br><span class="line">        Glorp[] a = (Glorp []) <span class="keyword">new</span> Object[cap];</span><br><span class="line">        System.arraycopy(items, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">        items = a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Glorp <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> items[i];</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>When creating an array of references to Glorps:</p>
 <ul>
@@ -606,7 +623,8 @@
 <ul>
 <li>Will cause a “generic array creation” error.</li>
 </ul>
-<h3 id="Nulling-Out-Deleted-Items"><a href="#Nulling-Out-Deleted-Items" class="headerlink" title="Nulling Out Deleted Items"></a>Nulling Out Deleted Items</h3><p>Unlike integer based ALists, we actually want to null out deleted items.</p>
+<h3 id="nulling-out-deleted-items">Nulling Out Deleted Items</h3>
+<p>Unlike integer based ALists, we actually want to null out deleted items.</p>
 <ul>
 <li>Java only destroys unwanted objects when the last reference has been lost.</li>
 <li>Keeping references to unneeded objects is sometimes called loitering.</li>
@@ -618,21 +636,23 @@
 <li>But memory is wasted storing a reference to the red sign image.</li>
 </ul>
 <p>By nulling out items[2], Java is free to destroy the unneeded image from memory, which could be potentially megabytes in size</p>
-<p><img src="/images/CS61B/1908193.png"></p>
-<h2 id="Obscurantism-in-Java"><a href="#Obscurantism-in-Java" class="headerlink" title="Obscurantism in Java"></a>Obscurantism in Java</h2><p>We talk of “layers of abstraction” often in computer science.</p>
+<p><img src="/images/CS61B/1908193.png" /></p>
+<h2 id="obscurantism-in-java">Obscurantism in Java</h2>
+<p>We talk of “layers of abstraction” often in computer science.</p>
 <ul>
-<li>Related concept: obscurantism. The user of a class does not and should not know how it works.<ul>
+<li>Related concept: obscurantism. The user of a class does not and should not know how it works.
+<ul>
 <li>The Java language allows you to enforce this with ideas like <strong>private</strong>!</li>
-</ul>
-</li>
-<li>A good programmer obscures details from themselves, even within a class.<ul>
+</ul></li>
+<li>A good programmer obscures details from themselves, even within a class.
+<ul>
 <li>Example: addFirst and resize should be written totally independently. You should not be thinking about the details of one method while writing the other. Simply trust that the other works.</li>
 <li>Breaking programming tasks down into small pieces (especially functions) helps with this greatly!</li>
 <li>Through judicious use of testing, we can build confidence in these small pieces, as we’ll see in the next lecture.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Lists vs. Arrays</strong> Our <code>DLList</code> has a drawback. Getting the i’th item is slow; we have to scan through each item in the list, starting from the beginning or the end, until we reach the i’th item. For an array named <code>A</code>, however, we can quickly access the i’th item using bracket notation, <code>A[i]</code>. Thus, our goal is to implement a list with an array.</p>
+<h2 id="overview">Overview</h2>
+<p><strong>Lists vs. Arrays</strong> Our <code>DLList</code> has a drawback. Getting the i’th item is slow; we have to scan through each item in the list, starting from the beginning or the end, until we reach the i’th item. For an array named <code>A</code>, however, we can quickly access the i’th item using bracket notation, <code>A[i]</code>. Thus, our goal is to implement a list with an array.</p>
 <p><strong>AList</strong> The <code>AList</code> will have the same API as our <code>DLList</code>, meaning it will have the same methods as <code>DLList</code> (<code>addLast()</code>, <code>getLast()</code>, <code>removeLast()</code>, and <code>get(int i)</code>). The <code>AList</code> will also have a <code>size</code> variable that tracks its size.</p>
 <p><strong>AList Invariants</strong> There are a few invariants for our <code>AList</code>.</p>
 <ul>

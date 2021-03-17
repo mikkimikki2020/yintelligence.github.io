@@ -497,483 +497,520 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Discussion-3-Relational-Algebra"><a href="#Discussion-3-Relational-Algebra" class="headerlink" title="Discussion 3: Relational Algebra"></a>Discussion 3: Relational Algebra</h1><p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/0686432381bc0089fa7d5f60ed5b64c9668e7245-1614344367991/capture/">Video</a></p>
-<h2 id="Example-Employees"><a href="#Example-Employees" class="headerlink" title="Example: Employees"></a>Example: Employees</h2><p>Employees(employeeNr:integer, <em>firstName</em>:string, <em>lastName</em>:string)</p>
+                <h1 id="discussion-3-relational-algebra">Discussion 3: Relational Algebra</h1>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/0686432381bc0089fa7d5f60ed5b64c9668e7245-1614344367991/capture/">Video</a></p>
+<h2 id="example-employees">Example: Employees</h2>
+<p>Employees(employeeNr:integer, <em>firstName</em>:string, <em>lastName</em>:string)</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>employeeNr</th>
 <th>firstName</th>
 <th>lastName</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>Mickey</td>
 <td>Mouse</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>Donald</td>
 <td>Duck</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>Goofy</td>
 <td>Dog</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>Pluto</td>
 <td>Dog</td>
 </tr>
-</tbody></table>
-<h2 id="Projection-π"><a href="#Projection-π" class="headerlink" title="Projection (π)"></a>Projection (π)</h2><p>”Select the first names from all employees”</p>
+</tbody>
+</table>
+<h2 id="projection-π">Projection (π)</h2>
+<p>”Select the first names from all employees”</p>
 <ul>
 <li>π<sub>firstName</sub>(<em>Employees</em>)</li>
 </ul>
 <p><em>This will return “Mickey”, “Donald”, “Goofy”, “Pluto”</em></p>
-<h2 id="Example-Drinks"><a href="#Example-Drinks" class="headerlink" title="Example: Drinks"></a>Example: Drinks</h2><p>Drinks(drinkName:string, <em>amounts</em>:integer)</p>
+<h2 id="example-drinks">Example: Drinks</h2>
+<p>Drinks(drinkName:string, <em>amounts</em>:integer)</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>drinkName</th>
 <th>amounts</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Coca cola</td>
 <td>4</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Sprite</td>
 <td>4</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Fanta</td>
 <td>6</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Pepsi</td>
 <td>3</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>7up</td>
 <td>5</td>
 </tr>
-</tbody></table>
-<h2 id="Selection-σ"><a href="#Selection-σ" class="headerlink" title="Selection (σ)"></a>Selection (σ)</h2><p>“Select the drink amounts that are 3”</p>
+</tbody>
+</table>
+<h2 id="selection-σ">Selection (σ)</h2>
+<p>“Select the drink amounts that are 3”</p>
 <ul>
 <li>π<sub>drinkName</sub>(σ<sub>amounts=3</sub>(<em>Drinks</em>))</li>
 </ul>
-<p>This will return “Pepsi”.</p>
-<h2 id="Example-Employees-and-Students"><a href="#Example-Employees-and-Students" class="headerlink" title="Example: Employees and Students"></a>Example: Employees and Students</h2><p>Employees(employeeNr:integer, <em>firstName</em>:string, <em>lastName</em>:string, <em>empType</em>: string)</p>
+<p>This will return "Pepsi".</p>
+<h2 id="example-employees-and-students">Example: Employees and Students</h2>
+<p>Employees(employeeNr:integer, <em>firstName</em>:string, <em>lastName</em>:string, <em>empType</em>: string)</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>employeeNr</th>
 <th>firstName</th>
 <th>lastName</th>
 <th>empType</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>Mickey</td>
 <td>Mouse</td>
 <td>BAAP</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>Donald</td>
 <td>Duck</td>
 <td>BAAP</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>Goofy</td>
 <td>Dog</td>
 <td>BAAP</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>Pluto</td>
 <td>Dog</td>
 <td>ZAP</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>Students(studentNr:integer, <em>firstName</em>:string, <em>lastName</em>:string, <em>empType</em>:string)</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>employeeNr</th>
 <th>firstName</th>
 <th>lastName</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>Mickey</td>
 <td>Mouse</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>Donald</td>
 <td>Duck</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>Minnie</td>
 <td>Mouse</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>Daisy</td>
 <td>Duck</td>
 </tr>
-</tbody></table>
-<h2 id="Union-∪"><a href="#Union-∪" class="headerlink" title="Union (∪)"></a>Union (∪)</h2><ul>
+</tbody>
+</table>
+<h2 id="union">Union (∪)</h2>
+<ul>
 <li>“Select the first and last name from all employees and students” π<sub>firstName,lastName</sub>(Employees) ∪ π<sub>firstName,lastName</sub>(Students)</li>
 </ul>
 <p>This will return all first and last names</p>
-<h2 id="Disjoint-∩"><a href="#Disjoint-∩" class="headerlink" title="Disjoint (∩)"></a>Disjoint (∩)</h2><p>“Select the first and last name from all employees who are students”</p>
+<h2 id="disjoint">Disjoint (∩)</h2>
+<p>“Select the first and last name from all employees who are students”</p>
 <ul>
 <li>π<sub>firstName,lastName</sub>(Employees) ∩ π<sub>firstName,lastName</sub>(Students)</li>
 </ul>
 <p>This will return Mickey and Donald</p>
-<h2 id="Set-Difference-−"><a href="#Set-Difference-−" class="headerlink" title="Set Difference (−)"></a>Set Difference (−)</h2><p>“Select the first and last name from all employees who are not students”</p>
+<h2 id="set-difference">Set Difference (−)</h2>
+<p>“Select the first and last name from all employees who are not students”</p>
 <ul>
 <li>π<sub>firstName,lastName</sub>(Employees) − π<sub>firstName,lastName</sub>(Students)</li>
 </ul>
 <p>This will return Goofy and Pluto</p>
-<h2 id="Example-Course-enrollments-assistants"><a href="#Example-Course-enrollments-assistants" class="headerlink" title="Example: Course enrollments, assistants"></a>Example: Course enrollments, assistants</h2><p>CourseEnrollment(studentNr:integer, courseName:string)</p>
+<h2 id="example-course-enrollments-assistants">Example: Course enrollments, assistants</h2>
+<p>CourseEnrollment(studentNr:integer, courseName:string)</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>studentNr</th>
 <th>courseName</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>3</td>
 <td>Databases</td>
 </tr>
-<tr>
+<tr class="even">
 <td>3</td>
 <td>Web Technologies</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>4</td>
 <td>Databases</td>
 </tr>
-<tr>
+<tr class="even">
 <td>3</td>
 <td>Advanced Topics In Information Systems</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>4</td>
 <td>Master Thesis</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>CourseAssistants(employeeNr:integer, courseName:string)</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>employeeNr</th>
 <th>courseName</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>Databases</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td>Web Technologies</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>1</td>
 <td>Advanced Topics In Information Systems</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>Databases</td>
 </tr>
-</tbody></table>
-<h2 id="Natural-Join-⋈"><a href="#Natural-Join-⋈" class="headerlink" title="Natural Join (⋈)"></a>Natural Join (⋈)</h2><p>“Get all courses and their assistants”</p>
+</tbody>
+</table>
+<h2 id="natural-join">Natural Join (⋈)</h2>
+<p>“Get all courses and their assistants”</p>
 <p>π<sub>courseName,firstName,lastName</sub>(<em>CourseAssistants</em> ⋈ <em>Employees</em>)</p>
-<h2 id="Division-÷"><a href="#Division-÷" class="headerlink" title="Division (÷)"></a>Division (÷)</h2><p>“Select the assistants who give all 3 credit courses”</p>
+<h2 id="division">Division (÷)</h2>
+<p>“Select the assistants who give all 3 credit courses”</p>
 <p>π<sub>courseName,firstName,lastName</sub>(<em>CourseAssistants</em> ÷ σ<sub>credits=3</sub>(Courses)) ⋈ <em>Employees</em>)</p>
-<h2 id="Assignment-←"><a href="#Assignment-←" class="headerlink" title="Assignment (←)"></a>Assignment (←)</h2><p>Select the first and last name from all students who are not employees”</p>
-<p>StudentNames ← π<sub>firstName,lastName</sub>(Students) </p>
-<p>EmployeeNames ← π<sub>firstName,lastName</sub>(Employees) </p>
+<h2 id="assignment">Assignment (←)</h2>
+<p>Select the first and last name from all students who are not employees”</p>
+<p>StudentNames ← π<sub>firstName,lastName</sub>(Students)</p>
+<p>EmployeeNames ← π<sub>firstName,lastName</sub>(Employees)</p>
 <p>Result ← StudentNames − EmployeeNames</p>
-<h2 id="Delete-X-←-X-−-…"><a href="#Delete-X-←-X-−-…" class="headerlink" title="Delete (X ← X − …)"></a>Delete (X ← X − …)</h2><p>“Delete Daisy Duck from the students schema.”</p>
+<h2 id="delete-x-x-...">Delete (X ← X − ...)</h2>
+<p>"Delete Daisy Duck from the students schema.”</p>
 <p>Students ← Students − σ<sub>firstName=“Daissy”∧lastName=“Duck”</sub>(Students)</p>
-<h2 id="Insert-X-←-X-∪-…"><a href="#Insert-X-←-X-∪-…" class="headerlink" title="Insert (X ← X ∪ …)"></a>Insert (X ← X ∪ …)</h2><p>“Add Daisy Duuuck to the students schema.”</p>
+<h2 id="insert-x-x-...">Insert (X ← X ∪ ...)</h2>
+<p>“Add Daisy Duuuck to the students schema.”</p>
 <p>Students ← Students ∪ {(4, “Daisy”, “ Duuuck”)}</p>
-<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><p>“Change the name Daisy Duuuck to ‘Daisy Duck’ in the students schema.”</p>
+<h2 id="update">Update</h2>
+<p>“Change the name Daisy Duuuck to ‘Daisy Duck’ in the students schema.”</p>
 <p>Students ← π<sub>studentNr,firstName,”Duck”</sub>(σ<sub>studentNr=4</sub>(Students)) ∪ π<sub>studentNr,firstName,lastName</sub>(σstudentNr6=4(Students))</p>
 <p>TIP: We only need to change the last name</p>
-<h2 id="Rename-ρ"><a href="#Rename-ρ" class="headerlink" title="Rename (ρ)"></a>Rename (ρ)</h2><p>“Rename the schema of Students”</p>
+<h2 id="rename-ρ">Rename (ρ)</h2>
+<p>“Rename the schema of Students”</p>
 <p>π<sub>firstName2,lastName2</sub>(ρ<sub>StudentsCopy(studentNr2,firstName2,lastName2)</sub>(Students))</p>
-<h2 id="Cartesian-Product-×"><a href="#Cartesian-Product-×" class="headerlink" title="Cartesian Product (×)"></a>Cartesian Product (×)</h2><p>“Give all pairs of course names where the first course has more credits than the second.”</p>
+<h2 id="cartesian-product">Cartesian Product (×)</h2>
+<p>“Give all pairs of course names where the first course has more credits than the second.”</p>
 <p>π<sub>courseName,courseName2</sub>(σ<sub>credits&gt;credits2</sub>(Courses × ρ<sub>Courses2(courseName2,credits2)</sub>(Courses)))</p>
-<h2 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h2><p>Given relationship <em>R</em> and <em>S</em>, assume a person is only allowed to teach the department <em>Mathematics, minor in Computer Science</em> if he or she holds the following degrees: <em>Highschool</em>, <em>MSc Computer Science</em> and <em>MSc Mathematics</em>. Give a query in relational algebra that returns the names of all persons that are allowed to teach in that department. </p>
+<h2 id="question-1">Question 1</h2>
+<p>Given relationship <em>R</em> and <em>S</em>, assume a person is only allowed to teach the department <em>Mathematics, minor in Computer Science</em> if he or she holds the following degrees: <em>Highschool</em>, <em>MSc Computer Science</em> and <em>MSc Mathematics</em>. Give a query in relational algebra that returns the names of all persons that are allowed to teach in that department.</p>
 <p><em>R</em> =</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Name</th>
 <th>Degree</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Anne</td>
 <td>MSc Computer Science</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Anne</td>
 <td>Highschool</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Anne</td>
 <td>MSc Mathematics</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Katja</td>
 <td>MSc Computer Science</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Katja</td>
 <td>MSc Mathematics</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Katja</td>
 <td>Highschool</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Katja</td>
 <td>MSc Physics</td>
 </tr>
-<tr>
+<tr class="even">
 <td>William</td>
 <td>Highschool</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>William</td>
 <td>MSc Computer Science</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Christophe</td>
 <td>Highschool</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Christophe</td>
 <td>MSc Computer Science</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><em>S</em> =</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Degree</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>MSc Computer Science</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Highschool</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>MSc Mathematics</td>
 </tr>
-<tr>
+<tr class="even">
 <td>MSc Physics</td>
 </tr>
-</tbody></table>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h3><p>π<sub><em>Name</em>(<em>R</em> ÷ σ<em>Degree</em>≠“<em>MSc Physics</em>”</sub>(S))</p>
-<ol>
+</tbody>
+</table>
+<h3 id="solution-1">Solution 1</h3>
+<p>π<sub><em>Name</em>(<em>R</em> ÷ σ<em>Degree</em>≠“<em>MSc Physics</em>”</sub>(S))</p>
+<ol type="1">
 <li>We start by specifying the attribute that we want to find (π<sub><em>Name</em></sub>).</li>
 <li>Next we need to specify the schema that we are going to use to get this name (<em>R</em>).</li>
 <li>We use <em>R</em>, but we are not interested in all names in that entity but only those who are allowed to teach in the department.</li>
 <li>To do so, we do a division of <em>R</em> with all ”Degrees” that are not MSc Physics (Highschool, MSc Mathematics, MSc Computer Science). A division. This division (slide 33 in lecture 3) will perform a select on the “Degree” column in <em>R</em>, selecting only those names that have Highschool, MSc Mathematics and MSc Computer Science.</li>
 </ol>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h3><p>π<sub><em>Name</em></sub>(σ<sub><em>Degree=<em>“</em>Highschool”</em>(<em>R</em>)</sub>) ∩ π<sub><em>Name</em></sub>(σ<sub><em>Degree=<em>“</em>MSc Mathematics</em>”</sub>(<em>R</em>)) ∩ π<sub><em>Name</em></sub>(σ<sub><em>Degree=<em>“</em>MSc Computer Science</em>”</sub>(<em>R</em>))</p>
-<p>The biggest difference between the two solutions is that with the previous solution, we took the complete set in the relation <em>R</em>, and removed all instances that did not have the required degrees. </p>
+<h3 id="solution-2">Solution 2</h3>
+<p>π<sub><em>Name</em></sub>(σ<sub><em>Degree=</em>“<em>Highschool”</em>(<em>R</em>)</sub>) ∩ π<sub><em>Name</em></sub>(σ<sub><em>Degree=</em>“<em>MSc Mathematics</em>”</sub>(<em>R</em>)) ∩ π<sub><em>Name</em></sub>(σ<sub><em>Degree=</em>“<em>MSc Computer Science</em>”</sub>(<em>R</em>))</p>
+<p>The biggest difference between the two solutions is that with the previous solution, we took the complete set in the relation <em>R</em>, and removed all instances that did not have the required degrees.</p>
 <p>For this solution:</p>
-<ol>
+<ol type="1">
 <li>Take the complete set of names from everyone with a Highschool degree (in this exercise everyone)</li>
 <li>Next, take the disjunction of that set with everyone with a MSc Mathematics (everyone without this MSc in Mathematics is removed)</li>
 <li>Finally, do the same for the MSc in Computer Science (the only remaining names are Anne and Katja)</li>
 </ol>
-<h2 id="Question-2"><a href="#Question-2" class="headerlink" title="Question 2"></a>Question 2</h2><p>Calculate <em>R</em> ÷ <em>S</em> step by step (where <em>Sch</em>(<em>X</em>) returns the schema of a relation <em>X</em>)</p>
+<h2 id="question-2">Question 2</h2>
+<p>Calculate <em>R</em> ÷ <em>S</em> step by step (where <em>Sch</em>(<em>X</em>) returns the schema of a relation <em>X</em>)</p>
 <ul>
 <li><em>T<sub>1</sub></em> ← π<sub><em>Sch</em>(<em>R</em>)−<em>Sch</em>(<em>S</em>)</sub>(<em>R</em>)</li>
-<li> <em>T<sub>2’</sub></em> ← (<em>S</em> × <em>T<sub>1</sub></em>) − <em>R</em></li>
-<li><em>T<sub>2</sub></em> ← π<sub><em>Sch</em>(<em>R</em>)−<em>Sch</em>(<em>S</em>)</sub>(<em>T<sub>2’</sub></em>)</li>
+<li><em>T<sub>2'</sub></em> ← (<em>S</em> × <em>T<sub>1</sub></em>) − <em>R</em></li>
+<li><em>T<sub>2</sub></em> ← π<sub><em>Sch</em>(<em>R</em>)−<em>Sch</em>(<em>S</em>)</sub>(<em>T<sub>2'</sub></em>)</li>
 <li><em>Result</em> ← <em>T<sub>1</sub></em> − <em>T<sub>2</sub></em></li>
 </ul>
 <p><em>Note: Check whether the obtained result corresponds to the result of R ÷ S</em></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><ul>
+<h3 id="solution">Solution</h3>
+<ul>
 <li><p><em>T<sub>1</sub></em></p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Name</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Anne</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Katja</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>William</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Christophe</td>
 </tr>
-</tbody></table>
-<p><em>R contains names and multiple degrees that name may have. Our projection takes the schema of R minus the schema of S giving us a projection that selects names only. We are left with all names in R without their degrees.</em></p>
-</li>
-<li><p><em>T<sub>2’</sub></em></p>
+</tbody>
+</table>
+<p><em>R contains names and multiple degrees that name may have. Our projection takes the schema of R minus the schema of S giving us a projection that selects names only. We are left with all names in R without their degrees.</em></p></li>
+<li><p><em>T<sub>2'</sub></em></p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Name</th>
 <th>Degree</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Anne</td>
 <td>MSc Physics</td>
 </tr>
-<tr>
+<tr class="even">
 <td>William</td>
 <td>MSc Physics</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>William</td>
 <td>MSc Mathematics</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Christophe</td>
 <td>MSc Physics</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Christophe</td>
 <td>MSc Mathematics</td>
 </tr>
-</tbody></table>
-<p><em>Here we multiply S with our previously obtained T<sub>1</sub>. This gives us an intermediate result where each of the 4 names has all degrees. Next, we subtract it with R giving us a result of all names and the degrees that they did not get yet.</em></p>
-</li>
+</tbody>
+</table>
+<p><em>Here we multiply S with our previously obtained T<sub>1</sub>. This gives us an intermediate result where each of the 4 names has all degrees. Next, we subtract it with R giving us a result of all names and the degrees that they did not get yet.</em></p></li>
 <li><p><em>T<sub>2</sub></em></p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Name</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Anne</td>
 </tr>
-<tr>
+<tr class="even">
 <td>William</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Christophe</td>
 </tr>
-</tbody></table>
-<p><em>Similar to T<sub>1</sub> we only project the names of our column T<sub>2’</sub></em></p>
-</li>
+</tbody>
+</table>
+<p><em>Similar to T<sub>1</sub> we only project the names of our column T<sub>2'</sub></em></p></li>
 <li><p><em>Result</em></p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Name</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Katja</td>
 </tr>
-</tbody></table>
-<p><em>In this final result we subtract T<sub>2</sub> from T<sub>1</sub> giving us only Katja left.</em></p>
-</li>
+</tbody>
+</table>
+<p><em>In this final result we subtract T<sub>2</sub> from T<sub>1</sub> giving us only Katja left.</em></p></li>
 </ul>
-<h2 id="Question-3"><a href="#Question-3" class="headerlink" title="Question 3"></a>Question 3</h2><p>Given the following schemas, express the provided queries in relational algebra.</p>
+<h2 id="question-3">Question 3</h2>
+<p>Given the following schemas, express the provided queries in relational algebra.</p>
 <ul>
 <li>Suppliers(sid:integer, <em>sname</em>:string, <em>address</em>:string)</li>
 <li>Parts(pid:integer, <em>pname</em>:string, <em>color</em> :string)</li>
 <li>Catalog(sid:integer, pid:integer, <em>cost</em>:real)</li>
 </ul>
-<ol>
+<ol type="1">
 <li>Give names of all suppliers supplying red parts.</li>
 <li>Give sids of all suppliers supplying a red or green part.</li>
 <li>Give names of all suppliers supplying both red and green parts.</li>
-<li>Give names of all suppliers supplying <em>every</em> part. </li>
+<li>Give names of all suppliers supplying <em>every</em> part.</li>
 <li>Return pairs of SIDs such that the first supplier in a pair asks more for a part than the second supplier in that pair.</li>
 <li>Look for PIDs of parts that are supplied by different suppliers.</li>
 </ol>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p>Given the following schemas, express the provided queries in relational algebra.</p>
-<ol>
+<h3 id="solution-3">Solution</h3>
+<p>Given the following schemas, express the provided queries in relational algebra.</p>
+<ol type="1">
 <li><p>Give names of all suppliers supplying red parts.</p>
-<p>π<sub>sname</sub>((σ<sub>color =“<em>red</em>”</sub>(<em>Parts</em>) ⋈ <em>Catalog</em>) ⋈ <em>Suppliers</em>)</p>
-</li>
+<p>π<sub>sname</sub>((σ<sub>color =“<em>red</em>”</sub>(<em>Parts</em>) ⋈ <em>Catalog</em>) ⋈ <em>Suppliers</em>)</p></li>
 <li><p>Give sids of all suppliers supplying a red or green part.</p>
-<p>π<sub>sid</sub>(σ<sub>color=”<em>red</em>” ∨ color=“<em>green</em>”</sub>(<em>Parts</em>) ⋈ <em>Catalog</em>)</p>
-</li>
+<p>π<sub>sid</sub>(σ<sub>color=”<em>red</em>” ∨ color=“<em>green</em>”</sub>(<em>Parts</em>) ⋈ <em>Catalog</em>)</p></li>
 <li><p>Give names of all suppliers supplying both red and green parts.</p>
 <p><em>Red</em> ← π<sub>sname</sub>((σ<sub>color=“<em>red</em>”</sub>(<em>Parts</em>) ⋈ <em>Catalog</em>) ⋈ <em>Suppliers</em>)</p>
 <p><em>Green</em> ← π<sub>sname</sub>((σ<sub>color=“<em>green</em>”</sub>(<em>Parts</em>) ⋈ <em>Catalog</em>) ⋈ <em>Suppliers</em>)</p>
-<p><em>Result</em> ← <em>Red</em> ∩ <em>Green</em></p>
-</li>
+<p><em>Result</em> ← <em>Red</em> ∩ <em>Green</em></p></li>
 <li><p>Give names of all suppliers supplying every part</p>
-<p>π<sub>sname</sub>((π<sub>sid,pid</sub>(<em>Catalog</em>) ÷ π<sub>pid</sub>(<em>Parts</em>) ⋈ <em>Suppliers</em>)</p>
-</li>
+<p>π<sub>sname</sub>((π<sub>sid,pid</sub>(<em>Catalog</em>) ÷ π<sub>pid</sub>(<em>Parts</em>) ⋈ <em>Suppliers</em>)</p></li>
 <li><p>Return pairs of SIDs such that the first supplier in a pair asks more for a part than the second supplier in that pair.</p>
-<p>π<sub>sid,sid2</sub>(σ<sub>cost &gt; cost2 ∧ pid=pid2</sub>(<em>Catalog</em> × ρ<sub>C2(sid2,pid2,cost2)</sub>(<em>Catalog</em>)))</p>
-</li>
+<p>π<sub>sid,sid2</sub>(σ<sub>cost &gt; cost2 ∧ pid=pid2</sub>(<em>Catalog</em> × ρ<sub>C2(sid2,pid2,cost2)</sub>(<em>Catalog</em>)))</p></li>
 <li><p>Look for PIDs of parts that are supplied by different suppliers.</p>
 <p>π<sub>pid</sub>(σ<sub>sid≠sid2</sub>(<em>Catalog</em> ⋈ ρ<sub>C2(sid2,pid,cost2)</sub>(<em>Catalog</em>)))</p>
 <p>Or</p>
-<p>π<sub>pid</sub>(σ<sub>sid≠sid2 ∧ pid=pid2</sub>(<em>Catalog</em> × ρ<sub>C2(sid2,pid2,cost2)</sub>(<em>Catalog</em>)))</p>
-</li>
+<p>π<sub>pid</sub>(σ<sub>sid≠sid2 ∧ pid=pid2</sub>(<em>Catalog</em> × ρ<sub>C2(sid2,pid2,cost2)</sub>(<em>Catalog</em>)))</p></li>
 </ol>
-<h2 id="Question-4-Extra"><a href="#Question-4-Extra" class="headerlink" title="Question 4 (Extra)"></a>Question 4 (Extra)</h2><p>Given the following schemas, express the provided queries in relational algebra</p>
+<h2 id="question-4-extra">Question 4 (Extra)</h2>
+<p>Given the following schemas, express the provided queries in relational algebra</p>
 <ul>
 <li>Students(sid:integer, <em>sname</em>:string, <em>address</em>:string)</li>
 <li>Courses(cid:integer, <em>cname</em>:string, <em>credits</em>:integer)</li>
-<li>Employees(eid:integer, <em>ename</em>:string, <em>address</em>:string) </li>
-<li>Enrolments(cid:integer, sid:integer, <em>ayear</em> :integer) </li>
+<li>Employees(eid:integer, <em>ename</em>:string, <em>address</em>:string)</li>
+<li>Enrolments(cid:integer, sid:integer, <em>ayear</em> :integer)</li>
 <li>Professors(cid:integer, eid:integer)</li>
 <li>Assistants(cid:integer, eid:integer)</li>
 <li>Faculties(fid:integer, <em>fname</em>:string, <em>abbreviation</em>:string)</li>
-<li>Programs(pid:integer, fid:integer, <em>pname</em>:string) </li>
+<li>Programs(pid:integer, fid:integer, <em>pname</em>:string)</li>
 <li>ProgramCourses(pid:integer, cid:integer)</li>
 </ul>
-<ol>
+<ol type="1">
 <li>Give the names of all students following the course named ”Databases”.</li>
 <li>Give the names of all assistants teaching the course named ”Databases”.</li>
 <li>Give the total amount of credits in the program with name (<em>pname)</em> ”MSc CS”.</li>
 <li>Give the abbreviation of all faculties that have programs with the Databases course as part of their program.</li>
 </ol>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p>Given the following schemas, express the provided queries in relational algebra</p>
-<ol>
+<h3 id="solution-4">Solution</h3>
+<p>Given the following schemas, express the provided queries in relational algebra</p>
+<ol type="1">
 <li><p>Give names of all students following the course named ”Databases”</p>
-<p>π<sub>sname</sub>((σ<sub>cname=“<em>Databases</em>”</sub>(<em>Courses</em>) ⋈ <em>Enrollments</em>) ⋈ <em>Students</em>)</p>
-</li>
+<p>π<sub>sname</sub>((σ<sub>cname=“<em>Databases</em>”</sub>(<em>Courses</em>) ⋈ <em>Enrollments</em>) ⋈ <em>Students</em>)</p></li>
 <li><p>Give the names of all assistants teaching the course named ”Databases”.</p>
-<p>π<sub>sname</sub>((σ<sub>cname=“<em>Databases</em>”</sub>(<em>Courses</em>) ⋈ <em>Assistants</em>) ⋈ <em>Employees</em>)</p>
-</li>
+<p>π<sub>sname</sub>((σ<sub>cname=“<em>Databases</em>”</sub>(<em>Courses</em>) ⋈ <em>Assistants</em>) ⋈ <em>Employees</em>)</p></li>
 <li><p>Give the total amount of credits in the program with name (<em>pname</em>) ”MSc CS”.</p>
-<p>π<sub>sum(<em>credits</em>)</sub>((σ<sub>pname=“<em>MSc CS</em>”</sub>(<em>Programs</em>) ⋈ <em>ProgramCourses</em>) ⋈ <em>Courses</em>)</p>
-</li>
+<p>π<sub>sum(<em>credits</em>)</sub>((σ<sub>pname=“<em>MSc CS</em>”</sub>(<em>Programs</em>) ⋈ <em>ProgramCourses</em>) ⋈ <em>Courses</em>)</p></li>
 <li><p>Give the abbreviation of all faculties that have programs with the Databases course as part of their program.</p>
-<p>π<sub>abbreviation</sub>(((σ<sub>cname=“<em>Databases</em>”</sub>(<em>Courses</em>) ⋈ <em>ProgramCourses</em>) ⋈ <em>Programs</em>) ⋈ <em>Faculties</em>)</p>
-</li>
+<p>π<sub>abbreviation</sub>(((σ<sub>cname=“<em>Databases</em>”</sub>(<em>Courses</em>) ⋈ <em>ProgramCourses</em>) ⋈ <em>Programs</em>) ⋈ <em>Faculties</em>)</p></li>
 </ol>
 
                 

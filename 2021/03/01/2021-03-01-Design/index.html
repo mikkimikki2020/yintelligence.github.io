@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    791
+                    798
                 </div>
                 
 
@@ -497,9 +497,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h1><p><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~cs61a/fa20/">Website</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ft75AwYic-w&list=PL6BsET-8jgYUC2Gl9J9Jo_JNLXWl7RcSs&index=1">Video</a></p>
-<h2 id="Abstraction"><a href="#Abstraction" class="headerlink" title="Abstraction"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=bi_2gAetCiI&list=PL6BsET-8jgYUC2Gl9J9Jo_JNLXWl7RcSs&index=2">Abstraction</a></h2><h3 id="Functional-Abstractions"><a href="#Functional-Abstractions" class="headerlink" title="Functional Abstractions"></a>Functional Abstractions</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> mul(x, x)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_squares</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> square(x) + square(y)</span><br></pre></td></tr></table></figure>
+                <h1 id="design">Design</h1>
+<p><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~cs61a/fa20/">Website</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ft75AwYic-w&amp;list=PL6BsET-8jgYUC2Gl9J9Jo_JNLXWl7RcSs&amp;index=1">Video</a></p>
+<h2 id="abstraction"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=bi_2gAetCiI&amp;list=PL6BsET-8jgYUC2Gl9J9Jo_JNLXWl7RcSs&amp;index=2">Abstraction</a></h2>
+<h3 id="functional-abstractions">Functional Abstractions</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> mul(x, x)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_squares</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> square(x) + square(y)</span><br></pre></td></tr></table></figure>
 <p>What does sum_squares need to know about square?</p>
 <ul>
 <li>Square takes one argument. <strong>YES</strong></li>
@@ -508,63 +511,67 @@
 <li>Square computes the square by calling mul. <strong>NO</strong></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(x, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> mul(x, x-<span class="number">1</span>) + x</span><br></pre></td></tr></table></figure>
-<p><em>If the name “square” were bound to a built-in function, sum_squares would still work identically.</em> </p>
-<h3 id="Choosing-Names"><a href="#Choosing-Names" class="headerlink" title="Choosing Names"></a>Choosing Names</h3><p>Names typically don’t matter for correctness, <strong><em>but</em></strong> they matter a lot for composition</p>
-<p>Names should convey the meaning or purpose of the values to which they are bound. </p>
-<p>The type of value bound to the name is best documented in a function’s docstring. </p>
+<p><em>If the name “square” were bound to a built-in function, sum_squares would still work identically.</em></p>
+<h3 id="choosing-names">Choosing Names</h3>
+<p>Names typically don’t matter for correctness, <strong><em>but</em></strong> they matter a lot for composition</p>
+<p>Names should convey the meaning or purpose of the values to which they are bound.</p>
+<p>The type of value bound to the name is best documented in a function's docstring.</p>
 <p>Function names typically convey their effect (<strong>print</strong>), their behaviour (<strong>triple</strong>), or the value returned (<strong>abs</strong>).</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>From:</th>
 <th>To:</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>true_false</td>
 <td>rolled_a_one</td>
 </tr>
-<tr>
+<tr class="even">
 <td>d</td>
 <td>dice</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>play_helper</td>
 <td>take_turn</td>
 </tr>
-<tr>
+<tr class="even">
 <td>my_int</td>
 <td>num_rolls</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>l, I, O</td>
 <td>k, i, m</td>
 </tr>
-</tbody></table>
-<h3 id="Which-Values-Deserve-a-Name"><a href="#Which-Values-Deserve-a-Name" class="headerlink" title="Which Values Deserve a Name"></a>Which Values Deserve a Name</h3><p><strong>Reasons to add a new name</strong></p>
+</tbody>
+</table>
+<h3 id="which-values-deserve-a-name">Which Values Deserve a Name</h3>
+<p><strong>Reasons to add a new name</strong></p>
 <p><em>Repeated compound expressions:</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> sqrt(square(a) + square(b)) &gt; <span class="number">1</span>:</span><br><span class="line">    x = x + sqrt(square(a) + square(b))</span><br><span class="line">    </span><br><span class="line">hypotenuse = sqrt(square(a) + square(b))</span><br><span class="line"><span class="keyword">if</span> hypotenuse &gt; <span class="number">1</span>:</span><br><span class="line">    x = x + hypotenuse</span><br></pre></td></tr></table></figure>
 <p><em>Meaningful parts of complex expressions:</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x1 = (-b + sqrt(square(b) - <span class="number">4</span> * a * c)) / (<span class="number">2</span> * a)</span><br><span class="line"></span><br><span class="line">discriminant = square(b) - <span class="number">4</span> * a * c</span><br><span class="line">x1 = (-b + sqrt(discriminant)) / (<span class="number">2</span> * a)</span><br></pre></td></tr></table></figure>
-<p><strong>More Naming Tips</strong> </p>
+<p><strong>More Naming Tips</strong></p>
 <ul>
 <li><p>Names can be long if they help document your code:</p>
-<p>average_age = average(age, students) </p>
-<p>is preferable to </p>
-<p># Compute average age of students aa = avg(a, st)</p>
-</li>
-<li><p>Names can be short if they represent generic quantities: counts, arbitrary functions, arguments to mathematical operations, etc. </p>
+<p>average_age = average(age, students)</p>
+<p>is preferable to</p>
+<p># Compute average age of students aa = avg(a, st)</p></li>
+<li><p>Names can be short if they represent generic quantities: counts, arbitrary functions, arguments to mathematical operations, etc.</p>
 <ul>
 <li>n, k, i - Usually integers</li>
 <li>x, y, z - Usually real numbers</li>
 <li>f, g, h - Usually functions</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Function-Example-Sounds"><a href="#Function-Example-Sounds" class="headerlink" title="Function Example: Sounds"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TC_JcE42R2s&list=PL6BsET-8jgYUC2Gl9J9Jo_JNLXWl7RcSs&index=3">Function Example: Sounds</a></h2><h3 id="WAV-Files"><a href="#WAV-Files" class="headerlink" title="WAV Files"></a>WAV Files</h3><p>The Waveform Audio File Format encodes a sampled sound wave</p>
-<p><img src="/images/CS61A/153151.png"></p>
+<h2 id="function-example-sounds"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TC_JcE42R2s&amp;list=PL6BsET-8jgYUC2Gl9J9Jo_JNLXWl7RcSs&amp;index=3">Function Example: Sounds</a></h2>
+<h3 id="wav-files">WAV Files</h3>
+<p>The Waveform Audio File Format encodes a sampled sound wave</p>
+<p><img src="/images/CS61A/153151.png" /></p>
 <p>A triangle wave is the simple wave form with the most pleasing sound</p>
-<p><img src="/images/CS61A/153152.png"></p>
+<p><img src="/images/CS61A/153152.png" /></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Example: Sound</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> wave <span class="keyword">import</span> <span class="built_in">open</span></span><br><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> Struct</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> floor</span><br><span class="line"></span><br><span class="line">frame_rate = <span class="number">11025</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Encode float x between -1 and 1 as two bytes.</span></span><br><span class="line"><span class="string">    (See https://docs.python.org/3/library/struct.html)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    i = <span class="built_in">int</span>(<span class="number">16384</span> * x)</span><br><span class="line">    <span class="keyword">return</span> Struct(<span class="string">&#x27;h&#x27;</span>).pack(i)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">play</span>(<span class="params">sampler, name=<span class="string">&#x27;song.wav&#x27;</span>, seconds=<span class="number">2</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Write the output of a sampler function as a wav file.</span></span><br><span class="line"><span class="string">    (See https://docs.python.org/3/library/wave.html)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    out = <span class="built_in">open</span>(name, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    out.setnchannels(<span class="number">1</span>)</span><br><span class="line">    out.setsampwidth(<span class="number">2</span>)</span><br><span class="line">    out.setframerate(frame_rate)</span><br><span class="line">    t = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> t &lt; seconds * frame_rate:</span><br><span class="line">        sample = sampler(t)</span><br><span class="line">        out.writeframes(encode(sample))</span><br><span class="line">        t = t + <span class="number">1</span></span><br><span class="line">    out.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tri</span>(<span class="params">frequency, amplitude=<span class="number">0.3</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;A continuous triangle wave.&quot;&quot;&quot;</span></span><br><span class="line">    period = frame_rate // frequency</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sampler</span>(<span class="params">t</span>):</span></span><br><span class="line">        saw_wave = t / period - floor(t / period + <span class="number">0.5</span>)</span><br><span class="line">        tri_wave = <span class="number">2</span> * <span class="built_in">abs</span>(<span class="number">2</span> * saw_wave) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> amplitude * tri_wave</span><br><span class="line">    <span class="keyword">return</span> sampler</span><br><span class="line"></span><br><span class="line">c_freq, e_freq, g_freq = <span class="number">261.63</span>, <span class="number">329.63</span>, <span class="number">392.00</span></span><br><span class="line"></span><br><span class="line">play(tri(e_freq))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">both</span>(<span class="params">f, g</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> t: f(t) + g(t)</span><br><span class="line"></span><br><span class="line">c = tri(c_freq)</span><br><span class="line">e = tri(e_freq)</span><br><span class="line">g = tri(g_freq)</span><br><span class="line"></span><br><span class="line">play(both(c, e))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">note</span>(<span class="params">f, start, end</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Play f for a fixed duration.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sampler</span>(<span class="params">t</span>):</span></span><br><span class="line">        seconds = t / frame_rate</span><br><span class="line">        <span class="keyword">if</span> seconds &lt; start:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> seconds &gt; end:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> f(t)</span><br><span class="line">    <span class="keyword">return</span> sampler</span><br><span class="line"></span><br><span class="line">play(both(note(c, <span class="number">0</span>, <span class="number">1</span>/<span class="number">4</span>), note(e, <span class="number">1</span>/<span class="number">2</span>, <span class="number">1</span>/<span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">note</span>(<span class="params">f, start, end, fade=<span class="number">.01</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Play f for a fixed duration.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sampler</span>(<span class="params">t</span>):</span></span><br><span class="line">        seconds = t / frame_rate</span><br><span class="line">        <span class="keyword">if</span> seconds &lt; start:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> seconds &gt; end:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> seconds &lt; start + fade:</span><br><span class="line">            <span class="keyword">return</span> (seconds - start) / fade * f(t)</span><br><span class="line">        <span class="keyword">elif</span> seconds &gt; end - fade:</span><br><span class="line">            <span class="keyword">return</span> (end - seconds) / fade * f(t)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> f(t)</span><br><span class="line">    <span class="keyword">return</span> sampler</span><br><span class="line"></span><br><span class="line">play(note(tri(e_freq), <span class="number">1</span>, <span class="number">1.5</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">low_g = tri(g_freq / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">play(both(note(e, <span class="number">0</span>, <span class="number">1</span>/<span class="number">8</span>), note(low_g, <span class="number">1</span>/<span class="number">8</span>, <span class="number">3</span>/<span class="number">8</span>)))</span><br><span class="line"></span><br><span class="line">play(both(note(c, <span class="number">0</span>, <span class="number">1</span>), both(note(e, <span class="number">0</span>, <span class="number">1</span>), note(g, <span class="number">0</span>, <span class="number">1</span>))))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mario</span>(<span class="params">c, e, g, low_g</span>):</span></span><br><span class="line">    z = <span class="number">0</span></span><br><span class="line">    song = note(e, z, z + <span class="number">1</span>/<span class="number">8</span>)</span><br><span class="line">    z += <span class="number">1</span>/<span class="number">8</span></span><br><span class="line">    song = both(song, note(e, z, z + <span class="number">1</span>/<span class="number">8</span>))</span><br><span class="line">    z += <span class="number">1</span>/<span class="number">4</span></span><br><span class="line">    song = both(song, note(e, z, z + <span class="number">1</span>/<span class="number">8</span>))</span><br><span class="line">    z += <span class="number">1</span>/<span class="number">4</span></span><br><span class="line">    song = both(song, note(c, z, z + <span class="number">1</span>/<span class="number">8</span>))</span><br><span class="line">    z += <span class="number">1</span>/<span class="number">8</span></span><br><span class="line">    song = both(song, note(e, z, z + <span class="number">1</span>/<span class="number">8</span>))</span><br><span class="line">    z += <span class="number">1</span>/<span class="number">4</span></span><br><span class="line">    song = both(song, note(g, z, z + <span class="number">1</span>/<span class="number">4</span>))</span><br><span class="line">    z += <span class="number">1</span>/<span class="number">2</span></span><br><span class="line">    song = both(song, note(low_g, z, z + <span class="number">1</span>/<span class="number">4</span>))</span><br><span class="line">    <span class="keyword">return</span> song</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mario_at</span>(<span class="params">octave</span>):</span></span><br><span class="line">    c = tri(octave * c_freq)</span><br><span class="line">    e = tri(octave * e_freq)</span><br><span class="line">    g = tri(octave * g_freq)</span><br><span class="line">    low_g = tri(octave * g_freq / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> mario(c, e, g, low_g)</span><br><span class="line"></span><br><span class="line">play(both(mario_at(<span class="number">1</span>), mario_at(<span class="number">1</span>/<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
 
                 

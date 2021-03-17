@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    543
+                    547
                 </div>
                 
 
@@ -497,118 +497,132 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Regular-Expressions"><a href="#Regular-Expressions" class="headerlink" title="Regular Expressions"></a>Regular Expressions</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+                <h1 id="regular-expressions">Regular Expressions</h1>
+<h2 id="introduction">Introduction</h2>
+<ul>
 <li><strong>Recognition</strong> and <strong>Generation</strong> are two ways to define formal languages</li>
 <li>Regular languages can be recognised using <strong>Finite Automata</strong> (DFA, NFA, Λ-NFA)</li>
 <li>Regular languages can be generated using <strong>Regular Expressions</strong></li>
 </ul>
-<h2 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h2><ul>
+<h2 id="notation">Notation</h2>
+<ul>
 <li><p>Basic building blocks</p>
 <ul>
 <li>∅ representing itself</li>
 <li>Λ representing the language {Λ}</li>
 <li>Terminal symbols e.g. b representing the language {b}</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Operators</p>
 <ul>
 <li>Concatenation: e.g. ab</li>
-<li>Alternation: e.g. a + b (choice between alternatives / union)<ul>
+<li>Alternation: e.g. a + b (choice between alternatives / union)
+<ul>
 <li>Alternation is <strong>commutative</strong>!</li>
-</ul>
-</li>
+</ul></li>
 <li>Closure: e.g. a<sup>∗</sup></li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>These three operators suffice to generate all regular languages</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>The following table gives some REs and their languages. The expressions that use closure have infinite languages, so one cannot list all their strings. In these cases, we may settle for listing several of the shorter strings followed by “.. .” or we may specify an infinite set intentionally, as in the last row of the table.</p>
+<h2 id="example">Example</h2>
+<p>The following table gives some REs and their languages. The expressions that use closure have infinite languages, so one cannot list all their strings. In these cases, we may settle for listing several of the shorter strings followed by ".. ." or we may specify an infinite set intentionally, as in the last row of the table.</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>RE</th>
 <th>Corresponding Regular Set</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>a + bc</td>
 <td>{a, bc}</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a(b + c)</td>
 <td>{ab, ac}</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>(a + b)(a + c)(Λ + a)</td>
 <td>{aa, ac, ba, bc, aaa, aca, baa, bca}</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a<sup>∗</sup>(b + cc)</td>
 <td>{b, cc, ab, acc, aab, aacc, aaab, aaacc, . .}</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>a + bb<sup>∗</sup></td>
-<td>{a, b, bb, bbb, bbbb, bbbbb, … }</td>
+<td>{a, b, bb, bbb, bbbb, bbbbb, ... }</td>
 </tr>
-<tr>
+<tr class="even">
 <td>(a + bb)<sup>∗</sup></td>
-<td>{Λ, a, bb, aa, abb, bba, bbbb, aaa, …}</td>
+<td>{Λ, a, bb, aa, abb, bba, bbbb, aaa, ...}</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>a<sup>∗</sup>b<sup>∗</sup></td>
-<td>{Λ, a, b, aa, ab, bb, aaa, aab, abb, bbb, …}</td>
+<td>{Λ, a, b, aa, ab, bb, aaa, aab, abb, bbb, ...}</td>
 </tr>
-<tr>
+<tr class="even">
 <td>((a + b)(a + b))<sup>∗</sup></td>
 <td>{x | x e {a, b}<sup>∗</sup> Λ |x| is even.}</td>
 </tr>
-</tbody></table>
-<h2 id="Definition-Regular-expressions-and-their-languages"><a href="#Definition-Regular-expressions-and-their-languages" class="headerlink" title="Definition: Regular expressions and their languages"></a>Definition: Regular expressions and their languages</h2><p>The following conditions specify the set of REs, R, over the symbol set Σ and also their languages.</p>
-<ol>
-<li><p>∅ ∈ R and it represents the set ∅. </p>
-<p>A ∈ R and it represents the set {Λ}. </p>
-<p>∀σ ∈ E : a ∈ R and it represents the set {σ}</p>
-</li>
-<li><p>If r ∈ R, then (r<sup>∗</sup>) ∈ R, representing the closure of r’s set.</p>
-<p>If r<sub>1</sub> ∈ R and r<sub>2</sub> ∈ R, then (r<sub>1</sub>r<sub>2</sub> ) ∈ R and (r<sub>1</sub> + r<sub>2</sub>) ∈ R, representing the concatenation and union of the sets that r<sub>1</sub> and r<sub>2</sub> represent.</p>
-</li>
-<li><p>There are no other REs over Σ.</p>
-</li>
+</tbody>
+</table>
+<h2 id="definition-regular-expressions-and-their-languages">Definition: Regular expressions and their languages</h2>
+<p>The following conditions specify the set of REs, R, over the symbol set Σ and also their languages.</p>
+<ol type="1">
+<li><p>∅ ∈ R and it represents the set ∅.</p>
+<p>A ∈ R and it represents the set {Λ}.</p>
+<p>∀σ ∈ E : a ∈ R and it represents the set {σ}</p></li>
+<li><p>If r ∈ R, then (r<sup>∗</sup>) ∈ R, representing the closure of r's set.</p>
+<p>If r<sub>1</sub> ∈ R and r<sub>2</sub> ∈ R, then (r<sub>1</sub>r<sub>2</sub> ) ∈ R and (r<sub>1</sub> + r<sub>2</sub>) ∈ R, representing the concatenation and union of the sets that r<sub>1</sub> and r<sub>2</sub> represent.</p></li>
+<li><p>There are no other REs over Σ.</p></li>
 </ol>
-<h2 id="Definition-Language-Function"><a href="#Definition-Language-Function" class="headerlink" title="Definition: Language Function"></a>Definition: Language Function</h2><p><strong>If r is an RE, <em>L</em>(r) is the set it represents</strong></p>
-<p><strong>Example</strong>: What strings are in L = <em>L</em>((a + bb)<sup>∗</sup>)? </p>
+<h2 id="definition-language-function">Definition: Language Function</h2>
+<p><strong>If r is an RE, <em>L</em>(r) is the set it represents</strong></p>
+<p><strong>Example</strong>: What strings are in L = <em>L</em>((a + bb)<sup>∗</sup>)?</p>
 <p>L is the set that the RE (a+ bb)<sup>∗</sup> represents. This language contains all strings over {a, b}, in which the all-b substrings must be of even length.</p>
-<h2 id="Definition-Another-extension-of-REs"><a href="#Definition-Another-extension-of-REs" class="headerlink" title="Definition: Another extension of REs"></a>Definition: Another extension of REs</h2><p><strong>Let r be any RE. Then r<sup>+</sup> represents and strings in r<sup>∗</sup>, except Λ</strong></p>
+<h2 id="definition-another-extension-of-res">Definition: Another extension of REs</h2>
+<p><strong>Let r be any RE. Then r<sup>+</sup> represents and strings in r<sup>∗</sup>, except Λ</strong></p>
 <p>Some observations:</p>
 <ul>
-<li> r<sup>∗</sup> = Λ + r<sup>+</sup></li>
+<li>r<sup>∗</sup> = Λ + r<sup>+</sup></li>
 <li>Another way to describe r<sup>+</sup> is to say that it stands for 1 or more r’s concatenated</li>
-<li>r<sup>+</sup> = rr<sup>∗</sup> </li>
+<li>r<sup>+</sup> = rr<sup>∗</sup></li>
 </ul>
 <p>Example: Find an RE for all strings over Σ = {a, b} in which the number of bs is: (i) exactly 2, (ii) at least 2, (iii) even, or (iv) odd.</p>
 <ul>
-<li>(ii) a<sup>∗</sup>ba<sup>∗</sup>ba<sup>∗</sup></li>
-<li>(ii) a<sup>∗</sup>ba<sup>∗</sup>b(a + b)<sup>∗</sup></li>
-<li>(iii) a<sup>∗</sup>(ba<sup>∗</sup>ba<sup>∗</sup>)<sup>∗</sup></li>
-<li>(iv) a<sup>∗</sup>ba<sup>∗</sup>(ba<sup>∗</sup>ba<sup>∗</sup>)<sup>∗</sup></li>
+<li><ol start="2" type="i">
+<li>a<sup>∗</sup>ba<sup>∗</sup>ba<sup>∗</sup></li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>a<sup>∗</sup>ba<sup>∗</sup>b(a + b)<sup>∗</sup></li>
+</ol></li>
+<li><ol start="3" type="i">
+<li>a<sup>∗</sup>(ba<sup>∗</sup>ba<sup>∗</sup>)<sup>∗</sup></li>
+</ol></li>
+<li><ol start="4" type="i">
+<li>a<sup>∗</sup>ba<sup>∗</sup>(ba<sup>∗</sup>ba<sup>∗</sup>)<sup>∗</sup></li>
+</ol></li>
 </ul>
-<h2 id="Building-automata-for-RE"><a href="#Building-automata-for-RE" class="headerlink" title="Building automata for RE"></a>Building automata for RE</h2><p>Build a Λ-NFA that recognises <em>L</em>(r) for any RE r</p>
+<h2 id="building-automata-for-re">Building automata for RE</h2>
+<p>Build a Λ-NFA that recognises <em>L</em>(r) for any RE r</p>
 <ul>
 <li>Decompose r, using the recursive definition, down to zero-operation REs</li>
 <li>Use FAs for each zero-operation RE</li>
 </ul>
-<p><img src="/images/FOCS/1864440.png"></p>
+<p><img src="/images/FOCS/1864440.png" /></p>
 <ul>
 <li>Recompose r, building Λ-NFAs at each stage, using the constructive proofs</li>
 </ul>
 <p><strong>Examples</strong></p>
-<p><img src="/images/FOCS/1864441.png"></p>
-<p><img src="/images/FOCS/1864442.png"></p>
-<p><img src="/images/FOCS/1864443.png"></p>
+<p><img src="/images/FOCS/1864441.png" /></p>
+<p><img src="/images/FOCS/1864442.png" /></p>
+<p><img src="/images/FOCS/1864443.png" /></p>
 <ul>
 <li>Accepts (a + b)<sup>∗</sup>ba(ba)<sup>∗</sup></li>
 </ul>
-<h2 id="Exercises"><a href="#Exercises" class="headerlink" title="Exercises"></a>Exercises</h2><p>Convert the following regular expressions to Λ-NFAs</p>
+<h2 id="exercises">Exercises</h2>
+<p>Convert the following regular expressions to Λ-NFAs</p>
 <ul>
 <li>(aa + ab)<sup>∗</sup></li>
 <li>(aaa + abb)<sup>∗</sup>b</li>
@@ -618,16 +632,17 @@
 <ul>
 <li>(aa + ab)<sup>∗</sup></li>
 </ul>
-<p><img src="/images/FOCS/1864444.png"></p>
+<p><img src="/images/FOCS/1864444.png" /></p>
 <ul>
 <li>(aaa + abb)<sup>∗</sup>b</li>
 </ul>
-<p><img src="/images/FOCS/1864445.png"></p>
+<p><img src="/images/FOCS/1864445.png" /></p>
 <ul>
 <li>(a + aab)<sup>∗</sup>b</li>
 </ul>
-<p><img src="/images/FOCS/1864446.png"></p>
-<h2 id="Theorem"><a href="#Theorem" class="headerlink" title="Theorem"></a>Theorem</h2><p>Any regular language is the set of strings represented by an RE.</p>
+<p><img src="/images/FOCS/1864446.png" /></p>
+<h2 id="theorem">Theorem</h2>
+<p>Any regular language is the set of strings represented by an RE.</p>
 
                 
             </div>

@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-11
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -497,502 +497,524 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="From-sequence-to-structure-Secondary-structure-prediction"><a href="#From-sequence-to-structure-Secondary-structure-prediction" class="headerlink" title="From sequence to structure - Secondary structure prediction"></a>From sequence to structure - Secondary structure prediction</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=/personal/wim_vranken_vub_be/Documents/Opnamen/Algorithms%20in%20bioinfo_computational%20biology-20210304_100320-Meeting%20Recording.mp4&parent=/personal/wim_vranken_vub_be/Documents/Opnamen&originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VWakxIeVdwX2F0SG1rZV9VMVNRZGdNQjBYNDNXMl9zWHR2bmVQbHFxWXIyZ0E_cnRpbWU9aVpuUjFqN2YyRWc">Video Part 1</a></p>
-<h2 id="Protein-secondary-structure-prediction-6-00"><a href="#Protein-secondary-structure-prediction-6-00" class="headerlink" title="Protein secondary structure prediction 6:00"></a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_secondary_structure">Protein secondary structure</a> prediction 6:00</h2><p><img src="/images/ADVMB/2002180.png"></p>
-<h2 id="Why-proteins-8-34"><a href="#Why-proteins-8-34" class="headerlink" title="Why proteins? 8:34"></a>Why <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein">proteins</a>? 8:34</h2><ul>
-<li><strong>Interacting</strong> is what proteins do! <ul>
-<li>Proteins can interact with many types of molecules, including <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein%E2%80%93protein_interaction">with other proteins</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein%E2%80%93lipid_interaction">with lipids</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein%E2%80%93carbohydrate_interaction">with carboyhydrates</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein%E2%80%93DNA_interaction">with DNA</a>.</li>
-</ul>
-</li>
-<li>Abundance in cells: Proteins in the cell are <strong>vastly complicated</strong><ul>
+                <h1 id="from-sequence-to-structure---secondary-structure-prediction">From sequence to structure - Secondary structure prediction</h1>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210304%5F100320%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VWakxIeVdwX2F0SG1rZV9VMVNRZGdNQjBYNDNXMl9zWHR2bmVQbHFxWXIyZ0E_cnRpbWU9aVpuUjFqN2YyRWc">Video Part 1</a></p>
+<h2 id="protein-secondary-structure-prediction-600"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_secondary_structure">Protein secondary structure</a> prediction 6:00</h2>
+<p><img src="/images/ADVMB/2002180.png" /></p>
+<h2 id="why-proteins-834">Why <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein">proteins</a>? 8:34</h2>
+<ul>
+<li><strong>Interacting</strong> is what proteins do!
+<ul>
+<li>Proteins can interact with many types of molecules, including <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein–protein_interaction">with other proteins</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein–lipid_interaction">with lipids</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein–carbohydrate_interaction">with carboyhydrates</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein–DNA_interaction">with DNA</a>.</li>
+</ul></li>
+<li>Abundance in cells: Proteins in the cell are <strong>vastly complicated</strong>
+<ul>
 <li>It has been estimated that average-sized <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bacteria">bacteria</a> contain about 2 million proteins per cell.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Bioinformatics-DNA-and-proteins-12-20"><a href="#Bioinformatics-DNA-and-proteins-12-20" class="headerlink" title="Bioinformatics, DNA and proteins 12:20"></a>Bioinformatics, DNA and proteins 12:20</h2><table>
+<h2 id="bioinformatics-dna-and-proteins-1220">Bioinformatics, DNA and proteins 12:20</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
-<th align="right">total</th>
-<th align="right">percentage</th>
+<th style="text-align: right;">total</th>
+<th style="text-align: right;">percentage</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Evidence at protein level</td>
-<td align="right">20622</td>
-<td align="right">0.05%</td>
+<td style="text-align: right;">20622</td>
+<td style="text-align: right;">0.05%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Evidence at transcript level</td>
-<td align="right">818805</td>
-<td align="right">1.91%</td>
+<td style="text-align: right;">818805</td>
+<td style="text-align: right;">1.91%</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Inferred from homology</td>
-<td align="right">9893252</td>
-<td align="right">23.10%</td>
+<td style="text-align: right;">9893252</td>
+<td style="text-align: right;">23.10%</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Predicted</td>
-<td align="right">32089200</td>
-<td align="right">74.94%</td>
+<td style="text-align: right;">32089200</td>
+<td style="text-align: right;">74.94%</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>The key method to investigate proteins is understand its level, like how to catalyse reaction and which signa, that is related to structural biology.</p>
-<h2 id="Structural-biology-15-38"><a href="#Structural-biology-15-38" class="headerlink" title="Structural biology 15:38"></a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Structural_biology#:~:text=Structural%20biology%20is%20a%20branch%20of%20molecular%20biology,,how%20alterations%20in%20their%20structures%20affect%20their%20function.">Structural biology</a> 15:38</h2><p><img src="/images/ADVMB/2002182.png" alt="21:24"></p>
-<h3 id="What-do-we-want-to-find-out-23-03"><a href="#What-do-we-want-to-find-out-23-03" class="headerlink" title="What do we want to find out? 23:03"></a>What do we want to find out? 23:03</h3><ul>
+<h2 id="structural-biology-1538"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Structural_biology#:~:text=Structural%20biology%20is%20a%20branch%20of%20molecular%20biology,,how%20alterations%20in%20their%20structures%20affect%20their%20function.">Structural biology</a> 15:38</h2>
+<figure>
+<img src="/images/ADVMB/2002182.png" alt="" /><figcaption>21:24</figcaption>
+</figure>
+<h3 id="what-do-we-want-to-find-out-2303">What do we want to find out? 23:03</h3>
+<ul>
 <li><p>How does a protein <strong>interact with a ligand</strong>?</p>
 <ul>
 <li><p>What does <a target="_blank" rel="noopener" href="https://nl.wikipedia.org/wiki/Ibuprofen">ibuprofen</a> do?</p>
-<p><img src="/images/ADVMB/2002181.png"></p>
-</li>
-</ul>
-</li>
+<p><img src="/images/ADVMB/2002181.png" /></p></li>
+</ul></li>
 <li><p>What do protein complexes look like?</p>
 <ul>
 <li>E.g. How do pili from bacteria form?</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Protein-behaviour-26-29"><a href="#Protein-behaviour-26-29" class="headerlink" title="Protein behaviour 26:29"></a><a target="_blank" rel="noopener" href="https://alevelbiology.co.uk/notes/proteins-physical-chemical-properties/">Protein behaviour</a> 26:29</h3><p>Everything constructed proteins move all the time.</p>
-<p><img src="/images/ADVMB/2002183.png" alt="28:00"></p>
-<p><img src="/images/ADVMB/2002184.png" alt="29:27"></p>
-<h4 id="Structural-relationship-of-proteins-and-amino-acids"><a href="#Structural-relationship-of-proteins-and-amino-acids" class="headerlink" title="Structural relationship of proteins and amino acids"></a><a target="_blank" rel="noopener" href="https://www.dnatube.com/video/833/Structural-relationship-of-proteins-and-amino-acids">Structural relationship of proteins and amino acids</a></h4><p>Amino acids are the building blocks of polypeptides and proteins. In polypeptides and proteins, amino acids molecules are linked to each other by polypeptide bonds. The sequence of amino acids in polypeptide is encoded by the DNA.</p>
-<h2 id="Sequence-and-structure-41-40"><a href="#Sequence-and-structure-41-40" class="headerlink" title="Sequence and structure 41:40"></a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_sequencing">Sequence</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_structure">structure</a> 41:40</h2><p><img src="/images/ADVMB/2002185.png" alt="38:17 ~ 39:41"></p>
+<h3 id="protein-behaviour-2629"><a target="_blank" rel="noopener" href="https://alevelbiology.co.uk/notes/proteins-physical-chemical-properties/">Protein behaviour</a> 26:29</h3>
+<p>Everything constructed proteins move all the time.</p>
+<figure>
+<img src="/images/ADVMB/2002183.png" alt="" /><figcaption>28:00</figcaption>
+</figure>
+<figure>
+<img src="/images/ADVMB/2002184.png" alt="" /><figcaption>29:27</figcaption>
+</figure>
+<h4 id="structural-relationship-of-proteins-and-amino-acids"><a target="_blank" rel="noopener" href="https://www.dnatube.com/video/833/Structural-relationship-of-proteins-and-amino-acids">Structural relationship of proteins and amino acids</a></h4>
+<p>Amino acids are the building blocks of polypeptides and proteins. In polypeptides and proteins, amino acids molecules are linked to each other by polypeptide bonds. The sequence of amino acids in polypeptide is encoded by the DNA.</p>
+<h2 id="sequence-and-structure-4140"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_sequencing">Sequence</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_structure">structure</a> 41:40</h2>
+<figure>
+<img src="/images/ADVMB/2002185.png" alt="" /><figcaption>38:17 ~ 39:41</figcaption>
+</figure>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_folding">Protein folding</a></p>
-</li>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein_folding">Protein folding</a></p></li>
 <li><p>The structure is encoded in the sequence, but how?</p>
 <ul>
-<li>100 amino acid protein <ul>
+<li>100 amino acid protein
+<ul>
 <li>198 backbone angles</li>
 <li>3 conformations each</li>
 <li>3<sup>198</sup> possibilities!</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li><p>How do we get from a sequence to secondary or tertiary structure? 47:17</p>
 <ul>
-<li>Experimental data!<ul>
+<li>Experimental data!
+<ul>
 <li>NMR, X-ray, …</li>
 <li>But what if you don’t have any? – <strong>Bioinformatics</strong>!</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002186.png" alt="Bioinformatics approach 1:06:29"></p>
-<p><img src="/images/ADVMB/2002187.png" alt="1:09:41"></p>
-<h2 id="Protein-secondary-structure-prediction-1-10-32"><a href="#Protein-secondary-structure-prediction-1-10-32" class="headerlink" title="Protein secondary structure prediction 1:10:32"></a>Protein secondary structure prediction 1:10:32</h2><h3 id="How-do-we-define-secondary-structure-classes"><a href="#How-do-we-define-secondary-structure-classes" class="headerlink" title="How do we define secondary structure classes?"></a>How do we define <em>secondary structure classes</em>?</h3><ul>
+<figure>
+<img src="/images/ADVMB/2002186.png" alt="" /><figcaption>Bioinformatics approach 1:06:29</figcaption>
+</figure>
+<figure>
+<img src="/images/ADVMB/2002187.png" alt="" /><figcaption>1:09:41</figcaption>
+</figure>
+<h2 id="protein-secondary-structure-prediction-11032">Protein secondary structure prediction 1:10:32</h2>
+<h3 id="how-do-we-define-secondary-structure-classes">How do we define <em>secondary structure classes</em>?</h3>
+<ul>
 <li><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aH2IbYs_XjY">Hydrogen bonding</a> 1:10:48</p>
 <ul>
 <li>Hydrogen on electronegative atom (N, O) has partial positive charge</li>
 <li>Can form a <em>hydrogen bond</em> with another electronegative atom</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Regular patterns of hydrogen bonding in secondary structure elements 1:16:35</p>
 <ul>
-<li><img src="/images/ADVMB/2002188.png"></li>
-</ul>
-</li>
+<li><img src="/images/ADVMB/2002188.png" /></li>
+</ul></li>
 <li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DSSP_(hydrogen_bond_estimation_algorithm)">DSSP (hydrogen bond estimation algorithm)</a> 1:17:54</p>
 <ul>
-<li><p>1983, in Pascal</p>
-</li>
+<li><p>1983, in Pascal</p></li>
 <li><p>Simple definition for backbone hydrogen bond</p>
-</li>
-<li><p>$$<br>E = 0.084&lt;!–swig￼0–&gt;+{\frac{1}{\gamma}<em>{CH}}-{\frac{1}{\gamma}</em>{OH}}-{\frac{1}{\gamma}_{CN}}}•332 kcal/mol<br>$$</p>
+<p><img src="/images/ADVMB/2002114.png" /></p>
 <ul>
 <li>r is distance</li>
 <li>N, H backbone atoms from residue i</li>
 <li>O, C backbone atoms from residue j</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Assigns secondary structure based on patterns</p>
 <ul>
 <li>α helix (H), i → i+4</li>
 <li>β strand (E), long set of connected hydrogen bonds</li>
 <li>3<sub>10</sub> helix (G), i → i+3</li>
 <li>And others…</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Look at the local conformation of the amino acid.</p>
-</li>
-<li><p><img src="/images/ADVMB/2002189.png" alt="1:20:48"></p>
-</li>
+</ul></li>
+</ul></li>
+<li><p>Look at the local conformation of the amino acid.</p></li>
+<li><figure>
+<img src="/images/ADVMB/2002189.png" alt="" /><figcaption>1:20:48</figcaption>
+</figure></li>
 <li><p>Using structural biology data</p>
 <ul>
-<li><img src="/images/ADVMB/2002190.png" alt="1:27:30"></li>
+<li><img src="/images/ADVMB/2002190.png" title="fig:" alt="1:27:30" /></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Is-there-bias-in-the-input-data-1-43-07"><a href="#Is-there-bias-in-the-input-data-1-43-07" class="headerlink" title="Is there bias in the input data? 1:43:07"></a>Is there bias in the input data? 1:43:07</h3><ul>
+<h3 id="is-there-bias-in-the-input-data-14307">Is there bias in the input data? 1:43:07</h3>
+<ul>
 <li><p>Reference structure data set is crucial</p>
 <ul>
 <li>Not too much overlap between sequences!</li>
-</ul>
-</li>
-<li><p>In general, proteins with less than 25-30% sequence identity between them</p>
-</li>
+</ul></li>
+<li><p>In general, proteins with less than 25-30% sequence identity between them</p></li>
 <li><p>Other considerations</p>
 <ul>
 <li>Structure quality and origin, …</li>
-</ul>
-</li>
-<li><p>Only about 6000 out of 80000 proteins</p>
-</li>
+</ul></li>
+<li><p>Only about 6000 out of 80000 proteins</p></li>
 <li><p>Define secondary structure</p>
 <ul>
 <li><p>DSSPH</p>
 <ul>
 <li>bonds</li>
-</ul>
-</li>
+</ul></li>
 <li><p>STRIDE</p>
 <ul>
 <li>H bonds and (Φ,Ψ)</li>
-</ul>
-</li>
+</ul></li>
 <li><p>DEFINE</p>
 <ul>
 <li>Interatomic distances</li>
+</ul></li>
+</ul></li>
+<li><p>Secondary structure is a human concept!</p></li>
+<li><p>Atom coordinate information from tertiary structure is converted into <strong>discrete</strong> secondary structure states</p></li>
+<li><p>This is what is used to develop secondary structure predictors.</p></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>Secondary structure is a human concept!</p>
-</li>
-<li><p>Atom coordinate information from tertiary structure is converted into <strong>discrete</strong> secondary structure states</p>
-</li>
-<li><p>This is what is used to develop secondary structure predictors.</p>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002191.png"></p>
-<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=/personal/wim_vranken_vub_be/Documents/Opnamen/Algorithms%20in%20bioinfo_computational%20biology-20210311_100144-Meeting%20Recording.mp4&parent=/personal/wim_vranken_vub_be/Documents/Opnamen&originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VlQ2JydHBTTHRGQ2tQclFhV0Jhd3hJQnc2UnVQWXdoc0dVdzBNQ0tPY0pTX2c_cnRpbWU9TEZoQTM2UGsyRWc">Video Part 2 1:02 ~ 1:50:17</a></p>
-<h3 id="How-do-we-prepare-and-clean-up-the-data"><a href="#How-do-we-prepare-and-clean-up-the-data" class="headerlink" title="How do we prepare and clean  up the data?"></a>How do we prepare and clean  up the data?</h3><h4 id="Input-data-2-27"><a href="#Input-data-2-27" class="headerlink" title="Input data 2:27"></a>Input data 2:27</h4><ul>
-<li><p>Need clean protein structure data with bias  removed as much as possible</p>
+<p><img src="/images/ADVMB/2002191.png" /></p>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210311%5F100144%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VlQ2JydHBTTHRGQ2tQclFhV0Jhd3hJQnc2UnVQWXdoc0dVdzBNQ0tPY0pTX2c_cnRpbWU9TEZoQTM2UGsyRWc">Video Part 2 1:02 ~ 1:50:17</a></p>
+<h3 id="how-do-we-prepare-and-clean-up-the-data">How do we prepare and clean up the data?</h3>
+<h4 id="input-data-227">Input data 2:27</h4>
 <ul>
-<li>What about sequence overlap? Relatively common problem, does  someone already have a solution</li>
-</ul>
-</li>
-<li><p>Look for servers/articles/… – Common bioinformatics approach 3:56</p>
+<li>Need clean protein structure data with bias removed as much as possible
+<ul>
+<li>What about sequence overlap? Relatively common problem, does someone already have a solution</li>
+</ul></li>
+<li>Look for servers/articles/… – Common bioinformatics approach 3:56
 <ul>
 <li>With a bit of luck the data are still live and accessible</li>
-</ul>
-</li>
-<li><p>Determine which cutoffs/dataset to use for your approach 5:25</p>
+</ul></li>
+<li>Determine which cutoffs/dataset to use for your approach 5:25
 <ul>
-<li>Very strict:<ul>
+<li>Very strict:
+<ul>
 <li>Only X-ray crystallography</li>
 <li>Resolution of 1.6 Å or better (lower value)</li>
 <li>Sequence identity cutoff of 25%</li>
 <li>cullpdb_pc20_res1.6_R0.25_d120323_chains1998</li>
+</ul></li>
+</ul></li>
+<li>What is in the PISCES file? 6:27</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p> What is in the PISCES file? 6:27</p>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002192.png"></p>
+<p><img src="/images/ADVMB/2002192.png" /></p>
 <ul>
-<li>Run DSSP and STRIDE on 498 PDB structure 8:16<ul>
+<li>Run DSSP and STRIDE on 498 PDB structure 8:16
+<ul>
 <li>Original set reduced for computational reasons</li>
-</ul>
-</li>
-<li>Parse and interpret results<ul>
-<li>Files for DSSP and for STRIDE</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002193.png"></p>
+</ul></li>
+<li>Parse and interpret results
 <ul>
-<li>Associated information 9:26<ul>
-<li> Protein family, from CATH</li>
+<li>Files for DSSP and for STRIDE</li>
+</ul></li>
 </ul>
-</li>
+<p><img src="/images/ADVMB/2002193.png" /></p>
+<ul>
+<li>Associated information 9:26</li>
+<li>Protein family, from CATH</li>
 </ul>
-<p><img src="/images/ADVMB/2002194.png"></p>
-<h3 id="Other-issues-11-39"><a href="#Other-issues-11-39" class="headerlink" title="Other issues 11:39"></a>Other issues 11:39</h3><h4 id="Proteins-are-dynamic"><a href="#Proteins-are-dynamic" class="headerlink" title="Proteins are dynamic"></a>Proteins are dynamic</h4><h5 id="Example-12-22"><a href="#Example-12-22" class="headerlink" title="Example 12:22:"></a><strong>Example</strong> 12:22:</h5><p>Does a given amino acid always fully adopt one  type of secondary structure in reality?</p>
+<p><img src="/images/ADVMB/2002194.png" /></p>
+<h3 id="other-issues-1139">Other issues 11:39</h3>
+<h4 id="proteins-are-dynamic">Proteins are dynamic</h4>
+<h5 id="example-1222"><strong>Example</strong> 12:22:</h5>
+<p>Does a given amino acid always fully adopt one type of secondary structure in reality?</p>
 <ul>
 <li>No!</li>
-<li>Even possible that it switches secondary structure<ul>
-<li>E.g. plaque formation in Alzheimers, where α helices  from native protein form βstrands in plaques.</li>
+<li>Even possible that it switches secondary structure
+<ul>
+<li>E.g. plaque formation in Alzheimers, where α helices from native protein form βstrands in plaques.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h5 id="Could-you-avoid-using-structures-15-47"><a href="#Could-you-avoid-using-structures-15-47" class="headerlink" title="Could you avoid using structures? 15:47"></a>Could you avoid using structures? 15:47</h5><ul>
-<li><p>Develop predictions directly from data for protein  in solution</p>
-</li>
+<h5 id="could-you-avoid-using-structures-1547">Could you avoid using structures? 15:47</h5>
+<ul>
+<li><p>Develop predictions directly from data for protein in solution</p></li>
 <li><p><strong>NMR</strong> data is recorded on proteins in solution</p>
 <ul>
-<li>Estimate in-solution secondary structure  populations from NMR observations</li>
+<li>Estimate in-solution secondary structure populations from NMR observations</li>
 <li>Get secondary structure fractions, not states…</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Variability-16-50"><a href="#Variability-16-50" class="headerlink" title="Variability! 16:50"></a>Variability! 16:50</h3><p><img src="/images/ADVMB/2002195.png" alt="Many combinations and variations!"></p>
-<p>How will we  validate how  well our  approach  works? 18:02</p>
-<h4 id="Validation-20-35"><a href="#Validation-20-35" class="headerlink" title="Validation 20:35"></a>Validation 20:35</h4><ul>
-<li>Understand how well the method works<ul>
+<h3 id="variability-1650">Variability! 16:50</h3>
+<figure>
+<img src="/images/ADVMB/2002195.png" alt="" /><figcaption>Many combinations and variations!</figcaption>
+</figure>
+<p>How will we validate how well our approach works? 18:02</p>
+<h4 id="validation-2035">Validation 20:35</h4>
+<ul>
+<li>Understand how well the method works
+<ul>
 <li>Plan ahead</li>
+</ul></li>
+<li>Need independent test set
+<ul>
+<li>Cannot use data that is included in statistical analysis or training of method</li>
+</ul></li>
+<li>Jackknife (leave-one-out) 23:50
+<ul>
+<li>If method can be primed fast enough, leave out one protein, train the method, test it on the protein that you took out, ...</li>
+</ul></li>
+<li>But what measures or scores do you use to assess how well your method works? 25:03</li>
+<li>Do you look at only what you predict correctly? Or also at what you predict incorrectly?</li>
 </ul>
-</li>
-<li>Need independent test set<ul>
-<li>Cannot use data that is included in statistical analysis or  training of method</li>
-</ul>
-</li>
-<li>Jackknife (leave-one-out)  23:50<ul>
-<li>If method can be primed fast enough, leave out one  protein, train the method, test it on the protein that  you took out, …</li>
-</ul>
-</li>
-<li>But what measures or scores do you use to assess  how well your method works? 25:03</li>
-<li>Do you look at only what you predict correctly?  Or also at what you predict incorrectly?</li>
-</ul>
-<h2 id="Protein-secondary-structure-prediction"><a href="#Protein-secondary-structure-prediction" class="headerlink" title="Protein secondary structure prediction"></a>Protein secondary structure prediction</h2><h3 id="Q3-measure-35-35"><a href="#Q3-measure-35-35" class="headerlink" title="Q3 measure 35:35"></a>Q<sub>3</sub> measure 35:35</h3><p>$$<br>Q_3 = \frac{N_{residues_correctly_predicted}}{N_{residues_total}}<br>$$</p>
+<h2 id="protein-secondary-structure-prediction">Protein secondary structure prediction</h2>
+<h3 id="q3-measure-3535">Q<sub>3</sub> measure 35:35</h3>
+<p><span class="math display">\[
+Q_3 = \frac{N_{residues\_correctly\_predicted}}{N_{residues\_total}}
+\]</span></p>
 <ul>
 <li>Random prediction should give 0.33</li>
-<li>Real random prediction gives 0.38<ul>
+<li>Real random prediction gives 0.38
+<ul>
 <li>Frequencies of secondary structure are not the same</li>
+</ul></li>
+<li>Bad predictions can give <strong>high</strong> scores ...</li>
 </ul>
-</li>
-<li>Bad predictions can give <strong>high</strong> scores …</li>
-</ul>
-<p><img src="/images/ADVMB/2002196.png"></p>
-<h3 id="Matthews-correlation-coefficient-MCC-40-48"><a href="#Matthews-correlation-coefficient-MCC-40-48" class="headerlink" title="Matthews correlation coefficient (MCC) 40:48"></a>Matthews correlation coefficient (MCC) 40:48</h3><ul>
+<p><img src="/images/ADVMB/2002196.png" /></p>
+<h3 id="matthews-correlation-coefficient-mcc-4048">Matthews correlation coefficient (MCC) 40:48</h3>
+<ul>
 <li>Predicted for each secondary structure state</li>
 <li>Uses false/true positives and false/true negative</li>
 </ul>
-<p><img src="/images/ADVMB/2002197.png"><br>$$<br>MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}<br>$$</p>
+<p><img src="/images/ADVMB/2002197.png" /> <span class="math display">\[
+MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
+\]</span></p>
 <ul>
 <li><p>Sensitivity (hit rate, recall)</p>
-<p><em>TPR = TP / (TP + FN)</em></p>
-</li>
+<p><em>TPR = TP / (TP + FN)</em></p></li>
 <li><p>Specificity</p>
-<p><em>SPC = TN / (FP + TN)</em></p>
-</li>
+<p><em>SPC = TN / (FP + TN)</em></p></li>
 </ul>
-<p><img src="/images/ADVMB/2002198.png" alt="Always has to add up to number of residues!"></p>
+<figure>
+<img src="/images/ADVMB/2002198.png" alt="" /><figcaption>Always has to add up to number of residues!</figcaption>
+</figure>
 <ul>
-<li>Report MCC always <strong><u>per secondary  structure class</u></strong></li>
+<li>Report MCC always <strong><u>per secondary structure class</u></strong></li>
 <li>Multi-class definition also available</li>
 </ul>
-<p>$$<br>MCC_{multiclass} = \frac{\sum_k\sum_l\sum_mC_{kk}C_{lm}-C_{kl}C_{mk}}{\sqrt{\sum_k(\sum_lC_{kl})(\sum_{k’|k’≠k}\sum_{l’}C_{k’l’})}\sqrt{\sum_k(\sum_lC_{lk})(\sum_{k’|k’≠k}\sum_{l’}C_{l’k’})}}<br>$$</p>
-<h3 id="Sov-measure-50-29"><a href="#Sov-measure-50-29" class="headerlink" title="Sov measure 50:29"></a>Sov measure 50:29</h3><p>Segment-based, heuristic</p>
+<p><span class="math display">\[
+MCC_{multiclass} = \frac{\sum_k\sum_l\sum_mC_{kk}C_{lm}-C_{kl}C_{mk}}{\sqrt{\sum_k(\sum_lC_{kl})(\sum_{k&#39;|k&#39;≠k}\sum_{l&#39;}C_{k&#39;l&#39;})}\sqrt{\sum_k(\sum_lC_{lk})(\sum_{k&#39;|k&#39;≠k}\sum_{l&#39;}C_{l&#39;k&#39;})}}
+\]</span></p>
+<h3 id="sov-measure-5029">Sov measure 50:29</h3>
+<p>Segment-based, heuristic</p>
 <ul>
 <li>Punishes broken predictions</li>
 </ul>
-<p><img src="/images/ADVMB/2002199.png"></p>
-<h3 id="Predictions-53-30"><a href="#Predictions-53-30" class="headerlink" title="Predictions 53:30"></a>Predictions 53:30</h3><p><img src="/images/ADVMB/2002200.png" alt="A bit of history… how predictions evolve"></p>
+<p><img src="/images/ADVMB/2002199.png" /></p>
+<h3 id="predictions-5330">Predictions 53:30</h3>
+<figure>
+<img src="/images/ADVMB/2002200.png" alt="" /><figcaption>A bit of history… how predictions evolve</figcaption>
+</figure>
 <ul>
-<li>Model based<ul>
+<li>Model based
+<ul>
 <li>Preferably using some actual experimental data</li>
-</ul>
-</li>
-<li>Machine learning<ul>
+</ul></li>
+<li>Machine learning
+<ul>
 <li>Many approaches, training steps essentia</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Chou-Fasman-54-42"><a href="#Chou-Fasman-54-42" class="headerlink" title="Chou-Fasman 54:42"></a>Chou-Fasman 54:42</h4><ul>
-<li>Original attempt at predicting secondary  structure</li>
+<h4 id="chou-fasman-5442">Chou-Fasman 54:42</h4>
+<ul>
+<li>Original attempt at predicting secondary structure</li>
 <li>Chou and Fasman (1970s)</li>
-<li>Based on very limited number of protein  structures</li>
+<li>Based on very limited number of protein structures</li>
 </ul>
-<p>Statistical propensity for each amino acid (R)  to adopt a certain secondary structure (S)</p>
-<p><img src="/images/ADVMB/2002201.png"></p>
-<h5 id="Chou-Fasman-algorithm"><a href="#Chou-Fasman-algorithm" class="headerlink" title="Chou-Fasman algorithm"></a>Chou-Fasman algorithm</h5><ul>
+<p>Statistical propensity for each amino acid (R) to adopt a certain secondary structure (S)</p>
+<p><img src="/images/ADVMB/2002201.png" /></p>
+<h5 id="chou-fasman-algorithm">Chou-Fasman algorithm</h5>
+<ul>
 <li>Assign α/β propensities to each amino acid</li>
 </ul>
-<p><img src="/images/ADVMB/2002202.png"></p>
+<p><img src="/images/ADVMB/2002202.png" /></p>
 <ul>
-<li>Find region with 4/6 connected residues p<sub>α</sub> &gt; 1.0<ul>
-<li>Extend on both ends until:<ul>
+<li>Find region with 4/6 connected residues p<sub>α</sub> &gt; 1.0
+<ul>
+<li>Extend on both ends until:
+<ul>
 <li>4 connected residues have average p<sub>α</sub> &lt; 1.0 → End of α helix</li>
-</ul>
-</li>
-<li>Total segment longer than 5 residues, average p<sub>α</sub> &gt; p<sub>β</sub> ?<ul>
-<li>Assign as α helix</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002203.png"></p>
+</ul></li>
+<li>Total segment longer than 5 residues, average p<sub>α</sub> &gt; p<sub>β</sub> ?
 <ul>
-<li>Find region with 3/5 connected residues p<sub>β</sub> &gt; 1.0 <ul>
-<li>Extend on both ends until:<ul>
+<li>Assign as α helix</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="/images/ADVMB/2002203.png" /></p>
+<ul>
+<li>Find region with 3/5 connected residues p<sub>β</sub> &gt; 1.0
+<ul>
+<li>Extend on both ends until:
+<ul>
 <li>4 connected residues have average p<sub>β</sub> &lt; 1.0 → End of β sheet</li>
-</ul>
-</li>
-<li>Average p<sub>β</sub> &gt; 1.05 and average p<sub>β</sub> &gt; p<sub>α</sub>?<ul>
+</ul></li>
+<li>Average p<sub>β</sub> &gt; 1.05 and average p<sub>β</sub> &gt; p<sub>α</sub>?
+<ul>
 <li>Assign as β sheet</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li>Repeat for whole sequence</li>
 <li>If α/β overlap, choose which one by highest average p</li>
 </ul>
 <p>Overall Chou-Fasman algorithm:</p>
 <ul>
-<li>Based on statistics </li>
-<li>Very simple <ul>
+<li>Based on statistics</li>
+<li>Very simple
+<ul>
 <li>Per-residue, no residue interactions included</li>
 <li>Algorithm <strong>cutoffs</strong> are pretty arbitrary</li>
-</ul>
-</li>
-<li>But gives better than random results!<ul>
+</ul></li>
+<li>But gives better than random results!
+<ul>
 <li>Q<sub>3</sub> score of 42-52% depending on protein family</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002204.png"></p>
-<h4 id="GOR-method-1-11-22"><a href="#GOR-method-1-11-22" class="headerlink" title="GOR method 1:11:22"></a>GOR method 1:11:22</h4><ul>
+<p><img src="/images/ADVMB/2002204.png" /></p>
+<h4 id="gor-method-11122">GOR method 1:11:22</h4>
+<ul>
 <li><p>Evolved from GOR to GOR-V</p>
 <ul>
 <li><em>Jean Garnier, David Osguthorpe, Barry Robson</em></li>
-</ul>
-</li>
-<li><p>Based on information theory approach (Bayes) </p>
+</ul></li>
+<li><p>Based on information theory approach (Bayes)</p>
 <ul>
 <li>Self-information</li>
 <li>Directional information</li>
 <li>Pair information</li>
+</ul></li>
+<li><p>Clearly defined model to get to results</p></li>
+<li><p>Self-information (related to Chou-Fasman)</p></li>
 </ul>
-</li>
-<li><p>Clearly defined model to get to results</p>
-</li>
-<li><p>Self-information (related to Chou-Fasman)</p>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002205.png"></p>
+<p><img src="/images/ADVMB/2002205.png" /></p>
 <ul>
 <li>Self-information, more general</li>
 </ul>
-<p><img src="/images/ADVMB/2002206.png"></p>
-<p><em>Calculated for the three conformations, the highest value of Eq. (2) for one of the conformations S will be the predicted  conformation and will be the propensity for that residue to be in that conformation, usually expressed in centinat units when  natural logarithms are used.</em> </p>
+<p><img src="/images/ADVMB/2002206.png" /></p>
+<p><em>Calculated for the three conformations, the highest value of Eq. (2) for one of the conformations S will be the predicted conformation and will be the propensity for that residue to be in that conformation, usually expressed in centinat units when natural logarithms are used.</em></p>
 <ul>
-<li>Include local sequence information<ul>
-<li>How often do you see a residue in relation to a  secondary structure element at position j?</li>
+<li>Include local sequence information
+<ul>
+<li>How often do you see a residue in relation to a secondary structure element at position j?</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>$$<br>I(ΔS_j;R_1,…, R_n ) = \log[P(S_j<br>, R_1,…, R_n )/ P(n − S_j<br>, R_1,…, R_n )]<br>+log[P(n − S)/ P(S)]<br>$$</p>
-<h5 id="GOR-I-II-1-21-22"><a href="#GOR-I-II-1-21-22" class="headerlink" title="GOR I/II 1:21:22"></a>GOR I/II 1:21:22</h5><h6 id="GOR-I-and-II-approximation"><a href="#GOR-I-and-II-approximation" class="headerlink" title="GOR I and II approximation"></a>GOR I and II approximation</h6><ul>
-<li>Self and directional information<ul>
+<p><span class="math display">\[
+I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
+, R_1,..., R_n )/ P(n − S_j
+, R_1,..., R_n )]
++log[P(n − S)/ P(S)]
+\]</span></p>
+<h5 id="gor-iii-12122">GOR I/II 1:21:22</h5>
+<h6 id="gor-i-and-ii-approximation">GOR I and II approximation</h6>
+<ul>
+<li>Self and directional information
+<ul>
 <li>26 proteins, ~4500 residues (1978, GOR I)</li>
-</ul>
-</li>
-<li>Uses windows of 17 residues<ul>
+</ul></li>
+<li>Uses windows of 17 residues
+<ul>
 <li>For residue at position j, consider j-8 to j+8</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002207.png"></p>
+<p><img src="/images/ADVMB/2002207.png" /></p>
 <ul>
 <li>GOR I and II implementation</li>
 </ul>
-<p><img src="/images/ADVMB/2002208.png"></p>
-<p><img src="/images/ADVMB/2002209.png"></p>
-<p><img src="/images/ADVMB/2002210.png"></p>
+<p><img src="/images/ADVMB/2002208.png" /></p>
+<p><img src="/images/ADVMB/2002209.png" /></p>
+<p><img src="/images/ADVMB/2002210.png" /></p>
 <ul>
-<li>GOR I results…<ul>
+<li>GOR I results…
+<ul>
 <li>Has Q<sub>3</sub> around 49%, but includes turns</li>
 <li>Bad at β sheet, tweaks get higher Q<sub>3</sub> (up to 60%)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002211.png"></p>
-<h5 id="GOR-III-1-35-05"><a href="#GOR-III-1-35-05" class="headerlink" title="GOR III 1:35:05"></a>GOR III 1:35:05</h5><h6 id="GOR-III-approximation"><a href="#GOR-III-approximation" class="headerlink" title="GOR III approximation"></a>GOR III approximation</h6><ul>
+<p><img src="/images/ADVMB/2002211.png" /></p>
+<h5 id="gor-iii-13505">GOR III 1:35:05</h5>
+<h6 id="gor-iii-approximation">GOR III approximation</h6>
+<ul>
 <li>68 proteins, 12000 residues (1987)</li>
 </ul>
-<p><img src="/images/ADVMB/2002212.png"></p>
+<p><img src="/images/ADVMB/2002212.png" /></p>
 <ul>
-<li>The results<ul>
+<li>The results
+<ul>
 <li>GOR III has Q<sub>3</sub> around 63%</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002213.png"></p>
-<p> How to improve this method?</p>
-<h5 id="GOR-IV-1-37-06"><a href="#GOR-IV-1-37-06" class="headerlink" title="GOR IV 1:37:06"></a>GOR IV 1:37:06</h5><h6 id="GOR-IV-approximation"><a href="#GOR-IV-approximation" class="headerlink" title="GOR IV approximation"></a>GOR IV approximation</h6><ul>
+<p><img src="/images/ADVMB/2002213.png" /></p>
+<p>How to improve this method?</p>
+<h5 id="gor-iv-13706">GOR IV 1:37:06</h5>
+<h6 id="gor-iv-approximation">GOR IV approximation</h6>
+<ul>
 <li>267 proteins, 63000 residues (1996)</li>
 <li>Consider information for all residue pairs</li>
 </ul>
-<p><img src="/images/ADVMB/2002214.png"></p>
+<p><img src="/images/ADVMB/2002214.png" /></p>
 <ul>
 <li>GOR IV implementation</li>
 </ul>
-<p><img src="/images/ADVMB/2002215.png"></p>
+<p><img src="/images/ADVMB/2002215.png" /></p>
 <ul>
-<li>Residue at position j in conformation S (and n-S): <ul>
-<li>For threonine T at position j-8: <ul>
+<li>Residue at position j in conformation S (and n-S):
+<ul>
+<li>For threonine T at position j-8:
+<ul>
 <li>Probability of histidine H at position j-7</li>
 <li>Same for j-6 to j+8</li>
-</ul>
-</li>
-<li>For histidine H at position j-7:<ul>
-<li>…</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002216.png"></p>
+</ul></li>
+<li>For histidine H at position j-7:
 <ul>
-<li><p>Residue at position j in conformation S (and n-S):</p>
-</li>
-<li><p>Probability threonine T at position j-8 </p>
-</li>
-<li><p>Probability histidine H at position j-7 </p>
-</li>
-<li><p>…</p>
-</li>
+<li>…</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="/images/ADVMB/2002216.png" /></p>
+<ul>
+<li><p>Residue at position j in conformation S (and n-S):</p></li>
+<li><p>Probability threonine T at position j-8</p></li>
+<li><p>Probability histidine H at position j-7</p></li>
+<li><p>…</p></li>
 <li><p>The results</p>
 <ul>
 <li>have mean Q<sub>3</sub> of 64.4%</li>
-<li>Example sequence of each protein class<ul>
+<li>Example sequence of each protein class
+<ul>
 <li><em>Zvelebil and Baum, Understanding Bioinformatics, Garland Science.</em></li>
 <li>All α, all β, α/β and α+β</li>
-</ul>
-</li>
+</ul></li>
 <li>Ranges from 39.2% (α+β) to 67.2% (α/β)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002217.png"></p>
-<h5 id="GOR-V-1-45-06"><a href="#GOR-V-1-45-06" class="headerlink" title="GOR V 1:45:06"></a>GOR V 1:45:06</h5><ul>
-<li>Uses multiple sequence alignment<ul>
-<li>Structure is more conserved than sequence<ul>
-<li>Insertions/deletions not as common in αhelices  andβsheets, more so in loops. </li>
-</ul>
-</li>
-<li>PSI-BLAST on query sequence<ul>
-<li>Get set of sequences with high identity<ul>
+<p><img src="/images/ADVMB/2002217.png" /></p>
+<h5 id="gor-v-14506">GOR V 1:45:06</h5>
+<ul>
+<li>Uses multiple sequence alignment
+<ul>
+<li>Structure is more conserved than sequence
+<ul>
+<li>Insertions/deletions not as common in αhelices andβsheets, more so in loops.</li>
+</ul></li>
+<li>PSI-BLAST on query sequence
+<ul>
+<li>Get set of sequences with high identity
+<ul>
 <li>Cutoff 30% if lots of hits, lower to 20% if not that many</li>
-</ul>
-</li>
+</ul></li>
 <li>Predict secondary structure for each sequence</li>
 <li>Average predictions for each residue</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Various other improvements<ul>
+</ul></li>
+</ul></li>
+<li>Various other improvements
+<ul>
 <li>513 proteins, 84107 residues (2002)</li>
-</ul>
-</li>
-<li>The results…<ul>
+</ul></li>
+<li>The results…
+<ul>
 <li>Has mean Q<sub>3</sub> of 73.5%</li>
 <li>Q<sub>3</sub> ranges from 60.3% (allβ) to 84.3% (allα)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/ADVMB/2002218.png"></p>
+<p><img src="/images/ADVMB/2002218.png" /></p>
 
                 
             </div>

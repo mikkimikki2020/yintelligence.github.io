@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    929
+                    942
                 </div>
                 
 
@@ -497,124 +497,144 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Proving-with-Predicates"><a href="#Proving-with-Predicates" class="headerlink" title="Proving with Predicates"></a>Proving with Predicates</h1><h2 id="Inference-rules"><a href="#Inference-rules" class="headerlink" title="Inference rules"></a>Inference rules</h2><h3 id="→-Introduction"><a href="#→-Introduction" class="headerlink" title="→ Introduction"></a>→ Introduction</h3><ul>
+                <h1 id="proving-with-predicates">Proving with Predicates</h1>
+<h2 id="inference-rules">Inference rules</h2>
+<h3 id="introduction">→ Introduction</h3>
+<ul>
 <li>Cf. propositional rule</li>
 <li>p(x) and q(x) are propositions</li>
 </ul>
-<p><img src="/images/FOCS/1.png"></p>
+<p><img src="/images/FOCS/1.png" /></p>
 <p>If the only assumption about x is that it is a member of <strong>U</strong>, and if this assumption leads to the truth of q(x), then q must hold for every member of <strong>U</strong></p>
-<p><img src="/images/FOCS/3.png"></p>
+<p><img src="/images/FOCS/3.png" /></p>
 <p>If at least one element of a set satisfies a predicate, this justifies the introduction of ∃</p>
-<p><img src="/images/FOCS/4.png"></p>
-<h2 id="∧-Elimination"><a href="#∧-Elimination" class="headerlink" title="∧ Elimination"></a>∧ Elimination</h2><ul>
+<p><img src="/images/FOCS/4.png" /></p>
+<h2 id="elimination">∧ Elimination</h2>
+<ul>
 <li>Also called <strong>instantiation</strong></li>
 <li>Generalises propositional ∧-elimination</li>
 <li>If p is true for all possible arguments, it must be true for a particular one</li>
 </ul>
-<p><img src="/images/FOCS/2.png"></p>
+<p><img src="/images/FOCS/2.png" /></p>
 <ul>
 <li>a must not be the name of a particular member of <strong>U</strong></li>
 <li>a should not have been mentioned earlier in the proof</li>
 </ul>
-<p><img src="/images/FOCS/5.png"></p>
-<h2 id="Proof-strategies"><a href="#Proof-strategies" class="headerlink" title="Proof strategies"></a>Proof strategies</h2><h3 id="From-∃X-∈-U-P-X"><a href="#From-∃X-∈-U-P-X" class="headerlink" title="From: ∃X ∈ U : P(X)"></a>From: ∃X ∈ <strong>U</strong> : P(X)</h3><ul>
-<li><p>Proof by example</p>
+<p><img src="/images/FOCS/5.png" /></p>
+<h2 id="proof-strategies">Proof strategies</h2>
+<h3 id="from-x-u-px">From: ∃X ∈ <strong>U</strong> : P(X)</h3>
+<ul>
+<li>Proof by example
 <ul>
 <li>Show that p(x) is TRUE for a specific x</li>
-</ul>
-</li>
-<li><p>Algorithmic Proof</p>
+</ul></li>
+<li>Algorithmic Proof
 <ul>
 <li>Give an algorithm for finding a specific x for which p(x) is TRUE</li>
 <li>Prove that the algorithm cannot fail</li>
-</ul>
-</li>
-<li><p>∀ Introduction</p>
+</ul></li>
+<li>∀ Introduction
 <ul>
 <li>Assume x ∈ <strong>U</strong> and show that p(x) is a consequence</li>
 <li>Important to assume x is an arbitrary element of <strong>U</strong></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="FORM-¬∀X-∈-U-P-X"><a href="#FORM-¬∀X-∈-U-P-X" class="headerlink" title="FORM: ¬∀X ∈ U : P(X)"></a>FORM: ¬∀X ∈ <strong>U</strong> : P(X)</h3><ul>
-<li>Proof by counterexample<ul>
+<h3 id="form-x-u-px">FORM: ¬∀X ∈ <strong>U</strong> : P(X)</h3>
+<ul>
+<li>Proof by counterexample
+<ul>
 <li>Use a De Morgan law</li>
 <li>(¬∀x ∈ <strong>U</strong> : p(x)) ≡ (∃x ∈ <strong>U</strong> : ¬p(x))</li>
 <li>Proof by example that there exists an x for which ¬p is TRUE</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="FORM-∀X-∈-N-P-X"><a href="#FORM-∀X-∈-N-P-X" class="headerlink" title="FORM: ∀X ∈ N : P(X)"></a>FORM: ∀X ∈ <strong>N</strong> : P(X)</h3><ul>
+<h3 id="form-x-n-px">FORM: ∀X ∈ <strong>N</strong> : P(X)</h3>
+<ul>
 <li>Proof by mathematical induction</li>
 </ul>
-<h2 id="Applying-logic-to-mathematics"><a href="#Applying-logic-to-mathematics" class="headerlink" title="Applying logic to mathematics"></a>Applying logic to mathematics</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>New application domain:</p>
+<h2 id="applying-logic-to-mathematics">Applying logic to mathematics</h2>
+<h3 id="introduction-1">Introduction</h3>
+<p>New application domain:</p>
 <ul>
 <li>New predicates</li>
 <li>New inference rules</li>
 </ul>
-<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h3><ul>
-<li>Subset Rule<ul>
+<h3 id="rules">Rules</h3>
+<ul>
+<li>Subset Rule
+<ul>
 <li>A ⊆ B follows from ∀x ∈ A : (x ∈ B)</li>
-</ul>
-</li>
-<li>Set equality rule<ul>
+</ul></li>
+<li>Set equality rule
+<ul>
 <li>A = B follows from A ⊆ B and B ⊆ A</li>
-</ul>
-</li>
-<li>Transitivity of &lt;<ul>
+</ul></li>
+<li>Transitivity of &lt;
+<ul>
 <li>a &lt; c follows from a &lt; b and b &lt; c</li>
 <li>E.g. =, ⊆ and ≡ are transitive as well</li>
-</ul>
-</li>
-<li>Pigeon hole principle<ul>
+</ul></li>
+<li>Pigeon hole principle
+<ul>
 <li>If n + 1 occurrences are assigned to n categories, there must be one category with at least two occurrences</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Example-proof"><a href="#Example-proof" class="headerlink" title="Example proof"></a>Example proof</h3><ul>
-<li><strong>Definition</strong>: <ul>
-<li>∀x ∈ <strong>N</strong> : Odd(x) ↔ ∃w ∈ <strong>N</strong> : (x = 2w + 1)</li>
-</ul>
-</li>
-<li><strong>Prove</strong>:<ul>
+<h3 id="example-proof">Example proof</h3>
+<ul>
+<li><strong>Definition</strong>:
+<ul>
+<li>∀x ∈ <strong>N</strong> : Odd(x) ↔︎ ∃w ∈ <strong>N</strong> : (x = 2w + 1)</li>
+</ul></li>
+<li><strong>Prove</strong>:
+<ul>
 <li>“If a and b are odd, then a times b is odd”</li>
 <li>∀a ∈ N : ∀b ∈ *<strong>N</strong> : (Odd(a) ∧ Odd(b) → Odd(ab))</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/FOCS/6.png"></p>
-<h3 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h3><p>Prove that for any n its successor times its predecessor is 1 less than its square. In other words, prove that ∀n ∈ N : P(n), where P(n) is (n + 1)(n - 1) = n<sup>2</sup> - 1. You do not need mathematical induction for this. Use V introduction and arithmetic manipulations involving distributivity and associativity. You may regard other rules of algebra as common knowledge that do not need to be explicitly provided as justifications. Lay out your proof like the rules-of-inference proofs in Chapter 3, justifying each step by stating its rule of inference.</p>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>Prove: ∀n ∈ <strong>N</strong> : (n + 1)(n − 1) = n<sup>2</sup> − 1</p>
-<ol>
+<p><img src="/images/FOCS/6.png" /></p>
+<h3 id="exercise">Exercise</h3>
+<p>Prove that for any n its successor times its predecessor is 1 less than its square. In other words, prove that ∀n ∈ N : P(n), where P(n) is (n + 1)(n - 1) = n<sup>2</sup> - 1. You do not need mathematical induction for this. Use V introduction and arithmetic manipulations involving distributivity and associativity. You may regard other rules of algebra as common knowledge that do not need to be explicitly provided as justifications. Lay out your proof like the rules-of-inference proofs in Chapter 3, justifying each step by stating its rule of inference.</p>
+<h4 id="solution">Solution</h4>
+<p>Prove: ∀n ∈ <strong>N</strong> : (n + 1)(n − 1) = n<sup>2</sup> − 1</p>
+<ol type="1">
 <li>[n ∈ <strong>N</strong>] Assumption</li>
 <li>(n + 1)(n − 2) = n<sup>2</sup> − n + n − 1 Distributivity</li>
 <li>(n + 1)(n − 2) = n<sup>2</sup> − 1</li>
 <li>∀n ∈ <strong>N</strong> : (n + 1)(n − 2) = n<sup>2</sup> − 1 ∀ introduction</li>
 </ol>
-<h2 id="Mathematical-induction"><a href="#Mathematical-induction" class="headerlink" title="Mathematical induction"></a>Mathematical induction</h2><h3 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<h2 id="mathematical-induction">Mathematical induction</h2>
+<h3 id="introduction-2">Introduction</h3>
+<ul>
 <li>Mathematical induction (MI) is used for proving things about <strong>infinite sets</strong> of propositions</li>
 <li>Key idea: when trying to prove P(n), we assume that P(n − 1) has already been established</li>
 <li>This is called the <strong>inductive hypothesis</strong></li>
 </ul>
-<h3 id="Base-case-and-inductive-step"><a href="#Base-case-and-inductive-step" class="headerlink" title="Base case and inductive step"></a>Base case and inductive step</h3><ul>
-<li>A proof by MI has two parts:<ul>
+<h3 id="base-case-and-inductive-step">Base case and inductive step</h3>
+<ul>
+<li>A proof by MI has two parts:
+<ul>
 <li><strong>Base case (BC)</strong>: typically P(0)</li>
 <li><strong>Inductive step (IS)</strong>: typically P(n − 1) → P(n)</li>
-</ul>
-</li>
+</ul></li>
 <li>When we make no assumptions about n except that n ≥ 1 , this is true for any n ≥ 1</li>
-<li>Repeated use of the inductive step with modus ponens gives us: P(0) (from BC) → P(1) → P(2), → … → P(n)</li>
+<li>Repeated use of the inductive step with modus ponens gives us: P(0) (from BC) → P(1) → P(2), → ... → P(n)</li>
 </ul>
-<h3 id="Rule-of-inference"><a href="#Rule-of-inference" class="headerlink" title="Rule of inference"></a>Rule of inference</h3><p><img src="/images/FOCS/7.png"></p>
-<h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><p><img src="/images/FOCS/8.png"></p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<h3 id="rule-of-inference">Rule of inference</h3>
+<p><img src="/images/FOCS/7.png" /></p>
+<h3 id="framework">Framework</h3>
+<p><img src="/images/FOCS/8.png" /></p>
+<h3 id="example">Example</h3>
+<ul>
 <li>Show that, for any non-negative integer n, the sum of the first n integers is n(n + 1)/2</li>
 <li>That is, prove P(n), n ≥ 0, where P(n) represents:</li>
 </ul>
-<p><img src="/images/FOCS/9.png"></p>
-<h4 id="Example-proof-1"><a href="#Example-proof-1" class="headerlink" title="Example proof"></a>Example proof</h4><p><img src="/images/FOCS/10.png"></p>
-<h4 id="Example-proof-algebra"><a href="#Example-proof-algebra" class="headerlink" title="Example proof: algebra"></a>Example proof: algebra</h4><p><img src="/images/FOCS/11.png"></p>
-<h3 id="Strategies-1"><a href="#Strategies-1" class="headerlink" title="Strategies -1"></a>Strategies -1</h3><p>If Q(n) is true for all integers ≥ k but false for k − 1</p>
+<p><img src="/images/FOCS/9.png" /></p>
+<h4 id="example-proof-1">Example proof</h4>
+<p><img src="/images/FOCS/10.png" /></p>
+<h4 id="example-proof-algebra">Example proof: algebra</h4>
+<p><img src="/images/FOCS/11.png" /></p>
+<h3 id="strategies--1">Strategies -1</h3>
+<p>If Q(n) is true for all integers ≥ k but false for k − 1</p>
 <ul>
 <li>Base: P(0) = Q(k)</li>
 <li>General: P(n) = Q(n + k)</li>
@@ -627,45 +647,51 @@
 <ul>
 <li>P(n) = Q(n<sup>2</sup>)7</li>
 </ul>
-<h3 id="Strategies-2"><a href="#Strategies-2" class="headerlink" title="Strategies -2"></a>Strategies -2</h3><p>p(n) → P(n + 1) as the inductive step</p>
+<h3 id="strategies--2">Strategies -2</h3>
+<p>p(n) → P(n + 1) as the inductive step</p>
 <ul>
 <li>Sometimes eases algebraic manipulations</li>
 <li>Now: n ≥ 0</li>
 </ul>
-<p>When P(n) is an equation L(n) = R(n) and you show that L(n) = L(n − 1) + α = … = R(n − 1) + β = R(n)</p>
+<p>When P(n) is an equation L(n) = R(n) and you show that L(n) = L(n − 1) + α = ... = R(n − 1) + β = R(n)</p>
 <ul>
 <li>Showing that α = β, together with the inductive hypothesis L(n − 1) = R(n − 1) concludes the proof</li>
 </ul>
-<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><p>Prove that ∀n ≥ 5 : 2<sup>n</sup> &gt; n<sup>2</sup></p>
-<p><img src="/images/FOCS/12.png"></p>
-<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise"></a>Exercise</h3><p> Prove by mathematical induction that the sum of the first n odd integers is n<sup>2</sup></p>
-<p><img src="/images/FOCS/13.png"></p>
-<p><img src="/images/FOCS/14.png"></p>
+<h3 id="example-1">Example</h3>
+<p>Prove that ∀n ≥ 5 : 2<sup>n</sup> &gt; n<sup>2</sup></p>
+<p><img src="/images/FOCS/12.png" /></p>
+<h3 id="exercise-1">Exercise</h3>
+<p>Prove by mathematical induction that the sum of the first n odd integers is n<sup>2</sup></p>
+<p><img src="/images/FOCS/13.png" /></p>
+<p><img src="/images/FOCS/14.png" /></p>
 <p>Prove by mathematical induction that for any integer n ≥ 10, 2<sup>n</sup> &gt; n<sup>3</sup></p>
-<p><img src="/images/FOCS/15.png"></p>
+<p><img src="/images/FOCS/15.png" /></p>
 <p>Prove by mathematical induction: ∀n ∈ <strong>N</strong> : n ≥ 4 : n! ≥ 2<sup>n</sup></p>
-<p><img src="/images/FOCS/16.png"></p>
+<p><img src="/images/FOCS/16.png" /></p>
 <p>Prove by mathematical induction:</p>
-<p><img src="/images/FOCS/17.png"></p>
-<p><img src="/images/FOCS/18.png"></p>
-<p><img src="/images/FOCS/19.png"></p>
-<h2 id="Limits-of-logic"><a href="#Limits-of-logic" class="headerlink" title="Limits of logic"></a>Limits of logic</h2><h3 id="Soundness-of-rules"><a href="#Soundness-of-rules" class="headerlink" title="Soundness of rules"></a>Soundness of rules</h3><ul>
+<p><img src="/images/FOCS/17.png" /></p>
+<p><img src="/images/FOCS/18.png" /></p>
+<p><img src="/images/FOCS/19.png" /></p>
+<h2 id="limits-of-logic">Limits of logic</h2>
+<h3 id="soundness-of-rules">Soundness of rules</h3>
+<ul>
 <li>A rule is <strong>sound</strong> if it is true in all states, i.e. if it is a <strong>tautology</strong></li>
 <li>Soundness can for example be proved using <strong>truth tables</strong></li>
-<li>Propositional logic: <ul>
-<li>Start set: soundness proven by truth tables<ul>
-<li>E.g. modus ponens, modus tollens, …</li>
-</ul>
-</li>
-<li>Rules proven by inference from this start set<ul>
+<li>Propositional logic:
+<ul>
+<li>Start set: soundness proven by truth tables
+<ul>
+<li>E.g. modus ponens, modus tollens, ...</li>
+</ul></li>
+<li>Rules proven by inference from this start set
+<ul>
 <li>E.g. transitivity of the conditional</li>
 <li>These rules are equally sound</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="System-of-logic"><a href="#System-of-logic" class="headerlink" title="System of logic"></a>System of logic</h3><p>A <strong>system of logic</strong> consists of:</p>
+<h3 id="system-of-logic">System of logic</h3>
+<p>A <strong>system of logic</strong> consists of:</p>
 <ul>
 <li>A set of <strong>axioms</strong></li>
 <li>A set of <strong>inference rules</strong></li>
@@ -678,7 +704,8 @@
 <ul>
 <li>It is impossible to prove any expression to be both true and false</li>
 </ul>
-<h3 id="Soundness-completeness-and-consistency"><a href="#Soundness-completeness-and-consistency" class="headerlink" title="Soundness, completeness and consistency"></a>Soundness, completeness and consistency</h3><p>We seek a system: </p>
+<h3 id="soundness-completeness-and-consistency">Soundness, completeness and consistency</h3>
+<p>We seek a system:</p>
 <ul>
 <li>with <strong>sound rules</strong></li>
 <li>that is <strong>complete</strong></li>
@@ -799,13 +826,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/02/2021-03-02-Recap-and-Exercices-(Chapters-1-5)/">
+                <a href="/2021/03/02/2021-03-01-DLLists,-Arrays/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Recap and Exercices (Chapters 1-5)">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="DLLists, Arrays">
                         
-                        <span class="card-title">Recap and Exercices (Chapters 1-5)</span>
+                        <span class="card-title">DLLists, Arrays</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,8 +860,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Fundamentals-of-Computer-Science/">
-                        <span class="chip bg-color">Fundamentals of Computer Science</span>
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
                     </a>
                     
                 </div>
@@ -848,13 +875,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/02/2021-03-02-Function-Examples/">
+                <a href="/2021/03/02/2021-03-02-Recap-and-Exercices-(Chapters-1-5)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Function Examples">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Recap and Exercices (Chapters 1-5)">
                         
-                        <span class="card-title">Function Examples</span>
+                        <span class="card-title">Recap and Exercices (Chapters 1-5)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -882,8 +909,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
-                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    <a href="/tags/Fundamentals-of-Computer-Science/">
+                        <span class="chip bg-color">Fundamentals of Computer Science</span>
                     </a>
                     
                 </div>

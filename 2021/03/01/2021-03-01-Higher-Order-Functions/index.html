@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    504
+                    508
                 </div>
                 
 
@@ -497,23 +497,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Higher-Order-Functions"><a href="#Higher-Order-Functions" class="headerlink" title="Higher Order Functions"></a>Higher Order Functions</h1><p>A <strong>higher order function</strong> (HOF) is a function that manipulates other functions by taking in functions as arguments, returning a function, or both. For example, the function compose1 below takes in two functions as arguments and returns a function that is the composition of the two arguments.</p>
+                <h1 id="higher-order-functions">Higher Order Functions</h1>
+<p>A <strong>higher order function</strong> (HOF) is a function that manipulates other functions by taking in functions as arguments, returning a function, or both. For example, the function compose1 below takes in two functions as arguments and returns a function that is the composition of the two arguments.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compose1</span>(<span class="params">f, g</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">h</span>(<span class="params">x</span>):</span></span><br><span class="line">        <span class="keyword">return</span> f(g(x))</span><br><span class="line">    <span class="keyword">return</span> h</span><br></pre></td></tr></table></figure>
 <p>HOFs are powerful abstraction tools that allow us to express certain general patterns as named concepts in our programs.</p>
-<h2 id="A-Note-on-Lambda-Expressions"><a href="#A-Note-on-Lambda-Expressions" class="headerlink" title="A Note on Lambda Expressions"></a>A Note on Lambda Expressions</h2><p>A lambda expression evaluates to a function, called a lambda function. </p>
+<h2 id="a-note-on-lambda-expressions">A Note on Lambda Expressions</h2>
+<p>A lambda expression evaluates to a function, called a lambda function.</p>
 <p>For example, <strong>lambda y: x + y</strong> is a lambda expression, and can be read as “a function that takes in one parameter y and returns x + y.”</p>
-<p>A lambda expression by itself evaluates to a function but does not bind it to a name. </p>
-<p>Also note that the return expression of this function is not evaluated until the lambda is called. </p>
+<p>A lambda expression by itself evaluates to a function but does not bind it to a name.</p>
+<p>Also note that the return expression of this function is not evaluated until the lambda is called.</p>
 <p>This is similar to how defining a new function using a def statement does not execute the function’s body until it is later called.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>what = <span class="keyword">lambda</span> x : x + <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>what</span><br><span class="line">&lt;function &lt;<span class="keyword">lambda</span>&gt; at <span class="number">0xf3f490</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>Unlike def statements, lambda expressions can be used as an operator or an operand to a call expression. This is because they are simply one-line expressions that evaluate to functions. In the example below, <strong>(lambda y: y + 5)</strong> is the operator and <strong>4</strong> is the operand.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="keyword">lambda</span> y: y + <span class="number">5</span>)(<span class="number">4</span>)</span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="keyword">lambda</span> f, x: f(x))(<span class="keyword">lambda</span> y: y + <span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line"><span class="number">11</span></span><br></pre></td></tr></table></figure>
-<h2 id="Currying"><a href="#Currying" class="headerlink" title="Currying"></a>Currying</h2><p>One important application of HOFs is converting a function that takes multiple arguments into a chain of functions that each take a single argument. This is known as <strong>currying</strong>. </p>
+<h2 id="currying">Currying</h2>
+<p>One important application of HOFs is converting a function that takes multiple arguments into a chain of functions that each take a single argument. This is known as <strong>currying</strong>.</p>
 <p>For example, the function below converts the pow function into its curried form:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">curried_pow</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">h</span>(<span class="params">y</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(x, y)</span><br><span class="line">    <span class="keyword">return</span> h</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>curried_pow(<span class="number">2</span>)(<span class="number">3</span>)</span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
-<h2 id="Self-Reference"><a href="#Self-Reference" class="headerlink" title="Self Reference"></a>Self Reference</h2><p><strong>Self-reference</strong> refers to a particular design of <strong>HOF</strong>, where a function eventually returns itself. In particular, a self-referencing function will not return a function <strong>call</strong>, but rather the function object itself. As an example, take a look at the print all function to the right. </p>
-<p>Self-referencing functions will oftentimes employ helper functions that reference the outer function, such as the example to the right, print sums. </p>
-<p>Note that a call to print sums returns next sum. A call to next sum will return the result of calling print sums which will, in turn, return another function next sum. This type of pattern is common in self-referencing functions. </p>
+<h2 id="self-reference">Self Reference</h2>
+<p><strong>Self-reference</strong> refers to a particular design of <strong>HOF</strong>, where a function eventually returns itself. In particular, a self-referencing function will not return a function <strong>call</strong>, but rather the function object itself. As an example, take a look at the print all function to the right.</p>
+<p>Self-referencing functions will oftentimes employ helper functions that reference the outer function, such as the example to the right, print sums.</p>
+<p>Note that a call to print sums returns next sum. A call to next sum will return the result of calling print sums which will, in turn, return another function next sum. This type of pattern is common in self-referencing functions.</p>
 <p><strong>. Small Note</strong>: This differs from recursion because typically each new call returns a new function rather than a function call. We have not yet covered recursion so don’t worry too much about what this means!</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_all</span>(<span class="params">x</span>):</span></span><br><span class="line">    print(x)</span><br><span class="line">    <span class="keyword">return</span> print_all</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_sums</span>(<span class="params">n</span>):</span></span><br><span class="line">    print(n)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next_sum</span>(<span class="params">k</span>):</span></span><br><span class="line">        <span class="keyword">return</span> print_sums(n+k)</span><br><span class="line">    <span class="keyword">return</span> next_sum</span><br></pre></td></tr></table></figure>
 

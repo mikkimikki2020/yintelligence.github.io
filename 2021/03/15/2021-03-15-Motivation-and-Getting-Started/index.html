@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    445
+                    454
                 </div>
                 
 
@@ -497,26 +497,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Motivation-and-Getting-Started"><a href="#Motivation-and-Getting-Started" class="headerlink" title="Motivation and Getting Started"></a>Motivation and Getting Started</h1><h2 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h2><p>To find the solutions to an equation of the format ax<sup>2</sup> + bx +c, use the quadratic equation:<br>$$<br>x \frac{-b ± \sqrt(b^2-4ac)}{2a}<br>$$<br>What are the two solutions to 2x<sup>2</sup> - x - 4 = 0? Use the quadratic equation. </p>
+                <h1 id="motivation-and-getting-started">Motivation and Getting Started</h1>
+<h2 id="question-1">Question 1</h2>
+<p>To find the solutions to an equation of the format ax<sup>2</sup> + bx +c, use the quadratic equation: <span class="math display">\[
+x \frac{-b ± \sqrt(b^2-4ac)}{2a}
+\]</span> What are the two solutions to 2x<sup>2</sup> - x - 4 = 0? Use the quadratic equation.</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">        options(digits = <span class="number">3</span>)</span><br><span class="line">a &lt;- 2</span><br><span class="line">b &lt;- -<span class="number">1</span></span><br><span class="line">c &lt;- -<span class="number">4</span></span><br><span class="line">(-b+<span class="built_in">sqrt</span>(b^<span class="number">2</span>-<span class="number">4</span>*a*<span class="built_in">c</span>))/(<span class="number">2</span>*a)</span><br><span class="line">(-b-<span class="built_in">sqrt</span>(b^<span class="number">2</span>-<span class="number">4</span>*a*<span class="built_in">c</span>))/(<span class="number">2</span>*a)</span><br><span class="line"><span class="comment"># 1.68</span></span><br><span class="line"><span class="comment"># -1.18</span></span><br></pre></td></tr></table></figure>
-<h2 id="Question-2"><a href="#Question-2" class="headerlink" title="Question 2"></a>Question 2</h2><p>Use R to compute log base 4 of 1024. You can use the <code>help()</code> function to learn how to use arguments to change the base of the <code>log()</code> function.</p>
+<h2 id="question-2">Question 2</h2>
+<p>Use R to compute log base 4 of 1024. You can use the <code>help()</code> function to learn how to use arguments to change the base of the <code>log()</code> function.</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="built_in">log</span>(<span class="number">1024</span>, base = <span class="number">4</span>)</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<h2 id="Question-3"><a href="#Question-3" class="headerlink" title="Question 3"></a>Question 3</h2><p>Install the dslabs package if you have not done so: </p>
+<h2 id="question-3">Question 3</h2>
+<p>Install the dslabs package if you have not done so:</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;dslabs&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>Note that any time you get an error that a package is not found, try installing that package.</strong> </p>
-<p>The movielens dataset in the <strong>dslabs</strong> package includes data on a variety of movies and their rating by a particular user. </p>
-<p>Load the movielens dataset: </p>
+<p><strong>Note that any time you get an error that a package is not found, try installing that package.</strong></p>
+<p>The movielens dataset in the <strong>dslabs</strong> package includes data on a variety of movies and their rating by a particular user.</p>
+<p>Load the movielens dataset:</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library(dslabs)</span><br><span class="line">data(movielens)</span><br></pre></td></tr></table></figure>
 <p>Begin your exploration of this dataset by looking at the structure of the dataset and variable types.</p>
-<h3 id="Question-3a"><a href="#Question-3a" class="headerlink" title="Question 3a"></a>Question 3a</h3><p>How many rows are in the dataset?</p>
+<h3 id="question-3a">Question 3a</h3>
+<p>How many rows are in the dataset?</p>
 <p>100004</p>
 <p>We can determine the number of rows in the dataset by examining its structure:</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">str(movielens)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-3b"><a href="#Question-3b" class="headerlink" title="Question 3b"></a>Question 3b</h3><p>How many different variables are in the dataset?</p>
+<h3 id="question-3b">Question 3b</h3>
+<p>How many different variables are in the dataset?</p>
 <p>7</p>
 <p>We can determine the number of variables in the dataset by examining its structure:</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">str(movielens)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-3c"><a href="#Question-3c" class="headerlink" title="Question 3c"></a>Question 3c</h3><p>What is the variable type of <code>title</code> ?</p>
+<h3 id="question-3c">Question 3c</h3>
+<p>What is the variable type of <code>title</code> ?</p>
 <ul>
 <li><del>It is a text (txt) variable</del></li>
 <li><del>It is a chronological (chr) variable</del></li>
@@ -526,9 +535,10 @@
 <li><del>It is a factor (Factor) variable</del></li>
 <li><strong>It is a character (chr) variable</strong></li>
 </ul>
-<p>We can determine the variable type of title by examining the dataset’s structure:</p>
+<p>We can determine the variable type of title by examining the dataset's structure:</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">str(movielens)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-3d"><a href="#Question-3d" class="headerlink" title="Question 3d"></a>Question 3d</h3><p>What is the variable type of <code>genres</code> ?</p>
+<h3 id="question-3d">Question 3d</h3>
+<p>What is the variable type of <code>genres</code> ?</p>
 <ul>
 <li><del>It is a text (txt) variable</del></li>
 <li><del>It is a chronological (chr) variable</del></li>
@@ -538,9 +548,10 @@
 <li><strong>It is a factor (Factor) variable</strong></li>
 <li><del>It is a character (chr) variable</del></li>
 </ul>
-<p>We can determine the variable type of genres by examining the dataset’s structure:</p>
+<p>We can determine the variable type of genres by examining the dataset's structure:</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">str(movielens)</span><br></pre></td></tr></table></figure>
-<h2 id="Question-4"><a href="#Question-4" class="headerlink" title="Question 4"></a>Question 4</h2><p>We already know we can use the <code>levels()</code> function to determine the levels of a factor. A different function, <code>nlevels()</code>, may be used to determine the number of levels of a factor.</p>
+<h2 id="question-4">Question 4</h2>
+<p>We already know we can use the <code>levels()</code> function to determine the levels of a factor. A different function, <code>nlevels()</code>, may be used to determine the number of levels of a factor.</p>
 <p>Use this function to determine how many levels are in the factor <code>genres</code> in the <code>movielens</code> data frame.</p>
 <p>To determine how many levels are in the factor genres in the movielens data frame:</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; nlevels(movielens$genres)</span><br><span class="line">[<span class="number">1</span>] <span class="number">901</span></span><br></pre></td></tr></table></figure>

@@ -497,10 +497,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="E-ER-to-Relational-Model"><a href="#E-ER-to-Relational-Model" class="headerlink" title="(E)ER to Relational Model"></a>(E)ER to Relational Model</h1><p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/1de88b7bb42489772156b621280549001d079e6f-1614948775792/capture/">Video</a></p>
-<h2 id="Aggregate-Function-Ꮆ"><a href="#Aggregate-Function-Ꮆ" class="headerlink" title="Aggregate Function (Ꮆ)"></a>Aggregate Function (Ꮆ)</h2><table>
+                <h1 id="eer-to-relational-model">(E)ER to Relational Model</h1>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/1de88b7bb42489772156b621280549001d079e6f-1614948775792/capture/">Video</a></p>
+<h2 id="aggregate-function-Ꮆ">Aggregate Function (Ꮆ)</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>loginId</th>
 <th>name</th>
 <th>dateTime</th>
@@ -508,77 +510,77 @@
 <th>duration</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>Maxim Van de Wynckel</td>
 <td>2020-03-01 12:12</td>
 <td>Android</td>
 <td>5</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>Yunior Pacheco Correa</td>
 <td>2020-03-01 13:58</td>
 <td>iOS</td>
 <td>10</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>Maxim Van de Wynckel</td>
 <td>2020-03-02 10:01</td>
 <td>Windows</td>
 <td>8</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>Maxim Van de Wynckel</td>
 <td>2020-03-02 10:12</td>
 <td>macOS</td>
 <td>3</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>5</td>
 <td>Bas Ketsman</td>
 <td>2020-03-03 06:04</td>
 <td>Windows</td>
 <td>20</td>
 </tr>
-<tr>
+<tr class="even">
 <td>6</td>
 <td>Yunior Pacheco Correa</td>
 <td>2020-03-04 10:58</td>
 <td>macOS</td>
 <td>9</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
 <li><p>Get the amount of times each user logged in</p>
-<p>π<sub>name,totalLogins</sub>(<sub>nameᎶcount(loginId) as totalLogins </sub>(Logins))</p>
-</li>
+<p>π<sub>name,totalLogins</sub>(<sub>nameᎶcount(loginId) as totalLogins </sub>(Logins))</p></li>
 <li><p>Get the amount of logins for each device type</p>
-<p>π<sub>device,totalLogins</sub>(<sub>deviceᎶcount(loginId) as totalLogins</sub>(Logins))</p>
-</li>
+<p>π<sub>device,totalLogins</sub>(<sub>deviceᎶcount(loginId) as totalLogins</sub>(Logins))</p></li>
 <li><p>Get the total amount of minutes each user spent while logged in</p>
-<p>π<sub>name,totalTime</sub>(<sub>nameᎶsum(duration) as totalTime</sub>(Logins))</p>
-</li>
+<p>π<sub>name,totalTime</sub>(<sub>nameᎶsum(duration) as totalTime</sub>(Logins))</p></li>
 <li><p>Get the average login duration</p>
-<p>Ꮆ<sub>avg(duration)</sub></p>
-</li>
+<p>Ꮆ<sub>avg(duration)</sub></p></li>
 </ul>
-<p><img src="/images/DB/1921470.png" alt="(E)ER to Relational Model"></p>
+<figure>
+<img src="/images/DB/1921470.png" alt="" /><figcaption>(E)ER to Relational Model</figcaption>
+</figure>
 <p>Start by converting the entities and one-to-one one relations:</p>
 <ul>
 <li>Actor(<strong>firstName, lastName</strong>)</li>
 <li>Movie(<strong>title, year</strong>)</li>
 <li>Producer(<strong>firstName, lastName</strong>)</li>
 </ul>
-<p>Next, create schemas for the * relations: </p>
+<p>Next, create schemas for the * relations:</p>
 <ul>
 <li><strong>MovieActors(title, year, firstName, lastName)</strong></li>
 <li><strong>MovieProducers(title, year, firstName, lastName)</strong></li>
 </ul>
-<p><img src="/images/DB/1921471.png"></p>
-<p>Start by converting the entities and one-to-one one relations: </p>
+<p><img src="/images/DB/1921471.png" /></p>
+<p>Start by converting the entities and one-to-one one relations:</p>
 <ul>
 <li>Recipe(<strong>rname, author</strong>)</li>
 <li>Ingredient(<strong>iname</strong>, calories)</li>
@@ -588,9 +590,13 @@
 <ul>
 <li>RecipeIngredient(<strong>rname, author, iname,</strong> weight, unit)</li>
 </ul>
-<h2 id="Twitter-Description"><a href="#Twitter-Description" class="headerlink" title="Twitter: Description"></a>Twitter: Description</h2><p>Twitter is a platform where users can register with a unique username (their Twitter handle). When logged in, they can post messages called ’ Tweets ’ that are max 120 characters long and optionally can contain an image, video or poll. However, a tweet can only contain one interactive component (either an image, video or poll). These tweets are uniquely identified by a number and can be liked by other users. Any user can reply to tweets and even ’ retweet ’/repost the tweet on their own homepage. Users can choose to follow other users to get notified on their activity.</p>
-<p><img src="/images/DB/1921472.png" alt="Twitter: (E)ER"></p>
-<h3 id="Step-7-Reduce-the-E-ER-to-schemas"><a href="#Step-7-Reduce-the-E-ER-to-schemas" class="headerlink" title="Step 7: Reduce the (E)ER to schemas"></a>Step 7: Reduce the (E)ER to schemas</h3><p><strong>Create the user entity</strong></p>
+<h2 id="twitter-description">Twitter: Description</h2>
+<p>Twitter is a platform where users can register with a unique username (their Twitter handle). When logged in, they can post messages called ’ Tweets ’ that are max 120 characters long and optionally can contain an image, video or poll. However, a tweet can only contain one interactive component (either an image, video or poll). These tweets are uniquely identified by a number and can be liked by other users. Any user can reply to tweets and even ’ retweet ’/repost the tweet on their own homepage. Users can choose to follow other users to get notified on their activity.</p>
+<figure>
+<img src="/images/DB/1921472.png" alt="" /><figcaption>Twitter: (E)ER</figcaption>
+</figure>
+<h3 id="step-7-reduce-the-eer-to-schemas">Step 7: Reduce the (E)ER to schemas</h3>
+<p><strong>Create the user entity</strong></p>
 <ul>
 <li>User(<strong>handle</strong>, firstName, lastName, email)</li>
 <li>Tweet(<strong>tweetUID</strong>, text, dateTime)</li>
@@ -651,102 +657,86 @@
 <li>TweetPollItemVote(<strong>tweetUID</strong>, <strong>optionNr</strong>, <strong>handle</strong>, dateTime)</li>
 <li>TweetReport(<strong>tweetUID, handle, reason</strong>, dateTime, status)</li>
 </ul>
-<h2 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h2><h3 id="1-Relational-Algebra"><a href="#1-Relational-Algebra" class="headerlink" title="1: Relational Algebra"></a>1: Relational Algebra</h3><p>Given the following relational database:</p>
+<h2 id="exercise">Exercise</h2>
+<h3 id="relational-algebra">1: Relational Algebra</h3>
+<p>Given the following relational database:</p>
 <ul>
-<li>Employee(<u>person-name</u>, street, city) </li>
-<li>Works(<u>person-name</u>, company-name, salary) </li>
-<li>Company(<u>company-name</u>, city) </li>
+<li>Employee(<u>person-name</u>, street, city)</li>
+<li>Works(<u>person-name</u>, company-name, salary)</li>
+<li>Company(<u>company-name</u>, city)</li>
 <li>Manages(<u>person-name</u>, manager-name)</li>
 </ul>
 <p>Give an expression in relational algebra to express each of the following queries:</p>
-<ol>
-<li>Find the names of all employees who live in the same city and street as their managers. </li>
+<ol type="1">
+<li>Find the names of all employees who live in the same city and street as their managers.</li>
 <li>Find the names of all employees in this database who do not work for ”First Bank Corporation”.</li>
-<li> Find the names of all employees who earn more than every employee of ”Small Bank Corporation”. </li>
+<li>Find the names of all employees who earn more than every employee of ”Small Bank Corporation”.</li>
 <li>Find those companies whose employees earn a higher salary, on average, than the average salary at “First Bank Corporation”.</li>
 </ol>
 <p><em>Note: Watch out, in this database we assume that employees work for only one company. We do not keep temporal aspects of contracts between companies and employees.</em></p>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><ol>
+<h4 id="solution">Solution</h4>
+<ol type="1">
 <li><p><strong>Find the names of all employees who live in the same city and street as their managers.</strong></p>
-<p>π<sub>person−name</sub>((Employee ⋈ Manages) ⋈ ρ<sub>E2(manager−name,street,city)</sub>(Employee))</p>
-</li>
-<li><p><strong>Find the names of all employees in this database who do not work for “First Bank Corporation”.</strong></p>
-<p>π<sub>person−name</sub>(σ<sub>company−name ≠ ”First Bank Corporation”</sub>(Works))</p>
-</li>
-<li><p><strong>Find the names of all employees who earn more than every employee of “Small Bank Corporation”.</strong></p>
+<p>π<sub>person−name</sub>((Employee ⋈ Manages) ⋈ ρ<sub>E2(manager−name,street,city)</sub>(Employee))</p></li>
+<li><p><strong>Find the names of all employees in this database who do not work for "First Bank Corporation".</strong></p>
+<p>π<sub>person−name</sub>(σ<sub>company−name ≠ ”First Bank Corporation”</sub>(Works))</p></li>
+<li><p><strong>Find the names of all employees who earn more than every employee of "Small Bank Corporation".</strong></p>
 <p>MS ← Ꮆ<sub>max(salary) as max−sal−sbc</sub>(σ<sub>company−name=”Small Bank Corporation”</sub>(Works))</p>
-<p>π<sub>person−name</sub>(σ<sub>salary &gt; max−sal−sbc</sub>(Works × MS))</p>
-</li>
-<li><p><strong>Find those companies whose employees earn a higher salary, on average, than the average salary at “First Bank Corporation”.</strong></p>
+<p>π<sub>person−name</sub>(σ<sub>salary &gt; max−sal−sbc</sub>(Works × MS))</p></li>
+<li><p><strong>Find those companies whose employees earn a higher salary, on average, than the average salary at "First Bank Corporation".</strong></p>
 <p>AS ← Ꮆ<sub>avg(salary) as avg−sal−fbc</sub>(σ<sub>company−name=”First Bank Corporation”</sub>(Works))</p>
 <p>AS2 ←<sub>company−name Ꮆavg(salary) as avg−sal−comp</sub>(Works)</p>
-<p>π<sub>company−name</sub>(σ<sub>avg−sal−comp &gt; avg−sal−fbc</sub>(AS2 × AS))</p>
-</li>
+<p>π<sub>company−name</sub>(σ<sub>avg−sal−comp &gt; avg−sal−fbc</sub>(AS2 × AS))</p></li>
 </ol>
-<h3 id="2-Reduction-of-E-ER-to-Relational-Model"><a href="#2-Reduction-of-E-ER-to-Relational-Model" class="headerlink" title="2: Reduction of (E)ER to Relational Model"></a>2: Reduction of (E)ER to Relational Model</h3><ol>
-<li><p>Reduce the first ER model you made during the <a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">first exercise session</a> (Video Rental Store) to the relational model.</p>
-</li>
-<li><p>Reduce the second ER model you made during the <a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">first exercise session</a> (DIGI-BIKE) to the relational model.</p>
-</li>
-<li><p>Reduce the EER model you made during the <a href="https://yintelligence.tech/2021/02/20/2021-02-20-Exercise-2---Extended-Entity-Relationship-Model/">second exercise session</a> (Medical Database) to the relational model. </p>
-<p><em>Note: You will have to find a way to model the ISA relationships, You can use the solutions of the first and second exercise session.</em></p>
-</li>
+<h3 id="reduction-of-eer-to-relational-model">2: Reduction of (E)ER to Relational Model</h3>
+<ol type="1">
+<li><p>Reduce the first ER model you made during the <a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">first exercise session</a> (Video Rental Store) to the relational model.</p></li>
+<li><p>Reduce the second ER model you made during the <a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">first exercise session</a> (DIGI-BIKE) to the relational model.</p></li>
+<li><p>Reduce the EER model you made during the <a href="https://yintelligence.tech/2021/02/20/2021-02-20-Exercise-2---Extended-Entity-Relationship-Model/">second exercise session</a> (Medical Database) to the relational model.</p>
+<p><em>Note: You will have to find a way to model the ISA relationships, You can use the solutions of the first and second exercise session.</em></p></li>
 </ol>
-<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><h5 id="1-Video-store"><a href="#1-Video-store" class="headerlink" title="1. Video store"></a>1. Video store</h5><ul>
-<li>Movie(<strong>catalogNr</strong>, releaseYear, title, category, dailyRate, nrOfCoppies) </li>
-<li>Supplier(<strong>supplierNr</strong>, faxNumber, address, name, phoneNumber) </li>
+<h4 id="solution-1">Solution</h4>
+<h5 id="video-store">1. Video store</h5>
+<ul>
+<li>Movie(<strong>catalogNr</strong>, releaseYear, title, category, dailyRate, nrOfCoppies)</li>
+<li>Supplier(<strong>supplierNr</strong>, faxNumber, address, name, phoneNumber)</li>
 <li>Copy(<strong>copyNr</strong>, status, catalogNr, supplierNr)</li>
 <li>ContractCoppies(<strong>copyNr</strong>, <strong>contractNr</strong>)</li>
 <li>Contract(<strong>contractNr</strong>, totalPrice, dateOut, dateBack, nrOfDays, memberNr)</li>
 <li>Member(<strong>memberNr</strong>, birthDate, lastName, firstName, address, phoneNumber, dateJoined)</li>
 </ul>
-<h5 id="2-Digi-Bike"><a href="#2-Digi-Bike" class="headerlink" title="2. Digi-Bike"></a>2. Digi-Bike</h5><ul>
+<h5 id="digi-bike">2. Digi-Bike</h5>
+<ul>
 <li>AnnualFee(<strong>year</strong>, amount)</li>
-<li>Member(<strong>membershipNr</strong>, name, emailAddress, paidStatus) </li>
+<li>Member(<strong>membershipNr</strong>, name, emailAddress, paidStatus)</li>
 <li>Paid(<strong>membershipNr</strong>, <strong>year</strong>)</li>
 <li>Request(<strong>membershipNr</strong>, <strong>date</strong>, minKM, maxKM, maxFee)</li>
-<li>Race(<strong>name</strong>, date, startHour, fee, nrOfKM) </li>
+<li>Race(<strong>name</strong>, date, startHour, fee, nrOfKM)</li>
 <li>MatchesWith(<strong>membershipNr</strong>, <strong>date</strong>, <strong>name</strong>, emailSendDate)</li>
 </ul>
-<h5 id="3-Medical-Database"><a href="#3-Medical-Database" class="headerlink" title="3. Medical Database"></a>3. Medical Database</h5><p><em>The reduction of ISA relationships can be done in different ways. Sometimes it is as easy as adding a column to the schema, sometimes you create different schemas and sometimes you create a relation to another schema.</em></p>
+<h5 id="medical-database">3. Medical Database</h5>
+<p><em>The reduction of ISA relationships can be done in different ways. Sometimes it is as easy as adding a column to the schema, sometimes you create different schemas and sometimes you create a relation to another schema.</em></p>
 <ul>
-<li><p>Person(<strong>ssn</strong>, address, telephoneNumber, birthDate)</p>
-</li>
-<li><p>Patient(<strong>ssn</strong>, name)</p>
-</li>
-<li><p>ContactPerson(<strong>ssn</strong>, email)</p>
-</li>
+<li><p>Person(<strong>ssn</strong>, address, telephoneNumber, birthDate)</p></li>
+<li><p>Patient(<strong>ssn</strong>, name)</p></li>
+<li><p>ContactPerson(<strong>ssn</strong>, email)</p></li>
 <li><p>MedicalPerson(<strong>ssn</strong>, medicalperson-ssn)</p>
-<p><em>The intermediate MedicalPerson still allows us to join data from patient to a medical person</em></p>
-</li>
-<li><p>Doctor(<strong>medicalperson-ssn</strong>, address, telephoneNumber, birthDate, name) </p>
-<p><em>We copy the data from person to make sure that we can not have foreign key contraints (<a href="https://yintelligence.tech/2021/02/21/2021-02-21-Relational-Database-Design/#toc-heading-10">Lecture 4, Specialisation and Generalisation 20:25</a>)</em></p>
-</li>
-<li><p>DoctorSpecialisations(<strong>medicalperson-ssn</strong>, specialisation)</p>
-</li>
-<li><p>Apothecary(<strong>medicalperson-ssn</strong>, address, telephoneNumber, birthDate) </p>
-</li>
-<li><p>Prescription(<strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>)</p>
-</li>
-<li><p>Medicine(<strong>medicine-name</strong>, formula) </p>
-</li>
-<li><p>PharmaceuticalCompany(<strong>pharmaceuticalcompany-name</strong>, address, telephoneNumber, contactpersonssn)</p>
-</li>
+<p><em>The intermediate MedicalPerson still allows us to join data from patient to a medical person</em></p></li>
+<li><p>Doctor(<strong>medicalperson-ssn</strong>, address, telephoneNumber, birthDate, name)</p>
+<p><em>We copy the data from person to make sure that we can not have foreign key contraints (<a href="https://yintelligence.tech/2021/02/21/2021-02-21-Relational-Database-Design/#toc-heading-10">Lecture 4, Specialisation and Generalisation 20:25</a>)</em></p></li>
+<li><p>DoctorSpecialisations(<strong>medicalperson-ssn</strong>, specialisation)</p></li>
+<li><p>Apothecary(<strong>medicalperson-ssn</strong>, address, telephoneNumber, birthDate)</p></li>
+<li><p>Prescription(<strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>)</p></li>
+<li><p>Medicine(<strong>medicine-name</strong>, formula)</p></li>
+<li><p>PharmaceuticalCompany(<strong>pharmaceuticalcompany-name</strong>, address, telephoneNumber, contactpersonssn)</p></li>
 <li><p>Pharmacy(<strong>pharmacy-address</strong>, medicalperson-ssn)</p>
-<p><em>The medicalperson-ssn is a link to Apothecary (1 for each pharmacy)</em> </p>
-</li>
-<li><p>LongtermContract(<strong>pharmaceuticalcompany-name</strong>, <strong>pharmacy-address</strong>, <strong>startDate</strong>, <strong>endDate</strong>, text)</p>
-</li>
-<li><p>DoctorPrescriptions(<strong>medicalperson-ssn</strong>, <strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>)</p>
-</li>
-<li><p>PrescriptionMedicine(<strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>, <strong>medicine-name</strong>, dose)</p>
-</li>
-<li><p>PharmacyMedicine(<strong>pharmacy-addres</strong>s,<strong>medicine-name</strong>, price) </p>
-</li>
-<li><p>MedicineManufacturers(<strong>medicine-name</strong>, <strong>pharmaceuticalcompmany-name</strong>)</p>
-</li>
-<li><p>LongtermContractMedicines(<strong>pharmaceuticalcompany-name</strong>, <strong>pharmacy-address</strong>, <strong>startDate</strong>, <strong>endDate</strong>, <strong>medicine-name</strong>)</p>
-</li>
+<p><em>The medicalperson-ssn is a link to Apothecary (1 for each pharmacy)</em></p></li>
+<li><p>LongtermContract(<strong>pharmaceuticalcompany-name</strong>, <strong>pharmacy-address</strong>, <strong>startDate</strong>, <strong>endDate</strong>, text)</p></li>
+<li><p>DoctorPrescriptions(<strong>medicalperson-ssn</strong>, <strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>)</p></li>
+<li><p>PrescriptionMedicine(<strong>ssn</strong>, <strong>time</strong>, <strong>date</strong>, <strong>medicine-name</strong>, dose)</p></li>
+<li><p>PharmacyMedicine(<strong>pharmacy-addres</strong>s,<strong>medicine-name</strong>, price)</p></li>
+<li><p>MedicineManufacturers(<strong>medicine-name</strong>, <strong>pharmaceuticalcompmany-name</strong>)</p></li>
+<li><p>LongtermContractMedicines(<strong>pharmaceuticalcompany-name</strong>, <strong>pharmacy-address</strong>, <strong>startDate</strong>, <strong>endDate</strong>, <strong>medicine-name</strong>)</p></li>
 </ul>
 
                 

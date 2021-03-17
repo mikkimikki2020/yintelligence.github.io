@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-03-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    890
+                    895
                 </div>
                 
 
@@ -497,15 +497,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Introduction-to-Data-Analytics-in-Healthcare-understanding-and-working-with-healthcare-data"><a href="#Introduction-to-Data-Analytics-in-Healthcare-understanding-and-working-with-healthcare-data" class="headerlink" title="Introduction to Data Analytics in Healthcare - understanding and working with healthcare data"></a>Introduction to Data Analytics in Healthcare - understanding and working with healthcare data</h1><p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=04ea687e-35f0-479e-b0fd-ace600c6e16c">Introduction Video 19:58 ~ 36:03</a></p>
-<p>The aims of this practical session are: </p>
+                <h1 id="introduction-to-data-analytics-in-healthcare---understanding-and-working-with-healthcare-data">Introduction to Data Analytics in Healthcare - understanding and working with healthcare data</h1>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=04ea687e-35f0-479e-b0fd-ace600c6e16c">Introduction Video 19:58 ~ 36:03</a></p>
+<p>The aims of this practical session are:</p>
 <ul>
 <li>Make you understand the importance of the information found in electronic health records (EHR);</li>
 <li>Gain insights in performing data analysis using <a target="_blank" rel="noopener" href="https://www.python.org/">Python</a> programming language;</li>
-<li>Complete the CITI “Data or Specimens Only Research” course related with ethics in healthcare. </li>
+<li>Complete the CITI “Data or Specimens Only Research” course related with ethics in healthcare.</li>
 </ul>
-<p>During all the practical sessions, you should use <a target="_blank" rel="noopener" href="https://colab.research.google.com/notebooks/intro.ipynb#recent=true">‘Google Colab’</a> cloud service to run your code (basic instructions how to get started are found <a target="_blank" rel="noopener" href="https://colab.research.google.com/notebooks/welcome.ipynb">here</a>). </p>
-<h2 id="Electronic-Health-Records-EHR"><a href="#Electronic-Health-Records-EHR" class="headerlink" title="Electronic Health Records (EHR)"></a>Electronic Health Records (EHR)</h2><hr>
+<p>During all the practical sessions, you should use <a target="_blank" rel="noopener" href="https://colab.research.google.com/notebooks/intro.ipynb#recent=true">'Google Colab'</a> cloud service to run your code (basic instructions how to get started are found <a target="_blank" rel="noopener" href="https://colab.research.google.com/notebooks/welcome.ipynb">here</a>).</p>
+<h2 id="electronic-health-records-ehr">Electronic Health Records (EHR)</h2>
+<hr />
 <blockquote>
 <p>As already seen during the lecture/s, EHRs contain an enormous amount of information (usually available in an unstructured format/free text). While humans can read the document and easily get the information they need, using their data for analysis or machine learning without structuring or pre-processing them firstly, is challenging. Considering examples found <a target="_blank" rel="noopener" href="https://www.mtsamples.com/index.asp">here</a> and what you saw/learned during lectures, please list what information is usually written/found there and some possible research use-cases using the information we get from them.</p>
 </blockquote>
@@ -513,60 +515,65 @@
 <p>Info inside an EHR</p>
 </blockquote>
 <ul>
-<li>  List item</li>
-<li>  List item</li>
-<li>  …</li>
+<li>List item</li>
+<li>List item</li>
+<li>...</li>
 </ul>
 <blockquote>
 <p>Possible research use-cases using EHR information:</p>
 </blockquote>
 <ul>
-<li>  List item</li>
-<li>  List item</li>
-<li>  ….</li>
+<li>List item</li>
+<li>List item</li>
+<li>....</li>
 </ul>
-<h2 id="Healthcare-data-analysis-using-Python"><a href="#Healthcare-data-analysis-using-Python" class="headerlink" title="Healthcare data analysis using Python"></a>Healthcare data analysis using Python</h2><p>To complete this part of the lab, you should use the excel files shared in <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20922/files">Canvas</a> (‘noteevents.xlsx’ and ‘patients.xlsx’). </p>
+<h2 id="healthcare-data-analysis-using-python">Healthcare data analysis using Python</h2>
+<p>To complete this part of the lab, you should use the excel files shared in <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20922/files">Canvas</a> ('noteevents.xlsx' and 'patients.xlsx').</p>
 <ul>
-<li>The ‘noteevents.xlsx’ file, consists of four columns: <ul>
+<li>The 'noteevents.xlsx' file, consists of four columns:
+<ul>
 <li>subject_id (the patient identifier);</li>
 <li>chartdate (date when the note was created);</li>
 <li>category (what is the type of the note, e.g. urology, dentistry, orthopedic);</li>
 <li>text (the EHR text portion of the note).</li>
-</ul>
-</li>
-<li>The ‘patients.xlsx’, contains very basic structured information for:<ul>
-<li>patients (columns: subject_id (the patient identifier), gender (male or female), dob (date of birth)). </li>
-</ul>
-</li>
+</ul></li>
+<li>The 'patients.xlsx', contains very basic structured information for:
+<ul>
+<li>patients (columns: subject_id (the patient identifier), gender (male or female), dob (date of birth)).</li>
+</ul></li>
 </ul>
 <p>You will be performing some basic analysis (using Python) which will help you to better understand the data available. To work with the excel files, you should use <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/getting_started/overview.html">pandas library</a>. For plotting, you are allowed to use <a target="_blank" rel="noopener" href="https://matplotlib.org/">matplotlib</a>/<a target="_blank" rel="noopener" href="https://seaborn.pydata.org/">seaborn</a>/<a target="_blank" rel="noopener" href="https://bokeh.org//">bokeh</a>.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#import libraries</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np, pandas <span class="keyword">as</span> pd, seaborn <span class="keyword">as</span> sns, matplotlib.pyplot <span class="keyword">as</span> plt, bokeh</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, date </span><br></pre></td></tr></table></figure>
-<h3 id="Basic-analysis-on-patients-using-Python"><a href="#Basic-analysis-on-patients-using-Python" class="headerlink" title="Basic analysis on patients using Python"></a>Basic analysis on patients using Python</h3><p>Perform some basic statistics on the ‘patient.xlsx’ file.</p>
+<h3 id="basic-analysis-on-patients-using-python">Basic analysis on patients using Python</h3>
+<p>Perform some basic statistics on the 'patient.xlsx' file.</p>
 <ul>
 <li>Check if there are empty/NaN values on the dataframe.</li>
 <li>Find out if there is a gender balance among our patients.</li>
 <li>Plot the gender occurrences.</li>
-<li>Add a new column ‘age’ in the dataframe. The age of each patient can be computed from ‘dob’ column.</li>
+<li>Add a new column 'age' in the dataframe. The age of each patient can be computed from 'dob' column.</li>
 </ul>
 <p>In [ ]:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#read &#x27;patient.xlsx&#x27; file into a DataFrame.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#check if there are empty/NaN values</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#count and print the occurencies of male and female patients</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#plot their occurencies using one of the specified plotting libraries</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#compute age from &#x27;dob&#x27; column: </span></span><br><span class="line">    <span class="comment"># --&gt; (a) use to_datetime() method to convert &#x27;dob&#x27; to datetime format</span></span><br><span class="line">    <span class="comment"># --&gt; (b) create a function that returns the age from &#x27;dob&#x27;</span></span><br><span class="line">    <span class="comment"># --&gt; (c) apply the function to the column &#x27;dob&#x27;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Basic-data-analysis-on-EHR-information-using-Python"><a href="#Basic-data-analysis-on-EHR-information-using-Python" class="headerlink" title="Basic data analysis on EHR information using Python"></a>Basic data analysis on EHR information using Python</h3><p>In this part, you will analyse the EHR information found in ‘noteevents.xlsx’ file.</p>
+<h3 id="basic-data-analysis-on-ehr-information-using-python">Basic data analysis on EHR information using Python</h3>
+<p>In this part, you will analyse the EHR information found in 'noteevents.xlsx' file.</p>
 <ul>
-<li>Find out how many distinct categories are found in ‘notevents.xlsx’ file.</li>
+<li>Find out how many distinct categories are found in 'notevents.xlsx' file.</li>
 <li>Merge noteevents and patient dataframe based on patient_id.</li>
 <li>Using pandas groupby() method print the mean age per gender.</li>
 <li>Filter the dataframe to return information only for male patients whose age is more than 50 years old.</li>
 <li>Plot which category has the highest amount of requests and this corresponding amount per gender.</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#read &#x27;noteevents.xlsx&#x27; file into a DataFrame.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#print the unique values of &#x27;category&#x27; column</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#merge noteevents and patient dataframe based on the patient_id</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#groupby() to show the mean age per gender</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#filter the dataframe to return information only for patients whose age is more than 50 years old. </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#plot which category has the highest amount of requests and this corresponding amount per gender</span></span><br></pre></td></tr></table></figure>
-<h2 id="Requesting-access-to-MIMIC-III"><a href="#Requesting-access-to-MIMIC-III" class="headerlink" title="Requesting access to MIMIC-III"></a>Requesting access to MIMIC-III</h2><hr>
+<h2 id="requesting-access-to-mimic-iii">Requesting access to MIMIC-III</h2>
+<hr />
 <blockquote>
-<p>During the first exercise session, all students will need to complete the CITI “Data or Specimens Only Research” course which will can take 2.5 hours approximately. </p>
-<p>All the knowledge you will learn while completing the report will help you to understand better the importance of ethics, privacy, confidentiality etc in health information systems. </p>
-<p>Detailed information about each step to follow can be found in this <a target="_blank" rel="noopener" href="https://towardsdatascience.com/getting-access-to-mimic-iii-hospital-database-for-data-science-projects-791813feb735">link</a>. You will need to attach the CITI completion report during your request submission. </p>
-<p>After successfully submitting your request, you should receive an email with subject “PhysioNet credentialing application notification” from PhysioNet confirming that you have successfully submitted your request. </p>
+<p>During the first exercise session, all students will need to complete the CITI “Data or Specimens Only Research” course which will can take 2.5 hours approximately.</p>
+<p>All the knowledge you will learn while completing the report will help you to understand better the importance of ethics, privacy, confidentiality etc in health information systems.</p>
+<p>Detailed information about each step to follow can be found in this <a target="_blank" rel="noopener" href="https://towardsdatascience.com/getting-access-to-mimic-iii-hospital-database-for-data-science-projects-791813feb735">link</a>. You will need to attach the CITI completion report during your request submission.</p>
+<p>After successfully submitting your request, you should receive an email with subject "PhysioNet credentialing application notification" from PhysioNet confirming that you have successfully submitted your request.</p>
 </blockquote>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<h1 id="example">Example</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">&#x27;Dummy data.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># print all the columns data type</span></span><br><span class="line">df.dtypes</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Feature1    float64</span></span><br><span class="line"><span class="string">Feature2    float64</span></span><br><span class="line"><span class="string">Feature3    float64</span></span><br><span class="line"><span class="string">Feature4    float64</span></span><br><span class="line"><span class="string">Label         int64</span></span><br><span class="line"><span class="string">dtype: object</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># print only the head of the df</span></span><br><span class="line">df.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>

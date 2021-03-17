@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-22
+                    2021-03-17
                 </div>
                 
 
@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    7 Min
                 </div>
                 
 
@@ -497,20 +497,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Basis-of-OS-Input-Output"><a href="#Basis-of-OS-Input-Output" class="headerlink" title="Basis of OS - Input/Output"></a>Basis of OS - Input/Output</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9aFliRXdZM1MyRWc&id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%202.mp4&parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video 57:51 ~ 1:54:06</a></p>
-<h2 id="Principles-of-I-O-hardware-59-33"><a href="#Principles-of-I-O-hardware-59-33" class="headerlink" title="Principles of I/O hardware 59:33"></a>Principles of I/O hardware 59:33</h2><h3 id="IO-devices"><a href="#IO-devices" class="headerlink" title="IO devices"></a>IO devices</h3><p>Different people look at I/O hardware in different ways:</p>
+                <h1 id="basis-of-os---inputoutput">Basis of OS - Input/Output</h1>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9aFliRXdZM1MyRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20operating%20systems%20and%20security%20%2D%20lecture%202%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video 57:51 ~ 1:54:06</a></p>
+<h2 id="principles-of-io-hardware-5933">Principles of I/O hardware 59:33</h2>
+<h3 id="io-devices">IO devices</h3>
+<p>Different people look at I/O hardware in different ways:</p>
 <ul>
 <li>Electrical engineers look at it in terms of chips, wires, power supplies, motors, and all the other physical components that comprise the hardware.</li>
 <li>Programmers look at the interface presented to the software.</li>
 </ul>
-<p>I/O devices can be divided into two categories: </p>
+<p>I/O devices can be divided into two categories:</p>
 <ul>
 <li>block devices</li>
 <li>character devices.</li>
 </ul>
 <p>This classification scheme is not perfect because some devices do not fit in, but the model of block and character devices is general enough that it can be used as a basis.</p>
-<p><img src="/images/ADVMB/0823180.png" alt="Some typical device, network, and data base rates 1:01:13"></p>
-<h3 id="Device-controllers-1-02-14"><a href="#Device-controllers-1-02-14" class="headerlink" title="Device controllers 1:02:14"></a>Device controllers 1:02:14</h3><p>I/O devices have components:</p>
+<figure>
+<img src="/images/ADVMB/0823180.png" alt="" /><figcaption>Some typical device, network, and data base rates 1:01:13</figcaption>
+</figure>
+<h3 id="device-controllers-10214">Device controllers 1:02:14</h3>
+<p>I/O devices have components:</p>
 <ul>
 <li>mechanical component (the device itself)</li>
 <li>electronic component (device controller)</li>
@@ -519,7 +525,7 @@
 <ul>
 <li>may be able to handle multiple devices</li>
 </ul>
-<p>Controller’s tasks:</p>
+<p>Controller's tasks:</p>
 <ul>
 <li>convert serial/parallel bit stream to block of bytes</li>
 <li>perform error correction as necessary</li>
@@ -531,51 +537,66 @@
 <li>Direct Memory Accesses</li>
 <li>Interruptions</li>
 </ul>
-<h2 id="Memory-mapped-I-O-1-03-41"><a href="#Memory-mapped-I-O-1-03-41" class="headerlink" title="Memory-mapped I/O 1:03:41"></a>Memory-mapped I/O 1:03:41</h2><p>How the CPU communicates with the control registers and also with the device data buffers?</p>
-<ol>
+<h2 id="memory-mapped-io-10341">Memory-mapped I/O 1:03:41</h2>
+<p>How the CPU communicates with the control registers and also with the device data buffers?</p>
+<ol type="1">
 <li>Separate I/O and memory space (Standard I/O or I/O-mapped I/O)</li>
 <li>Memory-mapped I/O</li>
 <li>Hybrid</li>
 </ol>
-<p><img src="/images/OP/0823181.png"></p>
-<p><img src="/images/OP/0823182.png" alt="Memory-mapped I/O VS. Standard I/O 1:06:06 - 1:07:55"></p>
-<h3 id="x86"><a href="#x86" class="headerlink" title="x86"></a>x86</h3><ol>
+<p><img src="/images/OP/0823181.png" /></p>
+<figure>
+<img src="/images/OP/0823182.png" alt="" /><figcaption>Memory-mapped I/O VS. Standard I/O 1:06:06 - 1:07:55</figcaption>
+</figure>
+<h3 id="x86">x86</h3>
+<ol type="1">
 <li>A single-bus architecture (old architectures)</li>
 <li>A dual-bus memory architecture (current architectures)</li>
 </ol>
-<p><img src="/images/OP/0823183.png"></p>
-<h2 id="Direct-Memory-Access-DMA-1-09-45"><a href="#Direct-Memory-Access-DMA-1-09-45" class="headerlink" title="Direct Memory Access (DMA) 1:09:45"></a>Direct Memory Access (DMA) 1:09:45</h2><p><img src="/images/OP/0823184.png" alt="Operation of a DMA transfer"></p>
-<h3 id="DMA-Features-1-14-25"><a href="#DMA-Features-1-14-25" class="headerlink" title="DMA Features 1:14:25"></a>DMA Features 1:14:25</h3><p>DMA controllers vary considerably in their sophistication. </p>
-<p>More complex DMA controllers can be programmed to <u>handle <strong>multiple</strong> transfers</u> at the same time. </p>
+<p><img src="/images/OP/0823183.png" /></p>
+<h2 id="direct-memory-access-dma-10945">Direct Memory Access (DMA) 1:09:45</h2>
+<figure>
+<img src="/images/OP/0823184.png" alt="" /><figcaption>Operation of a DMA transfer</figcaption>
+</figure>
+<h3 id="dma-features-11425">DMA Features 1:14:25</h3>
+<p>DMA controllers vary considerably in their sophistication.</p>
+<p>More complex DMA controllers can be programmed to <u>handle <strong>multiple</strong> transfers</u> at the same time.</p>
 <p>Many buses can operate in two modes:</p>
 <ul>
 <li>word-at-a-time (former) mode =&gt; <strong>cycle stealing</strong></li>
-<li>block mode =&gt; burst mode </li>
+<li>block mode =&gt; burst mode</li>
 </ul>
-<p>Not all computers (or embedded systems) use DMA. </p>
-<h2 id="Interrupt-driven-I-O-using-vectored-interrupt-1-16-49"><a href="#Interrupt-driven-I-O-using-vectored-interrupt-1-16-49" class="headerlink" title="Interrupt-driven I/O using vectored interrupt 1:16:49"></a>Interrupt-driven I/O using vectored interrupt 1:16:49</h2><h3 id="Without-interrupt-controller"><a href="#Without-interrupt-controller" class="headerlink" title="Without interrupt controller"></a>Without interrupt controller</h3><p>When an interruption happens, the processor suspends current program, jumps to an <strong>Interrupt Service Routine</strong>, or <strong>ISR</strong></p>
-<p>What is the address (interrupt address vector) of the ISR? </p>
-<p>Vectored interrupt </p>
+<p>Not all computers (or embedded systems) use DMA.</p>
+<h2 id="interrupt-driven-io-using-vectored-interrupt-11649">Interrupt-driven I/O using vectored interrupt 1:16:49</h2>
+<h3 id="without-interrupt-controller">Without interrupt controller</h3>
+<p>When an interruption happens, the processor suspends current program, jumps to an <strong>Interrupt Service Routine</strong>, or <strong>ISR</strong></p>
+<p>What is the address (interrupt address vector) of the ISR?</p>
+<p>Vectored interrupt</p>
 <ul>
 <li>Peripheral must provide the address</li>
 <li>Common when microprocessor has multiple peripherals connected by a system bus</li>
 </ul>
-<p><img src="/images/OP/0823185.png" alt="1:18:50"></p>
-<p><img src="/images/OP/0823186.png"></p>
-<p><img src="/images/OP/0823187.png"></p>
-<p><img src="/images/OP/0823188.png"></p>
-<p><img src="/images/OP/0828189.png"></p>
-<p><img src="/images/OP/0828180.png"></p>
-<p><img src="/images/OP/0823180.png"></p>
-<h3 id="With-an-interrupt-controller-1-21-20"><a href="#With-an-interrupt-controller-1-21-20" class="headerlink" title="With an interrupt controller 1:21:20"></a>With an interrupt controller 1:21:20</h3><p>Connections between devices and interrupt controller actually use <strong>interrupt lines</strong> on the bus rather than dedicated wires</p>
-<p><img src="/images/OP/0823189.png"></p>
-<h2 id="Principles-of-I-O-hardware-1-22-46"><a href="#Principles-of-I-O-hardware-1-22-46" class="headerlink" title="Principles of I/O hardware 1:22:46"></a>Principles of I/O hardware 1:22:46</h2><h3 id="Goals-of-I-O-software"><a href="#Goals-of-I-O-software" class="headerlink" title="Goals of I/O software"></a>Goals of I/O software</h3><p><strong>Device independence</strong></p>
+<figure>
+<img src="/images/OP/0823185.png" alt="" /><figcaption>1:18:50</figcaption>
+</figure>
+<p><img src="/images/OP/0823186.png" /></p>
+<p><img src="/images/OP/0823187.png" /></p>
+<p><img src="/images/OP/0823188.png" /></p>
+<p><img src="/images/OP/0828189.png" /></p>
+<p><img src="/images/OP/0828180.png" /></p>
+<p><img src="/images/OP/0823180.png" /></p>
+<h3 id="with-an-interrupt-controller-12120">With an interrupt controller 1:21:20</h3>
+<p>Connections between devices and interrupt controller actually use <strong>interrupt lines</strong> on the bus rather than dedicated wires</p>
+<p><img src="/images/OP/0823189.png" /></p>
+<h2 id="principles-of-io-hardware-12246">Principles of I/O hardware 1:22:46</h2>
+<h3 id="goals-of-io-software">Goals of I/O software</h3>
+<p><strong>Device independence</strong></p>
 <ul>
 <li>programs can access any I/O device</li>
-<li>without specifying device in advance<ul>
+<li>without specifying device in advance
+<ul>
 <li>(floppy, hard drive, or CD-ROM)</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>Uniform naming</strong></p>
 <ul>
@@ -588,16 +609,16 @@
 </ul>
 <p><strong>Synchronous vs. asynchronous transfers.</strong></p>
 <ul>
-<li>Asynchronous (interrupt-driven): CPU starts, but continues processing until the interruption occurs<ul>
+<li>Asynchronous (interrupt-driven): CPU starts, but continues processing until the interruption occurs
+<ul>
 <li>Easier</li>
 <li>High-performance applications</li>
-</ul>
-</li>
+</ul></li>
 <li>Synchronous (blocking)</li>
 </ul>
 <p><strong>Buffering</strong></p>
 <ul>
-<li> Decouple data rates</li>
+<li>Decouple data rates</li>
 </ul>
 <p><strong>Sharable vs. dedicated devices</strong></p>
 <p>There are three fundamentally different ways that I/O can be performed from the software perspective:</p>
@@ -606,101 +627,115 @@
 <li>Interrupt-driven I/O</li>
 <li>I/O using DMA</li>
 </ul>
-<h4 id="Programmed-I-O-1-26-26"><a href="#Programmed-I-O-1-26-26" class="headerlink" title="Programmed I/O 1:26:26"></a>Programmed I/O 1:26:26</h4><p><img src="/images/OP/0828181.png" alt="Steps in printing a string"></p>
-<h4 id="Interrupt-driven-I-O-1-28-43"><a href="#Interrupt-driven-I-O-1-28-43" class="headerlink" title="Interrupt-driven I/O 1:28:43"></a>Interrupt-driven I/O 1:28:43</h4><p>Interrupts allow CPU to do something else while waiting for the I/O device.</p>
-<p><img src="/images/OP/0828182.png"></p>
+<h4 id="programmed-io-12626">Programmed I/O 1:26:26</h4>
+<figure>
+<img src="/images/OP/0828181.png" alt="" /><figcaption>Steps in printing a string</figcaption>
+</figure>
+<h4 id="interrupt-driven-io-12843">Interrupt-driven I/O 1:28:43</h4>
+<p>Interrupts allow CPU to do something else while waiting for the I/O device.</p>
+<p><img src="/images/OP/0828182.png" /></p>
 <p>Writing a string to the printer using interrupt-driven I/O.</p>
-<ol>
+<ol type="1">
 <li>Code executed at the time the print system call is made.</li>
 <li>Interrupt service procedure for the printer</li>
 </ol>
-<h4 id="I-O-using-DMA-1-29-32"><a href="#I-O-using-DMA-1-29-32" class="headerlink" title="I/O using DMA 1:29:32"></a>I/O using DMA 1:29:32</h4><p>An obvious disadvantage of interrupt-driven I/O is that an interrupt occurs on every character.</p>
+<h4 id="io-using-dma-12932">I/O using DMA 1:29:32</h4>
+<p>An obvious disadvantage of interrupt-driven I/O is that an interrupt occurs on every character.</p>
 <p>Interrupts take time, so this scheme wastes a certain amount of CPU time.</p>
 <p>DMA controller feed the characters to the printer one at time, without the CPU being bothered.</p>
-<p><img src="/images/OP/0828283.png"></p>
-<p>Printing a string using DMA. </p>
-<ol>
+<p><img src="/images/OP/0828283.png" /></p>
+<p>Printing a string using DMA.</p>
+<ol type="1">
 <li>Code executed when the print system call is made.</li>
 <li>Interrupt-service procedure.</li>
 </ol>
-<h2 id="I-O-software-layers-1-30-38"><a href="#I-O-software-layers-1-30-38" class="headerlink" title="I/O software layers 1:30:38"></a>I/O software layers 1:30:38</h2><p>I/O software is typically organized in four layers</p>
-<ol>
+<h2 id="io-software-layers-13038">I/O software layers 1:30:38</h2>
+<p>I/O software is typically organized in four layers</p>
+<ol type="1">
 <li>Interrupt Handlers</li>
 <li>Device drivers</li>
 <li>Device-independent operating system software</li>
 <li>User-level I/O software</li>
 </ol>
-<p><img src="/images/OP/0828183.png" alt="Layers of the I/O Software System"></p>
-<h3 id="Interrupt-handlers-1-31-16"><a href="#Interrupt-handlers-1-31-16" class="headerlink" title="Interrupt handlers 1:31:16"></a>Interrupt handlers 1:31:16</h3><p>Interrupt handlers are best hidden</p>
+<figure>
+<img src="/images/OP/0828183.png" alt="" /><figcaption>Layers of the I/O Software System</figcaption>
+</figure>
+<h3 id="interrupt-handlers-13116">Interrupt handlers 1:31:16</h3>
+<p>Interrupt handlers are best hidden</p>
 <ul>
-<li>have driver starting an I/O operation block until interrupt notifies of completion </li>
+<li>have driver starting an I/O operation block until interrupt notifies of completion</li>
 </ul>
 <p>Interrupt procedure does its task</p>
 <ul>
 <li>then unblocks driver that started it</li>
 </ul>
 <p>Steps must be performed in software after interrupt completed</p>
-<p><img src="/images/OP/0828184.png"></p>
-<h3 id="Device-drivers-1-33-18"><a href="#Device-drivers-1-33-18" class="headerlink" title="Device drivers 1:33:18"></a>Device drivers 1:33:18</h3><p>Logical position of device drivers is shown here</p>
+<p><img src="/images/OP/0828184.png" /></p>
+<h3 id="device-drivers-13318">Device drivers 1:33:18</h3>
+<p>Logical position of device drivers is shown here</p>
 <p>Communications between drivers and device controllers goes over the bus</p>
-<p><img src="/images/OP/0828185.png"></p>
+<p><img src="/images/OP/0828185.png" /></p>
 <ul>
 <li>Operating systems define a standard interface</li>
 <li>Different systems handle loading drivers in different ways.</li>
-<li>A device driver has several functions.<ul>
+<li>A device driver has several functions.
+<ul>
 <li>Communicate with the device-independent software</li>
 <li>Initialize the device</li>
 <li>Manage its power requirements</li>
 <li>Log events</li>
-</ul>
-</li>
-<li>Device driver functionality<ol>
+</ul></li>
+<li>Device driver functionality
+<ol type="1">
 <li>A typical driver starts out by checking the input parameters to see if they are valid.</li>
 <li>The driver may check if the device is currently in use.</li>
 <li>Controlling the device means issuing a sequence of commands to it.</li>
-<li>After the commands have been issued, one of two situations will apply.<ol>
+<li>After the commands have been issued, one of two situations will apply.
+<ol type="1">
 <li>the device driver must wait until the controller does some work for it</li>
 <li>the operation finishes without delay, so the driver need not block</li>
-</ol>
-</li>
+</ol></li>
 <li>After the operation has been completed, the driver must check for errors</li>
 <li>It returns some status information for error reporting back to its caller.</li>
 <li>Finally, driver executes the request or waits for the next one</li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<h3 id="Device-Independent-I-O-software-1-37-58"><a href="#Device-Independent-I-O-software-1-37-58" class="headerlink" title="Device-Independent I/O software 1:37:58"></a>Device-Independent I/O software 1:37:58</h3><p>Although some of the I/O software is device specific, other parts of it are device independent.</p>
+<h3 id="device-independent-io-software-13758">Device-Independent I/O software 1:37:58</h3>
+<p>Although some of the I/O software is device specific, other parts of it are device independent.</p>
 <p>The basic function of the device-independent software is to perform the I/O functions that are common to all devices and to provide a uniform interface to the user-level software.</p>
 <p>Functions of the device-independent I/O software</p>
-<p><img src="/images/OP/0828186.png"></p>
-<h4 id="Uniform-interfacing-1-38-41"><a href="#Uniform-interfacing-1-38-41" class="headerlink" title="Uniform interfacing 1:38:41"></a>Uniform interfacing 1:38:41</h4><p>A major issue in an operating system is how to make all I/O devices and drivers look similar.</p>
+<p><img src="/images/OP/0828186.png" /></p>
+<h4 id="uniform-interfacing-13841">Uniform interfacing 1:38:41</h4>
+<p>A major issue in an operating system is how to make all I/O devices and drivers look similar.</p>
 <p>One aspect of this issue is the interface between the device drivers and the rest of the operating system.</p>
-<p><img src="/images/OP/0828187.png"></p>
-<ol>
+<p><img src="/images/OP/0828187.png" /></p>
+<ol type="1">
 <li>Without a standard driver interface</li>
 <li>With a standard driver interface</li>
 </ol>
 <p><strong>Uniform interfacing works as follows</strong>:</p>
 <ul>
 <li><strong>Functions</strong>: For each class of devices the operating system defines a set of functions that the driver must supply.</li>
-<li><strong>Naming</strong>: The device-independent software takes care of mapping symbolic device names onto the proper driver.<ul>
+<li><strong>Naming</strong>: The device-independent software takes care of mapping symbolic device names onto the proper driver.
+<ul>
 <li>For example, in UNIX a device name, such as /dev/disk0</li>
-</ul>
-</li>
+</ul></li>
 <li><strong>Protection</strong>: The system administrator can then set the proper permissions for each device.</li>
 </ul>
-<p><img src="/images/OP/0828188.png"></p>
-<h4 id="Buffering-1-42-35"><a href="#Buffering-1-42-35" class="headerlink" title="Buffering 1:42:35"></a>Buffering 1:42:35</h4><ol>
-<li> Unbuffered input</li>
+<p><img src="/images/OP/0828188.png" /></p>
+<h4 id="buffering-14235">Buffering 1:42:35</h4>
+<ol type="1">
+<li>Unbuffered input</li>
 <li>Buffering in user space</li>
 <li>Buffering in the kernel followed by copying to user space</li>
 <li>Double buffering in the kernel</li>
 </ol>
-<p><img src="/images/OP/0828280.png"></p>
+<p><img src="/images/OP/0828280.png" /></p>
 <p>Networking may involve many copies</p>
-<p><img src="/images/OP/0828281.png"></p>
-<h4 id="User-space-I-O-software-1-46-55"><a href="#User-space-I-O-software-1-46-55" class="headerlink" title="User-space I/O software 1:46:55"></a>User-space I/O software 1:46:55</h4><p>Layers of the I/O system and the main functions of each layer</p>
-<p><img src="/images/OP/0828282.png"></p>
+<p><img src="/images/OP/0828281.png" /></p>
+<h4 id="user-space-io-software-14655">User-space I/O software 1:46:55</h4>
+<p>Layers of the I/O system and the main functions of each layer</p>
+<p><img src="/images/OP/0828282.png" /></p>
 
                 
             </div>

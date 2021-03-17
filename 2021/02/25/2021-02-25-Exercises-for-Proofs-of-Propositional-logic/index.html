@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    478
+                    483
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    3 Min
                 </div>
                 
 
@@ -497,51 +497,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Exercises-for-Lecture-03-–Proofs-of-Propositional-logic"><a href="#Exercises-for-Lecture-03-–Proofs-of-Propositional-logic" class="headerlink" title="Exercises for Lecture 03 –Proofs of Propositional logic"></a>Exercises for Lecture 03 –Proofs of Propositional logic</h1><h2 id="Proofs"><a href="#Proofs" class="headerlink" title="Proofs"></a>Proofs</h2><h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h3><p>Prove each of these equivalences by substitution, one step at a time. </p>
+                <h1 id="exercises-for-lecture-03-proofs-of-propositional-logic">Exercises for Lecture 03 –Proofs of Propositional logic</h1>
+<h2 id="proofs">Proofs</h2>
+<h3 id="question-1">Question 1</h3>
+<p>Prove each of these equivalences by substitution, one step at a time.</p>
 <ul>
-<li>(a) ((p ∨ q) ∧ (¬p ∧ ¬q)) ≡  FALSE </li>
+<li><ol type="a">
+<li>((p ∨ q) ∧ (¬p ∧ ¬q)) ≡ FALSE</li>
+</ol></li>
 </ul>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p><img src="/images/FOCS/6417395.png"></p>
-<h3 id="Question-2"><a href="#Question-2" class="headerlink" title="Question 2"></a>Question 2</h3><p>Using rules of inference with no substitutions, prove that</p>
+<h4 id="solution">Solution</h4>
+<p><img src="/images/FOCS/6417395.png" /></p>
+<h3 id="question-2">Question 2</h3>
+<p>Using rules of inference with no substitutions, prove that</p>
 <ul>
 <li>(p ∧ (p → q) ∧ (q → r)) → r</li>
 </ul>
-<p>Use the rules-of-inference format. Name the rule of inference that is used at each step. </p>
+<p>Use the rules-of-inference format. Name the rule of inference that is used at each step.</p>
 <p>Hint: The top-level operator in the formula here is a conditional (the -* symbol). Begin by writing everything to the left of that symbol (within the large parentheses) on the first line of the proof, in brackets and indented, as an assumption. Leave some space and put the entire formula that you are to prove as the last line, not in brackets and not indented. Try to get an indented r on the next-to-last line. Of course, the lines before it must justify putting it there.</p>
-<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>First, about the general strategy… The statement we need to prove is of the form</p>
+<h4 id="solution-1">Solution</h4>
+<p>First, about the general strategy... The statement we need to prove is of the form</p>
 <ul>
 <li>φ → ψ</li>
 </ul>
 <p>This means our proof will most likely of the form</p>
-<p><img src="/images/FOCS/6417396.png"></p>
+<p><img src="/images/FOCS/6417396.png" /></p>
 <p>now let us fill in φ and ψ:</p>
-<p><img src="/images/FOCS/6417397.png"></p>
-<p>Now… The first rule (1) in our proof is a conjunction (what we assumed). It is always a good idea to break it down in pieces.</p>
-<p><img src="/images/FOCS/6417398.png"></p>
-<p>Now… from the fact that p holds and p implies q we would like to derive q. Similarly we want to find r. Modus ponens is the rule that does this! This completes our proof:</p>
-<p><img src="/images/FOCS/6417399.png"></p>
-<h2 id="Translation-of-natural-language-to-first-order-logic"><a href="#Translation-of-natural-language-to-first-order-logic" class="headerlink" title="Translation of natural language to first-order logic"></a>Translation of natural language to first-order logic</h2><p>Translate the following sentences into first-order logic (over suitable symbols):</p>
-<ol>
+<p><img src="/images/FOCS/6417397.png" /></p>
+<p>Now... The first rule (1) in our proof is a conjunction (what we assumed). It is always a good idea to break it down in pieces.</p>
+<p><img src="/images/FOCS/6417398.png" /></p>
+<p>Now... from the fact that p holds and p implies q we would like to derive q. Similarly we want to find r. Modus ponens is the rule that does this! This completes our proof:</p>
+<p><img src="/images/FOCS/6417399.png" /></p>
+<h2 id="translation-of-natural-language-to-first-order-logic">Translation of natural language to first-order logic</h2>
+<p>Translate the following sentences into first-order logic (over suitable symbols):</p>
+<ol type="1">
 <li>John and Peter are both not happy.</li>
-<li>John and Peter are not both happy. </li>
-<li>A necessary condition for John to be happy is that Peter is happy. </li>
-<li>All men like all vegetarians. </li>
-<li>All men except butchers like all vegetarians. </li>
+<li>John and Peter are not both happy.</li>
+<li>A necessary condition for John to be happy is that Peter is happy.</li>
+<li>All men like all vegetarians.</li>
+<li>All men except butchers like all vegetarians.</li>
 <li>Some man is a butcher and a vegetarian.</li>
 <li>No man is both a butcher and a vegetarian.</li>
 <li>No man likes a woman who is vegetarian.</li>
-<li>Not all men that are vegetarians are happy. </li>
+<li>Not all men that are vegetarians are happy.</li>
 <li>Only men like butchers.</li>
 <li>Some butcher likes all vegetarians.</li>
-<li>John likes all vegetarians. </li>
+<li>John likes all vegetarians.</li>
 <li>John does not like any vegetarian.</li>
-<li>All butchers are not vegetarians. </li>
+<li>All butchers are not vegetarians.</li>
 <li>For every butcher there is a vegetarian who likes him.</li>
 </ol>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution:"></a>Solution:</h3><ol>
+<h3 id="solution-2">Solution:</h3>
+<ol type="1">
 <li>¬Happy(John) ∧ ¬Happy(Peter)</li>
 <li>¬(Happy(John) ∧ Happy(Peter))</li>
-<li>Happy(John) ⇒ Happy(Peter) </li>
+<li>Happy(John) ⇒ Happy(Peter)</li>
 <li>∀x, y : (Man(x) ∧ V eg(y)) ⇒ Likes(x, y)</li>
 <li>∀x, y : (Man(x) ∧ ¬Butcher(x) ∧ Veg(y)) ⇒ Likes(x, y)</li>
 <li>∃x : Man(x) ∧ Butcher(x) ∧ Veg(x)</li>

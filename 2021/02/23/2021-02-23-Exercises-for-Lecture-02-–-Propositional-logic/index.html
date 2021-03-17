@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-23
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    918
+                    915
                 </div>
                 
 
@@ -497,10 +497,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Exercises-for-Propositional-logic"><a href="#Exercises-for-Propositional-logic" class="headerlink" title="Exercises for Propositional logic"></a>Exercises for Propositional logic</h1><p><a href="https://yintelligence.tech/2021/02/23/2021-02-23-Propositional-Logic/">Background</a></p>
-<p>Note: Some of these exercises refer to the IDP system. You can download it from [here](<a target="_blank" rel="noopener" href="https://dtai/">https://dtai</a>. cs.kuleuven.be/software/idp/try) or use the web-based version at <a target="_blank" rel="noopener" href="http://verne.cs.kuleuven.be/idp/server.html">here</a>. The latter has resource limits and can thus only be used for small problems, but should be sufficient for the current assignment. </p>
+                <h1 id="exercises-for-propositional-logic">Exercises for Propositional logic</h1>
+<p><a href="https://yintelligence.tech/2021/02/23/2021-02-23-Propositional-Logic/">Background</a></p>
+<p>Note: Some of these exercises refer to the IDP system. You can download it from <a href="https://dtai.%20cs.kuleuven.be/software/idp/try">here</a> or use the web-based version at <a target="_blank" rel="noopener" href="http://verne.cs.kuleuven.be/idp/server.html">here</a>. The latter has resource limits and can thus only be used for small problems, but should be sufficient for the current assignment.</p>
 <p>Template files to work with IDP for the different exercises are available on Canvas.</p>
-<h2 id="Exercise-1-Truth-Tables"><a href="#Exercise-1-Truth-Tables" class="headerlink" title="Exercise 1: Truth Tables"></a>Exercise 1: Truth Tables</h2><p>A journalist stops three friends (Mr. Rossi, Mr. Bianchi and Mr. Verdi) who just left the voting office. He interviews them separately about their votes in the elections. Mr. Rossi declares: “If Bianchi voted for Berlusconi, then also Verdi did”. Mr. Bianchi declares: “If Rossi did not vote for Berlusconi, then also Verdi did not”. Finally, Verdi declares: “Rossi voted for Berlusconi while Bianchi did not”. Let r, b, v denote “Mr Rossi (resp. Mr. Bianchi, Mr. Verdi) has voted for Berlusconi”.</p>
+<h2 id="exercise-1-truth-tables">Exercise 1: Truth Tables</h2>
+<p>A journalist stops three friends (Mr. Rossi, Mr. Bianchi and Mr. Verdi) who just left the voting office. He interviews them separately about their votes in the elections. Mr. Rossi declares: “If Bianchi voted for Berlusconi, then also Verdi did”. Mr. Bianchi declares: “If Rossi did not vote for Berlusconi, then also Verdi did not”. Finally, Verdi declares: “Rossi voted for Berlusconi while Bianchi did not”. Let r, b, v denote “Mr Rossi (resp. Mr. Bianchi, Mr. Verdi) has voted for Berlusconi”.</p>
 <p>Formalize the declarations of the three friends and use a truth table to answer the following questions:</p>
 <ul>
 <li>Are the declarations consistent?</li>
@@ -508,41 +510,43 @@
 <li>If all three are telling the truth, who has voted for Berlusconi and who has voted against him?</li>
 </ul>
 <p>When you are finished, formalize everything in the IDP system and use it to verify your answers.</p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">vocabulary V&#123;</span><br><span class="line">	RossiVotesBerlusconi</span><br><span class="line">	BianchiVotesBerlusconi</span><br><span class="line">	VerdiVotesBerlusconi</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vocabulary V_extended&#123;</span><br><span class="line">    extern vocabulary V</span><br><span class="line">    RossiTruth</span><br><span class="line">    BianchiTruth</span><br><span class="line">    VerdiTruth</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory point1 :V&#123;</span><br><span class="line"> // Use this theory to solve the question <span class="string">&quot;Are the declarations consistent?&quot;</span></span><br><span class="line">    BianchiVotesBerlusconi =&gt; VerdiVotesBerlusconi.</span><br><span class="line">    ~ RossiVotesBerlusconi =&gt; ~VerdiVotesBerlusconi.</span><br><span class="line">    RossiVotesBerlusconi &amp; ~BianchiVotesBerlusconi. </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory point2:V_extended&#123;</span><br><span class="line"> //Use this to solve the second question (hint: maybe you need to extended V <span class="keyword">for</span> this...)</span><br><span class="line">  RossiTruth &lt;=&gt; (BianchiVotesBerlusconi =&gt; VerdiVotesBerlusconi).</span><br><span class="line">  BianchiTruth &lt;=&gt; (  ~ RossiVotesBerlusconi =&gt; ~VerdiVotesBerlusconi).</span><br><span class="line">  VerdiTruth &lt;=&gt; ( RossiVotesBerlusconi &amp; ~BianchiVotesBerlusconi ). </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">structure no_assignments:V&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">structure allThreeVoteB:V&#123;</span><br><span class="line">//If needed you can put (partial) assignments here</span><br><span class="line">	RossiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line">	BianchiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line">	VerdiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">procedure main()&#123;</span><br><span class="line">    //Check the first <span class="keyword">and</span> third question:</span><br><span class="line">    printmodels(allmodels(point1,no_assignments))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We see two solutions, from this we conclude the statements are consistent&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We also see that in both solutions Bianchi did not vote Berslusconi and Rossi did vote Berlusconi. We can however make no conclusion about Verdi&quot;</span>)</span><br><span class="line"></span><br><span class="line">    //Check the last question</span><br><span class="line">    printmodels(allmodels(point2,allThreeVoteB))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We see that Verdi lies in this case&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="solution">Solution</h3>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">vocabulary V&#123;</span><br><span class="line">	RossiVotesBerlusconi</span><br><span class="line">	BianchiVotesBerlusconi</span><br><span class="line">	VerdiVotesBerlusconi</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vocabulary V_extended&#123;</span><br><span class="line">    extern vocabulary V</span><br><span class="line">    RossiTruth</span><br><span class="line">    BianchiTruth</span><br><span class="line">    VerdiTruth</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory point1 :V&#123;</span><br><span class="line"> // Use this theory to solve the question <span class="string">&quot;Are the declarations consistent?&quot;</span></span><br><span class="line">    BianchiVotesBerlusconi =&gt; VerdiVotesBerlusconi.</span><br><span class="line">    ~ RossiVotesBerlusconi =&gt; ~VerdiVotesBerlusconi.</span><br><span class="line">    RossiVotesBerlusconi &amp; ~BianchiVotesBerlusconi. </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory point2:V_extended&#123;</span><br><span class="line"> //Use this to solve the second question (hint: maybe you need to extended V <span class="keyword">for</span> this...)</span><br><span class="line">  RossiTruth &lt;=&gt; (BianchiVotesBerlusconi =&gt; VerdiVotesBerlusconi).</span><br><span class="line">  BianchiTruth &lt;=&gt; (  ~ RossiVotesBerlusconi =&gt; ~VerdiVotesBerlusconi).</span><br><span class="line">  VerdiTruth &lt;=&gt; ( RossiVotesBerlusconi &amp; ~BianchiVotesBerlusconi ). </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">structure no_assignments:V&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">structure allThreeVoteB:V&#123;</span><br><span class="line">//If needed you can put (partial) assignments here</span><br><span class="line">	RossiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line">	BianchiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line">	VerdiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">procedure main()&#123;</span><br><span class="line">    //Check the first <span class="keyword">and</span> third question:</span><br><span class="line">    printmodels(allmodels(point1,no_assignments))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We see two solutions, from this we conclude the statements are consistent&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We also see that in both solutions Bianchi did not vote Berslusconi and Rossi did vote Berlusconi. We can however make no conclusion about Verdi&quot;</span>)</span><br><span class="line"></span><br><span class="line">    //Check the last question</span><br><span class="line">    printmodels(allmodels(point2,allThreeVoteB))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We see that Verdi lies in this case&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>The statements can be formalized in logic as follows:</p>
 <table>
 <thead>
-<tr>
-<th align="right">Rossi says:</th>
+<tr class="header">
+<th style="text-align: right;">Rossi says:</th>
 <th>b → v</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="right">Bianchi says:</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Bianchi says:</td>
 <td>¬r → ¬¬v</td>
 </tr>
-<tr>
-<td align="right">Verdi says:</td>
+<tr class="even">
+<td style="text-align: right;">Verdi says:</td>
 <td>r ∧ ¬b</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>When creating the truth table, you should should see that</p>
 <ul>
 <li>There are two lines in which all three statements are true. Hence, the declarations are consistent</li>
 <li>In the line of the truth table in which b, v, and r are true, you can see that Verdi’s statement is false, while the other two are true.</li>
 <li>If all three tell the truth, there are still two possibilities. We do know for sure that rossi voted for Berlusconi and bianchi against, but we do not know how verdi voted.</li>
 </ul>
-<h2 id="Exercise-2-CNF-transformation"><a href="#Exercise-2-CNF-transformation" class="headerlink" title="Exercise 2: CNF transformation"></a>Exercise 2: CNF transformation</h2><p>A classical constraint satisfaction problem is the Graph Coloring problem. A graph is defined as a tuple G = (V, E) where V = {v<sub>1</sub>, v<sub>2</sub>, . . . , v<sub>n</sub>} is the set of <em>vertices</em> and E = {(v<sub>i</sub>, v<sub>j</sub>), . . . ,(v<sub>k</sub>, v<sub>l</sub>)} the set of edges connecting pairs of vertices. The graph we work with is undirected (i.e. if (v<sub>i</sub> , v<sub>j</sub>) ∈ E then (v<sub>j</sub> , v<sub>i</sub>) ∈ E (reflexivity)). Assume that KB is a theory consisting of the general knowledge about colors and graphs and the constraint the coloring function does not assign the same color to connected vertices. Given a graph, the graph coloring problem is now to assign colors which satisfy KB.</p>
+<h2 id="exercise-2-cnf-transformation">Exercise 2: CNF transformation</h2>
+<p>A classical constraint satisfaction problem is the Graph Coloring problem. A graph is defined as a tuple G = (V, E) where V = {v<sub>1</sub>, v<sub>2</sub>, . . . , v<sub>n</sub>} is the set of <em>vertices</em> and E = {(v<sub>i</sub>, v<sub>j</sub>), . . . ,(v<sub>k</sub>, v<sub>l</sub>)} the set of edges connecting pairs of vertices. The graph we work with is undirected (i.e. if (v<sub>i</sub> , v<sub>j</sub>) ∈ E then (v<sub>j</sub> , v<sub>i</sub>) ∈ E (reflexivity)). Assume that KB is a theory consisting of the general knowledge about colors and graphs and the constraint the coloring function does not assign the same color to connected vertices. Given a graph, the graph coloring problem is now to assign colors which satisfy KB.</p>
 <p>Given a graph with nodes ‘i’, ‘a’ and ‘h’. Take the following propositional vocabulary:</p>
 <ul>
 <li>e<sub>ia</sub>, e<sub>ah</sub> and e<sub>ih</sub> represent whether there is an edge between the nodes.</li>
 <li>b<sub>i</sub> , b<sub>a</sub> and b<sub>h</sub> represent whether the nodes are colored black (assume there are only two colors, so the negation indicates a node has the opposite color).</li>
 </ul>
-<ol>
-<li><p>Firstly, write down the propositional theory KB.</p>
-</li>
-<li><p>Transform KB into CNF using DeMorgan’s laws.</p>
-</li>
+<ol type="1">
+<li><p>Firstly, write down the propositional theory KB.</p></li>
+<li><p>Transform KB into CNF using DeMorgan’s laws.</p></li>
 </ol>
 <p>Assume that node i represents Italy, a represents Austria and h Hungary and consider the additional knowledge that</p>
 <ul>
@@ -550,12 +554,13 @@
 <li>Austria is connected to Hungary</li>
 <li>Italy and Hungary are not connected</li>
 </ul>
-<ol start="3">
+<ol start="3" type="1">
 <li>Add this knowledge to your KB and CNF (do not eliminate anything!).</li>
-<li>Now… simplify the original KB with the additional knowledge <em>before</em> turning it into CNF. What’s the effect?</li>
+<li>Now... simplify the original KB with the additional knowledge <em>before</em> turning it into CNF. What’s the effect?</li>
 <li>Use the IDP system to find colorings for the given graph. Do this twice, once with your theory before putting it in CNF and once after. Verify that they admit the same colorings.</li>
 </ol>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">vocabulary V&#123;</span><br><span class="line">	//The possible edges.</span><br><span class="line">	e_ia</span><br><span class="line">	e_ah</span><br><span class="line">	e_ih</span><br><span class="line"></span><br><span class="line">	//Whether <span class="keyword">or</span> <span class="keyword">not</span> a country is black:</span><br><span class="line">	b_i</span><br><span class="line">	b_a</span><br><span class="line">	b_h</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory notInCNF :V&#123;</span><br><span class="line"> // Put your theory BEFORE transformation to CNF here</span><br><span class="line">	e_ia =&gt; (b_i &lt;=&gt; ~b_a).</span><br><span class="line">	e_ah =&gt; (b_a &lt;=&gt; ~b_h).</span><br><span class="line">	e_ih =&gt; (b_i &lt;=&gt; ~b_h).</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory inCNF:V&#123;</span><br><span class="line"> // Put your theory AFTER transformation to CNF here</span><br><span class="line">    ~e_ia  | ~b_i | ~b_a. </span><br><span class="line">    ~e_ia  | b_i | b_a. </span><br><span class="line">    ~e_ah  | ~b_h | ~b_a. </span><br><span class="line">    ~e_ah  | b_h | b_a. </span><br><span class="line">    ~e_ih  | ~b_i | ~b_h. </span><br><span class="line">    ~e_ih  | b_i | b_h. </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">structure S:V&#123;</span><br><span class="line">	//You can put (partial) assignments here</span><br><span class="line">    //We interpret the edge:</span><br><span class="line">    e_ia = <span class="literal">true</span></span><br><span class="line">    e_ah = <span class="literal">true</span></span><br><span class="line">    e_ih = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">procedure main()&#123;</span><br><span class="line"> //Generate the models of both of the theories. We see they indeed agree:</span><br><span class="line">    printmodels(allmodels(notInCNF,S))</span><br><span class="line">    printmodels(allmodels(inCNF,S))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="solution-1">Solution</h3>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">vocabulary V&#123;</span><br><span class="line">	//The possible edges.</span><br><span class="line">	e_ia</span><br><span class="line">	e_ah</span><br><span class="line">	e_ih</span><br><span class="line"></span><br><span class="line">	//Whether <span class="keyword">or</span> <span class="keyword">not</span> a country is black:</span><br><span class="line">	b_i</span><br><span class="line">	b_a</span><br><span class="line">	b_h</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory notInCNF :V&#123;</span><br><span class="line"> // Put your theory BEFORE transformation to CNF here</span><br><span class="line">	e_ia =&gt; (b_i &lt;=&gt; ~b_a).</span><br><span class="line">	e_ah =&gt; (b_a &lt;=&gt; ~b_h).</span><br><span class="line">	e_ih =&gt; (b_i &lt;=&gt; ~b_h).</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory inCNF:V&#123;</span><br><span class="line"> // Put your theory AFTER transformation to CNF here</span><br><span class="line">    ~e_ia  | ~b_i | ~b_a. </span><br><span class="line">    ~e_ia  | b_i | b_a. </span><br><span class="line">    ~e_ah  | ~b_h | ~b_a. </span><br><span class="line">    ~e_ah  | b_h | b_a. </span><br><span class="line">    ~e_ih  | ~b_i | ~b_h. </span><br><span class="line">    ~e_ih  | b_i | b_h. </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">structure S:V&#123;</span><br><span class="line">	//You can put (partial) assignments here</span><br><span class="line">    //We interpret the edge:</span><br><span class="line">    e_ia = <span class="literal">true</span></span><br><span class="line">    e_ah = <span class="literal">true</span></span><br><span class="line">    e_ih = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">procedure main()&#123;</span><br><span class="line"> //Generate the models of both of the theories. We see they indeed agree:</span><br><span class="line">    printmodels(allmodels(notInCNF,S))</span><br><span class="line">    printmodels(allmodels(inCNF,S))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
             </div>

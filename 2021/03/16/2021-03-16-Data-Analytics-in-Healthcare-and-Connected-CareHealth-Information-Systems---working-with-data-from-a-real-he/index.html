@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    688
+                    693
                 </div>
                 
 
@@ -497,47 +497,52 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Data-Analytics-in-Healthcare-and-Connected-Care-Health-Information-Systems-working-with-data-from-a-real-healthcare-database"><a href="#Data-Analytics-in-Healthcare-and-Connected-Care-Health-Information-Systems-working-with-data-from-a-real-healthcare-database" class="headerlink" title="Data Analytics in Healthcare and Connected Care/Health Information Systems - working with data from a real healthcare database"></a>Data Analytics in Healthcare and Connected Care/Health Information Systems - working with data from a real healthcare database</h1><p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=48566814-3764-4e17-b649-aced00be2dbb">Introduction Video 3:13 ~ 10:34</a></p>
-<p>The goals of this practical session are: </p>
+                <h1 id="data-analytics-in-healthcare-and-connected-carehealth-information-systems---working-with-data-from-a-real-healthcare-database">Data Analytics in Healthcare and Connected Care/Health Information Systems - working with data from a real healthcare database</h1>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=48566814-3764-4e17-b649-aced00be2dbb">Introduction Video 3:13 ~ 10:34</a></p>
+<p>The goals of this practical session are:</p>
 <ul>
 <li>Make you work with (a subset of) data from a real healthcare database, MIMIC-III (Medical Information Mart for Intensive Care III);</li>
 <li>Explore the data available using simple and complex SQL queries;</li>
-<li>Analyse more in details patient’s data. </li>
+<li>Analyse more in details patient's data.</li>
 </ul>
-<h2 id="Getting-started-with-SQLite-in-Python"><a href="#Getting-started-with-SQLite-in-Python" class="headerlink" title="Getting started with SQLite in Python"></a>Getting started with SQLite in Python</h2><p>Accessing data from a database like Structured Query Language (SQL) is not only efficient, but it allows you also to subset and import only the parts of the data that you need. </p>
-<p>During this practical session, you will use <a target="_blank" rel="noopener" href="https://sqlite.org/docs.html">SQLite</a> (a C-language library that implements a small, fast, self-contained SQL database engine) and the ‘mimicdata.sqlite’ file shared in Canvas.</p>
+<h2 id="getting-started-with-sqlite-in-python">Getting started with SQLite in Python</h2>
+<p>Accessing data from a database like Structured Query Language (SQL) is not only efficient, but it allows you also to subset and import only the parts of the data that you need.</p>
+<p>During this practical session, you will use <a target="_blank" rel="noopener" href="https://sqlite.org/docs.html">SQLite</a> (a C-language library that implements a small, fast, self-contained SQL database engine) and the 'mimicdata.sqlite' file shared in Canvas.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#import libraries </span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np, pandas <span class="keyword">as</span> pd, matplotlib.pyplot <span class="keyword">as</span> plt, seaborn <span class="keyword">as</span> sns, matplotlib.pyplot <span class="keyword">as</span> plt, bokeh, sqlite3</span><br></pre></td></tr></table></figure>
 <p>In this first part of the lab session, you should:</p>
 <ul>
 <li>connect to the MIMIC database using sqlite3 library.</li>
 <li>list all the table names present in the database.</li>
-<li>read <a target="_blank" rel="noopener" href="https://mimic.physionet.org/mimictables/">here</a> the description about the MIMIC-III tables present in the ‘sqlite’ file you will be using.</li>
+<li>read <a target="_blank" rel="noopener" href="https://mimic.physionet.org/mimictables/">here</a> the description about the MIMIC-III tables present in the 'sqlite' file you will be using.</li>
 <li>choose two tables of your choice and find out for each of them, their corresponding column names and the number of records present.</li>
 <li>read these two tables into a dataframe.</li>
 </ul>
 <p>Keywords: <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/sqlite3.html#connection-objects">sqlite 3 connection</a>, <a target="_blank" rel="noopener" href="https://mimic.physionet.org/mimictables/">MIMIC tables</a> ,<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute">query execution</a>, <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql_query.html">read sql query into a DataFrame.</a></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Explore-the-data-using-SQL-queries"><a href="#Explore-the-data-using-SQL-queries" class="headerlink" title="Explore the data using SQL queries"></a>Explore the data using SQL queries</h2><p>The main goal of this part of the lab session is to familiarize yourself with simple and complex sql queries that you can write in order to retrieve only a part of the data you have interest to perform analysis. We suggest that you save your queries into variables to avoid having to re-think/re-write them each time you want to use again. Towards reaching the main goal mentioned, you need to:</p>
+<h2 id="explore-the-data-using-sql-queries">Explore the data using SQL queries</h2>
+<p>The main goal of this part of the lab session is to familiarize yourself with simple and complex sql queries that you can write in order to retrieve only a part of the data you have interest to perform analysis. We suggest that you save your queries into variables to avoid having to re-think/re-write them each time you want to use again. Towards reaching the main goal mentioned, you need to:</p>
 <p><strong>Write sql queries to query single tables</strong></p>
 <ul>
-<li>Display only the ‘microbiologyevents’ information for which a blood culture was performed.</li>
+<li>Display only the 'microbiologyevents' information for which a blood culture was performed.</li>
 <li>Display the number of urine specimen tested for bacterial growth.</li>
 <li>Display all the distinct drug values (from prescription table) used among all the records present.</li>
-<li>Considering the information available at ‘ransfers’ table, find out the numbers of patients admitted; transfered or discharged from the hospital.</li>
+<li>Considering the information available at 'ransfers' table, find out the numbers of patients admitted; transfered or discharged from the hospital.</li>
 <li>Display only the records from outputevents table for substances whose level of injection was higher than 100 mL (ordered based on the injection value) and caregiver id was 21452 and 21108.</li>
 </ul>
 <p><strong>Write sql queries to query multiple tables:</strong></p>
 <ul>
-<li>Join ‘admissions’ and ‘patient’ table.</li>
-<li>Join ‘admissions’, ‘patient’ and ‘icustays’ table (pay attention to the keys).</li>
+<li>Join 'admissions' and 'patient' table.</li>
+<li>Join 'admissions', 'patient' and 'icustays' table (pay attention to the keys).</li>
 <li>Get the length of stay for all patients (measured in fractional days) and plot their distribution for male and female patients.</li>
-<li>Write a query that selects SUBJECT_ID, GENDER, ICUSTAY_ID and adds a column ‘LOS_nominal’ that converts the ‘LOS’ into a nominal variable (‘Short’ if los value &lt;= 3 else ‘Long’).</li>
+<li>Write a query that selects SUBJECT_ID, GENDER, ICUSTAY_ID and adds a column 'LOS_nominal' that converts the 'LOS' into a nominal variable ('Short' if los value &lt;= 3 else 'Long').</li>
 </ul>
 <p>Keywords: <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/sqlite3.html#module-functions-and-constants">sqlite</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-select/">sqlite select</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-where/">sqlite where</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-select-distinct">sqlite select distinct</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-order-by/">sqlite order by</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-in/">sqlite IN operator</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-group-by/">sqlite group by</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-join/">sqlite join</a>.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Analysing-patient’s-laboratory-measurements"><a href="#Analysing-patient’s-laboratory-measurements" class="headerlink" title="Analysing patient’s laboratory measurements"></a>Analysing patient’s laboratory measurements</h2><p>Table ‘LABEVENTS’ contains all laboratory measurements for some specific patients. ‘D_LABITEMS’ contains definitions for all ITEM_ID associated with lab measurements in the MIMIC database. In this part of the lab session, you should analyse the glucose levels for subject with id 40161. Query the database to retrive only the relevant information; plot the glucose levels for the given subject and interpret the results.</p>
+<h2 id="analysing-patients-laboratory-measurements">Analysing patient's laboratory measurements</h2>
+<p>Table 'LABEVENTS' contains all laboratory measurements for some specific patients. 'D_LABITEMS' contains definitions for all ITEM_ID associated with lab measurements in the MIMIC database. In this part of the lab session, you should analyse the glucose levels for subject with id 40161. Query the database to retrive only the relevant information; plot the glucose levels for the given subject and interpret the results.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Analysing-patient’s-vital-signs"><a href="#Analysing-patient’s-vital-signs" class="headerlink" title="Analysing patient’s vital signs"></a>Analysing patient’s vital signs</h2><p>During an intensive care unit (ICU) stay, the primary repository of a patient’s information is their electronic chart which displays patients’ routine vital signs,laboratory values, mental status, etc. ‘CHARTEVENTS’ table contains all the charted data available for a patient. ‘ICUSTAYS’ table (derived from the ‘TRANSFERS’ table) provides information about the date and time when the patient was transferred into/out the ICU. ‘D_ITEMS’ provides information about all items in the ICU databases. Considering the information you get from these three tables, find out how does the oxygen saturation level for patient with icu_stay_id 256307 change over time and interpret the results.</p>
+<h2 id="analysing-patients-vital-signs">Analysing patient's vital signs</h2>
+<p>During an intensive care unit (ICU) stay, the primary repository of a patient’s information is their electronic chart which displays patients’ routine vital signs,laboratory values, mental status, etc. 'CHARTEVENTS' table contains all the charted data available for a patient. 'ICUSTAYS' table (derived from the 'TRANSFERS' table) provides information about the date and time when the patient was transferred into/out the ICU. 'D_ITEMS' provides information about all items in the ICU databases. Considering the information you get from these three tables, find out how does the oxygen saturation level for patient with icu_stay_id 256307 change over time and interpret the results.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
                 

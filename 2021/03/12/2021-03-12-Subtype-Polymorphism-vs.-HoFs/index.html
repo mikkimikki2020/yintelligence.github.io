@@ -497,8 +497,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Subtype-Polymorphism-vs-HoFs"><a href="#Subtype-Polymorphism-vs-HoFs" class="headerlink" title="Subtype Polymorphism vs. HoFs"></a>Subtype Polymorphism vs. HoFs</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3">Video</a></p>
-<h2 id="Dynamic-Method-Selection-Puzzle"><a href="#Dynamic-Method-Selection-Puzzle" class="headerlink" title="Dynamic Method Selection Puzzle"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=cUL1LWVv984&list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&index=1">Dynamic Method Selection Puzzle</a></h2><h3 id="A-Typing-Puzzle"><a href="#A-Typing-Puzzle" class="headerlink" title="A Typing Puzzle"></a>A Typing Puzzle</h3><p>Suppose we have two classes:</p>
+                <h1 id="subtype-polymorphism-vs.-hofs">Subtype Polymorphism vs. HoFs</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3">Video</a></p>
+<h2 id="dynamic-method-selection-puzzle"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=cUL1LWVv984&amp;list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&amp;index=1">Dynamic Method Selection Puzzle</a></h2>
+<h3 id="a-typing-puzzle">A Typing Puzzle</h3>
+<p>Suppose we have two classes:</p>
 <ul>
 <li>Dog: Implements bark() method.</li>
 <li>ShowDog: Extends Dog, overrides bark method.</li>
@@ -506,21 +509,21 @@
 <p>Summarizing is-a relationships, we have:</p>
 <ul>
 <li>Every ShowDog is-a Dog</li>
-<li>Every Dog is-an Object.<ul>
+<li>Every Dog is-an Object.
+<ul>
 <li>All types in Java are a subtype of Object.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/CS61B/3184180.png"></p>
+<p><img src="/images/CS61B/3184180.png" /></p>
 <p>For each assignment, decide if it causes a compile error.</p>
-<p>For each call to bark, decide whether: </p>
-<ol>
+<p>For each call to bark, decide whether:</p>
+<ol type="1">
 <li>Dog.bark() is called</li>
 <li>ShowDog.bark() is called</li>
 <li>A syntax error results.</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object o2 = <span class="keyword">new</span> ShowDog(<span class="string">&quot;Mortimer&quot;</span>, <span class="string">&quot;Corgi&quot;</span>, <span class="number">25</span>, <span class="number">512.2</span>);</span><br><span class="line"><span class="comment">/* Allowed */</span></span><br><span class="line"></span><br><span class="line">ShowDog sdx = ((ShowDog) o2);</span><br><span class="line">sdx.bark();</span><br><span class="line"><span class="comment">/* Allowed */</span></span><br><span class="line"></span><br><span class="line">Dog sdx = ((Dog) o2);</span><br><span class="line">dx.bark();</span><br><span class="line"><span class="comment">/* Allowed */</span></span><br><span class="line"></span><br><span class="line">((Dog) o2).bark();</span><br><span class="line"><span class="comment">/* Allowed */</span></span><br><span class="line"></span><br><span class="line">Object o3 = (Dog) o2;</span><br><span class="line">o3.bark();</span><br><span class="line"><span class="comment">/* Fail */</span></span><br></pre></td></tr></table></figure>
-<p>The rules: </p>
+<p>The rules:</p>
 <ul>
 <li>Compiler allows memory box to hold any subtype.</li>
 <li>Compiler allows calls based on static type.</li>
@@ -528,39 +531,42 @@
 </ul>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Variable or expression</th>
 <th>Static Type</th>
 <th>Dynamic Type</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>o2</td>
 <td>Object</td>
 <td>ShowDog</td>
 </tr>
-<tr>
+<tr class="even">
 <td>sdx</td>
 <td>ShowDog</td>
 <td>ShowDog</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>dx</td>
 <td>Dog</td>
 <td>ShowDog</td>
 </tr>
-<tr>
+<tr class="even">
 <td>((Dog) o2)</td>
 <td>Dog</td>
 <td>ShowDog</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>o3</td>
 <td>Object</td>
 <td>ShowDog</td>
 </tr>
-</tbody></table>
-<h3 id="Static-Type-vs-Dynamic-Type"><a href="#Static-Type-vs-Dynamic-Type" class="headerlink" title="Static Type vs. Dynamic Type"></a>Static Type vs. Dynamic Type</h3><p>Every variable in Java has a “compile-time type”, a.k.a. “static type”.</p>
+</tbody>
+</table>
+<h3 id="static-type-vs.-dynamic-type">Static Type vs. Dynamic Type</h3>
+<p>Every variable in Java has a “compile-time type”, a.k.a. “static type”.</p>
 <ul>
 <li>This is the type specified at <strong>declaration</strong>. Never changes!</li>
 </ul>
@@ -569,13 +575,14 @@
 <li>This is the type specified at <strong>instantiation</strong> (e.g. when using new).</li>
 <li>Equal to the type of the object being pointed at.</li>
 </ul>
-<p><img src="/images/CS61B/3184181.png"></p>
-<h3 id="Static-Methods-Variables-and-Inheritance"><a href="#Static-Methods-Variables-and-Inheritance" class="headerlink" title="Static Methods, Variables, and Inheritance"></a>Static Methods, Variables, and Inheritance</h3><ul>
+<p><img src="/images/CS61B/3184181.png" /></p>
+<h3 id="static-methods-variables-and-inheritance">Static Methods, Variables, and Inheritance</h3>
+<ul>
 <li>What if a subclass has variables with the same name as a superclass?</li>
-<li>What if subclass has a static method with the same signature as a superclass method?<ul>
+<li>What if subclass has a static method with the same signature as a superclass method?
+<ul>
 <li>For static methods, we do not use the term overriding for this.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>These two practices above are called “hiding”.</p>
 <ul>
@@ -583,7 +590,8 @@
 <li>There is no good reason to ever do this.</li>
 <li>The rules for resolving the conflict are a bit <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html">confusing to learn</a>.</li>
 </ul>
-<h2 id="Subtype-Polymorphism"><a href="#Subtype-Polymorphism" class="headerlink" title="Subtype Polymorphism"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=m2F-ekp_BRU&list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&index=2">Subtype Polymorphism</a></h2><p>The biggest idea of the last couple of lectures: <u><strong>Subtype Polymorphism</strong></u></p>
+<h2 id="subtype-polymorphism"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=m2F-ekp_BRU&amp;list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&amp;index=2">Subtype Polymorphism</a></h2>
+<p>The biggest idea of the last couple of lectures: <u><strong>Subtype Polymorphism</strong></u></p>
 <ul>
 <li>Polymorphism: “providing a single interface to entities of different types”</li>
 </ul>
@@ -592,13 +600,16 @@
 <li>When you call deque.addFirst(), the actual behaviour is based on the dynamic type.</li>
 <li>Java automatically selects the right behaviour using what is sometimes called “dynamic method selection”.</li>
 </ul>
-<h3 id="Subtype-Polymorphism-vs-Explicit-Higher-Order-Functions"><a href="#Subtype-Polymorphism-vs-Explicit-Higher-Order-Functions" class="headerlink" title="Subtype Polymorphism vs. Explicit Higher Order Functions"></a>Subtype Polymorphism vs. Explicit Higher Order Functions</h3><p>Suppose we want to write a program that prints a string representation of the larger of two objects.</p>
+<h3 id="subtype-polymorphism-vs.-explicit-higher-order-functions">Subtype Polymorphism vs. Explicit Higher Order Functions</h3>
+<p>Suppose we want to write a program that prints a string representation of the larger of two objects.</p>
 <p><strong>Explicit HoF Approach</strong>:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_larger</span>(<span class="params">x, y, compare, stringify</span>):</span></span><br><span class="line">    <span class="comment"># Sometimes called a “callback”</span></span><br><span class="line">    <span class="keyword">if</span> compare(x, y):</span><br><span class="line">        <span class="keyword">return</span> stringify(x)</span><br><span class="line">    <span class="keyword">return</span> stringify(y)</span><br></pre></td></tr></table></figure>
 <p><strong>Subtype Polymorphism Approach</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_larger</span>(<span class="params">x, y</span>):</span></span><br><span class="line">   <span class="keyword">if</span> x.largerThan(y):</span><br><span class="line">       <span class="keyword">return</span> x.<span class="built_in">str</span>()</span><br><span class="line">   <span class="keyword">return</span> y.<span class="built_in">str</span>()</span><br></pre></td></tr></table></figure>
-<h2 id="DIY-Comparison"><a href="#DIY-Comparison" class="headerlink" title="DIY Comparison"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nYPPbbkKF1w&list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&index=3">DIY Comparison</a></h2><h3 id="shoutkey-com-TBA"><a href="#shoutkey-com-TBA" class="headerlink" title="shoutkey.com/TBA"></a>shoutkey.com/TBA</h3><p>Suppose we want to write a function max() that returns the max of any array, regardless of type. </p>
-<p><img src="/images/CS61B/3184182.png"></p>
+<h2 id="diy-comparison"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nYPPbbkKF1w&amp;list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&amp;index=3">DIY Comparison</a></h2>
+<h3 id="shoutkey.comtba">shoutkey.com/TBA</h3>
+<p>Suppose we want to write a function max() that returns the max of any array, regardless of type.</p>
+<p><img src="/images/CS61B/3184182.png" /></p>
 <p>How many compilation errors are there in the code shown?</p>
 <ul>
 <li><del>0</del></li>
@@ -611,35 +622,40 @@
 <p><strong>Writing a General Max Function</strong></p>
 <p>Objects cannot be compared to other objects with &gt;</p>
 <ul>
-<li>One (bad) way to fix this: Write a max method in the Dog class (and give up on our dream of a one true max function). </li>
+<li>One (bad) way to fix this: Write a max method in the Dog class (and give up on our dream of a one true max function).</li>
 </ul>
-<h3 id="Dog-maxDog"><a href="#Dog-maxDog" class="headerlink" title="Dog.maxDog"></a>Dog.maxDog</h3><p>One approach to maximizing a Dog array: Leave it to the Dog class.</p>
+<h3 id="dog.maxdog">Dog.maxDog</h3>
+<p>One approach to maximizing a Dog array: Leave it to the Dog class.</p>
 <ul>
 <li>What is the disadvantage of this?</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Returns maximum of dogs. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title">maxDog</span><span class="params">(Dog[] dogs)</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">if</span> (dogs == <span class="keyword">null</span> || dogs.length == <span class="number">0</span>) &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">null</span>; &#125;</span><br><span class="line">   	Dog maxDog = dogs[<span class="number">0</span>];</span><br><span class="line">   	<span class="keyword">for</span> (Dog d : dogs) &#123;</span><br><span class="line">       <span class="keyword">if</span> (d.size &gt; maxDog.size) &#123;</span><br><span class="line">        	maxDog = d;        	&#125;&#125;</span><br><span class="line">	<span class="keyword">return</span> maxDog;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Dog[] dogs = <span class="keyword">new</span> Dog[]&#123;d1, d2, d3&#125;;</span><br><span class="line">Dog largest = Dog.maxDog(dogs);</span><br></pre></td></tr></table></figure>
-<h3 id="The-Fundamental-Problem"><a href="#The-Fundamental-Problem" class="headerlink" title="The Fundamental Problem"></a>The Fundamental Problem</h3><p>Objects cannot be compared to other objects with &gt;</p>
+<h3 id="the-fundamental-problem">The Fundamental Problem</h3>
+<p>Objects cannot be compared to other objects with &gt;</p>
 <ul>
 <li>How could we fix our Maximizer class using inheritance / HoFs?</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Maximizer.java */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">max</span><span class="params">(Object[] items)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> maxDex = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; items.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (items[i] &gt; items[maxDex]) &#123;</span><br><span class="line">      maxDex = i;                 &#125;&#125;</span><br><span class="line">  <span class="keyword">return</span> items[maxDex];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* DogLauncher.java */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  Dog[] dogs = &#123;<span class="keyword">new</span> Dog(<span class="string">&quot;Elyse&quot;</span>, <span class="number">3</span>), <span class="keyword">new</span> Dog(<span class="string">&quot;Sture&quot;</span>, <span class="number">9</span>),</span><br><span class="line">                <span class="keyword">new</span> Dog(<span class="string">&quot;Benjamin&quot;</span>, <span class="number">15</span>)&#125;;</span><br><span class="line">  Dog maxDog = (Dog) max(dogs);</span><br><span class="line">  maxDog.bark();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>Create an interface that guarantees a comparison method.</p>
+<h3 id="solution">Solution</h3>
+<p>Create an interface that guarantees a comparison method.</p>
 <p><em>interface inheritance says <strong>what</strong> a class can do, in this case compare</em></p>
 <ul>
 <li>Have Dog implement this interface.</li>
 <li>Write Maximizer class in terms of this interface.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Dog</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(String n, <span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">        name = n;</span><br><span class="line">        size = s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Dog uddaDog)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//assume nobody is messing up and giving us</span></span><br><span class="line">        <span class="comment">//something that isn&#x27;t a dog.</span></span><br><span class="line">        <span class="keyword">return</span> size - uddaDog.size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot; says: bark&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CS61B/3184183.png"></p>
-<h3 id="The-OurComparable-Interface"><a href="#The-OurComparable-Interface" class="headerlink" title="The OurComparable Interface"></a>The OurComparable Interface</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Could have also been OurComparable. No meaningful difference.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p><img src="/images/CS61B/3184183.png" /></p>
+<h3 id="the-ourcomparable-interface">The OurComparable Interface</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Could have also been OurComparable. No meaningful difference.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 <p>Specification, returns:</p>
 <ul>
 <li>Negative number if <strong>this</strong> is less than obj.</li>
 <li>0 if <strong>this</strong> is equal to object.</li>
 <li>Positive number if <strong>this</strong> is greater than obj.</li>
 </ul>
-<h3 id="General-Maximization-Function-Through-Inheritance"><a href="#General-Maximization-Function-Through-Inheritance" class="headerlink" title="General Maximization Function Through Inheritance"></a>General Maximization Function Through Inheritance</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span></span>;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h3 id="general-maximization-function-through-inheritance">General Maximization Function Through Inheritance</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span></span>;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    	<span class="comment">/** Warning, cast can cause runtime error! */</span></span><br><span class="line">       Dog uddaDog = (Dog) obj;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">this</span>.size - uddaDog.size;</span><br><span class="line">      &#125; ...</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Maximizer</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> OurComparable <span class="title">max</span><span class="params">(OurComparable[] a)</span> </span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Dog[] dogs = <span class="keyword">new</span> Dog[]&#123;d1, d2, d3&#125;;</span><br><span class="line">Dog largest = (Dog) Maximizer.max(dogs);</span><br></pre></td></tr></table></figure>
@@ -649,7 +665,8 @@
 <li>Code that operates on multiple types (mostly) gracefully, e.g.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">OurComparable[] objs = getItems(“somefile.txt”); </span><br><span class="line"><span class="keyword">return</span> Maximizer.max(objs);</span><br></pre></td></tr></table></figure>
-<h3 id="Interfaces-Quiz-1"><a href="#Interfaces-Quiz-1" class="headerlink" title="Interfaces Quiz #1"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dbdbcbhe3Jk&list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&index=5">Interfaces Quiz #1</a></h3><p>Q: If we omit compareTo(), which file will fail to <strong>compile</strong>?</p>
+<h3 id="interfaces-quiz-1"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dbdbcbhe3Jk&amp;list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&amp;index=5">Interfaces Quiz #1</a></h3>
+<p>Q: If we omit compareTo(), which file will fail to <strong>compile</strong>?</p>
 <ul>
 <li>DogLauncher.java</li>
 <li>Dog.java</li>
@@ -660,7 +677,8 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span></span><br><span class="line"><span class="class"><span class="keyword">implements</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    Dog uddaDog = (Dog) o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size</span><br><span class="line">           - uddaDog.size;</span><br><span class="line">  &#125; ...</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ublic <span class="class"><span class="keyword">class</span> <span class="title">Maximizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> OurComparable <span class="title">max</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">          OurComparable[] items)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">int</span> cmp = items[i].</span><br><span class="line">      compareTo(items[maxDex]);</span><br><span class="line">    ...</span><br><span class="line">  &#125;...</span><br></pre></td></tr></table></figure>
 <p>Dog will fail to compile because it does not implement all abstract methods required by OurComparable interface. (And I suppose DogLauncher will fail as well since Dog.class doesn’t exist)</p>
-<h3 id="Interfaces-Quiz-2"><a href="#Interfaces-Quiz-2" class="headerlink" title="Interfaces Quiz #2"></a>Interfaces Quiz #2</h3><p>Q: If we omit implements OurComparable, which file will fail to <strong>compile</strong>?</p>
+<h3 id="interfaces-quiz-2">Interfaces Quiz #2</h3>
+<p>Q: If we omit implements OurComparable, which file will fail to <strong>compile</strong>?</p>
 <ul>
 <li>DogLauncher.java</li>
 <li>Dog.java</li>
@@ -671,14 +689,16 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    Dog uddaDog = (Dog) o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size</span><br><span class="line">           - uddaDog.size;</span><br><span class="line">  &#125; ... </span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Maximizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> OurComparable <span class="title">max</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">          OurComparable[] items)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">int</span> cmp = items[i].</span><br><span class="line">      compareTo(items[maxDex]);</span><br><span class="line">    ...</span><br><span class="line">  &#125;...</span><br></pre></td></tr></table></figure>
 <p>DogLauncher will fail, because it tries to pass things that are not OurComparables, and Maximizer expects OurComparables.</p>
-<h2 id="Comparables"><a href="#Comparables" class="headerlink" title="Comparables"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iQoN9bt8GJc&list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&index=6">Comparables</a></h2><h3 id="The-Issues-With-OurComparable"><a href="#The-Issues-With-OurComparable" class="headerlink" title="The Issues With OurComparable"></a>The Issues With OurComparable</h3><p>Two issues:</p>
+<h2 id="comparables"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iQoN9bt8GJc&amp;list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&amp;index=6">Comparables</a></h2>
+<h3 id="the-issues-with-ourcomparable">The Issues With OurComparable</h3>
+<p>Two issues:</p>
 <ul>
 <li>Awkward casting to/from Objects.</li>
-<li>We made it up.<ul>
+<li>We made it up.
+<ul>
 <li>No existing classes implement OurComparable (e.g. String, etc).</li>
 <li>No existing classes use OurComparable (e.g. no built-in max function that uses OurComparable</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    	<span class="comment">/** Warning, cast can cause runtime error! */</span></span><br><span class="line">       Dog uddaDog = (Dog) obj;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">this</span>.size - uddaDog.size;</span><br><span class="line">      &#125; ...</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Dog[] dogs = <span class="keyword">new</span> Dog[]&#123;d1, d2, d3&#125;;</span><br><span class="line">Dog largest = (Dog) Maximizer.max(dogs);</span><br></pre></td></tr></table></figure>
@@ -686,8 +706,9 @@
 <ul>
 <li>Already defined and used by tons of libraries. Uses generics.</li>
 </ul>
-<p><img src="/images/CS61B/3184184.png"></p>
-<h4 id="Comparable-Advantages"><a href="#Comparable-Advantages" class="headerlink" title="Comparable Advantages"></a>Comparable Advantages</h4><ul>
+<p><img src="/images/CS61B/3184184.png" /></p>
+<h4 id="comparable-advantages">Comparable Advantages</h4>
+<ul>
 <li>Lots of built in classes implement Comparable (e.g. String).</li>
 <li>Lots of libraries use the Comparable interface (e.g. Arrays.sort)</li>
 <li>Avoids need for casts</li>
@@ -695,23 +716,27 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Dog</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Dog uddaDog)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">this</span>.size - uddaDog.size;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Much better!</span></span><br><span class="line"><span class="comment">   </span></span><br><span class="line"><span class="comment">    Implementing Comparable allows library functions to    	compare custom types (e.g. finding max).</span></span><br><span class="line"><span class="comment">    */</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">OurComparable</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    	Dog uddaDog = (Dog) obj;</span><br><span class="line"> 	   <span class="keyword">return</span> <span class="keyword">this</span>.size - uddaDog.size;</span><br><span class="line">      &#125; ...</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Dog[] dogs = <span class="keyword">new</span> Dog[]&#123;d1, d2, d3&#125;;</span><br><span class="line">Dog largest = Collections.max(Arrays.asList(dogs));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Comparators"><a href="#Comparators" class="headerlink" title="Comparators"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1oow3NGoExg&list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&index=7">Comparators</a></h2><h3 id="Natural-Order"><a href="#Natural-Order" class="headerlink" title="Natural Order"></a>Natural Order</h3><p>The term “Natural Order” is sometimes used to refer to the ordering implied by a Comparable’s compareTo method.</p>
+<h2 id="comparators"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1oow3NGoExg&amp;list=PL8FaHk7qbOD56r1sGUGifsfC0KRDAsuZ3&amp;index=7">Comparators</a></h2>
+<h3 id="natural-order">Natural Order</h3>
+<p>The term “Natural Order” is sometimes used to refer to the ordering implied by a Comparable’s compareTo method.</p>
 <ul>
 <li>Example: Dog objects (as we’ve defined them) have a natural order given by their size.</li>
 </ul>
-<p><img src="/images/CS61B/3184185.png"></p>
+<p><img src="/images/CS61B/3184185.png" /></p>
 <p>May wish to order objects in a different way.</p>
 <ul>
 <li>Example: By Name.</li>
 </ul>
-<h3 id="Subtype-Polymorphism-vs-Explicit-Higher-Order-Functions-1"><a href="#Subtype-Polymorphism-vs-Explicit-Higher-Order-Functions-1" class="headerlink" title="Subtype Polymorphism vs. Explicit Higher Order Functions"></a><strong>Subtype Polymorphism vs. Explicit Higher Order Functions</strong></h3><p>Suppose we want to write a program that prints a string representation of the larger of two objects according to some specific comparison function.</p>
+<h3 id="subtype-polymorphism-vs.-explicit-higher-order-functions-1"><strong>Subtype Polymorphism vs. Explicit Higher Order Functions</strong></h3>
+<p>Suppose we want to write a program that prints a string representation of the larger of two objects according to some specific comparison function.</p>
 <p><strong>Explicit HoF Approach:</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_larger</span>(<span class="params">x, y, compare, stringify</span>):</span></span><br><span class="line"><span class="comment"># Can simply pass a different compare function.</span></span><br><span class="line">    <span class="keyword">if</span> compare(x, y):</span><br><span class="line">        <span class="keyword">return</span> stringify(x)</span><br><span class="line">    <span class="keyword">return</span> stringify(y)</span><br></pre></td></tr></table></figure>
 <p><strong>Subtype Polymorphism Approach??</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_larger</span>(<span class="params">T x, T y</span>):</span></span><br><span class="line">   <span class="keyword">if</span> x.largerThan(y):</span><br><span class="line">       <span class="keyword">return</span> x.<span class="built_in">str</span>()</span><br><span class="line">   <span class="keyword">return</span> y.<span class="built_in">str</span>()</span><br></pre></td></tr></table></figure>
 <p><strong>Subtype Polymorphism Approach</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_larger</span>(<span class="params">T x, T y, comparator&lt;T&gt; c</span>):</span></span><br><span class="line">   <span class="keyword">if</span> c.compare(x, y):</span><br><span class="line">       <span class="keyword">return</span> x.<span class="built_in">str</span>()</span><br><span class="line">   <span class="keyword">return</span> y.<span class="built_in">str</span>()</span><br></pre></td></tr></table></figure>
-<h3 id="Additional-Orders-in-Java"><a href="#Additional-Orders-in-Java" class="headerlink" title="Additional Orders in Java"></a>Additional Orders in Java</h3><p>In some languages, we’d write two comparison functions and simply pass the one we want :</p>
+<h3 id="additional-orders-in-java">Additional Orders in Java</h3>
+<p>In some languages, we’d write two comparison functions and simply pass the one we want :</p>
 <ul>
 <li>sizeCompare()</li>
 <li>nameCompare()</li>
@@ -721,29 +746,29 @@
 <li>Requires methods that also take Comparator arguments (see project 1B).</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T o1, T o2)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Dogs-and-Comparators"><a href="#Dogs-and-Comparators" class="headerlink" title="Dogs and Comparators"></a>Dogs and Comparators</h3><p><img src="/images/CS61B/3184186.png"></p>
-<h3 id="Example-NameComparator"><a href="#Example-NameComparator" class="headerlink" title="Example: NameComparator"></a>Example: NameComparator</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Dog</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NameComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Dog</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Dog d1, Dog d2)</span> </span>&#123;</span><br><span class="line">  	  <span class="keyword">return</span> d1.name.compareTo(d2.name);</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="dogs-and-comparators">Dogs and Comparators</h3>
+<p><img src="/images/CS61B/3184186.png" /></p>
+<h3 id="example-namecomparator">Example: NameComparator</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Dog</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NameComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Dog</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Dog d1, Dog d2)</span> </span>&#123;</span><br><span class="line">  	  <span class="keyword">return</span> d1.name.compareTo(d2.name);</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Comparator&lt;Dog&gt; cd = <span class="keyword">new</span> Dog.NameComparator();</span><br><span class="line"><span class="keyword">if</span> (cd.compare(d1, d3) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    d1.bark();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    d3.bark();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Result: If d1 has a name that comes later in the alphabet than d3, d1 barks.</p>
-<h2 id="Comparable-and-Comparator-Summary"><a href="#Comparable-and-Comparator-Summary" class="headerlink" title="Comparable and Comparator Summary"></a>Comparable and Comparator Summary</h2><p>Interfaces provide us with the ability to make <strong>callbacks:</strong></p>
+<h2 id="comparable-and-comparator-summary">Comparable and Comparator Summary</h2>
+<p>Interfaces provide us with the ability to make <strong>callbacks:</strong></p>
 <ul>
 <li><p>Sometimes a function needs the help of another function that might not have been written yet.</p>
 <ul>
 <li>Example: max needs compareTo</li>
-<li>The helping function is sometimes called a “callback”. </li>
-</ul>
-</li>
-<li><p>Some languages handle this using explicit function passing.</p>
-</li>
-<li><p>In Java, we do this by wrapping up the needed function in an interface (e.g. Arrays.sort needs compare which lives inside the comparator interface)</p>
-</li>
+<li>The helping function is sometimes called a “callback”.</li>
+</ul></li>
+<li><p>Some languages handle this using explicit function passing.</p></li>
+<li><p>In Java, we do this by wrapping up the needed function in an interface (e.g. Arrays.sort needs compare which lives inside the comparator interface)</p></li>
 <li><p>Arrays.sort “calls back” whenever it needs a comparison.</p>
 <ul>
 <li>Similar to giving your number to someone if they need information.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Review: Typing Rules</strong></p>
+<h2 id="overview">Overview</h2>
+<p><strong>Review: Typing Rules</strong></p>
 <ul>
 <li>Compiler allows the memory box to hold any subtype.</li>
 <li>Compiler allows calls based on static type.</li>

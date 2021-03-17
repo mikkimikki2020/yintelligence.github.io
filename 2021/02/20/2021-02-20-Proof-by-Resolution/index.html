@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-22
+                    2021-03-17
                 </div>
                 
 
@@ -497,8 +497,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Proof-by-Resolution"><a href="#Proof-by-Resolution" class="headerlink" title="Proof by Resolution"></a>Proof by Resolution</h1><h2 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h2><p>Learn about general-purpose theorem proving in predicate calculus</p>
-<h2 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h2><p>Given</p>
+                <h1 id="proof-by-resolution">Proof by Resolution</h1>
+<h2 id="objectives">Objectives</h2>
+<p>Learn about general-purpose theorem proving in predicate calculus</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Given</p>
 <ul>
 <li>a knowledge base, KB (a set of sentences, S, and an interpretation, I)</li>
 </ul>
@@ -506,14 +509,15 @@
 <ul>
 <li>a sentence, α (under the same interpretation, I)</li>
 </ul>
-<p>Formally </p>
+<p>Formally</p>
 <ul>
 <li>Show that KB ⊧ α ๏ KB entails α ๏ α follows from KB</li>
 </ul>
-<h2 id="The-Toolbox"><a href="#The-Toolbox" class="headerlink" title="The Toolbox"></a>The Toolbox</h2><p>Modus ponens</p>
+<h2 id="the-toolbox">The Toolbox</h2>
+<p>Modus ponens</p>
 <ul>
 <li>Given { p → q, p } ⊂ KB, is q true?</li>
-<li>Yes: { p → q, p } ⊧ { q } </li>
+<li>Yes: { p → q, p } ⊧ { q }</li>
 </ul>
 <p>Modus Tollens</p>
 <ul>
@@ -524,12 +528,13 @@
 <p>We can reason</p>
 <ul>
 <li>forwards from what we know to what we want to prove</li>
-<li>backwards from what we want to prove to what we know<ul>
+<li>backwards from what we want to prove to what we know
+<ul>
 <li>backwards is generally more efficient: no search branches leading off-topic</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Theorem-Proving"><a href="#Theorem-Proving" class="headerlink" title="Theorem Proving"></a>Theorem Proving</h2><p>A theorem proving process involves choosing and applying such rules until the desired sentence is shown to be entailed</p>
+<h2 id="theorem-proving">Theorem Proving</h2>
+<p>A theorem proving process involves choosing and applying such rules until the desired sentence is shown to be entailed</p>
 <p>It’s called a proof because the rules used are known, a priori, to be sound (i.e., correct)</p>
 <p>However, choice of rule is hard, because you can’t know that a particular rule chosen from a range will turn out to be the right one, in a long proof</p>
 <ul>
@@ -537,7 +542,8 @@
 <li>therefore, each time we use it, we also have to consider other possibilities</li>
 <li>therefore, each time we use it, we create a set of alternative choices</li>
 </ul>
-<h3 id="Modus-Ponens-is-incomplete"><a href="#Modus-Ponens-is-incomplete" class="headerlink" title="Modus Ponens is incomplete"></a>Modus Ponens is incomplete</h3><p>Consider these rules:</p>
+<h3 id="modus-ponens-is-incomplete">Modus Ponens is incomplete</h3>
+<p>Consider these rules:</p>
 <ul>
 <li>If it is raining (R), I will carry an umbrella (U)</li>
 <li>If it is not raining (¬R), I will carry an umbrella (U)</li>
@@ -545,25 +551,27 @@
 <p>It is easy to conclude (as a human) that I always carry an umbrella</p>
 <ul>
 <li>{ R → U, ¬R → U } ⊧ { U }</li>
-<li>but this isn’t provable using modus ponens alone<ul>
+<li>but this isn’t provable using modus ponens alone
+<ul>
 <li>we’d need the law of excluded middle: R ∨ ¬R</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>However, there is a more general rule, that is complete</p>
-<h2 id="Resolution"><a href="#Resolution" class="headerlink" title="Resolution"></a>Resolution</h2><p>Unit resolution</p>
+<h2 id="resolution">Resolution</h2>
+<p>Unit resolution</p>
 <ul>
 <li>{ P ∨ Q, ¬Q } ⊧ { P }</li>
 </ul>
-<p><img src="/images/AI/182827.png"></p>
+<p><img src="/images/AI/182827.png" /></p>
 <p>Generalised resolution</p>
 <ul>
 <li>{ P ∨ Q, R ∨ ¬Q } ⊧ { P ∨ R }</li>
 </ul>
-<p><img src="/images/AI/1828270.png"></p>
+<p><img src="/images/AI/1828270.png" /></p>
 <p>Example: Umbrella again</p>
-<p><img src="/images/AI/1828271.png"></p>
-<h3 id="Resolution-refutation"><a href="#Resolution-refutation" class="headerlink" title="Resolution refutation"></a>Resolution refutation</h3><p>This simple rule can be used as follows</p>
+<p><img src="/images/AI/1828271.png" /></p>
+<h3 id="resolution-refutation">Resolution refutation</h3>
+<p>This simple rule can be used as follows</p>
 <ul>
 <li>add the negation of the sentence, S, to be proven to the KB</li>
 <li>see if this leads to a contradiction</li>
@@ -580,8 +588,9 @@
 <ul>
 <li>note that the premises are brought in when needed, not all at the top</li>
 </ul>
-<p><img src="/images/AI/1828272.png"></p>
-<h3 id="Clausal-Form"><a href="#Clausal-Form" class="headerlink" title="Clausal Form"></a>Clausal Form</h3><p>Resolution is a single, simple, sound, complete rule</p>
+<p><img src="/images/AI/1828272.png" /></p>
+<h3 id="clausal-form">Clausal Form</h3>
+<p>Resolution is a single, simple, sound, complete rule</p>
 <ul>
 <li>But we had to do some manipulation first, to get the sentences into a form on which we could use it</li>
 </ul>
@@ -590,9 +599,9 @@
 <li>Note that CNF also stands for Conjunctive Normal Form</li>
 </ul>
 <p>Putting FOPC sentences into clausal form is a mechanical procedure that can be done without search</p>
-<h4 id="Clausal-Normal-Form-in-FOPC"><a href="#Clausal-Normal-Form-in-FOPC" class="headerlink" title="Clausal Normal Form in FOPC"></a>Clausal Normal Form in FOPC</h4><ol>
-<li><p>Rewrite →: a → b ⇒ ¬a ∨ b</p>
-</li>
+<h4 id="clausal-normal-form-in-fopc">Clausal Normal Form in FOPC</h4>
+<ol type="1">
+<li><p>Rewrite →: a → b ⇒ ¬a ∨ b</p></li>
 <li><p>Minimise the scope of negations using logical definitions given before</p>
 <ul>
 <li>¬∃x.A(x) ⇒ ∀x. ¬A(x)</li>
@@ -604,50 +613,43 @@
 <p>Note that in this case, these definitions are <em>unidirectional</em>, so they are <em>confluent</em></p>
 <ul>
 <li>no need for searching through alternatives</li>
-</ul>
-</li>
-<li><p>Rewrite remaining double negations: ¬¬A ⇒ A</p>
-</li>
+</ul></li>
+<li><p>Rewrite remaining double negations: ¬¬A ⇒ A</p></li>
 <li><p>Standardise variables apart</p>
 <ul>
 <li>rename all quantified variables so that each quantifier is associated with a different name, regardless of its scope</li>
-</ul>
-</li>
+</ul></li>
 <li><p><em>Skolemise</em> all existential quantifiers</p>
 <p>A Skolem constant is a made-up name for an object that must exist (even though we don’t know what it is)</p>
 <ul>
 <li>∃x.P(x) ⇒ P(A) where A is an arbitrary object in the allowable substitutions of x</li>
 <li>Use a different arbitrary object for each quantifier</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Drop all universal quantifiers</p>
 <ul>
 <li>At this point, all variables are universally quantified, because we Skolemised the existentials, so we no longer need to say so explicitly</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Convert the sentence into <em>conjunctive normal form</em></p>
 <ul>
-<li>a sentence in CNF is a conjunction of disjunctions of atomic sentences<ul>
+<li>a sentence in CNF is a conjunction of disjunctions of atomic sentences
+<ul>
 <li>recall that the resolution rule works on disjunctions</li>
-</ul>
-</li>
-<li>do this by rewriting under logical rules<ul>
+</ul></li>
+<li>do this by rewriting under logical rules
+<ul>
 <li>de Morgan’s laws</li>
 <li>distributivity of ∧ and ∨</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Split the top-level conjunction up, to make a set of disjunctions</p>
-</li>
+</ul></li>
+</ul></li>
+<li><p>Split the top-level conjunction up, to make a set of disjunctions</p></li>
 <li><p>Standardise the variables apart again, w.r.t. clauses</p>
 <ul>
 <li>so that x in a given clause is not the same as x in another clause</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <p>Use the resulting set of clauses as KB in a resolution proof</p>
-<h3 id="First-Order-Term-Unification"><a href="#First-Order-Term-Unification" class="headerlink" title="First Order Term Unification"></a>First Order Term Unification</h3><p>As a result of Skolemizing and removing universal quantifiers, we can introduce a new procedure for assigning values to variables</p>
+<h3 id="first-order-term-unification">First Order Term Unification</h3>
+<p>As a result of Skolemizing and removing universal quantifiers, we can introduce a new procedure for assigning values to variables</p>
 <p>This is related to ∀ instantiation in the standard FOPC</p>
 <ul>
 <li>effectively, we use the relevant Skolem constants to instantiate the variables</li>
@@ -656,30 +658,32 @@
 <p>The idea is to use literals of a given predicate which contain information about the values of variables (i.e., Skolem constants or functions) to deduce the values of variables in other literals of the same predicate</p>
 <ul>
 <li>e.g. Father( x, y ) and Father( John, Jim ) are unified to Father( John, Jim )</li>
-<li>with a unifier (or substitution set) of { John/x, Jim/y }<ul>
+<li>with a unifier (or substitution set) of { John/x, Jim/y }
+<ul>
 <li>notation: a/x means “a replaces x”</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>To unify two terms (or literals):</p>
-<ol>
-<li>if either is a variable, let it be identical to the other, and add the resulting pair to the unifier; otherwise…</li>
-<li>compare their functors; if they do not match, then fail; otherwise…</li>
+<ol type="1">
+<li>if either is a variable, let it be identical to the other, and add the resulting pair to the unifier; otherwise...</li>
+<li>compare their functors; if they do not match, then fail; otherwise...</li>
 <li>for each pair of respective arguments, unify the two arguments using this procedure.</li>
 </ol>
-<h4 id="Unification-examples"><a href="#Unification-examples" class="headerlink" title="Unification examples"></a>Unification examples</h4><ul>
+<h4 id="unification-examples">Unification examples</h4>
+<ul>
 <li>P( x, y ) unified with P( A, B ) gives F( A, B ) unifier { A/x, B/y }</li>
 <li>P( x, y ) unified with Q( A, B ) gives no unifier ( P ≠ Q )</li>
 <li>P( F(x) ) unified with P( F( A ) ) gives P( F( A )) unifier { A/x }</li>
-<li>P( F(x), x, u, u ) unified with P( F(y), z, z, A ) gives P( F( A ), A, A, A ) unifier { A/x, x/y, x/z, x/u } <ul>
-<li>note that we don’t need to write down all the different permutations<ul>
+<li>P( F(x), x, u, u ) unified with P( F(y), z, z, A ) gives P( F( A ), A, A, A ) unifier { A/x, x/y, x/z, x/u }
+<ul>
+<li>note that we don’t need to write down all the different permutations
+<ul>
 <li>this is enough to say that they’re all the same</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Resolution-example"><a href="#Resolution-example" class="headerlink" title="Resolution example"></a>Resolution example</h3><p>Some rules</p>
+<h3 id="resolution-example">Resolution example</h3>
+<p>Some rules</p>
 <ul>
 <li>All people who are graduating are happy. All happy people smile. Jane is graduating</li>
 </ul>
@@ -689,57 +693,58 @@
 </ul>
 <p>First convert to predicate logic</p>
 <ul>
-<li>Premise<ul>
+<li>Premise
+<ul>
 <li>∀x.(Graduating(x) → Happy(x)) ∧ ∀x.(Happy(x) → Smiling(x)) ∧ Graduating( Jane )</li>
-</ul>
-</li>
-<li>Goal<ul>
+</ul></li>
+<li>Goal
+<ul>
 <li>Smiling( Jane )</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Convert to CNF</p>
 <ul>
-<li>Premise<ul>
+<li>Premise
+<ul>
 <li>∀x.Graduating(x) → Happy(x) ∧ ∀x.Happy(x) → Smiling(x) ∧ Graduating( Jane )</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<ol>
-<li>Rewrite →<ul>
+<ol type="1">
+<li>Rewrite →
+<ul>
 <li>∀x.(<strong>¬Graduating(x) ∨ Happy(x)</strong>) ∧ ∀x.(<strong>¬Happy(x) ∨ Smiling(x)</strong>) ∧ Graduating( Jane )</li>
-</ul>
-</li>
+</ul></li>
 <li>Reduce scope of negations: all minimal, so nothing to do</li>
-<li>Rewrite double negations: no double negations so nothing to do </li>
-<li>Standardise variables apart<ul>
+<li>Rewrite double negations: no double negations so nothing to do</li>
+<li>Standardise variables apart
+<ul>
 <li>∀x.(¬Graduating(x) ∨ Happy(x)) ∧ ∀<strong>y</strong>.(¬Happy(<strong>y</strong>) ∨ Smiling(<strong>y</strong>)) ∧ Graduating( Jane )</li>
-</ul>
-</li>
-<li>Skolemise existentials<ul>
+</ul></li>
+<li>Skolemise existentials
+<ul>
 <li>no existentials, so nothing to do</li>
-</ul>
-</li>
-<li>Drop all universal quantifiers<ul>
+</ul></li>
+<li>Drop all universal quantifiers
+<ul>
 <li>▮▮▮▮ (¬Graduating(x) ∨ Happy(x)) ∧ (¬Happy(y) ∨ Smiling(y)) ∧ Graduating( Jane )</li>
-</ul>
-</li>
-<li>Convert to CNF<ul>
+</ul></li>
+<li>Convert to CNF
+<ul>
 <li>already in CNF</li>
-</ul>
-</li>
-<li>Separate into disjunctive clauses<ul>
+</ul></li>
+<li>Separate into disjunctive clauses
+<ul>
 <li>¬Graduating(x) ∨ Happy(x)</li>
 <li>¬Happy(y) ∨ Smiling(y)</li>
 <li>Graduating( Jane )</li>
-</ul>
-</li>
-<li>Standardise variables apart between clauses<ul>
+</ul></li>
+<li>Standardise variables apart between clauses
+<ul>
 <li>no change: they’re already named apart</li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<h4 id="Resolution-example-with-unification"><a href="#Resolution-example-with-unification" class="headerlink" title="Resolution example with unification"></a>Resolution example with unification</h4><p>Now, the only rules we need are</p>
+<h4 id="resolution-example-with-unification">Resolution example with unification</h4>
+<p>Now, the only rules we need are</p>
 <ul>
 <li>unification</li>
 <li>resolution</li>
@@ -748,10 +753,11 @@
 <ul>
 <li>but they’re all there, all the time</li>
 </ul>
-<p><img src="/images/AI/1828273.png"></p>
-<h4 id="Example-with-existential-quantification"><a href="#Example-with-existential-quantification" class="headerlink" title="Example with existential quantification"></a>Example with existential quantification</h4><p>Some rules</p>
+<p><img src="/images/AI/1828273.png" /></p>
+<h4 id="example-with-existential-quantification">Example with existential quantification</h4>
+<p>Some rules</p>
 <ul>
-<li>All people who are graduating are happy. All happy people smile. Someone is graduating. </li>
+<li>All people who are graduating are happy. All happy people smile. Someone is graduating.</li>
 </ul>
 <p>and a question</p>
 <ul>
@@ -759,14 +765,14 @@
 </ul>
 <p>First convert to predicate logic</p>
 <ul>
-<li>Premise<ul>
+<li>Premise
+<ul>
 <li>∀x.(Graduating(x) → Happy(x)) ∧ ∀x.(Happy(x) → Smiling(x)) ∧ ∃x.Graduating(x)</li>
-</ul>
-</li>
-<li>Goal<ul>
+</ul></li>
+<li>Goal
+<ul>
 <li>∃x.Smiling( x )</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Conversion to CNF</p>
 <p>This time I’ve added the negated goal to the premises, instead of later</p>
@@ -783,8 +789,9 @@
 <ul>
 <li>the only difference is that the variable u gets passed around instead</li>
 </ul>
-<p><img src="/images/AI/1828274.png"></p>
-<h4 id="Example-with-universal-quantification"><a href="#Example-with-universal-quantification" class="headerlink" title="Example with universal quantification"></a>Example with universal quantification</h4><p>Some rules</p>
+<p><img src="/images/AI/1828274.png" /></p>
+<h4 id="example-with-universal-quantification">Example with universal quantification</h4>
+<p>Some rules</p>
 <ul>
 <li>All people who are graduating are happy. All happy people smile. Everyone is graduating.</li>
 </ul>
@@ -794,14 +801,14 @@
 </ul>
 <p>First convert to predicate logic</p>
 <ul>
-<li>Premise<ul>
+<li>Premise
+<ul>
 <li>∀x.(Graduating(x) → Happy(x)) ∧ ∀x.(Happy(x) → Smiling(x)) ∧ ∀x.Graduating(x)</li>
-</ul>
-</li>
-<li>Goal<ul>
+</ul></li>
+<li>Goal
+<ul>
 <li>∀x.Smiling(x)</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Conversion to CNF</p>
 <ul>
@@ -810,17 +817,19 @@
 <li><strong>∀x</strong>.(¬Graduating(<strong>x</strong>) ∨ Happy(<strong>x</strong>)) ∧ ∀<strong>x</strong>.(¬Happy(<strong>x</strong>) ∨ Smiling(<strong>x</strong>)) ∧ <strong>∀x</strong>.Graduating(<strong>x</strong>) ∧ ∃<strong>x</strong>.¬Smiling(<strong>x</strong>)</li>
 <li>∀x.(¬Graduating(x) ∨ Happy(x)) ∧ ∀y.(¬Happy(y) ∨ Smiling(y)) ∧ ∀z.Graduating(z) ∧ <strong>∃u</strong>.¬Smiling(<strong>u</strong>)</li>
 <li><strong>∀x</strong>.(¬Graduating(x) ∨ Happy(x)) ∧ <strong>∀y</strong>.(¬Happy(y) ∨ Smiling(y)) ∧ <strong>∀z</strong>. Graduating(<strong>z</strong>) ∧ ¬Smiling( Someone )</li>
-<li>(¬Graduating(x) ∨ Happy(x)) <strong>∧</strong> (¬Happy(y) ∨ Smiling(y)) <strong>∧</strong> Graduating(z) ∧ ¬Smiling( Someone ) </li>
+<li>(¬Graduating(x) ∨ Happy(x)) <strong>∧</strong> (¬Happy(y) ∨ Smiling(y)) <strong>∧</strong> Graduating(z) ∧ ¬Smiling( Someone )</li>
 <li>{ ¬Graduating(x) ∨ Happy(x), ¬Happy(y) ∨ Smiling(y), Graduating(z), ¬Smiling( Someone ) }</li>
 </ul>
 <p>Note that the proof is exactly the same as with the constant Jane</p>
 <ul>
 <li>the difference is that the Skolem constant Someone gets passed around instead</li>
 </ul>
-<p><img src="/images/AI/1828275.png"></p>
-<h2 id="Alternative-proof"><a href="#Alternative-proof" class="headerlink" title="Alternative proof"></a>Alternative proof</h2><p>Here, we use general resolution first – but the effect is the same</p>
-<p><img src="/images/AI/1828276.png"></p>
-<h2 id="A-slightly-more-realistic-example"><a href="#A-slightly-more-realistic-example" class="headerlink" title="A (slightly) more realistic example"></a>A (slightly) more realistic example</h2><p>In this example, not all of the quantifiers match neatly up</p>
+<p><img src="/images/AI/1828275.png" /></p>
+<h2 id="alternative-proof">Alternative proof</h2>
+<p>Here, we use general resolution first – but the effect is the same</p>
+<p><img src="/images/AI/1828276.png" /></p>
+<h2 id="a-slightly-more-realistic-example">A (slightly) more realistic example</h2>
+<p>In this example, not all of the quantifiers match neatly up</p>
 <p>Some rules and a question</p>
 <ul>
 <li>All people who are graduating are happy. All happy people smile. <strong>Someone</strong> is graduating.</li>
@@ -836,8 +845,9 @@
 <li>¬Graduating(x) ∨ Happy(x), ¬Happy(y) ∨ Smiling(y) ∧ <strong><u>Graduating( Z ) ∧ ¬Smiling( U )</u></strong> （Skolem constants）</li>
 </ul>
 <p>We can’t infer that everyone is smiling from the knowledge that one person is graduating</p>
-<p><img src="/images/AI/1828277.png"></p>
-<h2 id="The-other-way-round"><a href="#The-other-way-round" class="headerlink" title="The other way round"></a>The other way round</h2><p>In this example, not all of the quantifiers match neatly up</p>
+<p><img src="/images/AI/1828277.png" /></p>
+<h2 id="the-other-way-round">The other way round</h2>
+<p>In this example, not all of the quantifiers match neatly up</p>
 <p>Some rules and a question</p>
 <ul>
 <li>All people who are graduating are happy. All happy people smile. <strong>Everyone</strong> is graduating.</li>
@@ -853,8 +863,9 @@
 <li>¬Graduating(x) ∨ Happy(x), ¬Happy(y) ∨ Smiling(y) ∧ Graduating(z) ∧ ¬Smiling(u)</li>
 </ul>
 <p>We can infer that one is person is smiling from the knowledge that everyone is graduating</p>
-<p><img src="/images/AI/1828278.png"></p>
-<h2 id="Something-to-try"><a href="#Something-to-try" class="headerlink" title="Something to try"></a>Something to try</h2><p>Express the following sentences in FOPC</p>
+<p><img src="/images/AI/1828278.png" /></p>
+<h2 id="something-to-try">Something to try</h2>
+<p>Express the following sentences in FOPC</p>
 <ul>
 <li>Every man who owns a donkey beats it.</li>
 <li>John looked at Jane in the park with the telescope.</li>

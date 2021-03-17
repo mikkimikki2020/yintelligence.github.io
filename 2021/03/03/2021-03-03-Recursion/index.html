@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    575
+                    587
                 </div>
                 
 
@@ -497,51 +497,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Om_uZXRgOak&list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd">Video</a></p>
-<h2 id="Recursive-Functions"><a href="#Recursive-Functions" class="headerlink" title="Recursive Functions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B2_8t2jyvX0&list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&index=2">Recursive Functions</a></h2><p><strong>Definition</strong>: A function is called recursive if the body of that function calls itself, either directly or indirectly </p>
+                <h1 id="recursion">Recursion</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Om_uZXRgOak&amp;list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd">Video</a></p>
+<h2 id="recursive-functions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B2_8t2jyvX0&amp;list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&amp;index=2">Recursive Functions</a></h2>
+<p><strong>Definition</strong>: A function is called recursive if the body of that function calls itself, either directly or indirectly</p>
 <p><strong>Implication</strong>: Executing the body of a recursive function may require applying that function</p>
-<h3 id="Digit-Sums"><a href="#Digit-Sums" class="headerlink" title="Digit Sums"></a>Digit Sums</h3><p>2+0+1+9 = 12</p>
+<h3 id="digit-sums">Digit Sums</h3>
+<p>2+0+1+9 = 12</p>
 <ul>
 <li>If a number a is divisible by 9, then sum_digits(a) is also divisible by 9</li>
 <li>Useful for typo detection!</li>
 </ul>
-<p><img src="/images/CS61A/111855.png"></p>
+<p><img src="/images/CS61A/111855.png" /></p>
 <ul>
-<li>Credit cards actually use the Luhn algorithm, which we’ll implement after <strong>sum_digits</strong></li>
+<li>Credit cards actually use the Luhn algorithm, which we'll implement after <strong>sum_digits</strong></li>
 </ul>
-<h3 id="The-Problem-Within-the-Problem"><a href="#The-Problem-Within-the-Problem" class="headerlink" title="The Problem Within the Problem"></a>The Problem Within the Problem</h3><p>The sum of the digits of 6 is 6. </p>
-<p>Likewise for any one-digit (non-negative) number (i.e., &lt; 10). </p>
+<h3 id="the-problem-within-the-problem">The Problem Within the Problem</h3>
+<p>The sum of the digits of 6 is 6.</p>
+<p>Likewise for any one-digit (non-negative) number (i.e., &lt; 10).</p>
 <p>The sum of the digits of 2019 is</p>
-<p><img src="/images/CS61A/118550.png"></p>
-<p>That is, we can break the problem of summing the digits of 2019 into a <strong>smaller instance</strong> of the same problem, plus some extra stuff. </p>
+<p><img src="/images/CS61A/118550.png" /></p>
+<p>That is, we can break the problem of summing the digits of 2019 into a <strong>smaller instance</strong> of the same problem, plus some extra stuff.</p>
 <p>We call this <strong>recursion</strong></p>
-<h3 id="Sum-Digits-Without-a-While-Statement"><a href="#Sum-Digits-Without-a-While-Statement" class="headerlink" title="Sum Digits Without a While Statement"></a>Sum Digits Without a While Statement</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Split positive n into all but its last digit and its last digit.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> n // <span class="number">10</span>, n % <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_digits</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the sum of the digits of positive integer n.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_but_last, last = split(n)</span><br><span class="line">        <span class="keyword">return</span> sum_digits(all_but_last) + last</span><br></pre></td></tr></table></figure>
-<h3 id="The-Anatomy-of-a-Recursive-Function"><a href="#The-Anatomy-of-a-Recursive-Function" class="headerlink" title="The Anatomy of a Recursive Function"></a>The Anatomy of a Recursive Function</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_digits</span>(<span class="params">n</span>):</span> </span><br><span class="line">    <span class="comment"># The def statement header is similar to other functions </span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the sum of the digits of positive integer n.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="comment"># Conditional statements check for base cases</span></span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="comment"># Base cases are evaluated without recursive calls </span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_but_last, last = split(n)</span><br><span class="line">        <span class="keyword">return</span> sum_digits(all_but_last) + last</span><br><span class="line">    <span class="comment"># Recursive cases are evaluated with recursive calls</span></span><br></pre></td></tr></table></figure>
-<h2 id="Recursion-in-Environment-Diagrams"><a href="#Recursion-in-Environment-Diagrams" class="headerlink" title="Recursion in Environment Diagrams"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8G7a8ANMwzQ&list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&index=3">Recursion in Environment Diagrams</a></h2><p><img src="/images/CS61A/1118550.png"></p>
-<h3 id="Iteration-vs-Recursion"><a href="#Iteration-vs-Recursion" class="headerlink" title="Iteration vs Recursion"></a>Iteration vs Recursion</h3><p>Iteration is a special case of recursion</p>
-<p><img src="/images/CS61A/1118551.png"></p>
-<h2 id="Verifying-Recursive-Functions"><a href="#Verifying-Recursive-Functions" class="headerlink" title="Verifying Recursive Functions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gMEQS4kWbL4&list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&index=4">Verifying Recursive Functions</a></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> n * fact(n-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>Is fact implemented correctly? </p>
-<ol>
-<li>Verify the base case </li>
+<h3 id="sum-digits-without-a-while-statement">Sum Digits Without a While Statement</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Split positive n into all but its last digit and its last digit.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> n // <span class="number">10</span>, n % <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_digits</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the sum of the digits of positive integer n.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_but_last, last = split(n)</span><br><span class="line">        <span class="keyword">return</span> sum_digits(all_but_last) + last</span><br></pre></td></tr></table></figure>
+<h3 id="the-anatomy-of-a-recursive-function">The Anatomy of a Recursive Function</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_digits</span>(<span class="params">n</span>):</span> </span><br><span class="line">    <span class="comment"># The def statement header is similar to other functions </span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the sum of the digits of positive integer n.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="comment"># Conditional statements check for base cases</span></span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="comment"># Base cases are evaluated without recursive calls </span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_but_last, last = split(n)</span><br><span class="line">        <span class="keyword">return</span> sum_digits(all_but_last) + last</span><br><span class="line">    <span class="comment"># Recursive cases are evaluated with recursive calls</span></span><br></pre></td></tr></table></figure>
+<h2 id="recursion-in-environment-diagrams"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8G7a8ANMwzQ&amp;list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&amp;index=3">Recursion in Environment Diagrams</a></h2>
+<p><img src="/images/CS61A/1118550.png" /></p>
+<h3 id="iteration-vs-recursion">Iteration vs Recursion</h3>
+<p>Iteration is a special case of recursion</p>
+<p><img src="/images/CS61A/1118551.png" /></p>
+<h2 id="verifying-recursive-functions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gMEQS4kWbL4&amp;list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&amp;index=4">Verifying Recursive Functions</a></h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fact</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> n * fact(n-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>Is fact implemented correctly?</p>
+<ol type="1">
+<li>Verify the base case</li>
 <li>Treat fact as a functional abstraction!</li>
-<li>Assume that fact(n-1) is correct </li>
+<li>Assume that fact(n-1) is correct</li>
 <li>Verify that fact(n) is correct</li>
 </ol>
-<h2 id="Mutual-Recursion"><a href="#Mutual-Recursion" class="headerlink" title="Mutual Recursion"></a>Mutual Recursion</h2><h3 id="The-Luhn-Algorithm"><a href="#The-Luhn-Algorithm" class="headerlink" title="The Luhn Algorithm"></a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Luhn_algorithm">The Luhn Algorithm</a></h3><p>Used to verify credit card numbers</p>
+<h2 id="mutual-recursion">Mutual Recursion</h2>
+<h3 id="the-luhn-algorithm"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Luhn_algorithm">The Luhn Algorithm</a></h3>
+<p>Used to verify credit card numbers</p>
 <ul>
 <li><strong>First</strong>: From the rightmost digit, which is the check digit, moving left, double the value of every second digit; if product of this doubling operation is greater than 9 (e.g., 7 * 2 = 14), then sum the digits of the products (e.g., 10: 1 + 0 = 1, 14: 1 + 4 = 5)</li>
 <li><strong>Second</strong>: Take the sum of all the digits</li>
 </ul>
-<p><img src="/images/CS61A/1118552.png"></p>
+<p><img src="/images/CS61A/1118552.png" /></p>
 <p>The Luhn sum of a valid credit card number is a multiple of 10</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Luhn algorithm: mutual recursion</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">luhn_sum</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the digit sum of n computed by the Luhn algorithm.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; luhn_sum(2)</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; luhn_sum(12)</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; luhn_sum(42)</span></span><br><span class="line"><span class="string">    10</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; luhn_sum(138743)</span></span><br><span class="line"><span class="string">    30</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; luhn_sum(5105105105105100) # example Mastercard</span></span><br><span class="line"><span class="string">    20</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; luhn_sum(4012888888881881) # example Visa</span></span><br><span class="line"><span class="string">    90</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; luhn_sum(79927398713) # from Wikipedia</span></span><br><span class="line"><span class="string">    70</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        all_but_last, last = split(n)</span><br><span class="line">        <span class="keyword">return</span> luhn_sum_double(all_but_last) + last</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">luhn_sum_double</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the Luhn sum of n, doubling the last digit.&quot;&quot;&quot;</span></span><br><span class="line">    all_but_last, last = split(n)</span><br><span class="line">    luhn_digit = sum_digits(<span class="number">2</span> * last)</span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> luhn_digit</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> luhn_sum(all_but_last) + luhn_digit</span><br></pre></td></tr></table></figure>
-<h2 id="Recursion-and-Iteration"><a href="#Recursion-and-Iteration" class="headerlink" title="Recursion and Iteration"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=FVp-kv2DTxo&list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&index=6">Recursion and Iteration</a></h2><h3 id="Converting-Recursion-to-Iteration"><a href="#Converting-Recursion-to-Iteration" class="headerlink" title="Converting Recursion to Iteration"></a>Converting Recursion to Iteration</h3><p>Can be tricky: Iteration is a special case of recursion. </p>
+<h2 id="recursion-and-iteration"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=FVp-kv2DTxo&amp;list=PL6BsET-8jgYVWfjkAMzMdoEy_j47rfrVd&amp;index=6">Recursion and Iteration</a></h2>
+<h3 id="converting-recursion-to-iteration">Converting Recursion to Iteration</h3>
+<p>Can be tricky: Iteration is a special case of recursion.</p>
 <p>Idea: Figure out what state must be maintained by the iterative function</p>
-<p><img src="/images/CS61A/1118553.png"></p>
-<p>More formulaic: Iteration is a special case of recursion. </p>
+<p><img src="/images/CS61A/1118553.png" /></p>
+<p>More formulaic: Iteration is a special case of recursion.</p>
 <p>Idea: The state of an iteration can be passed as arguments.</p>
-<p><img src="/images/CS61A/1118554.png"></p>
+<p><img src="/images/CS61A/1118554.png" /></p>
 
                 
             </div>

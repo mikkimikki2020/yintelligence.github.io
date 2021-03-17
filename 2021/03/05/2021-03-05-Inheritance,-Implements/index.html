@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.1k
+                    3.2k
                 </div>
                 
 
@@ -497,35 +497,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Inheritance-Implements"><a href="#Inheritance-Implements" class="headerlink" title="Inheritance, Implements"></a>Inheritance, Implements</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2">Video</a></p>
+                <h1 id="inheritance-implements">Inheritance, Implements</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2">Video</a></p>
 <p><a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap4/chap41.html">Textbook</a></p>
-<h2 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IaEq_fogI08&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=2&t=2s">The Problem</a></h2><h3 id="AList-and-SLList"><a href="#AList-and-SLList" class="headerlink" title="AList and SLList"></a>AList and SLList</h3><p>After adding the insert methods from discussion 3, our AList and SLList classes have the following methods (exact same method signatures for both classes).</p>
+<h2 id="the-problem"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IaEq_fogI08&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=2&amp;t=2s">The Problem</a></h2>
+<h3 id="alist-and-sllist">AList and SLList</h3>
+<p>After adding the insert methods from discussion 3, our AList and SLList classes have the following methods (exact same method signatures for both classes).</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">AList</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Item x, <span class="keyword">int</span> position)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Item x)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item i)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Item <span class="title">getFirst</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Item <span class="title">getLast</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Item <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">int</span>  <span class="title">size</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Item <span class="title">removeLast</span><span class="params">()</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> class SLList&lt;Blorp&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SLList</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="title">SLList</span><span class="params">(Blorp x)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Blorp item, <span class="keyword">int</span> position)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Blorp x)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Blorp x)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Blorp <span class="title">getFirst</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Blorp <span class="title">getLast</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Blorp <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> <span class="keyword">int</span>   <span class="title">size</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	<span class="keyword">public</span> Blorp <span class="title">removeLast</span><span class="params">()</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Using-ALists-and-SLLists-WordUtils-java"><a href="#Using-ALists-and-SLLists-WordUtils-java" class="headerlink" title="Using ALists and SLLists: WordUtils.java"></a>Using ALists and SLLists: WordUtils.java</h3><p>Suppose we’re writing a library to manipulate lists of words. Might want to write a function that finds the longest word from a list of words:</p>
+<h3 id="using-alists-and-sllists-wordutils.java">Using ALists and SLLists: WordUtils.java</h3>
+<p>Suppose we’re writing a library to manipulate lists of words. Might want to write a function that finds the longest word from a list of words:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longest</span><span class="params">(SLList&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">  	<span class="keyword">int</span> maxDex = <span class="number">0</span>;</span><br><span class="line">  	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i += <span class="number">1</span>) &#123;</span><br><span class="line">     	String longestString = list.get(maxDex);</span><br><span class="line">     	String thisString = list.get(i);</span><br><span class="line">     	<span class="keyword">if</span> (thisString.length() &gt; longestString.length()) &#123;</span><br><span class="line">        	maxDex = i;</span><br><span class="line">     	&#125;</span><br><span class="line">  	&#125;</span><br><span class="line"></span><br><span class="line">  	<span class="keyword">return</span> list.get(maxDex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If we want longest to be able to handle ALists, what changes do we need to make?</p>
 <ul>
 <li>Change the (SLList&lt;String&gt; list) to <strong>AList&lt;String&gt; list</strong></li>
 </ul>
-<h3 id="Method-Overloading-in-Java"><a href="#Method-Overloading-in-Java" class="headerlink" title="Method Overloading in Java"></a>Method Overloading in Java</h3><p>Java allows multiple methods with same name, but different parameters.</p>
+<h3 id="method-overloading-in-java">Method Overloading in Java</h3>
+<p>Java allows multiple methods with same name, but different parameters.</p>
 <ul>
 <li>This is called method <strong>overloading</strong>.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longest</span><span class="params">(AList&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">  	...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longest</span><span class="params">(SLList&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">  	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="The-Downsides"><a href="#The-Downsides" class="headerlink" title="The Downsides"></a>The Downsides</h3><p>While overloading works, it is a bad idea in the case of longest. Why?</p>
+<h3 id="the-downsides">The Downsides</h3>
+<p>While overloading works, it is a bad idea in the case of longest. Why?</p>
 <ul>
 <li>Code is virtually identical. Aesthetically gross.</li>
 <li>Won’t work for future lists. If we create a QList class, have to make a third method.</li>
-<li>Harder to <strong>maintain</strong>.<ul>
+<li>Harder to <strong>maintain</strong>.
+<ul>
 <li>Example: Suppose you find a bug in one of the methods. You fix it in the SLList version, and forget to do it in the AList version.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Hypernyms-Hyponyms-and-Interface-Inheritance"><a href="#Hypernyms-Hyponyms-and-Interface-Inheritance" class="headerlink" title="Hypernyms, Hyponyms, and Interface Inheritance"></a>Hypernyms, Hyponyms, and Interface Inheritance</h2><h3 id="Hypernyms"><a href="#Hypernyms" class="headerlink" title="Hypernyms"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=S-wcA94Oekc&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=3">Hypernyms</a></h3><p>In natural languages (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy">English</a>, Spanish, <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%8A%E4%B8%8B%E4%BD%8D%E9%97%9C%E4%BF%82">Chinese</a>, Tagalog, etc.), we have a concept known as a “hypernym” to deal with this problem.</p>
+<h2 id="hypernyms-hyponyms-and-interface-inheritance">Hypernyms, Hyponyms, and Interface Inheritance</h2>
+<h3 id="hypernyms"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=S-wcA94Oekc&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=3">Hypernyms</a></h3>
+<p>In natural languages (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy">English</a>, Spanish, <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%8A%E4%B8%8B%E4%BD%8D%E9%97%9C%E4%BF%82">Chinese</a>, Tagalog, etc.), we have a concept known as a “hypernym” to deal with this problem.</p>
 <ul>
 <li>Dog is a “hypernym” of poodle, malamute, yorkie, etc.</li>
 </ul>
-<h3 id="Hypernym-and-Hyponym"><a href="#Hypernym-and-Hyponym" class="headerlink" title="Hypernym and Hyponym"></a>Hypernym and Hyponym</h3><p>We use the word hyponym for the opposite type of relationship.</p>
+<h3 id="hypernym-and-hyponym">Hypernym and Hyponym</h3>
+<p>We use the word hyponym for the opposite type of relationship.</p>
 <ul>
 <li>“dog”: Hypernym of “poodle”, “malamute”, “dachshund”, etc.</li>
 <li>“poodle”: Hyponym of “dog”</li>
@@ -536,8 +545,9 @@
 <li>A canine “is-a” carnivore.</li>
 <li>A carnivore “is-an” animal.</li>
 </ul>
-<p><img src="/images/CS61B/7550160.png"></p>
-<h3 id="Simple-Hyponymic-Relationships-in-Java"><a href="#Simple-Hyponymic-Relationships-in-Java" class="headerlink" title="Simple Hyponymic Relationships in Java"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hoYMyvWjCTg&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=4">Simple Hyponymic Relationships in Java</a></h3><p>SLLists and ALists are both clearly some kind of “list”. </p>
+<p><img src="/images/CS61B/7550160.png" /></p>
+<h3 id="simple-hyponymic-relationships-in-java"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hoYMyvWjCTg&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=4">Simple Hyponymic Relationships in Java</a></h3>
+<p>SLLists and ALists are both clearly some kind of “list”.</p>
 <ul>
 <li>List is a hypernym of SLList and AList.</li>
 </ul>
@@ -546,89 +556,101 @@
 <li>Step 1: Define a reference type for our hypernym (List61B.java).</li>
 <li>Step 2: Specify that SLLists and ALists are hyponyms of that type.</li>
 </ul>
-<h4 id="Step-1-Defining-a-List61B"><a href="#Step-1-Defining-a-List61B" class="headerlink" title="Step 1: Defining a List61B"></a>Step 1: Defining a List61B</h4><p>We’ll use the new keyword <strong>interface</strong> instead of <strong>class</strong> to define a List61B.</p>
+<h4 id="step-1-defining-a-list61b">Step 1: Defining a List61B</h4>
+<p>We’ll use the new keyword <strong>interface</strong> instead of <strong>class</strong> to define a List61B.</p>
 <ul>
 <li>Idea: Interface is a specification of <u><strong>what</strong></u> a List is able to do, <u><strong>not how</strong></u> to do it.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Item x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item y)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">getFirst</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">getLast</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">removeLast</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Item x, <span class="keyword">int</span> position)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span>  <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Private is not allowed here*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="Step-2-Implementing-the-List61B-Interface"><a href="#Step-2-Implementing-the-List61B-Interface" class="headerlink" title="Step 2: Implementing the List61B Interface"></a>Step 2: Implementing the List61B Interface</h4><p>We’ll now:</p>
+<h4 id="step-2-implementing-the-list61b-interface">Step 2: Implementing the List61B Interface</h4>
+<p>We’ll now:</p>
 <ul>
 <li>Use the new <strong>implements</strong> keyword to tell the Java compiler that SLList and AList are hyponyms of List61B.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">   ...</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item x)</span> </span>&#123;    </span><br><span class="line">      ...</span><br></pre></td></tr></table></figure>
-<h4 id="Adjusting-WordUtils-java"><a href="#Adjusting-WordUtils-java" class="headerlink" title="Adjusting WordUtils.java"></a>Adjusting WordUtils.java</h4><p>We can now adjust our longest method to work on either kind of list: </p>
+<h4 id="adjusting-wordutils.java">Adjusting WordUtils.java</h4>
+<p>We can now adjust our longest method to work on either kind of list:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longest</span><span class="params">(List61B&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">  	<span class="keyword">int</span> maxDex = <span class="number">0</span>;</span><br><span class="line">  	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i += <span class="number">1</span>) &#123;</span><br><span class="line">     	String longestString = list.get(maxDex);</span><br><span class="line">     	String thisString = list.get(i);</span><br><span class="line">     	<span class="keyword">if</span> (thisString.length() &gt; longestString.length()) &#123;</span><br><span class="line">        	maxDex = i;</span><br><span class="line">     	&#125;</span><br><span class="line">  	&#125;</span><br><span class="line"></span><br><span class="line">  	<span class="keyword">return</span> list.get(maxDex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Overriding-vs-Overloading"><a href="#Overriding-vs-Overloading" class="headerlink" title="Overriding vs. Overloading"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iOiNQ68H3Gk&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=5">Overriding vs. Overloading</a></h2><h3 id="Method-Overriding"><a href="#Method-Overriding" class="headerlink" title="Method Overriding"></a>Method Overriding</h3><p>If a “subclass” has a method with the exact same signature as in the    “superclass”, we say the subclass <strong>overrides</strong> the method.</p>
+<h2 id="overriding-vs.-overloading"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iOiNQ68H3Gk&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=5">Overriding vs. Overloading</a></h2>
+<h3 id="method-overriding">Method Overriding</h3>
+<p>If a “subclass” has a method with the exact same signature as in the “superclass”, we say the subclass <strong>overrides</strong> the method.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item y)</span></span>;</span><br><span class="line">    ...</span><br><span class="line">   </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item x)</span> </span>&#123;    </span><br><span class="line">      ...   </span><br></pre></td></tr></table></figure>
 <p>AList <strong>overrides</strong> addLast(Item)</p>
-<h3 id="Method-Overriding-vs-Overloading"><a href="#Method-Overriding-vs-Overloading" class="headerlink" title="Method Overriding vs. Overloading"></a>Method Overriding vs. Overloading</h3><p>If a “subclass” has a method with the exact same signature as in the    “superclass”, we say the subclass <strong>overrides</strong> the method.</p>
+<h3 id="method-overriding-vs.-overloading">Method Overriding vs. Overloading</h3>
+<p>If a “subclass” has a method with the exact same signature as in the “superclass”, we say the subclass <strong>overrides</strong> the method.</p>
 <ul>
 <li>Animal’s subclass Pig overrides the makeNoise() method.</li>
 <li>Methods with the same name but different signatures are <strong>overloaded</strong>.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Pig overrides makeNoise() */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">implements</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.print(“oink”);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* makeNoise is overloaded */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">(Dog x)</span> </span>&#123;</span><br><span class="line">      ...  </span><br><span class="line"></span><br><span class="line"><span class="comment">/* abs is overloaded */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Math</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span>    <span class="title">abs</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function">   <span class="keyword">public</span> <span class="keyword">double</span> <span class="title">abs</span><span class="params">(<span class="keyword">double</span> a)</span></span></span><br></pre></td></tr></table></figure>
-<h4 id="Optional-Step-2B-Adding-the-Override-Annotation"><a href="#Optional-Step-2B-Adding-the-Override-Annotation" class="headerlink" title="Optional Step 2B: Adding the @Override Annotation"></a>Optional Step 2B: Adding the @Override Annotation</h4><p>In this course, we’ll always mark every overriding method with the <strong>@Override</strong> annotation.</p>
+<h4 id="optional-step-2b-adding-the-override-annotation">Optional Step 2B: Adding the <span class="citation" data-cites="Override">@Override</span> Annotation</h4>
+<p>In this course, we’ll always mark every overriding method with the <strong><span class="citation" data-cites="Override">@Override</span></strong> annotation.</p>
 <ul>
-<li>Example: Mark AList.java’s overriding methods with <strong>@Override</strong>.</li>
-<li>The only effect of this tag is that the code won’t compile if it is not actually an overriding method. </li>
+<li>Example: Mark AList.java’s overriding methods with <strong><span class="citation" data-cites="Override">@Override</span></strong>.</li>
+<li>The only effect of this tag is that the code won’t compile if it is not actually an overriding method.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">   ...</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item x)</span> </span>&#123;    </span><br><span class="line">      ...   </span><br></pre></td></tr></table></figure>
-<h3 id="Method-Overriding-1"><a href="#Method-Overriding-1" class="headerlink" title="Method Overriding"></a>Method Overriding</h3><p>If a subclass has a method with the exact same signature as in the    superclass, we say the subclass <strong>overrides</strong> the method. </p>
+<h3 id="method-overriding-1">Method Overriding</h3>
+<p>If a subclass has a method with the exact same signature as in the superclass, we say the subclass <strong>overrides</strong> the method.</p>
 <ul>
-<li>Even if you don’t write @Override, subclass still overrides the method.</li>
-<li>@Override is just an optional reminder that you’re overriding.</li>
+<li>Even if you don’t write <span class="citation" data-cites="Override">@Override</span>, subclass still overrides the method.</li>
+<li><span class="citation" data-cites="Override">@Override</span> is just an optional reminder that you’re overriding.</li>
 </ul>
-<p>Why use @Override?</p>
+<p>Why use <span class="citation" data-cites="Override">@Override</span>?</p>
 <ul>
-<li>Main reason: Protects against typos.<ul>
-<li>If you say @Override, but it the method isn’t actually overriding anything, you’ll get a compile error.</li>
+<li>Main reason: Protects against typos.
+<ul>
+<li>If you say <span class="citation" data-cites="Override">@Override</span>, but it the method isn’t actually overriding anything, you’ll get a compile error.</li>
 <li>e.g. <strong>public</strong> void addLats(Item x)</li>
-</ul>
-</li>
+</ul></li>
 <li>Reminds programmer that method definition came from somewhere higher up in the inheritance hierarchy.</li>
 </ul>
-<h2 id="Interface-Inheritance"><a href="#Interface-Inheritance" class="headerlink" title="Interface Inheritance"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hwU0Hx1VTBw&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=6">Interface Inheritance</a></h2><p>Specifying the capabilities of a subclass using the <strong>implements</strong>  keyword is known as <strong><u>interface inheritance</u></strong>.</p>
+<h2 id="interface-inheritance"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hwU0Hx1VTBw&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=6">Interface Inheritance</a></h2>
+<p>Specifying the capabilities of a subclass using the <strong>implements</strong> keyword is known as <strong><u>interface inheritance</u></strong>.</p>
 <ul>
 <li>Interface: The list of all method signatures.</li>
 <li>Inheritance: The subclass “inherits” the interface from a superclass.</li>
 <li>Specifies what the subclass can do, but not how.</li>
-<li>Subclasses <u>must</u> override all of these methods!<ul>
+<li>Subclasses <u>must</u> override all of these methods!
+<ul>
 <li>Will fail to compile otherwise.</li>
-</ul>
-</li>
-<li>Such relationships can be multi-generational.<ul>
+</ul></li>
+<li>Such relationships can be multi-generational.
+<ul>
 <li>Figure: Interfaces in white, classes in green.</li>
 <li>We’ll talk about this in a later lecture.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Item x)</span></span>;</span><br><span class="line">   ...</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">proo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* If AList doesn’t have a proo() method, AList will not compile! */</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/CS61B/7550161.png"></p>
-<h3 id="Copying-the-Bits"><a href="#Copying-the-Bits" class="headerlink" title="Copying the Bits"></a>Copying the Bits</h3><p>Two seemingly contradictory facts:</p>
+<p><img src="/images/CS61B/7550161.png" /></p>
+<h3 id="copying-the-bits">Copying the Bits</h3>
+<p>Two seemingly contradictory facts:</p>
 <ul>
 <li>#1: When you set x = y or pass a parameter, you’re just copying the bits.</li>
-<li>#2: A memory box can only hold 64 bit addresses for the appropriate type.<ul>
+<li>#2: A memory box can only hold 64 bit addresses for the appropriate type.
+<ul>
 <li>e.g. <strong>String</strong> <strong>x</strong> can never hold the 64 bit address of a <strong>Dog</strong>.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/CS61B/7550162.png"></p>
+<p><img src="/images/CS61B/7550162.png" /></p>
 <p>Answer: If X is a superclass of Y, then memory boxes for X may contain Y.</p>
 <ul>
 <li>An AList is-a List.</li>
 <li>Therefore List variables can hold ALList addresses.</li>
 </ul>
-<p><img src="/images/CS61B/7550163.png"></p>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Will the code below compile? If so, what happens when it runs?</p>
-<ol>
+<p><img src="/images/CS61B/7550163.png" /></p>
+<h3 id="question">Question</h3>
+<p>Will the code below compile? If so, what happens when it runs?</p>
+<ol type="1">
 <li><del>Will not compile.</del></li>
 <li><del>Will compile, but will cause an error at runtime on the <strong>new</strong> line.</del></li>
 <li><del>When it runs, an SLList is created and its address is stored in the someList variable, but it crashes on someList.addFirst() since the List class doesn’t implement addFirst.</del></li>
 <li><strong>When it runs, an SLList is created and its address is stored in the someList variable. Then the string “elk” is inserted into the SLList referred to by addFirst.</strong></li>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List61B&lt;String&gt; someList = <span class="keyword">new</span> SLList&lt;String&gt;();	</span><br><span class="line">    someList.addFirst(<span class="string">&quot;elk&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Implementation-Inheritance-Default-Methods"><a href="#Implementation-Inheritance-Default-Methods" class="headerlink" title="Implementation Inheritance: Default Methods"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z2Z1LHPGsdk&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=7">Implementation Inheritance: Default Methods</a></h2><p>Interface inheritance:</p>
+<h2 id="implementation-inheritance-default-methods"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z2Z1LHPGsdk&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=7">Implementation Inheritance: Default Methods</a></h2>
+<p>Interface inheritance:</p>
 <ul>
 <li>Subclass inherits signatures, but NOT implementation.</li>
 </ul>
@@ -640,8 +662,10 @@
 <ul>
 <li>Example: Let’s add a default print() method to List61B.java</li>
 </ul>
-<h3 id="Default-Method-Example-print"><a href="#Default-Method-Example-print" class="headerlink" title="Default Method Example: print()"></a>Default Method Example: print()</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Item x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item y)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">getFirst</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">getLast</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">removeLast</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Item x, <span class="keyword">int</span> position)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;  </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size(); i += <span class="number">1</span>) &#123;</span><br><span class="line">          System.out.print(get(i) + <span class="string">&quot; &quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Question-1"><a href="#Question-1" class="headerlink" title="Question"></a>Question</h4><p>Is the print() method efficient?</p>
+<h3 id="default-method-example-print">Default Method Example: print()</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Item x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Item y)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">getFirst</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">getLast</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">removeLast</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Item x, <span class="keyword">int</span> position)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;  </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size(); i += <span class="number">1</span>) &#123;</span><br><span class="line">          System.out.print(get(i) + <span class="string">&quot; &quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="question-1">Question</h4>
+<p>Is the print() method efficient?</p>
 <ul>
 <li><del>Inefficient for AList and SLList</del></li>
 <li><strong>Efficient for AList, inefficient for SLList</strong></li>
@@ -649,23 +673,27 @@
 <li><del>Efficient for both AList and SLList</del></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List61B</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">   <span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size(); i += <span class="number">1</span>) &#123;</span><br><span class="line">         System.out.print(get(i) + <span class="string">&quot; &quot;</span>);</span><br><span class="line"><span class="comment">/* get has to seek all the way to the given item for SLists. */</span></span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Overriding-Default-Methods"><a href="#Overriding-Default-Methods" class="headerlink" title="Overriding Default Methods"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9M9exmhsjmc&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=8">Overriding Default Methods</a></h3><p>If you don’t like a default method, you can override it.</p>
+<h3 id="overriding-default-methods"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9M9exmhsjmc&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=8">Overriding Default Methods</a></h3>
+<p>If you don’t like a default method, you can override it.</p>
 <ul>
 <li>Any call to print() on an SLList will use this method instead of default.</li>
-<li>Use (optional) @Override to catch typos like <strong>public void pirnt()</strong></li>
+<li>Use (optional) <span class="citation" data-cites="Override">@Override</span> to catch typos like <strong>public void pirnt()</strong></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SLList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span>  </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (Node p = sentinel.next; p != <span class="keyword">null</span>; p = p.next) &#123;</span><br><span class="line">   	      System.out.print(p.item + <span class="string">&quot; &quot;</span>);     	</span><br><span class="line">	   &#125;</span><br><span class="line"> </span><br><span class="line">	   System.out.println();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Question-2"><a href="#Question-2" class="headerlink" title="Question"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eNtItRCIkBg&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=9">Question</a></h4><p>Recall that if X is a superclass of Y, then an X variable can hold a reference to a Y.</p>
+<h4 id="question-2"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eNtItRCIkBg&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=9">Question</a></h4>
+<p>Recall that if X is a superclass of Y, then an X variable can hold a reference to a Y.</p>
 <p>Which print method do you think will run when the code below executes?</p>
 <ul>
 <li>List.print()</li>
-<li><strong>SLList.print() : And this is the sensible choice. But how does it work?</strong><ul>
+<li><strong>SLList.print() : And this is the sensible choice. But how does it work?</strong>
+<ul>
 <li>Before we can answer that, we need new terms: static and dynamic type.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">   List61B&lt;String&gt; someList = <span class="keyword">new</span> SLList&lt;String&gt;();</span><br><span class="line">   someList.addLast(<span class="string">&quot;elk&quot;</span>);</span><br><span class="line">   someList.addLast(<span class="string">&quot;are&quot;</span>);</span><br><span class="line">   someList.addLast(<span class="string">&quot;watching&quot;</span>);</span><br><span class="line">   someList.print();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Static-and-Dynamic-Type-Dynamic-Method-Selection"><a href="#Static-and-Dynamic-Type-Dynamic-Method-Selection" class="headerlink" title="Static and Dynamic Type, Dynamic Method Selection"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eNtItRCIkBg&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=9">Static and Dynamic Type, Dynamic Method Selection</a></h2><h3 id="Static-Type-vs-Dynamic-Type"><a href="#Static-Type-vs-Dynamic-Type" class="headerlink" title="Static Type vs. Dynamic Type"></a>Static Type vs. Dynamic Type</h3><p>Every variable in Java has a “compile-time type”, a.k.a. “static type”.</p>
+<h2 id="static-and-dynamic-type-dynamic-method-selection"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eNtItRCIkBg&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=9">Static and Dynamic Type, Dynamic Method Selection</a></h2>
+<h3 id="static-type-vs.-dynamic-type">Static Type vs. Dynamic Type</h3>
+<p>Every variable in Java has a “compile-time type”, a.k.a. “static type”.</p>
 <ul>
 <li>This is the type specified at <strong>declaration</strong>. Never changes!</li>
 </ul>
@@ -674,8 +702,9 @@
 <li>This is the type specified at <strong>instantiation</strong> (e.g. when using new).</li>
 <li>Equal to the type of the object being pointed at.</li>
 </ul>
-<p><img src="/images/CS61B/7550164.png"></p>
-<h3 id="Dynamic-Method-Selection-For-Overridden-Methods"><a href="#Dynamic-Method-Selection-For-Overridden-Methods" class="headerlink" title="Dynamic Method Selection For Overridden Methods"></a>Dynamic Method Selection For Overridden Methods</h3><p>Suppose we call a method of an object using a variable with:</p>
+<p><img src="/images/CS61B/7550164.png" /></p>
+<h3 id="dynamic-method-selection-for-overridden-methods">Dynamic Method Selection For Overridden Methods</h3>
+<p>Suppose we call a method of an object using a variable with:</p>
 <ul>
 <li>compile-time type X</li>
 <li>run-time type Y</li>
@@ -684,12 +713,15 @@
 <ul>
 <li>This is known as “dynamic method selection”.</li>
 </ul>
-<p><img src="/images/CS61B/7550165.png"></p>
-<h2 id="More-Dynamic-Method-Selection-Overloading-vs-Overriding"><a href="#More-Dynamic-Method-Selection-Overloading-vs-Overriding" class="headerlink" title="More Dynamic Method Selection, Overloading vs. Overriding"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OHgKMipGdy8&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=10">More Dynamic Method Selection, Overloading vs. Overriding</a></h2><h3 id="Dynamic-Method-Selection-Puzzle"><a href="#Dynamic-Method-Selection-Puzzle" class="headerlink" title="Dynamic Method Selection Puzzle"></a>Dynamic Method Selection Puzzle</h3><p>Suppose we have classes defined below. Try to predict the results.</p>
+<p><img src="/images/CS61B/7550165.png" /></p>
+<h2 id="more-dynamic-method-selection-overloading-vs.-overriding"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OHgKMipGdy8&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=10">More Dynamic Method Selection, Overloading vs. Overriding</a></h2>
+<h3 id="dynamic-method-selection-puzzle">Dynamic Method Selection Puzzle</h3>
+<p>Suppose we have classes defined below. Try to predict the results.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">(Animal a)</span> </span>&#123;</span><br><span class="line">    print(<span class="string">&quot;hello animal&quot;</span>); &#125;</span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">sniff</span><span class="params">(Animal a)</span> </span>&#123;</span><br><span class="line">    print(<span class="string">&quot;sniff animal&quot;</span>); &#125;</span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">flatter</span><span class="params">(Animal a)</span> </span>&#123;</span><br><span class="line">    print(<span class="string">&quot;u r cool animal&quot;</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">sniff</span><span class="params">(Animal a)</span> </span>&#123;</span><br><span class="line">    print(<span class="string">&quot;dog sniff animal&quot;</span>); &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">flatter</span><span class="params">(Dog a)</span> </span>&#123;</span><br><span class="line">    print(<span class="string">&quot;u r cool dog&quot;</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal a = <span class="keyword">new</span> Dog();</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">a.greet(d);</span><br><span class="line">a.sniff(d);</span><br><span class="line">d.flatter(d);</span><br><span class="line">a.flatter(d);</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Animal a = <span class="keyword">new</span> Dog();</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">a.greet(d);   <span class="comment">// &quot;hello animal&quot;</span></span><br><span class="line">a.sniff(d);   <span class="comment">// &quot;dog sniff animal&quot;</span></span><br><span class="line">d.flatter(d); <span class="comment">// &quot;u r cool dog&quot;</span></span><br><span class="line">a.flatter(d); <span class="comment">// “u r cool animal”</span></span><br></pre></td></tr></table></figure>
 <p>flatter is <u><strong>overloaded</strong></u>, not overridden!</p>
-<h3 id="The-Method-Selection-Algorithm"><a href="#The-Method-Selection-Algorithm" class="headerlink" title="The Method Selection Algorithm"></a>The Method Selection Algorithm</h3><p>Consider the function call foo.bar(x1), where foo has static type TPrime, and x1 has static type T1.</p>
+<h3 id="the-method-selection-algorithm">The Method Selection Algorithm</h3>
+<p>Consider the function call foo.bar(x1), where foo has static type TPrime, and x1 has static type T1.</p>
 <p>At compile time, the compiler verifies that TPrime has a method that can handle T1. It then records the signature of this method.</p>
 <ul>
 <li>Note: If there are multiple methods that can handle T1, the compiler records the “most specific” one. For example, if T1=Dog, and TPrime has bar(Dog) and bar(Animal), it will record bar(Dog).</li>
@@ -697,40 +729,43 @@
 <p>At runtime, if foo’s dynamic type overrides the recorded signature, use the overriding method. Otherwise, use TPrime’s version of the method.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Animal a = <span class="keyword">new</span> Dog();</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">a.flatter(d);</span><br></pre></td></tr></table></figure>
 <p>Compiler asks “Is there a method in Animal that can handle Dog? Yes! flatter(Animal a)”. It then records the signature flatter(Animal a).</p>
-<h2 id="Interface-vs-Implementation-Inheritance"><a href="#Interface-vs-Implementation-Inheritance" class="headerlink" title="Interface vs. Implementation Inheritance"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9KuVnIje2Ys&list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&index=11">Interface vs. Implementation Inheritance</a></h2><p>Interface Inheritance (a.k.a. what):</p>
+<h2 id="interface-vs.-implementation-inheritance"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9KuVnIje2Ys&amp;list=PL8FaHk7qbOD6km6LlaHLWgRl9SbhlTHk2&amp;index=11">Interface vs. Implementation Inheritance</a></h2>
+<p>Interface Inheritance (a.k.a. what):</p>
 <ul>
 <li>Allows you to generalize code in a powerful, simple way.</li>
 </ul>
 <p>Implementation Inheritance (a.k.a. how):</p>
 <ul>
-<li>Allows code-reuse: Subclasses can rely on superclasses or interfaces.<ul>
+<li>Allows code-reuse: Subclasses can rely on superclasses or interfaces.
+<ul>
 <li>Example: print() implemented in List61B.java.</li>
 <li>Gives another dimension of control to subclass designers: Can decide whether or not to override default implementations.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>Important:</strong> In both cases, we specify “is-a” relationships, not “has-a”.</p>
 <ul>
 <li>Good: Dog implements Animal, SLList implements List61B.</li>
 <li>Bad: Cat implements Claw, Set implements SLList.</li>
 </ul>
-<h3 id="The-Dangers-of-Implementation-Inheritance"><a href="#The-Dangers-of-Implementation-Inheritance" class="headerlink" title="The Dangers of Implementation Inheritance"></a>The Dangers of Implementation Inheritance</h3><p>Particular Dangers of Implementation Inheritance</p>
+<h3 id="the-dangers-of-implementation-inheritance">The Dangers of Implementation Inheritance</h3>
+<p>Particular Dangers of Implementation Inheritance</p>
 <ul>
 <li>Makes it harder to keep track of where something was actually implemented (though a good IDE makes this better).</li>
-<li>Rules for resolving conflicts can be arcane. Won’t cover in 61B.<ul>
+<li>Rules for resolving conflicts can be arcane. Won’t cover in 61B.
+<ul>
 <li>Example: What if two interfaces both give conflicting default methods?</li>
-</ul>
-</li>
-<li>Encourages overly complex code (especially with novices).<ul>
+</ul></li>
+<li>Encourages overly complex code (especially with novices).
+<ul>
 <li>Common mistake: Has-a vs. Is-a!</li>
-</ul>
-</li>
-<li>Breaks encapsulation!<ul>
+</ul></li>
+<li>Breaks encapsulation!
+<ul>
 <li>What is encapsulation? See next week.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Terminology-Summary"><a href="#Terminology-Summary" class="headerlink" title="Terminology Summary"></a>Terminology Summary</h3><p>New terms from this lecture:</p>
+<h3 id="terminology-summary">Terminology Summary</h3>
+<p>New terms from this lecture:</p>
 <ul>
 <li>Overloading</li>
 <li>Hypernym</li>
@@ -742,7 +777,8 @@
 <li>Dynamic Type, a.k.a. Run-time Type</li>
 <li>Dynamic Method Selection</li>
 </ul>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Method Overloading</strong> In Java, methods in a class can have the same name, but different parameters. For example, a <code>Math</code> class can have an <code>add(int a, int b)</code> method and an <code>add(float a, float b)</code> method as well. The Java compiler is smart enough to choose the correct method depending on the parameters that you pass in. Methods with the same name but different parameters are said to be overloaded.</p>
+<h2 id="overview">Overview</h2>
+<p><strong>Method Overloading</strong> In Java, methods in a class can have the same name, but different parameters. For example, a <code>Math</code> class can have an <code>add(int a, int b)</code> method and an <code>add(float a, float b)</code> method as well. The Java compiler is smart enough to choose the correct method depending on the parameters that you pass in. Methods with the same name but different parameters are said to be overloaded.</p>
 <p><strong>Making Code General</strong> Consider a <code>largestNumber</code> method that only takes an AList as a parameter. The drawback is that the logic for <code>largestNumber</code> is the same regardless of if we take an <code>AList</code> or <code>SLList</code>. We just operate on a different type of list. If we use our previous idea of method overriding, we result in a very long Java file with many similar methods. This code is hard to maintain; if we fix a bug in one method, we have to duplicate this fix manually to all the other methods.</p>
 <p>The solution to the above problem is to define a new reference type that represents both <code>AList</code> and <code>SLList</code>. We will call it a <code>List</code>. Next, we specify an “is-a” relationship: An <code>AList</code> is a <code>List</code>. We do the same for <code>SLList</code>. Let’s formalize this into code.</p>
 <p><strong>Interfaces</strong> We will use the keyword <code>interface</code> instead of <code>class</code> to create our <code>List</code>. More explicitly, we write:</p>
@@ -753,9 +789,9 @@
 <p>Now, we want to specify that an <code>AList</code> is a <code>List</code>. We will change our class declaration of <code>AList</code> to:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> AList&lt;Item&gt; implements List&lt;Item&gt; &#123; ... &#125;</span><br></pre></td></tr></table></figure>
 <p>We can do the same for <code>SLList</code>. Now, going back to our <code>largestNumber</code> method, instead of creating one method for each type of list, we can simply create one method that takes in a <code>List</code>. As long as our actual object implements the <code>List</code> interface, then this method will work properly!</p>
-<p><strong>Overriding</strong> For each method in <code>AList</code> that we also defined in <code>List</code>, we will add an @Override right above the method signature. As an example:</p>
+<p><strong>Overriding</strong> For each method in <code>AList</code> that we also defined in <code>List</code>, we will add an <span class="citation" data-cites="Override">@Override</span> right above the method signature. As an example:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Item <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
-<p>This is not technically necessary, but is good style and thus we will require it. Also, it allows us to check against typos. If we mistype our method name, the compiler will prevent our compilation if we have the @Override tag.</p>
+<p>This is not technically necessary, but is good style and thus we will require it. Also, it allows us to check against typos. If we mistype our method name, the compiler will prevent our compilation if we have the <span class="citation" data-cites="Override">@Override</span> tag.</p>
 <p><strong>Interface Inheritance</strong> Formally, we say that subclasses inherit from the superclass. Interfaces contain all the method signatures, and each subclass must implement every single signature; think of it as a contract. In addition, relationships can span multiple generations. For example, C can inherit from B, which can inherit from A.</p>
 <p><strong>Default Methods</strong> Interfaces can have default methods. We define this via:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>

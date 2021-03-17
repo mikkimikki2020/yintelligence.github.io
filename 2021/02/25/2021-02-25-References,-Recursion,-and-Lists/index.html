@@ -497,102 +497,114 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="References-Recursion-and-Lists"><a href="#References-Recursion-and-Lists" class="headerlink" title="References, Recursion, and Lists"></a>References, Recursion, and Lists</h1><p><a target="_blank" rel="noopener" href="http://fa20.datastructur.es/">Website</a></p>
+                <h1 id="references-recursion-and-lists">References, Recursion, and Lists</h1>
+<p><a target="_blank" rel="noopener" href="http://fa20.datastructur.es/">Website</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll">Video</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/Berkeley-CS61B/lectureCode-fa20/tree/master/lists1">Code</a></p>
-<h2 id="Primitive-Types"><a href="#Primitive-Types" class="headerlink" title="Primitive Types"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IRwO_wahcsU&list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&index=1">Primitive Types</a></h2><h3 id="Variables-in-Java"><a href="#Variables-in-Java" class="headerlink" title="Variables in Java"></a>Variables in Java</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Walrus a = <span class="keyword">new</span> Walrus(<span class="number">1000</span>, <span class="number">8.3</span>);</span><br><span class="line">Walrus b;</span><br><span class="line">b = a;</span><br><span class="line">b.weight = <span class="number">5</span>;</span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">weight: 5, tusk size: 8.30 </span></span><br><span class="line"><span class="comment">weight: 5, tusk size: 8.30</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<p>Will the change to b affect a? </p>
+<h2 id="primitive-types"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IRwO_wahcsU&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=1">Primitive Types</a></h2>
+<h3 id="variables-in-java">Variables in Java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Walrus a = <span class="keyword">new</span> Walrus(<span class="number">1000</span>, <span class="number">8.3</span>);</span><br><span class="line">Walrus b;</span><br><span class="line">b = a;</span><br><span class="line">b.weight = <span class="number">5</span>;</span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">weight: 5, tusk size: 8.30 </span></span><br><span class="line"><span class="comment">weight: 5, tusk size: 8.30</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>Will the change to b affect a?</p>
 <ul>
-<li><strong>Yes</strong> </li>
+<li><strong>Yes</strong></li>
 <li>No</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">y = x;</span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;x is: &quot;</span> + x);</span><br><span class="line">System.out.println(<span class="string">&quot;y is: &quot;</span> + y); </span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">x is: 2</span></span><br><span class="line"><span class="comment">y is: 5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <p>Will the change to x affect y?</p>
 <ul>
-<li>Yes </li>
+<li>Yes</li>
 <li><strong>No</strong></li>
 </ul>
-<h3 id="Bits"><a href="#Bits" class="headerlink" title="Bits"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UJlfyXRm1ts&list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&index=2">Bits</a></h3><p>Your computer stores information in “memory”.</p>
+<h3 id="bits"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=UJlfyXRm1ts&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=2">Bits</a></h3>
+<p>Your computer stores information in “memory”.</p>
 <ul>
-<li>Information is stored in memory as a sequence of ones and zeros.<ul>
+<li>Information is stored in memory as a sequence of ones and zeros.
+<ul>
 <li>Example: 72 stored as 01001000</li>
 <li>Example: 205.75 stored as … 01000011 01001101 11000000 00000000</li>
 <li>Example: The letter H stored as 01001000 (same as the number 72)</li>
 <li>Example: True stored as 00000001</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Each Java type has a different way to interpret the bits:</p>
 <ul>
 <li>8 primitive types in Java: byte, short, <strong>int</strong>, long, float, <strong>double</strong>, boolean, char</li>
 </ul>
-<h3 id="Declaring-a-Variable-Simplified"><a href="#Declaring-a-Variable-Simplified" class="headerlink" title="Declaring a Variable (Simplified)"></a>Declaring a Variable (Simplified)</h3><p>When you declare a variable of a certain type in Java:</p>
+<h3 id="declaring-a-variable-simplified">Declaring a Variable (Simplified)</h3>
+<p>When you declare a variable of a certain type in Java:</p>
 <ul>
-<li>Your computer sets aside exactly enough bits to hold a thing of that type.<ul>
+<li>Your computer sets aside exactly enough bits to hold a thing of that type.
+<ul>
 <li>Example: Declaring an int sets aside a “box” of 32 bits.</li>
 <li>Example: Declaring a double sets aside a box of 64 bits.</li>
-</ul>
-</li>
+</ul></li>
 <li>Java creates an internal table that maps each variable name to a location.</li>
-<li>Java does NOT write anything into the reserved boxes.<ul>
+<li>Java does NOT write anything into the reserved boxes.
+<ul>
 <li>For safety, Java will not let access a variable that is uninitialized.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/CS61B/5.png"></p>
-<p><img src="/images/CS61B/6.png"></p>
-<p><img src="/images/CS61B/7.png"></p>
-<p><img src="/images/CS61B/8.png"></p>
+<p><img src="/images/CS61B/5.png" /></p>
+<p><img src="/images/CS61B/6.png" /></p>
+<p><img src="/images/CS61B/7.png" /></p>
+<p><img src="/images/CS61B/8.png" /></p>
 <p>We’ll use simplified box notation from here on out:</p>
 <ul>
 <li>Instead of writing memory box contents in binary, we’ll write them in human readable symbols.</li>
 </ul>
-<p><img src="/images/CS61B/9.png"></p>
-<h4 id="The-Golden-Rule-of-Equals-GRoE"><a href="#The-Golden-Rule-of-Equals-GRoE" class="headerlink" title="The Golden Rule of Equals (GRoE)"></a>The Golden Rule of Equals (GRoE)</h4><p>Given variables y and x:</p>
+<p><img src="/images/CS61B/9.png" /></p>
+<h4 id="the-golden-rule-of-equals-groe">The Golden Rule of Equals (GRoE)</h4>
+<p>Given variables y and x:</p>
 <ul>
 <li>y = x <strong>copies</strong> all the bits from x into y.</li>
 </ul>
-<h2 id="Reference-Types"><a href="#Reference-Types" class="headerlink" title="Reference Types"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-eUMI5o31wY&list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&index=3">Reference Types</a></h2><p>There are 8 primitive types in Java:</p>
+<h2 id="reference-types"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-eUMI5o31wY&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=3">Reference Types</a></h2>
+<p>There are 8 primitive types in Java:</p>
 <ul>
 <li>byte, short, <strong>int</strong>, long, float, <strong>double</strong>, boolean, char</li>
 </ul>
 <p>Everything else, including arrays, is a <strong>reference type</strong>.</p>
-<h3 id="Class-Instantiations"><a href="#Class-Instantiations" class="headerlink" title="Class Instantiations"></a>Class Instantiations</h3><p>When we instantiate an Object (e.g. Dog, Walrus, Planet): </p>
+<h3 id="class-instantiations">Class Instantiations</h3>
+<p>When we instantiate an Object (e.g. Dog, Walrus, Planet):</p>
 <ul>
 <li>Java first allocates a box of bits for each instance variable of the class and fills them with a default value (e.g. 0, null).</li>
 <li>The constructor then usually fills every such box with some other value</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Walrus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> weight;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">double</span> tuskSize;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Walrus</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">double</span> ts)</span> </span>&#123;</span><br><span class="line">        weight = w;</span><br><span class="line">        tuskSize = ts;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CS61B/10.png"></p>
+<p><img src="/images/CS61B/10.png" /></p>
 <p>Can think of new as returning the address of the newly created object</p>
 <ul>
 <li>Addresses in Java are 64 bits.</li>
 <li>Example (rough picture): If object is created in memory location 2384723423, then new returns 2384723423.</li>
 </ul>
-<p><img src="/images/CS61B/11.png"></p>
-<h3 id="Reference-Type-Variable-Declarations"><a href="#Reference-Type-Variable-Declarations" class="headerlink" title="Reference Type Variable Declarations"></a>Reference Type Variable Declarations</h3><p>Java allocates exactly a box of size 64 bits, no matter what type of object.</p>
+<p><img src="/images/CS61B/11.png" /></p>
+<h3 id="reference-type-variable-declarations">Reference Type Variable Declarations</h3>
+<p>Java allocates exactly a box of size 64 bits, no matter what type of object.</p>
 <p>These bits can be either set to:</p>
 <ul>
 <li>Null (all zeros).</li>
 <li>The 64 bit “address” of a specific instance of that class (returned by <strong>new</strong>).</li>
 </ul>
-<p><img src="/images/CS61B/12.png"></p>
+<p><img src="/images/CS61B/12.png" /></p>
 <p>The 64 bit addresses are meaningless to us as humans, so we’ll represent:</p>
 <ul>
 <li>All zero addresses with “null”.</li>
 <li>Non-zero addresses as arrows.</li>
 </ul>
 <p>This is sometimes called “box and pointer” notation.</p>
-<p><img src="/images/CS61B/13.png"></p>
-<h3 id="Reference-Types-Obey-the-Golden-Rule-of-Equals"><a href="#Reference-Types-Obey-the-Golden-Rule-of-Equals" class="headerlink" title="Reference Types Obey the Golden Rule of Equals"></a>Reference Types Obey the Golden Rule of Equals</h3><p>Just as with primitive types, the equals sign copies the bits.</p>
+<p><img src="/images/CS61B/13.png" /></p>
+<h3 id="reference-types-obey-the-golden-rule-of-equals">Reference Types Obey the Golden Rule of Equals</h3>
+<p>Just as with primitive types, the equals sign copies the bits.</p>
 <ul>
 <li>In terms of our visual metaphor, we “copy” the arrow by making the arrow in the b box point at the same instance as a.</li>
 </ul>
-<p><img src="/images/CS61B/14.png"></p>
-<p><img src="/images/CS61B/15.png"></p>
-<p><img src="/images/CS61B/16.png"></p>
-<p><img src="/images/CS61B/17.png"></p>
-<h2 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3hiXeB8rNKA&list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&index=4">Parameter Passing</a></h2><h3 id="The-Golden-Rule-of-Equals-and-Parameter-Passing"><a href="#The-Golden-Rule-of-Equals-and-Parameter-Passing" class="headerlink" title="The Golden Rule of Equals (and Parameter Passing)"></a>The Golden Rule of Equals (and Parameter Passing)</h3><p>Given variables b and a:</p>
+<p><img src="/images/CS61B/14.png" /></p>
+<p><img src="/images/CS61B/15.png" /></p>
+<p><img src="/images/CS61B/16.png" /></p>
+<p><img src="/images/CS61B/17.png" /></p>
+<h2 id="parameter-passing"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3hiXeB8rNKA&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=4">Parameter Passing</a></h2>
+<h3 id="the-golden-rule-of-equals-and-parameter-passing">The Golden Rule of Equals (and Parameter Passing)</h3>
+<p>Given variables b and a:</p>
 <ul>
 <li>b = a <strong>copies</strong> all the bits from a into b</li>
 </ul>
@@ -600,27 +612,30 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">average</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a + b) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x = <span class="number">5.5</span>;</span><br><span class="line">    <span class="keyword">double</span> y = <span class="number">10.5</span>;</span><br><span class="line">    <span class="keyword">double</span> avg = average(x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>average</th>
-<th align="left"></th>
-<th align="left">main</th>
-<th align="left"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">main</th>
+<th style="text-align: left;"></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>a</td>
-<td align="left">5.5</td>
-<td align="left">x</td>
-<td align="left">5.5</td>
+<td style="text-align: left;">5.5</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">5.5</td>
 </tr>
-<tr>
+<tr class="even">
 <td>b</td>
-<td align="left">10.5</td>
-<td align="left">y</td>
-<td align="left">10.5</td>
+<td style="text-align: left;">10.5</td>
+<td style="text-align: left;">y</td>
+<td style="text-align: left;">10.5</td>
 </tr>
-</tbody></table>
-<h3 id="The-Golden-Rule-Summary"><a href="#The-Golden-Rule-Summary" class="headerlink" title="The Golden Rule: Summary"></a>The Golden Rule: Summary</h3><p>There are 9 types of variables in Java:</p>
+</tbody>
+</table>
+<h3 id="the-golden-rule-summary">The Golden Rule: Summary</h3>
+<p>There are 9 types of variables in Java:</p>
 <ul>
 <li>8 primitive types (byte, short, int, long, float, double, boolean, char).</li>
 <li>The 9th type is references to Objects (an arrow). References may be null.</li>
@@ -634,21 +649,23 @@
 <li>b = a <strong>copies the bits</strong> from a into b.</li>
 <li><strong>Passing parameters</strong> copies the bits.</li>
 </ul>
-<h2 id="Test-Your-Understanding-of-the-GRoE"><a href="#Test-Your-Understanding-of-the-GRoE" class="headerlink" title="Test Your Understanding of the GRoE"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zGdNjPZxIdA&list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&index=5">Test Your Understanding of the GRoE</a></h2><p>Does the call to doStuff(walrus, x) have an affect on walrus and/or main’s x?</p>
-<ol>
+<h2 id="test-your-understanding-of-the-groe"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zGdNjPZxIdA&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=5">Test Your Understanding of the GRoE</a></h2>
+<p>Does the call to doStuff(walrus, x) have an affect on walrus and/or main’s x?</p>
+<ol type="1">
 <li>Neither will change.</li>
 <li><strong>walrus will lose 100 lbs, but main’s x will not change.</strong></li>
 <li>walrus will not change, but main’s x will decrease by 5.</li>
 <li>Both will decrease.</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Walrus walrus = <span class="keyword">new</span> Walrus(<span class="number">3500</span>, <span class="number">10.5</span>);</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">9</span>;</span><br><span class="line">    doStuff(walrus, x);</span><br><span class="line">    System.out.println(walrus);</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doStuff</span><span class="params">(Walrus W, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    W.weight = W.weight - <span class="number">100</span>;</span><br><span class="line">    x = x - <span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CS61B/18.png"></p>
-<h2 id="Instantiation-of-Arrays"><a href="#Instantiation-of-Arrays" class="headerlink" title="Instantiation of Arrays"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=t57Xi1G__Vc&list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&index=6">Instantiation of Arrays</a></h2><p>Arrays are also Objects. As we’ve seen, objects are (usually) instantiated using the <strong><em>new</em></strong> keyword. </p>
+<p><img src="/images/CS61B/18.png" /></p>
+<h2 id="instantiation-of-arrays"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=t57Xi1G__Vc&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=6">Instantiation of Arrays</a></h2>
+<p>Arrays are also Objects. As we’ve seen, objects are (usually) instantiated using the <strong><em>new</em></strong> keyword.</p>
 <ul>
-<li>Planet p = new Planet(0, 0, 0, 0, 0, “blah.png”); </li>
+<li>Planet p = new Planet(0, 0, 0, 0, 0, “blah.png”);</li>
 <li>int[] x = new int[]{0, 1, 2, 95, 4};</li>
 </ul>
-<p>int[] a;  <strong>←Declaration</strong></p>
+<p>int[] a; <strong>←Declaration</strong></p>
 <ul>
 <li>Declaration creates a 64 bit box intended only for storing a reference to an int array. <strong>No object is instantiated</strong>.</li>
 </ul>
@@ -657,7 +674,8 @@
 <li>Instantiates a new Object, in this case an int array.</li>
 <li>Object is anonymous!</li>
 </ul>
-<h3 id="Assignment-of-Arrays"><a href="#Assignment-of-Arrays" class="headerlink" title="Assignment of Arrays"></a>Assignment of Arrays</h3><p>int[] a = new int[]{0, 1, 2, 95, 4}; ← Declaration, instantiation, and <strong>assignment</strong>.</p>
+<h3 id="assignment-of-arrays">Assignment of Arrays</h3>
+<p>int[] a = new int[]{0, 1, 2, 95, 4}; ← Declaration, instantiation, and <strong>assignment</strong>.</p>
 <ul>
 <li>Creates a 64 bit box for storing an int array address. (declaration)</li>
 <li>Creates a new Object, in this case an int array. (instantiation)</li>
@@ -667,8 +685,10 @@
 <ul>
 <li>If we were to reassign a to something else, we’d <strong>never</strong> be able to get the original Object back!</li>
 </ul>
-<p><img src="/images/CS61B/19.png"></p>
-<h2 id="IntList-and-Linked-Data-Structures"><a href="#IntList-and-Linked-Data-Structures" class="headerlink" title="IntList and Linked Data Structures"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TzuAiXTZmYo&list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&index=7">IntList and Linked Data Structures</a></h2><h3 id="IntList"><a href="#IntList" class="headerlink" title="IntList"></a>IntList</h3><p>Let’s define an IntList as an object containing two member variables:</p>
+<p><img src="/images/CS61B/19.png" /></p>
+<h2 id="intlist-and-linked-data-structures"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TzuAiXTZmYo&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=7">IntList and Linked Data Structures</a></h2>
+<h3 id="intlist">IntList</h3>
+<p>Let’s define an IntList as an object containing two member variables:</p>
 <ul>
 <li>int first;</li>
 <li>IntList rest;</li>
@@ -679,12 +699,14 @@
 <li>iterativeSize()</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntList</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> first;</span><br><span class="line">	<span class="keyword">public</span> IntList rest;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">IntList</span><span class="params">(<span class="keyword">int</span> f, IntList r)</span> </span>&#123;</span><br><span class="line">		first = f;</span><br><span class="line">		rest = r;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Return the size of the list using... recursion! */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (rest == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span> + <span class="keyword">this</span>.rest.size();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Return the size of the list using no recursion! */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">iterativeSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		IntList p = <span class="keyword">this</span>;</span><br><span class="line">		<span class="keyword">int</span> totalSize = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">			totalSize += <span class="number">1</span>;</span><br><span class="line">			p = p.rest;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> totalSize;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		IntList L = <span class="keyword">new</span> IntList(<span class="number">15</span>, <span class="keyword">null</span>);</span><br><span class="line">		L = <span class="keyword">new</span> IntList(<span class="number">10</span>, L);</span><br><span class="line">		L = <span class="keyword">new</span> IntList(<span class="number">5</span>, L);</span><br><span class="line"></span><br><span class="line">		System.out.println(L.get(<span class="number">100</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<h4 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h4><p>Write a method int get(int i) that returns the ith item in the list.</p>
+<h4 id="challenge">Challenge</h4>
+<p>Write a method int get(int i) that returns the ith item in the list.</p>
 <ul>
 <li>For simplicity, OK to assume the item exists. ● Front item is the 0th item.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Returns the ith item of this IntList. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> first;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> rest.get(i - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Bits</strong> The computer stores information as memory, and represents this information using sequences of bits, which are either 0 or 1.</p>
+<h2 id="overview">Overview</h2>
+<p><strong>Bits</strong> The computer stores information as memory, and represents this information using sequences of bits, which are either 0 or 1.</p>
 <p><strong>Primitives</strong> Primitives are representations of information. There are 8 primitive types in Java: byte, short, int, long, float, double, boolean, and char. Each primitive is represented by a certain number of bits. For example, ints are 32 bit primitives, while bytes are 8 bit primitives.</p>
 <p><strong>Declaring Primitives</strong> When we declare a variable to be a primitive (i.e. <code>int x;</code>), we set aside enough memory space to hold the bits (in this case, 32). We can think of this as a box holding the bits. Java then maps the variable name to this box. Say we have a line of code <code>int y = x;</code> where <code>x</code> was defined before. Java will copy the bits inside the <code>x</code> box into the bits in the <code>y</code> box.</p>
 <p><strong>Creating Objects</strong> When we create an instance of a class using the <code>new</code> keyword, Java creates boxes of bits for each field, where the size of each box is defined by the type of each field. For example, if a Walrus object has an <code>int</code> variable and a <code>double</code> variable, then Java will allocate two boxes totaling 96 bits (32 + 64) to hold both variables. These will be set to a default value like 0. The constructor then comes in and fills in these bits to their appropriate values. The return value of the constructor will return the location in memory where the boxes live, usually an address of 64 bits. This address can then be stored in a variable with a “reference type.”</p>

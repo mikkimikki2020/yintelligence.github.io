@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    13 Min
+                    14 Min
                 </div>
                 
 
@@ -497,11 +497,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="DLLists-Arrays"><a href="#DLLists-Arrays" class="headerlink" title="DLLists, Arrays"></a>DLLists, Arrays</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt">Video</a></p>
-<h2 id="Doubly-Linked-Lists"><a href="#Doubly-Linked-Lists" class="headerlink" title="Doubly Linked Lists"></a>Doubly Linked Lists</h2><h3 id="Summary-of-Last-Time-From-IntList-to-SLList"><a href="#Summary-of-Last-Time-From-IntList-to-SLList" class="headerlink" title="Summary of Last Time (From IntList to SLList)"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=P1grp1MDZQo&list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&index=1">Summary of Last Time (From IntList to SLList)</a></h3><p><img src="/images/CS61B/185921.png"></p>
-<h3 id="One-Downside-of-SLLists"><a href="#One-Downside-of-SLLists" class="headerlink" title="One Downside of SLLists"></a>One Downside of SLLists</h3><p>Inserting at the back of an SLList is much slower than the front.</p>
+                <h1 id="dllists-arrays">DLLists, Arrays</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt">Video</a></p>
+<h2 id="doubly-linked-lists">Doubly Linked Lists</h2>
+<h3 id="summary-of-last-time-from-intlist-to-sllist"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=P1grp1MDZQo&amp;list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&amp;index=1">Summary of Last Time (From IntList to SLList)</a></h3>
+<p><img src="/images/CS61B/185921.png" /></p>
+<h3 id="one-downside-of-sllists">One Downside of SLLists</h3>
+<p>Inserting at the back of an SLList is much slower than the front.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    sentinel.next = <span class="keyword">new</span> IntNode(x, sentinel.next);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    IntNode p = sentinel;</span><br><span class="line">    <span class="keyword">while</span> (p.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">        p = p.next;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    p.next = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Improvement #7:   Goal: Fast addLast</strong></p>
+<p><strong>Improvement #7: Goal: Fast addLast</strong></p>
 <p>How could we modify our list data structure so that addLast is also fast?</p>
 <p>Suppose we want to support <strong>add</strong>, <strong>get</strong>, and <strong>remove</strong> operations for both ends, will having a last pointer result for fast operations on long lists?</p>
 <ul>
@@ -511,20 +515,22 @@
 <p>If not, which operations would be slow?</p>
 <ul>
 <li><p>Requires setting 9’s next pointer to null, and point last at the 9 node.</p>
-<p># i.e. slow because we have to find the “9” node.</p>
-</li>
+<p># i.e. slow because we have to find the “9” node.</p></li>
 </ul>
 <p>We added .last. What other changes might we make so that remove is also fast?</p>
 <ul>
 <li>Add backwards links from every node.</li>
 <li>This yields a “<strong>doubly linked list</strong>” or DLList, as opposed to our earlier “<strong>singly linked list</strong>” or SLList.</li>
 </ul>
-<p><em>Note: Arrows point at entire nodes, not fields!</em><br><em>Example: last holds the address of the last node, not the item field of the sentinel node</em></p>
-<h3 id="Doubly-Linked-Lists-Naive"><a href="#Doubly-Linked-Lists-Naive" class="headerlink" title="Doubly Linked Lists (Naive)"></a><strong>Doubly Linked Lists (Naive)</strong></h3><p><strong>Non-obvious fact</strong>: This approach has an annoying special case: last sometimes points at the sentinel, and sometimes points at a ‘real’ node. </p>
-<p><img src="/images/CS61B/185922.png"></p>
-<h3 id="Doubly-Linked-Lists-Double-Sentinel"><a href="#Doubly-Linked-Lists-Double-Sentinel" class="headerlink" title="Doubly Linked Lists (Double Sentinel)"></a><strong>Doubly Linked Lists (Double Sentinel)</strong></h3><p><strong>One solution</strong>: Have two sentinels.</p>
-<p><img src="/images/CS61B/185923.png"></p>
-<h3 id="Doubly-Linked-Lists-Circular-Sentinel"><a href="#Doubly-Linked-Lists-Circular-Sentinel" class="headerlink" title="Doubly Linked Lists (Circular Sentinel)"></a><strong>Doubly Linked Lists (Circular Sentinel)</strong></h3><p><img src="/images/CS61B/185924.png"></p>
+<p><em>Note: Arrows point at entire nodes, not fields!</em> <em>Example: last holds the address of the last node, not the item field of the sentinel node</em></p>
+<h3 id="doubly-linked-lists-naive"><strong>Doubly Linked Lists (Naive)</strong></h3>
+<p><strong>Non-obvious fact</strong>: This approach has an annoying special case: last sometimes points at the sentinel, and sometimes points at a ‘real’ node.</p>
+<p><img src="/images/CS61B/185922.png" /></p>
+<h3 id="doubly-linked-lists-double-sentinel"><strong>Doubly Linked Lists (Double Sentinel)</strong></h3>
+<p><strong>One solution</strong>: Have two sentinels.</p>
+<p><img src="/images/CS61B/185923.png" /></p>
+<h3 id="doubly-linked-lists-circular-sentinel"><strong>Doubly Linked Lists (Circular Sentinel)</strong></h3>
+<p><img src="/images/CS61B/185924.png" /></p>
 <p><strong>Improvement #8: Fancier Sentinel Node(s)</strong></p>
 <p>While fast, adding .last and .prev introduces lots of special cases.</p>
 <p>To avoid these, either:</p>
@@ -532,43 +538,50 @@
 <li>Add an additional sentBack sentinel at the end of the list.</li>
 <li>Make your linked list circular, with a single sentinel in the middle.</li>
 </ul>
-<h3 id="DLList-Summary"><a href="#DLList-Summary" class="headerlink" title="DLList Summary"></a>DLList Summary</h3><p><img src="/images/CS61B/185925.png"></p>
-<h2 id="Generic-Lists"><a href="#Generic-Lists" class="headerlink" title="Generic Lists"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Xt4dKEUokz4&list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&index=4">Generic Lists</a></h2><h3 id="Integer-Only-Lists"><a href="#Integer-Only-Lists" class="headerlink" title="Integer Only Lists"></a>Integer Only Lists</h3><p>One issue with our list classes: They only supports integers.</p>
+<h3 id="dllist-summary">DLList Summary</h3>
+<p><img src="/images/CS61B/185925.png" /></p>
+<h2 id="generic-lists"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Xt4dKEUokz4&amp;list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&amp;index=4">Generic Lists</a></h2>
+<h3 id="integer-only-lists">Integer Only Lists</h3>
+<p>One issue with our list classes: They only supports integers.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntNode sentinel;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">        <span class="keyword">public</span> IntNode next;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SLList s1 = <span class="keyword">new</span> SLList(<span class="number">5</span>);</span><br><span class="line">s1.addFirst(<span class="number">10</span>);</span><br><span class="line"><span class="comment">/*Works fine*/</span></span><br><span class="line"></span><br><span class="line">SLList s2 = <span class="keyword">new</span> SLList(<span class="string">&quot;hi&quot;</span>);</span><br><span class="line">s2.addFirst(<span class="string">&quot;apple&quot;</span>);</span><br><span class="line"><span class="comment">/*Error*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="SLists"><a href="#SLists" class="headerlink" title="SLists"></a>SLists</h3><p>Java allows us to defer type selection until declaration.</p>
+<h3 id="slists">SLists</h3>
+<p>Java allows us to defer type selection until declaration.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span>&lt;<span class="title">BleepBlorp</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntNode sentinel;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> BleepBlorp item;</span><br><span class="line">        <span class="keyword">public</span> IntNode next;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SLList&lt;Integer&gt; s1 = <span class="keyword">new</span> SLList&lt;&gt;(<span class="number">5</span>);</span><br><span class="line">s1.insertFront(<span class="number">10</span>);</span><br><span class="line"> </span><br><span class="line">SLList&lt;String&gt; s2 = <span class="keyword">new</span> SLList&lt;&gt;(<span class="string">&quot;hi&quot;</span>);</span><br><span class="line">s2.insertFront(<span class="string">&quot;apple&quot;</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h3><ul>
+<h3 id="generics">Generics</h3>
+<ul>
 <li>In the .java file <strong>implementing</strong> your data structure, specify your “generic type” <strong>only once</strong> at the very top of the file.</li>
-<li>In .java files that <strong>use</strong> your data structure, specify desired type <strong>once</strong>:<ul>
+<li>In .java files that <strong>use</strong> your data structure, specify desired type <strong>once</strong>:
+<ul>
 <li>Write out desired type during <strong>declaration</strong>.</li>
 <li>Use the empty diamond operator &lt;&gt; during <strong>instantiation</strong>.</li>
-</ul>
-</li>
-<li>When declaring or instantiating your data structure, use the reference type.<ul>
+</ul></li>
+<li>When declaring or instantiating your data structure, use the reference type.
+<ul>
 <li>int: Integer</li>
 <li>double: Double</li>
 <li>char: Character</li>
 <li>boolean: Boolean</li>
 <li>long: Long</li>
 <li>etc.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DLList&lt;Double&gt; s1 = <span class="keyword">new</span> DLList&lt;&gt;(<span class="number">5.3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> x = <span class="number">9.3</span> + <span class="number">15.2</span>;</span><br><span class="line">s1.insertFront(x);</span><br></pre></td></tr></table></figure>
-<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0EXjvucFV6I&list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&index=5">Arrays</a></h2><h3 id="Getting-Memory-Boxes"><a href="#Getting-Memory-Boxes" class="headerlink" title="Getting Memory Boxes"></a>Getting Memory Boxes</h3><p>To store information, we need memory boxes, which we can get in Java by declaring variables or instantiating objects. Examples:</p>
+<h2 id="arrays"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0EXjvucFV6I&amp;list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&amp;index=5">Arrays</a></h2>
+<h3 id="getting-memory-boxes">Getting Memory Boxes</h3>
+<p>To store information, we need memory boxes, which we can get in Java by declaring variables or instantiating objects. Examples:</p>
 <ul>
-<li>int x;<ul>
+<li>int x;
+<ul>
 <li>Gives us a memory box of 32 bits that stores ints.</li>
-</ul>
-</li>
-<li>Walrus w1;<ul>
+</ul></li>
+<li>Walrus w1;
+<ul>
 <li>Gives us a memory box of 64 bits that stores Walrus references.</li>
-</ul>
-</li>
-<li>Walrus w2 = <strong>new</strong> Walrus(30, 5.6);<ul>
+</ul></li>
+<li>Walrus w2 = <strong>new</strong> Walrus(30, 5.6);
+<ul>
 <li>Gives us a memory box of 64 bits that stores Walrus references, and also gives us 96 bits for storing the int size (32 bits) and double tuskSize (64 bits) of our Walrus.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>Arrays</strong> are a special kind of object which consists of a <strong>numbered</strong> sequence of memory boxes.</p>
 <ul>
@@ -578,11 +591,11 @@
 <p>Arrays consist of:</p>
 <ul>
 <li>A fixed integer <strong>length</strong> (cannot change!)</li>
-<li>A sequence of N memory boxes where <strong>N=length</strong>, such that:<ul>
+<li>A sequence of N memory boxes where <strong>N=length</strong>, such that:
+<ul>
 <li>All of the boxes hold the same type of value (and have same # of bits).</li>
 <li>The boxes are numbered 0 through length-1.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Like instances of classes:</p>
 <ul>
@@ -593,15 +606,15 @@
 <p>Like classes, arrays are (almost always) instantiated with new.</p>
 <p>Three valid notations:</p>
 <ul>
-<li>x = <strong>new</strong> <strong>int</strong>[3];<ul>
+<li>x = <strong>new</strong> <strong>int</strong>[3];
+<ul>
 <li>Creates array containing 3 int boxes (32 x 3 = 96 bits total). Each container gets a default value.</li>
-</ul>
-</li>
+</ul></li>
 <li>y = <strong>new</strong> <strong>int</strong>[]{1, 2, 3, 4, 5};</li>
-<li><strong>int</strong>[] z = {9, 10, 11, 12, 13};<ul>
+<li><strong>int</strong>[] z = {9, 10, 11, 12, 13};
+<ul>
 <li>Can omit the <strong>new</strong> if you are also declaring a variable.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>All three notations create an array, which we saw on the last slide comprises:</p>
 <ul>
@@ -609,34 +622,39 @@
 <li>A sequence of <strong>N boxes</strong>, where <strong>N</strong> = <strong>length</strong>.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[] z = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">int</span>[] x, y;</span><br><span class="line"> </span><br><span class="line">x = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">y = x;</span><br><span class="line">x = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;-<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">99</span>&#125;;</span><br><span class="line">y = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">z = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">int</span> xL = x.length;</span><br><span class="line"> </span><br><span class="line">String[] s = <span class="keyword">new</span> String[<span class="number">6</span>];</span><br><span class="line">s[<span class="number">4</span>] = <span class="string">&quot;ketchup&quot;</span>;</span><br><span class="line">s[x[<span class="number">3</span>] - x[<span class="number">1</span>]] = <span class="string">&quot;muffins&quot;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span>[] b = &#123;<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>&#125;;</span><br><span class="line">System.arraycopy(b, <span class="number">0</span>, x, <span class="number">3</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="/images/CS61B/185926.png"></p>
-<h3 id="Arraycopy"><a href="#Arraycopy" class="headerlink" title="Arraycopy"></a>Arraycopy</h3><p>Two ways to copy arrays:</p>
+<p><img src="/images/CS61B/185926.png" /></p>
+<h3 id="arraycopy">Arraycopy</h3>
+<p>Two ways to copy arrays:</p>
 <ul>
 <li>Item by item using a loop.</li>
-<li>Using arraycopy. Takes 5 parameters:<ul>
+<li>Using arraycopy. Takes 5 parameters:
+<ul>
 <li>Source array</li>
 <li>Start position in source</li>
 <li>Target array</li>
 <li>Start position in target</li>
-<li>Number to copy </li>
-</ul>
-</li>
+<li>Number to copy</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.arraycopy(b, <span class="number">0</span>, x, <span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// (In Python): x[3:5] = b[0:2]</span></span><br></pre></td></tr></table></figure>
 <p>arraycopy is (likely to be) faster, particularly for large arrays. More compact code.</p>
 <ul>
 <li>Code is (arguably) harder to read.</li>
 </ul>
-<h2 id="2D-Arrays"><a href="#2D-Arrays" class="headerlink" title="2D Arrays"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=VgKAzTxISPc&list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&index=7">2D Arrays</a></h2><h3 id="Arrays-of-Array-Addresses"><a href="#Arrays-of-Array-Addresses" class="headerlink" title="Arrays of Array Addresses"></a>Arrays of Array Addresses</h3><p><img src="/images/CS61B/185927.png"></p>
+<h2 id="d-arrays"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=VgKAzTxISPc&amp;list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&amp;index=7">2D Arrays</a></h2>
+<h3 id="arrays-of-array-addresses">Arrays of Array Addresses</h3>
+<p><img src="/images/CS61B/185927.png" /></p>
 <ul>
 <li>Syntax for arrays of arrays can be a bit confounding. You’ll learn through practice (much later).</li>
 </ul>
-<h3 id="Array-Boxes-Can-Contain-References-to-Arrays"><a href="#Array-Boxes-Can-Contain-References-to-Arrays" class="headerlink" title="Array Boxes Can Contain References to Arrays!"></a>Array Boxes Can Contain References to Arrays!</h3><p><img src="/images/CS61B/185928.png"></p>
+<h3 id="array-boxes-can-contain-references-to-arrays">Array Boxes Can Contain References to Arrays!</h3>
+<p><img src="/images/CS61B/185928.png" /></p>
 <ul>
 <li>Syntax for arrays of arrays can be a bit confounding. You’ll learn through practice (much later).</li>
 </ul>
-<h3 id="What-Does-This-Code-Do"><a href="#What-Does-This-Code-Do" class="headerlink" title="What Does This Code Do?"></a>What Does This Code Do?</h3><p>What will be the value of x[0][0] and w[0][0] when the code shown completes?</p>
-<ol>
+<h3 id="what-does-this-code-do">What Does This Code Do?</h3>
+<p>What will be the value of x[0][0] and w[0][0] when the code shown completes?</p>
+<ol type="1">
 <li>x: 1, w: 1</li>
 <li>x: 1, w: -1</li>
 <li>x: -1, w: 1</li>
@@ -644,7 +662,7 @@
 <li>Other</li>
 </ol>
 <p>arraycopy parameters are:</p>
-<ol>
+<ol type="1">
 <li>Source array</li>
 <li>Start position in source</li>
 <li>Target array</li>
@@ -652,7 +670,8 @@
 <li>Number to copy</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] x = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span>[][] z = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][];</span><br><span class="line">z[<span class="number">0</span>] = x[<span class="number">0</span>];</span><br><span class="line">z[<span class="number">0</span>][<span class="number">0</span>] = -z[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span>[][] w = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line">System.arraycopy(x[<span class="number">0</span>], <span class="number">0</span>, w[<span class="number">0</span>], <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line">w[<span class="number">0</span>][<span class="number">0</span>] = -w[<span class="number">0</span>][<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
-<h2 id="Arrays-vs-Classes"><a href="#Arrays-vs-Classes" class="headerlink" title="Arrays vs. Classes"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WMfYfCfuwNs&list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&index=8">Arrays vs. Classes</a></h2><p>Arrays and Classes can both be used to organize a bunch of memory boxes.</p>
+<h2 id="arrays-vs.-classes"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WMfYfCfuwNs&amp;list=PL8FaHk7qbOD5Gy1o06RRilCqv0So31lJt&amp;index=8">Arrays vs. Classes</a></h2>
+<p>Arrays and Classes can both be used to organize a bunch of memory boxes.</p>
 <ul>
 <li>Array boxes are accessed using [] notation.</li>
 <li>Class boxes are accessed using dot notation.</li>
@@ -669,13 +688,15 @@
 <li>Dot notation doesn’t work either.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String fieldOfInterest = <span class="string">&quot;mass&quot;</span>;</span><br><span class="line">Planet earth = <span class="keyword">new</span> Planet(<span class="number">6e24</span>, <span class="string">&quot;earth&quot;</span>);</span><br><span class="line"><span class="keyword">double</span> mass = earth.fieldOfInterest;	</span><br><span class="line">System.out.println(mass);</span><br></pre></td></tr></table></figure>
-<h3 id="Another-view"><a href="#Another-view" class="headerlink" title="Another view"></a>Another view</h3><p>The only (easy) way to access a member of a class is with hard-coded dot notation.</p>
+<h3 id="another-view">Another view</h3>
+<p>The only (easy) way to access a member of a class is with hard-coded dot notation.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> k = x[indexOfInterest];  	<span class="comment">/* no problem */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">double</span> m = p.fieldOfInterest;  <span class="comment">/* won&#x27;t work */</span></span><br><span class="line"><span class="keyword">double</span> z = p[fieldOfInterest]; <span class="comment">/* won&#x27;t work */</span></span><br><span class="line"><span class="comment">/* No (sane) way to use field of interest */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> w = p.mass;             <span class="comment">/* works fine */</span></span><br></pre></td></tr></table></figure>
 <p>The Java compiler does not treat text on either side of a dot as an expression, and thus it is not evaluated.</p>
 <ul>
 <li>See a compilers or programming languages class for more!</li>
 </ul>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>SLList Drawbacks</strong> <code>addLast()</code> is slow! We can’t add to the middle of our list. In addition, if our list is really large, we have to start at the front, and loop all the way to the back of our list before adding our element.</p>
+<h2 id="overview">Overview</h2>
+<p><strong>SLList Drawbacks</strong> <code>addLast()</code> is slow! We can’t add to the middle of our list. In addition, if our list is really large, we have to start at the front, and loop all the way to the back of our list before adding our element.</p>
 <p><strong>A Naive Solution</strong> Recall that we cached the size of our list as an instance variable of <code>SLList</code>. What if we cached the <code>last</code> element in our list as well? All of a sudden, <code>addLast()</code> is fast again; we access the last element immediately, then add our element in. But <code>removeLast()</code> is still slow. In <code>removeLast()</code>, we have to know what our second-to-last element is, so we can point our cached <code>last</code> variable to it. We could then cache a <code>second-to-last</code> variable, but now if I ever want to remove the second-to-last element, I need to know where our third-to-last element is. How to solve this problem?</p>
 <p><strong>DLList</strong> The solution is to give each <code>IntNode</code> a <code>prev</code> pointer, pointing to the previous item. This creates a doubly-linked list, or <code>DLList</code>. With this modification, adding and removing from the front and back of our list becomes fast (although adding/removing from the middle remains slow).</p>
 <p><strong>Incorporating the Sentinel</strong> Recall that we added a sentinel node to our <code>SLList</code>. For <code>DLList</code>, we can either have two sentinels (one for the front, and one for the back), or we can use a circular sentinel. A <code>DLList</code> using a circular sentinel has one sentinel. The sentinel points to the first element of the list with <code>next</code> and the last element of the list with <code>prev</code>. In addition, the last element of the list’s <code>next</code> points to the sentinel and the first element of the list’s <code>prev</code> points to the sentinel. For an empty list, the sentinel points to itself in both directions.</p>
@@ -875,13 +896,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/02/2021-03-02-Recap-and-Exercices-(Chapters-1-5)/">
+                <a href="/2021/03/02/2021-03-02-Proving-with-Predicates/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Recap and Exercices (Chapters 1-5)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Proving with Predicates">
                         
-                        <span class="card-title">Recap and Exercices (Chapters 1-5)</span>
+                        <span class="card-title">Proving with Predicates</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

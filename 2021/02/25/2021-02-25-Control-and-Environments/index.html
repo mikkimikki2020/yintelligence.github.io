@@ -497,63 +497,74 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Control-and-Environments"><a href="#Control-and-Environments" class="headerlink" title="Control and Environments"></a>Control and Environments</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IYD_FXvK72E">Video</a></p>
-<h2 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h2><p><strong>Control structures</strong> direct the flow of a program using logical statements. For example, conditionals (if-elif-else) allow a program to skip sections of code, and iteration (while), allows a program to repeat a section.</p>
-<h3 id="If-statements"><a href="#If-statements" class="headerlink" title="If statements"></a>If statements</h3><p><strong>Conditional statements</strong> let programs execute different lines of code depending on certain conditions. Let’s review the if-elif-else syntax.</p>
+                <h1 id="control-and-environments">Control and Environments</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IYD_FXvK72E">Video</a></p>
+<h2 id="control">Control</h2>
+<p><strong>Control structures</strong> direct the flow of a program using logical statements. For example, conditionals (if-elif-else) allow a program to skip sections of code, and iteration (while), allows a program to repeat a section.</p>
+<h3 id="if-statements">If statements</h3>
+<p><strong>Conditional statements</strong> let programs execute different lines of code depending on certain conditions. Let’s review the if-elif-else syntax.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> &lt;conditional expression&gt;:</span><br><span class="line">    &lt;suite of statements&gt;</span><br><span class="line"><span class="keyword">elif</span> &lt;conditional expression&gt;:</span><br><span class="line">    &lt;suite of statements&gt;</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    &lt;suite of statements&gt;</span><br></pre></td></tr></table></figure>
 <p>Recall the following points:</p>
 <ul>
 <li>The else and elif clauses are optional, and you can have any number of elif clauses.</li>
-<li>A <strong>conditional expression</strong> is an expression that evaluates to either a truthy value (True, a non-zero integer, etc.) or a falsy value (False, 0, None, “”, [], etc.). </li>
+<li>A <strong>conditional expression</strong> is an expression that evaluates to either a truthy value (True, a non-zero integer, etc.) or a falsy value (False, 0, None, "", [], etc.).</li>
 <li>Only the <strong>suite</strong> that is indented under the first if/elif whose <strong>conditional expression</strong> evaluates to a true value will be executed.</li>
 <li>If none of the <strong>conditional expressions</strong> evaluate to a true value, then the else suite is executed. There can only be one else clause in a conditional statement</li>
 </ul>
-<h3 id="Boolean-Operators"><a href="#Boolean-Operators" class="headerlink" title="Boolean Operators"></a>Boolean Operators</h3><p>Python also includes the <strong>boolean operators</strong> and, or, and not. These operators are used to combine and manipulate boolean values</p>
+<h3 id="boolean-operators">Boolean Operators</h3>
+<p>Python also includes the <strong>boolean operators</strong> and, or, and not. These operators are used to combine and manipulate boolean values</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">not</span> <span class="literal">None</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">not</span> <span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>-<span class="number">1</span> <span class="keyword">and</span> <span class="number">0</span> <span class="keyword">and</span> <span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="literal">False</span> <span class="keyword">or</span> <span class="number">9999</span> <span class="keyword">or</span> <span class="number">1</span>/<span class="number">0</span></span><br><span class="line"><span class="number">9999</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>not</code> returns the opposite truth value of the following expression (so not will always return either True or False).</li>
-<li><code>and</code> evaluates expressions in order and stops evaluating (short-circuits) once it reaches the first false value, and then returns it. If all values evaluate to a true value, the last value is returned. </li>
+<li><code>and</code> evaluates expressions in order and stops evaluating (short-circuits) once it reaches the first false value, and then returns it. If all values evaluate to a true value, the last value is returned.</li>
 <li><code>or</code> short-circuits at the first true value and returns it. If all values evaluate to a false value, the last value is returned.</li>
 </ul>
-<h4 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=E8VPVCbyfiE&list=PLx38hZJ5RLZfg6jvEBBtjc5fnc5BclyEb&index=2&t=0s">Questions</a></h4><p>Alfonso will only wear a jacket outside if it is below 60 degrees or it is raining. </p>
+<h4 id="questions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=E8VPVCbyfiE&amp;list=PLx38hZJ5RLZfg6jvEBBtjc5fnc5BclyEb&amp;index=2&amp;t=0s">Questions</a></h4>
+<p>Alfonso will only wear a jacket outside if it is below 60 degrees or it is raining.</p>
 <p>Write a function that takes in the current temperature and a boolean value telling if it is raining and returns <em>True</em> if Alfonso will wear a jacket and <em>False</em> otherwise. First, try solving this problem using an if statement.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wears_jacket_with_if</span>(<span class="params">temp, raining</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; wears_jacket_with_if(90, False)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; wears_jacket_with_if(40, False)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; wears_jacket_with_if(100, True)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> temp &lt; <span class="number">60</span> <span class="keyword">or</span> raining:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <p>Note that we’ll either return True or False based on a single condition, whose truthiness value will also be either True or False. Knowing this, try to write this function using a single line</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wears_jacket</span>(<span class="params">temp, raining</span>):</span></span><br><span class="line">    <span class="keyword">return</span> temp &lt; <span class="number">60</span> <span class="keyword">or</span> raining</span><br></pre></td></tr></table></figure>
-<h3 id="While-loops"><a href="#While-loops" class="headerlink" title="While loops"></a>While loops</h3><p>To repeat the same statements multiple times in a program, we can use iteration. In Python, one way we can do this is with a <strong>while loop</strong>. </p>
-<p>As long as  evaluates to a true value,  will continue to be executed. The conditional clause gets evaluated each time the body finishes executing.</p>
-<h4 id="Questions-1"><a href="#Questions-1" class="headerlink" title="Questions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Fiw0f5yuQgo&vq=hd1080&t=39m34s">Questions</a></h4><p>What is the result of evaluating the following code?</p>
+<h3 id="while-loops">While loops</h3>
+<p>To repeat the same statements multiple times in a program, we can use iteration. In Python, one way we can do this is with a <strong>while loop</strong>.</p>
+<p>As long as evaluates to a true value, will continue to be executed. The conditional clause gets evaluated each time the body finishes executing.</p>
+<h4 id="questions-1"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Fiw0f5yuQgo&amp;vq=hd1080&amp;t=39m34s">Questions</a></h4>
+<p>What is the result of evaluating the following code?</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">print(<span class="string">&quot;here!&quot;</span>)</span><br><span class="line"><span class="keyword">return</span> x * x</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">so_slow</span>(<span class="params">num</span>):</span></span><br><span class="line">x = num</span><br><span class="line"><span class="keyword">while</span> x &gt; <span class="number">0</span>:</span><br><span class="line">x = x + <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> x / <span class="number">0</span></span><br><span class="line">square(so_slow(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
 <p><strong>Result</strong>: Infinite loop because x will always be greater than 0; the x / 0 is never executed. We also know that here! is never printed since the operand so slow(5) must be evaluated before function square(x) can be called.</p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_EsWkCytavI&list=PLx38hZJ5RLZfg6jvEBBtjc5fnc5BclyEb&index=2"><strong>Tutorial</strong></a>: Write a function that returns True if a positive integer n is a prime number and False otherwise.</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_EsWkCytavI&amp;list=PLx38hZJ5RLZfg6jvEBBtjc5fnc5BclyEb&amp;index=2"><strong>Tutorial</strong></a>: Write a function that returns True if a positive integer n is a prime number and False otherwise.</p>
 <p>A prime number n is a number that is not divisible by any numbers other than 1 and n itself. For example, 13 is prime, since it is only divisible by 1 and 13, but 14 is not, since it is divisible by 1, 2, 7, and 14.</p>
 <p>Hint: use the % operator: x % y returns the remainder of x when divided by y.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_prime</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; is_prime(10)</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; is_prime(7)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    k = <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> k &lt; n:</span><br><span class="line">        <span class="keyword">if</span> n % k == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 <p>Alternatively, the while loop’s conditional expression could ensure that k is less than or equal to the square root of n.</p>
-<h2 id="Environment-Diagrams"><a href="#Environment-Diagrams" class="headerlink" title="Environment Diagrams"></a>Environment Diagrams</h2><p>An <strong>environment diagram</strong> is a model we use to keep track of all the variables that have been defined and the values they are bound to. We will be using this tool throughout the course to understand complex programs involving several different assignments and function calls</p>
-<p><img src="/images/CS61A/0606070.png"></p>
+<h2 id="environment-diagrams">Environment Diagrams</h2>
+<p>An <strong>environment diagram</strong> is a model we use to keep track of all the variables that have been defined and the values they are bound to. We will be using this tool throughout the course to understand complex programs involving several different assignments and function calls</p>
+<p><img src="/images/CS61A/0606070.png" /></p>
 <p>Remember that programs are simply a set of statements, or instructions—so drawing diagrams that represent these programs also involves following sets of instructions! Let’s dive in.</p>
-<h3 id="Assignment-Statements"><a href="#Assignment-Statements" class="headerlink" title="Assignment Statements"></a>Assignment Statements</h3><p><strong>Assignment statements</strong>, such as x = 3, define variables in programs. To execute one in an environment diagram, record the variable name and the value:</p>
-<ol>
+<h3 id="assignment-statements">Assignment Statements</h3>
+<p><strong>Assignment statements</strong>, such as x = 3, define variables in programs. To execute one in an environment diagram, record the variable name and the value:</p>
+<ol type="1">
 <li>Evaluate the expression on the right side of the = sign</li>
 <li>Write the variable name and the expression’s value in the current frame</li>
 </ol>
-<h3 id="def-Statements"><a href="#def-Statements" class="headerlink" title="def Statements"></a>def Statements</h3><p><strong>def statements</strong> create function objects and bind them to a name. To diagram <strong>def</strong> statements, record the function name and bind the function object to the name. It’s also important to write the parent frame of the function, which is where the function is defined. </p>
+<h3 id="def-statements">def Statements</h3>
+<p><strong>def statements</strong> create function objects and bind them to a name. To diagram <strong>def</strong> statements, record the function name and bind the function object to the name. It’s also important to write the parent frame of the function, which is where the function is defined.</p>
 <p><strong>Very important note</strong>: Assignments for def statements use pointers to functions, which can have different behaviour than primitive assignments</p>
-<ol>
+<ol type="1">
 <li>Draw the function object to the right-hand-side of the frames, denoting the intrinsic name of the function, its parameters, and the parent frame (e.g. func square(x) [parent = Global].</li>
 <li>Write the function name in the current frame and draw an arrow from the name to the function object.</li>
 </ol>
-<h3 id="Call-Expressions"><a href="#Call-Expressions" class="headerlink" title="Call Expressions"></a>Call Expressions</h3><p><strong>Call expressions</strong>, such as square(2), apply functions to arguments. When executing call expressions, we create a new frame in our diagram to keep track of local variables:</p>
-<ol>
+<h3 id="call-expressions">Call Expressions</h3>
+<p><strong>Call expressions</strong>, such as square(2), apply functions to arguments. When executing call expressions, we create a new frame in our diagram to keep track of local variables:</p>
+<ol type="1">
 <li>Evaluate the operator, which should evaluate to a function.</li>
 <li>Evaluate the operands from left to right.</li>
-<li>Draw a new frame, labelling it with the following:<ul>
-<li>A unique index (f1, f2, f3, …)</li>
+<li>Draw a new frame, labelling it with the following:
+<ul>
+<li>A unique index (f1, f2, f3, ...)</li>
 <li>The intrinsic name of the function, which is the name of the function object itself. For example, if the function object is func square(x) [parent=Global], the intrinsic name is square.</li>
 <li>The parent frame ([parent=Global])</li>
-</ul>
-</li>
+</ul></li>
 <li>Bind the formal parameters to the argument values obtained in step 2 (e.g. bind x to 3).</li>
 <li>Evaluate the body of the function in this new frame until a return value is obtained. Write down the return value in the frame</li>
 </ol>

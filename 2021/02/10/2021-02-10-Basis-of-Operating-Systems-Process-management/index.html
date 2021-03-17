@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-27
+                    2021-03-17
                 </div>
                 
 
@@ -497,200 +497,209 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Basis-of-OS-Process-management"><a href="#Basis-of-OS-Process-management" class="headerlink" title="Basis of OS - Process management"></a>Basis of OS - Process management</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9U1pBOVNQVE4yRWc&amp;id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%201.mp4&amp;parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video 50:30 ~ 2:11:37</a></p>
-<h2 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h2><h2 id="What’s-in-a-Process"><a href="#What’s-in-a-Process" class="headerlink" title="What’s in a Process?"></a>What’s in a Process?</h2><p><strong>A process consists of:</strong> </p>
+                <h1 id="basis-of-os---process-management">Basis of OS - Process management</h1>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9U1pBOVNQVE4yRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20operating%20systems%20and%20security%20%2D%20lecture%201%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video 50:30 ~ 2:11:37</a></p>
+<h2 id="processes">Processes</h2>
+<h2 id="whats-in-a-process">What’s in a Process?</h2>
+<p><strong>A process consists of:</strong></p>
 <ul>
 <li>Address Space</li>
 <li>One or more threads of control executing in that address space</li>
-<li>Additional system state associated with it<ul>
+<li>Additional system state associated with it
+<ul>
 <li>Open files</li>
 <li>Open sockets (network connections)</li>
 <li>…</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="The-process-model"><a href="#The-process-model" class="headerlink" title="The process model"></a>The process model</h3><p><strong>A (sequential) process</strong> = an instance of an executing program, including the current values of the program counter, registers and variables.</p>
+<h3 id="the-process-model">The process model</h3>
+<p><strong>A (sequential) process</strong> = an instance of an executing program, including the current values of the program counter, registers and variables.</p>
 <p>A sequential program, typically an <strong>infinite loop</strong></p>
 <ul>
-<li><p>Executes concurrently with other processes</p>
-</li>
+<li><p>Executes concurrently with other processes</p></li>
 <li><p>We are about to enter the world of “concurrent programming”</p>
-<p><img src="/images/OP/052316.png"></p>
-</li>
+<p><img src="/images/OP/052316.png" /></p></li>
 </ul>
-<h3 id="Basic-operations-on-processes-58-23"><a href="#Basic-operations-on-processes-58-23" class="headerlink" title="Basic operations on processes  58:23"></a>Basic operations on processes  58:23</h3><ul>
-<li>Create and terminate<ul>
+<h3 id="basic-operations-on-processes-5823">Basic operations on processes 58:23</h3>
+<ul>
+<li>Create and terminate
+<ul>
 <li>Create is like a procedure call but caller doesn’t wait</li>
 <li>Terminate kills a process, destroying all data</li>
-</ul>
-</li>
-<li>Suspend and resume<ul>
+</ul></li>
+<li>Suspend and resume
+<ul>
 <li>Suspend puts a process on hold, saving state for later execution</li>
 <li>Resume starts the process again where it left off</li>
-</ul>
-</li>
-<li>Join<ul>
+</ul></li>
+<li>Join
+<ul>
 <li>A process <strong>suspends</strong> until a particular child process finishes execution</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Process-creation-and-termination"><a href="#Process-creation-and-termination" class="headerlink" title="Process creation and termination"></a>Process creation and termination</h4><h5 id="Events-which-cause-process-creation"><a href="#Events-which-cause-process-creation" class="headerlink" title="Events which cause process creation:"></a>Events which cause process creation:</h5><ul>
+<h4 id="process-creation-and-termination">Process creation and termination</h4>
+<h5 id="events-which-cause-process-creation">Events which cause process creation:</h5>
+<ul>
 <li>System initialization: launches <strong>foreground processes</strong> (interacting with users) and <strong>background processes</strong> (typically called daemons)</li>
 <li>Execution of a process creation system call by a running process.</li>
 <li>A user request to create a new process.</li>
 <li>Initiation of a batch job.</li>
 </ul>
-<h5 id="Events-which-cause-process-termination"><a href="#Events-which-cause-process-termination" class="headerlink" title="Events which cause process termination:"></a>Events which cause process termination:</h5><ul>
+<h5 id="events-which-cause-process-termination">Events which cause process termination:</h5>
+<ul>
 <li>Normal exit (voluntary).</li>
 <li>Error exit (voluntary).</li>
 <li>Fatal error (involuntary).</li>
 <li>Killed by another process (involuntary).</li>
 </ul>
-<h3 id="Process-states-1-05-36"><a href="#Process-states-1-05-36" class="headerlink" title="Process states 1:05:36"></a>Process states 1:05:36</h3><ul>
-<li><p><strong>Running state</strong>: actually using the CPU at that instant</p>
-</li>
-<li><p><strong>Ready state</strong>: runnable; temporarily stopped to let another process run</p>
-</li>
-<li><p><strong>Blocked state</strong>: unable to run until some external event happens</p>
-</li>
+<h3 id="process-states-10536">Process states 1:05:36</h3>
+<ul>
+<li><p><strong>Running state</strong>: actually using the CPU at that instant</p></li>
+<li><p><strong>Ready state</strong>: runnable; temporarily stopped to let another process run</p></li>
+<li><p><strong>Blocked state</strong>: unable to run until some external event happens</p></li>
 </ul>
-<p><img src="/images/OP/053319.png"></p>
-<h3 id="Implementation-of-processes-1-09-24"><a href="#Implementation-of-processes-1-09-24" class="headerlink" title="Implementation of processes 1: 09:24"></a>Implementation of processes 1: 09:24</h3><p>The lowest layer of a process-structured operating system handles <strong>interrupts and scheduling</strong>.</p>
+<p><img src="/images/OP/053319.png" /></p>
+<h3 id="implementation-of-processes-1-0924">Implementation of processes 1: 09:24</h3>
+<p>The lowest layer of a process-structured operating system handles <strong>interrupts and scheduling</strong>.</p>
 <p>Above that layer are <strong>sequential processes</strong>.</p>
-<p><img src="/images/OP/053844.png"></p>
+<p><img src="/images/OP/053844.png" /></p>
 <p>The operating system maintains a table, called the <strong>process table</strong>.</p>
-<p>Contains one <strong>entry</strong> per process. </p>
+<p>Contains one <strong>entry</strong> per process.</p>
 <p>Skeleton of what the lowest level of the operating system does when an <strong>interrupt</strong> occurs.</p>
-<h2 id="Threads-1-12-36"><a href="#Threads-1-12-36" class="headerlink" title="Threads 1:12:36"></a>Threads 1:12:36</h2><p><strong>Thread</strong> =   light-weight processes, created by a mother process (program) for pseudo-parallel processing.</p>
+<h2 id="threads-11236">Threads 1:12:36</h2>
+<p><strong>Thread</strong> = light-weight processes, created by a mother process (program) for pseudo-parallel processing.</p>
 <p><strong>No memory protection</strong>: share memory with each other and the mother process.</p>
-<h3 id="Thread-usage"><a href="#Thread-usage" class="headerlink" title="Thread usage"></a>Thread usage</h3><p><img src="/images/OP/183428.png"></p>
-<h3 id="The-classical-thread-model-1-18-33"><a href="#The-classical-thread-model-1-18-33" class="headerlink" title="The classical thread model 1:18:33"></a>The classical thread model 1:18:33</h3><p><img src="/images/OP/83548.png"></p>
-<p>The first column lists some items shared by all threads in a process. </p>
+<h3 id="thread-usage">Thread usage</h3>
+<p><img src="/images/OP/183428.png" /></p>
+<h3 id="the-classical-thread-model-11833">The classical thread model 1:18:33</h3>
+<p><img src="/images/OP/83548.png" /></p>
+<p>The first column lists some items shared by all threads in a process.</p>
 <p>The second one lists some items private to each thread.</p>
-<p><img src="/images/OP/183727.png"></p>
+<p><img src="/images/OP/183727.png" /></p>
 <p><strong>Each thread has its own stack.</strong></p>
-<p><img src="/images/OP/183916.png"></p>
-<h3 id="Posix-Threads-How-to-make-a-thread-1-24-42"><a href="#Posix-Threads-How-to-make-a-thread-1-24-42" class="headerlink" title="Posix Threads  (How to make a thread? 1:24:42)"></a>Posix Threads  (How to make a thread? 1:24:42)</h3><p>IEEE standard 1003.1c: enables writing of portable threaded programs</p>
+<p><img src="/images/OP/183916.png" /></p>
+<h3 id="posix-threads-how-to-make-a-thread-12442">Posix Threads (How to make a thread? 1:24:42)</h3>
+<p>IEEE standard 1003.1c: enables writing of portable threaded programs</p>
 <p>The threads package it defines is called <strong>Pthreads</strong></p>
 <p>The standard defines over 60 function calls, which is far too many to go over here.</p>
-<h3 id="Implementing-threads-in-user-space-or-in-kernel-1-29-17"><a href="#Implementing-threads-in-user-space-or-in-kernel-1-29-17" class="headerlink" title="Implementing threads in user space or in kernel 1:29:17"></a>Implementing threads in user space or in kernel 1:29:17</h3><ol>
-<li><p> A user-level threads package.</p>
-</li>
+<h3 id="implementing-threads-in-user-space-or-in-kernel-12917">Implementing threads in user space or in kernel 1:29:17</h3>
+<ol type="1">
+<li><p>A user-level threads package.</p></li>
 <li><p>A threads package managed by the kernel.</p>
-<p><img src="/images/OP/185004.png"></p>
-</li>
+<p><img src="/images/OP/185004.png" /></p></li>
 </ol>
-<h3 id="Processes-vs-Threads"><a href="#Processes-vs-Threads" class="headerlink" title="Processes vs Threads"></a><strong>Processes vs Threads</strong></h3><h4 id="Regular-processes"><a href="#Regular-processes" class="headerlink" title="Regular processes"></a>Regular processes</h4><ul>
+<h3 id="processes-vs-threads"><strong>Processes vs Threads</strong></h3>
+<h4 id="regular-processes">Regular processes</h4>
+<ul>
 <li>Heavyweight process</li>
 <li>Own virtual address space (stack, data, code)</li>
 <li>System resources (e.g., open files)</li>
 </ul>
-<h4 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h4><ul>
+<h4 id="threads">Threads</h4>
+<ul>
 <li>Lightweight process</li>
-<li>Sub-process within process </li>
+<li>Sub-process within process</li>
 <li>Only program counter, stack, and registers</li>
-<li>Shares <strong>address space, system resources</strong> with other threads <ul>
+<li>Shares <strong>address space, system resources</strong> with other threads
+<ul>
 <li>Allows <u><strong>quicker</strong></u> communication between threads</li>
-</ul>
-</li>
-<li><u>Small compared to heavyweight processes</u><ul>
+</ul></li>
+<li><u>Small compared to heavyweight processes</u>
+<ul>
 <li>Can be created quickly</li>
 <li>Low cost switching between threads</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Interprocess-communication-IPC-1-36-36"><a href="#Interprocess-communication-IPC-1-36-36" class="headerlink" title="Interprocess communication (IPC) 1:36:36"></a>Interprocess communication (IPC) 1:36:36</h2><h3 id="Race-conditions"><a href="#Race-conditions" class="headerlink" title="Race conditions"></a>Race conditions</h3><p>Two processes want to access shared memory at the same time.</p>
+<h2 id="interprocess-communication-ipc-13636">Interprocess communication (IPC) 1:36:36</h2>
+<h3 id="race-conditions">Race conditions</h3>
+<p>Two processes want to access shared memory at the same time.</p>
 <p><strong>Race condition if the CPU decides to switch from the just initiated Process A</strong>, that has just received the information that in=7, <strong>to Process B</strong> that will also observe in=7. Both will write their file at the same location in the printer spooler directory.</p>
-<p><img src="/images/OP/185758.png"></p>
-<h3 id="Critical-regions"><a href="#Critical-regions" class="headerlink" title="Critical regions"></a>Critical regions</h3><p>Conditions required to <u>avoid race condition</u>:</p>
+<p><img src="/images/OP/185758.png" /></p>
+<h3 id="critical-regions">Critical regions</h3>
+<p>Conditions required to <u>avoid race condition</u>:</p>
 <ul>
 <li>No two processes may be simultaneously inside their <strong>critical regions</strong>.</li>
 <li>No assumptions may be made about <strong>speeds or the number of CPUs</strong>.</li>
 <li>No process running outside its critical region may block other processes.</li>
 <li>No process should have to wait forever to enter its critical region.</li>
 </ul>
-<p><img src="/images/OP/190129.png" alt="1:40:37-1:41:13"></p>
-<h3 id="Mutual-exclusion-with-busy-waiting"><a href="#Mutual-exclusion-with-busy-waiting" class="headerlink" title="Mutual exclusion with busy waiting"></a>Mutual exclusion with busy waiting</h3><p>Proposals for achieving mutual exclusion:</p>
+<figure>
+<img src="/images/OP/190129.png" alt="" /><figcaption>1:40:37-1:41:13</figcaption>
+</figure>
+<h3 id="mutual-exclusion-with-busy-waiting">Mutual exclusion with busy waiting</h3>
+<p>Proposals for achieving mutual exclusion:</p>
 <ul>
-<li>Disabling interrupts<ul>
+<li>Disabling interrupts
+<ul>
 <li>Problems: race conditions, too much control to the user, multicore systems (interrupts handled per core)</li>
-</ul>
-</li>
-<li>Lock shared variables<ul>
+</ul></li>
+<li>Lock shared variables
+<ul>
 <li>lock=0: no process in critical region; lock=1: process in critical region</li>
 <li>Problem: race conditions remain (cfr. spooler directory)</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Several alternatives:</p>
 <ul>
 <li>Strict alternation</li>
-<li>Peterson’s solution</li>
+<li>Peterson's solution</li>
 <li>The Test and Set Lock (TSL) instruction</li>
 </ul>
-<h3 id="Communication-among-processes"><a href="#Communication-among-processes" class="headerlink" title="Communication among processes"></a>Communication among processes</h3><ul>
-<li><p>Processes need to communicate data and signals to <u>solve their computation problem</u>. </p>
-<p>​    -&gt; Processes that don’t communicate are just independent programs solving separate problems</p>
-</li>
+<h3 id="communication-among-processes">Communication among processes</h3>
+<ul>
+<li><p>Processes need to communicate data and signals to <u>solve their computation problem</u>.</p>
+<p>​ -&gt; Processes that don’t communicate are just independent programs solving separate problems</p></li>
 <li><p>Basic example: <strong>producer/consumer</strong></p>
 <ul>
-<li>Process A produces data items, Process B consumes them </li>
+<li>Process A produces data items, Process B consumes them</li>
 <li>E.g., A decodes video packets, B display decoded packets on a screen</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/OP/91949.png"></p>
+<p><img src="/images/OP/91949.png" /></p>
 <p>The producer-consumer problem (or bounded-buffer problem) with a fatal race condition -&gt; Possible solution = wake-up waiting bits</p>
-<p><img src="/images/OP/92317.png"></p>
-<h3 id="How-do-we-achieve-this-communication"><a href="#How-do-we-achieve-this-communication" class="headerlink" title="How do we achieve this communication?"></a><strong>How do we achieve this communication?</strong></h3><h5 id="Shared-memory-Processes-read-and-write-shared-variables"><a href="#Shared-memory-Processes-read-and-write-shared-variables" class="headerlink" title="Shared memory: Processes read and write shared variables"></a>Shared memory: Processes read and write shared variables</h5><ul>
+<p><img src="/images/OP/92317.png" /></p>
+<h3 id="how-do-we-achieve-this-communication"><strong>How do we achieve this communication?</strong></h3>
+<h5 id="shared-memory-processes-read-and-write-shared-variables">Shared memory: Processes read and write shared variables</h5>
+<ul>
 <li>No time overhead, easy to implement</li>
 <li>But, hard to use – mistakes are common</li>
 </ul>
 <p><strong>Example</strong>: Producer/consumer with a mistake 1:46:14 -1:47:47</p>
 <ul>
 <li><p>Share buffer[N], count</p>
-<p>▶ <em>count</em> = # of valid data items in <em>buffer</em></p>
-</li>
+<p>▶ <em>count</em> = # of valid data items in <em>buffer</em></p></li>
 <li><p><em>process</em>A produces data items and stores in <em>buffer</em></p>
-<p>▶ If <em>buffer</em> is full, must wait</p>
-</li>
+<p>▶ If <em>buffer</em> is full, must wait</p></li>
 <li><p><em>process</em>B consumes data items from <em>buffer</em></p>
-<p>▶ If <em>buffer</em> is empty, must wait</p>
-</li>
-<li><p>Error when both processes try to update count concurrently (lines 10 and 19) and the following execution sequence occurs. Say “count” is 3. </p>
-<ol>
+<p>▶ If <em>buffer</em> is empty, must wait</p></li>
+<li><p>Error when both processes try to update count concurrently (lines 10 and 19) and the following execution sequence occurs. Say “count” is 3.</p>
+<ol type="1">
 <li>A loads count (count = 3) from memory into register R1 (R1 = 3)</li>
 <li>A increments R1 (R1 = 4)</li>
 <li>B loads count (count = 3) from memory into register R2 (R2 = 3)</li>
-<li>B decrements R2 (R2 = 2) </li>
+<li>B decrements R2 (R2 = 2)</li>
 <li>A stores R1 back to count in memory (count = 4)</li>
 <li>B stores R2 back to count in memory (count = 2)</li>
-</ol>
-</li>
+</ol></li>
 <li><p>count now has incorrect value of 2</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">    while( count &#x3D;&#x3D; N );&#x2F;*loop*&#x2F;</span><br><span class="line">    buffer[i] &#x3D; data;</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count + 1;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    while( count &#x3D;&#x3D; 0 );&#x2F;*loop*&#x2F;</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA);</span><br><span class="line">  create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">    while( count &#x3D;&#x3D; N );&#x2F;*loop*&#x2F;</span><br><span class="line">    buffer[i] &#x3D; data;</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count + 1;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    while( count &#x3D;&#x3D; 0 );&#x2F;*loop*&#x2F;</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA);</span><br><span class="line">  create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h5 id="Message-passing-Data-explicitly-sent-from-one-process-to-another"><a href="#Message-passing-Data-explicitly-sent-from-one-process-to-another" class="headerlink" title="Message passing: Data explicitly sent from one process to another"></a>Message passing: Data explicitly sent from one process to another</h5><p><strong>Safer model, but less flexible</strong></p>
+<h5 id="message-passing-data-explicitly-sent-from-one-process-to-another">Message passing: Data explicitly sent from one process to another</h5>
+<p><strong>Safer model, but less flexible</strong></p>
 <ul>
-<li><p>Sending process performs special operation, <strong><em>send</em></strong></p>
-</li>
-<li><p>Receiving process must perform special operation, <strong><em>receive</em></strong>, to receive the data</p>
-</li>
-<li><p>Both operations must explicitly specify which process it is sending to or receiving from</p>
-</li>
+<li><p>Sending process performs special operation, <strong><em>send</em></strong></p></li>
+<li><p>Receiving process must perform special operation, <strong><em>receive</em></strong>, to receive the data</p></li>
+<li><p>Both operations must explicitly specify which process it is sending to or receiving from</p></li>
 <li><p><strong><em>Receive</em></strong> is blocking, <strong><em>send</em></strong> may or may not be blocking</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void processA() &#123;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data)</span><br><span class="line">    send(B, &amp;data);</span><br><span class="line">    &#x2F;* region 1 *&#x2F;</span><br><span class="line">    receive(B, &amp;data);</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void processB() &#123;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    receive(A, &amp;data);</span><br><span class="line">    transform(&amp;data)</span><br><span class="line">    send(A, &amp;data);</span><br><span class="line">    &#x2F;* region 2 *&#x2F;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/OP/195747.png"></p>
-</li>
+<p><img src="/images/OP/195747.png" /></p></li>
 </ul>
-<h5 id="Shared-memory-and-mutexes"><a href="#Shared-memory-and-mutexes" class="headerlink" title="Shared memory and mutexes"></a>Shared memory and mutexes</h5><h6 id="Mutual-exclusion"><a href="#Mutual-exclusion" class="headerlink" title="Mutual exclusion"></a>Mutual exclusion</h6><ul>
+<h5 id="shared-memory-and-mutexes">Shared memory and mutexes</h5>
+<h6 id="mutual-exclusion">Mutual exclusion</h6>
+<ul>
 <li><p>Certain sections of code should not be performed concurrently</p>
-<p>Critical section: </p>
-<p>​    Possibly noncontiguous section of code where simultaneous updates, by multiple processes to a shared memory location, can occur</p>
-</li>
+<p>Critical section:</p>
+<p>​ Possibly noncontiguous section of code where simultaneous updates, by multiple processes to a shared memory location, can occur</p></li>
 <li><p>When a process enters the critical section, all other processes must be locked out until it leaves the critical section</p>
 <p><strong>Mutex</strong></p>
 <ul>
@@ -699,46 +708,45 @@
 <li>Multiple processes can perform lock operation simultaneously, but only one process will acquire lock</li>
 <li>All other processes trying to obtain lock will be put in blocked state until unlock operation performed by acquiring process when it exits critical section</li>
 <li>These processes will then be placed in runnable state and will compete for lock again</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h6 id="Correct-solution-1-51-32-1-53-29"><a href="#Correct-solution-1-51-32-1-53-29" class="headerlink" title="Correct solution 1:51:32 -1:53:29"></a>Correct solution 1:51:32 -1:53:29</h6><p>The primitive <strong><em>mutex</em></strong> is used to ensure critical sections are executed in mutual exclusion of each other</p>
+<h6 id="correct-solution-15132--15329">Correct solution 1:51:32 -1:53:29</h6>
+<p>The primitive <strong><em>mutex</em></strong> is used to ensure critical sections are executed in mutual exclusion of each other</p>
 <p>Following the same execution sequence as before:</p>
-<ol>
+<ol type="1">
 <li>A/B execute lock operation on count_mutex</li>
-<li>Either A or B will acquire lock<ol>
+<li>Either A or B will acquire lock
+<ol type="1">
 <li>Say B acquires it</li>
 <li>A will be put in blocked state</li>
-</ol>
-</li>
+</ol></li>
 <li>B loads count (count = 3) from memory into register R2 (R2 = 3)</li>
 <li>B decrements R2 (R2 = 2)</li>
 <li>B stores R2 back to count in memory (count = 2)</li>
-<li>B executes unlock operation<ol>
+<li>B executes unlock operation
+<ol type="1">
 <li>A is placed in runnable state again</li>
-</ol>
-</li>
-<li>A loads count (count = 2) from memory into register R1 (R1 = 2) </li>
-<li>A increments R1 (R1 = 3) </li>
+</ol></li>
+<li>A loads count (count = 2) from memory into register R1 (R1 = 2)</li>
+<li>A increments R1 (R1 = 3)</li>
 <li>A stores R1 back to count in memory (count = 3)</li>
 <li>Count now has correct value of 3</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">mutex count_mutex;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">      while( count &#x3D;&#x3D; N );&#x2F;*loop*&#x2F;</span><br><span class="line">      buffer[i] &#x3D; data;</span><br><span class="line">      i &#x3D; (i + 1) % N;</span><br><span class="line">      count_mutex.lock();</span><br><span class="line">      count &#x3D; count + 1;</span><br><span class="line">      count_mutex.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    while( count &#x3D;&#x3D; 0 );&#x2F;*loop*&#x2F;</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count_mutex.lock();</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    count_mutex.unlock();</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA);</span><br><span class="line">  create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h6><p>A <strong>semaphore</strong> is a variable or abstract data type that provides a simple but useful abstraction for controlling access by multiple processes to a common resource in a parallel programming environment.</p>
-<p><img src="/images/OP/195243.png"></p>
-<h6 id="Mutex-VS-Semaphore"><a href="#Mutex-VS-Semaphore" class="headerlink" title="Mutex VS Semaphore"></a>Mutex VS Semaphore</h6><ul>
+<h6 id="semaphore">Semaphore</h6>
+<p>A <strong>semaphore</strong> is a variable or abstract data type that provides a simple but useful abstraction for controlling access by multiple processes to a common resource in a parallel programming environment.</p>
+<p><img src="/images/OP/195243.png" /></p>
+<h6 id="mutex-vs-semaphore">Mutex VS Semaphore</h6>
+<ul>
 <li><p>A Mutex is different than a semaphore as it is a <strong>locking mechanism</strong> while a semaphore is a <strong>signaling mechanism</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wait (mutex);</span><br><span class="line">...</span><br><span class="line">Critical section</span><br><span class="line">...</span><br><span class="line">signal (mutex);</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>A binary semaphore can be used as a Mutex but a Mutex can never be used as a semaphore.</p>
-</li>
-<li><p>• A semaphore is a signalling mechanism and a thread that is waiting on a semaphore can be signaled by another thread. • This is different than a mutex as the mutex can be signaled only by the thread that called the wait function.</p>
-</li>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wait (mutex);</span><br><span class="line">...</span><br><span class="line">Critical section</span><br><span class="line">...</span><br><span class="line">signal (mutex);</span><br></pre></td></tr></table></figure></li>
+<li><p>A binary semaphore can be used as a Mutex but a Mutex can never be used as a semaphore.</p></li>
+<li><p>• A semaphore is a signalling mechanism and a thread that is waiting on a semaphore can be signaled by another thread. • This is different than a mutex as the mutex can be signaled only by the thread that called the wait function.</p></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wait(S)</span><br><span class="line">&#123;</span><br><span class="line">  while (S&lt;&#x3D;0);</span><br><span class="line">  S--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signal(S)</span><br><span class="line">&#123;</span><br><span class="line">  S++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Synchronization-among-processes"><a href="#Synchronization-among-processes" class="headerlink" title="Synchronization among processes"></a>Synchronization among processes</h2><p>Sometimes concurrently running processes must synchronize their execution: </p>
-<p>​    When a process must wait for:</p>
+<h2 id="synchronization-among-processes">Synchronization among processes</h2>
+<p>Sometimes concurrently running processes must synchronize their execution:</p>
+<p>​ When a process must wait for:</p>
 <ul>
 <li>another process to compute some value</li>
 <li>reach a known point in their execution</li>
@@ -748,97 +756,92 @@
 <ul>
 <li><em>process</em>A must wait if <em>buffer</em> is full</li>
 <li><em>process</em>B must wait if <em>buffer</em> is empty</li>
-<li>This is called busy-waiting <ul>
+<li>This is called busy-waiting
+<ul>
 <li>Process executing loops instead of being blocked</li>
 <li>CPU time wasted</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>More efficient methods:</p>
 <ul>
-<li>Join operation, and blocking send and receive discussed earlier<ul>
+<li>Join operation, and blocking send and receive discussed earlier
+<ul>
 <li>Both block the process so it doesn’t waste CPU time</li>
-</ul>
-</li>
+</ul></li>
 <li>Condition variables and monitors</li>
 </ul>
-<h3 id="Condition-variables-1-56-50"><a href="#Condition-variables-1-56-50" class="headerlink" title="Condition variables 1:56:50"></a>Condition variables 1:56:50</h3><p>Condition variables are a synchronization mechanism available in Pthreads.</p>
+<h3 id="condition-variables-15650">Condition variables 1:56:50</h3>
+<p>Condition variables are a synchronization mechanism available in Pthreads.</p>
 <p>A condition variable is an object that has 2 operations, signal and wait.</p>
 <p>When process performs a wait on a condition variable, the process is blocked until another process performs a signal on the same condition variable.</p>
-<h4 id="How-is-this-done"><a href="#How-is-this-done" class="headerlink" title="How is this done?"></a>How is this done?</h4><ul>
+<h4 id="how-is-this-done">How is this done?</h4>
+<ul>
 <li>Process A acquires lock on a mutex</li>
-<li>Process A performs wait, passing this mutex<ul>
+<li>Process A performs wait, passing this mutex
+<ul>
 <li>Causes mutex to be unlocked</li>
-</ul>
-</li>
+</ul></li>
 <li>Process B can now acquire lock on same mutex</li>
-<li>Process B enters critical section<ul>
+<li>Process B enters critical section
+<ul>
 <li>Computes some value and/or make condition true</li>
-</ul>
-</li>
-<li>Process B performs signal when condition true<ul>
+</ul></li>
+<li>Process B performs signal when condition true
+<ul>
 <li>Causes process A to implicitly reacquire mutex lock</li>
 <li>Process A becomes runnable</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Example-1-58-56"><a href="#Example-1-58-56" class="headerlink" title="Example 1:58:56"></a>Example 1:58:56</h4><p>2 condition variables:</p>
-<ol>
+<h4 id="example-15856">Example 1:58:56</h4>
+<p>2 condition variables:</p>
+<ol type="1">
 <li><strong><em>buffer_empty</em></strong> : Signals at least 1 free location available in buffer</li>
 <li><strong><em>buffer_full</em></strong> : Signals at least 1 valid data item in buffer</li>
 </ol>
-<p><em>process</em>A: </p>
+<p><em>process</em>A:</p>
 <ul>
-<li><p>produces data item</p>
-</li>
-<li><p>acquires lock (<em>cs_mutex</em>) for critical section</p>
-</li>
-<li><p>checks value of <em>count</em></p>
-</li>
+<li><p>produces data item</p></li>
+<li><p>acquires lock (<em>cs_mutex</em>) for critical section</p></li>
+<li><p>checks value of <em>count</em></p></li>
 <li><p>if <em>count</em> = N, <em>buffer</em> is full</p>
 <ul>
 <li>performs wait operation on <em>buffer_empty</em></li>
 <li>this releases the lock on <em>cs_mutex</em> allowing <em>process</em>B to enter critical section, consume data item and free location in <em>buffer</em></li>
 <li><em>process</em>B then performs signal</li>
-</ul>
-</li>
-<li><p>if <em>count</em> &lt; N, <em>buffer</em> is not full </p>
+</ul></li>
+<li><p>if <em>count</em> &lt; N, <em>buffer</em> is not full</p>
 <ul>
-<li><p><em>process</em>A inserts data into <em>buffer</em></p>
-</li>
-<li><p>increments <em>count</em></p>
-</li>
-<li><p>signals <em>process</em>B making it runnable if it has performed a wait operation on <em>buffer_full</em></p>
-</li>
-</ul>
-</li>
+<li><p><em>process</em>A inserts data into <em>buffer</em></p></li>
+<li><p>increments <em>count</em></p></li>
+<li><p>signals <em>process</em>B making it runnable if it has performed a wait operation on <em>buffer_full</em></p></li>
+</ul></li>
 </ul>
 <figure class="highlight plain"><figcaption><span>using condition variables</span></figcaption><table><tr><td class="code"><pre><span class="line">data_type buffer[N];</span><br><span class="line">int count &#x3D; 0;</span><br><span class="line">mutex cs_mutex;</span><br><span class="line">condition buffer_empty, buffer_full;</span><br><span class="line">void processA() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">    cs_mutex.lock();</span><br><span class="line">    if( count &#x3D;&#x3D; N ) buffer_empty.wait(cs_mutex);</span><br><span class="line">    buffer[i] &#x3D; data;</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count + 1;</span><br><span class="line">    cs_mutex.unlock();</span><br><span class="line">    buffer_full.signal();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    cs_mutex.lock();</span><br><span class="line">    if( count &#x3D;&#x3D; 0 ) buffer_full.wait(cs_mutex);</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    cs_mutex.unlock();</span><br><span class="line">    buffer_empty.signal();</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA); create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Monitors-2-00-37"><a href="#Monitors-2-00-37" class="headerlink" title="Monitors 2:00:37"></a>Monitors 2:00:37</h3><p>Definition: Collection of data and methods or subroutines that operate on data similar to an object-oriented paradigm</p>
+<h3 id="monitors-20037">Monitors 2:00:37</h3>
+<p>Definition: Collection of data and methods or subroutines that operate on data similar to an object-oriented paradigm</p>
 <p>Monitor guarantees only 1 process can execute inside monitor at a time</p>
-<ol>
+<ol type="1">
 <li>Process X executes while Process Y has to wait</li>
-<li>Process X performs wait on a condition<ul>
+<li>Process X performs wait on a condition
+<ul>
 <li>Process Y allowed to enter and execute</li>
-</ul>
-</li>
-<li>Process Y signals condition Process X waiting on<ul>
+</ul></li>
+<li>Process Y signals condition Process X waiting on
+<ul>
 <li>Process Y blocked</li>
-<li>Process X allowed to continue executing </li>
-</ul>
-</li>
-<li>Process X finishes executing in monitor or waits on a condition again<ul>
+<li>Process X allowed to continue executing</li>
+</ul></li>
+<li>Process X finishes executing in monitor or waits on a condition again
+<ul>
 <li>Process Y made runnable again</li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<p><img src="/images/OP/200611.png"></p>
-<h4 id="Example-2-02-57-2-04-37"><a href="#Example-2-02-57-2-04-37" class="headerlink" title="Example 2:02:57-2:04:37"></a>Example 2:02:57-2:04:37</h4><p>Single monitor encapsulates both processes along with <em>buffer</em> and <em>count</em></p>
+<p><img src="/images/OP/200611.png" /></p>
+<h4 id="example-20257-20437">Example 2:02:57-2:04:37</h4>
+<p>Single monitor encapsulates both processes along with <em>buffer</em> and <em>count</em></p>
 <p>One process will be allowed to begin executing firs</p>
 <p>If process B allowed to execute first:</p>
-<ol>
+<ol type="1">
 <li>Will execute until it finds <em>count</em> = 0</li>
 <li>Will perform wait on <em>buffer_full</em> condition variable</li>
 <li><em>process</em>A now allowed to enter monitor and execute</li>
@@ -849,13 +852,19 @@
 <li><em>process</em>B reenters monitor and continues execution, consumes data, etc.</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Monitor &#123;</span><br><span class="line">  data_type buffer[N];</span><br><span class="line">  int count &#x3D; 0;</span><br><span class="line">  condition buffer_full, condition buffer_empty;</span><br><span class="line">  void processA() &#123;</span><br><span class="line">    int i;</span><br><span class="line">    while ( 1 ) &#123;</span><br><span class="line">    produce(&amp;data);</span><br><span class="line">    if( count &#x3D;&#x3D; N ) buffer_empty.wait();</span><br><span class="line">    buffer[i] &#x3D; data;</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count + 1;</span><br><span class="line">    buffer_full.signal();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void processB() &#123;</span><br><span class="line">  int i;</span><br><span class="line">  while( 1 ) &#123;</span><br><span class="line">    if( count &#x3D;&#x3D; 0 ) buffer_full.wait();</span><br><span class="line">    data &#x3D; buffer[i];</span><br><span class="line">    i &#x3D; (i + 1) % N;</span><br><span class="line">    count &#x3D; count - 1;</span><br><span class="line">    buffer_empty.signal();</span><br><span class="line">    consume(&amp;data);</span><br><span class="line">    buffer_full.signal();</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125; &#x2F;* end monitor *&#x2F;</span><br><span class="line">void main() &#123;</span><br><span class="line">  create_process(processA); create_process(processB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h2><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE_cnRpbWU9aFliRXdZM1MyRWc&id=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings/%5BOSSEC%5D%20-%20operating%20systems%20and%20security%20-%20lecture%202.mp4&parent=/personal/bruno_da_silva_vub_be/Documents/COURSES/OSSEC%2020%20-%2021%20Semester%202/Recordings">Video 1:54:50 ~ 2:07:00</a></p>
-<h3 id="Process-behaviour-1-56-32"><a href="#Process-behaviour-1-56-32" class="headerlink" title="Process behaviour 1:56:32"></a>Process behaviour 1:56:32</h3><p>(a) A CPU/Compute-bound process.</p>
-<p>(b) An I/O-bound process.</p>
-<p><img src="/images/OP/093428.png" alt="Bursts of CPU usage alternate with periods of waiting for I/O."></p>
+<h2 id="scheduling">Scheduling</h2>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9aFliRXdZM1MyRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20operating%20systems%20and%20security%20%2D%20lecture%202%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video 1:54:50 ~ 2:07:00</a></p>
+<h3 id="process-behaviour-15632">Process behaviour 1:56:32</h3>
+<ol type="a">
+<li><p>A CPU/Compute-bound process.</p></li>
+<li><p>An I/O-bound process.</p></li>
+</ol>
+<figure>
+<img src="/images/OP/093428.png" alt="" /><figcaption>Bursts of CPU usage alternate with periods of waiting for I/O.</figcaption>
+</figure>
 <p>Must meet timing requirements when multiple concurrent processes implemented on single general-purpose processor.</p>
 <ul>
-<li> Not true multitasking</li>
+<li>Not true multitasking</li>
 </ul>
 <p><strong>Scheduler</strong> 1:58:08</p>
 <ul>
@@ -865,31 +874,42 @@
 </ul>
 <p>A task scheduler can be implemented as preemptive or non-preemptive scheduler based on the tasks</p>
 <ul>
-<li><strong>Preemptive</strong><ul>
+<li><strong>Preemptive</strong>
+<ul>
 <li>Determines how long a process executes before preempting to allow another process to execute</li>
 <li>Time quantum: predetermined amount of execution time preemptive scheduler allows each process (may be 10 to 100s of milliseconds long)</li>
 <li>It allows that the execution of an executing processes may be stopped if a higher priority process requires service.</li>
 <li>Determines which process will be next to run</li>
-</ul>
-</li>
-<li><strong>Non-preemptive</strong><ul>
+</ul></li>
+<li><strong>Non-preemptive</strong>
+<ul>
 <li>Once a process has been scheduled for execution, it runs to completion or until it is blocked for some reason (e.g. waiting for I/O).</li>
 <li>Only determines which process is next after current process finishes execution</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Scheduling-algorithms-and-their-goals-2-00-41"><a href="#Scheduling-algorithms-and-their-goals-2-00-41" class="headerlink" title="Scheduling algorithms and their goals 2:00:41"></a>Scheduling algorithms and their goals 2:00:41</h3><p>Some goals of different scheduling algorithms under different circumstances.</p>
-<p><img src="/images/OP/0934281.png"></p>
-<h4 id="Scheduling-in-batch-systems-2-02-06"><a href="#Scheduling-in-batch-systems-2-02-06" class="headerlink" title="Scheduling in batch systems 2:02:06"></a>Scheduling in batch systems 2:02:06</h4><p>First-come first-served</p>
+<h3 id="scheduling-algorithms-and-their-goals-20041">Scheduling algorithms and their goals 2:00:41</h3>
+<p>Some goals of different scheduling algorithms under different circumstances.</p>
+<p><img src="/images/OP/0934281.png" /></p>
+<h4 id="scheduling-in-batch-systems-20206">Scheduling in batch systems 2:02:06</h4>
+<p>First-come first-served</p>
 <p>Shortest job first</p>
 <p>Shortest remaining time next</p>
-<p><img src="/images/OP/0934282.png" alt="An example of shortest job first scheduling"></p>
-<p>(a) Running four jobs in the original order</p>
-<p>(b) Running them in shortest job first order.</p>
-<h4 id="Scheduling-in-interactive-systems-2-03-12"><a href="#Scheduling-in-interactive-systems-2-03-12" class="headerlink" title="Scheduling in interactive systems 2:03:12"></a>Scheduling in interactive systems 2:03:12</h4><h5 id="Round-robin-scheduling"><a href="#Round-robin-scheduling" class="headerlink" title="Round-robin scheduling"></a>Round-robin scheduling</h5><p><img src="/images/OP/0934283.png"></p>
-<p>(a) The list of runnable processes</p>
-<p>(b) The list of runnable processes after B uses up its quantum</p>
-<h5 id="Priority-scheduling-2-04-10"><a href="#Priority-scheduling-2-04-10" class="headerlink" title="Priority scheduling 2:04:10"></a>Priority scheduling 2:04:10</h5><p>Process with highest priority always selected first by scheduler</p>
+<figure>
+<img src="/images/OP/0934282.png" alt="" /><figcaption>An example of shortest job first scheduling</figcaption>
+</figure>
+<ol type="a">
+<li><p>Running four jobs in the original order</p></li>
+<li><p>Running them in shortest job first order.</p></li>
+</ol>
+<h4 id="scheduling-in-interactive-systems-20312">Scheduling in interactive systems 2:03:12</h4>
+<h5 id="round-robin-scheduling">Round-robin scheduling</h5>
+<p><img src="/images/OP/0934283.png" /></p>
+<ol type="a">
+<li><p>The list of runnable processes</p></li>
+<li><p>The list of runnable processes after B uses up its quantum</p></li>
+</ol>
+<h5 id="priority-scheduling-20410">Priority scheduling 2:04:10</h5>
+<p>Process with highest priority always selected first by scheduler</p>
 <ul>
 <li>Typically determined statically during creation and dynamically during execution</li>
 </ul>
@@ -906,8 +926,11 @@
 <li>Called priority scheduling when non-preemptive</li>
 <li>Called round-robin when preemptive</li>
 </ul>
-<p><img src="/images/OP/0934284.png" alt="A scheduling algorithm with four priority classes."></p>
-<h4 id="Scheduling-in-real-time-systems"><a href="#Scheduling-in-real-time-systems" class="headerlink" title="Scheduling in real-time systems"></a>Scheduling in real-time systems</h4>
+<figure>
+<img src="/images/OP/0934284.png" alt="" /><figcaption>A scheduling algorithm with four priority classes.</figcaption>
+</figure>
+<h4 id="scheduling-in-real-time-systems">Scheduling in real-time systems</h4>
+
                 
             </div>
             <hr/>

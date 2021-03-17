@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    574
+                    582
                 </div>
                 
 
@@ -497,91 +497,104 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Context-Free-Grammars"><a href="#Context-Free-Grammars" class="headerlink" title="Context-Free Grammars"></a>Context-Free Grammars</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+                <h1 id="context-free-grammars">Context-Free Grammars</h1>
+<h2 id="introduction">Introduction</h2>
+<ul>
 <li>FAs and REs allow to define <strong>regular languages (RLs)</strong></li>
 <li><strong>Context-Free Languages (CFLs)</strong> form a language class containing all regular languages, and also many non-regular languages</li>
 <li>CFLs can be specified using <strong>Context-Free Grammars (CFGs)</strong> or a <strong>push-down automata (PDAs)</strong></li>
 <li>CFLs are more flexible than RLs but less flexible than the languages accepted by <strong>Turing Machines</strong></li>
 </ul>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><ul>
+<h2 id="examples">Examples</h2>
+<ul>
 <li><p>Balancing parentheses (algebra, programming languages, logic)</p>
 <ul>
-<li>e.g.<br>$$<br>log(a(b + c)(d + e)): (()())<br>$$</li>
+<li>e.g. <span class="math display">\[
+log(a(b + c)(d + e)): (()())
+\]</span></li>
+</ul></li>
+<li><p>The strings of n occurrences of a followed by n occurrences of b</p></li>
 </ul>
-</li>
-<li><p>The strings of n occurrences of a followed by n occurrences of b</p>
-</li>
-</ul>
-<h2 id="Definition-Context-Free-Grammar"><a href="#Definition-Context-Free-Grammar" class="headerlink" title="Definition: Context-Free Grammar"></a>Definition: Context-Free Grammar</h2><p>A context-free grammar G is a quadruple, (V, Σ, S, P), where</p>
+<h2 id="definition-context-free-grammar">Definition: Context-Free Grammar</h2>
+<p>A context-free grammar G is a quadruple, (V, Σ, S, P), where</p>
 <ul>
-<li>V is the set of nonterminal symbols (also called variables); </li>
-<li>Σ is the set of terminal symbols, the symbol set for the strings of L(G); </li>
-<li>S is the start symbol, which must be a member of V; </li>
+<li>V is the set of nonterminal symbols (also called variables);</li>
+<li>Σ is the set of terminal symbols, the symbol set for the strings of L(G);</li>
+<li>S is the start symbol, which must be a member of V;</li>
 <li>P is a set of rules, each of the form a → ω, where a ∈ V and ω ∈ (V ∪ Σ)<sup>*</sup>. That is, the left side of a rule is a nonterminal and the right side is any sequence of terminals and/or nonterminals.</li>
 </ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>G<sub>1</sub> = ({S}, {a, b}, S, {S → a S b, S → Λ}). We soon see that <em>L</em>(G<sub>1</sub>), the language of G<sub>1</sub>, is the language L<sub>1</sub> = {a<sup>n</sup>b<sup>n</sup>}.</p>
-<h2 id="Definition-Replacement-Operator-and-its-Closure"><a href="#Definition-Replacement-Operator-and-its-Closure" class="headerlink" title="Definition: Replacement Operator and its Closure"></a>Definition: Replacement Operator and its Closure</h2><p>The replacement of α by ω in the string Φαψ, using the rule α → ω, is written Φαψ ⇒ Φωψ.</p>
-<p>The closure of this replacement operator, written “⇒<sup>*</sup>“ expresses the result of 0 or more replacements. Thus, if ψ<sub>0</sub> ⇒ ψ<sub>1</sub> ⇒ ψ<sub>2</sub> ⇒ … ⇒ ψ<sub>n</sub>, we can write ψ<sub>0</sub> ⇒<sup>*</sup> ψ<sub>i</sub> for any i from 0 to n.</p>
-<h3 id="Deriving-strings"><a href="#Deriving-strings" class="headerlink" title="Deriving strings"></a>Deriving strings</h3><ul>
+<h3 id="example">Example</h3>
+<p>G<sub>1</sub> = ({S}, {a, b}, S, {S → a S b, S → Λ}). We soon see that <em>L</em>(G<sub>1</sub>), the language of G<sub>1</sub>, is the language L<sub>1</sub> = {a<sup>n</sup>b<sup>n</sup>}.</p>
+<h2 id="definition-replacement-operator-and-its-closure">Definition: Replacement Operator and its Closure</h2>
+<p>The replacement of α by ω in the string Φαψ, using the rule α → ω, is written Φαψ ⇒ Φωψ.</p>
+<p>The closure of this replacement operator, written "⇒<sup>*</sup>" expresses the result of 0 or more replacements. Thus, if ψ<sub>0</sub> ⇒ ψ<sub>1</sub> ⇒ ψ<sub>2</sub> ⇒ ... ⇒ ψ<sub>n</sub>, we can write ψ<sub>0</sub> ⇒<sup>*</sup> ψ<sub>i</sub> for any i from 0 to n.</p>
+<h3 id="deriving-strings">Deriving strings</h3>
+<ul>
 <li><p>Derivation of <em>aaabbb</em> from start symbol S using:</p>
-<p>G<sub>1</sub> = ({S}, {a, b}, S, {S → a S b, S → Λ})</p>
-</li>
+<p>G<sub>1</sub> = ({S}, {a, b}, S, {S → a S b, S → Λ})</p></li>
 </ul>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>S</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>a S b</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a a S b b</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>a a a S b b b</td>
 </tr>
-<tr>
+<tr class="even">
 <td>a a a Λ b b b = a a a b b b</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>S ⇒ a S b ⇒ a a S b b ⇒ a a a S b b b ⇒ a a a b b b.</p>
-<h3 id="Deriving-trees"><a href="#Deriving-trees" class="headerlink" title="Deriving trees"></a>Deriving trees</h3><ul>
+<h3 id="deriving-trees">Deriving trees</h3>
+<ul>
 <li>Let G = (V, T, S, P) be a CFG</li>
-<li>An ordered tree is a <strong>derivation tree</strong> for G iff:<ol>
+<li>An ordered tree is a <strong>derivation tree</strong> for G iff:
+<ol type="1">
 <li>The root is labeled S</li>
 <li>Every leaf has a label from T ∪ {λ}</li>
-<li>Every interior vertex has a label from V </li>
-<li>If a vertex has label A ∈ V and its children are labeled a<sub>1</sub> , a<sub>2</sub>, …an from left to right, then P must contain a production A → a<sub>1</sub>a<sub>2</sub>…a<sub>n</sub></li>
+<li>Every interior vertex has a label from V</li>
+<li>If a vertex has label A ∈ V and its children are labeled a<sub>1</sub> , a<sub>2</sub>, ...an from left to right, then P must contain a production A → a<sub>1</sub>a<sub>2</sub>...a<sub>n</sub></li>
 <li>A leaf labeled λ has no siblings</li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<p><img src="/images/FOCS/1145040.png"></p>
-<h3 id="DFA-to-CFG"><a href="#DFA-to-CFG" class="headerlink" title="DFA to CFG"></a>DFA to CFG</h3><p><strong>Theorem</strong>: Every regular language can be generated by a context-free grammar</p>
+<p><img src="/images/FOCS/1145040.png" /></p>
+<h3 id="dfa-to-cfg">DFA to CFG</h3>
+<p><strong>Theorem</strong>: Every regular language can be generated by a context-free grammar</p>
 <ul>
 <li>DFA: M = (Q, Σ, q<sub>0</sub>, δ, A)</li>
-<li>CFG: G = (V, Σ, S, P) <ul>
+<li>CFG: G = (V, Σ, S, P)
+<ul>
 <li>V = Q</li>
 <li>S = Q<sub>0</sub></li>
 <li>P = {q → σq<sub>0</sub> |q<sub>0</sub> = δ(q, σ)} ∪ {q → Λ|q ∈ A}</li>
-</ul>
-</li>
+</ul></li>
 <li><strong>For each DFA transition, there is a grammar rule</strong></li>
 <li><strong>If the state reached is an accepting state, a grammar rule lets replace the state name with an empty string</strong></li>
 </ul>
 <p><strong>Example:</strong></p>
-<p><img src="/images/FOCS/1145041.png"></p>
-<h2 id="Regular-grammars"><a href="#Regular-grammars" class="headerlink" title="Regular grammars"></a>Regular grammars</h2><h3 id="Definition-Regular-Grammar"><a href="#Definition-Regular-Grammar" class="headerlink" title="Definition: Regular Grammar"></a>Definition: Regular Grammar</h3><p>G = (V, Σ, S, P) is a regular grammar iff: </p>
+<p><img src="/images/FOCS/1145041.png" /></p>
+<h2 id="regular-grammars">Regular grammars</h2>
+<h3 id="definition-regular-grammar">Definition: Regular Grammar</h3>
+<p>G = (V, Σ, S, P) is a regular grammar iff:</p>
 <ul>
 <li>if there exists a Λ-production, it is of the from S → Λ and S does not appear as a substring of the right-hand side of any other production in P</li>
 <li>All other production are of the form A → a, where A ∈ V and a ∈ Σ or A → aB where A, B ∈ V and a ∈ Σ</li>
 </ul>
-<h2 id="Regular-languages"><a href="#Regular-languages" class="headerlink" title="Regular languages"></a>Regular languages</h2><p><strong>Conclusion</strong>: Three ways to specify regular languages:</p>
+<h2 id="regular-languages">Regular languages</h2>
+<p><strong>Conclusion</strong>: Three ways to specify regular languages:</p>
 <ul>
 <li>Finite State Automata</li>
-<li>Regular Expressions </li>
+<li>Regular Expressions</li>
 <li>Regular Grammars</li>
 </ul>
 

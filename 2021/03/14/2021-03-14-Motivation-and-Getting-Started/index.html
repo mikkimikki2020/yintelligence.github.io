@@ -497,83 +497,89 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Motivation-and-Getting-Started"><a href="#Motivation-and-Getting-Started" class="headerlink" title="Motivation and Getting Started"></a><a target="_blank" rel="noopener" href="https://courses.edx.org/courses/course-v1:HarvardX+PH125.1x+1T2021/courseware/cfded5c208bc4e379606cb712cc54f25/9f677d4dd55d4d729d4b8163598146eb/">Motivation and Getting Started</a></h1><p>R is not a programming language like C or Java. It was not created by software engineers for software development. Instead, it was developed by statisticians and data analysts as an interactive environment for data analysis.</p>
+                <h1 id="motivation-and-getting-started"><a target="_blank" rel="noopener" href="https://courses.edx.org/courses/course-v1:HarvardX+PH125.1x+1T2021/courseware/cfded5c208bc4e379606cb712cc54f25/9f677d4dd55d4d729d4b8163598146eb/">Motivation and Getting Started</a></h1>
+<p>R is not a programming language like C or Java. It was not created by software engineers for software development. Instead, it was developed by statisticians and data analysts as an interactive environment for data analysis.</p>
 <p>The interactivity is an indispensable feature in data science, because as you will soon learn, the ability to quickly explore data is a necessity for success in this field. However, like in any other programming language, you can save your work as scripts, which you can easily execute at any moment. These scripts serve as a record of the analysis you performed, a key feature that facilitates reproducible work.</p>
 <p>Other attractive features of R are the following.</p>
 <ul>
 <li>R is free and open source, meaning that you can look at the code.</li>
-<li>It runs across all major platforms – Windows, Mac OS, Unix, Linux.</li>
+<li>It runs across all major platforms -- Windows, Mac OS, Unix, Linux.</li>
 <li>Data objects and scripts can be shared seamlessly across these platforms.</li>
-<li>There’s also a large and growing active community of R users.</li>
+<li>There's also a large and growing active community of R users.</li>
 </ul>
-<p>And as a result, there are numerous resources for learning and asking questions. It’s easy for others to contribute add-ons, which enable developers to share software implementations of new data science techniques.</p>
+<p>And as a result, there are numerous resources for learning and asking questions. It's easy for others to contribute add-ons, which enable developers to share software implementations of new data science techniques.</p>
 <p>As a very quick and simple example, try using the console to calculate a 15% tip on a meal that costs $19.71.</p>
-<p>Here’s how you do it.</p>
+<p>Here's how you do it.</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; <span class="number">0.15</span> * <span class="number">19.71</span></span><br><span class="line">[<span class="number">1</span>]<span class="number">2.96</span></span><br></pre></td></tr></table></figure>
 <p>You just write the numbers out, hit Return, and you get your answer. You should leave a tip of $2.96.</p>
 <p>One of the great advantages of R over point and click analysis software is that you can save your work as scripts. You can edit and save these scripts using a text editor.</p>
-<h2 id="Installing-Packages"><a href="#Installing-Packages" class="headerlink" title="Installing Packages"></a>Installing Packages</h2><ul>
-<li>The base version of R is quite minimal, but you can supplement its functions by installing additional packages. </li>
-<li>We will be using tidyverse and dslabs packages for this course. </li>
-<li>Install packages from R console: install.packages(“pkg_name”) Install packages from RStudio interface: Tools &gt; Install Packages (allows autocomplete).</li>
+<h2 id="installing-packages">Installing Packages</h2>
+<ul>
+<li>The base version of R is quite minimal, but you can supplement its functions by installing additional packages.</li>
+<li>We will be using tidyverse and dslabs packages for this course.</li>
+<li>Install packages from R console: install.packages("pkg_name") Install packages from RStudio interface: Tools &gt; Install Packages (allows autocomplete).</li>
 <li>Once installed, we can use library(pkg_name) to load a package each time we want to use it.</li>
 </ul>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;dslabs&quot;</span>) <span class="comment"># to install a single package</span></span><br><span class="line">install packages(<span class="built_in">c</span>(<span class="string">&quot;tidyverse&quot;</span> <span class="string">&quot;dslabs&quot;</span>)） <span class="comment"># to install two packages at the same tim</span></span><br><span class="line">installed.package() <span class="comment"># to see the list of all installed packages</span></span><br></pre></td></tr></table></figure>
-<h2 id="Running-Commands-While-Editing-Scripts"><a href="#Running-Commands-While-Editing-Scripts" class="headerlink" title="Running Commands While Editing Scripts"></a>Running Commands While Editing Scripts</h2><p>RStudio has many useful features as an R editor, including the ability to test code easily as we write scripts and several autocomplete features.</p>
+<h2 id="running-commands-while-editing-scripts">Running Commands While Editing Scripts</h2>
+<p>RStudio has many useful features as an R editor, including the ability to test code easily as we write scripts and several autocomplete features.</p>
 <ul>
-<li>Save a script: Ctrl+S on Windows and Command+S on Mac </li>
-<li>Run an entire script: Ctrl+Shift+Enter on Windows Command+Shift+Return on Mac, or click “Source” on the editor pane </li>
-<li>Run a single line of script: Ctrl+Enter on Windows and Command+Return on Mac while the cursor is pointing to that line, or select the chunk and click “run” </li>
+<li>Save a script: Ctrl+S on Windows and Command+S on Mac</li>
+<li>Run an entire script: Ctrl+Shift+Enter on Windows Command+Shift+Return on Mac, or click "Source" on the editor pane</li>
+<li>Run a single line of script: Ctrl+Enter on Windows and Command+Return on Mac while the cursor is pointing to that line, or select the chunk and click "run"</li>
 <li>Open a new script: Ctrl+Shift+N on Windows and Command+Shift+N on Mac</li>
 </ul>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library(tidyverse)</span><br><span class="line">library(dslabs)</span><br><span class="line">data(murders)</span><br><span class="line"></span><br><span class="line">murders %&gt;%</span><br><span class="line">	ggplot(aes(population, total, label=abb, color=region)) +</span><br><span class="line">    geom_label()</span><br></pre></td></tr></table></figure>
-<h2 id="R-Basics"><a href="#R-Basics" class="headerlink" title="R Basics"></a>R Basics</h2><ul>
+<h2 id="r-basics">R Basics</h2>
+<ul>
 <li>To define a variable, we may use the assignment symbol, <strong>&lt;-</strong> .</li>
-<li>There are two ways to see the value stored in a variable:<ol>
+<li>There are two ways to see the value stored in a variable:
+<ol type="1">
 <li>type the variable name into the console and hit Return</li>
-<li>use the print() function by typing print(variable_name) and hitting Return. </li>
-</ol>
-</li>
-<li>Objects are things that are stored in named containers in R. They can be variables, functions, etc. </li>
+<li>use the print() function by typing print(variable_name) and hitting Return.</li>
+</ol></li>
+<li>Objects are things that are stored in named containers in R. They can be variables, functions, etc.</li>
 <li>The ls() function shows the names of the objects saved in your workspace.</li>
-<li>If you try to recover the value of a variable that is not in your workspace, you’ll receive an error.<ul>
-<li>For example, if you type x, which we haven’t defined, you will receive an error message that says, “Error: object ‘x’ not found.”</li>
-</ul>
-</li>
+<li>If you try to recover the value of a variable that is not in your workspace, you'll receive an error.
+<ul>
+<li>For example, if you type x, which we haven't defined, you will receive an error message that says, "Error: object 'x' not found."</li>
+</ul></li>
 </ul>
 <p><strong>Code: solving the equation: x<sup>2</sup> + x − 1 = 0</strong></p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># assigning values to variables</span></span><br><span class="line">a &lt;-<span class="number">1</span></span><br><span class="line">b &lt;-<span class="number">1</span></span><br><span class="line"><span class="built_in">c</span> &lt;--<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># solving the quadratic equation</span></span><br><span class="line">(-b + <span class="built_in">sqrt</span>(b^<span class="number">2</span> - <span class="number">4</span>*a*<span class="built_in">c</span>))/(<span class="number">2</span>*a)</span><br><span class="line">(-b - <span class="built_in">sqrt</span>(b^<span class="number">2</span> - <span class="number">4</span>*a*<span class="built_in">c</span>))/(<span class="number">2</span>*a)</span><br></pre></td></tr></table></figure>
-<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a><a target="_blank" rel="noopener" href="https://rafalab.github.io/dsbook/r-basics.html#functions">Functions</a></h2><ul>
-<li>In general, to evaluate a function we need to use parentheses. If we type a function without parenthesis, R shows us the code for the function. Most functions also require an argument, that is, something to be written inside the parenthesis. </li>
-<li>To access help files, we may use the help function, <em>help(function_name)</em>, or write the question mark followed by the function name, <em>?function_name</em>. </li>
-<li>The help file shows you the arguments the function is expecting, some of which are required and some are optional. <strong>If an argument is optional, a default value is assigned with the equal sign.</strong> The <em>args()</em> function also shows the arguments a function needs. </li>
-<li>To specify arguments, we use the equals sign. If no argument name is used, R assumes you’re entering arguments in the order shown in the help file. </li>
-<li>Creating and saving a script makes code much easier to execute. </li>
+<h2 id="functions"><a target="_blank" rel="noopener" href="https://rafalab.github.io/dsbook/r-basics.html#functions">Functions</a></h2>
+<ul>
+<li>In general, to evaluate a function we need to use parentheses. If we type a function without parenthesis, R shows us the code for the function. Most functions also require an argument, that is, something to be written inside the parenthesis.</li>
+<li>To access help files, we may use the help function, <em>help(function_name)</em>, or write the question mark followed by the function name, <em>?function_name</em>.</li>
+<li>The help file shows you the arguments the function is expecting, some of which are required and some are optional. <strong>If an argument is optional, a default value is assigned with the equal sign.</strong> The <em>args()</em> function also shows the arguments a function needs.</li>
+<li>To specify arguments, we use the equals sign. If no argument name is used, R assumes you’re entering arguments in the order shown in the help file.</li>
+<li>Creating and saving a script makes code much easier to execute.</li>
 <li>To make your code more readable, use intuitive variable names and include comments (using the “#” symbol) to remind yourself why you wrote a particular line of code.</li>
 </ul>
 <p>Functions are not the only pre-built objects in R. There are also data sets that are included for users to practice and test out functions.</p>
 <p>You can see all the available data sets by typing data, parentheses, parentheses. This shows you the object name for these data sets. And these data sets are objects that you can use by simply typing the name.</p>
 <p>For example, if you type CO<sub>2</sub>, one of the pre-built data objects, you will see CO<sub>2</sub> measurements from a particular measurement station. There are also other mathematical objects that are also pre-built, such as the constant for pi and the infinity number. You can see them by typing pi or typing Inf.</p>
-<h2 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a><a target="_blank" rel="noopener" href="https://rafalab.github.io/dsbook/r-basics.html#data-types">Data Types</a></h2><p>Variables in R can be of different types. </p>
+<h2 id="data-types"><a target="_blank" rel="noopener" href="https://rafalab.github.io/dsbook/r-basics.html#data-types">Data Types</a></h2>
+<p>Variables in R can be of different types.</p>
 <ul>
-<li>For example, we need to distinguish numbers from character strings and tables from simple lists of numbers. The function “class” helps us determine the type of an object. For example, if I define a as 2 and I look at its class, I will see it’s a numeric. </li>
+<li>For example, we need to distinguish numbers from character strings and tables from simple lists of numbers. The function "class" helps us determine the type of an object. For example, if I define a as 2 and I look at its class, I will see it's a numeric.</li>
 </ul>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt;a &lt;- 2</span><br><span class="line">&gt;<span class="built_in">class</span>(a)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;numeric&quot;</span></span><br></pre></td></tr></table></figure>
-<p>Let’s look at the class of the function ls. Not surprisingly, we see that it’s a function. </p>
+<p>Let's look at the class of the function ls. Not surprisingly, we see that it's a function.</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt;<span class="built_in">class</span>(ls)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;function&quot;</span></span><br></pre></td></tr></table></figure>
-<p>The function “str” stands for structure, and it shows us the structure of an object. If we type str(murders), it shows us that</p>
+<p>The function "str" stands for structure, and it shows us the structure of an object. If we type str(murders), it shows us that</p>
 <p>Up to now, the variables we have defined have been just one number. This is not very useful for storing data. The most common way of storing data sets in R is with <strong>data frames</strong>. Conceptually, we can think of data frames as tables. Rows represent observations, and different variables are represented by different columns.</p>
-<p>Data frames are particularly useful for data sets because we can combine different types into one single object. We store the data for a motivating example in a data frame. </p>
-<p>We can store characters in R as well. Because variables also use character strings, we’re going to use quotes to distinguish between variable names and character strings. So if I type a and assign 1 to a, the variable a is 1, so if I type a in R, I get back a 1. However, if I want to now work with the character string a, I need to use quotes. So if I write quotes a, then I get back the character string a.</p>
+<p>Data frames are particularly useful for data sets because we can combine different types into one single object. We store the data for a motivating example in a data frame.</p>
+<p>We can store characters in R as well. Because variables also use character strings, we're going to use quotes to distinguish between variable names and character strings. So if I type a and assign 1 to a, the variable a is 1, so if I type a in R, I get back a 1. However, if I want to now work with the character string a, I need to use quotes. So if I write quotes a, then I get back the character string a.</p>
 <p>Logical vectors are another type of vector. These must be either true or false.</p>
-<p>when we look at the class of the regions column, we see something new,  it says factor. So let’s learn about factors, as they appear often in R and in data science. Factors are useful for storing what is called categorical data. There is only four categories. Each state is in one of these four. We can see the four levels in this particular factor using the function levels. </p>
-<p>In R, in the background, we store integers. We store the levels as integers. Technically, integers are smaller memory-wise than characters. So this is what makes it more efficient. However, factors are also a source of confusion, as they can easily be confused with characters. If we just look at this variable, they would appear to be characters. It’s only when we ask using class what type it is that we see they are factors. </p>
+<p>when we look at the class of the regions column, we see something new, it says factor. So let's learn about factors, as they appear often in R and in data science. Factors are useful for storing what is called categorical data. There is only four categories. Each state is in one of these four. We can see the four levels in this particular factor using the function levels.</p>
+<p>In R, in the background, we store integers. We store the levels as integers. Technically, integers are smaller memory-wise than characters. So this is what makes it more efficient. However, factors are also a source of confusion, as they can easily be confused with characters. If we just look at this variable, they would appear to be characters. It's only when we ask using class what type it is that we see they are factors.</p>
 <ul>
-<li>The function class() helps us determine the type of an object. </li>
-<li>Data frames can be thought of as tables with rows representing observations and columns representing different variables. </li>
-<li>To access data from columns of a data frame, we use the dollar sign symbol, $, which is called the accessor. </li>
-<li>A vector is an object consisting of several entries and can be a numeric vector, a character vector, or a logical vector. </li>
-<li>We use quotes &quot;&quot; to distinguish between variable names and character strings.</li>
+<li>The function class() helps us determine the type of an object.</li>
+<li>Data frames can be thought of as tables with rows representing observations and columns representing different variables.</li>
+<li>To access data from columns of a data frame, we use the dollar sign symbol, $, which is called the accessor.</li>
+<li>A vector is an object consisting of several entries and can be a numeric vector, a character vector, or a logical vector.</li>
+<li>We use quotes "" to distinguish between variable names and character strings.</li>
 <li>Factors are useful for storing categorical data, and are more memory efficient than storing characters.</li>
 </ul>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># loading the dslabs package and the murders dataset</span></span><br><span class="line">library(dslabs)</span><br><span class="line">data(murders)</span><br><span class="line"><span class="comment"># determining that the murders dataset is of the &quot;data frame&quot; class</span></span><br><span class="line"><span class="built_in">class</span>(murders)</span><br><span class="line"><span class="comment"># finding out more about the structure of the object</span></span><br><span class="line">str(murders)</span><br><span class="line"><span class="comment"># showing the first 6 lines of the dataset</span></span><br><span class="line">head(murders)</span><br><span class="line"><span class="comment"># using the accessor operator to obtain the population column</span></span><br><span class="line">murders$population</span><br><span class="line"><span class="comment"># displaying the variable names in the murders dataset</span></span><br><span class="line"><span class="built_in">names</span>(murders)</span><br><span class="line"><span class="comment"># determining how many entries are in a vector</span></span><br><span class="line">pop &lt;- murders$population</span><br><span class="line"><span class="built_in">length</span>(pop)</span><br><span class="line"><span class="comment"># vectors can be of class numeric and character</span></span><br><span class="line"><span class="built_in">class</span>(pop)</span><br><span class="line"><span class="built_in">class</span>(murders$state)</span><br><span class="line"><span class="comment"># logical vectors are either TRUE or FALSE</span></span><br><span class="line">z &lt;- 3 == <span class="number">2</span></span><br><span class="line">z</span><br><span class="line"><span class="built_in">class</span>(z)</span><br><span class="line"><span class="comment"># factors are another type of class</span></span><br><span class="line"><span class="built_in">class</span>(murders$region)</span><br><span class="line"><span class="comment"># obtaining the levels of a factor</span></span><br><span class="line">levels(murders$region)</span><br></pre></td></tr></table></figure>

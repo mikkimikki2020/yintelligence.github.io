@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    643
+                    658
                 </div>
                 
 
@@ -497,11 +497,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="MSA-profiles-and-motif-detection"><a href="#MSA-profiles-and-motif-detection" class="headerlink" title="MSA, profiles and motif detection"></a>MSA, profiles and motif detection</h1><p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=/personal/wim_vranken_vub_be/Documents/Opnamen/Algorithms%20in%20bioinfo_computational%20biology-20210225_100412-Meeting%20Recording.mp4&parent=/personal/wim_vranken_vub_be/Documents/Opnamen&originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VmNHlJT19TaE1GTnJGdDB1VlMxSnNvQlJlOV9heXRYanVKeGZqSGtJQ2UxSHc_cnRpbWU9TnpDSFk1cloyRWc">Video</a></p>
-<h2 id="Multiple-sequence-alignment-25-42"><a href="#Multiple-sequence-alignment-25-42" class="headerlink" title="Multiple sequence alignment? 25:42"></a>Multiple sequence alignment? 25:42</h2><p>An alignment of 2 sequences is an hypothesis that is supported or rejected by the score one obtains for the alignment, but…</p>
+                <h1 id="msa-profiles-and-motif-detection">MSA, profiles and motif detection</h1>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210225%5F100412%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VmNHlJT19TaE1GTnJGdDB1VlMxSnNvQlJlOV9heXRYanVKeGZqSGtJQ2UxSHc_cnRpbWU9TnpDSFk1cloyRWc">Video</a></p>
+<h2 id="multiple-sequence-alignment-2542">Multiple sequence alignment? 25:42</h2>
+<p>An alignment of 2 sequences is an hypothesis that is supported or rejected by the score one obtains for the alignment, but…</p>
 <ul>
 <li>the score does not guarantee that there really is a common ancestor</li>
-<li>no guarantee that the elements are correctly aligned, only that the alignment is the one with maximum similarity </li>
+<li>no guarantee that the elements are correctly aligned, only that the alignment is the one with maximum similarity</li>
 </ul>
 <p><strong>We can reduce this uncertainty by aligning additional sequences</strong></p>
 <p>A <strong>multiple sequence alignment (MSA)</strong> algorithm performs this task and can more clearly show:</p>
@@ -509,78 +511,84 @@
 <li>The similarity between positions</li>
 <li>The <strong>conservation</strong> of certain amino acids within a family of homologous proteins</li>
 </ul>
-<h3 id="Why-MSA-30-14"><a href="#Why-MSA-30-14" class="headerlink" title="Why MSA? 30:14"></a>Why MSA? 30:14</h3><ul>
+<h3 id="why-msa-3014">Why MSA? 30:14</h3>
+<ul>
 <li><p>Improve the alignment between two sequences</p>
-<p><img src="/images/ADVMB/1011170.png"></p>
-</li>
+<p><img src="/images/ADVMB/1011170.png" /></p></li>
 <li><p>Conserved regions provide information on the similarities in structure and function</p>
-<p><img src="/images/ADVMB/1011171.png"></p>
-</li>
+<p><img src="/images/ADVMB/1011171.png" /></p></li>
 <li><p>Yet since the methods can only approximate the optimal solution, there can be differences between methods</p>
-<p><img src="/images/ADVMB/1011172.png"></p>
-</li>
+<p><img src="/images/ADVMB/1011172.png" /></p></li>
 </ul>
-<h3 id="Many-MSA-methods"><a href="#Many-MSA-methods" class="headerlink" title="Many MSA methods"></a>Many MSA methods</h3><p><img src="/images/ADVMB/1011173.png"></p>
-<h3 id="The-MSA-problem-35-52"><a href="#The-MSA-problem-35-52" class="headerlink" title="The MSA problem 35:52"></a>The MSA problem 35:52</h3><p>Determining the alignment between N sequences is a hard problem = <strong>Combinatorial optimisation problem (COP)</strong></p>
+<h3 id="many-msa-methods">Many MSA methods</h3>
+<p><img src="/images/ADVMB/1011173.png" /></p>
+<h3 id="the-msa-problem-3552">The MSA problem 35:52</h3>
+<p>Determining the alignment between N sequences is a hard problem = <strong>Combinatorial optimisation problem (COP)</strong></p>
 <p>To solve this COP we need provide two systems:</p>
-<ol>
+<ol type="1">
 <li><strong>Calculating the score of the alignment</strong></li>
 <li><strong>Algorithm that finds the MSA with the optimal (or close to optimal) score</strong></li>
 </ol>
-<h3 id="The-scoring-system-36-28"><a href="#The-scoring-system-36-28" class="headerlink" title="The scoring system 36:28"></a>The scoring system 36:28</h3><p>How can we calculate the score of an MSA?</p>
+<h3 id="the-scoring-system-3628">The scoring system 36:28</h3>
+<p>How can we calculate the score of an MSA?</p>
 <ul>
-<li>The total score: S(m)=∑ S(m<sub>i</sub>)<ul>
+<li>The total score: S(m)=∑ S(m<sub>i</sub>)
+<ul>
 <li>So the assumption is made that the score of one column (i) is independent of the other columns</li>
 <li>Sum-of-pairs or <strong>SP</strong></li>
-</ul>
-</li>
-<li>The score of column i: <strong>S(m<sub>i</sub>)=∑ s(m<sup>k</sup><sub>i</sub>, m<sup>l</sup><sub>i</sub>)</strong><ul>
+</ul></li>
+<li>The score of column i: <strong>S(m<sub>i</sub>)=∑ s(m<sup>k</sup><sub>i</sub>, m<sup>l</sup><sub>i</sub>)</strong>
+<ul>
 <li><strong>m<sup>k</sup><sub>i</sub></strong> is a residue in the sequence k in column i</li>
 <li><strong>s(m<sup>k</sup><sub>i</sub>, m<sup>l</sup><sub>i</sub>)</strong> The score from the substitution matrix</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>SP and its alternatives (column scores)</p>
-<p><img src="/images/ADVMB/1011174.png"></p>
+<p><img src="/images/ADVMB/1011174.png" /></p>
 <p>Minimum entropy: <strong>S(m<sub>i</sub>)=∑ <em>f<sup>k</sup><sub>i</sub>ln(f<sup>k</sup><sub>i</sub>)</em></strong></p>
 <p>Maximum likelihood</p>
-<h3 id="Methods-3-40-20"><a href="#Methods-3-40-20" class="headerlink" title="Methods 3 40:20"></a>Methods 3 40:20</h3><p><strong>Well-known methods:</strong></p>
+<h3 id="methods-3-4020">Methods 3 40:20</h3>
+<p><strong>Well-known methods:</strong></p>
 <ul>
 <li>An optimised version of the standard pairwise <strong>DP algorithms</strong>; limited applicability but exact</li>
 <li><strong>Progressive alignment</strong> (the CLUSTAL system)</li>
 </ul>
-<p><img src="/images/ADVMB/1011175.png"></p>
+<p><img src="/images/ADVMB/1011175.png" /></p>
 <ul>
 <li><strong>Iterative improvement</strong> methods for multiple sequence alignment (the SAGA system)</li>
 </ul>
-<h4 id="Progressive-alignment-problems-45-25"><a href="#Progressive-alignment-problems-45-25" class="headerlink" title="Progressive alignment problems 45:25"></a>Progressive alignment problems 45:25</h4><p>This method suffers from at least 2 problems:</p>
+<h4 id="progressive-alignment-problems-4525">Progressive alignment problems 45:25</h4>
+<p>This method suffers from at least 2 problems:</p>
 <ul>
-<li><strong>The local minimum problem</strong><ul>
+<li><strong>The local minimum problem</strong>
+<ul>
 <li>New sequences are added on top of existing alignments.</li>
 <li><em>Hence any early errors (misaligned regions) propagate to the complete alignment (due to divergence between sequences)</em></li>
-</ul>
-</li>
-<li><strong>The choice of alignment parameters</strong><ul>
+</ul></li>
+<li><strong>The choice of alignment parameters</strong>
+<ul>
 <li>One scoring matrix, a gap-open and a gap-extension value</li>
 <li><em>This works often for highly related sequences, yet starts to fail seriously as soon as sequences diverge</em></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Iterative-improvement-46-22"><a href="#Iterative-improvement-46-22" class="headerlink" title="Iterative improvement 46:22"></a>Iterative improvement 46:22</h4><p><img src="/images/ADVMB/1011176.png"></p>
-<h2 id="Profiles-57-04"><a href="#Profiles-57-04" class="headerlink" title="Profiles 57:04"></a>Profiles 57:04</h2><p>Using a <strong>profile</strong> we can better detect similarities between distantly related proteins.</p>
-<p>Profiles store general information properties of a MSA : </p>
-<ol>
+<h4 id="iterative-improvement-4622">Iterative improvement 46:22</h4>
+<p><img src="/images/ADVMB/1011176.png" /></p>
+<h2 id="profiles-5704">Profiles 57:04</h2>
+<p>Using a <strong>profile</strong> we can better detect similarities between distantly related proteins.</p>
+<p>Profiles store general information properties of a MSA :</p>
+<ol type="1">
 <li>Frequency information concerning the residues in each column of the MSA</li>
 <li>The evolutionary importance of every residue in that position</li>
 </ol>
 <p><strong>Position specific scoring matrix (PSSM)</strong></p>
-<h3 id="How-to-construct-a-PSSM-57-56"><a href="#How-to-construct-a-PSSM-57-56" class="headerlink" title="How to construct a PSSM ? 57:56"></a>How to construct a PSSM ? 57:56</h3><p><strong>Step 1</strong>: determine the frequencies for each amino acid b in every column u for N<sub>seq</sub> aligned sequences</p>
-<p><img src="/images/ADVMB/1011177.png"></p>
-<p><img src="/images/ADVMB/1011178.png"></p>
+<h3 id="how-to-construct-a-pssm-5756">How to construct a PSSM ? 57:56</h3>
+<p><strong>Step 1</strong>: determine the frequencies for each amino acid b in every column u for N<sub>seq</sub> aligned sequences</p>
+<p><img src="/images/ADVMB/1011177.png" /></p>
+<p><img src="/images/ADVMB/1011178.png" /></p>
 <p>A profile stores for <strong>each column</strong> in the MSA, the frequency multiplied by the alignment score with every other AA.</p>
-<p><img src="/images/ADVMB/1011179.png"></p>
-<p><img src="/images/ADVMB/1011180.png"></p>
-<p><img src="/images/ADVMB/1011181.png"></p>
+<p><img src="/images/ADVMB/1011179.png" /></p>
+<p><img src="/images/ADVMB/1011180.png" /></p>
+<p><img src="/images/ADVMB/1011181.png" /></p>
 <p>The score m<sub>u,a</sub> is the score for aligning a residue a with the column u</p>
 <ul>
 <li>We can therefore use the same DP algorithm as before to align a <strong>new</strong> sequence to an <strong>existing</strong> MSA (profile)</li>
@@ -593,20 +601,25 @@
 <ul>
 <li><strong>→PSEUDOCOUNTS</strong></li>
 </ul>
-<p><img src="/images/ADVMB/1011182.png"></p>
-<p><img src="/images/ADVMB/1011183.png" alt="[Calculating p&lt;sub&gt;a&lt;/sub&gt;]([UniProtKB/Swiss-Prot Release 2021_01 statistics (expasy.org)](https://web.expasy.org/docs/relnotes/relstat.html))"></p>
-<p><img src="/images/ADVMB/1011184.png"></p>
-<p><img src="/images/ADVMB/1011185.png"></p>
+<p><img src="/images/ADVMB/1011182.png" /></p>
+<figure>
+<img src="/images/ADVMB/1011183.png" alt="" /><figcaption><a href="%5BUniProtKB/Swiss-Prot%20Release%202021_01%20statistics%20(expasy.org)%5D(https://web.expasy.org/docs/relnotes/relstat.html)">Calculating p<sub>a</sub></a></figcaption>
+</figure>
+<p><img src="/images/ADVMB/1011184.png" /></p>
+<p><img src="/images/ADVMB/1011185.png" /></p>
 <p>Once the profile is determined one can also derive a <strong>consensus sequence</strong> which contains for every column the amino acid with the highest score m<sub>u,a</sub></p>
-<p><img src="/images/ADVMB/1011186.png"></p>
-<p><img src="/images/ADVMB/1011187.png"></p>
-<p><img src="/images/ADVMB/1011188.png" alt="Profiles, sequence logo 11"></p>
-<h3 id="Aligning-to-a-profile-1-33-17"><a href="#Aligning-to-a-profile-1-33-17" class="headerlink" title="Aligning to a profile 1:33:17"></a>Aligning to a profile 1:33:17</h3><p>Simply use either Needleman-Wunsch (L3) or Smith-Waterman (L3) to make the alignment </p>
-<p><img src="/images/ADVMB/1011189.png"></p>
+<p><img src="/images/ADVMB/1011186.png" /></p>
+<p><img src="/images/ADVMB/1011187.png" /></p>
+<figure>
+<img src="/images/ADVMB/1011188.png" alt="" /><figcaption>Profiles, sequence logo 11</figcaption>
+</figure>
+<h3 id="aligning-to-a-profile-13317">Aligning to a profile 1:33:17</h3>
+<p>Simply use either Needleman-Wunsch (L3) or Smith-Waterman (L3) to make the alignment</p>
+<p><img src="/images/ADVMB/1011189.png" /></p>
 <p>But now use the information in the PSSM to calculate the score (<em>linear gap penalty</em>):</p>
-<p><img src="/images/ADVMB/1011190.png"></p>
+<p><img src="/images/ADVMB/1011190.png" /></p>
 <p>Use in your project the following formula for calculating the values in your PSSM</p>
-<p><img src="/images/ADVMB/1011191.png"></p>
+<p><img src="/images/ADVMB/1011191.png" /></p>
 
                 
             </div>

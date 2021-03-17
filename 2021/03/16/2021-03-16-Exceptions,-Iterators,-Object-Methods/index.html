@@ -497,36 +497,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Exceptions-Iterators-Object-Methods"><a href="#Exceptions-Iterators-Object-Methods" class="headerlink" title="Exceptions, Iterators, Object Methods"></a>Exceptions, Iterators, Object Methods</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DWr8YNXPH6k&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB">Video</a></p>
-<h2 id="Lists-and-Sets-in-Java"><a href="#Lists-and-Sets-in-Java" class="headerlink" title="Lists and Sets in Java"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DWr8YNXPH6k&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB">Lists and Sets in Java</a></h2><h3 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h3><p>We have build two types of lists: ALists and SLLists.</p>
+                <h1 id="exceptions-iterators-object-methods">Exceptions, Iterators, Object Methods</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DWr8YNXPH6k&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB">Video</a></p>
+<h2 id="lists-and-sets-in-java"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DWr8YNXPH6k&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB">Lists and Sets in Java</a></h2>
+<h3 id="lists">Lists</h3>
+<p>We have build two types of lists: ALists and SLLists.</p>
 <ul>
 <li>Similar to Python lists.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List61B&lt;Integer&gt; L = <span class="keyword">new</span> AList&lt;&gt;();</span><br><span class="line">L.addLast(<span class="number">5</span>);</span><br><span class="line">L.addLast(<span class="number">10</span>);</span><br><span class="line">L.addLast(<span class="number">15</span>);</span><br><span class="line">L.print();	</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">L = []</span><br><span class="line">L.append(<span class="number">3</span>)</span><br><span class="line">L.append(<span class="number">4</span>)</span><br><span class="line">L.append(<span class="number">5</span>)</span><br><span class="line">print(L)</span><br></pre></td></tr></table></figure>
-<h4 id="Lists-in-Real-Java-Code"><a href="#Lists-in-Real-Java-Code" class="headerlink" title="Lists in Real Java Code"></a>Lists in Real Java Code</h4><p>We built a list from scratch, but Java provides a built-in List interface and several implementations, e.g. ArrayList.</p>
+<h4 id="lists-in-real-java-code">Lists in Real Java Code</h4>
+<p>We built a list from scratch, but Java provides a built-in List interface and several implementations, e.g. ArrayList.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List61B&lt;Integer&gt; L = <span class="keyword">new</span> AList&lt;&gt;();</span><br><span class="line">L.addLast(<span class="number">5</span>);</span><br><span class="line">L.addLast(<span class="number">10</span>);</span><br><span class="line">L.addLast(<span class="number">15</span>);</span><br><span class="line">L.print();</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.List&lt;Integer&gt; L = <span class="keyword">new</span> java.util.ArrayList&lt;&gt;();</span><br><span class="line">L.add(<span class="number">5</span>);</span><br><span class="line">L.add(<span class="number">10</span>);</span><br><span class="line">L.add(<span class="number">15</span>);</span><br><span class="line">System.out.println(L);</span><br></pre></td></tr></table></figure>
 <p>By including “import java.util.List” and “import java.util.ArrayList” at the top of the file, we can make our code more compact.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleBuiltInListExample</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; L = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="comment">// If we import, we can use the “simple name” (ArrayList) as opposed to the longer “canonical name” (java.util.ArrayList).</span></span><br><span class="line">    L.add(<span class="number">5</span>);</span><br><span class="line">    L.add(<span class="number">10</span>);</span><br><span class="line">    L.add(<span class="number">15</span>);</span><br><span class="line">    System.out.println(L);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Sets-in-Java-and-Python"><a href="#Sets-in-Java-and-Python" class="headerlink" title="Sets in Java and Python"></a>Sets in Java and Python</h3><p>Another handy data structure is the set.</p>
+<h3 id="sets-in-java-and-python">Sets in Java and Python</h3>
+<p>Another handy data structure is the set.</p>
 <ul>
 <li>Stores a set of values with no duplicates. Has no sense of order.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Set&lt;String&gt; S = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">S.add(<span class="string">&quot;Tokyo&quot;</span>);</span><br><span class="line">S.add(<span class="string">&quot;Beijing&quot;</span>);	</span><br><span class="line">S.add(<span class="string">&quot;Lagos&quot;</span>);</span><br><span class="line">S.add(<span class="string">&quot;São Paulo&quot;</span>);</span><br><span class="line">System.out.println(S.contains(<span class="string">&quot;Tokyo&quot;</span>));</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="built_in">set</span>()</span><br><span class="line">s.add(<span class="string">&quot;Tokyo&quot;</span>)</span><br><span class="line">s.add(<span class="string">&quot;Beijing&quot;</span>)</span><br><span class="line">s.add(<span class="string">&quot;Lagos&quot;</span>)</span><br><span class="line">s.add(<span class="string">&quot;São Paulo&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;Tokyo&quot;</span> <span class="keyword">in</span> s)</span><br></pre></td></tr></table></figure>
-<h4 id="ArraySet"><a href="#ArraySet" class="headerlink" title="ArraySet"></a>ArraySet</h4><p>Today we’re going to write our own Set called ArraySet.</p>
+<h4 id="arrayset">ArraySet</h4>
+<p>Today we’re going to write our own Set called ArraySet.</p>
 <ul>
 <li>Won’t be implementing any specific interface (for now).</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArraySet&lt;String&gt; S = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line">S.add(<span class="string">&quot;Tokyo&quot;</span>);</span><br><span class="line">S.add(<span class="string">&quot;Beijing&quot;</span>);	</span><br><span class="line">S.add(<span class="string">&quot;Lagos&quot;</span>);</span><br><span class="line">S.add(<span class="string">&quot;São Paulo&quot;</span>);</span><br><span class="line">System.out.println(S.contains(<span class="string">&quot;Tokyo&quot;</span>));</span><br><span class="line">System.out.println(S.size());</span><br></pre></td></tr></table></figure>
-<h5 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h5><p>Goal 1: Create a class ArraySet with the following methods:</p>
+<h5 id="goals">Goals</h5>
+<p>Goal 1: Create a class ArraySet with the following methods:</p>
 <ul>
 <li>add(value): Add the value to the ArraySet if it is not already present.</li>
 <li>contains(value): Checks to see if ArraySet contains the key.</li>
 <li>size(): Returns number of values.</li>
 </ul>
-<h5 id="Basic-Implementation"><a href="#Basic-Implementation" class="headerlink" title="Basic Implementation"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gX9KFdZBg-k&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&index=2">Basic Implementation</a></h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySet</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> T[] items;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ArraySet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    items = (T[]) <span class="keyword">new</span> Object[<span class="number">100</span>];</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="basic-implementation"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gX9KFdZBg-k&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&amp;index=2">Basic Implementation</a></h5>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySet</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> T[] items;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ArraySet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    items = (T[]) <span class="keyword">new</span> Object[<span class="number">100</span>];</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Array implementation of a Set:</p>
 <ul>
 <li>Use an array as the core data structure.</li>
@@ -535,15 +543,18 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i += <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (items[i].equals(x)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!contains(x)) &#123;</span><br><span class="line">    items[size] = x;</span><br><span class="line">    size += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="Using-An-ArraySet"><a href="#Using-An-ArraySet" class="headerlink" title="Using An ArraySet"></a>Using An ArraySet</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySet</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"><span class="comment">// Generic type variables</span></span><br><span class="line">  <span class="keyword">private</span> T[] items;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ArraySet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    items = (T[]) <span class="keyword">new</span> Object[<span class="number">100</span>];</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="using-an-arrayset">Using An ArraySet</h5>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySet</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"><span class="comment">// Generic type variables</span></span><br><span class="line">  <span class="keyword">private</span> T[] items;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ArraySet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    items = (T[]) <span class="keyword">new</span> Object[<span class="number">100</span>];</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArraySet&lt;String&gt; S = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line"><span class="comment">// Actual type arguments</span></span><br><span class="line">S.add(<span class="string">&quot;horse&quot;</span>);</span><br><span class="line">S.add(<span class="string">&quot;fish&quot;</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Exceptions"><a href="#Exceptions" class="headerlink" title="Exceptions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=r5hp67RfWaY&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&index=3">Exceptions</a></h2><p>Basic idea:</p>
+<h2 id="exceptions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=r5hp67RfWaY&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&amp;index=3">Exceptions</a></h2>
+<p>Basic idea:</p>
 <ul>
 <li>When something goes really wrong, break the normal flow of control.</li>
 <li>So far, we’ve only seen implicit exceptions, like the one below.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ArraySet&lt;String&gt; s = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line">    s.add(<span class="keyword">null</span>);</span><br><span class="line">    s.add(<span class="string">&quot;horse&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Explicit-Exceptions"><a href="#Explicit-Exceptions" class="headerlink" title="Explicit Exceptions"></a>Explicit Exceptions</h3><p>We can also throw our own exceptions using the <strong>throw</strong> keyword. </p>
+<h3 id="explicit-exceptions">Explicit Exceptions</h3>
+<p>We can also throw our own exceptions using the <strong>throw</strong> keyword.</p>
 <ul>
 <li>Can provide more informative message to a user.</li>
 <li>Can provide more information to code that “catches” the exception.</li>
@@ -552,33 +563,38 @@
 <p>Arguably this is a bad exception.</p>
 <ul>
 <li>Our code now crashes when someone tries to add a null.</li>
-<li>Other fixes:<ul>
+<li>Other fixes:
+<ul>
 <li>Ignore nulls.</li>
 <li>Fix contains so that it doesn’t crash if items[i] is null.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Iteration"><a href="#Iteration" class="headerlink" title="Iteration"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Gv6LjusNBU0&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&index=4">Iteration</a></h2><h3 id="The-Enhanced-For-Loop"><a href="#The-Enhanced-For-Loop" class="headerlink" title="The Enhanced For Loop"></a>The Enhanced For Loop</h3><p>Java allows us to iterate through Lists and Sets using a convenient shorthand syntax sometimes called the “foreach” or “enhanced for” loop.</p>
+<h2 id="iteration"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Gv6LjusNBU0&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&amp;index=4">Iteration</a></h2>
+<h3 id="the-enhanced-for-loop">The Enhanced For Loop</h3>
+<p>Java allows us to iterate through Lists and Sets using a convenient shorthand syntax sometimes called the “foreach” or “enhanced for” loop.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Set&lt;Integer&gt; javaset = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">javaset.add(<span class="number">5</span>);</span><br><span class="line">javaset.add(<span class="number">23</span>);</span><br><span class="line">javaset.add(<span class="number">42</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : javaset) &#123;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>This doesn’t work with our ArraySet.</li>
 <li>Let’s strip away the magic so we can build our own classes that support this.</li>
 </ul>
-<h4 id="How-Iteration-Really-Works"><a href="#How-Iteration-Really-Works" class="headerlink" title="How Iteration Really Works"></a>How Iteration Really Works</h4><p>An alternate, uglier way to iterate through a List is to use the iterator() method.</p>
+<h4 id="how-iteration-really-works">How Iteration Really Works</h4>
+<p>An alternate, uglier way to iterate through a List is to use the iterator() method.</p>
 <p>Set.java:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 <p>“Nice” iteration:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Set&lt;Integer&gt; javaset =</span><br><span class="line">  <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">...</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> x : javaset) &#123;</span><br><span class="line">   System.out.println(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>An alternate, uglier way to iterate through a List is to use the iterator() method.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Set&lt;Integer&gt; javaset =</span><br><span class="line">  <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">...</span><br><span class="line">Iterator&lt;Integer&gt; seer</span><br><span class="line"> 	= javaset.iterator();</span><br><span class="line"> </span><br><span class="line"><span class="keyword">while</span> (seer.hasNext()) &#123;</span><br><span class="line">  System.out.println(seer.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="The-Secret-of-the-Enhanced-For-Loop"><a href="#The-Secret-of-the-Enhanced-For-Loop" class="headerlink" title="The Secret of the Enhanced For Loop"></a>The Secret of the Enhanced For Loop</h4><p>The secret: The code on the left is just shorthand for the code on the right. For code on right to compile, which checks does the compiler need to do?</p>
+<h4 id="the-secret-of-the-enhanced-for-loop">The Secret of the Enhanced For Loop</h4>
+<p>The secret: The code on the left is just shorthand for the code on the right. For code on right to compile, which checks does the compiler need to do?</p>
 <ul>
 <li><strong>Does the Set interface have an iterator() method?</strong></li>
 <li><del>Does the Set interface have next/hasNext() methods?</del></li>
 <li><del>Does the Iterator interface have an iterator method?</del></li>
 <li><strong>Does the Iterator interface have next/hasNext() methods?</strong></li>
 </ul>
-<h4 id="Supporting-Ugly-Iteration-in-ArraySets"><a href="#Supporting-Ugly-Iteration-in-ArraySets" class="headerlink" title="Supporting Ugly Iteration in ArraySets"></a>Supporting Ugly Iteration in ArraySets</h4><p>To support ugly iteration:</p>
+<h4 id="supporting-ugly-iteration-in-arraysets">Supporting Ugly Iteration in ArraySets</h4>
+<p>To support ugly iteration:</p>
 <ul>
 <li>Add an iterator() method to ArraySet that returns an Iterator&lt;T&gt;.</li>
 <li>The Iterator&lt;T&gt; that we return should have a useful hasNext() and next() method.</li>
@@ -588,35 +604,40 @@
 <p>Completed ArraySet iterator Method:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySetIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> wizPos;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="title">ArraySetIterator</span><span class="params">()</span> </span>&#123; wizPos = <span class="number">0</span>; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> wizPos &lt; size; &#125;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> T <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	T returnItem = items[wizPos];</span><br><span class="line">    	wizPos += <span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">return</span> returnItem;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> ArraySetIterator();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Our code now supports “ugly” iteration, but enhanced for loop still doesn’t work. </p>
+<p>Our code now supports “ugly” iteration, but enhanced for loop still doesn’t work.</p>
 <p>The problem: Java isn’t smart enough to realize that our ArraySet has an iterator() method.</p>
 <ul>
 <li>Luckily there’s an interface for that.</li>
 </ul>
-<h4 id="For-each-Iteration-And-ArraySets"><a href="#For-each-Iteration-And-ArraySets" class="headerlink" title="For-each Iteration And ArraySets"></a>For-each Iteration And ArraySets</h4><p>To support the enhanced for loop, we need to make ArraySet implement the Iterable interface.</p>
+<h4 id="for-each-iteration-and-arraysets">For-each Iteration And ArraySets</h4>
+<p>To support the enhanced for loop, we need to make ArraySet implement the Iterable interface.</p>
 <ul>
 <li>There are also some default methods in Iterable, not shown.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Iterable&lt;T&gt;</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterable</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ArraySet&lt;T&gt;</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraySet</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="The-Iterable-Interface"><a href="#The-Iterable-Interface" class="headerlink" title="The Iterable Interface"></a>The Iterable Interface</h3><p>By the way, this is how Set works as well.</p>
+<h3 id="the-iterable-interface">The Iterable Interface</h3>
+<p>By the way, this is how Set works as well.</p>
 <ul>
 <li>Source code for Iterable: <a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/999dbd4192d0f819cb5224f26e9e7fa75ca6f289/src/java.base/share/classes/java/lang/Iterable.java">Link</a>, Set: <a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/999dbd4192d0f819cb5224f26e9e7fa75ca6f289/src/java.base/share/classes/java/util/Set.java">Link</a>, Collection: <a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/999dbd4192d0f819cb5224f26e9e7fa75ca6f289/src/java.base/share/classes/java/util/Collection.java">Link</a>.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterable</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span></span>; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Iterable</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>To support the enhanced for loop:</p>
+<h3 id="summary">Summary</h3>
+<p>To support the enhanced for loop:</p>
 <ul>
 <li>Add an iterator() method to your class that returns an Iterator&lt;T&gt;.</li>
 <li>The Iterator&lt;T&gt; returned should have a useful hasNext() and next() method.</li>
 <li>Add implements Iterable&lt;T&gt; to the line defining your class.</li>
 </ul>
-<h2 id="Object-Methods-Equals-and-toString"><a href="#Object-Methods-Equals-and-toString" class="headerlink" title="Object Methods: Equals and toString()"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AKnMv0ootkg&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&index=5">Object Methods: Equals and toString()</a></h2><h3 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h3><p>All classes are hyponyms of Object.</p>
+<h2 id="object-methods-equals-and-tostring"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AKnMv0ootkg&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&amp;index=5">Object Methods: Equals and toString()</a></h2>
+<h3 id="objects">Objects</h3>
+<p>All classes are hyponyms of Object.</p>
 <ul>
 <li><strong>String toString()</strong></li>
 <li><strong>boolean equals(Object obj)</strong></li>
-<li>Class&lt;?&gt;    getClass()</li>
+<li>Class&lt;?&gt; getClass()</li>
 <li><strong>int hashCode()</strong></li>
 <li>protected Objectclone()</li>
 <li>protected void finalize()</li>
@@ -626,92 +647,104 @@
 <li>void wait(long timeout)</li>
 <li>void wait(long timeout, int nanos)</li>
 </ul>
-<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><p>The toString() method provides a string representation of an object.</p>
+<h3 id="tostring">toString()</h3>
+<p>The toString() method provides a string representation of an object.</p>
 <ul>
-<li>System.out.println(Object x) calls x.toString()<ul>
+<li>System.out.println(Object x) calls x.toString()
+<ul>
 <li>If you’re curious: <a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/999dbd4192d0f819cb5224f26e9e7fa75ca6f289/src/java.base/share/classes/java/io/PrintStream.java#L896">println</a> calls <a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/f0ef2826d2116f4e0c0ed21f8d54fe9d0706504e/src/java.base/share/classes/java/lang/String.java">String.valueOf</a> which calls toString</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Set&lt;Integer&gt; javaset = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">javaset.add(<span class="number">5</span>);</span><br><span class="line">javaset.add(<span class="number">23</span>);</span><br><span class="line">javaset.add(<span class="number">42</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(javaset);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>The <a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/999dbd4192d0f819cb5224f26e9e7fa75ca6f289/src/java.base/share/classes/java/lang/Object.java#L245">implementation of toString() in Object</a> is the the name of the class, then an @ sign, then the memory location of the object.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArraySet&lt;Integer&gt; aset = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line">aset.add(<span class="number">5</span>);</span><br><span class="line">aset.add(<span class="number">23</span>);</span><br><span class="line">aset.add(<span class="number">42</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(aset);</span><br></pre></td></tr></table></figure>
-<h4 id="ArraySet-toString"><a href="#ArraySet-toString" class="headerlink" title="ArraySet toString"></a>ArraySet toString</h4><p>Let’s try implementing toString for ArraySet.</p>
+<h4 id="arrayset-tostring">ArraySet toString</h4>
+<p>Let’s try implementing toString for ArraySet.</p>
 <p>One approach is shown below.</p>
 <ul>
-<li>Warning: This code is slow. Intuition: Adding even a single character to a string creates an entirely new string. Will discuss why at end of course.<ul>
+<li>Warning: This code is slow. Intuition: Adding even a single character to a string creates an entirely new string. Will discuss why at end of course.
+<ul>
 <li>Spoiler: It’s because Strings are “immutable”.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String returnString = <span class="string">&quot;&#123;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i += <span class="number">1</span>) &#123;</span><br><span class="line">        returnString += keys[i];</span><br><span class="line">        returnString += <span class="string">&quot;, &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    returnString += <span class="string">&quot;&#125;&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> returnString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Much faster approach is shown below.</p>
 <ul>
-<li>Intuition: Append operation for a StringBuilder is fast. </li>
+<li>Intuition: Append operation for a StringBuilder is fast.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    StringBuilder returnSB = <span class="keyword">new</span> StringBuilder(<span class="string">&quot;&#123;&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i += <span class="number">1</span>) &#123;</span><br><span class="line">        returnSB.append(items[i]);</span><br><span class="line">        returnSB.append(<span class="string">&quot;, &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    returnSB.append(<span class="string">&quot;&#125;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> returnSB.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Equals-vs"><a href="#Equals-vs" class="headerlink" title="Equals vs. =="></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qHuS1o97nfQ&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&index=6">Equals vs. ==</a></h3><p>As mentioned in an offhand manner previously, == and .equals() behave differently.</p>
+<h3 id="equals-vs."><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qHuS1o97nfQ&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&amp;index=6">Equals vs. ==</a></h3>
+<p>As mentioned in an offhand manner previously, == and .equals() behave differently.</p>
 <ul>
 <li>== compares the bits. For references, == means “referencing the same object.”</li>
 </ul>
 <p>To test equality in the sense we usually mean it, use:</p>
 <ul>
-<li>.equals for classes. Requires writing a .equals method for your classes.<ul>
+<li>.equals for classes. Requires writing a .equals method for your classes.
+<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/999dbd4192d0f819cb5224f26e9e7fa75ca6f289/src/java.base/share/classes/java/lang/Object.java#L157">Default implementation</a> of .equals uses == (probably not what you want)</li>
-</ul>
-</li>
+</ul></li>
 <li>.BTW: Use Arrays.equal or Arrays.deepEquals for arrays.</li>
 </ul>
-<h4 id="The-Default-Implementation-of-Equals"><a href="#The-Default-Implementation-of-Equals" class="headerlink" title="The Default Implementation of Equals"></a>The Default Implementation of Equals</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArraySet&lt;Integer&gt; aset = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line">aset.add(<span class="number">5</span>);</span><br><span class="line">aset.add(<span class="number">23</span>);</span><br><span class="line">aset.add(<span class="number">42</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(aset);</span><br><span class="line"> </span><br><span class="line">ArraySet&lt;Integer&gt; aset2 = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line">aset2.add(<span class="number">5</span>);</span><br><span class="line">aset2.add(<span class="number">23</span>);</span><br><span class="line">aset2.add(<span class="number">42</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(aset.equals(aset2));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Returns false because the default implementation of equals just uses ==.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="ArraySet-equals"><a href="#ArraySet-equals" class="headerlink" title="ArraySet equals"></a>ArraySet equals</h4><p>Let’s try implementing equals for ArraySet.</p>
+<h4 id="the-default-implementation-of-equals">The Default Implementation of Equals</h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArraySet&lt;Integer&gt; aset = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line">aset.add(<span class="number">5</span>);</span><br><span class="line">aset.add(<span class="number">23</span>);</span><br><span class="line">aset.add(<span class="number">42</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(aset);</span><br><span class="line"> </span><br><span class="line">ArraySet&lt;Integer&gt; aset2 = <span class="keyword">new</span> ArraySet&lt;&gt;();</span><br><span class="line">aset2.add(<span class="number">5</span>);</span><br><span class="line">aset2.add(<span class="number">23</span>);</span><br><span class="line">aset2.add(<span class="number">42</span>);</span><br><span class="line"> </span><br><span class="line">System.out.println(aset.equals(aset2));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Returns false because the default implementation of equals just uses ==.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="arrayset-equals">ArraySet equals</h4>
+<p>Let’s try implementing equals for ArraySet.</p>
 <p>The implementation below is a good start, but fails if o is null or another class.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">  ArraySet&lt;T&gt; other = (ArraySet&lt;T&gt;) o;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.size() != other.size()) &#123; <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</span><br><span class="line">    <span class="keyword">for</span> (T item : <span class="keyword">this</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!other.contains(item)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The implementation below is much better, but we can speed things up.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123; <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.getClass() != o.getClass()) &#123; <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</span><br><span class="line">  ArraySet&lt;T&gt; other = (ArraySet&lt;T&gt;) o;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.size() != other.size()) &#123; <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</span><br><span class="line">    <span class="keyword">for</span> (T item : <span class="keyword">this</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!other.contains(item)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The code below is pretty close to what a standard equals method looks like.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123; <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span> == o) &#123; <span class="keyword">return</span> <span class="keyword">true</span>; &#125; <span class="comment">// optimization</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.getClass() != o.getClass()) &#123; <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</span><br><span class="line">  ArraySet&lt;T&gt; other = (ArraySet&lt;T&gt;) o;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.size() != other.size()) &#123; <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</span><br><span class="line">    <span class="keyword">for</span> (T item : <span class="keyword">this</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!other.contains(item)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=fm34ffDekgc&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&index=7">Summary</a></h2><p>We built our own Array based Set implementation.</p>
+<h2 id="summary-1"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=fm34ffDekgc&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&amp;index=7">Summary</a></h2>
+<p>We built our own Array based Set implementation.</p>
 <p>To make it more industrial strength we:</p>
 <ul>
-<li>Added an exception if a user tried to add null to the set.<ul>
+<li>Added an exception if a user tried to add null to the set.
+<ul>
 <li>There are other ways to deal with nulls. Our choice was arguably bad.</li>
-</ul>
-</li>
-<li>Added support for “ugly” then “nice” iteration.<ul>
+</ul></li>
+<li>Added support for “ugly” then “nice” iteration.
+<ul>
 <li>Ugly iteration: Creating a subclass with next and hasNext methods.</li>
 <li>Nice iteration: Declaring that ArraySet implements Iterable.</li>
-</ul>
-</li>
-<li>Added a toString() method.<ul>
+</ul></li>
+<li>Added a toString() method.
+<ul>
 <li>Beware of String concatenation.</li>
-</ul>
-</li>
-<li>Added an equals(Object) method.<ul>
+</ul></li>
+<li>Added an equals(Object) method.
+<ul>
 <li>Make sure to deal with null and non-ArraySet arguments!</li>
 <li>Used getClass to check the class of the passed object. Use sparingly.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Even-Better-toString-and-ArraySet-of"><a href="#Even-Better-toString-and-ArraySet-of" class="headerlink" title="Even Better toString and ArraySet.of"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tjLpeVD0KWc&list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&index=8">Even Better toString and ArraySet.of</a></h2><ol>
+<h2 id="even-better-tostring-and-arrayset.of"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tjLpeVD0KWc&amp;list=PL8FaHk7qbOD4vPE_Bd8QagarKi3kPw8rB&amp;index=8">Even Better toString and ArraySet.of</a></h2>
+<ol type="1">
 <li>Make ArraySet implement the Iterable<T> interface.</li>
 <li>Implement a toString method.</li>
 <li>Implement an equals() method.</li>
 </ol>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h3 id="Exceptions-1"><a href="#Exceptions-1" class="headerlink" title="Exceptions"></a>Exceptions</h3><p>Most likely you have encountered an exception in your code such as a <code>NullPointerException</code> or an <code>IndexOutOfBoundsException</code>. Now we will learn about how we can “throw” exceptions ourselves, and also handle thrown exceptions. Here is an example of an exception that we throw:</p>
+<h2 id="overview">Overview</h2>
+<h3 id="exceptions-1">Exceptions</h3>
+<p>Most likely you have encountered an exception in your code such as a <code>NullPointerException</code> or an <code>IndexOutOfBoundsException</code>. Now we will learn about how we can “throw” exceptions ourselves, and also handle thrown exceptions. Here is an example of an exception that we throw:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;For no reason.&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p><em>Note: Try/Catch is out of scope for now!</em></p>
 <p>Throwing exceptions is useful to notify your user of something wrong they have done. On the other hand, we can also “catch” exceptions that happen in our code! Here is an example:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    dog.run()</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Tried to run: &quot;</span> + e);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p>There are a few key things to note. Firstly, the entirety of the <code>try</code> section is run until/if there is an exception thrown. If there never is an exception, the entire catch block is skipped. If there is an exception, the code immediately jumps into the catch block with the corresponding exception, and executes from there.</p>
-<h3 id="Iterators-and-Iterables"><a href="#Iterators-and-Iterables" class="headerlink" title="Iterators and Iterables"></a>Iterators and Iterables</h3><p>These two words are very closely related, but have two different meanings that are often easy to confuse. The first thing to know is that these are both Java interfaces, with different methods that need to be implemented. Here is a simplified interface for Iterator:</p>
+<h3 id="iterators-and-iterables">Iterators and Iterables</h3>
+<p>These two words are very closely related, but have two different meanings that are often easy to confuse. The first thing to know is that these are both Java interfaces, with different methods that need to be implemented. Here is a simplified interface for Iterator:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function">T <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Here is a simplified interface for Iterable:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterable</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Notice that in order for an object (for example an ArrayList or LinkedList) to be <em>iterable</em>, it must include a method that returns an <em>iterator</em>. The iterator is the object that iterates over an iterable object. Keep this relationship and distinction in mind as you work with these two interfaces.</p>
-<h3 id="toString"><a href="#toString" class="headerlink" title="toString"></a>toString</h3><p>The <code>toString()</code> method returns a string representation of objects.</p>
-<h3 id="vs-equals"><a href="#vs-equals" class="headerlink" title="== vs .equals"></a>== vs .equals</h3><p>We have two concepts of equality in Java- “==” and the “.equals()” method. The key difference is that when using ==, we are checking if two objects have the same address in memory (that they point to the same object). On the other hand, .equals() is a method that can be overridden by a class and can be used to define some custom way of determining equality.</p>
+<h3 id="tostring-1">toString</h3>
+<p>The <code>toString()</code> method returns a string representation of objects.</p>
+<h3 id="vs-.equals">== vs .equals</h3>
+<p>We have two concepts of equality in Java- “==” and the “.equals()” method. The key difference is that when using ==, we are checking if two objects have the same address in memory (that they point to the same object). On the other hand, .equals() is a method that can be overridden by a class and can be used to define some custom way of determining equality.</p>
 <p>For example, say we wanted to check if two stones are equal:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stone</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Stone</span><span class="params">(<span class="keyword">int</span> weight)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line">Stone s = <span class="keyword">new</span> Stone(<span class="number">100</span>);</span><br><span class="line">Stone r = <span class="keyword">new</span> Stone(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
 <p>If we want to consider s and r equal because they have the same weight. If we do check equality using ==, these Stones would not be considered equal because they do not have the same memory address.</p>

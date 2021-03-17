@@ -497,323 +497,327 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ID3-algorithm-for-learning-classification"><a href="#ID3-algorithm-for-learning-classification" class="headerlink" title="ID3 algorithm for learning classification"></a>ID3 algorithm for learning classification</h1><h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
-<li>The classification problem<ul>
+                <h1 id="id3-algorithm-for-learning-classification">ID3 algorithm for learning classification</h1>
+<h2 id="outline">Outline</h2>
+<ul>
+<li>The classification problem
+<ul>
 <li>geometrical interpretation</li>
-</ul>
-</li>
-<li>Attribute selection<ul>
+</ul></li>
+<li>Attribute selection
+<ul>
 <li>entropy, mutual information</li>
-</ul>
-</li>
-<li>Some classifiers <ul>
+</ul></li>
+<li>Some classifiers
+<ul>
 <li>bayesian, SVM, decision trees</li>
-</ul>
-</li>
-<li>The ID3 algorithm<ul>
+</ul></li>
+<li>The ID3 algorithm
+<ul>
 <li>Avoiding overfitting</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><p><strong>Goal</strong>: given a set of examples described by several attributes (or features) and a set of  classes, label each example with a class</p>
+<h2 id="classification">Classification</h2>
+<p><strong>Goal</strong>: given a set of examples described by several attributes (or features) and a set of classes, label each example with a class</p>
 <p><strong>Applications:</strong></p>
 <ul>
-<li>biometry: identify a person from her voice, face, gait, …</li>
-<li>category recognition (object, speech, musical instrument,…)</li>
+<li>biometry: identify a person from her voice, face, gait, ...</li>
+<li>category recognition (object, speech, musical instrument,...)</li>
 <li>data mining: predict the user’s behaviour depending on his past history</li>
-<li>medical diagnosis: knowing the symptoms and eventual test results, determine  whether a patient is sick</li>
+<li>medical diagnosis: knowing the symptoms and eventual test results, determine whether a patient is sick</li>
 </ul>
-<h3 id="Why-is-it-hard"><a href="#Why-is-it-hard" class="headerlink" title="Why is it hard?"></a>Why is it hard?</h3><ul>
+<h3 id="why-is-it-hard">Why is it hard?</h3>
+<ul>
 <li><p>The classes themselves are not observable</p>
 <ul>
-<li><p>the classes represent high-level information (identity, behaviour,…) but only low-level  attributes (pixel values, numbers of clicks on a web page,…) are observed</p>
-</li>
-<li><p>the human brain is good at making sense of data, but we still don’t know how</p>
-</li>
-</ul>
-</li>
+<li><p>the classes represent high-level information (identity, behaviour,...) but only low-level attributes (pixel values, numbers of clicks on a web page,...) are observed</p></li>
+<li><p>the human brain is good at making sense of data, but we still don’t know how</p></li>
+</ul></li>
 <li><p>There are many attributes</p>
 <ul>
-<li>each attribute individually has little correlation with the classes<ul>
+<li>each attribute individually has little correlation with the classes
+<ul>
 <li>so we need a lot of attributes</li>
-</ul>
-</li>
-<li>the correlation between the attributes and the classes is not known beforehand<ul>
+</ul></li>
+<li>the correlation between the attributes and the classes is not known beforehand
+<ul>
 <li>it has to be learnt</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li><p>There are many examples</p>
 <ul>
 <li>if not, it could be done by hand</li>
 <li>learning algorithms are costly</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Machine-learning-for-classification"><a href="#Machine-learning-for-classification" class="headerlink" title="Machine learning for classification"></a>Machine learning for classification</h3><ul>
-<li><p>Classifier: a function that takes features and returns the class of an example with those features </p>
+<h3 id="machine-learning-for-classification">Machine learning for classification</h3>
+<ul>
+<li><p>Classifier: a function that takes features and returns the class of an example with those features</p>
 <ul>
 <li>a classifier can label any possible example, not only the problem set</li>
-</ul>
-</li>
+</ul></li>
 <li><p>Machine learning approach</p>
 <ul>
-<li>learn the classifier from a training set, then apply it to the problem examples<ul>
+<li>learn the classifier from a training set, then apply it to the problem examples
+<ul>
 <li>supervised learning: the classes of the training examples are known</li>
 <li>the training set is much smaller than the problem set</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>The learning step is costly but performed only once</p>
-</li>
+</ul></li>
+</ul></li>
+<li><p>The learning step is costly but performed only once</p></li>
 <li><p>How can we ensure that the classifier will work on the problem data?</p>
 <ul>
 <li>we cannot for sure :(</li>
 <li>Occam’s razor: the simplest solution is often the right one</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Geometrical-view"><a href="#Geometrical-view" class="headerlink" title="Geometrical view"></a>Geometrical view</h3><ul>
-<li>The examples lie in the attribute space ‣ each attribute is a dimension ‣ each example is a point<ul>
+<h3 id="geometrical-view">Geometrical view</h3>
+<ul>
+<li>The examples lie in the attribute space ‣ each attribute is a dimension ‣ each example is a point
+<ul>
 <li>classes are represented by colours</li>
-</ul>
-</li>
+</ul></li>
 <li>A classifier embodies a partition of the attribute space</li>
-<li>Learning a classifier is partitioning the training set into homogeneous subsets<ul>
+<li>Learning a classifier is partitioning the training set into homogeneous subsets
+<ul>
 <li>each subspace contains training examples of exactly 1 class</li>
-</ul>
-</li>
+</ul></li>
 <li>Applying a classifier is therefore just checking in which subspace a point lies</li>
 </ul>
-<p><img src="/images/AI/2006470.png" alt="Geometrical view"></p>
-<p><img src="/images/AI/2006471.png" alt="Learning a classifier"></p>
-<p><img src="/images/AI/2006472.png" alt="Applying the classifier"></p>
-<h4 id="Structure-of-the-classifier"><a href="#Structure-of-the-classifier" class="headerlink" title="Structure of the classifier"></a>Structure of the classifier</h4><p><img src="/images/AI/2006473.png"></p>
+<figure>
+<img src="/images/AI/2006470.png" alt="" /><figcaption>Geometrical view</figcaption>
+</figure>
+<figure>
+<img src="/images/AI/2006471.png" alt="" /><figcaption>Learning a classifier</figcaption>
+</figure>
+<figure>
+<img src="/images/AI/2006472.png" alt="" /><figcaption>Applying the classifier</figcaption>
+</figure>
+<h4 id="structure-of-the-classifier">Structure of the classifier</h4>
+<p><img src="/images/AI/2006473.png" /></p>
 <ul>
 <li>The subspaces of the classifier do not have to be connected</li>
 <li>The border can be much more complex than a single line</li>
-<li>Generally, the types of borders allowed are set by the algorithm<ul>
+<li>Generally, the types of borders allowed are set by the algorithm
+<ul>
 <li>need expert knowledge of the problem</li>
 <li>there is no single algorithm that solves every problem</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Attribute-selection"><a href="#Attribute-selection" class="headerlink" title="Attribute selection"></a>Attribute selection</h2><h3 id="Symbolic-and-numeric-attributes"><a href="#Symbolic-and-numeric-attributes" class="headerlink" title="Symbolic and numeric attributes"></a>Symbolic and numeric attributes</h3><ul>
-<li>Symbolic attributes<ul>
-<li>finite, discrete valued: e.g. gender, status,…</li>
+<h2 id="attribute-selection">Attribute selection</h2>
+<h3 id="symbolic-and-numeric-attributes">Symbolic and numeric attributes</h3>
+<ul>
+<li>Symbolic attributes
+<ul>
+<li>finite, discrete valued: e.g. gender, status,...</li>
 <li>no notion of order or distance between values, only boolean comparison</li>
 <li>can be enumerated</li>
 <li>must use logic to combine different attributes after testing them</li>
-</ul>
-</li>
-<li>Numeric attributes<ul>
-<li>real or integer valued: e.g. grades, temperature, pixels, samples,…</li>
+</ul></li>
+<li>Numeric attributes
+<ul>
+<li>real or integer valued: e.g. grades, temperature, pixels, samples,...</li>
 <li>can be measured</li>
-<li>can use algebra to combine different attributes before testing them<ul>
+<li>can use algebra to combine different attributes before testing them
+<ul>
 <li>can create new attributes</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Attribute-selection-engineering"><a href="#Attribute-selection-engineering" class="headerlink" title="Attribute selection/engineering"></a>Attribute selection/engineering</h3><ul>
-<li><p>Learning is hard. Learning algorithms in general are both costly and suboptimal.</p>
-</li>
-<li><p>Learning is easier if one starts with “good” attributes </p>
+<h3 id="attribute-selectionengineering">Attribute selection/engineering</h3>
+<ul>
+<li><p>Learning is hard. Learning algorithms in general are both costly and suboptimal.</p></li>
+<li><p>Learning is easier if one starts with “good” attributes</p>
 <ul>
 <li>fewer attributes decrease the cost of learning</li>
 <li>a good initial guess helps finding the best classifier</li>
-</ul>
-</li>
-<li><p>What is a “good” attribute? </p>
+</ul></li>
+<li><p>What is a “good” attribute?</p>
 <ul>
 <li>easiest case: the classes themselves as an attribute</li>
 <li>hardest case (insoluble): no attributes at all</li>
 <li>an attribute that carries a lot of “information”</li>
 <li>an attribute whose “information” is related to the clas</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h3><h4 id="Information-theory-Shannon-1948"><a href="#Information-theory-Shannon-1948" class="headerlink" title="Information theory (Shannon 1948)"></a>Information theory (Shannon 1948)</h4><ul>
-<li><p>Communication problem: how to compress a signal, i.e. a stream of independent random variables X ? </p>
+<h3 id="entropy">Entropy</h3>
+<h4 id="information-theory-shannon-1948">Information theory (Shannon 1948)</h4>
+<ul>
+<li>Communication problem: how to compress a signal, i.e. a stream of independent random variables X ?
 <ul>
 <li>e.g.: signal = succession of coin tosses</li>
-</ul>
-</li>
-<li><p>Quantity of information in the signal = minimum bit rate needed to transmit it</p>
+</ul></li>
+<li>Quantity of information in the signal = minimum bit rate needed to transmit it
 <ul>
 <li>i.e. the average number of bits per symbol.</li>
-</ul>
-</li>
-<li><p>It is a function of the probability distribution of the signal</p>
+</ul></li>
+<li>It is a function of the probability distribution of the signal
 <ul>
 <li>the distribution represents what is known before the actual transmission, i.e. what does not depend on the number of samples</li>
 <li>the bit rate should be chosen before transmission</li>
-</ul>
-</li>
-<li><p>The more uncertain the distribution, the more information in the content</p>
+</ul></li>
+<li>The more uncertain the distribution, the more information in the content
 <ul>
 <li>if the coin is double-headed, then there is nothing to transmit</li>
-</ul>
-</li>
-<li><p>Probabilities are multiplicative, information is additive</p>
+</ul></li>
+<li>Probabilities are multiplicative, information is additive
 <ul>
 <li>if ones tosses a coin n times, there are 2 n possible outcomes, but they can all be written using n bits only</li>
 <li>information content depends on the logarithm of the probability distribution</li>
-</ul>
-</li>
-<li><p>Impossible events should not matter</p>
+</ul></li>
+<li>Impossible events should not matter
 <ul>
 <li>adding “the coin can rest on its side with probability 0” should not change the amount of information</li>
 <li>weight the logarithms by the probability of each event</li>
+</ul></li>
+<li>Entropy: <span class="math display">\[
+H(x) = - \sum_{X = x}p_x\log_2p_x
+\]</span></li>
 </ul>
-</li>
-<li><p>Entropy:<br>$$<br>H(x) = - \sum_{X = x}p_x\log_2p_x<br>$$</p>
-</li>
-</ul>
-<h4 id="Example-coin-toss"><a href="#Example-coin-toss" class="headerlink" title="Example: coin toss"></a>Example: coin toss</h4><ul>
-<li>Two values (e.g. Heads and Tails)<ul>
+<h4 id="example-coin-toss">Example: coin toss</h4>
+<ul>
+<li>Two values (e.g. Heads and Tails)
+<ul>
 <li>respective frequencies p and 1-p</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/AI/2006474.png"></p>
-<h5 id="What-does-it-mean"><a href="#What-does-it-mean" class="headerlink" title="What does it mean?"></a>What does it mean?</h5><ul>
-<li>How can one coin-toss hold less than 1 bit of information when there are still 2 possible outcomes?<ul>
+<p><img src="/images/AI/2006474.png" /></p>
+<h5 id="what-does-it-mean">What does it mean?</h5>
+<ul>
+<li>How can one coin-toss hold less than 1 bit of information when there are still 2 possible outcomes?
+<ul>
 <li>The result is <em>probabilistic</em>: for any bit rate b&gt;H(X) and any arbitrarily low error rate e&gt;0, there is an encoder with bit rate b and error rate e.</li>
-</ul>
-</li>
-<li>What does an non-integer quantity of information mean?<ul>
+</ul></li>
+<li>What does an non-integer quantity of information mean?
+<ul>
 <li>It is a rate for a stream of independent samples</li>
 <li>The stream is encoded by grouping samples together into words</li>
 <li>H(X) = 0.4 means that words of 10 samples can be encoded using 4 bits only.</li>
-</ul>
-</li>
-<li>How does it work?<ul>
+</ul></li>
+<li>How does it work?
+<ul>
 <li>If H(X) is less than maximal, then there are rare events</li>
 <li>Conjunctions of rare events become rarer and rarer as word length increases</li>
 <li>At some point they become negligible and do not need to be encoded anymore</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Mutual-information"><a href="#Mutual-information" class="headerlink" title="Mutual information"></a>Mutual information</h3><p>Objective: measure how much of the information in two random variables is shared </p>
+<h3 id="mutual-information">Mutual information</h3>
+<p>Objective: measure how much of the information in two random variables is shared</p>
 <ul>
 <li>0 if the variables are independent</li>
-<li>maximal if one variable is a function of the other. </li>
+<li>maximal if one variable is a function of the other.</li>
 <li>Mutual information: <em>I(X;Y) = H(X) + H(Y) - H(X,Y)</em></li>
 </ul>
-<p><img src="/images/AI/2006475.png"></p>
-<h4 id="Computing-the-entropy-numerically"><a href="#Computing-the-entropy-numerically" class="headerlink" title="Computing the entropy numerically"></a>Computing the entropy numerically</h4><ul>
-<li><p>Don’t forget that log(0<sup>+</sup>) tends to -∞… </p>
+<p><img src="/images/AI/2006475.png" /></p>
+<h4 id="computing-the-entropy-numerically">Computing the entropy numerically</h4>
 <ul>
-<li>… but 0 +log0<sup>+</sup>) converges to 0</li>
+<li><p>Don’t forget that log(0<sup>+</sup>) tends to -∞...</p>
+<ul>
+<li>... but 0 +log0<sup>+</sup>) converges to 0</li>
 <li>test if the probability is 0, do not compute explicitly in that case</li>
-</ul>
-</li>
+</ul></li>
 <li><p>How to compute log<sub>2</sub>:</p>
 <ul>
-<li><p>many languages do have a log<sub>2</sub> function (MATLAB, C, C++,…) </p>
-</li>
-<li><p>… but some do not (Java,…)</p>
-</li>
-<li><p>for any bases a and b,<br>$$<br>\log_bx = \frac{\log_ax}{\log_ab}<br>$$</p>
-</li>
-<li><p>in our case b=2</p>
-</li>
-<li><p>a is usually e, maybe 10 (does it matter?)</p>
-</li>
+<li><p>many languages do have a log<sub>2</sub> function (MATLAB, C, C++,...)</p></li>
+<li><p>... but some do not (Java,...)</p></li>
+<li><p>for any bases a and b, <span class="math display">\[
+\log_bx = \frac{\log_ax}{\log_ab}
+\]</span></p></li>
+<li><p>in our case b=2</p></li>
+<li><p>a is usually e, maybe 10 (does it matter?)</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Back-to-attribute-selection"><a href="#Back-to-attribute-selection" class="headerlink" title="Back to attribute selection"></a>Back to attribute selection</h4><ul>
-<li>Finding attributes with high entropy:<ul>
-<li>start with a compressing transform (e.g. time/frequency for sounds, wavelet or DCT for images, movement vectors for video,…)</li>
-<li>for numeric attributes, variance can often be used as a good surrogate for entropy, and is easier to compute </li>
-</ul>
-</li>
-<li>Finding features with high mutual information with the classes:<ul>
+<h4 id="back-to-attribute-selection">Back to attribute selection</h4>
+<ul>
+<li>Finding attributes with high entropy:
+<ul>
+<li>start with a compressing transform (e.g. time/frequency for sounds, wavelet or DCT for images, movement vectors for video,...)</li>
+<li>for numeric attributes, variance can often be used as a good surrogate for entropy, and is easier to compute</li>
+</ul></li>
+<li>Finding features with high mutual information with the classes:
+<ul>
 <li>expert knowledge may be available (e.g., pitch is key to music transcription)</li>
+</ul></li>
+<li>Common sense works!
+<ul>
+<li>e.g., don’t classify text documents based on frequency of “a”, “the”, “and”, ...</li>
+</ul></li>
 </ul>
-</li>
-<li>Common sense works!<ul>
-<li>e.g., don’t classify text documents based on frequency of “a”, “the”, “and”, …</li>
-</ul>
-</li>
-</ul>
-<h2 id="Some-common-classifiers"><a href="#Some-common-classifiers" class="headerlink" title="Some common classifiers"></a>Some common classifiers</h2><h3 id="Bayesian-classifiers"><a href="#Bayesian-classifiers" class="headerlink" title="Bayesian classifiers"></a>Bayesian classifiers</h3><ul>
-<li><p>Maximum Likelihood learning: for each class C, learn a probability distribution p(.|C) that maximizes ∏p(m|C) for all the <em>m</em> in the training data.</p>
-</li>
+<h2 id="some-common-classifiers">Some common classifiers</h2>
+<h3 id="bayesian-classifiers">Bayesian classifiers</h3>
+<ul>
+<li><p>Maximum Likelihood learning: for each class C, learn a probability distribution p(.|C) that maximizes ∏p(m|C) for all the <em>m</em> in the training data.</p></li>
 <li><p>classification: for a point <em>m</em>, find the class C that maximises p(C|m)</p>
 <ul>
-<li><p>using Bayes’ rule:<br>$$<br>p(C|m) = \frac{p(C)p(m|C)}{p(m)}<br>$$</p>
-</li>
-<li><p>scales linearly with the number of classes</p>
-</li>
+<li><p>using Bayes’ rule: <span class="math display">\[
+p(C|m) = \frac{p(C)p(m|C)}{p(m)}
+\]</span></p></li>
+<li><p>scales linearly with the number of classes</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Support-Vector-Machines-SVM"><a href="#Support-Vector-Machines-SVM" class="headerlink" title="Support Vector Machines (SVM)"></a>Support Vector Machines (SVM)</h3><ul>
+<h3 id="support-vector-machines-svm">Support Vector Machines (SVM)</h3>
+<ul>
 <li>linear classifiers: boundaries are hyperplanes</li>
-<li>Maximal Margin learning: learn the hyperplane that is the furthest away from making a mistake<ul>
+<li>Maximal Margin learning: learn the hyperplane that is the furthest away from making a mistake
+<ul>
 <li>maximize the distance to the closest (=worst) points of each class (the support vectors)</li>
-</ul>
-</li>
+</ul></li>
 <li>mainly for 2 classes</li>
 </ul>
-<h3 id="Decision-trees"><a href="#Decision-trees" class="headerlink" title="Decision trees"></a>Decision trees</h3><ul>
+<h3 id="decision-trees">Decision trees</h3>
+<ul>
 <li>A tool to represent decision making</li>
 <li>Decompose a complex problem into a sequence of simple questions</li>
-<li>Which question to ask next depends on the previous answers<ul>
-<li>can be represented as a tree </li>
-</ul>
-</li>
-<li>Tree structure: <ul>
+<li>Which question to ask next depends on the previous answers
+<ul>
+<li>can be represented as a tree</li>
+</ul></li>
+<li>Tree structure:
+<ul>
 <li>leaves: decisions</li>
 <li>nodes: questions</li>
 <li>branches: possible answers to the parent question</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="The-morning-problem"><a href="#The-morning-problem" class="headerlink" title="The morning problem"></a>The morning problem</h4><p>Should I attend the class or not?</p>
-<p><img src="/images/AI/2006476.png"></p>
-<h4 id="Decision-trees-and-classification"><a href="#Decision-trees-and-classification" class="headerlink" title="Decision trees and classification"></a>Decision trees and classification</h4><ul>
-<li>Classification can be seen as a decision problem <ul>
+<h4 id="the-morning-problem">The morning problem</h4>
+<p>Should I attend the class or not?</p>
+<p><img src="/images/AI/2006476.png" /></p>
+<h4 id="decision-trees-and-classification">Decision trees and classification</h4>
+<ul>
+<li>Classification can be seen as a decision problem
+<ul>
 <li>the decision to take: which label apply to a data point?</li>
-</ul>
-</li>
-<li>Classifiers can be represented as a decision tree<ul>
+</ul></li>
+<li>Classifiers can be represented as a decision tree
+<ul>
 <li>a decision tree also partitions the attribute space</li>
-<li>question: on which side of a given border is the point we’re interested in? </li>
+<li>question: on which side of a given border is the point we’re interested in?</li>
 <li>several trees can represent the same classifier</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="Learning-decision-trees"><a href="#Learning-decision-trees" class="headerlink" title="Learning decision trees"></a>Learning decision trees</h4><ul>
+<h4 id="learning-decision-trees">Learning decision trees</h4>
+<ul>
 <li><p>Learning problem</p>
 <ul>
 <li>which questions to ask?</li>
-</ul>
-</li>
+</ul></li>
 <li><p>If one asks enough questions, one will eventually classify the training set</p>
 <ul>
 <li>1 question = 1 new split of the space</li>
 <li>with enough splits, one can eventually separate each training point from all others</li>
 </ul>
-<p>but would that classifier generalise well to data it hasn’t seen before?</p>
-</li>
-<li><p>Goals of the learning: </p>
+<p>but would that classifier generalise well to data it hasn’t seen before?</p></li>
+<li><p>Goals of the learning:</p>
 <ul>
 <li>the classifier should be general</li>
-<li>it should be fast to apply<ul>
+<li>it should be fast to apply
+<ul>
 <li>build a classifier that needs to ask few questions before taking a decision (a shallow, bushy tree)</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="ID3-algorithm-Quinlan-1986"><a href="#ID3-algorithm-Quinlan-1986" class="headerlink" title="ID3 algorithm (Quinlan 1986)"></a>ID3 algorithm (Quinlan 1986)</h2><p>ID3 takes a training set and builds a decision tree such that each leaf is homogeneous </p>
+<h2 id="id3-algorithm-quinlan-1986">ID3 algorithm (Quinlan 1986)</h2>
+<p>ID3 takes a training set and builds a decision tree such that each leaf is homogeneous</p>
 <ul>
 <li>builds the tree from the root to the leaves</li>
 <li>greedy algorithm: no backtracking</li>
@@ -824,262 +828,316 @@
 <li>which questions are allowed?</li>
 <li>how to select the best one?</li>
 </ul>
-<h4 id="Finding-the-next-question-to-ask"><a href="#Finding-the-next-question-to-ask" class="headerlink" title="Finding the next question to ask"></a>Finding the next question to ask</h4><ul>
-<li>ID3 restricts itself to questions that test only one attribute<ul>
+<h4 id="finding-the-next-question-to-ask">Finding the next question to ask</h4>
+<ul>
+<li>ID3 restricts itself to questions that test only one attribute
+<ul>
 <li>fewer questions to choose from</li>
 <li>geometrically, all the borders are orthogonal to one axis</li>
-<li>for symbolic attributes mainly<ul>
+<li>for symbolic attributes mainly
+<ul>
 <li>symbolic attributes cannot be combined</li>
 <li>symbolic attributes can be enumerated</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Each question is chosen so that the resulting subsets are as classified as possible<ul>
-<li>the entropy of the class variable within a set measures how classified it is</li>
-</ul>
-</li>
-</ul>
-<p>$$<br>H(s) = - \sum_{C = c}p_c\log_2p_c<br>$$</p>
-<h4 id="Finding-the-best-question"><a href="#Finding-the-best-question" class="headerlink" title="Finding the best question"></a>Finding the best question</h4><ul>
-<li><p>The entropy of a partition is the sum of the entropies of the subsets weighted by their size</p>
-</li>
-<li><p>Entropy also provides a stopping criterion: a leaf is a node with entropy 0</p>
-</li>
-<li><p>The information gain is defined as the difference between the total entropies before and after partitioning </p>
+</ul></li>
+</ul></li>
+<li>Each question is chosen so that the resulting subsets are as classified as possible
 <ul>
-<li>It is also the mutual information between the attribute and the class, conditioned to the previous splits<br>$$<br>G(S,Q) = H(S)-\sum_{S_i∈Split(S,Q)}\frac{|S_i|}{|S|}H(S_i)<br>$$</li>
+<li>the entropy of the class variable within a set measures how classified it is</li>
+</ul></li>
 </ul>
-</li>
-<li><p>Compute G for all possible questions and select the largest one</p>
-</li>
+<p><span class="math display">\[
+H(s) = - \sum_{C = c}p_c\log_2p_c
+\]</span></p>
+<h4 id="finding-the-best-question">Finding the best question</h4>
+<ul>
+<li><p>The entropy of a partition is the sum of the entropies of the subsets weighted by their size</p></li>
+<li><p>Entropy also provides a stopping criterion: a leaf is a node with entropy 0</p></li>
+<li><p>The information gain is defined as the difference between the total entropies before and after partitioning</p>
+<ul>
+<li>It is also the mutual information between the attribute and the class, conditioned to the previous splits <span class="math display">\[
+G(S,Q) = H(S)-\sum_{S_i∈Split(S,Q)}\frac{|S_i|}{|S|}H(S_i)
+\]</span></li>
+</ul></li>
+<li><p>Compute G for all possible questions and select the largest one</p></li>
 </ul>
-<h4 id="Which-questions-to-ask"><a href="#Which-questions-to-ask" class="headerlink" title="Which questions to ask?"></a>Which questions to ask?</h4><ul>
-<li>Symbolic attributes (gender, hair colour,…): <ul>
+<h4 id="which-questions-to-ask">Which questions to ask?</h4>
+<ul>
+<li>Symbolic attributes (gender, hair colour,...):
+<ul>
 <li>only a finite number of possible values for all data</li>
 <li>one branch for each different value</li>
-</ul>
-</li>
-<li>Numerical attributes (temperature, pixel value,…): <ul>
+</ul></li>
+<li>Numerical attributes (temperature, pixel value,...):
+<ul>
 <li>infinite range even if only a finite number of values are present in the training set</li>
 <li>choose a threshold t and ask the question: value &lt; t?</li>
-</ul>
-</li>
-<li>Threshold choice: <ul>
+</ul></li>
+<li>Threshold choice:
+<ul>
 <li>the information gain criterion still holds</li>
 <li>the best threshold must be between two training examples of different classes</li>
 <li>try all possible thresholds</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/AI/2006477.png"></p>
-<h4 id="Example-attend-the-lecture-or-not"><a href="#Example-attend-the-lecture-or-not" class="headerlink" title="Example: attend the lecture or not?"></a>Example: attend the lecture or not?</h4><table>
+<p><img src="/images/AI/2006477.png" /></p>
+<h4 id="example-attend-the-lecture-or-not">Example: attend the lecture or not?</h4>
+<table>
 <thead>
-<tr>
-<th align="center">Outlook</th>
-<th align="center">Temperature</th>
-<th align="center">Windy</th>
-<th align="center">Attend?</th>
+<tr class="header">
+<th style="text-align: center;">Outlook</th>
+<th style="text-align: center;">Temperature</th>
+<th style="text-align: center;">Windy</th>
+<th style="text-align: center;">Attend?</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">sunny</td>
-<td align="center">29</td>
-<td align="center">No</td>
-<td align="center">Yes</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
-<tr>
-<td align="center">sunny</td>
-<td align="center">27</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tr class="even">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-<tr>
-<td align="center">overcast</td>
-<td align="center">28</td>
-<td align="center">No</td>
-<td align="center">Yes</td>
+<tr class="odd">
+<td style="text-align: center;">overcast</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
-<tr>
-<td align="center">rain</td>
-<td align="center">21</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tr class="even">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-<tr>
-<td align="center">rain</td>
-<td align="center">20</td>
-<td align="center">No</td>
-<td align="center">Yes</td>
+<tr class="odd">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
-<tr>
-<td align="center">rain</td>
-<td align="center">18</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tr class="even">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-<tr>
-<td align="center">overcast</td>
-<td align="center">17</td>
-<td align="center">No</td>
-<td align="center">Yes</td>
+<tr class="odd">
+<td style="text-align: center;">overcast</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
-<tr>
-<td align="center">sunny</td>
-<td align="center">22</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tr class="even">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-</tbody></table>
-<p>$$<br>H(S)=-\frac{4}{8}\log_2\frac{4}{8}-\frac{4}{8}\log_2\frac{4}{8}=1<br>$$</p>
-<h5 id="Example-split-along-Outlook"><a href="#Example-split-along-Outlook" class="headerlink" title="Example: split along Outlook"></a>Example: split along Outlook</h5><p>$$<br>H(sunny)=-\frac{1}{3}\log_2\frac{1}{3}-\frac{2}{3}\log_2\frac{2}{3}≈0.9183\<br>H(overcast)=-\frac{2}{2}\log_2\frac{2}{2}-\frac{0}{2}\log_2\frac{0}{2}≈0\<br>H(rain)=-\frac{1}{3}\log_2\frac{1}{3}-\frac{2}{3}\log_2\frac{2}{3}≈0.9183\<br>G(Outlook)=H(S) - \frac{3}{8}H(sunny)- \frac{2}{8}H(overcast)-\frac{3}{8}H(rain)≈0.3113<br>$$</p>
-<h5 id="Example-split-along-Temperature"><a href="#Example-split-along-Temperature" class="headerlink" title="Example: split along Temperature"></a>Example: split along Temperature</h5><p><img src="/images/AI/2006478.png"></p>
-<h6 id="Split-at-t-17-5°C"><a href="#Split-at-t-17-5°C" class="headerlink" title="Split at t=17.5°C"></a>Split at t=17.5°C</h6><p>$$<br>H(t&lt;17.5)=-\frac{1}{1}\log_2\frac{1}{1}-\frac{0}{1}\log_2\frac{0}{1}≈0\<br>H(t&gt;17.5)=-\frac{3}{7}\log_2\frac{3}{7}-\frac{4}{7}\log_2\frac{4}{7}≈0.9852\<br>G(t=17.5)=H(S) - \frac{1}{8}H(t&lt;17.5)- \frac{7}{8}H(t&gt;17.5)≈0.1379<br>$$</p>
-<h6 id="Split-at-t-19°C"><a href="#Split-at-t-19°C" class="headerlink" title="Split at t=19°C"></a>Split at t=19°C</h6><p>$$<br>H(t&lt;19)=-\frac{1}{2}\log_2\frac{1}{2}-\frac{1}{2}\log_2\frac{1}{2}≈1\<br>H(t&gt;19)=-\frac{3}{6}\log_2\frac{3}{6}-\frac{3}{6}\log_2\frac{3}{6}≈1\<br>G(t=19)=H(S) - \frac{2}{8}H(t&lt;19)- \frac{6}{8}H(t&gt;19)=0<br>$$</p>
-<h6 id="Split-at-t-20-5°C"><a href="#Split-at-t-20-5°C" class="headerlink" title="Split at t=20.5°C"></a>Split at t=20.5°C</h6><p>$$<br>H(t&lt;20.5)=-\frac{2}{3}\log_2\frac{2}{3}-\frac{1}{3}\log_2\frac{1}{3}≈0.9183\<br>H(t&gt;20.5)=-\frac{3}{5}\log_2\frac{3}{5}-\frac{2}{5}\log_2\frac{2}{5}≈0.9710\<br>G(t=20.5)=H(S) - \frac{3}{8}H(t&lt;20.5)- \frac{5}{8}H(t&gt;20.5)=0.0488<br>$$</p>
-<h6 id="Split-at-t-27-5°C"><a href="#Split-at-t-27-5°C" class="headerlink" title="Split at t=27.5°C"></a>Split at t=27.5°C</h6><p>$$<br>H(t&lt;27.5)=-\frac{2}{6}\log_2\frac{2}{6}-\frac{4}{6}\log_2\frac{4}{6}≈0.9183\<br>H(t&gt;27.5)=-\frac{2}{2}\log_2\frac{2}{2}-\frac{0}{2}\log_2\frac{0}{2}≈0\<br>G(t=27.5)=H(S) - \frac{6}{8}H(t&lt;27.5)- \frac{2}{8}H(t&gt;27.5)=0.3113<br>$$</p>
-<h6 id="Split-along-windy"><a href="#Split-along-windy" class="headerlink" title="Split along windy"></a>Split along windy</h6><p>$$<br>H(windy)=-\frac{1}{4}\log_2\frac{1}{4}-\frac{3}{4}\log_2\frac{3}{4}≈0.8113\<br>H(¬windy)=-\frac{3}{4}\log_2\frac{3}{4}-\frac{1}{4}\log_2\frac{1}{4}≈0.8133\<br>G(windy?)=H(S) - \frac{4}{8}H(windy)- \frac{4}{8}H(¬windy)=0.1887<br>$$</p>
-<h5 id="Example-first-iteration"><a href="#Example-first-iteration" class="headerlink" title="Example: first iteration"></a>Example: first iteration</h5><ul>
-<li>The best splits were either Outlook or t=27.5°C </li>
+</tbody>
+</table>
+<p><span class="math display">\[
+H(S)=-\frac{4}{8}\log_2\frac{4}{8}-\frac{4}{8}\log_2\frac{4}{8}=1
+\]</span></p>
+<h5 id="example-split-along-outlook">Example: split along Outlook</h5>
+<p><span class="math display">\[
+H(sunny)=-\frac{1}{3}\log_2\frac{1}{3}-\frac{2}{3}\log_2\frac{2}{3}≈0.9183\\
+H(overcast)=-\frac{2}{2}\log_2\frac{2}{2}-\frac{0}{2}\log_2\frac{0}{2}≈0\\
+H(rain)=-\frac{1}{3}\log_2\frac{1}{3}-\frac{2}{3}\log_2\frac{2}{3}≈0.9183\\
+G(Outlook)=H(S) - \frac{3}{8}H(sunny)- \frac{2}{8}H(overcast)-\frac{3}{8}H(rain)≈0.3113
+\]</span></p>
+<h5 id="example-split-along-temperature">Example: split along Temperature</h5>
+<p><img src="/images/AI/2006478.png" /></p>
+<h6 id="split-at-t17.5c">Split at t=17.5°C</h6>
+<p><span class="math display">\[
+H(t&lt;17.5)=-\frac{1}{1}\log_2\frac{1}{1}-\frac{0}{1}\log_2\frac{0}{1}≈0\\
+H(t&gt;17.5)=-\frac{3}{7}\log_2\frac{3}{7}-\frac{4}{7}\log_2\frac{4}{7}≈0.9852\\
+G(t=17.5)=H(S) - \frac{1}{8}H(t&lt;17.5)- \frac{7}{8}H(t&gt;17.5)≈0.1379
+\]</span></p>
+<h6 id="split-at-t19c">Split at t=19°C</h6>
+<p><span class="math display">\[
+H(t&lt;19)=-\frac{1}{2}\log_2\frac{1}{2}-\frac{1}{2}\log_2\frac{1}{2}≈1\\
+H(t&gt;19)=-\frac{3}{6}\log_2\frac{3}{6}-\frac{3}{6}\log_2\frac{3}{6}≈1\\
+G(t=19)=H(S) - \frac{2}{8}H(t&lt;19)- \frac{6}{8}H(t&gt;19)=0
+\]</span></p>
+<h6 id="split-at-t20.5c">Split at t=20.5°C</h6>
+<p><span class="math display">\[
+H(t&lt;20.5)=-\frac{2}{3}\log_2\frac{2}{3}-\frac{1}{3}\log_2\frac{1}{3}≈0.9183\\
+H(t&gt;20.5)=-\frac{3}{5}\log_2\frac{3}{5}-\frac{2}{5}\log_2\frac{2}{5}≈0.9710\\
+G(t=20.5)=H(S) - \frac{3}{8}H(t&lt;20.5)- \frac{5}{8}H(t&gt;20.5)=0.0488
+\]</span></p>
+<h6 id="split-at-t27.5c">Split at t=27.5°C</h6>
+<p><span class="math display">\[
+H(t&lt;27.5)=-\frac{2}{6}\log_2\frac{2}{6}-\frac{4}{6}\log_2\frac{4}{6}≈0.9183\\
+H(t&gt;27.5)=-\frac{2}{2}\log_2\frac{2}{2}-\frac{0}{2}\log_2\frac{0}{2}≈0\\
+G(t=27.5)=H(S) - \frac{6}{8}H(t&lt;27.5)- \frac{2}{8}H(t&gt;27.5)=0.3113
+\]</span></p>
+<h6 id="split-along-windy">Split along windy</h6>
+<p><span class="math display">\[
+H(windy)=-\frac{1}{4}\log_2\frac{1}{4}-\frac{3}{4}\log_2\frac{3}{4}≈0.8113\\
+H(¬windy)=-\frac{3}{4}\log_2\frac{3}{4}-\frac{1}{4}\log_2\frac{1}{4}≈0.8133\\
+G(windy?)=H(S) - \frac{4}{8}H(windy)- \frac{4}{8}H(¬windy)=0.1887
+\]</span></p>
+<h5 id="example-first-iteration">Example: first iteration</h5>
+<ul>
+<li>The best splits were either Outlook or t=27.5°C</li>
 <li>Let us assume we split on Outlook:</li>
 </ul>
-<p><img src="/images/AI/2006479.png"></p>
-<h5 id="Example-the-Sunny-branch"><a href="#Example-the-Sunny-branch" class="headerlink" title="Example: the Sunny branch"></a>Example: the Sunny branch</h5><table>
+<p><img src="/images/AI/2006479.png" /></p>
+<h5 id="example-the-sunny-branch">Example: the Sunny branch</h5>
+<table>
 <thead>
-<tr>
-<th align="center">Outlook</th>
-<th align="center">Temperature</th>
-<th align="center">Windy</th>
-<th align="center">Attend?</th>
+<tr class="header">
+<th style="text-align: center;">Outlook</th>
+<th style="text-align: center;">Temperature</th>
+<th style="text-align: center;">Windy</th>
+<th style="text-align: center;">Attend?</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">sunny</td>
-<td align="center">29</td>
-<td align="center">No</td>
-<td align="center">Yes</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
-<tr>
-<td align="center">sunny</td>
-<td align="center">27</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tr class="even">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-<tr>
-<td align="center">sunny</td>
-<td align="center">22</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tr class="odd">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>A split at t=28.5°C classifies the branch</p>
-<h5 id="Example-the-Rainy-branch"><a href="#Example-the-Rainy-branch" class="headerlink" title="Example: the Rainy branch"></a>Example: the Rainy branch</h5><table>
+<h5 id="example-the-rainy-branch">Example: the Rainy branch</h5>
+<table>
 <thead>
-<tr>
-<th align="center">sunny</th>
-<th align="center">27</th>
-<th align="center">Yes</th>
-<th align="center">No</th>
+<tr class="header">
+<th style="text-align: center;">sunny</th>
+<th style="text-align: center;">27</th>
+<th style="text-align: center;">Yes</th>
+<th style="text-align: center;">No</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">rain</td>
-<td align="center">21</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-<tr>
-<td align="center">rain</td>
-<td align="center">20</td>
-<td align="center">No</td>
-<td align="center">Yes</td>
+<tr class="even">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
-<tr>
-<td align="center">rain</td>
-<td align="center">18</td>
-<td align="center">Yes</td>
-<td align="center">No</td>
+<tr class="odd">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>A split along Windy classifies the branch</p>
-<h5 id="Example-the-final-tree"><a href="#Example-the-final-tree" class="headerlink" title="Example: the final tree"></a>Example: the final tree</h5><p><img src="/images/AI/2006480.png"></p>
-<h3 id="Strong-and-weak-points-of-ID3"><a href="#Strong-and-weak-points-of-ID3" class="headerlink" title="Strong and weak points of ID3"></a>Strong and weak points of ID3</h3><ul>
-<li>Each question only checks one feature: <ul>
+<h5 id="example-the-final-tree">Example: the final tree</h5>
+<p><img src="/images/AI/2006480.png" /></p>
+<h3 id="strong-and-weak-points-of-id3">Strong and weak points of ID3</h3>
+<ul>
+<li>Each question only checks one feature:
+<ul>
 <li>works well with attributes of different types (ex: size and gender)</li>
 <li>designs rectangular regions only, even if it does not fit the data</li>
-</ul>
-</li>
-<li>Generates the shortest possible tree:<ul>
+</ul></li>
+<li>Generates the shortest possible tree:
+<ul>
 <li>fast classification after learning</li>
 <li>helps to generalise the model</li>
 <li>helps to understand the generated rules</li>
-</ul>
-</li>
-<li>Training is expensive:<ul>
+</ul></li>
+<li>Training is expensive:
+<ul>
 <li>try all possible questions at each node</li>
 <li>for each question, compute the answer with each data point of the subset</li>
 <li>infinite range attributes generate lots of different questions</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="A-word-on-overfitting"><a href="#A-word-on-overfitting" class="headerlink" title="A word on overfitting"></a>A word on overfitting</h3><ul>
+<h3 id="a-word-on-overfitting">A word on overfitting</h3>
+<ul>
 <li>Noise blurs the boundaries between classes</li>
-<li>Sampling can alter the perception of the problem<ul>
+<li>Sampling can alter the perception of the problem
+<ul>
 <li>selection bias</li>
 <li>rare events</li>
-</ul>
-</li>
+</ul></li>
 <li>General solution: more data! (not always possible)</li>
-<li><strong>Overfitting</strong><ul>
-<li>learning a tree that models properties specific to the training set<ul>
+<li><strong>Overfitting</strong>
+<ul>
+<li>learning a tree that models properties specific to the training set
+<ul>
 <li>the tree works on the training set but not on the problem data</li>
 <li>perfect classification of the training set is most often too much</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/AI/2006481.png"></p>
-<h3 id="Reduced-error-pruning"><a href="#Reduced-error-pruning" class="headerlink" title="Reduced-error pruning"></a>Reduced-error pruning</h3><ul>
-<li>Split the training set in two: <ul>
-<li>one for learning </li>
+<p><img src="/images/AI/2006481.png" /></p>
+<h3 id="reduced-error-pruning">Reduced-error pruning</h3>
+<ul>
+<li>Split the training set in two:
+<ul>
+<li>one for learning</li>
 <li>one for pruning</li>
-</ul>
-</li>
+</ul></li>
 <li>Goal: learn a tree that classifies the pruning set well although it was not learnt on it</li>
 <li>First build a tree with ID3 on the training set</li>
 <li>Then greedily prune nodes to improve the classification of the pruning set</li>
 <li>What if we don’t have enough data to make a pruning set?</li>
 </ul>
-<h3 id="Rule-pruning"><a href="#Rule-pruning" class="headerlink" title="Rule pruning"></a>Rule pruning</h3><p>The tree can be written as a set of logical rules</p>
+<h3 id="rule-pruning">Rule pruning</h3>
+<p>The tree can be written as a set of logical rules</p>
 <ul>
 <li>each path is a single conjunction of tests</li>
 <li>there is a disjunction between different paths</li>
 </ul>
-<p><img src="/images/AI/2006481.png"></p>
-<h3 id="Rule-post-pruning"><a href="#Rule-post-pruning" class="headerlink" title="Rule post-pruning"></a>Rule post-pruning</h3><ul>
+<p><img src="/images/AI/2006481.png" /></p>
+<h3 id="rule-post-pruning">Rule post-pruning</h3>
+<ul>
 <li>First convert the tree into rules</li>
 <li>Then greedily prune the rules by removing preconditions</li>
-<li>Only prune if the precision of the rule does not decrease<ul>
+<li>Only prune if the precision of the rule does not decrease
+<ul>
 <li>Precision = fraction of points of the correct class among the points picked by the rule</li>
-</ul>
-</li>
-<li>The pruning is done on the training set directly<ul>
+</ul></li>
+<li>The pruning is done on the training set directly
+<ul>
 <li>no need to split the set in two</li>
 <li>more used in practice</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Information as a measurable quantity <ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>Information as a measurable quantity
+<ul>
 <li>information as structure in data</li>
-</ul>
-</li>
+</ul></li>
 <li>ID3: a method of using information to decide on structure</li>
-<li>Overfitting<ul>
+<li>Overfitting
+<ul>
 <li>pruning to re-generalise</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
                 

@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.1k
+                    3.2k
                 </div>
                 
 
@@ -497,8 +497,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Extends-Casting-Higher-Order-Functions"><a href="#Extends-Casting-Higher-Order-Functions" class="headerlink" title="Extends, Casting, Higher Order Functions"></a>Extends, Casting, Higher Order Functions</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD">Video</a></p>
-<h2 id="Implementation-Inheritance-Extends"><a href="#Implementation-Inheritance-Extends" class="headerlink" title="Implementation Inheritance: Extends"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=990kImS-_nA&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=1">Implementation Inheritance: Extends</a></h2><h3 id="The-Extends-Keyword"><a href="#The-Extends-Keyword" class="headerlink" title="The Extends Keyword"></a>The Extends Keyword</h3><p>When a class is a hyponym of an interface, we used <strong>implements.</strong></p>
+                <h1 id="extends-casting-higher-order-functions">Extends, Casting, Higher Order Functions</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD">Video</a></p>
+<h2 id="implementation-inheritance-extends"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=990kImS-_nA&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=1">Implementation Inheritance: Extends</a></h2>
+<h3 id="the-extends-keyword">The Extends Keyword</h3>
+<p>When a class is a hyponym of an interface, we used <strong>implements.</strong></p>
 <ul>
 <li>Example: SLList&lt;Blorp&gt; <strong>implements</strong> List61B&lt;Blorp&gt;</li>
 </ul>
@@ -511,8 +514,9 @@
 <ul>
 <li>After rotateRight: [22, 5, 9, 15]</li>
 </ul>
-<p><img src="/images/CS61B/1645230.png"></p>
-<h3 id="RotatingSLList"><a href="#RotatingSLList" class="headerlink" title="RotatingSLList"></a>RotatingSLList</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RotatingSLList</span>&lt;<span class="title">Blorp</span>&gt; <span class="keyword">extends</span> <span class="title">SLList</span>&lt;<span class="title">Blorp</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotateRight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       Blorp oldBack = removeLast();</span><br><span class="line">       addFirst(oldBack);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CS61B/1645230.png" /></p>
+<h3 id="rotatingsllist">RotatingSLList</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RotatingSLList</span>&lt;<span class="title">Blorp</span>&gt; <span class="keyword">extends</span> <span class="title">SLList</span>&lt;<span class="title">Blorp</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotateRight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       Blorp oldBack = removeLast();</span><br><span class="line">       addFirst(oldBack);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Because of <strong>extends</strong>, RotatingSLList inherits all members of SLList:</p>
 <ul>
 <li>All instance and static variables.</li>
@@ -521,7 +525,9 @@
 <li><strong>Note</strong>: but members may be private and thus inaccessible!</li>
 </ul>
 <p>Constructors are not inherited.</p>
-<h3 id="Extends-with-Overriding"><a href="#Extends-with-Overriding" class="headerlink" title="Extends with Overriding"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=RJ_OpzLeHeQ&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=2">Extends with Overriding</a></h3><h4 id="Another-Example-VengefulSLLis"><a href="#Another-Example-VengefulSLLis" class="headerlink" title="Another Example: VengefulSLLis"></a>Another Example: VengefulSLLis</h4><p>Suppose we want to build an SLList that:</p>
+<h3 id="extends-with-overriding"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=RJ_OpzLeHeQ&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=2">Extends with Overriding</a></h3>
+<h4 id="another-example-vengefulsllis">Another Example: VengefulSLLis</h4>
+<p>Suppose we want to build an SLList that:</p>
 <ul>
 <li>Remembers all Items that have been destroyed by removeLast.</li>
 <li>Has an additional method printLostItems(), which prints all deleted items.</li>
@@ -529,71 +535,85 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    	VengefulSLList&lt;Integer&gt; vs1 = <span class="keyword">new</span> VengefulSLList&lt;Integer&gt;();</span><br><span class="line">    	vs1.addLast(<span class="number">1</span>);</span><br><span class="line">    	vs1.addLast(<span class="number">5</span>);</span><br><span class="line">    	vs1.addLast(<span class="number">10</span>);</span><br><span class="line">    	vs1.addLast(<span class="number">13</span>);      <span class="comment">/* [1, 5, 10, 13] */</span></span><br><span class="line">    	vs1.removeLast();     <span class="comment">/* 13 gets deleted. */</span></span><br><span class="line">    	vs1.removeLast();     <span class="comment">/* 10 gets deleted. */</span></span><br><span class="line">    	System.out.print(<span class="string">&quot;The fallen are: &quot;</span>);</span><br><span class="line">    	vs1.printLostItems(); <span class="comment">/* Should print 10 and 13. */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VengefulSLList</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">extends</span> <span class="title">SLList</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> SLList&lt;Item&gt; deletedItems;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       deletedItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">  </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Item <span class="title">removeLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    		Item oldBack = <span class="keyword">super</span>.removeLast();</span><br><span class="line">            <span class="comment">/* calls Superclass’s version of removeLast() */</span></span><br><span class="line">    		deletedItems.addLast(oldBack);</span><br><span class="line">    		<span class="keyword">return</span> oldBack;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printLostItems</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    		deletedItems.print();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><em>Note: Java syntax disallows super.super. For a nice description of why, see <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/586363/why-is-super-super-method-not-allowed-in-java">this link</a>.</em></p>
-<h3 id="Constructor-Behaviour-Is-Slightly-Weird"><a href="#Constructor-Behaviour-Is-Slightly-Weird" class="headerlink" title="Constructor Behaviour Is Slightly Weird"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Cb8F2qreFR8&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=3">Constructor Behaviour Is Slightly Weird</a></h3><p>Constructors are not inherited. However, the rules of Java say that <strong>all constructors must start with a call to one of the super class’s constructors [**<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/IandI/super.html"><strong>Link</strong></a></strong>].**</p>
+<h3 id="constructor-behaviour-is-slightly-weird"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Cb8F2qreFR8&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=3">Constructor Behaviour Is Slightly Weird</a></h3>
+<p>Constructors are not inherited. However, the rules of Java say that <strong>all constructors must start with a call to one of the super class’s constructors [<strong><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/IandI/super.html"><strong>Link</strong></a></strong>].</strong></p>
 <ul>
-<li>Idea: If every VengefulSLList is-an SLList, every VengefulSLList must be set up like an SLList.<ul>
+<li>Idea: If every VengefulSLList is-an SLList, every VengefulSLList must be set up like an SLList.
+<ul>
 <li>If you didn’t call SLList constructor, sentinel would be null. Very bad.</li>
-</ul>
-</li>
+</ul></li>
 <li>You can explicitly call the constructor with the keyword super (no dot).</li>
 <li>If you don’t explicitly call the constructor, Java will automatically do it for you.</li>
 </ul>
 <p>These constructors are exactly equivalent.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   deletedItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>(); <span class="comment">// must come first!</span></span><br><span class="line">   deletedItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Calling-Other-Constructors"><a href="#Calling-Other-Constructors" class="headerlink" title="Calling Other Constructors"></a>Calling Other Constructors</h3><p>If you want to use a super constructor other than the no-argument constructor, can give parameters to super.</p>
+<h3 id="calling-other-constructors">Calling Other Constructors</h3>
+<p>If you want to use a super constructor other than the no-argument constructor, can give parameters to super.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>(x); <span class="comment">// calls SLList(Item x)</span></span><br><span class="line">   deletedItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">VengefulSLList</span><span class="params">(Item x)</span> </span>&#123;</span><br><span class="line">   deletedItems = <span class="keyword">new</span> SLList&lt;Item&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Not equivalent!</strong> Code below makes implicit call to <strong>super()</strong>, <u>not super(x)</u>.</p>
-<h3 id="The-Object-Class"><a href="#The-Object-Class" class="headerlink" title="The Object Class"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wrx_y3ib5iQ&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=4">The Object Class</a></h3><p>As it happens, every type in Java is a descendant of the Object class.</p>
+<h3 id="the-object-class"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wrx_y3ib5iQ&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=4">The Object Class</a></h3>
+<p>As it happens, every type in Java is a descendant of the Object class.</p>
 <ul>
 <li>VengefulSLList extends SLList.</li>
 <li>SLList extends Object (implicitly)</li>
 </ul>
-<p><img src="/images/CS61B/1645231.png"></p>
-<h3 id="Is-A-vs-Has-A"><a href="#Is-A-vs-Has-A" class="headerlink" title="Is-A vs. Has-A"></a>Is-A vs. Has-A</h3><p>Important Note: extends should only be used for <strong>is-a</strong> (hypernymic) relationships!</p>
+<p><img src="/images/CS61B/1645231.png" /></p>
+<h3 id="is-a-vs.-has-a">Is-A vs. Has-A</h3>
+<p>Important Note: extends should only be used for <strong>is-a</strong> (hypernymic) relationships!</p>
 <p>Common mistake is to use it for “<strong>has-a</strong>” relationships. (a.k.a. meronymic).</p>
 <ul>
 <li>Possible to subclass SLList to build a Set, but conceptually weird, e.g. get(i) doesn’t make sense, because sets are not ordered.</li>
 </ul>
-<p><img src="/images/CS61B/1645232.png"></p>
-<h2 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GioVGLuW69o&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=5">Encapsulation</a></h2><h3 id="Complexity-The-Enemy"><a href="#Complexity-The-Enemy" class="headerlink" title="Complexity: The Enemy"></a>Complexity: The Enemy</h3><p>When building large programs, our enemy is complexity.</p>
+<p><img src="/images/CS61B/1645232.png" /></p>
+<h2 id="encapsulation"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GioVGLuW69o&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=5">Encapsulation</a></h2>
+<h3 id="complexity-the-enemy">Complexity: The Enemy</h3>
+<p>When building large programs, our enemy is complexity.</p>
 <p>Some tools for managing complexity:</p>
 <ul>
-<li>Hierarchical abstraction.<ul>
+<li>Hierarchical abstraction.
+<ul>
 <li>Create <strong>layers of abstraction</strong>, with clear abstraction barriers!</li>
-</ul>
-</li>
-<li>“Design for change” (D. Parnas)<ul>
+</ul></li>
+<li>“Design for change” (D. Parnas)
+<ul>
 <li>Organize program around objects.</li>
 <li>Let objects decide how things are done.</li>
 <li><strong>Hide information</strong> others don’t need.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Modules-and-Encapsulation-Shewchuk"><a href="#Modules-and-Encapsulation-Shewchuk" class="headerlink" title="Modules and Encapsulation [Shewchuk]"></a>Modules and Encapsulation [<a target="_blank" rel="noopener" href="https://people.eecs.berkeley.edu/~jrs/61b/lec/18">Shewchuk</a>]</h3><p><strong>Module</strong>: A set of methods that work together as a whole to perform some task or set of related tasks. </p>
+<h3 id="modules-and-encapsulation-shewchuk">Modules and Encapsulation [<a target="_blank" rel="noopener" href="https://people.eecs.berkeley.edu/~jrs/61b/lec/18">Shewchuk</a>]</h3>
+<p><strong>Module</strong>: A set of methods that work together as a whole to perform some task or set of related tasks.</p>
 <p>A module is said to be <strong>encapsulated</strong> if its implementation is <u>completely hidden</u>, and it can be accessed only through a documented interface.</p>
 <ul>
 <li>Instance variables private. Methods like resize private.</li>
 <li>As we’ll see: Implementation inheritance (e.g. extends) breaks encapsulation!</li>
 </ul>
-<p><img src="/images/CS61B/1645233.png"></p>
-<h3 id="A-Cautionary-Tal"><a href="#A-Cautionary-Tal" class="headerlink" title="A Cautionary Tal"></a>A Cautionary Tal</h3><p><img src="/images/CS61B/1645234.png" alt="Interesting questions"></p>
-<h3 id="Abstraction-Barriers"><a href="#Abstraction-Barriers" class="headerlink" title="Abstraction Barriers"></a>Abstraction Barriers</h3><p>As the user of an ArrayDeque, you cannot observe its internals</p>
+<p><img src="/images/CS61B/1645233.png" /></p>
+<h3 id="a-cautionary-tal">A Cautionary Tal</h3>
+<figure>
+<img src="/images/CS61B/1645234.png" alt="" /><figcaption>Interesting questions</figcaption>
+</figure>
+<h3 id="abstraction-barriers">Abstraction Barriers</h3>
+<p>As the user of an ArrayDeque, you cannot observe its internals</p>
 <ul>
 <li>Even when writing tests, you don’t (usually) want to peer inside.</li>
 </ul>
 <p>Java is a great language for enforcing abstraction barriers with syntax.</p>
-<p><img src="/images/CS61B/1645235.png"></p>
-<h3 id="Implementation-Inheritance-Breaks-Encapsulation"><a href="#Implementation-Inheritance-Breaks-Encapsulation" class="headerlink" title="Implementation Inheritance Breaks Encapsulation"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EfxYiAN6YME&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=6">Implementation Inheritance Breaks Encapsulation</a></h3><p>Suppose we have a Dog class with the two methods shown.</p>
-<p><img src="/images/CS61B/1645236.png"></p>
+<p><img src="/images/CS61B/1645235.png" /></p>
+<h3 id="implementation-inheritance-breaks-encapsulation"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EfxYiAN6YME&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=6">Implementation Inheritance Breaks Encapsulation</a></h3>
+<p>Suppose we have a Dog class with the two methods shown.</p>
+<p><img src="/images/CS61B/1645236.png" /></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   System.out.println(<span class="string">&quot;bark&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkMany</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i += <span class="number">1</span>) &#123;</span><br><span class="line">      	bark();  </span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>We could just as easily have implemented methods as shown below.</p>
 <ul>
 <li>From the outside, functionality is exactly the same, it’s just a question of aesthetics.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   barkMany(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkMany</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i += <span class="number">1</span>) &#123;</span><br><span class="line">      	System.out.println(<span class="string">&quot;bark&quot;</span>);  </span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>1. What would vd.barkMany(3) output? </p>
-<p><img src="/images/CS61B/1645237.png" alt="Assuming vd is a Verbose Dog"></p>
+<p>1. What would vd.barkMany(3) output?</p>
+<figure>
+<img src="/images/CS61B/1645237.png" alt="" /><figcaption>Assuming vd is a Verbose Dog</figcaption>
+</figure>
 <ul>
 <li><strong>As a dog, I say: bark bark bark</strong></li>
 <li><del>bark bark bark</del></li>
@@ -601,23 +621,27 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   System.out.println(<span class="string">&quot;bark&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkMany</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i += <span class="number">1</span>) &#123;</span><br><span class="line">      	bark();  </span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkMany</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;As a dog, I say: &quot;</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i += <span class="number">1</span>) &#123;</span><br><span class="line">       	bark(); <span class="comment">// calls inherited bark method</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2. What would vd.barkMany(3) output? </p>
+<p>2. What would vd.barkMany(3) output?</p>
 <ul>
 <li><del>As a dog, I say: bark bark bark</del></li>
 <li><del>bark bark bark</del></li>
-<li><strong>Something else</strong><ul>
+<li><strong>Something else</strong>
+<ul>
 <li>Gets caught in an infinite loop!</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">barkMany(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkMany</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i += <span class="number">1</span>) &#123;</span><br><span class="line">      	System.out.println(<span class="string">&quot;bark&quot;</span>);  </span><br><span class="line">   	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkMany</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;As a dog, I say: &quot;</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i += <span class="number">1</span>) &#123;</span><br><span class="line">       	bark(); <span class="comment">// calls inherited bark method</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Type-Checking-and-Casting"><a href="#Type-Checking-and-Casting" class="headerlink" title="Type Checking and Casting"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=cMAchIFcRN0&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=7">Type Checking and Casting</a></h2><h3 id="Dynamic-Method-Selection-and-Type-Checking-Puzzle"><a href="#Dynamic-Method-Selection-and-Type-Checking-Puzzle" class="headerlink" title="Dynamic Method Selection and Type Checking Puzzle"></a>Dynamic Method Selection and Type Checking Puzzle</h3><p>For each line of code, determine:</p>
+<h2 id="type-checking-and-casting"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=cMAchIFcRN0&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=7">Type Checking and Casting</a></h2>
+<h3 id="dynamic-method-selection-and-type-checking-puzzle">Dynamic Method Selection and Type Checking Puzzle</h3>
+<p>For each line of code, determine:</p>
 <ul>
 <li>Does that line cause a compilation error?</li>
 <li>Which method does dynamic method selection use?</li>
 </ul>
-<p><img src="/images/CS61B/1645238.png" alt="Reminder: VengefulSLList overrides removeLast and provides a new method called printLostItems."></p>
+<figure>
+<img src="/images/CS61B/1645238.png" alt="" /><figcaption>Reminder: VengefulSLList overrides removeLast and provides a new method called printLostItems.</figcaption>
+</figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">   	VengefulSLList&lt;Integer&gt; vsl = </span><br><span class="line">          <span class="keyword">new</span> VengefulSLList&lt;Integer&gt;(<span class="number">9</span>);</span><br><span class="line">   	SLList&lt;Integer&gt; sl = vsl;   </span><br><span class="line"></span><br><span class="line">	sl.addLast(<span class="number">50</span>); <span class="comment">// VengefulSLList doesn’t override, uses SLList’s.</span></span><br><span class="line">   	sl.removeLast(); <span class="comment">// Uses VengefulSLList’s.		</span></span><br><span class="line">    </span><br><span class="line">    sl.printLostItems(); <span class="comment">// Compilation errorvg!</span></span><br><span class="line">    VengefulSLList&lt;Integer&gt; vsl2 = sl; <span class="comment">// Compilation error!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Reminder: Dynamic Method Selection</strong></p>
 <p>If overridden, decide which method to call based on <strong>run-time</strong> (Also called dynamic type) type of variable.</p>
@@ -635,7 +659,8 @@
 <li>Even though sl’s runtime-type is VengefulSLList, cannot assign to vsl2.</li>
 <li>Compiler plays it as safe as possible with type checking.</li>
 </ul>
-<h3 id="Compile-Time-Types-and-Expressions"><a href="#Compile-Time-Types-and-Expressions" class="headerlink" title="Compile-Time Types and Expressions"></a>Compile-Time Types and Expressions</h3><p>Expressions have compile-time types</p>
+<h3 id="compile-time-types-and-expressions">Compile-Time Types and Expressions</h3>
+<p>Expressions have compile-time types</p>
 <ul>
 <li>An expression using the new keyword has the specified compile-time type.</li>
 </ul>
@@ -646,32 +671,27 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">VengefulSLList&lt;Integer&gt; vsl = <span class="keyword">new</span> SLList&lt;Integer&gt;(); <span class="comment">// Compilation error!</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Compile-time type of RHS expression is SLList.</p>
-</li>
-<li><p>An SLList is not necessarily a VengefulSLList, so compilation error results.</p>
-</li>
-<li><p>Method calls have compile-time type equal to their declared type.</p>
-</li>
+<li><p>Compile-time type of RHS expression is SLList.</p></li>
+<li><p>An SLList is not necessarily a VengefulSLList, so compilation error results.</p></li>
+<li><p>Method calls have compile-time type equal to their declared type.</p></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Dog <span class="title">maxDog</span><span class="params">(Dog d1, Dog d2)</span> </span>&#123; … &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>Any call to maxDog will have compile-time type Dog!</strong></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Example */</span></span><br><span class="line">Poodle frank  = <span class="keyword">new</span> Poodle(<span class="string">&quot;Frank&quot;</span>, <span class="number">5</span>);</span><br><span class="line">Poodle frankJr = <span class="keyword">new</span> Poodle(<span class="string">&quot;Frank Jr.&quot;</span>, <span class="number">15</span>);</span><br><span class="line"></span><br><span class="line">Dog largerDog = maxDog(frank, frankJr);</span><br><span class="line">Poodle largerPoodle = maxDog(frank, frankJr); </span><br><span class="line"><span class="comment">/* Compilation error! RHS has compile-time type Dog. */</span></span><br></pre></td></tr></table></figure>
-<h3 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h3><p>Java has a special syntax for specifying the compile-time type of any expression.</p>
+<h3 id="casting">Casting</h3>
+<p>Java has a special syntax for specifying the compile-time type of any expression.</p>
 <ul>
-<li><p>Put desired type in parenthesis before the expression.</p>
-</li>
+<li><p>Put desired type in parenthesis before the expression.</p></li>
 <li><p>Examples:</p>
 <ul>
 <li><p>Compile-time type Dog:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">maxDog(frank, frankJr);</span><br></pre></td></tr></table></figure></li>
 <li><p>Compile-time type Poodle:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(Poodle) maxDog(frank, frankJr);</span><br></pre></td></tr></table></figure>
-<p>Tells compiler to pretend it sees a particular type.</p>
-</li>
-</ul>
-</li>
+<p>Tells compiler to pretend it sees a particular type.</p></li>
+</ul></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">oodle frank  = <span class="keyword">new</span> Poodle(<span class="string">&quot;Frank&quot;</span>, <span class="number">5</span>);</span><br><span class="line">Poodle frankJr = <span class="keyword">new</span> Poodle(<span class="string">&quot;Frank Jr.&quot;</span>, <span class="number">15</span>);</span><br><span class="line">Dog largerDog = maxDog(frank, frankJr);</span><br><span class="line">Poodle largerPoodle = (Poodle) maxDog(frank, frankJr);</span><br><span class="line"><span class="comment">/* Compilation OK! RHS has compile-time type Poodle. */</span></span><br></pre></td></tr></table></figure>
 <p>Casting is a powerful but dangerous tool.</p>
@@ -683,9 +703,11 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Poodle frank  = <span class="keyword">new</span> Poodle(<span class="string">&quot;Frank&quot;</span>, <span class="number">5</span>);</span><br><span class="line">Malamute frankSr = <span class="keyword">new</span> Malamute(<span class="string">&quot;Frank Sr.&quot;</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">Poodle largerPoodle = (Poodle) maxDog(frank, frankSr);</span><br></pre></td></tr></table></figure>
 <p>If we run the code above, we get a ClassCastException at runtime.</p>
 <ul>
-<li>So much for .class files being verifiably type checked…</li>
+<li>So much for .class files being verifiably type checked...</li>
 </ul>
-<h2 id="Dynamic-Method-Selection-and-Casting-Puzzle"><a href="#Dynamic-Method-Selection-and-Casting-Puzzle" class="headerlink" title="Dynamic Method Selection and Casting Puzzle"></a>Dynamic Method Selection and Casting Puzzle</h2><h3 id="Is-it-Overriding-Overloading"><a href="#Is-it-Overriding-Overloading" class="headerlink" title="Is it Overriding? Overloading?"></a>Is it Overriding? Overloading?</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bird</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gulgate</span><span class="params">(Bird b)</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">&quot;BiGulBi&quot;</span>); &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="dynamic-method-selection-and-casting-puzzle">Dynamic Method Selection and Casting Puzzle</h2>
+<h3 id="is-it-overriding-overloading">Is it Overriding? Overloading?</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bird</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gulgate</span><span class="params">(Bird b)</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">&quot;BiGulBi&quot;</span>); &#125;&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Falcon</span> <span class="keyword">extends</span> <span class="title">Bird</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gulgate</span><span class="params">(Falcon f)</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">&quot;FaGulFa&quot;</span>);&#125;&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Bird bird = <span class="keyword">new</span> Falcon();</span><br><span class="line">Falcon falcon = (Falcon) bird;</span><br><span class="line">bird.gulgate(falcon);</span><br><span class="line">falcon.gulgate(falcon);</span><br></pre></td></tr></table></figure>
 <p>What gets printed?</p>
@@ -701,28 +723,32 @@
 <li>Falcon is <u>overloading</u> the gulgate method, <u>not overriding</u>.</li>
 <li>Compiler basically thinks “does Bird class have a gulgate method? Yes! I’ll use that”. Since there is no overriding, no dynamic method selection occurs.</li>
 </ul>
-<h2 id="Higher-Order-Functions-in-Java"><a href="#Higher-Order-Functions-in-Java" class="headerlink" title="Higher Order Functions in Java"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OcfTN1PZ7oA&list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&index=8">Higher Order Functions in Java</a></h2><p><strong>Higher Order Function</strong>: A function that treats another function as data.</p>
+<h2 id="higher-order-functions-in-java"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OcfTN1PZ7oA&amp;list=PL8FaHk7qbOD6Mi8gDriGGeSnHi68QLuVD&amp;index=8">Higher Order Functions in Java</a></h2>
+<p><strong>Higher Order Function</strong>: A function that treats another function as data.</p>
 <ul>
 <li>e.g. takes a function as input.</li>
 </ul>
 <p>Example in Python:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tenX</span>(<span class="params">x</span>):</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">10</span>*x</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do_twice</span>(<span class="params">f, x</span>):</span></span><br><span class="line">	<span class="keyword">return</span> f(f(x))</span><br><span class="line"> </span><br><span class="line">print(do_twice(tenX, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">200</span></span><br></pre></td></tr></table></figure>
-<h3 id="Higher-Order-Functions-in-Java-7"><a href="#Higher-Order-Functions-in-Java-7" class="headerlink" title="Higher Order Functions in Java 7"></a>Higher Order Functions in Java 7</h3><p>Old School (Java 7 and earlier)</p>
+<h3 id="higher-order-functions-in-java-7">Higher Order Functions in Java 7</h3>
+<p>Old School (Java 7 and earlier)</p>
 <ul>
 <li>Fundamental issue: Memory boxes (variables) cannot contain pointers to functions.</li>
 </ul>
 <p>Can use an interface instead. Let’s try it out.</p>
-<p><img src="/images/CS61B/1645239.png"></p>
+<p><img src="/images/CS61B/1645239.png" /></p>
 <p>Java code below is equivalent to given python code.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IntUnaryFunction</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TenX</span> <span class="keyword">implements</span> <span class="title">IntUnaryFunction</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">   		<span class="keyword">return</span> <span class="number">10</span> * x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HoFDemo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">do_twice</span><span class="params">(IntUnaryFunction f, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">   		<span class="keyword">return</span> f.apply(f.apply(x));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">   		System.out.println(do_twice(<span class="keyword">new</span> TenX(), <span class="number">2</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Higher-Order-Functions-in-Java-8-or-Later"><a href="#Higher-Order-Functions-in-Java-8-or-Later" class="headerlink" title="Higher Order Functions in Java 8 or Later"></a>Higher Order Functions in Java 8 or Later</h3><p>In Java 8, new types were introduced: now can can hold references to methods.</p>
+<h3 id="higher-order-functions-in-java-8-or-later">Higher Order Functions in Java 8 or Later</h3>
+<p>In Java 8, new types were introduced: now can can hold references to methods.</p>
 <ul>
 <li>Why? The old way is still widely used, e.g. Comparators (see next lecture).</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Java8HoFDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">tenX</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">       	<span class="keyword">return</span> <span class="number">10</span>*x;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">doTwice</span><span class="params">(Function&lt;Integer, Integer&gt; f, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">     	<span class="keyword">return</span> f.apply(f.apply(x));</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> result = doTwice(Java8HoFDemo::tenX, <span class="number">2</span>);</span><br><span class="line">     	System.out.println(result);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Implementation-Inheritance-Cheatsheet"><a href="#Implementation-Inheritance-Cheatsheet" class="headerlink" title="Implementation Inheritance Cheatsheet"></a>Implementation Inheritance Cheatsheet</h3><p>VengefulSLList extends SLList means a VenglefulSLList is-an SLList. Inherits all members!</p>
+<h3 id="implementation-inheritance-cheatsheet">Implementation Inheritance Cheatsheet</h3>
+<p>VengefulSLList extends SLList means a VenglefulSLList is-an SLList. Inherits all members!</p>
 <ul>
 <li>Variables, methods, nested classes.</li>
 <li>Not constructors.</li>
@@ -735,11 +761,13 @@
 <li>For <u>overridden</u> methods the actual method invoked is based on <strong>dynamic</strong> type of invoking expression, e.g. Dog.maxDog(d1, d2).bark();</li>
 <li>Can use casting to overrule compiler type checking.</li>
 </ul>
-<h2 id="Extra-Problem-Just-For-Fun"><a href="#Extra-Problem-Just-For-Fun" class="headerlink" title="Extra Problem Just For Fun"></a>Extra Problem Just For Fun</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Showdog dogC = <span class="keyword">new</span> ShowDog(<span class="string">&quot;Franklin&quot;</span>, <span class="string">&quot;Malamute&quot;</span>, <span class="number">180</span>, <span class="number">6</span>);</span><br><span class="line">Showdog dogD = <span class="keyword">new</span> ShowDog(<span class="string">&quot;Gargamel&quot;</span>, <span class="string">&quot;Corgi&quot;</span>, <span class="number">44</span>, <span class="number">12</span>);</span><br><span class="line"></span><br><span class="line">Dog.maxDog(dogC, dogD);</span><br><span class="line"></span><br><span class="line">Dog md = Dog.maxDog(dogC, dogD);</span><br><span class="line">ShowDog msd = Dog.maxDog(dogC, dogD);</span><br><span class="line"></span><br><span class="line">Object o = <span class="keyword">new</span> Dog(<span class="string">&quot;Hammy&quot;</span>, <span class="string">&quot;Beagle&quot;</span>, <span class="number">15</span>);</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="string">&quot;Ammo&quot;</span>, <span class="string">&quot;Labrador&quot;</span>, <span class="number">54</span>);</span><br><span class="line">Object stuff[] = <span class="keyword">new</span> Object[<span class="number">5</span>];</span><br><span class="line">stuff[<span class="number">0</span>] = o;</span><br><span class="line">stuff[<span class="number">1</span>] = d;</span><br><span class="line">stuff[<span class="number">2</span>] = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="extra-problem-just-for-fun">Extra Problem Just For Fun</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Showdog dogC = <span class="keyword">new</span> ShowDog(<span class="string">&quot;Franklin&quot;</span>, <span class="string">&quot;Malamute&quot;</span>, <span class="number">180</span>, <span class="number">6</span>);</span><br><span class="line">Showdog dogD = <span class="keyword">new</span> ShowDog(<span class="string">&quot;Gargamel&quot;</span>, <span class="string">&quot;Corgi&quot;</span>, <span class="number">44</span>, <span class="number">12</span>);</span><br><span class="line"></span><br><span class="line">Dog.maxDog(dogC, dogD);</span><br><span class="line"></span><br><span class="line">Dog md = Dog.maxDog(dogC, dogD);</span><br><span class="line">ShowDog msd = Dog.maxDog(dogC, dogD);</span><br><span class="line"></span><br><span class="line">Object o = <span class="keyword">new</span> Dog(<span class="string">&quot;Hammy&quot;</span>, <span class="string">&quot;Beagle&quot;</span>, <span class="number">15</span>);</span><br><span class="line">Dog d = <span class="keyword">new</span> Dog(<span class="string">&quot;Ammo&quot;</span>, <span class="string">&quot;Labrador&quot;</span>, <span class="number">54</span>);</span><br><span class="line">Object stuff[] = <span class="keyword">new</span> Object[<span class="number">5</span>];</span><br><span class="line">stuff[<span class="number">0</span>] = o;</span><br><span class="line">stuff[<span class="number">1</span>] = d;</span><br><span class="line">stuff[<span class="number">2</span>] = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
 <p>1. What is the static type of Dog.maxDog(dogC, dog D)?</p>
 <p>2. Which (if any), will compile:</p>
 <p>3. How many memory boxes are there in the code below? What are the dynamic types of their contents?</p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>The Interface and implements.</strong> Up to now we have been writing classes and interfaces, and you have may noticed places where we have had to write redundant code for different (but similar!) classes. This leads us to the idea of inheritance, the idea that a class/object does not need to redefine all its methods, and instead can use properties of a parent class. Lets first note some differences between inheritence of a parent class and interfaces (Note that a class can do both, even at the same time! Here is the syntax for implemeting an interface:</p>
+<h2 id="overview">Overview</h2>
+<p><strong>The Interface and implements.</strong> Up to now we have been writing classes and interfaces, and you have may noticed places where we have had to write redundant code for different (but similar!) classes. This leads us to the idea of inheritance, the idea that a class/object does not need to redefine all its methods, and instead can use properties of a parent class. Lets first note some differences between inheritence of a parent class and interfaces (Note that a class can do both, even at the same time! Here is the syntax for implemeting an interface:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SLList&lt;Blorp&gt; implements List61B&lt;Blorp&gt;</span><br></pre></td></tr></table></figure>
 <p>Similarly, the way for a class to extend the qualities of another class the syntax is as follows:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class_Name extends Class_Name</span><br></pre></td></tr></table></figure>

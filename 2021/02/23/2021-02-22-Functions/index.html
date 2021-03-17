@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-04
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    598
+                    608
                 </div>
                 
 
@@ -497,37 +497,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h1><p><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~cs61a/fa20/">Website</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0kQKzc2yQQs&list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4">Video</a></p>
+                <h1 id="functions">Functions</h1>
+<p><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~cs61a/fa20/">Website</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0kQKzc2yQQs&amp;list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4">Video</a></p>
 <p><a target="_blank" rel="noopener" href="http://composingprograms.com/pages/11-getting-started.html">Book 1.1</a> <a target="_blank" rel="noopener" href="http://composingprograms.com/pages/12-elements-of-programming.html">Book 1.2</a></p>
-<h2 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0P4kOL7pFFo&list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&index=2">Expressions</a></h2><p>An expression describes a computation and evaluates to a value, all expressions can use function call notation.</p>
-<p><img src="/images/CS61A/784180.png"></p>
-<h3 id="Anatomy-of-a-Call-Expression"><a href="#Anatomy-of-a-Call-Expression" class="headerlink" title="Anatomy of a Call Expression"></a>Anatomy of a Call Expression</h3><p><strong>Evaluation procedure for call expressions</strong>:</p>
-<ol>
+<h2 id="expressions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0P4kOL7pFFo&amp;list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&amp;index=2">Expressions</a></h2>
+<p>An expression describes a computation and evaluates to a value, all expressions can use function call notation.</p>
+<p><img src="/images/CS61A/784180.png" /></p>
+<h3 id="anatomy-of-a-call-expression">Anatomy of a Call Expression</h3>
+<p><strong>Evaluation procedure for call expressions</strong>:</p>
+<ol type="1">
 <li>Evaluate the operator and then the operand subexpressions</li>
 <li><strong>Apply</strong> the <strong>function</strong> that is the value of the operator to the <strong>arguments</strong> that are the values of the operands</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Call expressions</span></span><br><span class="line"><span class="built_in">max</span>(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">min</span>(<span class="number">1</span>, -<span class="number">2</span>, <span class="number">3</span>, -<span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">pow</span>(<span class="number">100</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Evaluating-Nested-Expressions"><a href="#Evaluating-Nested-Expressions" class="headerlink" title="Evaluating Nested Expressions"></a>Evaluating Nested Expressions</h3><p><img src="/images/CS61A/784181.png"></p>
-<h2 id="Names-Assignment-and-User-Defined-Functions"><a href="#Names-Assignment-and-User-Defined-Functions" class="headerlink" title="Names, Assignment, and User-Defined Functions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zYC7tKfKPtM&list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&index=3">Names, Assignment, and User-Defined Functions</a></h2><p>How name works?</p>
+<h3 id="evaluating-nested-expressions">Evaluating Nested Expressions</h3>
+<p><img src="/images/CS61A/784181.png" /></p>
+<h2 id="names-assignment-and-user-defined-functions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zYC7tKfKPtM&amp;list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&amp;index=3">Names, Assignment, and User-Defined Functions</a></h2>
+<p>How name works?</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Imports</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi</span><br><span class="line">pi * <span class="number">71</span> / <span class="number">223</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sin</span><br><span class="line">sin(pi/<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>But we can define our own names using an assignment statement.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Assignment</span></span><br><span class="line">radius = <span class="number">10</span></span><br><span class="line"><span class="number">2</span> * radius</span><br><span class="line">area, circ = pi * radius * radius, <span class="number">2</span> * pi * radius</span><br><span class="line">radius = <span class="number">20</span></span><br></pre></td></tr></table></figure>
-<p>Now we have defined the area and the circumference of a circle with radius 10, but they do not actually remember where those values came from. if we change the radius at end, the area is not influenced. </p>
+<p>Now we have defined the area and the circumference of a circle with radius 10, but they do not actually remember where those values came from. if we change the radius at end, the area is not influenced.</p>
 <p>Assignment statements can also give names to functions:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Function values</span></span><br><span class="line"><span class="built_in">max</span></span><br><span class="line"><span class="built_in">max</span>(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">f = <span class="built_in">max</span></span><br><span class="line">f</span><br><span class="line">f(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">max</span> = <span class="number">7</span></span><br><span class="line">f(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">f(<span class="number">3</span>, <span class="built_in">max</span>)</span><br><span class="line">f = <span class="number">2</span></span><br><span class="line"><span class="comment"># f(3, 4)</span></span><br><span class="line">__builtins__.<span class="built_in">max</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># User-defined functions</span></span><br><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> add, mul</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> mul(x, x)</span><br><span class="line"></span><br><span class="line">square(<span class="number">21</span>)</span><br><span class="line">square(add(<span class="number">2</span>, <span class="number">5</span>))</span><br><span class="line">square(square(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_squares</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> add(square(x), square(y))</span><br><span class="line">sum_squares(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">sum_squares(<span class="number">5</span>, <span class="number">12</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># area function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">area</span>():</span></span><br><span class="line">    <span class="keyword">return</span> pi * radius * radius</span><br><span class="line">area()</span><br><span class="line">radius = <span class="number">20</span></span><br><span class="line">area()</span><br><span class="line">radius = <span class="number">10</span></span><br><span class="line">area()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Name conflicts</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">square</span>):</span></span><br><span class="line">    <span class="keyword">return</span> mul(square, square)</span><br><span class="line">square(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Types-of-Expressions"><a href="#Types-of-Expressions" class="headerlink" title="Types of Expressions"></a>Types of Expressions</h3><p>Primitive expressions:</p>
-<p><img src="/images/CS61A/784182.png"></p>
+<h3 id="types-of-expressions">Types of Expressions</h3>
+<p>Primitive expressions:</p>
+<p><img src="/images/CS61A/784182.png" /></p>
 <p>Call expressions:</p>
-<p><img src="/images/CS61A/784183.png"></p>
-<h3 id="Discussion-Question-1"><a href="#Discussion-Question-1" class="headerlink" title="Discussion Question 1"></a>Discussion Question 1</h3><p>What is the value of the final expression in this sequence? </p>
+<p><img src="/images/CS61A/784183.png" /></p>
+<h3 id="discussion-question-1">Discussion Question 1</h3>
+<p>What is the value of the final expression in this sequence?</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = <span class="built_in">min</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = <span class="built_in">max</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>g, h = <span class="built_in">min</span>, <span class="built_in">max</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">max</span> = g</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">max</span>(f(<span class="number">2</span>, g(h(<span class="number">1</span>, <span class="number">5</span>), <span class="number">3</span>)), <span class="number">4</span>) </span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-<h2 id="Environment-Diagrams"><a href="#Environment-Diagrams" class="headerlink" title="Environment Diagrams"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gyk0Qutui1s&list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&index=4">Environment Diagrams</a></h2><p>Environment diagrams visualize the interpreter’s process.</p>
-<p><img src="/images/CS61A/784184.png"></p>
-<p><strong>Code (left):</strong> </p>
+<h2 id="environment-diagrams"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gyk0Qutui1s&amp;list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&amp;index=4">Environment Diagrams</a></h2>
+<p>Environment diagrams visualize the interpreter’s process.</p>
+<p><img src="/images/CS61A/784184.png" /></p>
+<p><strong>Code (left):</strong></p>
 <ul>
-<li>Statements and expressions </li>
+<li>Statements and expressions</li>
 <li>Arrows indicate evaluation order</li>
 </ul>
 <p><strong>Frames (right):</strong></p>
@@ -535,42 +543,47 @@
 <li>Each name is bound to a value</li>
 <li>Within a frame, a name cannot be repeated</li>
 </ul>
-<h3 id="Assignment-Statements"><a href="#Assignment-Statements" class="headerlink" title="Assignment Statements"></a>Assignment Statements</h3><p><img src="/images/CS61A/784185.png"></p>
+<h3 id="assignment-statements">Assignment Statements</h3>
+<p><img src="/images/CS61A/784185.png" /></p>
 <p><strong>Execution rule for assignment statements:</strong></p>
-<ol>
+<ol type="1">
 <li>Evaluate all expressions to the right of = from left to right.</li>
 <li>Bind all names to the left of = to those resulting values in the current frame.</li>
 </ol>
-<h3 id="Discussion-Question-1-Solution"><a href="#Discussion-Question-1-Solution" class="headerlink" title="Discussion Question 1 Solution"></a>Discussion Question 1 Solution</h3><p><img src="/images/CS61A/784186.png"></p>
-<h2 id="Defining-Functions"><a href="#Defining-Functions" class="headerlink" title="Defining Functions"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=j3uTRrPBrKk&list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&index=5">Defining Functions</a></h2><p>Assignment is a simple means of abstraction: binds names to values</p>
+<h3 id="discussion-question-1-solution">Discussion Question 1 Solution</h3>
+<p><img src="/images/CS61A/784186.png" /></p>
+<h2 id="defining-functions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=j3uTRrPBrKk&amp;list=PL6BsET-8jgYUOR-QB-3KBQBgnQMGfGPb4&amp;index=5">Defining Functions</a></h2>
+<p>Assignment is a simple means of abstraction: binds names to values</p>
 <p>Function definition is a more powerful means of abstraction: binds names to expressions</p>
-<p><img src="/images/CS61A/784187.png"></p>
+<p><img src="/images/CS61A/784187.png" /></p>
 <p><strong>Execution procedure for def statements:</strong></p>
-<ol>
-<li>Create a function with signature “name”(“formal parameters”)</li>
+<ol type="1">
+<li>Create a function with signature "name"("formal parameters")</li>
 <li>Set the body of that function to be everything indented after the first line</li>
-<li>Bind “name” to that function in the current frame</li>
+<li>Bind "name" to that function in the current frame</li>
 </ol>
-<h3 id="Calling-User-Defined-Functions"><a href="#Calling-User-Defined-Functions" class="headerlink" title="Calling User-Defined Functions"></a>Calling User-Defined Functions</h3><p><strong>Procedure for calling/applying user-defined functions (version 1):</strong> </p>
-<ol>
+<h3 id="calling-user-defined-functions">Calling User-Defined Functions</h3>
+<p><strong>Procedure for calling/applying user-defined functions (version 1):</strong></p>
+<ol type="1">
 <li>Add a local frame, forming a new environment</li>
-<li>Bind the function’s formal parameters to its arguments in that frame</li>
+<li>Bind the function's formal parameters to its arguments in that frame</li>
 <li>Execute the body of the function in that new environment</li>
 </ol>
-<p><img src="/images/CS61A/784188.png"></p>
-<p><img src="/images/CS61A/784189.png"></p>
-<h3 id="Looking-Up-Names-In-Environments"><a href="#Looking-Up-Names-In-Environments" class="headerlink" title="Looking Up Names In Environments"></a>Looking Up Names In Environments</h3><p>Every expression is evaluated in the context of an environment. </p>
+<p><img src="/images/CS61A/784188.png" /></p>
+<p><img src="/images/CS61A/784189.png" /></p>
+<h3 id="looking-up-names-in-environments">Looking Up Names In Environments</h3>
+<p>Every expression is evaluated in the context of an environment.</p>
 <p>So far, the current environment is either:</p>
 <ul>
 <li>The global frame alone, or</li>
-<li>A local frame, followed by the global frame. </li>
+<li>A local frame, followed by the global frame.</li>
 </ul>
 <p><strong><em>Most important two things</em></strong>:</p>
-<p>An environment is a sequence of frames. </p>
-<p>A name evaluates to the value bound to that name in the earliest frame of the current environment in which that name is found. </p>
+<p>An environment is a sequence of frames.</p>
+<p>A name evaluates to the value bound to that name in the earliest frame of the current environment in which that name is found.</p>
 <p>E.g., to look up some name in the body of the square function:</p>
 <ul>
-<li>Look for that name in the local frame. </li>
+<li>Look for that name in the local frame.</li>
 <li>If not found, look for it in the global frame. (Built-in names like “max” are in the global frame too, but we don’t draw them in environment diagrams.)</li>
 </ul>
 

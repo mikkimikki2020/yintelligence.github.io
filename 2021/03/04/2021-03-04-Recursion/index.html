@@ -497,100 +497,109 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h1><h2 id="Q1-Num-eights"><a href="#Q1-Num-eights" class="headerlink" title="Q1: Num eights"></a>Q1: Num eights</h2><p>Write a recursive function <code>num_eights</code> that takes a positive integer <code>x</code> and returns the number of times the digit 8 appears in <code>x</code>. <em>Use recursion - the tests will fail if you use any assignment statements.</em></p>
+                <h1 id="recursion">Recursion</h1>
+<h2 id="q1-num-eights">Q1: Num eights</h2>
+<p>Write a recursive function <code>num_eights</code> that takes a positive integer <code>x</code> and returns the number of times the digit 8 appears in <code>x</code>. <em>Use recursion - the tests will fail if you use any assignment statements.</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">num_eights</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns the number of times 8 appears as a digit of x.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; num_eights(3)</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; num_eights(8)</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; num_eights(88888888)</span></span><br><span class="line"><span class="string">    8</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; num_eights(2638)</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; num_eights(86380)</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; num_eights(12345)</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban all assignment statements</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;num_eights&#x27;,</span></span><br><span class="line"><span class="string">    ...       [&#x27;Assign&#x27;, &#x27;AugAssign&#x27;])</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="string">&quot;*** YOUR CODE HERE ***&quot;</span></span><br></pre></td></tr></table></figure>
-<p>Watch the <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=j34yCDO1ASQ&t=1s">hints video</a> for somewhere to start.</p>
-<h2 id="Q2-Ping-pong"><a href="#Q2-Ping-pong" class="headerlink" title="Q2: Ping-pong"></a>Q2: Ping-pong</h2><p>The ping-pong sequence counts up starting from 1 and is always either counting up or counting down. At element <code>k</code>, the direction switches if <code>k</code> is a multiple of 8 or contains the digit 8. The first 30 elements of the ping-pong sequence are listed below, with direction swaps marked using brackets at the 8th, 16th, 18th, 24th, and 28th elements:</p>
+<p>Watch the <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=j34yCDO1ASQ&amp;t=1s">hints video</a> for somewhere to start.</p>
+<h2 id="q2-ping-pong">Q2: Ping-pong</h2>
+<p>The ping-pong sequence counts up starting from 1 and is always either counting up or counting down. At element <code>k</code>, the direction switches if <code>k</code> is a multiple of 8 or contains the digit 8. The first 30 elements of the ping-pong sequence are listed below, with direction swaps marked using brackets at the 8th, 16th, 18th, 24th, and 28th elements:</p>
 <table>
 <thead>
-<tr>
-<th align="left">Index</th>
-<th align="left">1</th>
-<th align="left">2</th>
-<th align="left">3</th>
-<th align="left">4</th>
-<th align="left">5</th>
-<th align="left">6</th>
-<th align="left">7</th>
-<th align="left">[8]</th>
-<th align="left">9</th>
-<th align="left">10</th>
-<th align="left">11</th>
-<th align="left">12</th>
-<th align="left">13</th>
-<th align="left">14</th>
-<th align="left">15</th>
-<th align="left">[16]</th>
-<th align="left">17</th>
-<th align="left">[18]</th>
-<th align="left">19</th>
-<th align="left">20</th>
-<th align="left">21</th>
-<th align="left">22</th>
-<th align="left">23</th>
+<tr class="header">
+<th style="text-align: left;">Index</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">2</th>
+<th style="text-align: left;">3</th>
+<th style="text-align: left;">4</th>
+<th style="text-align: left;">5</th>
+<th style="text-align: left;">6</th>
+<th style="text-align: left;">7</th>
+<th style="text-align: left;">[8]</th>
+<th style="text-align: left;">9</th>
+<th style="text-align: left;">10</th>
+<th style="text-align: left;">11</th>
+<th style="text-align: left;">12</th>
+<th style="text-align: left;">13</th>
+<th style="text-align: left;">14</th>
+<th style="text-align: left;">15</th>
+<th style="text-align: left;">[16]</th>
+<th style="text-align: left;">17</th>
+<th style="text-align: left;">[18]</th>
+<th style="text-align: left;">19</th>
+<th style="text-align: left;">20</th>
+<th style="text-align: left;">21</th>
+<th style="text-align: left;">22</th>
+<th style="text-align: left;">23</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">PingPong Value</td>
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">3</td>
-<td align="left">4</td>
-<td align="left">5</td>
-<td align="left">6</td>
-<td align="left">7</td>
-<td align="left">[8]</td>
-<td align="left">7</td>
-<td align="left">6</td>
-<td align="left">5</td>
-<td align="left">4</td>
-<td align="left">3</td>
-<td align="left">2</td>
-<td align="left">1</td>
-<td align="left">[0]</td>
-<td align="left">1</td>
-<td align="left">[2]</td>
-<td align="left">1</td>
-<td align="left">0</td>
-<td align="left">-1</td>
-<td align="left">-2</td>
-<td align="left">-3</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PingPong Value</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">[8]</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">[0]</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">[2]</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">-2</td>
+<td style="text-align: left;">-3</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <table>
 <thead>
-<tr>
-<th align="left">Index (cont.)</th>
-<th align="left">[24]</th>
-<th align="left">25</th>
-<th align="left">26</th>
-<th align="left">27</th>
-<th align="left">[28]</th>
-<th align="left">29</th>
-<th align="left">30</th>
+<tr class="header">
+<th style="text-align: left;">Index (cont.)</th>
+<th style="text-align: left;">[24]</th>
+<th style="text-align: left;">25</th>
+<th style="text-align: left;">26</th>
+<th style="text-align: left;">27</th>
+<th style="text-align: left;">[28]</th>
+<th style="text-align: left;">29</th>
+<th style="text-align: left;">30</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">PingPong Value</td>
-<td align="left">[-4]</td>
-<td align="left">-3</td>
-<td align="left">-2</td>
-<td align="left">-1</td>
-<td align="left">[0]</td>
-<td align="left">-1</td>
-<td align="left">-2</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PingPong Value</td>
+<td style="text-align: left;">[-4]</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">-2</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">[0]</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">-2</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>mplement a function <code>pingpong</code> that returns the nth element of the ping-pong sequence <em>without using any assignment statements</em>.</p>
 <p>You may use the function <code>num_eights</code>, which you defined in the previous question.</p>
 <p><em>Use recursion - the tests will fail if you use any assignment statements.</em></p>
-<p><em>Hint</em>: If you’re stuck, first try implementing <code>pingpong</code> using assignment statements and a <code>while</code> statement. Then, to convert this into a recursive solution, write a helper function that has a parameter for each variable that changes values in the body of the while loop.</p>
+<p><em>Hint</em>: If you're stuck, first try implementing <code>pingpong</code> using assignment statements and a <code>while</code> statement. Then, to convert this into a recursive solution, write a helper function that has a parameter for each variable that changes values in the body of the while loop.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pingpong</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the nth element of the ping-pong sequence.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(8)</span></span><br><span class="line"><span class="string">    8</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(10)</span></span><br><span class="line"><span class="string">    6</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(15)</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(21)</span></span><br><span class="line"><span class="string">    -1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(22)</span></span><br><span class="line"><span class="string">    -2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(30)</span></span><br><span class="line"><span class="string">    -2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(68)</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(69)</span></span><br><span class="line"><span class="string">    -1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(80)</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(81)</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(82)</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; pingpong(100)</span></span><br><span class="line"><span class="string">    -6</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban assignment statements</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;pingpong&#x27;, [&#x27;Assign&#x27;, &#x27;AugAssign&#x27;])</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="string">&quot;*** YOUR CODE HERE ***&quot;</span></span><br></pre></td></tr></table></figure>
 <p>Watch the <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5PAfXcB_EoU">hints video</a> for somewhere to start.</p>
-<h2 id="Q3-Missing-Digits"><a href="#Q3-Missing-Digits" class="headerlink" title="Q3: Missing Digits"></a>Q3: Missing Digits</h2><p>Write the recursive function <code>missing_digits</code> that takes a number <code>n</code> that is sorted in increasing order (for example, <code>12289</code> is valid but <code>15362</code> and <code>98764</code> are not). It returns the number of missing digits in <code>n</code>. A missing digit is a number between the first and last digit of <code>n</code> of a that is not in <code>n</code>. <em>Use recursion - the tests will fail if you use while or for loops.</em></p>
+<h2 id="q3-missing-digits">Q3: Missing Digits</h2>
+<p>Write the recursive function <code>missing_digits</code> that takes a number <code>n</code> that is sorted in increasing order (for example, <code>12289</code> is valid but <code>15362</code> and <code>98764</code> are not). It returns the number of missing digits in <code>n</code>. A missing digit is a number between the first and last digit of <code>n</code> of a that is not in <code>n</code>. <em>Use recursion - the tests will fail if you use while or for loops.</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">missing_digits</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Given a number a that is in sorted, increasing order,</span></span><br><span class="line"><span class="string">    return the number of missing digits in n. A missing digit is</span></span><br><span class="line"><span class="string">    a number between the first and last digit of a that is not in n.</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(1248) # 3, 5, 6, 7</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(1122) # No missing numbers</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(123456) # No missing numbers</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(3558) # 4, 6, 7</span></span><br><span class="line"><span class="string">    3</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(35578) # 4, 6</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(12456) # 3</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(16789) # 2, 3, 4, 5</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(19) # 2, 3, 4, 5, 6, 7, 8</span></span><br><span class="line"><span class="string">    7</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; missing_digits(4) # No missing numbers between 4 and 4</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban while or for loops</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;missing_digits&#x27;, [&#x27;While&#x27;, &#x27;For&#x27;])</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="string">&quot;*** YOUR CODE HERE ***&quot;</span></span><br></pre></td></tr></table></figure>
 <p>Watch the <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xcd2jTROLSs">hints video</a> for somewhere to start.</p>
-<h3 id="Q4-Count-coins"><a href="#Q4-Count-coins" class="headerlink" title="Q4: Count coins"></a>Q4: Count coins</h3><p>Given a positive integer <code>total</code>, a set of coins makes change for <code>total</code> if the sum of the values of the coins is <code>total</code>. Here we will use standard US Coin values: 1, 5, 10, 25 For example, the following sets make change for <code>15</code>:</p>
+<h3 id="q4-count-coins">Q4: Count coins</h3>
+<p>Given a positive integer <code>total</code>, a set of coins makes change for <code>total</code> if the sum of the values of the coins is <code>total</code>. Here we will use standard US Coin values: 1, 5, 10, 25 For example, the following sets make change for <code>15</code>:</p>
 <ul>
 <li>15 1-cent coins</li>
 <li>10 1-cent, 1 5-cent coins</li>
@@ -604,14 +613,17 @@
 <p><em>Hint:</em> Refer the <a target="_blank" rel="noopener" href="http://composingprograms.com/pages/17-recursive-functions.html#example-partitions">implementation</a> of <code>count_partitions</code> for an example of how to count the ways to sum up to a total with smaller parts. If you need to keep track of more than one value across recursive calls, consider writing a helper function.</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">next_largest_coin</span>(<span class="params">coin</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the next coin. </span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; next_largest_coin(1)</span></span><br><span class="line"><span class="string">    5</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; next_largest_coin(5)</span></span><br><span class="line"><span class="string">    10</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; next_largest_coin(10)</span></span><br><span class="line"><span class="string">    25</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; next_largest_coin(2) # Other values return None</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> coin == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">5</span></span><br><span class="line">    <span class="keyword">elif</span> coin == <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">    <span class="keyword">elif</span> coin == <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">25</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_coins</span>(<span class="params">total</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the number of ways to make change for total using coins of value of 1, 5, 10, 25.</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_coins(15)</span></span><br><span class="line"><span class="string">    6</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_coins(10)</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_coins(20)</span></span><br><span class="line"><span class="string">    9</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_coins(100) # How many ways to make change for a dollar?</span></span><br><span class="line"><span class="string">    242</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban iteration</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;count_coins&#x27;, [&#x27;While&#x27;, &#x27;For&#x27;])                                          </span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="string">&quot;*** YOUR CODE HERE ***&quot;</span></span><br></pre></td></tr></table></figure>
-<h1 id="Just-for-Fun-Questions"><a href="#Just-for-Fun-Questions" class="headerlink" title="Just for Fun Questions"></a>Just for Fun Questions</h1><blockquote>
-<p>This question demonstrates that it’s possible to write recursive functions without assigning them a name in the global frame.</p>
+<h1 id="just-for-fun-questions">Just for Fun Questions</h1>
+<blockquote>
+<p>This question demonstrates that it's possible to write recursive functions without assigning them a name in the global frame.</p>
 </blockquote>
-<h2 id="Q5-Anonymous-factorial"><a href="#Q5-Anonymous-factorial" class="headerlink" title="Q5: Anonymous factorial"></a>Q5: Anonymous factorial</h2><p>The recursive factorial function can be written as a single expression by using a <a target="_blank" rel="noopener" href="http://docs.python.org/py3k/reference/expressions.html#conditional-expressions">conditional expression</a>.</p>
+<h2 id="q5-anonymous-factorial">Q5: Anonymous factorial</h2>
+<p>The recursive factorial function can be written as a single expression by using a <a target="_blank" rel="noopener" href="http://docs.python.org/py3k/reference/expressions.html#conditional-expressions">conditional expression</a>.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact = <span class="keyword">lambda</span> n: <span class="number">1</span> <span class="keyword">if</span> n == <span class="number">1</span> <span class="keyword">else</span> mul(n, fact(sub(n, <span class="number">1</span>)))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fact(<span class="number">5</span>)</span><br><span class="line"><span class="number">120</span></span><br></pre></td></tr></table></figure>
 <p>However, this implementation relies on the fact (no pun intended) that <code>fact</code> has a name, to which we refer in the body of <code>fact</code>. To write a recursive function, we have always given it a name using a <code>def</code> or assignment statement so that we can refer to the function within its own body. In this question, your job is to define fact recursively without giving it a name!</p>
 <p>Write an expression that computes <code>n</code> factorial using only call expressions, conditional expressions, and lambda expressions (no assignment or def statements). <em>Note in particular that you are not allowed to use <code>make_anonymous_factorial</code> in your return expression.</em> The <code>sub</code> and <code>mul</code> functions from the <code>operator</code> module are the only built-in functions required to solve this problem:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> sub, mul</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_anonymous_factorial</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Return the value of an expression that computes factorial.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; make_anonymous_factorial()(5)</span></span><br><span class="line"><span class="string">    120</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; from construct_check import check</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; # ban any assignments or recursion</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; check(HW_SOURCE_FILE, &#x27;make_anonymous_factorial&#x27;, [&#x27;Assign&#x27;, &#x27;AugAssign&#x27;, &#x27;FunctionDef&#x27;, &#x27;Recursion&#x27;])</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;YOUR_EXPRESSION_HERE&#x27;</span></span><br></pre></td></tr></table></figure>
+
                 
             </div>
             <hr/>

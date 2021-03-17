@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-27
+                    2021-03-17
                 </div>
                 
 
@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    9 Min
+                    10 Min
                 </div>
                 
 
@@ -497,239 +497,245 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Introduction-and-Conceptual-Modelling"><a href="#Introduction-and-Conceptual-Modelling" class="headerlink" title="Introduction and Conceptual Modelling"></a>Introduction and Conceptual Modelling</h1><p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/785a6d4625e12df097a070aca142abecb520cf6e-1612960645104/capture/">Video 2:28 ~ end</a></p>
+                <h1 id="introduction-and-conceptual-modelling">Introduction and Conceptual Modelling</h1>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/785a6d4625e12df097a070aca142abecb520cf6e-1612960645104/capture/">Video 2:28 ~ end</a></p>
 <p><a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">Exercise</a></p>
-<h2 id="Basic-Terminology"><a href="#Basic-Terminology" class="headerlink" title="Basic Terminology"></a>Basic Terminology</h2><h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><ul>
+<h2 id="basic-terminology">Basic Terminology</h2>
+<h3 id="database">Database</h3>
+<ul>
 <li>collection of logically related data</li>
-<li>database <strong><em>schema</em></strong> describes the database design (blueprint)<ul>
+<li>database <strong><em>schema</em></strong> describes the database design (blueprint)
+<ul>
 <li>format and relationships between stored data (often rather static)</li>
-</ul>
-</li>
+</ul></li>
 <li>collection of data stored in a database at <strong>a given time</strong> is called an <strong><em>instance</em></strong> of the database (Database change over time)</li>
 </ul>
-<h3 id="Database-Management-Systems-DBMS"><a href="#Database-Management-Systems-DBMS" class="headerlink" title="Database Management Systems (DBMS)"></a>Database Management Systems (DBMS)</h3><p>tools (programs) to efficiently store, maintain and retrieve information from a database</p>
+<h3 id="database-management-systems-dbms">Database Management Systems (DBMS)</h3>
+<p>tools (programs) to efficiently store, maintain and retrieve information from a database</p>
 <ul>
 <li>support of <strong><em>c</em></strong>reate, <strong><em>r</em></strong>ead, <strong><em>u</em></strong>pdate and <strong><em>d</em></strong>elete data (<em>CRUD</em> operations)</li>
 <li><em>data definition language (DDL)</em> to define the database schema</li>
-<li><em>data manipulation language (DML)</em> to query and update the data<ul>
+<li><em>data manipulation language (DML)</em> to query and update the data
+<ul>
 <li>often declarative fourth generation languages (4GLs) such as SQL</li>
-</ul>
-</li>
+</ul></li>
 <li>data access control, <em>transactions</em> and concurrency control</li>
 </ul>
-<p>A <em>database</em> is an organized collection of inter-related data that models some aspect of the real-world (e.g., modeling the students in a class or a digital music store). </p>
+<p>A <em>database</em> is an organized collection of inter-related data that models some aspect of the real-world (e.g., modeling the students in a class or a digital music store).</p>
 <p>People often confuse “databases” with “database management systems” (e.g., MySQL, Oracle, MongoDB). <u>A database management system (DBMS) is the software that manages a database.</u> Consider a database that models a digital music store (e.g., Spotify). Let the database hold information about the artists and which albums those artists have released.</p>
-<h2 id="File-Processing-System-5-13"><a href="#File-Processing-System-5-13" class="headerlink" title="File Processing System 5:13"></a>File Processing System 5:13</h2><p>Why should we not just use multiple files in a file system to store our data?</p>
+<h2 id="file-processing-system-513">File Processing System 5:13</h2>
+<p>Why should we not just use multiple files in a file system to store our data?</p>
 <p>There are various disadvantages of such an approach:</p>
 <ul>
-<li><p>data redundancy and inconsistency</p>
+<li>data redundancy and inconsistency
 <ul>
 <li>different file formats over time</li>
 <li>duplication of information in different files</li>
-</ul>
-</li>
-<li><p>limited data access</p>
+</ul></li>
+<li>limited data access
 <ul>
 <li>we have to write new programs to carry out new tasks</li>
 <li>data cannot be retrieved in a convenient and efficient manner</li>
-</ul>
-</li>
-<li><p>data isolation</p>
+</ul></li>
+<li>data isolation
 <ul>
 <li>data may be distributed over different files without a common format</li>
-</ul>
-</li>
-<li><p>integrity</p>
+</ul></li>
+<li>integrity
 <ul>
 <li>integrity constraints (e.g. balance &gt; 0) are hidden in the program code and not explicitly stated and checked</li>
-</ul>
-</li>
-<li><p>missing atomic operations</p>
+</ul></li>
+<li>missing atomic operations
 <ul>
 <li>system failures and crashes may leave the data in an <strong>inconsistent state</strong> (e.g. only parts of a operation have been carried out)</li>
 <li>example: transfer of money from one account to another account</li>
 <li>we later discuss <strong><em>transaction management</em></strong> as a solution</li>
-</ul>
-</li>
-<li><p>concurrent update anomalies</p>
+</ul></li>
+<li>concurrent update anomalies
 <ul>
 <li>concurrent updates may leave the data in an <strong>inconsistent state</strong></li>
 <li>example: two programs simultaneously removing money from a single account</li>
 <li>we later discuss <strong><em>scheduling</em></strong> as a solution</li>
-</ul>
-</li>
-<li><p>limited security control</p>
+</ul></li>
+<li>limited security control
 <ul>
 <li>difficult to give a user only access to parts of a file</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>DBMSs offer solutions to all these problems</strong></p>
 <ul>
 <li><strong><em>concepts and algorithms</em></strong> to solve the problems with file processing systems</li>
 </ul>
-<h2 id="Database-Management-System-DBMS-13-25"><a href="#Database-Management-System-DBMS-13-25" class="headerlink" title="Database Management System (DBMS) 13:25"></a>Database Management System (DBMS) 13:25</h2><p><img src="/images/DB/040226.png"></p>
-<h2 id="Data-Abstraction-14-41"><a href="#Data-Abstraction-14-41" class="headerlink" title="Data Abstraction 14:41"></a>Data Abstraction 14:41</h2><p><img src="/images/DB/040227.png"></p>
+<h2 id="database-management-system-dbms-1325">Database Management System (DBMS) 13:25</h2>
+<p><img src="/images/DB/040226.png" /></p>
+<h2 id="data-abstraction-1441">Data Abstraction 14:41</h2>
+<p><img src="/images/DB/040227.png" /></p>
 <ul>
-<li>DBMS <strong><em>provides abstract view of data</em></strong><ul>
+<li>DBMS <strong><em>provides abstract view of data</em></strong>
+<ul>
 <li>hide some details how data is stored</li>
-</ul>
-</li>
-<li>Physical level<ul>
+</ul></li>
+<li>Physical level
+<ul>
 <li><em>physical schema</em> describes <u><em>how</em> the data is stored</u> (complex low-level data structures)</li>
-</ul>
-</li>
-<li>Logical level<ul>
-<li><em>logical schema</em> describes <u><em>what</em> data is stored</u><ul>
+</ul></li>
+<li>Logical level
+<ul>
+<li><em>logical schema</em> describes <u><em>what</em> data is stored</u>
+<ul>
 <li>simple structures: attribute names, data types and relationships between data</li>
 <li>implementation of simple structures might be based on complex physical-level structures but the user of the logical level should not be aware of that -&gt; <strong><em>physical data independence</em></strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>View level<ul>
+</ul></li>
+</ul></li>
+<li>View level
+<ul>
 <li><strong><em>subschemas</em></strong> provide only access to <strong><em>parts of the database</em></strong> - reduce complexity and introduce security</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Duality-of-the-Database-Schema-17-50"><a href="#Duality-of-the-Database-Schema-17-50" class="headerlink" title="Duality of the Database Schema 17:50"></a>Duality of the Database Schema 17:50</h2><p><img src="/images/DB/040756.png"></p>
-<h2 id="Data-Models-and-History-of-DBMSs-18-56"><a href="#Data-Models-and-History-of-DBMSs-18-56" class="headerlink" title="Data Models and History of DBMSs 18:56"></a>Data Models and History of DBMSs 18:56</h2><ul>
-<li>A <strong><em>data model</em></strong> is a collection of conceptual tools<ul>
-<li>describes data, data relationships, data semantics and constraints </li>
-</ul>
-</li>
+<h2 id="duality-of-the-database-schema-1750">Duality of the Database Schema 17:50</h2>
+<p><img src="/images/DB/040756.png" /></p>
+<h2 id="data-models-and-history-of-dbmss-1856">Data Models and History of DBMSs 18:56</h2>
+<ul>
+<li>A <strong><em>data model</em></strong> is a collection of conceptual tools
+<ul>
+<li>describes data, data relationships, data semantics and constraints</li>
+</ul></li>
 <li>A <strong><em>schema</em></strong> is a description of a particular collection of data, using a given data model.</li>
-<li>Hierarchical model<ul>
+<li>Hierarchical model
+<ul>
 <li>data organised in a <strong>tree structure</strong></li>
-<li>used in early mainframe DBMS<ul>
-<li>e.g. IBM’s Information Management System (IMS)</li>
-</ul>
-</li>
+<li>used in early mainframe DBMS
+<ul>
+<li>e.g. IBM's Information Management System (IMS)</li>
+</ul></li>
 <li>XML documents also described by a hierarchical model</li>
-</ul>
-</li>
-<li>Network model<ul>
+</ul></li>
+<li>Network model
+<ul>
 <li>generalised <strong>graph structure</strong></li>
-<li>two main constructs<ul>
+<li>two main constructs
+<ul>
 <li><strong><em>records</em></strong> contain fields and <strong><em>sets</em></strong> define relationships between records</li>
-</ul>
-</li>
-<li>navigational operations<ul>
+</ul></li>
+<li>navigational operations
+<ul>
 <li>follow the relationship from one record to another record</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Relational model<ul>
+</ul></li>
+</ul></li>
+<li>Relational model
+<ul>
 <li>collection of tables (<strong><em>relations</em></strong>) containing records</li>
 <li>described in a paper by Edgar F. Codd in 1970</li>
-</ul>
-</li>
-<li>1970s: Relational DBMS<ul>
-<li>IBM’s System R (1974) “based” on Codd’s paper; SQL added later</li>
-</ul>
-</li>
-<li>Entity-Relationship (ER) model<ul>
+</ul></li>
+<li>1970s: Relational DBMS
+<ul>
+<li>IBM's System R (1974) "based" on Codd's paper; SQL added later</li>
+</ul></li>
+<li>Entity-Relationship (ER) model
+<ul>
 <li>representation of basic objects (<strong><em>entities</em></strong>) and their <strong><em>relationships</em></strong></li>
 <li>widely used in conceptual database design</li>
-</ul>
-</li>
-<li>Object-based data model<ul>
+</ul></li>
+<li>Object-based data model
+<ul>
 <li>introduces object identity, encapsulation and methods</li>
-</ul>
-</li>
-<li>1980s: Object Databases<ul>
+</ul></li>
+<li>1980s: Object Databases
+<ul>
 <li>seminal work on object databases</li>
-</ul>
-</li>
-<li>1990s: Web Interfaces to Databases<ul>
+</ul></li>
+<li>1990s: Web Interfaces to Databases
+<ul>
 <li>databases deployed much more extensively</li>
-</ul>
-</li>
-<li>Semistructured data model<ul>
-<li>no clear separation between data and the schema (“self-describing” data)</li>
+</ul></li>
+<li>Semistructured data model
+<ul>
+<li>no clear separation between data and the schema ("self-describing" data)</li>
 <li>individual data items of the same type may have different attributes</li>
 <li>XML is widely used to represent semistructured data</li>
-</ul>
-</li>
-<li>2000s: XML and XQuery<ul>
-<li>relational databases often still form the core</li>
-</ul>
-</li>
-<li>Later 2000s: Extremely large-scale distributed DBMS<ul>
-<li>BigTable or Hadoop and Hbase</li>
-<li>“NoSQL databases”</li>
-</ul>
-</li>
-</ul>
-<h2 id="Database-Design-31-44"><a href="#Database-Design-31-44" class="headerlink" title="Database Design 31:44"></a>Database Design 31:44</h2><p>Conceptual Design</p>
+</ul></li>
+<li>2000s: XML and XQuery
 <ul>
-<li>define an abstract <strong><em>conceptual</em></strong> application <strong><em>model</em></strong> containing the main domain concepts<ul>
+<li>relational databases often still form the core</li>
+</ul></li>
+<li>Later 2000s: Extremely large-scale distributed DBMS
+<ul>
+<li>BigTable or Hadoop and Hbase</li>
+<li>"NoSQL databases"</li>
+</ul></li>
+</ul>
+<h2 id="database-design-3144">Database Design 31:44</h2>
+<p>Conceptual Design</p>
+<ul>
+<li>define an abstract <strong><em>conceptual</em></strong> application <strong><em>model</em></strong> containing the main domain concepts
+<ul>
 <li>interact with domain experts to get the requirements</li>
-</ul>
-</li>
-<li>describe the <strong><em>entities</em></strong> (with attributes) and their <strong><em>relationships</em></strong><ul>
+</ul></li>
+<li>describe the <strong><em>entities</em></strong> (with attributes) and their <strong><em>relationships</em></strong>
+<ul>
 <li>e.g. via ER model</li>
-</ul>
-</li>
-<li>specify the <strong><em>functional requirements</em></strong> (operations)<ul>
+</ul></li>
+<li>specify the <strong><em>functional requirements</em></strong> (operations)
+<ul>
 <li>ensure that operations can be realised based on the conceptual model</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Database implementation based on conceptual model</p>
 <ul>
-<li><strong><em>logical design phase</em></strong><ul>
-<li>mapping of the conceptual schema to the implementation data model<ul>
+<li><strong><em>logical design phase</em></strong>
+<ul>
+<li>mapping of the conceptual schema to the implementation data model
+<ul>
 <li>e.g. <strong><em>reduction</em></strong> from the ER model to the relational data model</li>
-</ul>
-</li>
+</ul></li>
 <li>define the logical database schema</li>
-</ul>
-</li>
-<li><strong><em>physical design phase</em></strong><ul>
+</ul></li>
+<li><strong><em>physical design phase</em></strong>
+<ul>
 <li>define the physical database layout based on the logical database schema</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>Two major database design pitfalls have to be avoided 34:08</p>
 <ul>
-<li>we should avoid any <strong><em>redundancy</em></strong> where information is repeated at multiple places since this might lead to <strong><em>inconsistent data</em></strong><ul>
-<li>e.g. a lecture management system where a student’s name is stored for each lecture they are attending instead of storing it in a separate student entity</li>
-</ul>
-</li>
-<li>a database design may be <strong><em>incomplete</em></strong> and not enable the representation of certain aspects of the application domain<ul>
+<li>we should avoid any <strong><em>redundancy</em></strong> where information is repeated at multiple places since this might lead to <strong><em>inconsistent data</em></strong>
+<ul>
+<li>e.g. a lecture management system where a student's name is stored for each lecture they are attending instead of storing it in a separate student entity</li>
+</ul></li>
+<li>a database design may be <strong><em>incomplete</em></strong> and not enable the representation of certain aspects of the application domain
+<ul>
 <li>e.g. in a shopping application where the customer information is stored as part of an order we cannot enter new customer data without having an order</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>There is often <strong>more than one “good design”</strong></p>
+<p>There is often <strong>more than one "good design"</strong></p>
 <ul>
 <li>e.g. when do we model something as a relationship and when as a separate entity?</li>
-<li>modelling is a challenging task that requires a combination of engineering skills and “good taste”</li>
+<li>modelling is a challenging task that requires a combination of engineering skills and "good taste"</li>
 </ul>
-<h2 id="Entity-Relationship-ER-Model-36-27"><a href="#Entity-Relationship-ER-Model-36-27" class="headerlink" title="Entity-Relationship (ER) Model 36:27"></a>Entity-Relationship (ER) Model 36:27</h2><ul>
+<h2 id="entity-relationship-er-model-3627">Entity-Relationship (ER) Model 36:27</h2>
+<ul>
 <li><strong><em>Conceptual model</em></strong> based on a set of entities and relationships</li>
-<li>An <strong><em>entity</em></strong> is a “thing” or “object” that can be distinguished from other objects</li>
-<li>A <strong><em>relationship</em></strong> describes an association between multiple entities </li>
+<li>An <strong><em>entity</em></strong> is a "thing" or "object" that can be distinguished from other objects</li>
+<li>A <strong><em>relationship</em></strong> describes an association between multiple entities</li>
 <li>Introduced and formalised by Peter Chen</li>
 </ul>
-<h3 id="Entities-37-22"><a href="#Entities-37-22" class="headerlink" title="Entities 37:22"></a>Entities 37:22</h3><ul>
-<li>An entity represents a <strong><em>distinguishable object</em></strong><ul>
+<h3 id="entities-3722">Entities 37:22</h3>
+<ul>
+<li>An entity represents a <strong><em>distinguishable object</em></strong>
+<ul>
 <li>e.g. specific person, car or company</li>
-</ul>
-</li>
-<li>An entity is described by a <strong><em>number of attributes</em></strong><ul>
+</ul></li>
+<li>An entity is described by a <strong><em>number of attributes</em></strong>
+<ul>
 <li>has to be uniquely identifiable by its attributes (<em>ovals</em>)</li>
-</ul>
-</li>
-<li>An <strong><em>entity set</em></strong> is a set of entities with the same type<ul>
+</ul></li>
+<li>An <strong><em>entity set</em></strong> is a set of entities with the same type
+<ul>
 <li>the <strong><em>extension</em></strong> of the entity set (<em>rectangle</em>) are its entities</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/DB/042029.png"></p>
-<h3 id="Attributes-40-35"><a href="#Attributes-40-35" class="headerlink" title="Attributes 40:35"></a>Attributes 40:35</h3><p>The set of permitted attribute values is called the <strong><em>domain</em></strong> or <strong><em>value set</em></strong></p>
+<p><img src="/images/DB/042029.png" /></p>
+<h3 id="attributes-4035">Attributes 40:35</h3>
+<p>The set of permitted attribute values is called the <strong><em>domain</em></strong> or <strong><em>value set</em></strong></p>
 <ul>
 <li>entity instances can be described by a set of (name,value) pairs</li>
 <li>e.g. {(id, 1576),(name, Lode Hoste)}</li>
@@ -737,75 +743,87 @@
 <p>The ER model supports the following attribute types</p>
 <ul>
 <li>simple attributes</li>
-<li><strong><em>composite attributes</em></strong><ul>
+<li><strong><em>composite attributes</em></strong>
+<ul>
 <li>hierarchy of sub-attributes</li>
-</ul>
-</li>
-<li><strong><em>multivalued attributes</em></strong><ul>
+</ul></li>
+<li><strong><em>multivalued attributes</em></strong>
+<ul>
 <li>optional lower and upper bounds</li>
-</ul>
-</li>
-<li><strong><em>derived attributes</em></strong><ul>
+</ul></li>
+<li><strong><em>derived attributes</em></strong>
+<ul>
 <li>computed via relationships or other attribute values</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>A <strong>multivalued attribut</strong>e is represented by a <strong><em>double ellipse</em></strong></p>
 <p><strong>Derived attributes</strong> are indicated by <strong><em>dashed ellipses</em></strong></p>
 <p><u>address</u> is an example of composite attribute</p>
-<p><img src="/images/DB/04242911.png" alt="44:36 - 50:05"></p>
-<h3 id="Keys-52-37"><a href="#Keys-52-37" class="headerlink" title="Keys 52:37"></a>Keys 52:37</h3><ul>
-<li>An entity’s attribute values must uniquely identify the entity</li>
+<figure>
+<img src="/images/DB/04242911.png" alt="" /><figcaption>44:36 - 50:05</figcaption>
+</figure>
+<h3 id="keys-5237">Keys 52:37</h3>
+<ul>
+<li>An entity's attribute values must uniquely identify the entity</li>
 <li>A subset of attributes that uniquely identify an entity is called <strong><em>superkey</em></strong></li>
 <li>A minimal superkey without any unnecessary attributes is called a <strong><em>candidate key</em></strong></li>
-<li>The <strong><em>primary key</em></strong> is one of the candidate keys chosen by the database designer for unique entity identification<ul>
+<li>The <strong><em>primary key</em></strong> is one of the candidate keys chosen by the database designer for unique entity identification
+<ul>
 <li>in the ER model, the primary key is highlighted by the set of <strong><em>underlined attributes</em></strong></li>
-<li>the value of a primary key should change very rarely </li>
+<li>the value of a primary key should change very rarely</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Relationships-1-00-02"><a href="#Relationships-1-00-02" class="headerlink" title="Relationships 1:00:02"></a>Relationships 1:00:02</h3><ul>
+<h3 id="relationships-10002">Relationships 1:00:02</h3>
+<ul>
 <li>A relationship is an association between multiple entities</li>
 <li>A <strong><em>relationship set</em></strong> (<em>diamond</em>) is a set of relationships of the same type</li>
 </ul>
-<p><img src="/images/DB/042817.png" alt=" ~ 1:05:00"></p>
+<figure>
+<img src="/images/DB/042817.png" alt="" /><figcaption>~ 1:05:00</figcaption>
+</figure>
 <ul>
-<li>We can have <strong><em>binary</em></strong> or <strong><em>n-ary relationship sets</em></strong><ul>
-<li>{(e<sub>1</sub>, e<sub>2</sub>,…, e<sub>n</sub>) | e<sub>1</sub> ∈ E<sub>1</sub>, e<sub>2</sub> ∈ E<sub>2</sub>,…, e<sub>n</sub> ∈ E<sub>n</sub>}</li>
-</ul>
-</li>
+<li>We can have <strong><em>binary</em></strong> or <strong><em>n-ary relationship sets</em></strong>
+<ul>
+<li>{(e<sub>1</sub>, e<sub>2</sub>,..., e<sub>n</sub>) | e<sub>1</sub> ∈ E<sub>1</sub>, e<sub>2</sub> ∈ E<sub>2</sub>,..., e<sub>n</sub> ∈ E<sub>n</sub>}</li>
+</ul></li>
 <li>Each <strong><em>relationship instance</em></strong> in an ER schema represents an association between the involved entities</li>
-<li>The <strong><em>role</em></strong> defines an entity’s function in a relationship<ul>
+<li>The <strong><em>role</em></strong> defines an entity's function in a relationship
+<ul>
 <li>has to be explicitly defined if the same entity set participates more than once in a relationship set (<strong><em>recursive</em></strong> relationship)</li>
-</ul>
-</li>
+</ul></li>
 <li>A relationship may contain <strong><em>descriptive attributes</em></strong></li>
-<li>A relationship instance must be uniquely identifiable by its entities (without any descriptive attributes)<ul>
+<li>A relationship instance must be uniquely identifiable by its entities (without any descriptive attributes)
+<ul>
 <li>i.e. a relationship set cannot contain two relationship entities that only differ in their descriptive attributes</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="/images/DB/643251.png" alt="Relationship with Roles and Attributes 1:07:27 ~ 1:08:45"></p>
-<p><img src="/images/DB/643252.png" alt="Example of a 3-ary Relationship 1:09:06 ~ 1:10:15"></p>
-<h3 id="Cardinality-Constraints-1-10-16"><a href="#Cardinality-Constraints-1-10-16" class="headerlink" title="Cardinality Constraints 1:10:16"></a>Cardinality Constraints 1:10:16</h3><p>A relationship can be <em>one-to-one</em>, <em>one-to-many</em>, <em>many-to-one</em> or <em>many-to-many</em> </p>
+<figure>
+<img src="/images/DB/643251.png" alt="" /><figcaption>Relationship with Roles and Attributes 1:07:27 ~ 1:08:45</figcaption>
+</figure>
+<figure>
+<img src="/images/DB/643252.png" alt="" /><figcaption>Example of a 3-ary Relationship 1:09:06 ~ 1:10:15</figcaption>
+</figure>
+<h3 id="cardinality-constraints-11016">Cardinality Constraints 1:10:16</h3>
+<p>A relationship can be <em>one-to-one</em>, <em>one-to-many</em>, <em>many-to-one</em> or <em>many-to-many</em></p>
 <p>An <strong><em>arrow</em></strong> indicates a to-one relationship</p>
 <ul>
-<li>cardinality constraints may also be expressed by numbers<ul>
+<li>cardinality constraints may also be expressed by numbers
+<ul>
 <li>e.g. 0..<em>, 1..</em>, 0..1, 1..1, 2..5</li>
-</ul>
-</li>
+</ul></li>
 <li>a <strong><em>double line</em></strong> or 1..* indicates a <strong>total participation</strong> constraint</li>
 </ul>
-<p><img src="/images/DB/643222.png"></p>
-<h3 id="Weak-Entity-Sets-1-05-09-1-24-10"><a href="#Weak-Entity-Sets-1-05-09-1-24-10" class="headerlink" title="Weak Entity Sets 1:05:09 -1:24:10"></a>Weak Entity Sets 1:05:09 -1:24:10</h3><p>An entity set with a primary key is called a <strong><em>strong</em></strong> entity set</p>
+<p><img src="/images/DB/643222.png" /></p>
+<h3 id="weak-entity-sets-10509--12410">Weak Entity Sets 1:05:09 -1:24:10</h3>
+<p>An entity set with a primary key is called a <strong><em>strong</em></strong> entity set</p>
 <p>A <strong><em>weak</em></strong> entity set (<em>double rectangle</em>) does not have enough attributes to form a primary key</p>
-<p><img src="/images/DB/643224.png"></p>
+<p><img src="/images/DB/643224.png" /></p>
 <p>A weak entity set must be associated with <strong>an identifying entity</strong> set via an <strong>identifying relationship</strong> (<em>double diamond</em>)</p>
 <ul>
-<li>a weak entity set is <strong><em>existence dependent</em></strong> on an identifying entity set<ul>
+<li>a weak entity set is <strong><em>existence dependent</em></strong> on an identifying entity set
+<ul>
 <li>can also participate in other non-identifying relationships</li>
-</ul>
-</li>
+</ul></li>
 <li>a weak entity set must relate to the identifying entity set via a <strong><em>total participation</em></strong> constraint and each weak entity instance can only be related to one identifying entity instance</li>
 <li>a <strong><em>discriminator</em></strong> or <strong><em>partial key</em></strong> (<em>underlined dashed attributes</em>) uniquely identifies a weak entity relative to a strong entity</li>
 </ul>

@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    8 Min
                 </div>
                 
 
@@ -497,61 +497,70 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Aligning-sequences-and-detecting-motifs"><a href="#Aligning-sequences-and-detecting-motifs" class="headerlink" title="Aligning sequences and detecting motifs"></a>Aligning sequences and detecting motifs</h1><h2 id="Part-1-implementing-sequence-alignment-algorithms"><a href="#Part-1-implementing-sequence-alignment-algorithms" class="headerlink" title="Part 1: implementing sequence alignment algorithms"></a>Part 1: implementing sequence alignment algorithms</h2><p>Implement the Needleman-Wunsch (global) and Smith-Waterman (local) alignment algorithms in a Jupyter (Python) notebook. In this Jupyter notebook, report on each block of your code, for example the dynamic programming algorithm, the back-tracking, the parser of the input file and the substitution matrices:</p>
+                <h1 id="aligning-sequences-and-detecting-motifs">Aligning sequences and detecting motifs</h1>
+<h2 id="part-1-implementing-sequence-alignment-algorithms">Part 1: implementing sequence alignment algorithms</h2>
+<p>Implement the Needleman-Wunsch (global) and Smith-Waterman (local) alignment algorithms in a Jupyter (Python) notebook. In this Jupyter notebook, report on each block of your code, for example the dynamic programming algorithm, the back-tracking, the parser of the input file and the substitution matrices:</p>
 <ul>
 <li>Explain what you are doing in this block of code, and why</li>
 <li>Detail intermediate tests you made of each part of your code</li>
 <li>Explain any results that you obtain from this block of code</li>
 <li>Explain difficulties you encountered and could not solve</li>
 </ul>
-<p>Information on Jupyter notebooks (installing, use, etc.) can be found on <a target="_blank" rel="noopener" href="http://jupyter.org/">http://jupyter.org</a>. See also the presentation-jupyter.pdf slides.</p>
-<p> The global aligner has to return the <em>k</em> best alignments, with <em>k</em> being a parameter in the function call. The local aligner needs to have the capacity to look for novel <em>l</em> sub-alignments: this means that once one sub-sequence is found, you need to set the values on the paths equal to zero and recalculate the matrix to find the next sub-alignment (see course discussion). Note that multiple paths (limited again by <em>k</em>) are again possible for each sub-alignment.</p>
+<p>Information on Jupyter notebooks (installing, use, etc.) can be found on http://jupyter.org. See also the presentation-jupyter.pdf slides.</p>
+<p>The global aligner has to return the <em>k</em> best alignments, with <em>k</em> being a parameter in the function call. The local aligner needs to have the capacity to look for novel <em>l</em> sub-alignments: this means that once one sub-sequence is found, you need to set the values on the paths equal to zero and recalculate the matrix to find the next sub-alignment (see course discussion). Note that multiple paths (limited again by <em>k</em>) are again possible for each sub-alignment.</p>
 <p>Make it possible in your code to work with both linear and affine gap penalty.</p>
 <p>You can use the sequences in WW-sequences.fasta to test the global aligner (these are of similar length) and the sequences in protein-sequences.fasta to check the local alignment algorithm.</p>
-<p>Four substation matrices (PAM120, PAM250 and BLOSUM matrices) are available as files with this assignment . You will need to <strong>write a parser</strong> to read the files and use them in your code. </p>
-<p>Compare the alignments that you make with your software to those made by the online tool <a target="_blank" rel="noopener" href="https://www.ebi.ac.uk/Tools/psa/lalign">LALIGN</a>. Explain similarities and differences between your result and the one you got online in the notebook. For example, when globally aligning the WW sequences, which ones are more similar? Are they coming from the same protein or different proteins? You can check this via <a target="_blank" rel="noopener" href="http://uniprot.org/">http://uniprot.org</a> and report this in your notebook. </p>
-<h2 id="Part-2-detecting-motifs-by-aligning-sequences-to-PSSMs"><a href="#Part-2-detecting-motifs-by-aligning-sequences-to-PSSMs" class="headerlink" title="Part 2: detecting motifs by aligning sequences to PSSMs"></a>Part 2: detecting motifs by aligning sequences to PSSMs</h2><p>Now that you have a tool to make alignments we are going to expand it to a tool that can align sequences to motifs, represented by position-specific scoring matrices (PSSM). Such a tool will allow you to identify whether a particular domain family, represented by the PSSM, is present within a given protein sequence.</p>
-<p>In a first step, you need to develop software that can construct the PSSM from a set of sequences. In this project the focus will be on WW domains, which are simple domains as visualized by the image in Figure 1.  </p>
-<p><img src="" alt="Figure 1: a typical WW domain structure. For details see the article WW and SH3 domains: two different scaffolds to recognize proline-rich ligands (2002) by Macias, Wiener and Sudol."></p>
+<p>Four substation matrices (PAM120, PAM250 and BLOSUM matrices) are available as files with this assignment . You will need to <strong>write a parser</strong> to read the files and use them in your code.</p>
+<p>Compare the alignments that you make with your software to those made by the online tool <a target="_blank" rel="noopener" href="https://www.ebi.ac.uk/Tools/psa/lalign">LALIGN</a>. Explain similarities and differences between your result and the one you got online in the notebook. For example, when globally aligning the WW sequences, which ones are more similar? Are they coming from the same protein or different proteins? You can check this via http://uniprot.org and report this in your notebook.</p>
+<h2 id="part-2-detecting-motifs-by-aligning-sequences-to-pssms">Part 2: detecting motifs by aligning sequences to PSSMs</h2>
+<p>Now that you have a tool to make alignments we are going to expand it to a tool that can align sequences to motifs, represented by position-specific scoring matrices (PSSM). Such a tool will allow you to identify whether a particular domain family, represented by the PSSM, is present within a given protein sequence.</p>
+<p>In a first step, you need to develop software that can construct the PSSM from a set of sequences. In this project the focus will be on WW domains, which are simple domains as visualized by the image in Figure 1.</p>
+<figure>
+<img src="" alt="" /><figcaption>Figure 1: a typical WW domain structure. For details see the article WW and SH3 domains: two different scaffolds to recognize proline-rich ligands (2002) by Macias, Wiener and Sudol.</figcaption>
+</figure>
 <p>You will compare the PSSM to the motif that is available on PFAM for the same domain family. Make sure to explain, illustrate and test all aspects of your code in the notebook. Below I explain in detail how to get the WW domain information</p>
 <p><strong>The data</strong></p>
-<p>The set of sequences representing the entire family of WW domains is available in the database <a target="_blank" rel="noopener" href="http://smart.embl.de/">SMART</a>, which needs to be used in normal mode (see home page of the smart website). When you select normal mode, you will move to another page that consists of 4 parts. In the part with the title « <u><em>Domains detected by SMART</em></u> », you need to type the word “WW” and click search.  This will provide the page as visualized in Figure 2.</p>
-<p><img src="" alt="Figure 2. SMART page for WW domains"></p>
-<p>The SMART page for WW domains provides all information that is relevant for WW domains. It reports that there are 18519 instances of WW domains available. When you click the number 18519, the system searches for all proteins that contain WW domains. You should see a page equivalent to the page in </p>
+<p>The set of sequences representing the entire family of WW domains is available in the database <a target="_blank" rel="noopener" href="http://smart.embl.de">SMART</a>, which needs to be used in normal mode (see home page of the smart website). When you select normal mode, you will move to another page that consists of 4 parts. In the part with the title « <u><em>Domains detected by SMART</em></u> », you need to type the word “WW” and click search. This will provide the page as visualized in Figure 2.</p>
+<figure>
+<img src="" alt="" /><figcaption>Figure 2. SMART page for WW domains</figcaption>
+</figure>
+<p>The SMART page for WW domains provides all information that is relevant for WW domains. It reports that there are 18519 instances of WW domains available. When you click the number 18519, the system searches for all proteins that contain WW domains. You should see a page equivalent to the page in</p>
 <p>The SMART page for WW domains provides all information that is relevant for WW domains. It reports that there are 18519 instances of WW domains available. When you click the number 18519, the system searches for all proteins that contain WW domains. You should see a page equivalent to the page in Figure 3.</p>
-<p><img src="" alt="Figure 3: SMART protein selection page."></p>
+<figure>
+<img src="" alt="" /><figcaption>Figure 3: SMART protein selection page.</figcaption>
+</figure>
 <p>We will use this page now to look for the 136 WW sequences that can be found in human proteins. To get this data we first need to select the human species in the hierarchy visualized in Figures 3. Figure 4 shows where to find the human species exactly in this hierarchy. By clicking the “+” symbols you can descend in the tree to the correct level. You will see the number 136 next to the species “homo sapiens”, which indicates the number of WW sequences found in that species.</p>
-<p>Once you checked the box before “homo sapiens” you need to go back to the beginning of the page and select in the dropbox with title « <em>Action</em> » the option « <em>download protein sequences as fasta files</em> ». You also need to select « <em>Options</em> – <em>specific domain only</em>: » and add the domain name, which is WW. Once you have done this you click « <em>Download FASTA</em> ».</p>
-<p><img src="" alt="Figure 4: Where to find the human species in the species tree."></p>
+<p>Once you checked the box before “homo sapiens” you need to go back to the beginning of the page and select in the dropbox with title « <em>Action</em> » the option « <em>download protein sequences as fasta files</em> ». You also need to select « <em>Options</em> -- <em>specific domain only</em>: » and add the domain name, which is WW. Once you have done this you click « <em>Download FASTA</em> ».</p>
+<figure>
+<img src="" alt="" /><figcaption>Figure 4: Where to find the human species in the species tree.</figcaption>
+</figure>
 <p>Once you clicked « <em>Download FASTA</em> », you will get the 136 domains that you need to produce the PSSM. You need to copy-and-paste the data in this page to a text file that can be named to-be-aligned.fasta. The sequences in this file will be used to create a multiple-sequence alignment.</p>
-<h3 id="Making-the-multiple-sequence-alignment"><a href="#Making-the-multiple-sequence-alignment" class="headerlink" title="Making the multiple sequence alignment"></a>Making the multiple sequence alignment</h3><p>Once you have the file to-be-aligned.fasta you can now align all sequences at the same time using one of the following tools. Mention clearly in your notebook which tool you used.</p>
-<ol>
+<h3 id="making-the-multiple-sequence-alignment">Making the multiple sequence alignment</h3>
+<p>Once you have the file to-be-aligned.fasta you can now align all sequences at the same time using one of the following tools. Mention clearly in your notebook which tool you used.</p>
+<ol type="1">
 <li><a target="_blank" rel="noopener" href="http://www.ebi.ac.uk/Tools/msa/clustalo/">CLUSTAL Omega</a></li>
 <li><a target="_blank" rel="noopener" href="http://www.ebi.ac.uk/Tools/msa/tcoffee/">TCoffee</a></li>
 <li><a target="_blank" rel="noopener" href="http://www.ebi.ac.uk/Tools/msa/muscle/">MUSCLE</a></li>
 </ol>
-<p>Store the alignment in FASTA format in a file called msaresults-<replace this by name of MSA tool>.fasta. </p>
-<h3 id="Jupyter-implementation"><a href="#Jupyter-implementation" class="headerlink" title="Jupyter implementation"></a>Jupyter implementation</h3><p>Now that you have the multiple-sequence alignment of the 136 sequences you can implement your code to construct the PSSM. See the slides of the course for the detail. Remember to use pseudo-counts. Explain in the notebook which approach for the PSSM construction and pseudo-counts you used.</p>
+<p>Store the alignment in FASTA format in a file called msaresults-<replace this by name of MSA tool>.fasta.</p>
+<h3 id="jupyter-implementation">Jupyter implementation</h3>
+<p>Now that you have the multiple-sequence alignment of the 136 sequences you can implement your code to construct the PSSM. See the slides of the course for the detail. Remember to use pseudo-counts. Explain in the notebook which approach for the PSSM construction and pseudo-counts you used.</p>
 <p>Once you have the code to produce the PSSM, you should validate your results with what is known about the WW domains. Provide answers to the following questions and add them to your notebook. Use images to make our answers clear.</p>
-<ol>
-<li>Construct a <a target="_blank" rel="noopener" href="http://weblogo.threeplusone.com/">Weblogo</a> for the WW domain family and compare this logo to what you see in your PSSM. Do the conserved positions correspond to what you see in the Weblogo? </li>
-<li>Compare your results to the HMM-logo that can be found on the PFAM <a target="_blank" rel="noopener" href="http://pfam.xfam.org/">website</a>. Write “WW” in the box next to « view a PFAm entry » on the main page) en click « go ». You will reach the page PF00397 and you can find the HMM logo on that page. What are the similarities and differences with your PSSM?</li>
+<ol type="1">
+<li>Construct a <a target="_blank" rel="noopener" href="http://weblogo.threeplusone.com">Weblogo</a> for the WW domain family and compare this logo to what you see in your PSSM. Do the conserved positions correspond to what you see in the Weblogo?</li>
+<li>Compare your results to the HMM-logo that can be found on the PFAM <a target="_blank" rel="noopener" href="http://pfam.xfam.org">website</a>. Write “WW” in the box next to « view a PFAm entry » on the main page) en click « go ». You will reach the page PF00397 and you can find the HMM logo on that page. What are the similarities and differences with your PSSM?</li>
 </ol>
-<h3 id="Expand-your-alignment-code"><a href="#Expand-your-alignment-code" class="headerlink" title="Expand your alignment code"></a>Expand your alignment code</h3><p>Take now the code of part 1 and expand it so you can align a sequence to a PSSM. </p>
-<ol>
-<li><p>Expand your alignment code (local!!) with linear gap-penalty. The recurrence relation is now (for linear gap penalty); </p>
-<ol>
-<li><p>Initialize the first row and first column as before</p>
-</li>
+<h3 id="expand-your-alignment-code">Expand your alignment code</h3>
+<p>Take now the code of part 1 and expand it so you can align a sequence to a PSSM.</p>
+<ol type="1">
+<li><p>Expand your alignment code (local!!) with linear gap-penalty. The recurrence relation is now (for linear gap penalty);</p>
+<ol type="1">
+<li><p>Initialize the first row and first column as before</p></li>
 <li><p>Matrix S(i,j) = max {S(i-1,j-1) + PSSM(seq(i), j), S(i-1,j)+PSSM(“-“, j), S(i,j-1)+PSSM(“_”,j-1), 0}</p>
-<p>With j being the column in the PSSM and PSSM(“-“,j) is the penalty for the gap in position j as stored in your PSSM.</p>
-</li>
-</ol>
-</li>
-<li><p>Align the sequences from  protein-sequences.fasta to your PSSM. Show that you can identify the WW domains inside those sequences.  </p>
-</li>
-<li><p>Use the information in Uniprot for these proteins to verify whether you have identified the domains correctly. Do you find for instance the same starting and ending positions?</p>
-</li>
+<p>With j being the column in the PSSM and PSSM(“-“,j) is the penalty for the gap in position j as stored in your PSSM.</p></li>
+</ol></li>
+<li><p>Align the sequences from protein-sequences.fasta to your PSSM. Show that you can identify the WW domains inside those sequences.</p></li>
+<li><p>Use the information in Uniprot for these proteins to verify whether you have identified the domains correctly. Do you find for instance the same starting and ending positions?</p></li>
 </ol>
 
                 
