@@ -1,0 +1,1460 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Storing and exchanging medical images, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Storing and exchanging medical images | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Storing and exchanging medical images</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Data-Analytics-in-Health-Care-and-Connected-Care/">
+                                <span class="chip bg-color">Data Analytics in Health Care and Connected Care</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-02-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-03-13
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    1.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    10 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Storing-and-exchanging-medical-images"><a href="#Storing-and-exchanging-medical-images" class="headerlink" title="Storing and exchanging medical images"></a>Storing and exchanging medical images</h1><h2 id="Images-are-super-important"><a href="#Images-are-super-important" class="headerlink" title="Images are super important"></a>Images are super important</h2><p><strong>Definitions</strong></p>
+<ul>
+<li><p><strong>Medical Imaging Informatics</strong></p>
+<ul>
+<li>“study and application of processes of information and communications technology for the acquisition, manipulation, analysis and distribution of medical image data”</li>
+</ul>
+</li>
+<li><p>Picture Archiving and Communication Systems (PACS)</p>
+<ul>
+<li>“medical imaging technology which provides economical storage of, and convenient access to, images from multiple modalities”</li>
+</ul>
+</li>
+</ul>
+<h3 id="Digital-imaging"><a href="#Digital-imaging" class="headerlink" title="Digital imaging"></a>Digital imaging</h3><ul>
+<li>Started in the 1970s</li>
+<li>First filmless hospital occurred in 1999</li>
+<li>Transitioning to PACS<ul>
+<li>Similar to photography</li>
+<li>Analog to digital transition</li>
+<li>Introduction of computed tomography, ultrasound, and magnetic resonance imaging that all became digital<ul>
+<li>Eliminated need for film processing and storage rooms</li>
+<li>Images could be viewed at a remote location</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Advantages: cost savings, storage, retrieval</li>
+</ul>
+<h3 id="Transitions-to-filmless-radiology"><a href="#Transitions-to-filmless-radiology" class="headerlink" title="Transitions to filmless radiology"></a>Transitions to filmless radiology</h3><ul>
+<li>Extensive initial costs</li>
+<li>Printing remained for referring physicians</li>
+<li>Use of film scanners for digital viewing<ul>
+<li>Proprietary imaging formats</li>
+<li>Later, DICOM (DICOM = Digital Imaging and Communications in Medicine) standard was created</li>
+</ul>
+</li>
+<li>Upgrade conventional radiology rooms for CT, ultrasound, and MRI for the digital world</li>
+<li>Computer-based image archiving</li>
+</ul>
+<h3 id="Picture-Archiving-and-Communication-Systems-PACS"><a href="#Picture-Archiving-and-Communication-Systems-PACS" class="headerlink" title="Picture Archiving and Communication Systems (PACS)"></a>Picture Archiving and Communication Systems (PACS)</h3><h4 id="PACS-key-components"><a href="#PACS-key-components" class="headerlink" title="PACS key components"></a>PACS key components</h4><ul>
+<li><strong>Digital acquisition devices</strong>: sources of images, such as digital angiography, fluoroscopy, mammography, CT, MRI , ultrasound scanners</li>
+<li><strong>Network</strong>: ties PACS components together</li>
+<li><strong>Database server</strong>: high speed and robust central computer to process information</li>
+<li><strong>Archival server</strong>: responsible for storing images and enables short term (fast retrieval) and long term (slower retrieval) storage</li>
+<li><strong>Radiology Information system (RIS)</strong>: system that maintains patient demographics, scheduling, billing information and interpretations</li>
+<li><strong>Workstation</strong>: software and hardware to access PACS and replaces standard light box or view box </li>
+<li><strong>Teleradiology</strong>: ability to remotely view images at a location distant from the site of origin</li>
+</ul>
+<h4 id="PACS-workflow"><a href="#PACS-workflow" class="headerlink" title="PACS workflow"></a>PACS workflow</h4><ul>
+<li>Patient is identified in Hospital Information System (HIS)</li>
+<li>An order is created that is sent to the RIS via an HL7 protocol</li>
+<li>Orders will go to imaging device via the DICOM protocol </li>
+<li>Image is created in DICOM format and sent to the PACS server</li>
+<li>Images are stored on image archive</li>
+<li>Radiologist is notified of a pending study</li>
+<li>Study is then read at a computer workstation using high-resolution monitors and viewing software available from a variety of different vendors</li>
+<li>Comparison can be made to prior studies</li>
+<li>Diagnostic report is generated by the radiologist, often using voice recognition software</li>
+<li>Report is then stored on the PACS server</li>
+</ul>
+<p><img src="/images/HMS/9191910.png" alt="Many transactions are related to imaging"></p>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ul>
+<li>Zoom-in feature for close-up detail</li>
+<li>Ability to rotate images in any direction</li>
+<li>Text button to see the report</li>
+<li>Mark-up tool that does the following to the image: Adds text, measures the size and ratios of objects</li>
+<li>Measures angles</li>
+<li>Measures the square area of a mass or region</li>
+<li>Adds an arrow</li>
+<li>Right click on the image and short cut tools appear</li>
+<li>Export an image to any of the following destinations: Teaching file, CD-ROM, hard drive, USB drive, save to clipboard or Create a video </li>
+</ul>
+<h4 id="PACS-advantages"><a href="#PACS-advantages" class="headerlink" title="PACS advantages"></a>PACS advantages</h4><ul>
+<li>Replaces a standard x-ray film archive </li>
+<li>Allows for remote viewing and reporting</li>
+<li>Expedites the incorporation of medical images into an electronic health record</li>
+<li>Images can be archived and transported on portable media, e.g. USB drive and Apple’s iPhone</li>
+<li>Other specialties that generate images may join PACS such as cardiologists</li>
+<li>PACS can be web-based and use “service oriented architecture”</li>
+<li>Unlike conventional x-rays, digital films have a zoom feature and can be manipulated in innumerable ways</li>
+<li>Improves productivity by allowing multiple clinicians to view the same image from different locations</li>
+<li>Rapid retrieval of digital images for interpretation and comparison with previous studies</li>
+<li>Fewer “lost films”</li>
+<li>Reports are more likely to accompany the digital image</li>
+<li>Radiologists can view an image back and forth like a movie, known as “stack mode”</li>
+<li>Quicker reporting back to the requesting clinician</li>
+<li>Digital imaging allows for computer aided detection (CAD)</li>
+<li>Increased productivity</li>
+</ul>
+<h4 id="Issues-and-challenges"><a href="#Issues-and-challenges" class="headerlink" title="Issues and challenges"></a>Issues and challenges</h4><ul>
+<li>Cost: Open source and “rental PACS” are alternatives</li>
+<li>New legislation cutting reimbursement rates</li>
+<li>Expense and complexity to integrate with hospital and radiology information systems and EHRs</li>
+<li>Lack of interoperability with other PACSs</li>
+<li>Bandwidth limits may require network upgrades</li>
+<li>Different vendors may use different DICOM tags to label films</li>
+<li>Viewing digital images a little slower than routine x-ray films</li>
+<li>Workstations may require upgrades if high resolution monitors are necessary</li>
+</ul>
+<h4 id="Web-based-PACS"><a href="#Web-based-PACS" class="headerlink" title="Web based PACS"></a>Web based PACS</h4><ul>
+<li>Reduce need for duplicate studies, and allow more rapid diagnosis and treatment</li>
+<li>DICOM imaging format could be an impediment to use of the World Wide Web<ul>
+<li>Not browser compatible: Usually this entails downloading a small application (thin client) from the PACS vendor that enables the remote viewing station to act like a modified PACS workstation</li>
+<li>Alternate potential solution: “zero-footprint” Web viewer where DICOM images are pre-converted to GIF</li>
+<li>Legacy PACS compared to Web PACS in next slide</li>
+</ul>
+</li>
+</ul>
+<h4 id="Pacs-on-web"><a href="#Pacs-on-web" class="headerlink" title="Pacs on web"></a>Pacs on web</h4><p><img src="/images/HMS/9191911.png"></p>
+<p><img src="/images/HMS/9191912.png"></p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><h5 id="Resolution-MD"><a href="#Resolution-MD" class="headerlink" title="Resolution MD"></a>Resolution MD</h5><p><img src="/images/HMS/9191913.png"></p>
+<h5 id="mobile-MIM"><a href="#mobile-MIM" class="headerlink" title="mobile MIM"></a>mobile MIM</h5><p><img src="/images/HMS/9191914.png"></p>
+<h4 id="PACS-in-summary"><a href="#PACS-in-summary" class="headerlink" title="PACS in summary"></a>PACS in summary</h4><ul>
+<li>PACS is the logical progression from x-ray films to digital imaging due to multiple new technologies</li>
+<li>Medical Imaging Informatics will study the impact and significance of all facets of digital imaging</li>
+<li>PACS is very popular among clinicians, patients and hospitals, but cost remains an issue</li>
+<li>Web PACS offers more image interoperability options </li>
+</ul>
+<h3 id="DICOM"><a href="#DICOM" class="headerlink" title="DICOM"></a>DICOM</h3><p><strong>“is a standard for communication of medical imaging information”</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="http://www.dicomstandard.org/">Dicom.nema.org</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.dicomstandard.org/">www.dicomstandard.org</a></p>
+</li>
+<li><p>ISO12052</p>
+</li>
+<li><p>Established in 1993, but actually it is a renaming/update of ACR standard first released in 1985</p>
+</li>
+<li><p>DICOM defines</p>
+</li>
+<li><p>Formats for images, waveforms, derived structured data, … </p>
+<ul>
+<li>with the quality and metadata necessary for <em>clinical use</em> </li>
+</ul>
+</li>
+<li><p>Workflow management in the imaging department </p>
+</li>
+<li><p>Media exchange and printing Service-based </p>
+</li>
+<li><p>network protocols over TCP/IP and HTTP</p>
+</li>
+</ul>
+<p><img src="/images/HMS/9191915.png"></p>
+<h4 id="DICOM-Stores-in-a-versatile-way"><a href="#DICOM-Stores-in-a-versatile-way" class="headerlink" title="DICOM Stores in a versatile way"></a>DICOM Stores in a versatile way</h4><p><strong>Images</strong>:</p>
+<ul>
+<li>All kinds of modalities</li>
+<li>Single or multiframe</li>
+<li>Volumes, cine, </li>
+<li>Colour or black and white</li>
+<li>Original or processe</li>
+<li>…  </li>
+</ul>
+<p><strong>Metadata</strong>:</p>
+<ul>
+<li>Patient ID, demographics</li>
+<li>Device info</li>
+<li>Workflow context</li>
+<li>…</li>
+</ul>
+<h4 id="Other-components"><a href="#Other-components" class="headerlink" title="Other components"></a>Other components</h4><ul>
+<li>Managing workflow<ul>
+<li>Modality worklists, progress updates, storage commitment, …</li>
+</ul>
+</li>
+<li>Display images<ul>
+<li>Screen calibration, annotations, layouts, key images, …</li>
+</ul>
+</li>
+<li>Distribute images<ul>
+<li>Network push/pull, media transfer, email, web protocols</li>
+</ul>
+</li>
+<li>Store analysis results<ul>
+<li>Registrations, segmentations, implant models, …</li>
+</ul>
+</li>
+<li>Secure<ul>
+<li>Audit trails, de-identification, encryption, …</li>
+</ul>
+</li>
+</ul>
+<h4 id="Some-more-technical-details-on-image-exchange"><a href="#Some-more-technical-details-on-image-exchange" class="headerlink" title="Some more technical details on image exchange"></a>Some more technical details on image exchange</h4><p><strong>Service + Object = Service Object Pair</strong></p>
+<ul>
+<li>Storage + MR Image = MR Image Storage</li>
+</ul>
+<p><img src="/images/HMS/9191916.png"></p>
+<p>SCU – Service Class User</p>
+<ul>
+<li>the system that uses the service</li>
+</ul>
+<p>SCP – Service Class Provider</p>
+<ul>
+<li>the system that provides the service</li>
+</ul>
+<p>Before two Application Entities (AE) perform a DICOM transaction they first agree on</p>
+<ul>
+<li>who will be the SCU, who will be the SCP</li>
+<li>what SOP Class they will use (e.g. MR Image Storage)</li>
+<li>what the Transfer Syntax will be (e.g. JPEG Lossless)</li>
+</ul>
+<p>This process is called <strong>Association Negotiation</strong></p>
+<p><img src="/images/HMS/9191917.png"></p>
+<h4 id="DICOMweb"><a href="#DICOMweb" class="headerlink" title="DICOMweb"></a>DICOMweb</h4><p><img src="/images/HMS/9191918.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;studies&#x2F;1.2.3&#x2F;series&#x2F;4.5.6&#x2F;instances&#x2F;7.8.9</span><br></pre></td></tr></table></figure>
+<h3 id="Anatomy-of-a-transaction"><a href="#Anatomy-of-a-transaction" class="headerlink" title="Anatomy of a transaction"></a>Anatomy of a transaction</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">method SP &#x2F;&#123;+resource&#125;&#123;?parameter*&#125; SP version CRLF</span><br><span class="line">*(header-field CRLF)</span><br><span class="line">CRLF</span><br><span class="line">[ payload ]</span><br></pre></td></tr></table></figure>
+<p><img src="/images/HMS/9191919.png"></p>
+<h3 id="What-about-waveforms"><a href="#What-about-waveforms" class="headerlink" title="What about waveforms?"></a>What about waveforms?</h3><p>Several standards exist for instance for ECG</p>
+<ul>
+<li>Standards for encoding the signal as waveforms<br> (e.g. ISO/WD 11073 90201, ANSI/HL7 V3 Annotated ECG, ENV 12052 Medical Imaging, DICOM Supplement 30, …)</li>
+<li>Standards for encoding the signal as pictures</li>
+<li>Standards for annotating the signal (IEEE 11073-10101 for beats e.g normal, Bundle branch block, …)</li>
+</ul>
+<h2 id="Ethics-in-Health-information-systems"><a href="#Ethics-in-Health-information-systems" class="headerlink" title="Ethics in Health information systems"></a>Ethics in Health information systems</h2><h3 id="Ethical-principles-in-health-care"><a href="#Ethical-principles-in-health-care" class="headerlink" title="Ethical principles in health care"></a>Ethical principles in health care</h3><p><strong>Hippocratic school</strong></p>
+<ul>
+<li><p>•”As to diseases, make a habit of two things—to help, or at least to do no harm.”</p>
+</li>
+<li><p>“Primum non nocere” </p>
+</li>
+<li><p>“Given an existing problem, it may be better not to do something, or even to do nothing, than to risk causing more harm than good.”</p>
+</li>
+</ul>
+<h4 id="Contemporary-approach-reflects-Hippocratic-principles"><a href="#Contemporary-approach-reflects-Hippocratic-principles" class="headerlink" title="Contemporary approach reflects Hippocratic principles"></a>Contemporary approach reflects Hippocratic principles</h4><p>4 pillars of medical ethics</p>
+<ul>
+<li>Autonomy – respect for the patient’s right to self-determination</li>
+<li>Beneficence – the duty to ‘do good’</li>
+<li>Non-Maleficence – the duty to ‘not do bad’</li>
+<li>Justice – to treat all people equally</li>
+</ul>
+<p><img src="/images/HMS/9191900.png"></p>
+<h3 id="Principles-in-medical-research"><a href="#Principles-in-medical-research" class="headerlink" title="Principles in medical research"></a>Principles in medical research</h3><ul>
+<li><p>The Nuremberg Code (1947)</p>
+<ul>
+<li>Related to the Holocaust (death of 11 million people by the Nazis)</li>
+<li>Medical crimes against humanity were committed</li>
+<li>Code established voluntary consent and right to withdraw from experiment and right to qualified medical experimenter</li>
+</ul>
+</li>
+<li><p>World Medical Associations (WMA) Declaration of Helsinki (1964)</p>
+<ul>
+<li>Added the right to privacy and confidentiality of personal information of research subjects to the Nuremberg Code</li>
+</ul>
+</li>
+</ul>
+<h3 id="Ethical-principles-in-human-experimentation"><a href="#Ethical-principles-in-human-experimentation" class="headerlink" title="Ethical principles in human experimentation"></a>Ethical principles in human experimentation</h3><p><strong>Nuremberg code</strong></p>
+<ul>
+<li>Voluntary Consent is essential</li>
+<li>The results must be for the greater good of society</li>
+<li>Should be based on previous animal experimentation</li>
+<li>Should be conducted by avoiding physical/mental suffering and injury</li>
+<li>No experiments should be conducted if it is believed to cause death/disability</li>
+<li>Risks should never exceed the benefits</li>
+<li>Adequate facilities should be used to protect subjects</li>
+<li>Conducted only by qualified scientists</li>
+<li>Subject should always be at liberty to stop at any time</li>
+<li>Scientist in charge must be prepared to terminate the experiment when injury, disability, or death is likely to occur</li>
+</ul>
+<h3 id="The-issue"><a href="#The-issue" class="headerlink" title="The issue"></a>The issue</h3><p>Hippocratic Oath etc focus on the medical profession and focus on <strong>Autonomy</strong>, <strong>Beneficence</strong>, <strong>Non-Maleficence</strong> and <strong>Justice</strong> (primum non nocere).</p>
+<p>Nuremberg Code and Helsinki declaration apply such principles on medical research.</p>
+<p>What about healthcare informatics? “Do these principles affect software?”</p>
+<h3 id="Translating-to-health-informatics"><a href="#Translating-to-health-informatics" class="headerlink" title="Translating to health informatics"></a>Translating to health informatics</h3><ul>
+<li>Preserve the right to privacy</li>
+<li>Guard against excessive personal data collection</li>
+<li>Ensure Security of data</li>
+<li>Ensure Integrity of data</li>
+<li>Get Informed consent for patients</li>
+<li>Be aware of existing laws</li>
+<li>Sharing data only when appropriate</li>
+<li>…</li>
+</ul>
+<p><img src="/images/HMS/9191901.png"></p>
+<h3 id="Ethical-principles-also-apply-to-students-in-health-ICT"><a href="#Ethical-principles-also-apply-to-students-in-health-ICT" class="headerlink" title="Ethical principles also apply to students in health ICT"></a>Ethical principles also apply to students in health ICT</h3><p><strong>General for all students</strong></p>
+<ul>
+<li>No plagiarism</li>
+<li>Manipulation of electronic files. Ensure copyright is not violated</li>
+<li>No recording of lectures without consent</li>
+<li>Do not use pirated digital files</li>
+<li>Do not access documents illegally</li>
+</ul>
+<p><strong>And in particular</strong></p>
+<ul>
+<li>Students should be careful about online comments and photographs of themselves, colleagues and patients on social networks</li>
+<li>Always respect patients and their privacy</li>
+<li>Respect confidentiality: Don’t share sensitive data. <strong>Everything that is not completely anonymous is sensitive</strong></li>
+</ul>
+<h3 id="Other-concerns"><a href="#Other-concerns" class="headerlink" title="Other concerns"></a>Other concerns</h3><ul>
+<li><p>Pictures might reveal presence of a specific person at a specific department etc.</p>
+</li>
+<li><p>Medical images might reveal much much more</p>
+</li>
+<li><p>Patient records reveal even more</p>
+</li>
+<li><p>Stay out of all information you do not need to access !</p>
+</li>
+</ul>
+<p><img src="/images/HMS/9191902.png"></p>
+<h3 id="Other-issue-ransomware"><a href="#Other-issue-ransomware" class="headerlink" title="Other issue: ransomware"></a>Other issue: ransomware</h3><ul>
+<li><p>Software encrypts your data</p>
+</li>
+<li><p>A fee is asked to be able to decrypt your data</p>
+</li>
+<li><p>Sources of infection</p>
+<ul>
+<li>Phishing emails</li>
+<li>Virusses<ul>
+<li>OS vulnerabilities</li>
+</ul>
+</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h3 id="Extortionware-doxware"><a href="#Extortionware-doxware" class="headerlink" title="Extortionware / doxware"></a>Extortionware / doxware</h3><ul>
+<li>The opposite of ransomware: rather than locking data, it threatens you to expose your data</li>
+<li>Similar mechanisms as ransomware</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/02/26/2021-02-26-Storing-and-exchanging-medical-images-Ethics-in-Hospital-IT/">https://yintelligence.tech/2021/02/26/2021-02-26-Storing-and-exchanging-medical-images-Ethics-in-Hospital-IT/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Data-Analytics-in-Health-Care-and-Connected-Care/">
+                                    <span class="chip bg-color">Data Analytics in Health Care and Connected Care</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/02/26/2021-02-26-Predicate-Logic/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Predicate Logic">
+                        
+                        <span class="card-title">Predicate Logic</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Fundamentals-of-Computer-Science/">
+                        <span class="chip bg-color">Fundamentals of Computer Science</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/26/2021-02-26-Environments/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Environments">
+                        
+                        <span class="card-title">Environments</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

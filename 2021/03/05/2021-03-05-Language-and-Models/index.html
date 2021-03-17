@@ -1,0 +1,1550 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Language and Models, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Language and Models | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Language and Models</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Fundamentals-of-Computer-Science/">
+                                <span class="chip bg-color">Fundamentals of Computer Science</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-03-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-03-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    1.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    9 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Language-and-Models"><a href="#Language-and-Models" class="headerlink" title="Language and Models"></a>Language and Models</h1><h2 id="Programming-languages-and-computer-science"><a href="#Programming-languages-and-computer-science" class="headerlink" title="Programming languages and computer science"></a>Programming languages and computer science</h2><h3 id="Motivation-for-modelling"><a href="#Motivation-for-modelling" class="headerlink" title="Motivation for modelling"></a>Motivation for modelling</h3><p>Programming Languages</p>
+<ul>
+<li><p>Why do they take the form they do?</p>
+</li>
+<li><p>How are they processed by a computer?</p>
+<p>To gain insight into these questions, we model:</p>
+</li>
+<li><p>Language</p>
+</li>
+<li><p>Mechanisms for processing language</p>
+</li>
+</ul>
+<h3 id="Key-aspects"><a href="#Key-aspects" class="headerlink" title="Key aspects"></a>Key aspects</h3><ul>
+<li>Language is about<ul>
+<li>Structure (form)</li>
+<li>Meaning</li>
+</ul>
+</li>
+<li>Formal models of language deal with <strong>structure only</strong></li>
+<li><strong>Meaning</strong> often studied through predicate logic (see Part I of the course)</li>
+</ul>
+<h2 id="Ambiguity-and-language-design"><a href="#Ambiguity-and-language-design" class="headerlink" title="Ambiguity and language design"></a>Ambiguity and language design</h2><h3 id="Human-natural-VS-programming-languages"><a href="#Human-natural-VS-programming-languages" class="headerlink" title="Human (natural) VS. programming languages"></a>Human (natural) VS. programming languages</h3><h4 id="Natural-languages"><a href="#Natural-languages" class="headerlink" title="Natural languages"></a>Natural languages</h4><ul>
+<li>The result of evolutionary processes</li>
+<li>Guided by communicative needs and cognitive capacities</li>
+<li>No central control / design</li>
+<li>Vagueness<ul>
+<li>E.g. When does a wide chair become a bench?</li>
+</ul>
+</li>
+<li>Ambiguity<ul>
+<li>Word-level ambiguity: figure out meaning from context (e.g. bank or trip)</li>
+<li>Structural ambiguity: different groupings for the same words (e.g. old men and women)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/FOCS/1026370.png" alt="Example of structural ambiguity in natural languages"></p>
+<h4 id="Programming-languages"><a href="#Programming-languages" class="headerlink" title="Programming languages"></a>Programming languages</h4><ul>
+<li>Tightly organised, controlled design</li>
+<li>No vagueness<ul>
+<li>E.g. clear boundary between integers and reals</li>
+</ul>
+</li>
+<li>Ambiguity<ul>
+<li>Sometimes word-level amibuity: e.g. in certain programming languages keywords can also be used as variable names</li>
+<li>No structural ambiguity: precedence rules, parentheses, …</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/FOCS/1026371.png" alt="Example of structural ambiguity when precedence rules and parentheses are ignored"></p>
+<ul>
+<li>X = Y = 2<sup>5</sup> = 32, <em>log</em> = <em>log</em><sub>2</sub></li>
+<li>6 or 37 ?</li>
+</ul>
+<h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>The study of formals models of language provides insights in:</p>
+<ul>
+<li>Ambiguity of statements</li>
+<li>Efficiency in processing of programming languages</li>
+</ul>
+<h2 id="Formal-languages"><a href="#Formal-languages" class="headerlink" title="Formal languages"></a>Formal languages</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>Formal language models focus on <strong>sequences of symbols</strong> (strings) </li>
+<li>No meaning, except for structural differences</li>
+</ul>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><ul>
+<li><strong>Alphabet</strong><ul>
+<li>An alphabet (Σ) is a finite set of symbols</li>
+</ul>
+</li>
+<li><strong>String</strong><ul>
+<li>A string is a finite sequence of symbols from an alphabet</li>
+</ul>
+</li>
+<li><strong>Language</strong><ul>
+<li>A language is a set of strings</li>
+</ul>
+</li>
+</ul>
+<h3 id="Central-question"><a href="#Central-question" class="headerlink" title="Central question"></a>Central question</h3><p><strong>For any particular language, how can we specify precisely the correct strings and no others?</strong></p>
+<h4 id="Alphabet-and-strings"><a href="#Alphabet-and-strings" class="headerlink" title="Alphabet and strings"></a>Alphabet and strings</h4><ul>
+<li>For convenience, we use small symbol sets as alphabets</li>
+<li>E.g.: <ul>
+<li>Let Σ = {a, b, c} be the set of symbols. Some strings composed from the symbols of Σ are ab, bbc, and abcba. These are <strong>strings over Σ</strong></li>
+<li>Let Σ = {0, 1, +} be the set of symbols. Some strings over Σ are 0,1+1 and 10+11+1010</li>
+</ul>
+</li>
+</ul>
+<h4 id="Length-of-strings"><a href="#Length-of-strings" class="headerlink" title="Length of strings"></a>Length of strings</h4><p>The length of the string =</p>
+<ul>
+<li>The number of symbols in it</li>
+<li>E.g. |abc| = 3</li>
+</ul>
+<h4 id="Empty-string"><a href="#Empty-string" class="headerlink" title="Empty string"></a>Empty string</h4><ul>
+<li>Empty string =<ul>
+<li>Λ</li>
+<li>|Λ| = 0</li>
+</ul>
+</li>
+<li><strong>Λ is a string, NOT a symbol!!</strong></li>
+<li><strong>Λ is not listed in Σ</strong></li>
+</ul>
+<h4 id="Set-of-strings"><a href="#Set-of-strings" class="headerlink" title="Set of strings"></a>Set of strings</h4><p>E.g.</p>
+<ul>
+<li>Finite set:<ul>
+<li>The set of strings over Σ = {a, b} of length ≤ 2 is {Λ, a, b, aa, ab, ba, bb} </li>
+<li>Cf. variable names in e.g. Fortran, Pascal</li>
+</ul>
+</li>
+<li>Infinite set:<ul>
+<li>The set of strings over Σ = {0, 1, +} that represent sums of 0s and 1s is {0 + 0, 0 + 1, 1 + 0, 1 + 1, 0 + 0 + 0, 0 + 0 + 1, …}</li>
+</ul>
+</li>
+</ul>
+<h4 id="Language-Σ∗"><a href="#Language-Σ∗" class="headerlink" title="Language Σ∗"></a>Language Σ<sup>∗</sup></h4><ul>
+<li>Σ<sup>∗</sup> is the language consisting of <strong>all possible strings</strong> over Σ</li>
+<li>Any language over Σ is a subset of Σ<sup>∗</sup></li>
+<li>E.g.:<ul>
+<li>Any language over {a, b} is a subset of {a, b} <sup>∗</sup></li>
+<li>{a, b, } <sup>∗</sup> = {Λ, a, b, aa, bb, ba, bb, aaa, aab, …}</li>
+</ul>
+</li>
+</ul>
+<h4 id="Set-formats"><a href="#Set-formats" class="headerlink" title="Set formats"></a>Set formats</h4><ul>
+<li>Extensional format<ul>
+<li>Explicit list of arguments</li>
+<li>E.g.: L = {Λ, a, b, aa, ab, ba, bb}</li>
+</ul>
+</li>
+<li>Intentional format<ul>
+<li>E.g.: L = the set of strings over {a, b}, of length no more than two</li>
+<li>E.g.: L = {x|x ∈ {a, b} <sup>∗</sup> ∧ |x| ≤ 2}</li>
+</ul>
+</li>
+</ul>
+<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><p>Write the extension of each of the following sets: </p>
+<ul>
+<li>{x|x ∈ {a, b} <sup>∗</sup> ∧ |x| = 3}.</li>
+<li>{x|x ∈ {a, b} <sup>∗</sup> ∧ |x| =4 ∧ ∃y: (x =aya)}.</li>
+</ul>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li>{aaa, baa, aba, bba, aab, bab, abb, bbb}</li>
+<li>{abba, aaba, abaa, aaaa}</li>
+</ul>
+<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><p>Express the following sets intentionally using formal language terminology:</p>
+<ul>
+<li>{aa, ab, ac, ba, bb, bc, ca, cb, cc}</li>
+<li>{αa}<sup>∗</sup></li>
+</ul>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li>{x|x ∈ {a, b, c} <sup>∗</sup> ∧ |x| = 2}</li>
+<li>{x|x ∈ {a} <sup>∗</sup> ∧ ∃y ∈ <strong>I</strong> : |x| = 2y}</li>
+</ul>
+<h2 id="Operations-on-languages"><a href="#Operations-on-languages" class="headerlink" title="Operations on languages"></a>Operations on languages</h2><h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><p>Language are <strong>sets</strong> (of strings), notated here as L<sub>1</sub> , L<sub>2</sub></p>
+<ul>
+<li>Union: L<sub>1</sub> ∪ L<sub>2</sub></li>
+<li>Intersection: L<sub>1</sub> ∩ L<sub>2</sub></li>
+<li>Difference: L<sub>1</sub> \ L<sub>2</sub></li>
+<li>Symmetric difference: L<sub>1</sub> ∆ L<sub>2</sub></li>
+<li>Complement: Σ<sup>∗</sup> \ L</li>
+</ul>
+<h3 id="Empty-language"><a href="#Empty-language" class="headerlink" title="Empty language"></a>Empty language</h3><ul>
+<li>Empty language: ∅<ul>
+<li>Has no strings</li>
+</ul>
+</li>
+<li>Language {Λ}<ul>
+<li>Has 1 string, the empty string, which has length 0</li>
+</ul>
+</li>
+<li>Language {Λ, a, aa}<ul>
+<li>Has 3 strings, of length 0, 1 and 2</li>
+</ul>
+</li>
+</ul>
+<h3 id="Concatenation-of-strings"><a href="#Concatenation-of-strings" class="headerlink" title="Concatenation of strings"></a>Concatenation of strings</h3><p><strong>Definition:</strong>  Concatenation of <strong>strings</strong></p>
+<ul>
+<li>x and y are strings: xy is their concatenation</li>
+<li>x is a string: xΛ = x = Λx</li>
+<li>x is a string: xx<sup>k</sup> = x<sup>k+1</sup></li>
+<li>x is a string: x<sup>0</sup> = Λ</li>
+</ul>
+<p><strong>Concatenation is NOT commutative!!!</strong></p>
+<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><p>Give the length of each of the following strings: </p>
+<ul>
+<li>b<sup>3</sup>c<sup>4</sup> </li>
+<li>(aΛaΛbΛb)<sup>2</sup> </li>
+<li>Λ<Sup>5</sup></li>
+</ul>
+<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li>7</li>
+<li>8</li>
+<li>0</li>
+</ul>
+<h3 id="Concatenation-of-languages"><a href="#Concatenation-of-languages" class="headerlink" title="Concatenation of languages"></a>Concatenation of languages</h3><p><strong>Definition:</strong> Concatenation of <strong>languages</strong></p>
+<ul>
+<li><p>For language L<sub>1</sub> and L<sub>2</sub>, their concatenation is written as L<sub>1</sub>L<sub>2</sub></p>
+</li>
+<li><p>L<sub>1</sub>L<sub>2</sub> = {xy|x ∈ L<sub>1</sub> ∧ y ∈ L<sub>2</sub>}</p>
+<p>E.g.: Let L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}. Then the concatenations L<sub>1</sub>L<sub>2</sub> and L<sub>2</sub>L<sub>1</sub> are as follows:</p>
+</li>
+<li><p>L<sub>1</sub>L<sub>2</sub> = {ab, abb, abbb, aab, aabb, aabbb}</p>
+</li>
+<li><p>L<sub>2</sub>L<sub>1</sub> = {ba, bba, bbba, baa, bbaa, bbbaa}</p>
+</li>
+</ul>
+<p><strong>Concatenation is NOT commutative!!!</strong></p>
+<h3 id="More-concatenation"><a href="#More-concatenation" class="headerlink" title="More concatenation"></a>More concatenation</h3><p>L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}</p>
+<ul>
+<li>L<sub>1</sub>L<sub>2</sub>: 2 x 3 unique concatenations<ul>
+<li>{ab, abb, abbb, aab, aabb, aabbb}</li>
+</ul>
+</li>
+<li>L<sub>2</sub>L<sub>2</sub>: 3 x 3 concatenations, but only 5 unique ones<ul>
+<li>{bb, bbb, bbbb, bbbbb, bbbbbb}</li>
+</ul>
+</li>
+</ul>
+<h3 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h3><p>How many of the strings over the symbol set Σ = {a, b, c} are of length exactly 5?</p>
+<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p>n<sup>k</sup> = 3<sup>5</sup> = 243</p>
+<h3 id="Exercise-5"><a href="#Exercise-5" class="headerlink" title="Exercise 5"></a>Exercise 5</h3><p>Use the notation of formal languages, sets, logic, and arithmetic to express in intentional form each of the following sets, using no English.</p>
+<ul>
+<li>The set of strings of length 5 over {0, 1}.</li>
+<li>The set of strings over {0, 1} that begin with 1 and that represent, as binary numbers, the values from 1 to 31 (in decimal notation).</li>
+</ul>
+<h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li>{x|x ∈ {0, 1} <sup>∗</sup> ∧ |x| = 5}</li>
+<li>{x|y ∈ {0, 1} <sup>∗</sup> ∧ |y| ≤ 4 ∧ x = 1y}</li>
+</ul>
+<h3 id="Exercise-6"><a href="#Exercise-6" class="headerlink" title="Exercise 6"></a>Exercise 6</h3><ul>
+<li>L = {x|x ∈ {a, b} <sup>∗</sup> ∧ |x| ≤ 2} = {Λ, a, b, aa, ab, ba, bb}</li>
+<li>L<sub>1</sub> = {a, aa} and L<sub>2</sub> = {b, bb, bbb}</li>
+<li>Give the extensional form of (L<sub>1</sub>L<sub>2</sub>) ∩ L</li>
+</ul>
+<h4 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li>L<sub>1</sub>L<sub>2</sub> = {ab, abb, abbb, aab, aabb, aabbb}</li>
+<li>(L<sub>1</sub>L<sub>2</sub>) ∩ L = {ab}</li>
+</ul>
+<h3 id="Superscript-for-languages"><a href="#Superscript-for-languages" class="headerlink" title="Superscript for languages"></a>Superscript for languages</h3><p><strong>Definition</strong>: Superscript for Languages</p>
+<p>For each language L:</p>
+<ul>
+<li>L<sup>0</sup> = {Λ}</li>
+<li>L<sup>k+1</sup> = LL<sup>k</sup> , for any integer k</li>
+</ul>
+<h3 id="Closure-for-Languages"><a href="#Closure-for-Languages" class="headerlink" title="Closure for Languages"></a>Closure for Languages</h3><p><strong>Definition</strong>: Closure for Languages</p>
+<ul>
+<li><p>L<sup>∗</sup> = L<sup>0</sup> ∪ L<sup>1</sup> ∪ L<sup>2</sup> ∪, …</p>
+</li>
+<li><p>$$<br>L^*=U_{i=0}^∞L^i<br>$$</p>
+</li>
+<li><p>For any language, except ∅ and {Λ}, L<sup>∗</sup> has infinitely many strings</p>
+</li>
+</ul>
+<p>Eg.: </p>
+<p>Let L = {a, bb}. Then L<sup>0</sup> = {Λ}, which is true for any language. Also,</p>
+<ul>
+<li>L<sup>1</sup> = L = {a, bb}</li>
+<li>L<sup>2</sup> = LL = {a, abb, bba, bbbb}</li>
+<li>L<sup>3</sup> = LL<sup>2</sup> = {aaa, aabb, abba. abbbb, bbaa, bbabb. bbbba, bbbbbb}</li>
+<li>L<sup>*</sup> = L = {Λ, a , bb. aa. abb. bba, bbbb, aaa, aabb, abba, abbbb, bbaa, …}</li>
+</ul>
+<h3 id="Exercise-7"><a href="#Exercise-7" class="headerlink" title="Exercise 7"></a>Exercise 7</h3><p>Express each of the following as briefly as possible using correct notation: an alphabet, the set of all strings over that alphabet, the empty string, the empty language, the length of string x, and the closure of language L.</p>
+<h4 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li>alphabet: Σ</li>
+<li>set of all strings over alphabet: Σ<sup>∗</sup></li>
+<li>empty string: Λ</li>
+<li>empty language: ∅</li>
+<li>length of string x: |x|</li>
+<li>closure of language L: L<sup>∗</sup></li>
+</ul>
+<h3 id="Exercise-8"><a href="#Exercise-8" class="headerlink" title="Exercise 8"></a>Exercise 8</h3><p> Let L be the language {a, bb} and consider its closure, L<sup>∗</sup><em>.</em></p>
+<ul>
+<li>How many strings in L<sup>∗</sup> are of length 4?</li>
+<li>How many strings in L<sup>∗</sup> are of length 5?</li>
+</ul>
+<h4 id="Solution-7"><a href="#Solution-7" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li>L<sup>0</sup> : 0</li>
+<li>L<sup>1</sup> : 0</li>
+<li>L<sup>2</sup> : 1</li>
+<li>L<sup>3</sup> : 3</li>
+<li>L<sup>4</sup> : 1</li>
+<li>4 strings: {bbbb, aabb, abba, bbaa, aaaa}</li>
+</ul>
+<h2 id="Two-levels-and-two-language-classes"><a href="#Two-levels-and-two-language-classes" class="headerlink" title="Two levels and two language classes"></a>Two levels and two language classes</h2><h3 id="Words-and-sentences"><a href="#Words-and-sentences" class="headerlink" title="Words and sentences"></a>Words and sentences</h3><p>Human Language</p>
+<ul>
+<li>Symbols: individual letters<ul>
+<li>Σ is called the <strong>alphabet</strong></li>
+<li>Strings of the language are called <strong>words</strong></li>
+</ul>
+</li>
+<li>Symbols: individual words<ul>
+<li>Σ is called the <strong>vocabulary</strong></li>
+<li>Strings of the language are called <strong>sentences</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Tokens-and-statements"><a href="#Tokens-and-statements" class="headerlink" title="Tokens and statements"></a>Tokens and statements</h3><ul>
+<li><p>Programming Languages</p>
+<ul>
+<li><p>Characters combine into tokens</p>
+<ul>
+<li>Tokens correspond to words in human languages</li>
+<li>E.g. for, &lt;=, and try in Java</li>
+</ul>
+</li>
+<li><p>Tokens combine into statements</p>
+<ul>
+<li><p>Statements correspond to words in human languages</p>
+</li>
+<li><p>E.g. (loop for el in list do (format t “ a %” el))</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>One is interested at on particular symbol set at any particular time</p>
+</li>
+<li><p>Combining tokens to form statements is more complex than combining characters to make tokens</p>
+</li>
+<li><p>Language classes:</p>
+<ul>
+<li>Class of regular languages<ul>
+<li>For forming tokens out of characters</li>
+<li>No recursion</li>
+</ul>
+</li>
+<li>Class of context-free languages<ul>
+<li>For forming statements out of tokens</li>
+<li>Can have recursion</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Notion-of-recursion"><a href="#Notion-of-recursion" class="headerlink" title="Notion of recursion"></a>Notion of recursion</h3><p><strong>Definition</strong>: Recursive Construct</p>
+<ul>
+<li>A construct is recursive if it can contain within itself a structure of the same type</li>
+</ul>
+<ul>
+<li><p>No restrictions on nested, ‘inner’ statements:</p>
+</li>
+<li><p>E.g. (loop for sublist in list do</p>
+<p>​           (loop for el in sublist do (print el)))</p>
+</li>
+</ul>
+<h2 id="Questions-of-formal-language-theory"><a href="#Questions-of-formal-language-theory" class="headerlink" title="Questions of formal language theory"></a>Questions of formal language theory</h2><h3 id="Language-specification"><a href="#Language-specification" class="headerlink" title="Language specification"></a>Language specification</h3><p>How is a language specified?</p>
+<ul>
+<li>Extensional format<ul>
+<li>Explicitly enumerates elements</li>
+</ul>
+</li>
+<li>Intentional format<ul>
+<li>Uses a specification of the properties of the strings it contains</li>
+<li>e.g. L = {x|x ∈ {a, b} <sup>∗</sup> ∧ N<sub>a</sub>(x) = N<sub>b</sub>(x)}</li>
+<li>N<sub>a</sub>(x) denotes the number of occurrences of the symbol a in the string x</li>
+</ul>
+</li>
+</ul>
+<h3 id="Generation"><a href="#Generation" class="headerlink" title="Generation"></a>Generation</h3><p>How can we generate the sentences of a language?</p>
+<ul>
+<li>Problem:<ul>
+<li>Generate an unlimited number of strings of an infinite language such that any particular string would ultimately occur</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>Building a <strong>grammar</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Recognition"><a href="#Recognition" class="headerlink" title="Recognition"></a>Recognition</h3><p>How can we recognize the sentences of a language?</p>
+<ul>
+<li>Problem:<ul>
+<li>Given language L and any string x over the alphabet of the language, how can we determine whether x ∈ L</li>
+</ul>
+</li>
+<li>Solution<ul>
+<li>Building an <strong>automaton</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Language-specification-1"><a href="#Language-specification-1" class="headerlink" title="Language specification"></a>Language specification</h3><p>What is the best way to specify a language?</p>
+<ul>
+<li>There are 3 ways to specify an infinite language:<ul>
+<li>Intentional format</li>
+<li>Grammar that generates the language</li>
+<li>Automaton that recognizes the language</li>
+</ul>
+</li>
+<li>There are correspondences between these ways<ul>
+<li>E.g. Use grammar to produce automaton</li>
+<li>Translations can be done mechanically</li>
+</ul>
+</li>
+</ul>
+<h3 id="Languages-classes"><a href="#Languages-classes" class="headerlink" title="Languages classes"></a>Languages classes</h3><ul>
+<li>There are an infinite number of different languages over Σ</li>
+<li>Some are more complex than others</li>
+<li>E.g. some might be recursive</li>
+</ul>
+<p><strong>Definition</strong>: Language class</p>
+<ul>
+<li>A language class is a set of languages that can be recognized by some automaton that abides certain restrictions</li>
+<li>Or parallel to this, that can be generated by grammars that abide certain restrictions</li>
+</ul>
+<p><strong>The same language classes can be defined in terms of automata and grammars!!</strong></p>
+<p>Language classes are sets that are subets of other classes</p>
+<p>E.g. Regular languages are context-free languages</p>
+<p><img src="/images/FOCS/1490250.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/03/05/2021-03-05-Language-and-Models/">https://yintelligence.tech/2021/03/05/2021-03-05-Language-and-Models/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Fundamentals-of-Computer-Science/">
+                                    <span class="chip bg-color">Fundamentals of Computer Science</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/03/05/2021-03-05-Inheritance,-Implements/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Inheritance, Implements">
+                        
+                        <span class="card-title">Inheritance, Implements</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/05/2021-03-05-Containers/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Containers">
+                        
+                        <span class="card-title">Containers</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

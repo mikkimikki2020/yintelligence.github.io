@@ -1,0 +1,1548 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Relational Model and Relational Algebra, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Relational Model and Relational Algebra | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Relational Model and Relational Algebra</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Databases/">
+                                <span class="chip bg-color">Databases</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-02-19
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-02-24
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    14 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Relational-Model-and-Relational-Algebra"><a href="#Relational-Model-and-Relational-Algebra" class="headerlink" title="Relational Model and Relational Algebra"></a>Relational Model and Relational Algebra</h1><p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/3b0c2525ba56071f1d017b50298d66d1d59e3b10-1613565889329/capture/">Video Part 1 42:57 ~ end</a></p>
+<h2 id="Relational-Model"><a href="#Relational-Model" class="headerlink" title="Relational Model"></a>Relational Model</h2><p>Theory for data management developed by Edgar F. Codd while working at IBM:</p>
+<ul>
+<li><strong><em>data independence</em></strong><ul>
+<li>between logical and physical level</li>
+</ul>
+</li>
+<li>set-based <strong><em>query language</em></strong><ul>
+<li>relational query language</li>
+</ul>
+</li>
+<li><strong><em>normalisation</em></strong><ul>
+<li>avoid redundancy</li>
+</ul>
+</li>
+</ul>
+<p>IBM first did not implement the relational model in order to “protect” their IMS/DB revenues</p>
+<p><strong><em>IBM’s System R</em></strong> (1974) was a DBMS prototype implementing Codd’s relational model</p>
+<ul>
+<li>first implementation of the <u>Structured English Query Language</u> (<strong><em>SEQUEL</em></strong>)<ul>
+<li>later renamed to Structured Query Language (SQL)</li>
+</ul>
+</li>
+</ul>
+<p>The System R prototype finally led to the development of different commercial DBMSs including IBM’s <strong><em>DB2</em></strong>, <strong><em>Oracle</em></strong> or <strong><em>Microsoft SQL Server</em></strong></p>
+<h2 id="Relational-Database-47-40"><a href="#Relational-Database-47-40" class="headerlink" title="Relational Database 47:40"></a>Relational Database 47:40</h2><p>A relational database consists of a number of <strong><em>tables</em></strong></p>
+<ul>
+<li>each table row defines a <strong><em>relationship</em></strong> between a set of values</li>
+</ul>
+<p>There is an analogy between the concept of a table (collection of relationships) and the mathematical concept of a <strong><em>relation</em></strong></p>
+<ul>
+<li>in the following we therefore talk about relations instead of tables</li>
+<li>-&gt; a <strong><em>relational database</em></strong> consists of a <strong><em>collection of relations</em></strong></li>
+</ul>
+<p><img src="/images/DB/042429.png"></p>
+<p>Information is normally partitioned into different relations since the storage in a single relation would lead to</p>
+<ul>
+<li>a replication of information (redundancy)</li>
+<li>a large number of necessary null values</li>
+</ul>
+<p>While tables are used at the logical level, different storage structures can be used at the physical level</p>
+<ul>
+<li>data independence</li>
+</ul>
+<h2 id="Relation-52-23"><a href="#Relation-52-23" class="headerlink" title="Relation 52:23"></a>Relation 52:23</h2><p>The column headers of a table are called <strong><em>attributes</em></strong> and for each attribute <em>a<sub>i</sub></em> there is a set of permitted values called the <strong><em>domain D<sub>i</sub></em></strong> of <em>a<sub>i</sub></em></p>
+<p>Given the domains <em>D<sub>1</sub></em>, <em>D<sub>2</sub></em>, …, <em>D<sub>n</sub></em>, a <strong><em>relation r</em></strong> is defined as a subset of the cartesian product <em>D<sub>1</sub></em> × <em>D<sub>2</sub></em> × … × <em>D<sub>n</sub></em></p>
+<p><img src="/images/DB/0424290.png"></p>
+<p>A relation r is a <strong><em>set of n-ary tuples</em></strong> <em>t<sub>i</sub></em> = (<em>a<sub>1</sub></em>, <em>a<sub>2</sub></em>,…, <em>a<sub>n</sub></em>) where each <em>a<sub>i</sub></em> ∈ <em>D<sub>i</sub></em></p>
+<ul>
+<li>the number of attributes is called a relation’s <strong><em>degree</em></strong></li>
+<li>the number of tuples is called a relation’s <strong><em>cardinality</em></strong></li>
+</ul>
+<p>Since a relation is a set of tuples, the <strong><em>order</em></strong> of the tuples is <strong><em>irrelevant</em></strong></p>
+<ul>
+<li>each tuple is distinctive (no duplicate tuples)</li>
+</ul>
+<p>The <strong><em>order of attributes</em></strong> is <strong><em>irrelevant</em></strong></p>
+<p>The domain of each attribute has to be <strong><em>atomic</em></strong></p>
+<ul>
+<li>all members of the domain have to be indivisible units</li>
+<li>a relation with only atomic values is <strong><em>normalised (first normal form)</em></strong></li>
+</ul>
+<p>Multiple attributes can have the same domain <em>D<sub>i</sub></em></p>
+<ul>
+<li>we will see later how the domain types can be defined (in SQL)</li>
+</ul>
+<p>A <strong><em>tuple variable</em></strong> is a variable that stands for a tuple</p>
+<ul>
+<li>its domain is defined by the set of all tuples</li>
+</ul>
+<p>The special <strong><em>null</em></strong> value is part of any domain <em>D<sub>i</sub></em></p>
+<ul>
+<li>used to represent an <strong><em><u>unknown or non-existing value</u></em></strong></li>
+<li>null values are not easy to handle (not the same as empty string)<ul>
+<li>avoid null values whenever possible</li>
+</ul>
+</li>
+</ul>
+<h3 id="Example-of-a-Relation-1-01-06"><a href="#Example-of-a-Relation-1-01-06" class="headerlink" title="Example of a Relation 1:01:06"></a>Example of a Relation 1:01:06</h3><p>Let us assume that we have the following attributes with their domains</p>
+<ul>
+<li><strong>name</strong> = {Merckx, Frisch, Botta, …}</li>
+<li><strong>street</strong> = {Bahnhofstrasse, Pleinlaan, Via Nassa, …}</li>
+<li><strong>city</strong> = {Zurich, Brussels, Lugano, Paris, …}</li>
+</ul>
+<p>Then</p>
+<p><strong><em>r</em></strong> = {(Merckx, Pleinlaan, Brussels), </p>
+<p>​        (Frisch, Bahnhofstrasse, Zurich),</p>
+<p>​        (Botta, Via Nassa, Lugano), </p>
+<p>​        (Botta, Bahnhofstrasse, Lugano)}</p>
+<p>forms a relation over <strong>name</strong> × <strong>street</strong> × <strong>city</strong></p>
+<h2 id="Relational-Database-Example-1-02-21"><a href="#Relational-Database-Example-1-02-21" class="headerlink" title="Relational Database Example 1:02:21"></a>Relational Database Example 1:02:21</h2><p><img src="/images/DB/0924291.png"></p>
+<p><img src="/images/DB/0924292.png"></p>
+<table>
+<thead>
+<tr>
+<th align="left">relational database schema</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Customer   (<strong><u>customerID</u></strong>, name, street, postcode, city)</td>
+</tr>
+<tr>
+<td align="left">CD               (<strong><u>cdID</u></strong>, name, duration, price, year)</td>
+</tr>
+<tr>
+<td align="left">Order          (<strong><u>orderId</u></strong>, customerID<u>, cdID, date, amount, status</u>)</td>
+</tr>
+<tr>
+<td align="left">Supplier     (<strong><u>supplierID</u></strong>, name, city)</td>
+</tr>
+</tbody></table>
+<h2 id="Database-Schema-1-04-28"><a href="#Database-Schema-1-04-28" class="headerlink" title="Database Schema 1:04:28"></a>Database Schema 1:04:28</h2><p>The logical design of a database is defined by the <strong><em>database schema</em></strong> </p>
+<p>A <strong><em>database</em></strong> <strong><em>instance</em></strong> is a snapshot of the data stored in a database at a given time </p>
+<p>A <strong><em>relation schema</em></strong> <em>R</em> = (<em>A<sub>1</sub></em>, <em>A<sub>2</sub></em>,…, <em>A<sub>n</sub></em>) is defined by a list of attributes</p>
+<ul>
+<li>by convention, the name of a relation schema starts with an uppercase letter (in contrast to relations)<ul>
+<li>e.g. Customer (<u>customerID</u>, name, street, postcode, city)</li>
+</ul>
+</li>
+<li>a <strong><em>relation</em></strong> can be defined based on the relation schema<ul>
+<li>e.g. customer = (Customer)</li>
+</ul>
+</li>
+<li>a <strong><em>relation instance</em></strong> contains the relation’s actual values (tuples)</li>
+</ul>
+<h2 id="Keys-1-06-52"><a href="#Keys-1-06-52" class="headerlink" title="Keys 1:06:52"></a>Keys 1:06:52</h2><p>For the keys we use the same terminology as introduced earlier for the ER model</p>
+<p><em>K</em> <strong>⊆</strong> <em>R</em> is a <strong><em>superkey</em></strong> of <em>R</em> if the values of <em>K</em> uniquely identify any tuple of possible relation instances <em>r(R)</em></p>
+<ul>
+<li><em>t<sub>1</sub></em> and <em>t<sub>2</sub></em> ∈ <em>r</em> and <em>t<sub>1</sub></em> ≠ <em>t<sub>2</sub></em> -&gt; <em>t<sub>1</sub>[K]</em> ≠ <em>t<sub>2</sub>[K]</em> </li>
+<li>e.g. {cdID} and {cdID, name} are both superkeys of CD</li>
+</ul>
+<p><em>K</em> is a <strong><em>candidate key</em></strong> if <em>K</em> is minimal</p>
+<ul>
+<li>e.g. {cdID} is a candidate key of CD</li>
+</ul>
+<p>The DB designer has to choose one of the candidate keys for each relation schema as <strong><em>primary key</em></strong></p>
+<ul>
+<li>if possible, the value of a primary key should not change or only in very rare cases</li>
+</ul>
+<h3 id="Foreign-Keys-1-11-03"><a href="#Foreign-Keys-1-11-03" class="headerlink" title="Foreign Keys 1:11:03"></a>Foreign Keys 1:11:03</h3><p>A relation schema may have one or multiple attributes that correspond to the primary key of another relation schema and are called <strong><em>foreign keys</em></strong></p>
+<ul>
+<li>e.g. customerID is a foreign key of the order relation schema</li>
+<li>note that a foreign key of the <strong><em>referencing relation</em></strong> can only contain values that occur in the primary key of the <strong><em>referenced relation</em></strong> or it must be null -&gt; <strong><em>referential integrity</em></strong></li>
+</ul>
+<p><img src="/images/DB/0424293.png" alt="schema diagram"></p>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/e25659750cd61f375da707d5d150e0617afd636a-1614171325262/capture/">Video Part 2</a></p>
+<h2 id="Query-Language"><a href="#Query-Language" class="headerlink" title="Query Language"></a>Query Language</h2><p>A query language is a language that is used to <strong><em>access</em></strong> (<strong><em>r</em></strong>ead) information stored in a database as well as to <strong><em>c</em></strong>reate, <strong><em>u</em></strong>pdate and <strong><em>d</em></strong>elete information (CRUD)</p>
+<p>There are different types of query languages:</p>
+<ul>
+<li>procedural<ul>
+<li>e.g. relational algebra</li>
+</ul>
+</li>
+<li>declarative<ul>
+<li>e.g. Structured Query Language (SQL)</li>
+</ul>
+</li>
+</ul>
+<p>The relational algebra as well as the tuple and domain relational calculus form the basis for “higher level” query languages (e.g. SQL)</p>
+<h2 id="Relational-Algebra-5-37"><a href="#Relational-Algebra-5-37" class="headerlink" title="Relational Algebra 5:37"></a>Relational Algebra 5:37</h2><p>The relational algebra consists of <strong><em>six fundamental operations</em></strong></p>
+<p>unary operations:</p>
+<ul>
+<li><em>selection: σ</em></li>
+<li><em>projection: π</em></li>
+<li><em>rename: ρ</em></li>
+</ul>
+<p>binary operations:</p>
+<ul>
+<li><em>union:</em> ⋃</li>
+<li><em>set difference: —</em></li>
+<li>cartesian product: ×</li>
+</ul>
+<p>An operator takes one (unary) or two (binary) relations as input and returns a new <strong><em>single relation as output</em></strong></p>
+<p>Based on the six fundamental operations, we can define <strong><em>additional relational operations</em></strong> (add no additional power)</p>
+<ul>
+<li><em>set intersection:</em> ⋂</li>
+<li><em>natural join: ⋈</em></li>
+<li><em>theta join: θ</em></li>
+<li><em>equijoin: θ</em></li>
+<li><em>semijoin: ⋉</em></li>
+<li><em>division: ÷</em></li>
+<li><em>assignment: ←</em></li>
+</ul>
+<p><strong><em>Extended operations</em></strong> with additional expressiveness</p>
+<ul>
+<li><em>generalised projection</em></li>
+<li><em>aggregate function</em></li>
+<li><em>outer join</em></li>
+</ul>
+<h3 id="Selection-σ-9-00"><a href="#Selection-σ-9-00" class="headerlink" title="Selection (σ) 9:00"></a>Selection (σ) 9:00</h3><p>Goal: <strong><em>Select specific tuples (rows) from a relation (table)</em></strong></p>
+<p><strong>σ<sub>p</sub>(<em>r</em>) = {<em>t</em> | <em>t</em> ∈ <em>r</em> and <em>p</em>(<em>t</em>)}</strong></p>
+<ul>
+<li><em>p</em> is a <strong>selection predicate</strong><ul>
+<li>consists of terms <em>p<sub>i</sub></em> connected by an <strong>and (∧)</strong>, <strong>or (∨)</strong> or <strong>not (¬)</strong></li>
+</ul>
+</li>
+<li>a term <em>p<sub>i</sub></em> has the form <em>attribute<sub>m</sub></em> <strong><em>operator</em></strong> <em>attribute<sub>n</sub></em> or <em>constant</em><ul>
+<li>the available operators are: =, ≠, &gt;, &lt;, ≥, ≤</li>
+</ul>
+</li>
+</ul>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p><em>“Find all tuples in the customer relation that are in the city of Zurich and have a postcode greater than 8010.”</em></p>
+<p>σ<sub>city = “Zurich” ∧ postcode &gt; 8010</sub> (<em>customer</em>)</p>
+<p><img src="/images/DB/0424294.png"></p>
+<h4 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h4><p>A selection predicate may contain a comparison between two attributes</p>
+<p><em>“Find all tuples in the cd relation with a value for the duration attribute that is equal to the year of release.”</em> </p>
+<p>σ<sub>duration = year</sub> (<em>cd</em>)</p>
+<p><img src="/images/DB/0424295.png"></p>
+<h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a><strong>Attention</strong></h4><p>The selection operation in relational algebra has a different meaning than the SELECT statement used in SQL</p>
+<ul>
+<li>SELECT in SQL corresponds to a projection in relational algebra</li>
+</ul>
+<h3 id="Projection-π-11-51"><a href="#Projection-π-11-51" class="headerlink" title="Projection (π) 11:51"></a>Projection (π) 11:51</h3><p>Goal: <strong><em>Select specific attributes (columns) from a relation</em></strong></p>
+<p>π<sub>A1,</sub> <sub>A2,…,</sub> <sub>Am</sub>(<em>r</em>)</p>
+<ul>
+<li>returns a relation instance that only contains the columns for which an attribute <em>A<sub>i</sub></em> has been listed</li>
+<li><strong><em>duplicate tuples</em></strong> are <strong><em>removed</em></strong> from the resulting relation (set)</li>
+</ul>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p><em>“Return the name and city of all tuples in the customer relation.”</em></p>
+<p>π<sub>name,city</sub>(<em>customer</em>)</p>
+<p><img src="/images/DB/0424296.png"></p>
+<h3 id="Composition-of-Relational-Operations-14-53"><a href="#Composition-of-Relational-Operations-14-53" class="headerlink" title="Composition of Relational Operations 14:53"></a>Composition of Relational Operations 14:53</h3><p>Since the result of a relational operation is a new single relation instance, multiple <strong><em>operations can be combined</em></strong></p>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of all customers who live in Zurich.”</em></p>
+<p>π<sub>name</sub> (σ<sub>city</sub> <sub>=</sub> <sub>“Zurich”</sub> (<em>customer</em>))</p>
+<p><img src="/images/DB/0424291.png"></p>
+<h3 id="Union-⋃-16-04"><a href="#Union-⋃-16-04" class="headerlink" title="Union: ⋃ 16:04"></a>Union: ⋃ 16:04</h3><p>Goal: <strong><em>Unify tuples from two relations</em></strong></p>
+<p><em>r</em> ⋃ <em>s</em> = {<em>t</em> | <em>t</em> ∈ <em>r</em> or <em>t</em> ∈ <em>s</em>}</p>
+<ul>
+<li><em>r</em> and <em>s</em> must have the <strong><em>same degree</em></strong> (same number of attributes)</li>
+<li>the corresponding attribute domains must have a <strong><em>compatible type</em></strong></li>
+</ul>
+<h4 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of persons who are either customers or suppliers.”</em></p>
+<p>π<sub>name</sub> (<em>customer</em>) ⋃ π<sub>name</sub> (<em>supplier</em>)</p>
+<p><img src="/images/DB/0424292.png"></p>
+<h3 id="Set-Difference-—-18-39"><a href="#Set-Difference-—-18-39" class="headerlink" title="Set Difference (—) 18:39"></a>Set Difference (—) 18:39</h3><p>Goal: <strong><em>Find tuples that are in one relation but not in another relation</em></strong></p>
+<p><em>r</em> - <em>s</em> = {<em>t</em> | <em>t</em> ∈ <em>r</em> and <em>t</em> ∉ <em>s</em>}</p>
+<ul>
+<li><em>r</em> and <em>s</em> must have the <strong><em>same degree</em></strong> </li>
+<li>the corresponding attribute domains must have a <strong><em>compatible type</em></strong></li>
+<li>finds tuples that are in a relation <em>r</em> but not in another relation <em>s</em></li>
+</ul>
+<h4 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of suppliers who are no customers.”</em></p>
+<p>π<sub>name</sub> (<em>customer</em>) — π<sub>name</sub> (<em>supplier</em>)</p>
+<p><img src="/images/DB/0424297.png"></p>
+<h3 id="Cartesian-product-×-19-36"><a href="#Cartesian-product-×-19-36" class="headerlink" title="Cartesian product (×) 19:36"></a>Cartesian product (×) 19:36</h3><p>Goal: <strong><em>Combine information from any two relations</em></strong></p>
+<p><em>r</em> × <em>s</em> = {<em>tu</em> | <em>t</em> ∈ <em>r</em> and <em>u</em> ∈ <em>s</em>}</p>
+<ul>
+<li>the attribute names of <em>r</em>(<em>R</em>) and <em>s</em>(<em>S</em>) have to be distinct<ul>
+<li>attributes with the same name have to be renamed via the rename operator ρ</li>
+</ul>
+</li>
+</ul>
+<h4 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h4><p>π<sub>name</sub> (<em>customer</em>) × π<sub>city</sub> (<em>customer</em>)</p>
+<p><img src="/images/DB/0424298.png"></p>
+<h4 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h4><p><em>“List the names of all customers with at least one order.”</em></p>
+<p>π<sub>name</sub>(σ<sub>customer.customerID = order.customerID</sub> (<em>customer</em> × <em>order</em>) )</p>
+<p><img src="/images/DB/0924293.png"></p>
+<p><em>Note that we will later see another operator (<strong>natural join</strong>) for the <strong>combination</strong> of two tables based on common attributes</em></p>
+<h3 id="Rename-ρ-24-30"><a href="#Rename-ρ-24-30" class="headerlink" title="Rename (ρ) 24:30"></a>Rename (ρ) 24:30</h3><p>Goal: <strong><em>Rename a relation or an attribute</em></strong></p>
+<p>ρ<sub>x</sub>(<em>E</em>)</p>
+<ul>
+<li>renames the result of expression <em>E</em> to <em>x</em></li>
+</ul>
+<p>ρ<sub>x(A1,A2,…,An)</sub>(<em>E</em>)</p>
+<ul>
+<li>renames the result of expression <em>E</em> to <em>x</em> and renames the attributes to <em>A<sub>1</sub></em>, <em>A<sub>2</sub></em>,…, <em>A<sub>n</sub></em></li>
+</ul>
+<h4 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h4><p>ρ<sub>person(name,location)</sub>(π<sub>name,city</sub> (<em>customer</em>))</p>
+<p><img src="/images/DB/0924294.png"></p>
+<h4 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the price of the most expensive CD in the cd relation.”</em></p>
+<p>π<sub>price</sub>(<em>cd</em>) - π<sub>cd.price</sub>(σ<sub>cd.price &lt; d.price</sub> (<em>cd</em> × ρ*<sub>d</sub>* (<em>cd</em>)))</p>
+<p><img src="/images/DB/0924295.png"></p>
+<h3 id="Formal-Definition-29-11"><a href="#Formal-Definition-29-11" class="headerlink" title="Formal Definition 29:11"></a>Formal Definition 29:11</h3><p>A <strong><em>basic relational algebra expression</em></strong> is either a <strong><em>relation from the database</em></strong> or a <strong><em>constant relation</em></strong></p>
+<p>The set of all relational algebra expressions is defined by：</p>
+<ul>
+<li><em>E<sub>1</sub></em> ⋃ <em>E<sub>2</sub></em></li>
+<li><em>E<sub>1</sub></em> — <em>E<sub>2</sub></em></li>
+<li><em>E<sub>1</sub></em> × <em>E<sub>2</sub></em></li>
+<li>σ<sub>p</sub>(<em>E<sub>1</sub></em>)</li>
+<li>π<sub>A1,A2,…,Am</sub>(<em>E<sub>1</sub></em>)</li>
+<li>ρ<sub>x(A1,A2,…,An)</sub>(E<sub>1</sub>)</li>
+</ul>
+<h3 id="Set-Intersection-34-11"><a href="#Set-Intersection-34-11" class="headerlink" title="Set Intersection 34:11"></a>Set Intersection 34:11</h3><p><em>r</em> ∩ <em>s</em> = {<em>t</em> | <em>t</em> ∈ <em>r</em> or <em>t</em> ∈ <em>s</em>}</p>
+<ul>
+<li><em>r</em> and <em>s</em> must have the <strong><em>same degree</em></strong></li>
+<li>the corresponding attribute domains must have a <strong><em>compatible type</em></strong></li>
+</ul>
+<p>Note that the set intersection can be implemented via a pair of set difference operations</p>
+<ul>
+<li>r ∩ s = r - (r - s)</li>
+</ul>
+<h4 id="Example-8"><a href="#Example-8" class="headerlink" title="Example"></a>Example</h4><p><em>“Find the names of people who are customers and suppliers.”</em></p>
+<p>π<sub>name</sub>(<em>customer</em>) ∩ π<sub>name</sub>(<em>supplier</em>)</p>
+<p><img src="/images/DB/0924296.png"></p>
+<h3 id="Natural-Join-⋈-36-25"><a href="#Natural-Join-⋈-36-25" class="headerlink" title="Natural Join (⋈) 36:25"></a>Natural Join (⋈) 36:25</h3><p><em>r</em> ⋈ <em>s</em> = π<sub>R⋃S</sub> (σ<sub>r.A1 = s.A1 ∧ r.A2 = s.A2 ∧ … ∧ r.An = s.An</sub> (<em>r</em> × <em>s</em>))</p>
+<p>Keep all tuples of the cartesian product <em>r</em> × <em>s</em> that have the same value for the shared attributes of <em>r</em>(<em>R</em>) and <em>s</em>(<em>S</em>)</p>
+<ul>
+<li>the natural join is an associative operation: <em>r</em> ⋈ <em>s</em> ⋈ <em>t</em> = <em>r</em> ⋈ (<em>s</em> ⋈ <em>t</em>)</li>
+</ul>
+<h4 id="Example-9"><a href="#Example-9" class="headerlink" title="Example"></a>Example</h4><p><em>“List the name and street of customers whose order is still open.”</em></p>
+<p>π<sub>name,street</sub>(σ<sub>status=”open”</sub>(<em>order</em> ⋈ <em>customer</em>))</p>
+<p><img src="/images/DB/0924297.png"></p>
+<p>note that we could do the selection first (more efficient)</p>
+<ul>
+<li>we will review this later when discussing query optimisation</li>
+</ul>
+<h3 id="Theta-Join-θ-and-Equijoin-47-49"><a href="#Theta-Join-θ-and-Equijoin-47-49" class="headerlink" title="Theta Join (θ) and Equijoin 47:49"></a>Theta Join (θ) and Equijoin 47:49</h3><p> <em>r</em> ⋈<sub>p</sub> <em>s</em> =σ<sub>p</sub>(<em>r</em> × <em>s</em>)</p>
+<p>where the predicate <em>p</em> is of the form r.A<sub>i</sub> θ s.A<sub>j</sub> and θ is a comparison operator ( =, ≠, &gt;, &lt;, ≥, ≤)</p>
+<h4 id="Example-10"><a href="#Example-10" class="headerlink" title="Example"></a>Example</h4><p><em>customer</em> ⋈<sub>postcode ≤ duration</sub> (ρ<sub>cd(cdID,cdName,duration,price,year)</sub> (<em>cd</em>))</p>
+<p><img src="/images/DB/0824295.png"></p>
+<p>An equijoin (<em>r</em> ⋈<sub>p</sub> <em>s</em>) is a special form of a theta join where only the equality operator (=) may be used</p>
+<ul>
+<li>note that a natural join is a equijoin over all common attributes of a relation r and s</li>
+</ul>
+<h3 id="Semijoin-⋉-49-39"><a href="#Semijoin-⋉-49-39" class="headerlink" title="Semijoin (⋉) 49:39"></a>Semijoin (⋉) 49:39</h3><p><em>r</em> ⋉ <em>s</em> = π<sub>A1,A2,…,An</sub> (<em>r</em> ⋈ <em>s</em>) </p>
+<ul>
+<li>where <em>A<sub>1</sub></em>, <em>A<sub>2</sub></em>,…, <em>A<sub>n</sub></em> are all the attributes of <em>r</em></li>
+</ul>
+<h4 id="Example-11"><a href="#Example-11" class="headerlink" title="Example"></a>Example</h4><p><em>“List the customers whose order is still open.”</em></p>
+<p><em>customer</em> ⋉ σ<sub>status=”open”</sub> (<em>order</em>)</p>
+<p><img src="/images/DB/08242951.png"></p>
+<h3 id="Division-÷-52-30"><a href="#Division-÷-52-30" class="headerlink" title="Division (÷) 52:30"></a>Division (÷) 52:30</h3><p><em>r</em> ÷ <em>s</em> =  {<em>t</em> | <em>t</em> ∈ π<sub>R-S</sub>(<em>r</em>) and ∀ <em>u</em> ∈ <em>s</em> → <em>tu</em> ∈ <em>r</em>}</p>
+<ul>
+<li>for the relations <em>r</em>(<em>R</em>) and <em>s</em>(<em>S</em>) and <em>S</em> <strong>⊆</strong> <em>R</em></li>
+<li>suited for queries that include the phrase <strong><em>“for all”</em></strong></li>
+</ul>
+<h4 id="Example-12"><a href="#Example-12" class="headerlink" title="Example"></a>Example</h4><p><em>r</em> ÷ <em>s</em></p>
+<p><img src="/images/DB/08242952.png"></p>
+<h3 id="Assignment-←-55-37"><a href="#Assignment-←-55-37" class="headerlink" title="Assignment (←) 55:37"></a>Assignment (←) 55:37</h3><p><em>variable</em> ← <em>E</em></p>
+<p>Works like an assignment in programming languages</p>
+<p>Assignments must always be made to temporary relation variables</p>
+<ul>
+<li>no database modification</li>
+</ul>
+<h4 id="Example-13"><a href="#Example-13" class="headerlink" title="Example"></a>Example</h4><ul>
+<li><em>temp<sub>1</sub></em> ← π<sub>name, street</sub>(σ<sub>status = “open”</sub>(<em>order</em> ⋈ <em>customer</em>))</li>
+<li><em>temp<sub>2</sub></em> ← π<sub>name, street</sub>(σ<sub>city = “Brussels”</sub> (<em>customer</em>))</li>
+<li><em>result</em> ← <em>temp<sub>1</sub></em> ∪ <em>temp<sub>2</sub></em></li>
+</ul>
+<p><img src="/images/DB/0824294.png"></p>
+<h3 id="Generalised-Projection-π-59-16"><a href="#Generalised-Projection-π-59-16" class="headerlink" title="Generalised Projection (π) 59:16"></a>Generalised Projection (π) 59:16</h3><p>π<sub>F1,F2,…,Fm</sub>(<em>E</em>)</p>
+<p>generalisation of the project operation that supports the projection to arithmetic expressions <em>F<sub>1</sub></em>, <em>F<sub>2</sub></em>,…, <em>F<sub>m</sub></em></p>
+<h4 id="Example-14"><a href="#Example-14" class="headerlink" title="Example"></a>Example</h4><p><em>“Show a list of the names of all CDs together with a reduced price (80% of the original price).”</em></p>
+<p>π<sub>name, price · 0.8 as reducedPrice</sub> (<em>cd</em>)</p>
+<p><img src="/images/DB/0824293.png"></p>
+<h3 id="Aggregate-Function-1-01-16"><a href="#Aggregate-Function-1-01-16" class="headerlink" title="Aggregate Function 1:01:16"></a>Aggregate Function 1:01:16</h3><p><img src="/images/DB/0824291.png"></p>
+<h4 id="Examples-2"><a href="#Examples-2" class="headerlink" title="Examples"></a>Examples</h4><p><img src="/images/DB/0824292.png"></p>
+<h3 id="Outer-Joins-⟕-1-09-20"><a href="#Outer-Joins-⟕-1-09-20" class="headerlink" title="Outer Joins (⟕) 1:09:20"></a>Outer Joins (⟕) 1:09:20</h3><ul>
+<li>left outer join (⟕)<ul>
+<li>keeps all tuples of the left relation</li>
+<li>non-matching parts filled up with null values</li>
+</ul>
+</li>
+<li>right outer join (⟖)<ul>
+<li>keeps all tuples of the right relation</li>
+<li>non-matching parts filled up with null values</li>
+</ul>
+</li>
+<li>full outer join (⟗)<ul>
+<li>keeps all tuples of both relations</li>
+<li>non-matching parts filled up with null values</li>
+</ul>
+</li>
+</ul>
+<p>The <strong><em>left outer join (⟕)</em></strong>, <strong><em>right outer join (⟖)</em></strong> and <strong><em>full outer join (⟗)</em></strong> are extensions of the natural join operation</p>
+<p>Computes the natural join and then adds the tuples from one relation that do not match the other relation</p>
+<ul>
+<li>filled up with null values</li>
+</ul>
+<h4 id="Example-15"><a href="#Example-15" class="headerlink" title="Example"></a>Example</h4><p><em>customer</em> ⟕ <em>order</em></p>
+<p><img src="/images/DB/0824290.png"></p>
+<h3 id="Null-Values-1-17-09"><a href="#Null-Values-1-17-09" class="headerlink" title="Null Values 1:17:09"></a>Null Values 1:17:09</h3><p>A null value means that the value is <strong><em>unknown</em></strong> or <strong><em>non-existent</em></strong></p>
+<p>Primary key attributes can never be null (<strong><em>entity integrity</em></strong>)</p>
+<p>The result of an arithmetic operation that involves a null value is null</p>
+<p>For grouping and duplicate elimination null values are treated like other values (two null values are the same)</p>
+<p>Null values are ignored in aggregate functions</p>
+<h2 id="Database-Modifications-1-20-22"><a href="#Database-Modifications-1-20-22" class="headerlink" title="Database Modifications 1:20:22"></a>Database Modifications 1:20:22</h2><p>A database may be modified by using one of the following operations</p>
+<ul>
+<li>insert</li>
+<li>update</li>
+<li>delete</li>
+</ul>
+<p>These operations are defined via the assignment operator</p>
+<h3 id="Insert-1-21-28"><a href="#Insert-1-21-28" class="headerlink" title="Insert 1:21:28"></a>Insert 1:21:28</h3><p><em>r ← r</em> ∪ <em>E</em></p>
+<p>To insert new data into a relation we can</p>
+<ul>
+<li>explicitly specify the tuples to be inserted</li>
+<li>write a query and insert the result tuple set</li>
+</ul>
+<h4 id="Example-16"><a href="#Example-16" class="headerlink" title="Example"></a>Example</h4><p><em>cd</em> ← <em>cd</em> ∪ {(3, “Chromatic”, 3012, 16.50, 1994)}</p>
+<p><img src="/images/DB/0924290.png"></p>
+<h3 id="Update-1-22-09"><a href="#Update-1-22-09" class="headerlink" title="Update 1:22:09"></a>Update 1:22:09</h3><p><em>r</em> ← π<sub>F1,F2,…,Fn</sub>(<em>r</em>)</p>
+<p>Update specific values in a tuple <em>r</em></p>
+<p><em>F<del>i</del></em> is either the old value of <em>r</em> or a new value if the attribute has to be updated</p>
+<h4 id="Example-17"><a href="#Example-17" class="headerlink" title="Example"></a>Example</h4><p><em>“Increase the price of all CDs by 10%.”</em></p>
+<p><em>cd</em> ← π<sub>cdID, name, duration, price · 1.1, year</sub> (<em>cd</em>)</p>
+<p><img src="/images/DB/0924299.png"></p>
+<h3 id="Delete-1-23-23"><a href="#Delete-1-23-23" class="headerlink" title="Delete 1:23:23"></a>Delete 1:23:23</h3><p><em>r ← r - E</em></p>
+<p>A delete is expressed similar to a query except that the result is removed from the database</p>
+<p>Cannot remove single attributes</p>
+<h4 id="Example-18"><a href="#Example-18" class="headerlink" title="Example"></a>Example</h4><p><em>“Remove the CD with the name ‘Carcassonne’ from the database.”</em></p>
+<p><em>cd</em> ← <em>cd</em> - σ<sub>name=”Carcassonne”</sub> (<em>cd</em>)</p>
+<p><img src="/images/DB/0924298.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/02/19/2021-02-19-Relational-Model-and-Relational-Algebra/">https://yintelligence.tech/2021/02/19/2021-02-19-Relational-Model-and-Relational-Algebra/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Databases/">
+                                    <span class="chip bg-color">Databases</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/02/20/2021-02-20-Real-time-Operating-Systems---OS-basis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Real-time Operating Systems - OS basis">
+                        
+                        <span class="card-title">Real-time Operating Systems - OS basis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Operating-Systems-and-Security/">
+                        <span class="chip bg-color">Operating Systems and Security</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/19/2021-02-19-InputOutput---OS-basis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Input/Output - OS basis">
+                        
+                        <span class="card-title">Input/Output - OS basis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Operating-Systems-and-Security/">
+                        <span class="chip bg-color">Operating Systems and Security</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
