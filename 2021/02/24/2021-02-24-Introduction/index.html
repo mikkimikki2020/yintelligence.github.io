@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Exercises/" class="post-category">
+                                Exercises
                             </a>
                         
                     </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-16
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.9k
+                    674
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    18 Min
+                    4 Min
                 </div>
                 
 
@@ -498,289 +498,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="introduction">Introduction</h1>
-<h2 id="machine-learning">Machine Learning</h2>
-<ul>
-<li>Grew out of work in AI</li>
-<li>New capability for computers</li>
-</ul>
-<p>Examples:</p>
-<ul>
-<li><p>Database mining Large datasets from growth of automation/web.</p>
-<ul>
-<li>E.g., Web click data, medical records, biology, engineering</li>
-</ul></li>
-<li><p>Applications can’t program by hand.</p>
-<ul>
-<li>E.g., Autonomous helicopter, handwriting recognition, most of Natural Language Processing (NLP), Computer Vision.</li>
-</ul></li>
-<li><p>Self-customizing programs</p>
-<ul>
-<li>E.g., Amazon, Netflix product recommendations</li>
-</ul></li>
-<li><p>Understanding human learning (brain, real AI).</p></li>
-</ul>
-<h2 id="what-is-machine-learning">What is machine learning?</h2>
-<ul>
-<li>Term “Machine Learning” coined by Arthur Samuel in 1959.
-<ul>
-<li>Samuel Checkers-playing Program</li>
-<li><strong><em>Field of study that gives computers the ability to learn without being explicitly programmed.</em></strong></li>
-</ul></li>
-<li>Common definition (by Tom Mitchell):
-<ul>
-<li><em>"A computer program is said to learn from <strong>experience E</strong> with respect to some <strong>task T</strong> and some <strong>performance measure P</strong>, if its performance on T, as measured by P, improves with experience E. "</em>
-<ul>
-<li>Example: playing checkers.
-<ul>
-<li>E = the experience of playing many games of checkers</li>
-<li>T = the task of playing checkers.</li>
-<li>P = the probability that the program will win the next game.</li>
-</ul></li>
-</ul></li>
-<li><strong><em>Machine Learning is the study of computer algorithms that improve automatically through experience</em></strong></li>
-</ul></li>
-<li>Subfield of Artificial Intelligence (AI)
-<ul>
-<li>The hottest subfield - reinvigorated interest in AI due to deep learning!</li>
-</ul></li>
-</ul>
-<p><strong>Question</strong>:</p>
-<p>Suppose your email program watches which emails you do or do not mark as spam, and based on that learns how to better filter spam. What is the task T in this setting?</p>
-<ul>
-<li><strong><em>Classifying emails</em> as spam or not spam.</strong></li>
-<li><del>Watching you <strong>label emails (E)</strong> as spam or not spam.</del></li>
-<li><del>The number (or fraction) of emails <strong>correctly classified as spam/not spam (P)</strong>.</del></li>
-<li><del>None of the above—this is not a machine learning problem</del>.</li>
-</ul>
-<h2 id="taxonomy-of-machine-learning">Taxonomy of machine learning</h2>
-<ul>
-<li>Supervised learning</li>
-<li>Unsupervised learning</li>
-<li>Others: Reinforcement learning, recommender systems.</li>
-</ul>
-<figure>
-<img src="/images/CS229/4.png" alt="" /><figcaption>A simplistic view bases on tasks</figcaption>
-</figure>
-<h2 id="supervised-learning">Supervised learning</h2>
-<h4 id="house-price-prediction">House Price Prediction</h4>
-<p>Suppose we have a dataset giving the living areas and prices of 47 houses from Portland, Oregon:</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Living area (feet<sup>2</sup> )</th>
-<th style="text-align: left;">Price (1000$s)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">2104</td>
-<td style="text-align: left;">400</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1600</td>
-<td style="text-align: left;">330</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2400</td>
-<td style="text-align: left;">369</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1416</td>
-<td style="text-align: left;">232</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3000</td>
-<td style="text-align: left;">540</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">...</td>
-<td style="text-align: left;">...</td>
-</tr>
-</tbody>
-</table>
-<p>We can plot this data:</p>
-<p><img src="/images/CS229/1.png" /></p>
-<p>To establish notation for future use, we’ll use <em>x</em><sup>(i)</sup> to denote the “input” variables (living area in this example), also called input <strong>features</strong>, and <em>y</em><sup>(i)</sup> to denote the “output” or <strong>target</strong> variable that we are trying to predict (price). A pair (<em>x</em><sup>(i)</sup> , <em>y</em><sup>(i)</sup> ) is called a <strong>training example</strong>, and the dataset that we’ll be using to learn—a list of n training examples {(<em>x</em><sup>(i)</sup> , <em>y</em><sup>(i)</sup>); i = 1, . . . , n}—is called a <strong>training set</strong>.</p>
-<p><em>Note that the superscript “(i)” in the notation is simply an index into the training set, and has nothing to do with exponentiation.</em></p>
-<ul>
-<li><strong>Given</strong>: a dataset that contains 𝑛 samples</li>
-<li><strong>Task</strong>: if a residence has 𝑥 square feet, predict its price?</li>
-</ul>
-<p><img src="/images/CS229/17.png" /></p>
-<p>Let's say you have a friend who owns a house that is say 750 square feet, and they are hoping to sell the house, and they want to know how much they can get for the house. So, how can the learning algorithm help you?</p>
-<ul>
-<li>One thing a learning algorithm might be want to do is put a straight line through the data, also fit a straight line to the data. Based on that, it looks like maybe their house can be sold for maybe about $150,000.</li>
-<li>But maybe this isn't the only learning algorithm you can use, and there might be a better one. For example, instead of fitting a straight line to the data, we might decide that it's better to fit a quadratic function, or a second-order polynomial to this data. If you do that and make a prediction, maybe they can sell the house for closer to $200,000.</li>
-</ul>
-<p>One of the things we'll talk about later is how to choose, and how to decide, do you want to fit a straight line to the data? Or do you want to fit a quadratic function to the data? There's no fair picking whichever one gives your friend the better house to sell. But each of these would be a fine example of a learning algorithm.</p>
-<p><strong>Supervised Learning</strong>: “right answers” given</p>
-<p><strong>Regression</strong>: Predict continuous valued output (price)</p>
-<h4 id="breast-cancer-malignant-benign">Breast cancer (malignant, benign)</h4>
-<p>Suppose a friend who tragically has a breast tumor, the Machine Learning question is, can you estimate what is the probability, what's the chance that a tumor as malignant versus benign?</p>
-<p>To introduce a bit more terminology, this is an example of a classification problem. The term classification refers to the fact that we're trying to predict a discrete value output zero or one, malignant or benign.</p>
-<p>It turns out that in <strong>classification problems</strong>, sometimes you can have more than two possible values for the output.</p>
-<h3 id="more-features">More features</h3>
-<p>We will also use X denote the space of input values, and Y the space of output values. To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : <em>X</em> → <em>Y</em> so that h(x) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a <strong>hypothesis</strong>. Seen pictorially, the process is therefore like this:</p>
-<p><img src="/images/CS229/2.png" /></p>
-<ul>
-<li>Suppose we also know the lot size</li>
-<li>Task: find a function that maps</li>
-<li>Dataset: (x<sup>(1) </sup>,y<sup>(1)</sup>), …,(x<sup>(n) </sup>,y<sup>(n)</sup>) where x<sup>(i) </sup>= (x<sub>1</sub><sup>(i)</sup>, x<sub>2</sub><sup>(i)</sup>)</li>
-<li>“Supervision” refers to y<sup>(1)</sup>,…, y<sup>(n)</sup></li>
-</ul>
-<p><img src="/images/CS229/3.png" /></p>
-<h3 id="high-dimensional-features">High-dimensional Features</h3>
-<ul>
-<li>x ∈ <strong>R</strong><sup>d</sup> for large d</li>
-</ul>
-<p><img src="/images/CS229/5.png" /></p>
-<h3 id="regression-vs-classification">Regression vs Classification</h3>
-<ul>
-<li>regression: if y ∈ <strong>R</strong> is a continuous variable
-<ul>
-<li>e.g., price prediction</li>
-</ul></li>
-<li>classification: the label is a discrete variable
-<ul>
-<li>e.g., the task of predicting the types of residence</li>
-</ul></li>
-</ul>
-<p><img src="/images/CS229/6.png" /></p>
-<p>Question:</p>
-<p>You’re running a company, and you want to develop learning algorithms to address each of two problems.</p>
-<ul>
-<li>Problem 1: You have a large inventory of identical items. You want to predict how many of these items will sell over the next 3 months.</li>
-<li>Problem 2: You’d like software to examine individual customer accounts, and for each account decide if it has been hacked/compromised.</li>
-</ul>
-<p>Should you treat these as classification or as regression problems?</p>
-<ul>
-<li><del>Treat both as classification problems.</del></li>
-<li><del>Treat problem 1 as a classification problem, problem 2 as a regression problem.</del></li>
-<li><strong>Treat problem 1 as a regression problem, problem 2 as a classification problem.</strong></li>
-<li><del>Treat both as regression problems.</del></li>
-</ul>
-<h3 id="overview">Overview</h3>
-<p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-<p>Supervised learning problems are categorized into "regression" and "classification" problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
-<p><strong>Example 1:</strong></p>
-<p>Given data about the size of houses on the real estate market, try to predict their price. Price as a function of size is a continuous output, so this is a regression problem.</p>
-<p>We could turn this example into a classification problem by instead making our output about whether the house "sells for more or less than the asking price." Here we are classifying the houses based on price into two discrete categories.</p>
-<p><strong>Example 2</strong>:</p>
-<ul>
-<li>Regression - Given a picture of a person, we have to predict their age on the basis of the given picture</li>
-<li>Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign.</li>
-</ul>
-<h3 id="applications">Applications</h3>
-<h4 id="supervised-learning-in-computer-vision">Supervised Learning in Computer Vision</h4>
-<ul>
-<li><strong>Image Classification</strong>
-<ul>
-<li>x= raw pixels of the image, y= the main object</li>
-</ul></li>
-</ul>
-<figure>
-<img src="/images/CS229/7.png" alt="" /><figcaption>ImageNet Large Scale Visual Recognition Challenge.</figcaption>
-</figure>
-<ul>
-<li><strong>Object localization and detection</strong>
-<ul>
-<li>x= raw pixels of the image, y= the bounding boxes</li>
-</ul></li>
-</ul>
-<figure>
-<img src="/images/CS229/8.png" alt="" /><figcaption>ImageNet Large Scale Visual Recognition Challenge.</figcaption>
-</figure>
-<h4 id="supervised-learning-in-natural-language-processing">Supervised Learning in Natural Language Processing</h4>
-<ul>
-<li>Machine translation</li>
-</ul>
-<p><img src="/images/CS229/9.png" /></p>
-<h2 id="unsupervised-learning">Unsupervised Learning</h2>
-<ul>
-<li>Dataset contains <strong>no labels</strong>: x<sup>(1)</sup>, …x<sup>(n)</sup></li>
-<li><strong>Goal</strong> (vaguely-posed): to find interesting structures in the data</li>
-</ul>
-<p><img src="/images/CS229/10.png" /></p>
-<p>For each example in Supervised Learning, we were told explicitly what is the so-called right answer, whether it's benign or malignant.</p>
-<p>In Unsupervised Learning, we're given data that looks different than data that looks like this that doesn't have any labels or that all has the same label or really no labels.</p>
-<h3 id="clustering">Clustering</h3>
-<p><img src="/images/CS229/11.png" /></p>
-<p>We're given the data set and we're not told what to do with it and we're not told what each data point is. Can you find some structure in the data?</p>
-<p>Given this data set, an Unsupervised Learning algorithm might decide that the data lives in two different clusters. And so there's one cluster and there's a different cluster.</p>
-<p>And yes, Supervised Learning algorithm may break these data into these two separate clusters. So this is called a clustering algorithm. And this turns out to be used in many places.</p>
-<p>One example where clustering is used is in Google News. What Google News does is everyday it goes and looks at tens of thousands or hundreds of thousands of new stories on the web and it groups them into cohesive news stories.</p>
-<p><img src="/images/CS229/12.png" alt="Clustering Genes" /> Here's an example of DNA microarray data. The idea is put a group of different individuals and for each of them, you measure how much they do or do not have a certain gene.</p>
-<p>Technically you measure how much certain genes are expressed. So these colors, red, green, gray and so on, they show the degree to which different individuals do or do not have a specific gene. And what you can do is then run a clustering algorithm to group individuals into different categories or into different types of people.</p>
-<p>You can automatically find structure in the data from the you automatically cluster the individuals into these types that I don't know in advance. Because we're not giving the algorithm the right answer for the examples in my data set, this is Unsupervised Learning. It's used to organize large computer clusters.</p>
-<p><strong>Example:</strong></p>
-<ul>
-<li>Organize computing clusters</li>
-<li>Social network analysis</li>
-<li>Market segmentation</li>
-<li>Astronomical data analysis</li>
-</ul>
-<h3 id="cocktail-party-problem">Cocktail party problem</h3>
-<p>You can imagine there's a party, room full of people, all sitting around, all talking at the same time and there are all these overlapping voices because everyone is talking at the same time, and it is almost hard to hear the person in front of you.</p>
-<p>So maybe at a cocktail party with two people,two people talking at the same time, and it's a somewhat small cocktail party. And we're going to put two microphones in the room so there are microphones, and because these microphones are at two different distances from the speakers, each microphone records a different combination of these two speaker voices.</p>
-<p><img src="/images/CS229/18.png" /></p>
-<p>Maybe speaker one is a little louder in microphone one and maybe speaker two is a little bit louder on microphone 2 because the 2 microphones are at different positions relative to the 2 speakers, but each microphone would cause an overlapping combination of both speakers' voices.</p>
-<p>So we can do, is take these two microphone recorders and give them to an Unsupervised Learning algorithm called the cocktail party algorithm, and tell the algorithm to find structure in this data for you.</p>
-<p>What the algorithm will do is listen to these audio recordings and separate out these two audio sources that were being added or being summed together to form other recordings.</p>
-<p><strong>Cocktail party Algorithm</strong>: <span class="math display">\[
-[W,s,v] = svd((repmat(sum(x.^*x,1),size(x,1),1).^*x)^*x&#39;);
-\]</span></p>
-<h3 id="question">Question</h3>
-<p>Of the following examples, which would you address using an unsupervised learning algorithm?</p>
-<ul>
-<li><del>Given email labeled as spam/not spam, learn a spam filter.</del></li>
-<li><strong>Given a set of news articles found on the web, group them into set of articles about the same story.</strong></li>
-<li><strong>Given a database of customer data, automatically discover market segments and group customers into different market segments</strong>.</li>
-<li><del>Given a dataset of patients diagnosed as either having diabetes or not, learn to classify new patients as having diabetes or not.</del></li>
-</ul>
-<h3 id="latent-semantic-analysis-lsa">Latent Semantic Analysis (LSA)</h3>
-<p><img src="/images/CS229/13.png" /></p>
-<h3 id="word-embeddings">Word Embeddings</h3>
-<p>Represent words by vectors</p>
-<p><img src="/images/CS229/14.png" /></p>
-<h3 id="clustering-words-with-similar-meanings-hierarchically">Clustering Words with Similar Meanings (Hierarchically)</h3>
-<p><img src="/images/CS229/15.png" /></p>
-<h3 id="overview-1">Overview</h3>
-<p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don't necessarily know the effect of the variables.</p>
-<p>We can derive this structure by clustering the data based on relationships among the variables in the data.</p>
-<p>With unsupervised learning there is no feedback based on the prediction results.</p>
-<p><strong>Example:</strong></p>
-<ul>
-<li>Clustering: Take a collection of 1,000,000 different genes, and find a way to automatically group these genes into groups that are somehow similar or related by different variables, such as lifespan, location, roles, and so on.</li>
-<li>Non-clustering: The "Cocktail Party Algorithm", allows you to find structure in a chaotic environment. (i.e. identifying individual voices and music from a mesh of sounds at a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cocktail_party_effect">cocktail party</a>).</li>
-</ul>
-<h2 id="reinforcement-learning">Reinforcement Learning</h2>
-<p>The algorithm can collect data interactively</p>
-<ul>
-<li>Data collection
-<ul>
-<li>Try the strategy and collect feedbacks</li>
-</ul></li>
-<li>Training
-<ul>
-<li>Improve the strategy based on the feedbacks</li>
-</ul></li>
-</ul>
-<p><img src="/images/CS229/16.png" /></p>
-<h2 id="other-toolstopics-in-this-course">Other Tools/Topics In This Course</h2>
-<ul>
-<li>Deep learning basics</li>
-<li>Introduction to learning theory
-<ul>
-<li>Bias variance tradeoff</li>
-<li>Feature selection</li>
-<li>ML advice</li>
-</ul></li>
-<li>Broader aspects of ML
-<ul>
-<li>Robustness/fairness</li>
-</ul></li>
-</ul>
-<h2 id="quiz">Quiz</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/maxiaodoubao/p/9856694.html">Background</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=1">Video</a></p>
 <p>A computer program is said to learn from experience E with respect to some task T and some performance measure P if its performance on T, as measured by P, improves with experience E.</p>
 <p>Suppose we feed a learning algorithm a lot of historical weather data, and have it learn to predict weather. In this setting, what is T?</p>
 <ul>
@@ -1206,13 +925,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
