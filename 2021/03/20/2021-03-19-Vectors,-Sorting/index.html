@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -595,10 +595,8 @@
 <p>Rank the elements of a vector in increasing order.</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><span class="line">x &lt;- <span class="built_in">c</span>(<span class="number">31</span>, <span class="number">4</span>, <span class="number">15</span>, <span class="number">92</span>, <span class="number">65</span>)</span><br><span class="line">x</span><br><span class="line">rank(x)    <span class="comment"># returns ranks (smallest to largest)</span></span><br></pre></td></tr></table></figure>
 <h2 id="vector-arithmetic">Vector Arithmetic</h2>
-<ul>
-<li>Perform arithmetic between a vector and a single number.</li>
-<li>Perform arithmetic between two vectors of the same length.</li>
-</ul>
+<p>In R, arithmetic operations on vectors occur element-wise.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># The name of the state with the maximum population is found by doing the following</span></span><br><span class="line">&gt; murders$state[which.max(murders$population)]</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;California&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># how to obtain the murder rate</span></span><br><span class="line">&gt; murder_rate &lt;- murders$total / murders$population * <span class="number">100000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ordering the states by murder rate, in decreasing order</span></span><br><span class="line">&gt; murders$state[order(murder_rate, decreasing=<span class="literal">TRUE</span>)]</span><br></pre></td></tr></table></figure>
 
                 
             </div>
