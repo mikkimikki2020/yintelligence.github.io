@@ -1,0 +1,1240 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vectors, Sorting, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vectors, Sorting | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vectors, Sorting</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/R-Basics/">
+                                <span class="chip bg-color">R Basics</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-03-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-03-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    9 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="vectors-sorting">Vectors, Sorting</h1>
+<p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter3.Rmd">Assessments Vectors</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter4.Rmd">Assessments Sorting</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter5.Rmd">Assessments Vector Arithmetics</a></p>
+<h2 id="vector">Vector</h2>
+<p>The most basic unit available in R to store data are vectors. Complex datasets can usually be broken down into components that are vectors.</p>
+<p><strong>Create numeric and character vectors.</strong></p>
+<ul>
+<li>The function <code>c()</code>, which stands for concatenate, is useful for creating vectors.</li>
+</ul>
+<p>We may create vectors of class numeric or character with the concatenate function:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">codes &lt;- <span class="built_in">c</span>(<span class="number">380</span>, <span class="number">124</span>, <span class="number">818</span>)</span><br><span class="line">country &lt;- <span class="built_in">c</span>(<span class="string">&quot;italy&quot;</span>, <span class="string">&quot;canada&quot;</span>, <span class="string">&quot;egypt&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>Name the columns of a vector.</strong></p>
+<p>We can also name the elements of a numeric vector:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Note that the two lines of code below have the same result</span></span><br><span class="line">codes &lt;- <span class="built_in">c</span>(italy = <span class="number">380</span>, canada = <span class="number">124</span>, egypt = <span class="number">818</span>)</span><br><span class="line">codes &lt;- <span class="built_in">c</span>(<span class="string">&quot;italy&quot;</span> = <span class="number">380</span>, <span class="string">&quot;canada&quot;</span> = <span class="number">124</span>, <span class="string">&quot;egypt&quot;</span> = <span class="number">818</span>)</span><br></pre></td></tr></table></figure>
+<p>We can also name the elements of a numeric vector using the <code>names()</code> function:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">codes &lt;- <span class="built_in">c</span>(<span class="number">380</span>, <span class="number">124</span>, <span class="number">818</span>)</span><br><span class="line">country &lt;- <span class="built_in">c</span>(<span class="string">&quot;italy&quot;</span>,<span class="string">&quot;canada&quot;</span>,<span class="string">&quot;egypt&quot;</span>)</span><br><span class="line"><span class="built_in">names</span>(codes) &lt;- country</span><br></pre></td></tr></table></figure>
+<p><strong>Generate numeric sequences.</strong></p>
+<p>Another useful function for creating vectors is the <code>seq()</code> function, which generates sequences.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; seq(<span class="number">1</span>,<span class="number">10</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line">&gt; seq（<span class="number">1</span>，<span class="number">10</span>，<span class="number">2</span>）</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>If we want consecutive integers, we can use the following shorthand:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; <span class="number">1</span>:<span class="number">10</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p><strong>Access specific elements or parts of a vector. Coerce data into different data types as needed.</strong></p>
+<p>Subsetting lets us access specific parts of a vector by using square brackets to access elements of a vector.:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; codes[<span class="number">2</span>]</span><br><span class="line"> canada</span><br><span class="line">    <span class="number">124</span></span><br><span class="line"></span><br><span class="line">codes[<span class="number">1</span>:<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<p>You can get more than one entry by using a multi-entry vector as an index.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; codes[<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">3</span>)]</span><br><span class="line"> italy egypt</span><br><span class="line">   <span class="number">380</span>   <span class="number">818</span></span><br></pre></td></tr></table></figure>
+<p>If the entries of a vector are named, they may be accessed by referring to their name:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; codes[<span class="string">&quot;canada&quot;</span>]</span><br><span class="line"> canada</span><br><span class="line">	<span class="number">124</span></span><br></pre></td></tr></table></figure>
+<h3 id="vector-coercion">Vector Coercion</h3>
+<p>In general, <em>coercion</em> is an attempt by R to be flexible with data types by guessing what was meant when an entry does not match the expected.</p>
+<p>For example, when defining <code>x</code> as:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="number">1</span>, <span class="string">&quot;canada&quot;</span>, <span class="number">3</span>)</span><br><span class="line">&gt; x</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;1&quot;</span> <span class="string">&quot;canada&quot;</span> <span class="string">&quot;3&quot;</span></span><br><span class="line">&gt; <span class="built_in">class</span>(X)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;character&quot;</span></span><br></pre></td></tr></table></figure>
+<p>R <em>coerced</em> the data into characters. It guessed that because you put a character string in the vector, you meant the 1 and 3 to actually be character strings, <code>"1"</code> and <code>"3"</code>.</p>
+<p>R also offers functions to force a specific coercion.</p>
+<p>For example:</p>
+<ul>
+<li>The function <code>as.character()</code> turns numbers into characters</li>
+<li>The function <code>as.numeric()</code> turns characters into numbers.</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- 1:<span class="number">5</span></span><br><span class="line">&gt; y &lt;- <span class="built_in">as.character</span>(x)</span><br><span class="line">&gt; y</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;1&quot;</span> <span class="string">&quot;2&quot;</span> <span class="string">&quot;3&quot;</span> <span class="string">&quot;4&quot;</span> <span class="string">&quot;5&quot;</span></span><br><span class="line">&gt; <span class="built_in">as.numeric</span>(y)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p><u>In R, missing data is assigned the value NA.</u> For example, when R fails to coerce something, it tries to coerce but it can't, we will get NA.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;3&quot;</span>)</span><br><span class="line">&gt; <span class="built_in">as.numeric</span>(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="literal">NA</span> <span class="number">3</span></span><br><span class="line">Warning message: NAs introduced by coercion</span><br></pre></td></tr></table></figure>
+<h3 id="assessment">Assessment</h3>
+<p>A vector is a series of values, all of the same type. They are the most basic data type in R and can hold numeric data, character data, or logical data. In R, you can create a vector with the concatenate (or combine) function <code>c()</code>. You place the vector elements separated by a comma between the parentheses. For example a numeric vector would look something like this:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">cost &lt;- <span class="built_in">c</span>(<span class="number">50</span>, <span class="number">75</span>, <span class="number">90</span>, <span class="number">100</span>, <span class="number">150</span>)</span><br></pre></td></tr></table></figure>
+<p>Use the function <code>c()</code> to create a numeric vector with the average high temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San Juan, and Toronto. The average high temperatures are <code>35, 88, 42, 84, 81, and 30</code> degrees Fahrenheit. Call the object <code>temp</code>.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">temp &lt;- <span class="built_in">c</span>(<span class="number">35</span>, <span class="number">88</span>, <span class="number">42</span>, <span class="number">84</span>, <span class="number">81</span>, <span class="number">30</span>)</span><br><span class="line">city &lt;- <span class="built_in">c</span>(<span class="string">&quot;Beijing&quot;</span>, <span class="string">&quot;Lagos&quot;</span>, <span class="string">&quot;Paris&quot;</span>, <span class="string">&quot;Rio de Janeiro&quot;</span>, <span class="string">&quot;San Juan&quot;</span>, <span class="string">&quot;Toronto&quot;</span>)</span><br><span class="line"><span class="built_in">names</span>(temp) &lt;- city</span><br><span class="line">temp</span><br></pre></td></tr></table></figure>
+<h4 id="subsetting-vectors">Subsetting vectors</h4>
+<p>If we want to display only selected values from the object, R can help us do that easily.</p>
+<p>For example, if we want to see the cost of the last 3 items in our food list, we would type:</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">cost[<span class="number">3</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<p>Note here, that we could also type <code>cost[c(3,4,5)]</code> and get the same result. The <code>:</code> operator helps us condense the code and get consecutive values.</p>
+<p>We will learn to subset using several special operators.</p>
+<ul>
+<li>Use the <code>[</code> and <code>:</code> operators to access the temperature of the first three cities in the list, which are already stored in <code>temp</code>.</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">temp[<span class="number">1</span>:<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>This time we will access our object using just the <code>[</code> operator. Use the <code>[</code> operator to access the temperature of Paris and San Juan already stored in the <code>temp</code> object.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">temp[<span class="built_in">c</span>(<span class="string">&quot;Paris&quot;</span>,<span class="string">&quot;San Juan&quot;</span>)]</span><br></pre></td></tr></table></figure>
+<h4 id="sequences">Sequences</h4>
+<p>The <code>:</code> operator helps us create sequences of numbers. For example, <code>32:99</code> would create a list of numbers from 32 to 99.</p>
+<p>Then, if we want to know the length of this sequence, all we need to do is use the <code>length</code> command.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Create a vector m of integers that starts at 32 and ends at 99.</span></span><br><span class="line">m &lt;- 32:<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Determine the length of object m.</span></span><br><span class="line"><span class="built_in">length</span>(m)</span><br></pre></td></tr></table></figure>
+<p>We can also create different types of sequences in R. For example, in <code>seq(7, 49, 7)</code>, the first argument defines the start, and the second the end. The default is to go up in increments of 1, but a third argument lets us tell it by what interval.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Create a vector with the multiples of 7, smaller than 50.</span></span><br><span class="line">seq(<span class="number">7</span>, <span class="number">49</span>, <span class="number">7</span>) </span><br></pre></td></tr></table></figure>
+<p>The <code>seq()</code> function has another useful argument. The argument <em>length.out</em>. This argument lets us generate sequences that are increasing by the same amount but are of the prespecified length.</p>
+<p>For example, this line of code</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">x &lt;- seq(<span class="number">0</span>, <span class="number">100</span>, length.out = <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>produces the numbers 0, 25, 50, 75, 100.</p>
+<h4 id="integers">Integers</h4>
+<p>We have discussed the <em>numeric</em> class. We just saw that the <code>seq</code> function can generate objects of this class. For another example, type</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="built_in">class</span>(seq(<span class="number">1</span>, <span class="number">10</span>, <span class="number">0.5</span>))</span><br></pre></td></tr></table></figure>
+<p>into the console and note that the <code>class</code> is <em>numeric</em>. R has another type of vector we have not described, the <em>integer</em> class. You can create an <em>integer</em> by adding the letter <code>L</code> after a whole number. If you type</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="built_in">class</span>(<span class="number">3L</span>)</span><br></pre></td></tr></table></figure>
+<p>in the console, you see this is an <em>integer</em> and not a <em>numeric</em>. For most practical purposes, integers and numerics are indistinguishable. For example 3, the integer, minus 3 the numeric is 0. To see this type this in the console</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">3L - <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>The main difference is that integers occupy less space in the computer memory, so for big computations using integers can have a substantial impact.</p>
+<h4 id="coercion">Coercion</h4>
+<p>The concept of coercion is a very important one. We learned that when an entry does not match what an R function is expecting, R tries to guess what we meant before throwing an error. This might get confusing at times.</p>
+<p>There are numeric and character vectors. The character vectors are placed in quotes and the numerics are not.</p>
+<p>We can avoid issues with coercion in R by changing characters to numerics and vice-versa. This is known as typecasting. The code, <code>as.numeric(x)</code> helps us convert character strings to numbers. There is an equivalent function that converts its argument to a string, <code>as.character(x)</code>.</p>
+<h2 id="sorting">Sorting</h2>
+<p>The function <code>sort()</code> sorts a vector in increasing order.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; library(dslabs)</span><br><span class="line">&gt; data(murders)</span><br><span class="line">&gt; sort(murders$total)</span><br></pre></td></tr></table></figure>
+<p>However, this does not give us any information about the states, only about the totals.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="number">31</span>, <span class="number">4</span>, <span class="number">15</span>, <span class="number">92</span>, <span class="number">65</span>)</span><br><span class="line">&gt; x</span><br><span class="line">[<span class="number">1</span>] <span class="number">31</span> <span class="number">4</span> <span class="number">15</span> <span class="number">92</span> <span class="number">65</span></span><br><span class="line">&gt; sort(x)</span><br><span class="line"><span class="comment"># puts elements in order</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">15</span> <span class="number">31</span> <span class="number">65</span> <span class="number">92</span></span><br><span class="line">&gt; index &lt;- order(x)</span><br><span class="line"><span class="comment"># returns index that will put x in order</span></span><br><span class="line">&gt; x[index]</span><br><span class="line"><span class="comment"># rearranging by this index puts elements in order</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">15</span> <span class="number">31</span> <span class="number">65</span> <span class="number">92</span></span><br></pre></td></tr></table></figure>
+<p>The function order is closer to what we want. It takes a vector and returns the indices that sorts that vector.</p>
+<ul>
+<li>order(x) <strong>is the index puts the vector in order</strong></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x</span><br><span class="line">[<span class="number">1</span>] <span class="number">31</span> <span class="number">4</span> <span class="number">15</span> <span class="number">92</span> <span class="number">65</span></span><br><span class="line">&gt; order(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">3</span> <span class="number">1</span> <span class="number">5</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; index &lt;- order(murder$total)</span><br><span class="line">&gt; muders$abb[index]</span><br><span class="line"><span class="comment"># order abbreviations by total murders</span></span><br></pre></td></tr></table></figure>
+<p>which.max gives us the index where this number resides.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; <span class="built_in">max</span>(murder$total)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1257</span></span><br><span class="line">&gt; i_max &lt;- which.max(murder$total)</span><br><span class="line"><span class="comment"># index with highest number of murders</span></span><br><span class="line">&gt; i_max</span><br><span class="line">5</span><br><span class="line">&gt; murders$state[i_max]</span><br><span class="line"><span class="comment"># state name with highest number of total murders</span></span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;California&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Rank the elements of a vector in increasing order.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">x &lt;- <span class="built_in">c</span>(<span class="number">31</span>, <span class="number">4</span>, <span class="number">15</span>, <span class="number">92</span>, <span class="number">65</span>)</span><br><span class="line">x</span><br><span class="line">rank(x)    <span class="comment"># returns ranks (smallest to largest)</span></span><br></pre></td></tr></table></figure>
+<h2 id="vector-arithmetic">Vector Arithmetic</h2>
+<ul>
+<li>Perform arithmetic between a vector and a single number.</li>
+<li>Perform arithmetic between two vectors of the same length.</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/03/20/2021-03-19-Vectors,-Sorting/">https://yintelligence.tech/2021/03/20/2021-03-19-Vectors,-Sorting/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/R-Basics/">
+                                    <span class="chip bg-color">R Basics</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/03/21/2021-03-21-Objects/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Objects">
+                        
+                        <span class="card-title">Objects</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Python - Objects-Orientd Programming
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/19/2021-03-19-Linear-Regression-with-Multiple-Variables/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linear Regression with Multiple Variables">
+                        
+                        <span class="card-title">Linear Regression with Multiple Variables</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Exercises/" class="post-category">
+                                    Exercises
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

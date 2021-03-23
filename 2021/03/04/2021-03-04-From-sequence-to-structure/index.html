@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-03-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.7k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    10 Min
+                    15 Min
                 </div>
                 
 
@@ -1015,6 +1015,332 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 </ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002218.png" /></p>
+<ul>
+<li>Why is α ‘easier’ than β?</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/sarah_galal_mohamed_ali_abdraboh_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsarah%5Fgalal%5Fmohamed%5Fali%5Fabdraboh%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210318%5F100322%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fsarah%5Fgalal%5Fmohamed%5Fali%5Fabdraboh%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvc2FyYWhfZ2FsYWxfbW9oYW1lZF9hbGlfYWJkcmFib2hfdnViX2JlL0VRUlgyOGxSVHRGSXN0YklCUzFvRGY4QkZmemswcmFzenBEYUtyQ0YwYmZhU2c_cnRpbWU9QnVDNi05X3EyRWc">Video Part 3</a></p>
+<h2 id="secondary-structure-for-unknown-sequence">Secondary structure for unknown sequence</h2>
+<h3 id="zpred">Zpred</h3>
+<ul>
+<li>Based on GOR
+<ul>
+<li>Uses homologous sequence information
+<ul>
+<li>Averaging of prediction per residue</li>
+<li>Calculates <em>conservation value</em></li>
+</ul></li>
+</ul></li>
+<li>Some amino acids are more similar to each other than others…
+<ul>
+<li>Related to physical characteristics (of the side chain), not DNA sequence mutation variation</li>
+</ul></li>
+<li>Amino acid characteristics
+<ul>
+<li><img src="/images/CS61A/2002219.png" /></li>
+<li><img src="/images/CS61A/2002220.png" /></li>
+</ul></li>
+<li>Conservation value
+<ul>
+<li>Zvelebil conservation number (C<sub>n</sub>)
+<ul>
+<li>1.0 for identical residue</li>
+<li>0.9 for residues with same characteristics (e.g. I and L)</li>
+<li>Subtract 0.1 for every different characteristic
+<ul>
+<li>R positive, polar</li>
+<li>V aliphatic, hydrophobic, small</li>
+<li>5 differences; conservation 0.9 – (0.1 x 5) = 0.4</li>
+</ul></li>
+<li>Gaps get all characteristics – Results in low conservation value!</li>
+</ul></li>
+</ul></li>
+<li>The results…</li>
+<li>Q<sub>3</sub> ranges from 44.9% (allβ) to 76.9% (allα)</li>
+<li>Results for all β are worse than GOR IV…</li>
+</ul>
+<h3 id="nearest-neighbour-method">Nearest-neighbour method</h3>
+<ul>
+<li>Proteins similar sequence share same fold
+<ul>
+<li>Assumption: also true for short stretches</li>
+<li><img src="/images/CS61A/2002221.png" /></li>
+</ul></li>
+<li>Examine query sequence with same window
+<ul>
+<li><img src="/images/CS61A/2002222.png" /></li>
+<li>Identify best-matching fragments</li>
+<li>Look at most prevalent <strong>secondary structure</strong> for middle residue</li>
+</ul></li>
+</ul>
+<h3 id="predator">PREDATOR</h3>
+<ul>
+<li>Identifies potentially hydrogen-bonded residues
+<ul>
+<li>α helices, parallel and antiparallel βsheet</li>
+</ul></li>
+<li>Nearest-neighbor for secondary structure
+<ul>
+<li>α helices, βsheet and coil</li>
+</ul></li>
+<li>Propensities
+<ul>
+<li>Turns</li>
+</ul></li>
+<li>Combines results</li>
+<li>Can use homologous sequences
+<ul>
+<li>Pairwise alignments!</li>
+</ul></li>
+<li>The results without homologous…
+<ul>
+<li>Q<sub>3</sub> ranges from 49.0% (α+β) to 66.4% (α/β)</li>
+<li>Similar to GOR IV</li>
+</ul></li>
+<li>The results with homologous…
+<ul>
+<li>Q<sub>3</sub> ranges from 54.2% (α+β) to 80.5% (α/β)</li>
+<li>Again homologous sequences help…</li>
+</ul></li>
+<li>Results
+<ul>
+<li><img src="/images/CS61A/2002223.png" /></li>
+</ul></li>
+</ul>
+<h3 id="hidden-markov-model">Hidden Markov model</h3>
+<ul>
+<li>Discrete Markov process
+<ul>
+<li><img src="/images/ADVMB/2002219.png" /></li>
+</ul></li>
+<li>Transition probabilities expressed in transition matrix
+<ul>
+<li><img src="/images/ADVMB/2002220.png" /></li>
+</ul></li>
+</ul>
+<h4 id="discrete-markov-process">Discrete Markov process</h4>
+<ul>
+<li><p>Probability for Sun-cloud-rain-rain-sun?</p></li>
+<li><p>First have to define starting state (sun), then: <span class="math display">\[
+P = P(sun |sun)× P(cloud |sun)×P(rain | cloud)× P(rain |rain)× P(sun |rain)
+P = 0.50 × 0.30 ×0.35× 0.40 × 0.10 = 0.0021
+\]</span></p></li>
+<li><p>Can get probability for sequence of related events</p>
+<ul>
+<li>Dependence only on previous state(s)!</li>
+<li>Markov chain</li>
+</ul></li>
+</ul>
+<h4 id="hidden-markov-model-hmm">Hidden Markov Model (HMM)</h4>
+<p><img src="/images/ADVMB/2002221.png" /></p>
+<ul>
+<li><strong>Define</strong>:
+<ul>
+<li><p>Hidden states (N=3) <span class="math display">\[
+S = \{S_1, S_2,..., S_N\}
+\]</span></p></li>
+<li><p>State of model at step n <span class="math display">\[
+q_n
+\]</span></p></li>
+<li><p>Observations (M=20) <span class="math display">\[
+V = \{v_1, v_2,..., v_m \}
+\]</span></p></li>
+<li><p>State transition matrix <span class="math display">\[
+A = \{p_{i|j}\}\\
+p_{i|j} = P(q_{n+1} = i | q_{n} = j),1≤ i, j ≤ N
+\]</span></p></li>
+<li><p>Emission distribution <span class="math display">\[
+E = \{e_j(k)\}\\e_j(k) = P(V_kat n | q_n = S_{j});1≤ j ≤ N,1≤ k ≤ M
+\]</span></p></li>
+<li><p>Initial state distribution <span class="math display">\[
+π= π_{i}\\
+π_{i} = P(q_1 = S_j),1≤ j ≤ N
+\]</span></p></li>
+</ul></li>
+<li>3-state secondary structure HMM
+<ul>
+<li>Produce observation sequence
+<ul>
+<li>Choose an initial state S<sub>j</sub> according to π; step q<sub>1 </sub></li>
+<li>Choose an emission observation v<sub>k</sub> based on state</li>
+<li>Proceed to step q<sub>n+1</sub>, pick state S<sub>i</sub> using transition probabilities from matrix A</li>
+<li>Again emission, proceed or stop, …</li>
+</ul></li>
+</ul></li>
+<li>Have to ‘recover’ the hidden state probabilities from a known observed sequence
+<ul>
+<li>Calculate all state sequences of sequence length T?
+<ul>
+<li>2TN<sup>T</sup> calculations; not efficient</li>
+</ul></li>
+<li>Forward algorithm
+<ul>
+<li>Start with first amino acid in sequence
+<ul>
+<li>Calculate probabilities for observing next amino acid in sequence for each secondary structure combination</li>
+</ul></li>
+<li>N2T calculations</li>
+</ul></li>
+</ul></li>
+<li>Hidden states model can be made more complex to take more variables into account
+<ul>
+<li>Hydrophobicity, charge bias, helix length, …</li>
+<li>Incorporate homologous sequence</li>
+</ul></li>
+<li>For example HHPred
+<ul>
+<li><img src="/images/ADVMB/2002222.png" /></li>
+</ul></li>
+</ul>
+<h3 id="machine-learning">Machine learning</h3>
+<ul>
+<li>Neural networks</li>
+<li>Random forests</li>
+<li>Support vector machine</li>
+<li>…</li>
+</ul>
+<h4 id="neural-networks">Neural networks</h4>
+<ul>
+<li>Layers with connected <strong>nodes</strong> or <strong>units</strong></li>
+</ul>
+<p><img src="/images/ADVMB/2002223.png" /></p>
+<p><img src="/images/ADVMB/2002224.png" /></p>
+<p><img src="/images/ADVMB/2002225.png" /></p>
+<p><img src="/images/ADVMB/2002226.png" /></p>
+<ul>
+<li>Many architectures now possible for neural networks
+<ul>
+<li>Is a world in itself</li>
+</ul></li>
+<li>Always crucial is the network training
+<ul>
+<li>Training set
+<ul>
+<li>With as little bias as possible</li>
+<li>Is used to make the neural network ‘learn’</li>
+</ul></li>
+</ul></li>
+<li>Complexity of network to fit problem
+<ul>
+<li>Want predictions as ‘general’ as possible!</li>
+</ul></li>
+</ul>
+<h5 id="network-training">Network training</h5>
+<ul>
+<li>Test set
+<ul>
+<li>To validate results and avoid overfitting</li>
+</ul></li>
+</ul>
+<p><img src="/images/ADVMB/2002227.png" /></p>
+<h4 id="phd">PHD</h4>
+<ul>
+<li>Uses two neural networks
+<ul>
+<li>First sequence-to-structure
+<ul>
+<li>Predict secondary structure</li>
+</ul></li>
+<li>Second structure-to-structure
+<ul>
+<li>Takes output of first network</li>
+<li>Correlate conformations for neighbouring residues</li>
+</ul></li>
+</ul></li>
+<li>The results…
+<ul>
+<li>Q<sub>3</sub> ranges from 73.5% (allβ) to 87.9% (allα)</li>
+<li>Much better…</li>
+</ul></li>
+</ul>
+<p>Example:</p>
+<p><img src="/images/ADVMB/2002228.png" /></p>
+<h4 id="prof">PROF</h4>
+<ul>
+<li>Predict secondary structure with different approaches
+<ul>
+<li>GOR-type, multiple sequence alignment, …</li>
+</ul></li>
+<li>Use neural network to choose final prediction</li>
+<li>The results…
+<ul>
+<li>Q<sub>3</sub> ranges from 58.15 (allβ) to 90.7% (allα)</li>
+</ul></li>
+</ul>
+<h4 id="psipred">PSIPRED</h4>
+<ul>
+<li>Similar to PHD
+<ul>
+<li>But with first PSI-BLAST multiple alignment step</li>
+</ul></li>
+<li>The results…
+<ul>
+<li>Q<sub>3</sub> ranges from 65.4% (allβ) to 94.4% (allα)</li>
+</ul></li>
+</ul>
+<h4 id="hurray-for-neural-networks">Hurray for neural networks</h4>
+<ul>
+<li>Give the best results overall</li>
+<li>Black box</li>
+<li>Does not contribute to our understanding of how sequence encodes secondary structure…</li>
+<li>Lots of effort going towards ‘understandable AI’
+<ul>
+<li>But not so easy</li>
+</ul></li>
+</ul>
+<h3 id="meta--or-consensus-predictors">Meta- or consensus predictors</h3>
+<ul>
+<li>Combine results from different approaches</li>
+<li>Increases confidence in positives</li>
+</ul>
+<h4 id="combination-methods">Combination methods</h4>
+<p>For example JPred</p>
+<p><img src="/images/ADVMB/2002229.png" /></p>
+<p>JPred</p>
+<p><img src="/images/ADVMB/2002230.png" /></p>
+<h4 id="bioinformatics-approach">Bioinformatics approach</h4>
+<p>Combine results from servers</p>
+<ul>
+<li>Own scripts or workflow managers (TAVERNA)</li>
+</ul>
+<p><img src="/images/ADVMB/2002231.png" /></p>
+<h2 id="which-data-in-the-end">Which data in the end?</h2>
+<p><img src="/images/ADVMB/2002232.png" /></p>
+<h2 id="sequence-to-secondary-structure">Sequence to secondary structure</h2>
+<ul>
+<li>Validation
+<ul>
+<li>Community testing efforts (CASP, CAFASP)</li>
+<li>Many approaches already tried before…</li>
+<li>Always worth checking out!</li>
+</ul></li>
+<li>What does the input data mean?
+<ul>
+<li>Understand the results</li>
+<li>Know what can be used as input in the first place</li>
+</ul></li>
+<li>What does the output of each method mean?
+<ul>
+<li>What are you using it for?</li>
+<li>Accuracy, confidence, …</li>
+</ul></li>
+<li>Why again?
+<ul>
+<li>Enormous amount of sequence-only data – Identify structured regions:
+<ul>
+<li>Can give insights in possible function</li>
+<li>Can help in deciding where to mutate sequence</li>
+</ul></li>
+</ul></li>
+<li>But!
+<ul>
+<li>Sequences can adopt multiple secondary structure in different circumstances...
+<ul>
+<li>Absolute truths are rare in biology!</li>
+</ul></li>
+<li>Alpha-helix easier than beta-sheet…</li>
+</ul></li>
+<li>Can probably only get up to ~90% accuracy</li>
+</ul>
 
                 
             </div>
@@ -1128,55 +1454,6 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/05/2021-03-05-Containers/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Containers">
-                        
-                        <span class="card-title">Containers</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
-                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2021/03/04/2021-03-04-Testing/">
                     <div class="card-image">
                         
@@ -1193,9 +1470,9 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1213,6 +1490,55 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
                     
                     <a href="/tags/Data-Structures/">
                         <span class="chip bg-color">Data Structures</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/04/2021-03-04-Recursion/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Recursion">
+                        
+                        <span class="card-title">Recursion</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Exercises/" class="post-category">
+                                    Exercises
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
+                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
                     </a>
                     
                 </div>
