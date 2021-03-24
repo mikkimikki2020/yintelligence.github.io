@@ -1,0 +1,1671 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="DBMS Architectures and Features, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>DBMS Architectures and Features | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">DBMS Architectures and Features</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Databases/">
+                                <span class="chip bg-color">Databases</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-03-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-03-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    1.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    11 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="dbms-architectures-and-features">DBMS Architectures and Features</h1>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/fc6042f45677a0a668b0bfce82e15c0247f35b69-1616590758018/capture/">Video</a></p>
+<figure>
+<img src="/images/DB/17001700.png" alt="" /><figcaption>Context of Today's Lecture</figcaption>
+</figure>
+<h2 id="dbms-components">DBMS Components</h2>
+<ul>
+<li>DML preprocessor
+<ul>
+<li>transforms embedded SQL statements into statements of the host language</li>
+<li>interacts with the query compiler to generate the appropriate host language code</li>
+</ul></li>
+<li>Query compiler
+<ul>
+<li>transforms queries into a set of low-level instructions (<strong>query plan</strong>) which are forwarded to the database manager component</li>
+</ul></li>
+<li>DDL compiler
+<ul>
+<li>converts a set of DDL statements into a set of tables</li>
+<li>tables and metadata are stored in the system catalogue (catalogue manager)</li>
+</ul></li>
+<li>Catalogue manager
+<ul>
+<li>provides access and manages the system catalogue § used by most DBMS components</li>
+</ul></li>
+<li>Database manager
+<ul>
+<li>processes user-submitted queries</li>
+<li>interfaces with application programs</li>
+<li>contains a set of components
+<ul>
+<li>query optimiser</li>
+<li>transaction manager</li>
+<li>...</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="database-manager-components">Database Manager Components</h3>
+<ul>
+<li>Authorisation control
+<ul>
+<li>checks whether as user has the necessary rights to execute a specific operation</li>
+</ul></li>
+<li>Command processor
+<ul>
+<li>executes the steps of a given query plan handed over by the authorisation control component</li>
+</ul></li>
+<li>Integrity checker
+<ul>
+<li>ensures that the operation is not going to violate any integrity constraints (e.g. key constraints)</li>
+</ul></li>
+<li>Query optimiser
+<ul>
+<li>computes an optimal query execution strategy</li>
+<li>transforms the initial query plan into the best available sequence of operations on the given data</li>
+</ul></li>
+<li>Transaction manager
+<ul>
+<li>processes any transaction-specific operations</li>
+</ul></li>
+<li>Scheduler
+<ul>
+<li>manages the relative order in which transaction operations are executed</li>
+</ul></li>
+<li>Recovery manager
+<ul>
+<li>deals with commits and aborts of transaction</li>
+<li>ensures that the database remains in a consistent state in case of failures</li>
+</ul></li>
+<li>Buffer manager
+<ul>
+<li>transfers data between main memory and secondary storage</li>
+</ul></li>
+</ul>
+<h2 id="dbms-architectures">DBMS Architectures</h2>
+<p>There is a wide variety of different DBMS architectures</p>
+<ul>
+<li>Teleprocessing</li>
+<li>File-Server Architecture</li>
+<li>Two-Tier Client-Server Architecture</li>
+<li>Three-Tier Client Server Architecture</li>
+<li>N-Tier Architecture</li>
+<li>Peer-to-Peer Architecture</li>
+<li>Distributed DBMS</li>
+<li>Service-Oriented Architecture</li>
+<li>Cloud Architecture</li>
+<li>...</li>
+</ul>
+<h3 id="teleprocessing">Teleprocessing</h3>
+<p><img src="/images/DB/0114110.png" /></p>
+<ul>
+<li>Traditional multi-user system architecture
+<ul>
+<li><strong>single mainframe</strong> and <strong>multiple (dumb) terminals</strong></li>
+</ul></li>
+<li>Heavy load on the central mainframe
+<ul>
+<li>runs application programs and DBMS</li>
+<li>formats data for presentation on terminals</li>
+</ul></li>
+<li>Tendency to replace expensive mainframes with network of personal computers (<strong>downsizing</strong>)
+<ul>
+<li>file-server architectures</li>
+<li>client-server architectures</li>
+<li>...</li>
+</ul></li>
+</ul>
+<h3 id="file-server-architecture">File-Server Architecture</h3>
+<p><img src="/images/DB/0114111.png" /></p>
+<ul>
+<li><p>A <strong>file-server</strong> is a computer that is connected to a network and mainly serves as a <strong>shared storage</strong></p>
+<ul>
+<li>e.g. for realising shared access to a database</li>
+</ul></li>
+<li><p>In a <strong>file-server architecture</strong> the <strong>processing is distributed</strong> over the network</p>
+<ul>
+<li>workstations (application and DBMS) request data (files)</li>
+</ul></li>
+<li><p>SQL Request Example</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, street</span><br><span class="line"><span class="keyword">FROM</span> Customer, <span class="keyword">Order</span></span><br><span class="line"><span class="keyword">WHERE</span> Order.customerID <span class="operator">=</span> Customer.customerID <span class="keyword">AND</span> name <span class="operator">=</span> <span class="string">&#x27;Lebron James&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>Since the file-server is not SQL-aware, the Customer and Order relations (files) have to be transferred to the client</p></li>
+<li><p><strong>Disadvantages</strong></p>
+<ul>
+<li><strong>heavy network traffic</strong></li>
+<li><strong>high total costs of ownership</strong> (TCO)
+<ul>
+<li>maintain a full instance of the DBMS on each client (workstation)</li>
+</ul></li>
+<li>complex integrity, concurrency and recovery control
+<ul>
+<li>multiple DBMSs may concurrently access the same shared file</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="two-tier-client-server-architecture">Two-Tier Client-Server Architecture</h3>
+<p><img src="/images/DB/0114112.png" /></p>
+<ul>
+<li>Application consists of a <strong>client (first tier)</strong> and a <strong>server (second tier)</strong> that might run on different machines
+<ul>
+<li>clear <strong>separation of concerns</strong> between client and server</li>
+<li><strong>thin client</strong> vs. <strong>thick client</strong>
+<ul>
+<li>less or more application logic on the client side</li>
+</ul></li>
+</ul></li>
+<li>Supports decentralised business environments</li>
+<li>Client (first tier) tasks
+<ul>
+<li><strong>presentation</strong> of data (user interface)</li>
+<li><strong>business</strong> and <strong>data processing logic</strong></li>
+<li>send database requests to the server and process the results</li>
+</ul></li>
+<li>Server (second tier) tasks
+<ul>
+<li>manage (concurrent) database access (<strong>data services</strong>)
+<ul>
+<li>authorisation, integrity checks, query/update processing, recovery control, ...</li>
+</ul></li>
+<li>business logic (e.g. <strong>validation of data</strong>)</li>
+</ul></li>
+<li>Different possible client-server topologies
+<ul>
+<li>single client and single server</li>
+<li>multiple clients and single server</li>
+<li>multiple clients and multiple servers</li>
+</ul></li>
+<li>Communication between client and server via inter-process communication (IPC) or over network
+<ul>
+<li>special protocols such as ODBC (JDBC) introduced earlier in the course when discussing the Call Level Interface (CLI)</li>
+</ul></li>
+<li><strong>Advantages</strong>
+<ul>
+<li><strong>increased performance</strong>
+<ul>
+<li>certain tasks performed in parallel and server can be tuned for DB processing</li>
+</ul></li>
+<li><strong>reduced communication costs</strong>
+<ul>
+<li>only selected data is transferred</li>
+</ul></li>
+<li><strong>reduced hardware costs</strong>
+<ul>
+<li>only server has to run a DBMS</li>
+</ul></li>
+<li><strong>increased consistency/security</strong> through separation of concerns
+<ul>
+<li>constraint checking in a single place (server)</li>
+</ul></li>
+</ul></li>
+<li><strong>Disadvantages</strong>
+<ul>
+<li><strong>limitations</strong> in terms of <strong>enterprise scalability</strong> with thousands of potential clients
+<ul>
+<li>significant client-side administration overhead
+<ul>
+<li>e.g. expensive deployment of new business and data application logic</li>
+</ul></li>
+<li>thick client requires a considerable amount of resources (CPU, RAM, ...) to run applications efficiently</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="three-tier-client-server-architecture">Three-Tier Client-Server Architecture</h3>
+<p><img src="/images/DB/0114113.png" /></p>
+<ul>
+<li>In the 1990s, the three-tier client-server architecture was introduced to address the <strong>enterprise scalability</strong> problem
+<ul>
+<li>e.g. driven by emerging web applications</li>
+</ul></li>
+<li>Application consists of a <strong>presentation tier</strong> (client), a <strong>logic tier</strong> (application server) and a <strong>data tier</strong> (database server) that might run on different platforms</li>
+<li>Presentation tier (first tier) tasks
+<ul>
+<li><strong>presentation</strong> of data (user interface)</li>
+<li>basic input validation (thin client)</li>
+<li>send requests to the server and visualise results</li>
+</ul></li>
+<li>Logic tier (second tier / middle tier) tasks
+<ul>
+<li><strong>business logic</strong></li>
+<li>data processing logic</li>
+</ul></li>
+<li>Data tier (third tier) tasks
+<ul>
+<li>basic data validation</li>
+<li>manage (concurrent) database access (<strong>data services</strong>)
+<ul>
+<li>authorisation, integrity checks, query/update processing, recovery control, ...</li>
+</ul></li>
+</ul></li>
+<li><strong>Advantages</strong>
+<ul>
+<li><strong>reduced costs</strong> for thin clients due to lower resource requirements (CPU, RAM, ...)
+<ul>
+<li>e.g. applications running in a web browser</li>
+</ul></li>
+<li>application logic is centralised in a single application server
+<ul>
+<li><strong>reduces</strong> the <strong>software distribution problem</strong> (updates) that is present in two-tier client-server architectures</li>
+</ul></li>
+<li><strong>increased modularity</strong>
+<ul>
+<li>easier to replace one tier without affecting the other tiers</li>
+</ul></li>
+<li><strong>load balancing</strong> becomes easier with a clear separation between the core business logic and the database functionality</li>
+</ul></li>
+</ul>
+<h3 id="web-information-systems-wis">Web Information Systems (WIS)</h3>
+<p><img src="/images/DB/0114114.png" /></p>
+<ul>
+<li>The three-tier architecture maps very naturally to web environments
+<ul>
+<li>browser as a thin client, application server and database server</li>
+</ul></li>
+<li>The move towards thin browser clients has dramatically reduced the costs for software deployment</li>
+</ul>
+<h3 id="n-tier-architecture">N-Tier Architecture</h3>
+<p><img src="/images/DB/0114115.png" /></p>
+<p>The three-tier architecture can be extended with additional intermediary tiers for increased flexibility</p>
+<ul>
+<li>e.g. separation between web server and application server in the previous web information system example
+<ul>
+<li>increases the flexibility for load balancing by introducing multiple web servers</li>
+<li>only dynamic content delivered by the application server whereas static content is directly managed by the web server</li>
+</ul></li>
+</ul>
+<h3 id="peer-to-peer-architecture">Peer-to-Peer Architecture</h3>
+<p><img src="/images/DB/0114116.png" /></p>
+<ul>
+<li>Systems exchanging information and services in a <strong>peer-to-peer-like manner</strong> without a central authority
+<ul>
+<li>no global schema → need for schema integration (matching)</li>
+</ul></li>
+<li>Data and service sharing
+<ul>
+<li>no dedicated clients and servers</li>
+<li>sites may dynamically form new client/server relationships</li>
+</ul></li>
+</ul>
+<h2 id="middleware">Middleware</h2>
+<ul>
+<li>Software that connects (mediates) between software components or applications
+<ul>
+<li><strong>hide complexity</strong> of heterogenous and distributed components (e.g. servers) and provide a uniform interface</li>
+</ul></li>
+<li>There exist different types of middleware
+<ul>
+<li><strong>remote procedure call (RPC)</strong>
+<ul>
+<li>Java RMI</li>
+<li>CORBA</li>
+<li>XML RPC</li>
+</ul></li>
+<li>asynchronous <strong>publish/subscribe</strong>
+<ul>
+<li>subscribe for different types of messages</li>
+</ul></li>
+<li><strong>SQL-oriented data access</strong>
+<ul>
+<li>open database connectivity (ODBC), JDBC, ...</li>
+</ul></li>
+<li>...</li>
+</ul></li>
+</ul>
+<h2 id="transaction-processing-monitor">Transaction Processing Monitor</h2>
+<p><img src="/images/DB/0114117.png" /></p>
+<ul>
+<li>Complex applications can be built on top of several resource managers
+<ul>
+<li>e.g. multiple DBMSs, operating systems, ...</li>
+</ul></li>
+<li>A Transaction Processing Monitor (<strong>TP Monitor</strong>) is a middleware component that provides <strong>uniform access</strong> to the services of a number of resource managers</li>
+<li>A TP Monitor offers a number of advantages
+<ul>
+<li><strong>transaction routing</strong>
+<ul>
+<li>increase scalability by directing transactions to specific DBMSs</li>
+</ul></li>
+<li><strong>distributed transaction management</strong>
+<ul>
+<li>manage transactions that require access to multiple heterogeneous DBMSs</li>
+<li>e.g. based on <strong>XA standard</strong> for distributed transaction processing</li>
+</ul></li>
+<li><strong>load balancing</strong>
+<ul>
+<li>balance requests across multiple DBMSs by directing to least loaded server</li>
+</ul></li>
+<li>funnelling
+<ul>
+<li>establish connections with DBMSs and funnel user requests through these connections thereby <u><strong>reducing the number of required connections</strong></u></li>
+</ul></li>
+<li><strong>increased reliability</strong>
+<ul>
+<li>if a DBMS fails, the TP monitor can resubmit the request to another DBMS or hold the transaction request until the DBMS becomes available and resubmit</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="parallel-database-architectures">Parallel Database Architectures</h2>
+<p><img src="/images/DB/0114118.png" /></p>
+<ul>
+<li>Parallel machines (multiple processors) can be used to speed up the transaction processing</li>
+<li>Different models for parallel database architectures
+<ul>
+<li><strong>shared memory</strong>, <strong>shared disk</strong>, <strong>shared nothing</strong> and <strong>hierarchical</strong></li>
+</ul></li>
+<li>Shared memory
+<ul>
+<li>processors and disks have access to a shared memory via a bus</li>
+<li><strong>very efficient</strong> communication between processors</li>
+<li><strong>not scalable</strong> since memory bus becomes a bottleneck</li>
+</ul></li>
+<li>Shared disk
+<ul>
+<li>all processors can access all disks via an interconnection network</li>
+<li>each processor has its own memory</li>
+<li>certain degree of fault tolerance if processor/memory fails</li>
+<li>also disks maybe have <strong>fault tolerance</strong> (e.g. RAID architecture)</li>
+<li>interconnection to the disk systems becomes bottleneck</li>
+</ul></li>
+<li>Shared nothing
+<ul>
+<li>each node consists of a processor, memory and one or more disks</li>
+<li>high-speed interconnection network between processors</li>
+<li>more scalable than shared memory or shared disk model</li>
+<li><strong>increased</strong> communication <strong>costs for non-local disk access</strong></li>
+</ul></li>
+<li>Hierarchical
+<ul>
+<li>combines the different models (composition)</li>
+<li>top level is shared nothing between nodes
+<ul>
+<li>each node can be a shared memory or shared disk "subsystem"</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="distributed-dbms-ddbms">Distributed DBMS (DDBMS)</h2>
+<p><img src="/images/DB/0114119.png" /></p>
+<ul>
+<li>Distributed database
+<ul>
+<li><strong>logically related</strong> collection of <strong>shared data and metadata</strong> that is distributed over a network</li>
+</ul></li>
+<li>Distributed DBMS
+<ul>
+<li>software system to <strong>manage</strong> the <u>distributed database in a transparent way</u></li>
+</ul></li>
+<li>Distinction between <strong>local</strong> and <strong>global transactions</strong>
+<ul>
+<li><strong>local transaction</strong>
+<ul>
+<li>accesses only data from the site from which the transaction was initiated</li>
+</ul></li>
+<li>global transaction
+<ul>
+<li>accesses data from several different sites</li>
+</ul></li>
+</ul></li>
+<li>Reasons for building a distributed DBMS
+<ul>
+<li><strong>data sharing</strong>
+<ul>
+<li>possibility to access data that resides at other sides</li>
+</ul></li>
+<li><strong>autonomy</strong>
+<ul>
+<li>each site retains a certain degree of control over the local data</li>
+</ul></li>
+<li><strong>availability</strong>
+<ul>
+<li>if one site fails the other sites may still be able to continue operating</li>
+<li>data might be <strong>replicated</strong> at several sites for increased availability</li>
+</ul></li>
+</ul></li>
+<li>Reasons for building a distributed DBMS ...
+<ul>
+<li><strong>costs and scalability</strong>
+<ul>
+<li>use cluster of PCs instead of large mainframe systems</li>
+</ul></li>
+<li><strong>integration of existing DBMS</strong>
+<ul>
+<li>coexistence of legacy systems with new applications</li>
+</ul></li>
+<li><strong>dynamic organisational structure</strong>
+<ul>
+<li>mergers and acquisitions</li>
+</ul></li>
+</ul></li>
+<li>Implementation issues
+<ul>
+<li>transactions have to be executed atomically across different sites (two-phase commit protocol)
+<ul>
+<li>commit decision is left to a single <strong>coordinator</strong></li>
+</ul></li>
+<li>distributed concurrency control
+<ul>
+<li>deadlock detection has to be carried out across multiple sites</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="service-oriented-architectures-soa">Service-Oriented Architectures (SOA)</h2>
+<ul>
+<li>Architecture that modularises functionality as interoperable services
+<ul>
+<li><strong>loose coupling</strong> of services</li>
+<li>service encapsulation</li>
+<li><strong><em>interoperability</em></strong> between different operating systems and programming languages</li>
+<li>new services can be defined as a <strong><em>mashup</em></strong> of existing services</li>
+</ul></li>
+<li>Service-oriented database architecture (SODA)
+<ul>
+<li>e.g. single SQL Server processes acting as service providers</li>
+</ul></li>
+<li>Share business logic, data and processes via web service APIs
+<ul>
+<li>Big Web Services
+<ul>
+<li>Universal Description, Discovery and Integration (<strong>UDDI</strong>)</li>
+<li>Web Services Description Language (<strong>WSDL</strong>)</li>
+<li>Simple Object Access Protocol (<strong>SOAP</strong>)</li>
+</ul></li>
+<li>RESTful Web Services</li>
+</ul></li>
+<li>Web services are based on established technologies such as the <strong>Extensible Markup Language (XML)</strong></li>
+<li>Special service orchestration languages for the use of services
+<ul>
+<li>e.g. Business Process Execution Language (<strong>BPEL)</strong></li>
+</ul></li>
+</ul>
+<h2 id="cloud-computing">Cloud Computing</h2>
+<p><img src="/images/DB/0114120.png" /></p>
+<ul>
+<li><strong><u>Internet-based computing with on-demand and pay-per-use access to shared resources, data and software</u></strong></li>
+<li>Main characteristics
+<ul>
+<li><strong>web-based access</strong> (e.g. Web Service API or browser)</li>
+<li>pay only for the services that are actually used (<strong>pay-per-use</strong>)</li>
+<li><strong>no initial investment</strong> (e.g. for resources) required</li>
+</ul></li>
+<li>Cloud services
+<ul>
+<li><strong>infrastructure as a service (IaaS)</strong>
+<ul>
+<li>OS virtualisation</li>
+<li>e.g. Amazon EC2, Rackspace, ...</li>
+</ul></li>
+<li><strong>platform as a service (PaaS)</strong>
+<ul>
+<li>provide platform to run applications</li>
+<li>e.g. Google App Engine, Windows Azure Platform, ...</li>
+</ul></li>
+<li><strong>software as a service (SaaS)</strong>
+<ul>
+<li>provide software as a service over the Internet</li>
+<li>e.g. Google Docs, ...</li>
+</ul></li>
+</ul></li>
+<li>Cloud service vendor gets some degree of control</li>
+<li>New challenges for database management in cloud computing
+<ul>
+<li>cloud database server might be less reliable
+<ul>
+<li>might become difficult to guarantee a specific quality of service (QoS) for an application realised in the cloud</li>
+</ul></li>
+<li>backup, replication, ...</li>
+</ul></li>
+<li>Online or web-based databases
+<ul>
+<li>store data in the cloud or on servers on the Internet</li>
+</ul></li>
+</ul>
+<h3 id="cloud-data-service-example">Cloud Data Service Example</h3>
+<ul>
+<li>Amazon Simple Storage Service (Amazon S3)
+<ul>
+<li>online storage service with unlimited storage space</li>
+<li>store objects (up to 5 TB in size) in buckets</li>
+<li>Web Service API</li>
+</ul></li>
+<li>Amazon SimpleDB
+<ul>
+<li>distributed database written in Erlang</li>
+<li>offers a Web Service API</li>
+<li>makes use of S3 and EC2</li>
+<li>on demand scaling</li>
+<li>non-relational data store
+<ul>
+<li>schemaless</li>
+<li>hashtables with set of key value pairs</li>
+<li><strong>eventual consistency</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/03/25/2021-03-25-DBMS-Architectures-and-Features/">https://yintelligence.tech/2021/03/25/2021-03-25-DBMS-Architectures-and-Features/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Databases/">
+                                    <span class="chip bg-color">Databases</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/03/25/2021-03-25-DBMS-Architectures-and-Features/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="DBMS Architectures and Features">
+                        
+                        <span class="card-title">DBMS Architectures and Features</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Databases/">
+                        <span class="chip bg-color">Databases</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/23/2021-03-23-Data-Analytics-in-Health-Care-and-Connected-CareHealth-Information-Systems/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Data Analytics in Health Care and Connected Care/Health Information Systems">
+                        
+                        <span class="card-title">Data Analytics in Health Care and Connected Care/Health Information Systems</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Working with data from wearable devices
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Lab-sessions/" class="post-category">
+                                    Lab sessions
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Data-Analytics-in-Health-Care-and-Connected-Care/">
+                        <span class="chip bg-color">Data Analytics in Health Care and Connected Care</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
