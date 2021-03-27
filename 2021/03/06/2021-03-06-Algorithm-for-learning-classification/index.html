@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-06
+                    2021-03-26
                 </div>
                 
 
@@ -643,36 +643,34 @@
 <h3 id="entropy">Entropy</h3>
 <h4 id="information-theory-shannon-1948">Information theory (Shannon 1948)</h4>
 <ul>
-<li>Communication problem: how to compress a signal, i.e. a stream of independent random variables X ?
+<li><p>Communication problem: how to compress a signal, i.e. a stream of independent random variables X ?</p>
 <ul>
 <li>e.g.: signal = succession of coin tosses</li>
 </ul></li>
-<li>Quantity of information in the signal = minimum bit rate needed to transmit it
+<li><p>Quantity of information in the signal = minimum bit rate needed to transmit it</p>
 <ul>
 <li>i.e. the average number of bits per symbol.</li>
 </ul></li>
-<li>It is a function of the probability distribution of the signal
+<li><p>It is a function of the probability distribution of the signal</p>
 <ul>
 <li>the distribution represents what is known before the actual transmission, i.e. what does not depend on the number of samples</li>
 <li>the bit rate should be chosen before transmission</li>
 </ul></li>
-<li>The more uncertain the distribution, the more information in the content
-<ul>
-<li>if the coin is double-headed, then there is nothing to transmit</li>
-</ul></li>
-<li>Probabilities are multiplicative, information is additive
+<li><p>The more uncertain the distribution, the more information in the content</p></li>
+<li><p>if the coin is double-headed, then there is nothing to transmit</p></li>
+<li><p>Probabilities are multiplicative, information is additive</p>
 <ul>
 <li>if ones tosses a coin n times, there are 2 n possible outcomes, but they can all be written using n bits only</li>
 <li>information content depends on the logarithm of the probability distribution</li>
 </ul></li>
-<li>Impossible events should not matter
+<li><p>Impossible events should not matter</p>
 <ul>
 <li>adding “the coin can rest on its side with probability 0” should not change the amount of information</li>
 <li>weight the logarithms by the probability of each event</li>
 </ul></li>
-<li>Entropy: <span class="math display">\[
+<li><p>Entropy: <span class="math display">\[
 H(x) = - \sum_{X = x}p_x\log_2p_x
-\]</span></li>
+\]</span></p></li>
 </ul>
 <h4 id="example-coin-toss">Example: coin toss</h4>
 <ul>
@@ -723,9 +721,9 @@ H(x) = - \sum_{X = x}p_x\log_2p_x
 <li><p>for any bases a and b, <span class="math display">\[
 \log_bx = \frac{\log_ax}{\log_ab}
 \]</span></p></li>
+</ul></li>
 <li><p>in our case b=2</p></li>
 <li><p>a is usually e, maybe 10 (does it matter?)</p></li>
-</ul></li>
 </ul>
 <h4 id="back-to-attribute-selection">Back to attribute selection</h4>
 <ul>
@@ -749,11 +747,11 @@ H(x) = - \sum_{X = x}p_x\log_2p_x
 <li><p>Maximum Likelihood learning: for each class C, learn a probability distribution p(.|C) that maximizes ∏p(m|C) for all the <em>m</em> in the training data.</p></li>
 <li><p>classification: for a point <em>m</em>, find the class C that maximises p(C|m)</p>
 <ul>
-<li><p>using Bayes’ rule: <span class="math display">\[
+<li>using Bayes’ rule: <span class="math display">\[
 p(C|m) = \frac{p(C)p(m|C)}{p(m)}
-\]</span></p></li>
-<li><p>scales linearly with the number of classes</p></li>
+\]</span></li>
 </ul></li>
+<li><p>scales linearly with the number of classes</p></li>
 </ul>
 <h3 id="support-vector-machines-svm">Support Vector Machines (SVM)</h3>
 <ul>
@@ -797,10 +795,8 @@ p(C|m) = \frac{p(C)p(m|C)}{p(m)}
 </ul>
 <h4 id="learning-decision-trees">Learning decision trees</h4>
 <ul>
-<li><p>Learning problem</p>
-<ul>
-<li>which questions to ask?</li>
-</ul></li>
+<li><p>Learning problem</p></li>
+<li><p>which questions to ask?</p></li>
 <li><p>If one asks enough questions, one will eventually classify the training set</p>
 <ul>
 <li>1 question = 1 new split of the space</li>
@@ -1504,13 +1500,6 @@ G(windy?)=H(S) - \frac{4}{8}H(windy)- \frac{4}{8}H(¬windy)=0.1887
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
