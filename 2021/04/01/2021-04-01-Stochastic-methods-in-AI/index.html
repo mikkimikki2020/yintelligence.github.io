@@ -1,0 +1,1852 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Stochastic methods in AI, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Stochastic methods in AI | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Stochastic methods in AI</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Techniques-of-Artificial-Intelligence/">
+                                <span class="chip bg-color">Techniques of Artificial Intelligence</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-04-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-04-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    3.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    22 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="stochastic-methods-in-ai">Stochastic methods in AI</h1>
+<h2 id="probability-likelihood-and-truth">Probability, Likelihood and Truth</h2>
+<p>In PC and FOPC, we were able to</p>
+<ul>
+<li>write down things that were true</li>
+<li>write down rules of inference that were known to hold</li>
+<li>make explicit truths which were previously implicit
+<ul>
+<li>by applying rules of inference</li>
+</ul></li>
+</ul>
+<p>We showed how a proof could be constructed, to show that a given truth (a goal, or conclusion) followed from a set of facts</p>
+<p>In all of this, however, everything is true or false, there’s no way of saying “perhaps” or “maybe”</p>
+<ul>
+<li><p>We can refine all this by viewing truth values as extreme probabilities<br />
+</p>
+<ul>
+<li><p>0 replaces false, 1 replaces true, but now we have all the values in between</p>
+<blockquote>
+<p>(But note that there are limits to this analogy - it’s not completely strict)</p>
+</blockquote></li>
+</ul></li>
+<li><p>Conjunction is exactly like multiplication</p>
+<ul>
+<li>F ∧ F = 0 x 0 = 0 = F</li>
+<li>F ∧ T = 0 x 1 = 0 = F</li>
+<li>T ∧ T = 1 x 1 = 1 = T</li>
+</ul></li>
+<li><p>Disjunction is somewhat like addition, but with a maximum value of 1</p>
+<ul>
+<li><p>F ∨ F = min( 0 + 0, 1 ) = 0 = F</p></li>
+<li><p>F ∨ T = min( 0 + 1, I ) = 1 = T</p></li>
+<li><p>T ∨ T = min( 1 + 1, 1 ) = 1 = T</p>
+<blockquote>
+<p>however, NB, this is not a complete, proper definition – we’ll give one later</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<p>This idea corresponds precisely with the idea of probability</p>
+<ul>
+<li>Something which is certain (T) has probability 1</li>
+<li>Something which is certainly not (F) has probability 0</li>
+</ul>
+<h2 id="using-probability-for-logic">Using probability for logic</h2>
+<p>We write P(A) to mean “the probability of A”</p>
+<blockquote>
+<p>NB, not Predicate P applied to Object A!</p>
+</blockquote>
+<p>But what does P(A) mean?</p>
+<ul>
+<li>P(I will draw ace of hearts)</li>
+<li>P(the coin will come up heads)</li>
+<li>P(it will snow tomorrow)</li>
+<li>P(the sun will rise tomorrow)</li>
+<li>P(the problem is in the third cylinder)</li>
+<li>P(the patient has measles)</li>
+</ul>
+<h2 id="frequentist-interpretation">Frequentist interpretation</h2>
+<ul>
+<li>We can interpret frequencies of events as their probability
+<ul>
+<li>Draw a card from a normal deck
+<ul>
+<li>h = 13 hearts, s = 13 spades, d = 13 diamonds, c = 13 clubs</li>
+<li>Total number of cards, n = 13 x 4 = 52</li>
+</ul></li>
+<li>The probability that the proposition A = “the card is a heart” is true corresponds to the relative frequency with which we expect to draw a heart
+<ul>
+<li>note that, here, each card is equally likely to be drawn</li>
+</ul></li>
+<li>P(A) = h / n = 13 / 52 = 0.25</li>
+</ul></li>
+<li>Definition: the <em>probability</em> of an event A is the number of possible occurrences where A holds divided by the all the possible occurrences ‣ thus, if A always holds, P(A) = n / n = 1 = T in PC/FOPC, conversely for F</li>
+</ul>
+<h2 id="simple-exercises">Simple exercises</h2>
+<p>Compute:</p>
+<ul>
+<li>P (I will draw ace of hearts )</li>
+<li>P (I will draw a spade)</li>
+<li>P (I will draw a heart or a spade)</li>
+<li>P (I will draw a heart and a spade)</li>
+</ul>
+<h2 id="definitions">Definitions</h2>
+<ul>
+<li>An <em>elementary</em> or <em>atomic</em> event is an occurrence that cannot be made up of other events
+<ul>
+<li>cf. Proposition/Sentence in PC, Literal/Atomic Sentence in FOPC</li>
+</ul></li>
+<li>An <em>event</em> is a set of atomic events</li>
+<li>The set of all possible outcomes of an event E is the <em>sample space</em> or <em>universe</em> for that event</li>
+<li>The probability of an event E in a sample space S is the ratio of the number of elements in E to the total number of possible outcomes of the sample space S of E
+<ul>
+<li>P(E) = |E| / |S|</li>
+</ul></li>
+</ul>
+<h2 id="subjective-interpretations">Subjective interpretations</h2>
+<p>There are many situations in which there is no objective frequency interpretation</p>
+<ul>
+<li>Just before hang-gliding from the top of Ben Nevis, I say “there is probability 0.2 that I am going to have a broken neck”</li>
+<li>You are working hard on your AI practical and you believe that the probability that you will get 90% is 0.9</li>
+</ul>
+<p>The probability that proposition A is true corresponds to the degree of <em>subjective belief</em></p>
+<ul>
+<li>It’s better to use probabilities based on evidence!</li>
+<li>but subjective belief can get us a very long way, sometimes</li>
+</ul>
+<h2 id="axioms-of-probability">Axioms of probability</h2>
+<ul>
+<li>There is a debate about which interpretation to adopt
+<ul>
+<li>frequentist</li>
+<li>probabilistic</li>
+<li>both are useful</li>
+<li>but there is agreement about the underlying maths</li>
+</ul></li>
+<li>Three basic requirements of probability values:
+<ul>
+<li>0 ≤ P(A) ≤ 1</li>
+<li>P( A ∨ B ) = P( A ) + P( B ) iff A and B are mutually exclusive
+<ul>
+<li>that means “iff A and B cannot be true at the same time”</li>
+</ul></li>
+<li>P( True ) = 1</li>
+</ul></li>
+</ul>
+<h2 id="three-axioms-is-enough">Three axioms is enough</h2>
+<p>These three axioms are all we need to define probabilities, as all other rules can be derived from them</p>
+<p>For example we can show that</p>
+<ul>
+<li>P( ¬A ) = 1 – P( A ) because
+<ul>
+<li>P( A ∨ ¬A ) = P ( True ) by law of excluded middle</li>
+<li>P ( A ∨ ¬A ) = P( A ) + P( ¬A ) by axiom 2</li>
+<li>P( True ) = 1 by axiom 3</li>
+<li>P( A ) + P( ¬A ) = 1 transitivity of =</li>
+</ul></li>
+<li>P(false) = 0 because
+<ul>
+<li>False = ¬ True by definition</li>
+<li>P( False ) = 1 – P( True ) by the derived rule above</li>
+</ul></li>
+</ul>
+<h2 id="another-way-to-look-at-probability">Another way to look at probability</h2>
+<p><img src="/images/AI/2121290.png" /></p>
+<ul>
+<li><p>The entire rectangle is the Universe</p>
+<ul>
+<li>it contains every possible outcome of every atomic event</li>
+</ul></li>
+<li><p>A and B are events</p>
+<ul>
+<li>the sets in this Venn diagram contain the conditions when they are true</li>
+</ul></li>
+<li><p>Here, they are mutually exclusive</p>
+<ul>
+<li>they do not overlap, so they cannot both occur at the same time</li>
+</ul></li>
+<li><p>Probability is represented by the area relative to the universal (which has probability 1)</p></li>
+<li><p>The axioms:</p>
+<ul>
+<li>0 ≤ P(A) ≤ 1
+<ul>
+<li>a set cannot have a negative area; it cannot be bigger than the Universal Set</li>
+<li>nothing can have less than no chance of happening</li>
+<li>nothing can have more than absolute certainty of happening</li>
+</ul></li>
+<li>P( A ∨ B ) = P( A ) + P( B ) iff A and B are mutually exclusive
+<ul>
+<li>compute the respective probabilities by measuring areas and adding</li>
+</ul></li>
+<li>P( True ) = 1
+<ul>
+<li>the Universal Set is the set of all things that are true</li>
+<li>the area of the Universal Set is that of the Universal Set; n / n = 1</li>
+</ul></li>
+<li>P( ¬B ) = 1 – P( B )
+<ul>
+<li>B is the green part</li>
+<li>¬B is the rest</li>
+<li>P( B ) + P( ¬B ) = P( U ) = 1</li>
+</ul></li>
+<li>P( A ∨ B ) = P( A ) + P( B ) - P( A ∧ B )
+<ul>
+<li>because the intersection area would be included twice, otherwise</li>
+</ul></li>
+</ul></li>
+<li><p>Note, here, the similarity between the connectives and set operators</p>
+<ul>
+<li><p>∧ corresponds with ∩</p></li>
+<li><p>∨ corresponds with ∪</p>
+<blockquote>
+<p>this is not a coincidence</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h2 id="random-variables">Random variables</h2>
+<p>Atomic propositions in PC were assigned from { T, F } by an interpretation</p>
+<p>Here we think of atomic events as being associated with random variables ranging over a domain of values which are</p>
+<ul>
+<li>mutually exclusive
+<ul>
+<li>so a variable can only have one value at a time, or only one possibility can be true at a time</li>
+</ul></li>
+<li>exhaustive
+<ul>
+<li>all possible values are known</li>
+</ul></li>
+<li>Each possible outcome has an associated probability</li>
+</ul>
+<p>Examples</p>
+<ul>
+<li>coin toss: { heads, tails }</li>
+<li>die roll: { 1, 2, 3, 4, 5, 6 }</li>
+<li>has measles: { true, false }</li>
+</ul>
+<h2 id="probability-distribution-of-random-variable">Probability distribution of random variable</h2>
+<p>A probability distribution of a random variable is the set of the probabilities covering every possible value the variable might take</p>
+<p><img src="/images/AI/2121291.png" /></p>
+<h2 id="joint-probability-distributions">Joint probability distributions</h2>
+<ul>
+<li>A <em>joint probability distribution</em> for some random variables is an enumeration of the probabilities for all possible combinations of the joint outcomes of the random variables
+<ul>
+<li>compute the joint outcomes by taking the cross product of the variables’ domains</li>
+</ul></li>
+<li>NB. These probabilities are about co-occurrence, not about cause!!</li>
+</ul>
+<p><img src="/images/AI/2121292.png" /></p>
+<ul>
+<li>Alternative representation as multi-dimensional table</li>
+</ul>
+<p><img src="/images/AI/2121293.png" /></p>
+<ul>
+<li>Notation
+<ul>
+<li>All these statements are equivalent
+<ul>
+<li>P( Cavity = true, Insulated = false ) = 0.08</li>
+<li>P( Cavity, ¬Insulated ) = 0.08</li>
+<li>P( Cavity ∧ ¬Insulated ) = 0.08</li>
+</ul></li>
+<li>so we can use , (comma) as “and”, and mix’n’match PC propositions with variables
+<ul>
+<li>you will see these and other notations used</li>
+<li>the important thing is to be consistent in your own usage</li>
+</ul></li>
+</ul></li>
+<li>Joint probabilities are useful because they allow us to study the interaction between the component events</li>
+</ul>
+<h2 id="marginal-probabilities">Marginal probabilities</h2>
+<p><img src="/images/AI/2121294.png" /></p>
+<p>P( Bad Traffic ) = P( Bad Traffic ∧ Road repairs ) + P ( Bad Traffic ∧ ¬ Road repairs ) = 0.3 + 0.1 = 0.4</p>
+<ul>
+<li>NB: the table must be consistent with the axioms of probability
+<ul>
+<li>0 ≤ each value in the table ≤ 1</li>
+<li>the values in the whole table should add up to 1</li>
+<li>the different outcomes must be mutually exclusive</li>
+</ul></li>
+</ul>
+<h2 id="probabilistic-inference">Probabilistic inference</h2>
+<p><img src="/images/AI/2121294.png" /></p>
+<p>Now we can compute more subtle inferences</p>
+<ul>
+<li>P( Bad traffic ∨ Repairs ) = 0.3 + 0.1 + 0.2 = 0.6</li>
+<li>P( Repairs → Bad traffic ) = P( ¬ Repairs ∨ Bad Traffic ) = 0.1 + 0.4 + 0.3 = 0.8</li>
+</ul>
+<h2 id="prior-probability">Prior probability</h2>
+<p>The <em>prior probability</em>, or <em>unconditional probability</em>, of an event is the probability assigned to an event in the absence of knowledge supporting its occurrence and absence, that is, the probability of the event prior to any evidence.</p>
+<p>Example</p>
+<ul>
+<li>P( Toothache = true ) = 0.1</li>
+<li>the unconditional or prior probability that someone has toothache is 0.1
+<ul>
+<li>In the absence of other information, there is 10% chance someone has toothache</li>
+</ul></li>
+</ul>
+<p>This is the kind of probability we have been dealing with so far, where we view the world as unchanging</p>
+<ul>
+<li>but what happens if it can change?</li>
+</ul>
+<h2 id="conditional-or-posterior-probability">Conditional or posterior probability</h2>
+<p>$$ P( A | B ) = where P(B) &gt; 0</p>
+<p>$$</p>
+<p>P( A | B ) denotes the conditional (or posterior) probability of A, given that we know B and B is all we know</p>
+<ul>
+<li>If we receive evidence concerning a proposition, prior probabilities are no longer applicable</li>
+<li>We need to assess the conditional probability of that proposition given the available evidence</li>
+<li>Note that for this to be different from P( A ), A and B are no longer independent</li>
+</ul>
+<p><img src="/images/AI/2121295.png" /></p>
+<ul>
+<li>Here, P( A ) = 0.25, P( B ) = 0.5</li>
+<li>A is contained in B, so P( A ∧ B ) = 0.25</li>
+<li>Therefore, P( A | B ) = 0.25 / 0.5 = 0.5</li>
+</ul>
+<h3 id="something-to-try">Something to try</h3>
+<p>What are the values for the following</p>
+<ul>
+<li>P( Heads | Heads )</li>
+<li>P( Ace of hearts | Ace of spades )</li>
+<li>P( Bad traffic | Road repairs )</li>
+<li>P( Road repairs | Bad traffic)</li>
+</ul>
+<h3 id="another-example">Another example</h3>
+<p>Suppose we are interested in the probability that the stock price of company C will increase, given that we know about the FTSE index from the BBC news</p>
+<p>Once we know that the FTSE is up, we can rule out everything outside the green area</p>
+<ul>
+<li>we “focus our attention” on the FTSE area</li>
+</ul>
+<p><img src="/images/AI/2121299.png" /></p>
+<h2 id="total-probability-of-an-event">Total probability of an event</h2>
+<p>A convenient way to calculate P(A) is with the following formula</p>
+<ul>
+<li>produced using the conditional probability rule</li>
+<li>P( A ) = P( A ∧ B ) + P( A ∧ ¬B) = P( A | B )P( B ) + P( A | ¬ B )P( ¬B )</li>
+</ul>
+<p><img src="/images/AI/2121297.png" /></p>
+<p>Event A is composed of those occasions when</p>
+<ul>
+<li><p>A and B co-occur</p></li>
+<li><p>A and ¬B co-occur</p>
+<blockquote>
+<p>Because compound events “A and B” and “A and ¬B” are mutually exclusive, the probability of A must be the sum of these two probabilities</p>
+</blockquote></li>
+</ul>
+<h3 id="another-example-1">Another example</h3>
+<ul>
+<li>P( Cavity | Toothache ) = 0.8 is a conditional probability</li>
+<li>Maybe we have other evidence
+<ul>
+<li>P( Cavity | Toothache, Earthquake ) = P( Cavity | Toothache )
+<ul>
+<li>because the Earthquake information is not relevant</li>
+</ul></li>
+</ul></li>
+<li>P( Cavity | Toothache, Cavity ) = 1
+<ul>
+<li>because the non-conditional probability overrides</li>
+</ul></li>
+</ul>
+<h2 id="rules-of-conditional-probability">Rules of conditional probability</h2>
+<ul>
+<li>Product rule</li>
+<li>P( A ∧ B ) = P( A | B ) P( B ) = P( B | A ) P( A )
+<ul>
+<li>An alternative definition of conditional probability</li>
+</ul></li>
+<li>Chain rule (successive application of product rule)
+<ul>
+<li>P( X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) = P( X<sub>I</sub> ) ∏ <sup>n</sup><sub>i=2</sub>P( X<sub>i</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>i-1</sub>)</li>
+<li>Proof
+<ul>
+<li>P( X<sub>1</sub> ∧ ... ∧ X<sub>n</sub>) = P( X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) P( X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) = P( X<sub>1</sub> ∧ ... ∧ X<sub>n-2</sub> ) P( X<sub>n-1</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-2</sub> ) P( X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) etc.</li>
+</ul></li>
+<li>Example
+<ul>
+<li>P( X<sub>1</sub> ∧ X<sub>2</sub> ∧ X<sub>3</sub> ) = P( X<sub>1</sub> ) P( X<sub>2</sub> | X<sub>1</sub> ) P( X<sub>3</sub> | X<sub>1</sub> ∧ X<sub>2</sub> )</li>
+</ul></li>
+</ul></li>
+<li>NB. P( A → B ) is not necessarily the same as P( B | A )</li>
+<li>Conditioning Rule
+<ul>
+<li>If we know an exhaustive set of conditional probabilities for an event, we can compute its prior probability
+<ul>
+<li>like the marginal probability calculation from the table earlier</li>
+<li>P( Y ) = ∑<sub>z</sub>P( Y | Z ) P( Z )</li>
+<li>This sums all the outcomes of all the variables that condition Y</li>
+</ul></li>
+</ul></li>
+<li>Conditionalised Product Rule
+<ul>
+<li>P( A ∧ B | E ) = P( A | B ∧ E ) P( B | E ) = P ( B | A ∧ E ) P( A | E )</li>
+<li>P( A | B ∧ E ) P ( B | E ) = P( A ∧ B | E )</li>
+</ul></li>
+</ul>
+<h2 id="bayes-rule">Bayes’ Rule</h2>
+<p><span class="math display">\[
+P( B | A ) = \frac{P( A | B ) P( B ) }{P( A )}
+\]</span></p>
+<ul>
+<li>Derivation
+<ul>
+<li>Product rul
+<ul>
+<li>P ( A ∧ B ) = P( A | B ) P( B )</li>
+</ul></li>
+<li>Commutativity of ∧
+<ul>
+<li>P( A ∧ B ) = P( B | A ) P( A)</li>
+</ul></li>
+<li>Transitivity of =
+<ul>
+<li>P( B | A ) P ( A ) = P( A | B ) P( B )</li>
+</ul></li>
+<li>Divide both sides by P( A ) to get the rule</li>
+</ul></li>
+<li>Bayes’ rule
+<ul>
+<li>allows us to reverse a conditional probability, if we know the probabilities of its components
+<ul>
+<li>P( Cause | Effect ) = P( Effect | Cause )P( Cause ) / P( Effect )</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="bayesian-classification">Bayesian Classification</h2>
+<ul>
+<li>We can use Bayes’ Rule to build a so-called Naive Classifier
+<ul>
+<li>“Naive” because it assumes that all its inputs are independent</li>
+<li>Nevertheless it works pretty well</li>
+</ul></li>
+<li>Recall the example from our ID3 lecture:
+<ul>
+<li>The morning problem
+<ul>
+<li>Should I attend class?</li>
+</ul></li>
+</ul></li>
+<li>Note, now, that we are not building a classifier that is based only on feature values
+<ul>
+<li>Instead, we include likelihoods</li>
+</ul></li>
+</ul>
+<p><img src="/images/AI/2121296.png" /></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Outlook</th>
+<th style="text-align: center;">Temperature</th>
+<th style="text-align: center;">Windy</th>
+<th style="text-align: center;">Attend?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">overcast</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">overcast</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Given this data, we can calculate a rule that tells us what the likelihood of attending is, given a particular state of affairs</li>
+<li>We begin with three input variables:
+<ul>
+<li>Outlook, Temperature, Windy</li>
+</ul></li>
+<li>We want to compute the class variable Attend?</li>
+<li>First, we calculate the distributions of the variables:
+<ul>
+<li>Outlook: P( Sunny ) = 3/8; P( Overcast ) = 2/8; P( Rain ) = 3/8</li>
+<li>Temperature: P( &lt;20 ) = 2/8; P( &gt;=20 ∧ &lt;25 ) = 3/8; P( &gt;=25 ) = 3/8</li>
+<li>Windy: P( Windy ) = 4/8; P( ¬Windy ) = 4/8</li>
+<li>Class variable: P( Attend ) = 4/8; P( ¬Attend ) = 4/8</li>
+</ul></li>
+<li>We calculate the conditional probabilities given each class value:
+<ul>
+<li>Outlook
+<ul>
+<li>P( Sunny | Attend ) = 1/4; P( Sunny | ¬ Attend ) = 2/4; P( Overcast | Attend ) = 2/4; P( Overcast | ¬Attend ) = 0/4; P( Rain | Attend ) = 1/4; P( Rain | ¬Attend ) = 2/4</li>
+</ul></li>
+<li>Temperature
+<ul>
+<li>P( &lt;20 | Attend ) = 0/4; P( &lt;20 | ¬Attend ) = 2/4; P( &gt;=20 ∧ &lt;25 | Attend ) = 3/4; P( &gt;=20 ∧ &lt;25 | ¬Attend ) = 1/4; P( &gt;=25 | Attend ) = 1/4; P( &gt;=25 | ¬Attend ) = 1/4</li>
+</ul></li>
+<li>Windy
+<ul>
+<li>P( Windy | Attend ) = 1/4; P( Windy | ¬Attend ) = 3/4; P( ¬Windy | Attend ) = 3/4; P( ¬Windy | ¬Attend ) = 1/4</li>
+</ul></li>
+</ul></li>
+<li>Now we are ready to make predictions</li>
+<li>Remember that
+<ul>
+<li>P( A ∧ B | C ) = P( A | C ) × P( B | C )</li>
+</ul></li>
+</ul>
+<h3 id="making-predictions">Making Predictions</h3>
+<ul>
+<li>Case from the data: Rain ∧ &lt;20 ∧ Windy
+<ul>
+<li>P( Attend | Rain ∧ &lt;20 ∧ Windy ) = P( Rain ∧ &lt;20 ∧ Windy | Attend ) × P( Attend ) ÷ P ( Rain ∧ &lt;20 ∧ Windy ) = P( Rain | Attend ) × P( &lt;20 | Attend ) × P( Windy | Attend ) × P( Attend ) ÷ P ( Rain ∧ &lt;20 ∧ Windy )</li>
+<li>Similarly P( ¬Attend | Rain ∧ &lt;20 ∧ Windy )</li>
+<li>P( Rain ∧ &lt;20 ∧ Windy ) = P( Rain ) × P( &lt;20 ) × P( Windy ) = 3/8 × 2/8 × 4/8 = 3/8 * 1/4 * 1/2 = 3/64</li>
+</ul></li>
+<li>Case from the data: Rain ∧ &lt;20 ∧ Windy
+<ul>
+<li>P( Attend | Rain ∧ &lt;20 ∧ Windy ) =</li>
+<li>Calculate P( Attend ) = P( Rain | Attend ) × P ( &lt;20 | Attend ) × P( Windy | Attend ) × P ( Attend ) ÷ P( Rain ∧ &lt;20 ∧ Windy ) = ( 1/4 × 0/4 x 1/4 x 1/2 ) ÷ 3/64 = 0</li>
+<li>Calculate P( ¬Attend ) = P( Rain | ¬Attend ) × P ( &lt;20 | ¬Attend ) × P( Windy | ¬Attend ) × P ( ¬Attend ) ÷ P( Rain ∧ &lt;20 ∧ Windy ) = ( 2/4 × 2/4 × 3/4 x 1/2 ) ÷ 3/64 = 64/64 = 1</li>
+</ul></li>
+<li>The larger probability tells us which is the correct class: ¬Attend</li>
+</ul>
+<p><img src="/images/AI/2121298.png" /></p>
+<h2 id="probablisitc-vs.-subjective-view-of-probability">Probablisitc vs. Subjective View of Probability</h2>
+<ul>
+<li>There is nothing about Bayes’ Rule that tells you how to interpret the probabilities
+<ul>
+<li>Nevertheless, Bayes’ Rule is often used with semi-subjective probabilities</li>
+</ul></li>
+<li>Subjective Probabilities (degree of belief)
+<ul>
+<li>Statistical estimates (frequentist interpretation) for probabilities are fine if the experiment under consideration can be repeated a number of times under similar circumstances. But suppose you want to assign the probability that one political party will beat another. You can determine your own personal probability by seeing what kind of bet you’d be willing to make.</li>
+<li>A doctor might assign a probability of 0.8 to the statement that a particular patient has a meningitis, given that she (the patient!) has a stiff neck. We may not have statistical data on that one patient for meningitis and stiff necks; however, we might be basing our subjective assignment of probability on our experiences with patients with a similar medical history.</li>
+</ul></li>
+</ul>
+<h2 id="reasoning-with-probabilities">Reasoning with Probabilities</h2>
+<ul>
+<li>Scenario
+<ul>
+<li>Jane goes to the doctor’s for a routine checkup and takes some tests</li>
+<li>One test for a rare genetic disease comes back positive</li>
+<li>The disease is potentially fatal</li>
+</ul></li>
+<li>Jane looks it up on Wikipedia and learns that
+<ul>
+<li>“rare” means P( Disease ) = P( D ) = 1/10,000 = 0.0001</li>
+<li>the test is 99% accurate:
+<ul>
+<li>a very small occurrence of false positives P( Test = + | ¬ D) = 0.01</li>
+<li>no false negatives P( Test = – | D ) = 0</li>
+</ul></li>
+</ul></li>
+<li>Jane would like to compute the probability that she has the disease and take appropriate action</li>
+</ul>
+<h2 id="formulating-the-situation">Formulating the situation</h2>
+<p>The scenario in probabilities</p>
+<ul>
+<li><p>The disease is rare: P( D ) = 0.0001</p></li>
+<li><p>Reliability of test: P( Test = – | ¬ D ) = 0.99</p>
+<blockquote>
+<p>P( D | Test = + ) = P( D ∧ Test = + ) / P( Test = + ) = 1 / ( 1 + 99.99 ) = 0.0099 (not 0.99!!!)</p>
+</blockquote></li>
+<li><p>Chance of false positive: P( Test = + | ¬ D ) = 0.01</p></li>
+<li><p>No chance of false negative: P( Test = – | D ) = 0</p></li>
+<li><p>∴ Chance of true positive: P( Test = + | D ) = 1</p></li>
+</ul>
+<p><img src="/images/AI/21212990.png" /></p>
+<h2 id="formalising-the-reasoning">Formalising the reasoning</h2>
+<p>Derivation</p>
+<ul>
+<li>Bayes’ rule
+<ul>
+<li>P( D | Test = + ) = P( Test = + | D ) P( D ) / P( Test= + ) = 1 x 0.0001 / P( Test = + ) = 0.0001 / P( Test = + )</li>
+</ul></li>
+<li>Bayes’ rule
+<ul>
+<li>P(¬ D | Test = + ) = P( Test = + | ¬ D) P( ¬ D) / P( Test = + ) = 0.01 x 0.9999 / P( Test = + ) = 0.009999 / P( Test = + )</li>
+</ul></li>
+<li>Excluded middle and arithmetic
+<ul>
+<li>P( D | Test = + ) + P( ¬D | Test = + ) = 0.0001 / P( Test = + ) + 0.009999 / P( Test = + ) = ( 0.0001 + 0.009999 ) / P( Test = + )= 1 ∴ 0.0001 + 0.009999 = 1 x P( Test = + ) = 0.010099</li>
+</ul></li>
+<li>Bayes’ Rule
+<ul>
+<li>P( D | Test = + ) = 1 x 0.0001 / 0.010099 = 0.0099</li>
+</ul></li>
+</ul>
+<h2 id="another-similar-example">Another similar example</h2>
+<ul>
+<li>Let S be the proposition that a patient has a stiff neck, and M the proposition that the patient has meningitis</li>
+<li>Suppose a doctor wants to know P( M | S )
+<ul>
+<li>Probabilities from a medical database
+<ul>
+<li>P( S | M ) = 0.5 ๏ P( M ) = 1 / 50,000 = 0.00002</li>
+<li>P( S ) = 1 / 20 = 0.05</li>
+</ul></li>
+<li>Using Bayes’ Rule
+<ul>
+<li>P( M | S ) = P( S | M ) P(M) / P(S) = 0.5 x 0.00002 / 0.05 = 0.0002</li>
+</ul></li>
+</ul></li>
+<li>If the doctor knows this probability, and sees a patient with a stiff neck, he/she can know how strongly/weakly to lean toward a diagnosis of meningitis</li>
+</ul>
+<h2 id="how-practical-is-bayes-rule">How practical is Bayes’ rule?</h2>
+<p>How reasonable is the supposition that you know P( S | M ) but need to calculate P( M | S )?</p>
+<ul>
+<li><strong>Why not estimate P( M | S ) directly by sampling?</strong></li>
+</ul>
+<p><img src="/images/AI/21212991.png" /></p>
+<h2 id="normalization">Normalization</h2>
+<p>We can avoid direct assessment of priors of evidence, such as P( S ) here, by considering an exhaustive set of hypotheses <span class="math display">\[
+P( M | S ) = \frac{P( S | M ) P( M )}{ P( S )}\  by\ Bayes’\ rule
+\]</span></p>
+<p><span class="math display">\[
+P(¬M | S ) = \frac{P( S |¬M ) P(¬M )}{ P( S )}\  by\ Bayes’\ rule
+\]</span></p>
+<p><span class="math display">\[
+P( M | S ) + P( ¬M | S ) = 1\ by\ excluded\ middle
+\]</span></p>
+<p><span class="math display">\[
+P( S | M ) P( M ) + P( S | ¬M ) P( ¬M ) = P( S )\ substitute\ RHSs\ and\ multiply\ by\ P( S )
+\]</span></p>
+<p><span class="math display">\[
+( M | S ) = \frac{P( S | M ) P( M )} {P( S | M ) P( M ) + P( S | ¬M ) P( ¬M )}\ substitute\ for\ P( S )\ in\ original\ rule
+\]</span></p>
+<p><strong>By assessing P( S | ¬M ), we avoid assessing P( S )</strong></p>
+<ul>
+<li>We can generalise normalisation beyond the P ∨ ¬P case
+<ul>
+<li>use a distribution over multiple, mutually exclusive values of a variable</li>
+</ul></li>
+<li>Suppose we wish to compute a posterior distribution over A given B = b, and suppose A has disjoint domain a<sub>1</sub>, ..., a<sub>m</sub></li>
+<li>Apply Bayes’ rule for each value of A
+<ul>
+<li>P( A = a<sub>1</sub> | B = b ) = P( B = b | A = a<sub>1</sub> ) P( A = a<sub>1</sub> ) / P( B = b ) ... P( A = a<sub>m</sub> | B = b ) = P( B = b | A = a<sub>m</sub> ) P( A = a<sub>m</sub> ) / P( B = b )</li>
+</ul></li>
+<li>Adding these up, and noting that ∑<sub>i</sub>P( A = a<sub>i </sub>| B = b ) = 1
+<ul>
+<li>1 / P( B = b ) = 1 / ∑<sub>i</sub> P ( B = b | A = a<sub>i</sub> ) P( A = a<sub>i</sub> ) = α</li>
+<li>This quantity is known as the normalisation factor, denoted by α</li>
+</ul></li>
+</ul>
+<h2 id="how-practical-is-bayes-rule-1">How practical is Bayes’ rule?</h2>
+<p>Normalisation is one way to make Bayes’ rule more practically applicable, but there’s another</p>
+<ul>
+<li>The issue is that Bayes’ rule requires us to estimate too many probabilities before we can apply it</li>
+<li>We want to estimate one conditional probability; we need to know
+<ul>
+<li>another conditional probability</li>
+<li>two prior probabilities</li>
+</ul></li>
+<li>Why are we willing to make this effort?
+<ul>
+<li>Because the other probabilities are typically easier to obtain by observation</li>
+</ul></li>
+</ul>
+<p>Can we reduce the number of probabilities needed to apply Bayes’ Rule</p>
+<ul>
+<li>There is a particular technique for doing this when there are multiple sources of evidence and we can use the idea of conditional independence</li>
+</ul>
+<h2 id="independence-revisited">Independence revisited</h2>
+<ul>
+<li>Unconditional independence
+<ul>
+<li>P( A | B ) = P( A )</li>
+<li>P( B | A ) = P( B )</li>
+<li>P( A ∧ B ) = P( A ) P( B )</li>
+</ul></li>
+<li>Conditional independence
+<ul>
+<li>independence holds, given a common cause</li>
+<li>A and B are independent given C iff
+<ul>
+<li>P( A | B ∧ C ) = P( A | C )</li>
+</ul></li>
+<li>it follows that
+<ul>
+<li>P( A ∧ B | C ) = P( A | C ) P( B | C )</li>
+<li>try this derivation, using the conditional probability rule, yourself</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Probability theory enables the use of varying degrees of likelihood to represent uncertainty</li>
+<li>A (joint) probability distribution completely describes a (set of) random variable(s)</li>
+<li>Conditional probabilities let us calculate probabilities relative to priors that we know</li>
+<li>Bayes’ rule is helpful in relating conditional probabilities and priors</li>
+<li>Independence assumptions let us make intractable problems tractable •</li>
+<li>Bayesian Belief Networks (BBNs) are now the standard technology for expert systems</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/04/01/2021-04-01-Stochastic-methods-in-AI/">https://yintelligence.tech/2021/04/01/2021-04-01-Stochastic-methods-in-AI/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Techniques-of-Artificial-Intelligence/">
+                                    <span class="chip bg-color">Techniques of Artificial Intelligence</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/04/01/2021-04-01-Stochastic-methods-in-AI/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Stochastic methods in AI">
+                        
+                        <span class="card-title">Stochastic methods in AI</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Techniques-of-Artificial-Intelligence/">
+                        <span class="chip bg-color">Techniques of Artificial Intelligence</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/01/2021-04-01-Read-Mapping/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Read Mapping">
+                        
+                        <span class="card-title">Read Mapping</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Assignments/" class="post-category">
+                                    Assignments
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Computational-Biology-and-Bioinformatics/">
+                        <span class="chip bg-color">Computational Biology and Bioinformatics</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
