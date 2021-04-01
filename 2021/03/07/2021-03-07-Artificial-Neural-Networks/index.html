@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    74
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    15 Min
                 </div>
                 
 
@@ -529,6 +529,644 @@
 </ul></li>
 </ul>
 <h2 id="von-neumann-architecture">von Neumann architecture</h2>
+<p><img src="/images/AI/185218.png" /></p>
+<h2 id="neural-architecture">Neural architecture</h2>
+<ul>
+<li>The brain doesn’t seem to have a CPU
+<ul>
+<li>Instead, it has many simple, parallel, asynchronous units, called neurons</li>
+</ul></li>
+<li>Each neuron is a single cell, with
+<ul>
+<li>some relatively short fibres, called dendrites</li>
+<li>one long fibre, called an axon</li>
+</ul></li>
+<li>The end of the axon branches out into more short fibres</li>
+<li>Each fibre “connects” to the dendrites and cell bodies of other neurons
+<ul>
+<li>The “connection” is actually a tiny gap, called a synapse</li>
+</ul></li>
+<li>Axons are transmitters, dendrites are receivers</li>
+</ul>
+<h3 id="neural-architecture-neuron">Neural architecture: neuron</h3>
+<p><img src="/images/AI/1852180.png" /></p>
+<ul>
+<li>The fibres of surrounding neurons emit chemicals (neurotransmitters) that move across the synapse and change the electrical potential applied to the cell body
+<ul>
+<li>Sometimes the transmission across the synapse increases the potential, and sometimes decreases it</li>
+</ul></li>
+<li>When the potential reaches a certain threshold, an electrical pulse, or action potential, travels down the axon, eventually reaching all the branches, causing them to release their neurotransmitters
+<ul>
+<li>And so on through the network</li>
+</ul></li>
+</ul>
+<h3 id="neural-architecture-neuroplasticity">Neural architecture: neuroplasticity</h3>
+<ul>
+<li>Neuroplasticity or brain plasticity is the brain’s ability to change during life</li>
+<li>The brain can reorganise itself
+<ul>
+<li>by forming new connections between brain cells (neurons)</li>
+</ul></li>
+<li>Neuroplasticity occurs in the brain
+<ul>
+<li>At the beginning of life: when the immature brain organizes itself</li>
+<li>After brain injury: to compensate for lost functions or maximize remaining ones</li>
+<li>Throughout life: whenever something new is learned and memorised</li>
+</ul></li>
+<li>For a long time, it was believed that as we age, the connections in the brain become fixed
+<ul>
+<li>Research has now shown that, during life, the brain never stops changing through learning</li>
+</ul></li>
+<li>When you become an expert in a specific kind of knowledge, the areas in your brain that deal with this type of skill will grow
+<ul>
+<li>For instance, London taxi drivers have a larger posterior hippocampus than London bus drivers</li>
+<li>It is because this region of the hippocampus is specialised in acquiring and using complex spatial information in order to navigate efficiently</li>
+<li>Taxi drivers have to navigate around London, using The Knowledge, whereas bus drivers follow a limited set of routes</li>
+</ul></li>
+<li>There are changes to neurons that seem to reflect or enable learning
+<ul>
+<li>The synaptic connections exhibit plasticity
+<ul>
+<li>The degree to which a neuron will react to a stimulus across a particular synapse is subject to change over time (long-term potentiation)</li>
+</ul></li>
+<li>Neurons create new connections to other neurons</li>
+<li>Other changes in structure also seem to occur, some less well understood than others</li>
+</ul></li>
+</ul>
+<h2 id="the-neuron-as-a-device">The Neuron as a device</h2>
+<ul>
+<li>There are around neurons 10<sup>12</sup> in the human brain
+<ul>
+<li>with, perhaps, 10<sup>14</sup> or so synapses</li>
+</ul></li>
+<li>Neurons are slow devices
+<ul>
+<li>Tens of milliseconds to do something</li>
+<li>Jerome Feldman translates this into the “100 step program constraint’’
+<ul>
+<li>Most of the AI tasks we want to do take people less than a second</li>
+<li>So any brain “program” can’t be longer than 100 neural “instructions”</li>
+</ul></li>
+</ul></li>
+<li>No particular unit seems to be more important than any other
+<ul>
+<li>Destroying any one brain cell has little effect on overall processing</li>
+</ul></li>
+</ul>
+<h2 id="how-do-neurons-do-it">How do neurons do it?</h2>
+<ul>
+<li>All the billions of neurons in the brain are active at once ‣ So this is truly massive parallelism</li>
+<li>But it’s probably not the kind of parallelism that we are used to in conventional Computer Science
+<ul>
+<li>Sending messages (i.e., complex patterns that encode information) is probably too slow to work</li>
+<li>So information is probably encoded some other way
+<ul>
+<li>e.g., by the connections themselves</li>
+</ul></li>
+</ul></li>
+<li>Maybe we can explain cognition by densely connected networks transmitting simple signals
+<ul>
+<li>Connectionist computing (Feldman)</li>
+<li>Parallel Distributed Processing (PDP; Rumelhart, McClelland, Hinton)</li>
+<li>(Artificial) Neural Networks</li>
+</ul></li>
+</ul>
+<h2 id="perceptrons">Perceptrons</h2>
+<ul>
+<li>Many connectionists use the same simple model of a neural system</li>
+<li>There is a collection of units, each of which has
+<ul>
+<li>some weighted inputs from other units
+<ul>
+<li>inputs represent the degree to which other units are active (firing)</li>
+<li>weights represent how much the unit is affected by the activity of the other units</li>
+</ul></li>
+<li>a threshold that the sum of the weighted inputs must exceed to cause firing</li>
+<li>a single output that connects to (an)other unit(s)
+<ul>
+<li>if the unit fires, the resulting action potential goes this way</li>
+</ul></li>
+</ul></li>
+</ul>
+<figure>
+<img src="/images/AI/1852181.png" alt="" /><figcaption>A perceptron unit</figcaption>
+</figure>
+<ul>
+<li>x<sub>i</sub> are inputs, reals between 0 and 1 (standard net) or -1 and 1 (bipolar net)</li>
+<li>w<sub>i</sub> are weights, reals</li>
+<li>w<sub>n</sub> is usually set at the threshold with x<sub>n</sub> = 1(bias)</li>
+<li>y is the weighted sum of inputs including the threshold (activation level)</li>
+<li>o is the output</li>
+</ul>
+<p>The output is computed using a function that determines how far the perceptron’s activation level is below or above 0</p>
+<ul>
+<li>Note that this is a loose approximation to what happens in biology
+<ul>
+<li>Perceptrons transmit information via real-valued numbers as inputs arrive
+<ul>
+<li>real neurons fire all the time, changing their firing rate, from a few pulses per second to a few hundred pulses per second</li>
+<li>spiking neural networks simulate this directly—beyond scope of current module</li>
+</ul></li>
+</ul></li>
+<li>The weights in perceptrons are not fixed, and can change
+<ul>
+<li>learning in a neural network is achieved by adjusting weights</li>
+</ul></li>
+</ul>
+<h2 id="the-big-questions-for-neural-nets">The Big Questions for Neural Nets</h2>
+<ul>
+<li>How do we wire up a network of perceptrons?
+<ul>
+<li>i.e., what “architecture” do we use?</li>
+</ul></li>
+<li>How does the network represent knowledge?
+<ul>
+<li>i.e., what do the nodes and combinations of nodes mean?</li>
+</ul></li>
+<li>How do we set the weights?
+<ul>
+<li>i.e., how does learning take place?</li>
+</ul></li>
+</ul>
+<h2 id="simplest-architecture-a-perceptron">Simplest architecture: a perceptron</h2>
+<p><img src="/images/AI/1852182.png" /></p>
+<ul>
+<li>A basic perceptron computes o = f( X . W )
+<ul>
+<li>X . W = ∑<sub>i</sub> w<sub>i</sub> x<sub>i</sub> = w<sub>1</sub> . x<sub>1</sub> + w<sub>2</sub>. x<sub>2</sub> + ... + w<sub>n</sub> . 1</li>
+<li>g( x ) = 1 if x ≥ 0.5 and 0 otherwise
+<ul>
+<li>g is the activation or transfer function</li>
+<li>more complex, continuous functions (esp. sigmoid) can be used, but they all have the same basic purpose: to push the output values towards the extremes</li>
+<li>without this non-linearity, the network can only learn simple linear functions</li>
+<li>sigmoid function is differentiable, whereas sharp threshold is not</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="logical-function-and">Logical function AND</h2>
+<p><img src="/images/AI/1852183.png" /></p>
+<ul>
+<li>Perceptrons can simulate basic logic gates, such as AND</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">a+b-1</th>
+<th style="text-align: center;">output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logical-function-or">Logical function OR</h2>
+<p><img src="/images/AI/1852184.png" /></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">a+b+0</th>
+<th style="text-align: center;">output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="training-perceptrons">Training perceptrons</h2>
+<ul>
+<li>Pereceptrons can be trained to compute a specific function</li>
+<li>Basic training procedure
+<ul>
+<li>Start with a perceptron with any values for the weights (usually random)</li>
+<li>Apply the input, let the perceptron compute the answer</li>
+<li>If the answer is right
+<ul>
+<li>do nothing</li>
+</ul></li>
+<li>If the answer is wrong
+<ul>
+<li>modify the weights by adding or subtracting the input vector (perhaps scaled smaller)</li>
+</ul></li>
+<li>Iterate over all the input vectors, repeating as necessary, until the perceptron learns what we want, to within a predefined degree of error</li>
+</ul></li>
+<li>The intuition behind the basic training algorithm this is
+<ul>
+<li>If the unit should have gone on, but didn’t, increase the influence of the inputs that are on
+<ul>
+<li>adding the input (or a fraction thereof) to the weights will move in the right direction</li>
+</ul></li>
+<li>If the unit should have been off, but was on, decrease the influence of the units that were on
+<ul>
+<li>subtracting the input (of a fraction thereof) from the weights moves in the right direction</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="training-the-logical-or-function">Training the logical OR function</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">bias</th>
+<th style="text-align: center;">output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Initially the weights are all 0
+<ul>
+<li>the weight vector, W = (0 0 0)</li>
+</ul></li>
+<li>Now we cycle through the inputs and change the weights as necessary</li>
+</ul>
+<p><img src="/images/AI/1852185.png" /></p>
+<h2 id="training-the-logical-and-function">Training the logical AND function</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">a</th>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">bias</th>
+<th style="text-align: center;">output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Initially the weights are all 0
+<ul>
+<li>the weight vector, W = (0 0 0)</li>
+</ul></li>
+<li>Now we cycle through the inputs and change the weights as necessary</li>
+<li>Make your own table:
+<ul>
+<li><strong>Input Weights Result Action</strong></li>
+</ul></li>
+</ul>
+<p><img src="/images/AI/1852186.png" /></p>
+<p>And now, with α = 0.2</p>
+<p><img src="/images/AI/1852187.png" /></p>
+<h2 id="generalised-training-procedure">Generalised training procedure</h2>
+<ul>
+<li>Start with a perceptron with any values for the weights (0 or random)
+<ul>
+<li>Feed the input, let the perceptron compute the answer</li>
+<li>If the answer is right
+<ul>
+<li>do nothing</li>
+</ul></li>
+<li>If the answer is wrong
+<ul>
+<li>add this factor to each weight: Δ wi = α ( y – h ) inputi</li>
+</ul></li>
+</ul></li>
+<li>Iterate over all the input vectors, repeating as necessary, until (i.e., the weight vector converges, or |ΔW| ≤ a given constant)
+<ul>
+<li>each cycle through the input data is called an epoch</li>
+</ul></li>
+<li>Values:
+<ul>
+<li>α is the learning rate, 0 &lt; α ≤ 1; it prevents the values from jumping around wildly</li>
+<li>y is the desired output</li>
+<li>h is the actual output</li>
+</ul></li>
+</ul>
+<h2 id="single-layer-perceptron-networks">Single-layer perceptron networks</h2>
+<ul>
+<li>In a single layer perceptron network there are
+<ul>
+<li>input units</li>
+<li>output units</li>
+</ul></li>
+<li>There are as many perceptrons as output units
+<ul>
+<li>each input unit is connected to every output unit ‣ each connection has a weight</li>
+<li>each output has a soft thresholding function, e.g. sigmoid (more later)</li>
+</ul></li>
+<li>It is possible to learn multiple functions with one training sequence
+<ul>
+<li>outputs are now vectors (as inputs always were)</li>
+</ul></li>
+</ul>
+<h2 id="classifying-using-a-perceptron">Classifying using a perceptron</h2>
+<ul>
+<li>A (bipolar) perceptron can learn to classify data, into 2 categories
+<ul>
+<li>Convergence after ~500 iterations
+<ul>
+<li>W = (-1.13 -1.1 10.9)</li>
+<li>-1.3 * x<sub>1</sub> + -1.1*x<sub>2</sub> + 10.9 = 0</li>
+</ul></li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">x<sub>1</sub></th>
+<th style="text-align: center;">x<sub>2</sub></th>
+<th style="text-align: center;">output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9.4</td>
+<td style="text-align: center;">6.4</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8.0</td>
+<td style="text-align: center;">7.7</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">2.2</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7.9</td>
+<td style="text-align: center;">8.4</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7.0</td>
+<td style="text-align: center;">7.0</td>
+<td style="text-align: center;">-1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2.8</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">3.0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7.8</td>
+<td style="text-align: center;">6.1</td>
+<td style="text-align: center;">-1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="single-layer-perceptron-networks-1">Single-layer perceptron networks</h2>
+<ul>
+<li>We can generalise the weight updating algorithm for each perceptron in the net, given a differentiable activation function, g:
+<ul>
+<li>Δw<sub>i,j</sub> = α . x<sub>i</sub> . ( y<sub>j</sub> – h<sub>j</sub> ) . g′( Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub> )
+<ul>
+<li>α is the learning rate, which controls the amount of adjustment at each step</li>
+<li>y<sub>i</sub> , h<sub>i</sub> are the desired and actual node outputs, respectively</li>
+<li>( y<sub>j</sub> – h<sub>j</sub> ) is the error in the current node output, compared with the example</li>
+<li>g′ is the derivative of the activation function; for sigmoid, g′ = g( 1 – g )</li>
+<li>Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub> is the value before activation at the current node ๏ ( y<sub>j</sub> – h<sub>j</sub> ) . g′(Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub>) is called the Δ value (see Russell and Norvig)</li>
+</ul></li>
+<li>the g′ term adjusts the amount of error correction depending on the slope of the activation function</li>
+</ul></li>
+<li>A stopping criterion for training is based on the overall error, E
+<ul>
+<li>E = 0.5 . Σ<sub>i</sub> ( y<sub>j</sub> – h<sub>j</sub> )<sup>2</sup></li>
+<li>This can be forced to 0, or to some allowable level of approximation</li>
+</ul></li>
+</ul>
+<h2 id="the-bad-news-the-x-or-problem">The bad news: the X-OR problem</h2>
+<ul>
+<li>As we can see from the graph, the classifier is computing a straight line between two linearly separable sets of points, dividing the space in two
+<ul>
+<li>with more inputs, it would be a plane or hyper-plane</li>
+</ul></li>
+<li>If there is no straight line that partitions the set, a single perceptron cannot learn the classification
+<ul>
+<li>Exclusive OR is one such case</li>
+</ul></li>
+</ul>
+<p><img src="/images/AI/1852188.png" /></p>
+<h2 id="the-solution-multi-layered-nns">The solution: multi-layered NNs</h2>
+<ul>
+<li>The solution to this problem is to build neural networks from layers of perceptrons</li>
+<li>Confusing terminology
+<ul>
+<li>We have so far talked about the perceptron as though it were a single thing</li>
+<li>It is in fact two layers of values, one input and one output
+<ul>
+<li>with weighted connections connecting them</li>
+</ul></li>
+<li>When we talk about multiple layers, we use the number of layers of values to say how many there are</li>
+</ul></li>
+<li>It is mathematically proven that a network of three layers (of values) with a linear outputs layer is enough to approximate any function
+<ul>
+<li>there is, then, 1 hidden layer of perceptrons</li>
+<li>Cybenko’s theorem, 1989, for sigmoid activation; Hornik, 1991, generalised</li>
+</ul></li>
+</ul>
+<h2 id="a-tiny-multilayer-feed-forward-neural-network">A (tiny) multilayer feed-forward neural network</h2>
+<p><img src="/images/AI/1852189.png" /></p>
+<ul>
+<li>Now there are two sets of weights, one for each layer
+<ul>
+<li>How do we train the network? The simple perceptron algorithm won’t work here</li>
+</ul></li>
+</ul>
+<h2 id="network-training-in-general">Network training in general</h2>
+<p><img src="/images/AI/1852190.png" /></p>
+<ul>
+<li>In general, there could be as many input units, as many hidden units and as many output units as you like
+<ul>
+<li>each unit is connected to every unit in the next layer, and only to the next layer</li>
+<li>each connection has a weight</li>
+<li>each unit in the hidden layer has an output modifier function, usually sigmoid</li>
+</ul></li>
+<li>Too many units leads to long training times and overfitting to data (more on that later)</li>
+<li>Too few units leads to inability to learn</li>
+<li>There is no known procedure to compute the required number
+<ul>
+<li>so skill and judgement is required!</li>
+</ul></li>
+</ul>
+<h2 id="back-propagation-training">Back-propagation training</h2>
+<ul>
+<li>It turns out that we can reuse the training algorithm
+<ul>
+<li>apply it once per perceptron layer (so twice, in a net with 1 hidden layer)</li>
+<li>start at the output layer</li>
+</ul></li>
+<li>Because this is working in the opposite direction from the data flow
+<ul>
+<li>(in a feed-forward network)</li>
+<li>it is called back-propagation</li>
+</ul></li>
+<li>Key Idea
+<ul>
+<li>a hidden node j causes part of the error identified between the inputs and a given output node i, in proportion to its connection weight to i</li>
+<li>so we compute the hidden layer error values by dividing the output layer error values in proportion to the connections from the hidden layer to the output layer</li>
+</ul></li>
+</ul>
+<h2 id="back-propagation-algorithm">Back-propagation algorithm</h2>
+<ul>
+<li>Compute Δ values for output units, using observed error</li>
+<li>Starting with output layer, and working towards input layer
+<ul>
+<li>propagate Δ values back from layer L to layer L – 1
+<ul>
+<li>for each node j in layer ( L – 1 ): Δ<sub>j</sub> = g′( Σ<sub>k</sub>w<sub>j,k</sub>. Δ k )</li>
+</ul></li>
+<li>update weights between layer L – 1 and layer L</li>
+</ul></li>
+</ul>
+<p><img src="/images/AI/1852191.png" /></p>
+<h2 id="testing-the-trained-network">Testing the trained network</h2>
+<ul>
+<li>We can train a network to model a dataset in as much detail as we like</li>
+<li>However, we quite often want a network to generalise
+<ul>
+<li>ie, not just learn the values we told it (we know them already) but estimate the (assumed continuous) functions that gave rise to them</li>
+</ul></li>
+<li>If we train perfectly, we may over-fit, and miss that generality</li>
+<li>To overcome this problem, divide the data into training sets and test sets, and perform cross-validation
+<ul>
+<li>for example, reserve 10% of the data for testing, and use 90% for training
+<ul>
+<li>compare the predicted 10% of values with the originals</li>
+</ul></li>
+<li>better, use 10-fold cross-validation:
+<ul>
+<li>partition the data into 10 subsets</li>
+<li>cross-validation 90% vs. 10% on each combination of the 10 subsets</li>
+</ul></li>
+<li>can be the stopping criterion, but it is more expensive than local error</li>
+</ul></li>
+</ul>
+<h2 id="neurally-inspired-computing">Neurally inspired computing</h2>
+<ul>
+<li>Much neural network research makes biologically implausible assumptions about how neurons work
+<ul>
+<li>backpropagation is biologically implausible</li>
+<li>this is “neurally inspired computing” rather than “brain science”</li>
+</ul></li>
+<li>None of the neural network models distinguish humans from dogs from dolphins from flatworms
+<ul>
+<li>Whatever distinguishes “higher” cognitive capacities (language, reasoning) may not be apparent at this low level of analysis</li>
+</ul></li>
+<li>Relation between NN and “symbolic AI”?
+<ul>
+<li>Some claim NN models don’t have symbols and representations</li>
+<li>Others think of NNs as simply being an “implementation-level” theory</li>
+<li>NNs started out as a branch of statistical pattern classification</li>
+<li>Other more structured statistical methods are now tending to take over, but ANNs are still popular in many applications</li>
+</ul></li>
+</ul>
 
                 
             </div>
