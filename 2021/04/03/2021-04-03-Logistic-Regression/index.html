@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linear Regression with Multiple Variables, Chaoqun Yin">
+    <meta name="keywords" content="Logistic Regression, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linear Regression with Multiple Variables | Chaoqun Yin</title>
+    <title>Logistic Regression | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linear Regression with Multiple Variables</h1>
+                    <h1 class="description center-align post-title">Logistic Regression</h1>
                 </div>
             </div>
         </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Exercises/" class="post-category">
-                                Exercises
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
                             </a>
                         
                     </div>
@@ -456,28 +456,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-04-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    533
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    7 Min
                 </div>
                 
 
@@ -497,70 +497,208 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="linear-regression-with-multiple-variables">Linear Regression with Multiple Variables</h1>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=18">Video</a></p>
-<p>1. Suppose <em>m</em>=4 students have taken some class, and the class had a midterm exam and a final exam. You have collected a dataset of their scores on the two exams, which is as follows:</p>
+                <h1 id="logistic-regression">Logistic Regression</h1>
+<p>虽然逻辑回归名字里有一个回归，但它不是回归算法。而是一种非常强大，甚至可能世界上使用最广泛的一种分类算法。</p>
+<p><strong>特征缩放</strong>也适用于逻辑回归。</p>
+<h2 id="分类问题-classification"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=32">6.1 分类问题 Classification</a></h2>
+<p>二值分类问题 <strong>binary classification</strong> <strong>problem</strong> 定义如下：　</p>
+<ul>
+<li>Classification: y = 0 or 1
+<ul>
+<li>h<sub>θ</sub>(x) can be &gt;1 or &lt;0</li>
+</ul></li>
+<li>Logistic regression: 0 ≤ h<sub>θ</sub>(x) ≤ 1　　　</li>
+</ul>
+<h2 id="假设表示-hypothesis-representation"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=33">6.2 假设表示 Hypothesis Representation</a></h2>
+<p>引入一个新的模型：逻辑回归。该输出变量范围始终在 0和1 之间。 逻辑回归模型的假设是： <span class="math display">\[
+h_θ(x)=g(θ^Tx)\\
+z = θ^Tx\\
+g(z) = \frac{1}{1+e^{-z}}
+\]</span></p>
+<ul>
+<li>𝑋 代表特征向量；</li>
+<li>𝑔 代表逻辑函数Logistic Function 也叫 Sigmoid Function，其曲线如下：</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030180622887-1667439365.png" /></p>
+<p>给定输入变量x，根据选择的参数θ，h<sub>θ</sub>(x)给出 y=1 的概率。y=0 的概率是 1 - h<sub>θ</sub>(x) <span class="math display">\[
+h_θ(x) = P(y=1|x;θ)=1-P(y=0|x;θ)\\
+P(y=0|x;θ)+P(y=1|x;θ)=1
+\]</span></p>
+<h2 id="决策边界-decision-boundary"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=34">6.3 决策边界 Decision Boundary</a></h2>
+<p>　决策边界就是模型中预测为1 和预测为0的区域的分界线。The <strong>decision boundary</strong> is the line that separates the area where y = 0 and where y = 1. It is created by our hypothesis function.</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181732431-148102198.png" /></p>
+<p>线性的决策边界：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181159738-1007505285.png" /></p>
+<p>　非线性的决策边界：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181445928-559214339.png" /></p>
+<h2 id="代价函数-cost-function"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=35">6.4 代价函数 Cost Function</a></h2>
+<p>　如果沿用线性回归里的代价函数，则会导致J(𝜃) 不是凸函数，引发很多局部最优解。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030182648795-2090040752.png" /></p>
+<p>为了拟合逻辑回归模型的参数 𝜃，代价函数如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181914858-1153042006.png" /></p>
+<p>　　 根据上面的公式计算代价，当预测和实际一致时代价为0，反之代价为无穷大。</p>
+<p>y = 1时，h<sub>θ</sub>(x) 和 J(𝜃)对应曲线如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181937921-1956212769.png" /></p>
+<p>y = 0时， h<sub>θ</sub>(x) 和 J(𝜃) 对应曲线如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030182120690-232373933.png" /></p>
+<p>即有以下规律：</p>
+<ul>
+<li>Cost(h<sub>θ</sub>(x),y) = 0 　if h<sub>θ</sub>(x)=y</li>
+<li>Cost(h<sub>θ</sub>(x),y)→∞ 　if y=0 and h<sub>θ</sub>(x)→1</li>
+<li>Cost(h<sub>θ</sub>(x),y)→∞ 　if y=1 and h<sub>θ</sub>(x)→0</li>
+</ul>
+<h2 id="简化的代价函数和梯度下降"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=36">6.5 简化的代价函数和梯度下降</a></h2>
+<p>　将上面两个式子 简化为下面一个式子（当 y 分别等于0或1时，式子只剩下两项中的一项）： <span class="math display">\[
+Cost(h_θ(x),y)=-y \log(h_θ(x))-(1-y)\log(1-h_θ(x))
+\]</span> 　完整的代价函数如下： <span class="math display">\[
+J(θ)=-\frac{1}{m}\sum^m_{i=1}[y^{(i)}\log(h_θ(x^{(i)}))+(1-y^{(i)})\log(1-h_θ(x^{(i)}))]
+\]</span> 　　一个向量实现如下： <span class="math display">\[
+h = g(X\theta)\\
+J(θ)=\frac{1}{m}·(-y^T\log(h)-(1-y)^T\log(1-h))
+\]</span> 　梯度下降过程如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030194624144-283643655.png" /></p>
+<p>　使用数学方法推倒上式中 J(θ) 的导数：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181031161343127-142291410.png" /></p>
+<p>　　带入更新算法中，得到下面算法：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030194713059-1918213720.png" /></p>
+<p>　上面这个梯度下降算法 看起来和线性回归一样，但事实上是完全不同的。因为之前 h<sub>θ</sub>(x) 是线性函数，而逻辑回归中 h<sub>θ</sub>(x) ) 定义如下： <span class="math display">\[
+h_θ(x)= \frac{1}{1+e^{-θ^TX}}
+\]</span> 　　一个梯度下降的向量化实现如下</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030185310115-1452483191.png" /></p>
+<h2 id="高级优化-advanced-optimization"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=37">6.6 高级优化 Advanced Optimization</a></h2>
+<p>　　除梯度下降算法以外，还有一些常被用来令代价函数最小的算法。这些算法更加复杂和优越，而且通常不需要人工选择学习率，比梯度下降算法要更加快速。这些有： <strong>共轭梯度</strong> （Conjugate Gradient）， <strong>局部优化法</strong> （Broyden fletcher goldfarb shann,BFGS）和<strong>有限内存局部优化法</strong> （LBFGS）。</p>
+<p>　　这些算法有一个智能的内部循环，称为线性搜索(line search)算法，它可以自动尝试不同的学习速率 。只需要给这些算法提供计算导数项和代价函数的方法，就可以返回结果。适用于大型机器学习问题。</p>
+<p>　　它们太复杂，不应该自己实现，而是调用MATLAB方法。例如一个无约束最小值函数 fminunc 。它会使用众多高级优化算法中的一个，就像加强版的梯度下降法，自动选择学习速率，找到最佳的 θ值。</p>
+<p>　　使用时需要提供代价函数和每个参数的求导，我们自己实现 costFunction 函数，传入参数θ，可以一次性返回以下两个值：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030191124502-813621012.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　　例子，调用 fminunc() 函数，用@传入costFunction函数的指针，初始化的 theta，还可以增加 options（GradObj = on 指 “打开梯度目标参数”，即我们会给这个函数提供梯度参数）：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030192343384-1482166314.png" /></p>
+<h2 id="多类别分类一对多-multiclass-classification_-one-vs-all"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=38">6.7 多类别分类：一对多 Multiclass Classification_ One-vs-all</a></h2>
+<p>　　多分类问题中，y 有 {0,1...n} 一共 n+1 中可能值。方法：</p>
+<ol type="1">
+<li>拆分成 n+1 个二分类问题。</li>
+<li>对每个分类，都预测出一个h<sub>θ</sub>(x)值。代表 y是这个类型的可能性。</li>
+<li>最后结果为可能性最大的那个类型。</li>
+</ol>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030200323586-251217413.png" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030195537821-153872890.png" /></p>
+<h2 id="相关术语">相关术语</h2>
+<p>decision boundary 决策边界 loophole　漏洞 nonlinear 非线性 penalize 使不利</p>
+<h1 id="exercise">Exercise</h1>
+<p>1. Suppose that you have trained a logistic regression classifier, and it outputs on a new example x<em>x</em> a prediction h<sub>θ</sub>(x) = 0.7. This means (check all that apply):</p>
+<ul>
+<li>Our estimate for P(y=0|x; θ) is 0.3.<br />
+</li>
+<li><del>Our estimate for P(y=1|x; θ) is 0.3.</del><br />
+</li>
+<li>Our estimate for P(y=1|x; θ) is 0.7.<br />
+</li>
+<li><del>Our estimate for P(y=0|x; θ) is 0.7.</del></li>
+</ul>
+<p>2. Suppose you have the following training set, and fit a logistic regression classifier. <span class="math display">\[
+h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)
+\]</span></p>
 <table>
 <thead>
 <tr class="header">
-<th>midterm exam</th>
-<th>(midterm exam)<sup>2</sup></th>
-<th>final exam</th>
+<th style="text-align: center;">x<sub>1</sub></th>
+<th style="text-align: center;">x<sub>2</sub></th>
+<th>y</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>89</td>
-<td>7921</td>
-<td>96</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.5</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<td>72</td>
-<td>5184</td>
-<td>74</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.5</td>
+<td>0</td>
 </tr>
 <tr class="odd">
-<td>94</td>
-<td>8836</td>
-<td>87</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td>69</td>
-<td>4761</td>
-<td>78</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
-<p>You'd like to use polynomial regression to predict a student's final exam score from their midterm exam score. Concretely, suppose you want to fit a model of the form h<sub>θ</sub>(x)=θ<sub>0</sub>+θ<sub>1</sub>x<sub>1</sub>+θ<sub>2</sub>x<sub>2</sub>, where x<sub>1</sub> is the midterm score and x<sub>2</sub> is (midterm score)<sup>2</sup>. Further, you plan to use both feature scaling (dividing by the "max-min", or range, of a feature) and mean normalization.</p>
-<p>What is the normalized feature x<sub>1</sub><sup>(1)</sup>? (Hint: midterm = 89, final = 96 is training example 1.) Please round off your answer to two decimal places and enter in the text box below.</p>
-<p>0.32</p>
-<p>2. You run gradient descent for 15 iterations with α=0.3 and compute J(θ) after each iteration. You find that the value of J(θ) <strong>increases</strong> over time. Based on this, which of the following conclusions seems most plausible?</p>
+<p><img src="/images/AI/215641.png" /></p>
+<p>Which of the following are true? Check all that apply.</p>
 <ul>
-<li><del>Rather than use the current value of α, it'd be more promising to try a larger value of α (say α=1.0).</del></li>
-<li><del>α=0.3 is an effective choice of learning rate.</del></li>
-<li><strong>Rather than use the current value of α, it'd be more promising to try a smaller value of α (say α=0.1).</strong></li>
+<li><strong>Adding polynomial features could increase how well we can fit the training data.</strong><br />
+</li>
+<li><strong>At the optimal value of θ (e.g., found by fminunc), we will have J(θ)≥0.</strong><br />
+</li>
+<li><del>Adding polynomial features would increase J(θ) because we are now summing over more terms.</del><br />
+</li>
+<li><del>If we train gradient descent for enough iterations, for some examples x<sup>(i)</sup> in the training set it is possible to obtain h<sub>θ</sub>(x<sup>(i)</sup>)&gt;1.</del></li>
 </ul>
-<p>3. Suppose you have m = 14 training examples with n = 3 features (excluding the additional all-ones feature for the intercept term, which you should add). The normal equation is θ = (X<sup>T</sup>X)<sup>−1</sup>X<sup>T</sup>y. For the given values of m and n, what are the dimensions of θ, X, and y in this equation?</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Answer</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>J(θ) will be a convex function, so gradient descent should converge to the global minimum.</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>Adding polynomial features could increase how well we can fit the training data</td>
+<td>Adding new features can only improve the fit on the training set: since setting θ<sub>3</sub>= θ<sub>4</sub> = θ<sub>5</sub> = 0 makes the hypothesis the same as the original one, gradient descent will use those features (by making the corresponding non-zero) only if doing so improves the training set fit</td>
+</tr>
+</tbody>
+</table>
+<p>3. For logistic regression, the gradient is given by: <span class="math display">\[
+\frac{\partial}{\partial \theta_j} J(\theta) = \frac{1}{m}\sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)})         x_j^{(i)}}
+\]</span> Which of these is a correct gradient descent update for logistic regression with a learning rate of α? Check all that apply.</p>
+<p><img src="https://github.com/mGalarnyk/datasciencecoursera/raw/master/Stanford_Machine_Learning/Week1/data/logisticq3.PNG" /></p>
+<p>4. Which of the following statements are true? Check all that apply.</p>
 <ul>
-<li><del>X is 14×3, y is 14×1, θ is 3×1</del></li>
-<li><del>X is 14×3, y is 14×1, θ is 3×3</del></li>
-<li><del>X is 14×4, y is 14×4, θ is 4×4</del></li>
-<li><strong>X is 14×4, y is 14×1, θ is 4×1</strong></li>
+<li>Linear regression always works well for classification if you classify by using a threshold on the prediction made by linear regression.</li>
+<li>The sigmoid function is never greater than one ( &gt;1 ).<br />
+</li>
+<li>For logistic regression, sometimes gradient descent will converge to a local minimum (and fail to find the global minimum). This is the reason we prefer more advanced optimization algorithms such as fminunc (conjugate gradient/BFGS/L-BFGS/etc).<br />
+</li>
+<li>The cost function J(θ) for logistic regression trained with m ≥ 1 examples is always greater than or equal to zero.</li>
 </ul>
-<p>4. Suppose you have a dataset with m = 50 examples and n = 200000 features for each example. You want to use multivariate linear regression to fit the parameters θ to our data. Should you prefer gradient descent or the normal equation?</p>
-<ul>
-<li><del>The normal equation, since gradient descent might be unable to find the optimal θ.</del></li>
-<li><del>The normal equation, since it provides an efficient way to directly find the solution.</del></li>
-<li><strong>Gradient descent, since (X<sup>T</sup>X)<sup>−1</sup> will be very slow to compute in the normal equation.</strong></li>
-<li><del>Gradient descent, since it will always converge to the optimal θ.</del></li>
-</ul>
-<p>5. Which of the following are reasons for using feature scaling?</p>
-<ul>
-<li><del>It speeds up gradient descent by making each iteration of gradient descent less expensive to compute.</del></li>
-<li><strong>It speeds up gradient descent by making it require fewer iterations to get to a good solution.</strong></li>
-<li><del>It is necessary to prevent the normal equation from getting stuck in local optima.</del></li>
-<li><del>It prevents the matrix X<sup>T</sup>X (used in the normal equation) from being non-invertable (singular/degenerate).</del></li>
-</ul>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Answer</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The cost function J(θ) for logistic regression trained with examples is always greater than or equal to zero.</td>
+<td>The cost for any example x<sub>(i)</sub> is always ≥ 0 since it is the negative log of a quantity less than one. The cost function J(θ) is a summation over the cost for each eample, so the cost function itself must be greater than or equal to zero.</td>
+</tr>
+<tr class="even">
+<td>The sigmoid function is never greater than one</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
 
                 
             </div>
@@ -587,7 +725,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/03/19/2021-03-19-Linear-Regression-with-Multiple-Variables/">https://yintelligence.tech/2021/03/19/2021-03-19-Linear-Regression-with-Multiple-Variables/</a>
+                    <a href="https://yintelligence.tech/2021/04/03/2021-04-03-Logistic-Regression/">https://yintelligence.tech/2021/04/03/2021-04-03-Logistic-Regression/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -670,29 +808,80 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/20/2021-03-19-Vectors,-Sorting/">
+                <a href="/2021/04/03/2021-04-03-Logistic-Regression/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Vectors, Sorting">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Logistic Regression">
                         
-                        <span class="card-title">Vectors, Sorting</span>
+                        <span class="card-title">Logistic Regression</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Vectors, Sorting
+                            逻辑回归
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/03/2021-04-03-Octave-Tutorial/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Octave Tutorial">
+                        
+                        <span class="card-title">Octave Tutorial</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Octave教程
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -708,57 +897,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/R-Basics/">
-                        <span class="chip bg-color">R Basics</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/19/2021-03-19-Discussion-5/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Discussion 5">
-                        
-                        <span class="card-title">Discussion 5</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Data Abstraction, Trees, and Mutability
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Discussions/" class="post-category">
-                                    Discussions
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
-                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>
@@ -926,6 +1066,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

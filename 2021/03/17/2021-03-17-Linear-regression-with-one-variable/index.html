@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Exercises/" class="post-category">
-                                Exercises
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
                             </a>
                         
                     </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    529
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    12 Min
                 </div>
                 
 
@@ -498,8 +498,179 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="linear-regression-with-one-variable">Linear Regression with One Variable</h1>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/maxiaodoubao/p/9857874.html">Background</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=5">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/maxiaodoubao/p/9857874.html">搬运</a></p>
+<h2 id="模型表示-model-representation"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=5">2.1 模型表示 Model Representation</a></h2>
+<p>　　本节引入第一个监督学习算法：<strong>线性回归 Linear regression</strong>。其中只有一个参数的线性回归算法叫做 <strong>单变量线性回归 Linear regression with one variable。</strong></p>
+<h3 id="线性回归-linear-regression">2.1.1 线性回归 Linear regression</h3>
+<p>还是房价预测的例子， 训练集如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Size in feet<sup>2</sup> (x)</th>
+<th style="text-align: center;">Price ($) in 1000's (y)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2104</td>
+<td style="text-align: center;">460</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1416</td>
+<td style="text-align: center;">232</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1534</td>
+<td style="text-align: center;">315</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">852</td>
+<td style="text-align: center;">178</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+</tr>
+</tbody>
+</table>
+<p>定义各个变量的含义如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th>m</th>
+<th>代表训练集中实例的数量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td>代表特征/输入变量</td>
+</tr>
+<tr class="even">
+<td>y</td>
+<td>代表目标变量/输出变量</td>
+</tr>
+<tr class="odd">
+<td>(x,y)</td>
+<td>代表训练集中的实例</td>
+</tr>
+<tr class="even">
+<td>(x(i), y(i))</td>
+<td>代表第 i 个观察实例：其中x(i) 代表第i个输入变量, y(i)代表第i个目标变量</td>
+</tr>
+<tr class="odd">
+<td>h</td>
+<td>代表学习算法的解决方案或函数，也称为假设（hypothesis）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="单变量线性回归-linear-regression-with-one-variable">2.1.2 单变量线性回归 Linear regression with one variable</h3>
+<p>h 根据输入的 x 值来得出 y 值， y 值对应房子的价。因此， h 是一个从x 到 y 的函数映射。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181026195816561-1002060993.png" /></p>
+<p>h 的一种可能的表达方式如下。因为只含有一个特征/输入变量，这样的问题叫作<strong>单变量线性回归问题。</strong> <span class="math display">\[
+h_θ(x) = θ_0 + θ_1x
+\]</span></p>
+<h2 id="代价函数-cost-function"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=6">2.2 代价函数 Cost Function</a></h2>
+<p>　　线性回归算法优化的目标是：选取最有可能与数据相拟合的直线。数据与直线的误差，称为<strong>建模误差 modeling error</strong>。为了使建模误差最小，我们需要调整参数θ<sub>0</sub> 和 θ<sub>1</sub>，使得<strong>代价函数Cost function</strong> J(θ<sub>0</sub>, θ<sub>1</sub>)的值最小。</p>
+<p>　　在各种代价函数中，最常用的是<strong>平方误差代价函数 Squared error cost function</strong>。</p>
+<h3 id="如何选择模型的参数-θ">2.2.1 如何选择模型的参数 θ</h3>
+<p>因为 h 是一次方程，它对应两个模型参数(parameters) θ<sub>0</sub> 和 θ<sub>1</sub>：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181026201738408-439997352.png" /></p>
+<p>选取不同的参数 θ<sub>0</sub> 和 θ<sub>1</sub>，产生的 h 不同，最终的直线也不同：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181026201900780-774795260.png" /></p>
+<h3 id="建模误差-modeling-error">2.2.2 建模误差 modeling error</h3>
+<p>参数决定了直线相对于训练集的准确程度，模型所预测值 与 训练集实际值 之间的差距（下图中蓝线所指）就是 <strong>建模误差（modeling error）</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181026203145682-370589575.png" /></p>
+<p>调整参数 θ<sub>0</sub> 和 θ<sub>1</sub>，目标：<strong>使建模误差的平方和最小</strong></p>
+<h3 id="平方误差代价函数-squared-error-cost-function">2.2.3 平方误差代价函数 <strong>Squared error cost function</strong></h3>
+<p>为了使建模误差最小，需要<strong>使代价函数 J(θ<sub>0</sub>, θ<sub>1</sub>) 最小</strong>，公式如下。 <span class="math display">\[
+J(θ_0, θ_1) = \frac{1}{2m}\sum^{m}_{i =1}(h_θ(x^{(i)})-y^{(i)})^2
+\]</span> 其中 h(x) - y 是预测值和实际值的差，取其平方和。m 指的是数据集的大小，乘以1/2m 是为了便于计算。这个J(θ<sub>0</sub>, θ<sub>1</sub>) 通常称为 <strong>平方误差函数(Squared error function)</strong>，有时也被称为 <strong>平方误差代价函数(Squared error cost function)</strong>。</p>
+<p>下面公式的意思是：寻找θ<sub>0</sub> 和 θ<sub>1</sub>，使得 J 值最小。</p>
+<p>​ <img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181026204810307-632881217.png" />　　</p>
+<p>我们绘制一个等高线图， 三个坐标分别为 θ<sub>0</sub> 和 θ<sub>1</sub> 和 J(θ<sub>0</sub>, θ<sub>1</sub>)，则可以看出在三维空间中存在一个点，使得 J(θ<sub>0</sub>, θ<sub>1</sub>)最小：</p>
+<p>　　　　　<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181026203207230-1804515486.png" /></p>
+<h2 id="代价函数的直观理解-i"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=7">2.3 代价函数的直观理解 I</a></h2>
+<p>线性回归模型的假设、参数、代价函数、目标如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027063313281-1908212408.png" /></p>
+<p>取将θ<sub>0</sub>固定为0时，代价函数简化为只关于θ<sub>1</sub>的函数：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027063556775-1380986435.png" /></p>
+<p>下面的例子里，三个数据点的坐标是（1,1）（2,2）（3,3）。当将θ<sub>0</sub>固定为0，只变化θ<sub>1</sub>时， 代价函数是一条二次曲线。</p>
+<ul>
+<li>当θ<sub>1</sub>分别取值1，0.5，0的时候，对应左边从上到下三条曲线。</li>
+<li>当 θ<sub>1</sub>取1时，J(θ<sub>1</sub>) = 0 , 此时 J(θ<sub>1</sub>) 最小，处于曲线最低点，是我们想要的结果。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027063243260-431488824.png" /></p>
+<h2 id="代价函数的直观理解-ii"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=8">2.4 代价函数的直观理解 II</a></h2>
+<p>当θ<sub>0</sub>和θ<sub>1</sub>都发生变化时，代价函数 J(θ<sub>0</sub> , θ<sub>1</sub>)在三维空间中图形如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027065558275-1393263845.png" /></p>
+<p>因为三维图像看起来太复杂， 将它投射到二维平面。引入<strong>等高线contour plot</strong> 的概念，也叫contour figure。等高线上的点，对应的代价函数 J(θ<sub>0</sub> , θ<sub>1</sub>)取值相同。</p>
+<p>　 下面两个图，右边红点对应的直线如左图，可以看出拟合的都不好。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027065713598-2141464287.png" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027065723938-1342446833.png" /></p>
+<p>下图取值位于三维图形的最低点，在二维图形上位于等高线的中心。对应的假设函数 h(x) 直线如左图。虽然拟合数据有一些误差（蓝色竖线），但是已经很接近最小值了。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027065851220-2060487712.png" /></p>
+<h2 id="梯度下降-gradient-descent"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=10">2.5 梯度下降 Gradient descent</a></h2>
+<h3 id="局部最优解-local-optimum">2.5.1 <strong>局部最优解 local optimum</strong></h3>
+<p>　已有一个代价函数，我们的目的是使其最小化。通常情况下，始于θ<sub>0</sub>=0 , θ<sub>1</sub>=0，调整θ<sub>0</sub> , θ<sub>1</sub>，止于J(θ<sub>0</sub> , θ<sub>1</sub>)的最小值。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027071304618-1818359534.png" /></p>
+<p>　　下面这个例子，θ<sub>0</sub>和θ<sub>1</sub>没有开始于0,0。当选取两个不同的起始点，并向着不同方向进行梯度下降时，到达两个不同的最优解，它们称为<strong>局部最优解local optimum。</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027071323203-1601274622.png" alt="img" /><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027071336608-264372199.png" alt="img" /></p>
+<h3 id="梯度下降算法-gradient-descent-algorithm">2.5.2 梯度下降算法 Gradient descent algorithm</h3>
+<p>　　梯度下降算法对θ赋值， 使得 J(θ)按梯度下降最快方向进行， 一直迭代下去， 最终得到局部最小值，即<strong>收敛 convergence</strong>。梯度下降算法不只用于线性回归， 可以<strong>用来最小化任何代价函数</strong> J。公式如下， <span class="math display">\[
+θ_j: = θ_j-\alpha\frac{\partial}{\partial j}J(θ)
+\]</span> 　　梯度下降算法中，两个参数 <strong>同步更新 simultaneous update</strong>（左下）。如果是<strong>非同步更新 non-simultaneous update</strong> （右下），则不是梯度下降。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027072252715-1828550575.png" /></p>
+<ul>
+<li>a := b 是赋值操作 assignment ，将 b 的值赋值给 a。</li>
+<li>a = b 是真值断言Truth assertion，判断 a 和 b 是否相等。</li>
+</ul>
+<p>α是 <strong>学习速率 learning rate</strong>，决定了沿着能让代价函数下降程度最大的方向向下迈出的步子有多大。</p>
+<h2 id="梯度下降的直观理解"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=10">2.6 梯度下降的直观理解</a></h2>
+<h3 id="梯度下降法的更新规则">2.6.1 梯度下降法的更新规则</h3>
+<p>梯度下降算法如下： <span class="math display">\[
+θ_j: = θ_j-\alpha\frac{\partial}{\partial j}J(θ)
+\]</span> 求导的目的，基本上可以说取这个红点的切线，即这条红色直线。由于曲线右侧斜率为正，导数为正。 因此，θ<sub>1</sub>减去一个正数乘以 α，值变小。</p>
+<p>曲线左侧斜率为负，导数为负。 因此，θ<sub>1</sub>减去一个负数乘以 α，值变大。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027083213639-1673313552.png" /></p>
+<h3 id="学习速率-α-的选择">2.6.2 学习速率 α 的选择</h3>
+<p>如果 α 太小，只能小碎步下降，需要很多步才能到达全局最低点，很慢。</p>
+<p>如果 α 太大，那么算法可能会越过最低点。一次次越过最低点，离它越来越远。会导致无法收敛， 甚至发散。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027081242900-226950777.png" /></p>
+<h2 id="不调整学习速率-α-也能收敛">2.6.3 不调整学习速率 α 也能收敛</h2>
+<p>假设将 θ<sub>1</sub>初始化在局部最低点。导数为0，会使得 θ<sub>1</sub>不再改变，不会改变参数的值。也解释了为什么即使学习速率 α 保持不变时， 梯度下降也可以收敛到局部最低点。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027081329962-730516039.png" /></p>
+<p>为什么不用调整α也能到达局部最优点？</p>
+<p>因为梯度下降一步后， 新的导数会变小，移动的幅度会自动变小。直到最终移动幅度非常小时，已经收敛到局部极小值。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027083133938-2023161257.png" /></p>
+<h2 id="梯度下降的线性回归-gradient-descent-for-linear-regression">2.7 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=11">梯度下降的线性回归 Gradient Descent For Linear Regression</a></h2>
+<h3 id="梯度下降和线性回归相结合">2.7.1 梯度下降和线性回归相结合　　</h3>
+<p>　　将平方误差函数 h(x)， 结合梯度下降法， 以及平方代价函数J(θ)，得出第一个机器学习算法， 即线性回归Linear Regression。</p>
+<p>梯度下降算法和线性回归模型的比较：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027093405894-1161715859.png" /></p>
+<p>对之前的线性回归问题运用梯度下降法，关键在于求出代价函数的导数，即： <span class="math display">\[
+\frac{\partial}{\partialθ_j}J(θ_0θ_1)=\frac{\partial}{\partialθ_j}\frac{1}{2m}\sum^{m}_{i=1}(h_θ(x^{(i)})-y^{(i)})^2
+\]</span> j 分别取 0 和 1 时，其导数如下：</p>
+<p>　　<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027093625553-1244537261.png" /></p>
+<p>　　将上面两个导数带入梯度下降算法中，替代原来的 <img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027094109573-1566862582.png" />。梯度下降算法变为：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027093800746-470905768.png" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028150017186-1301021887.png" /></p>
+<p>虽然梯度下降一般<strong>易受局部最小值影响 susceptible to local minima</strong>，但我们在线性回归中提出的优化问题只有一个全局最优解，而没有其他局部最优解，代价函数是凸二次函数。因此，梯度下降总是收敛到全局最小值（假设学习率α不是太大）。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028150451309-1653366228.png" /></p>
+<h3 id="批处理梯度下降-batch-gradient-descent">2.7.2 批处理梯度下降 batch gradient descent</h3>
+<p>　　上面使用的算法也叫<strong>批处理梯度下降 batch gradient descent</strong>，指的是梯度下降的每一步都涉及到所有的训练实例。也有其他类型的非批处理梯度下降法，每次只关注训练集中一些小子集。</p>
+<p>　　高等线性代数中有一种计算代价函数 J 最小值的数值解法，不需要梯度下降这种迭代算法，也能解出代价函数 J 的最小值，这是另一种称为<strong>正规方程(normal equations)</strong>的方法。实际上在数据量较大的情况下，梯度下降法比正规方程要更适用一些。</p>
+<h2 id="接下来的内容">2.8 接下来的内容</h2>
+<p>介绍了一点线性代数 Linear algebra</p>
+<h2 id="相关术语">相关术语</h2>
+<p>线性回归 Linear regression 单变量线性回归 Linear regression with one variable</p>
+<p>代价函数 Cost Function 平方误差代价函数 Squared error cost function 建模误差 Modeling error 等高线　　contour plot 、contour figure 梯度下降 Gradient descent 批处理梯度下降 Batch gradient descent</p>
+<p>学习效率 　Learning rate 同步更新 simultaneous update 非同步更新 non-simultaneous update</p>
+<p>局部最优 local optimum 全局最优 global optimum 全局最小值 global minimum 局部最小值 local minimum</p>
+<p>微分项 derivative term 微积分 calculus 导数　　　 derivatives 偏导数 partial derivatives 负导数 nagative derivative 负斜率 nagative slope</p>
+<p>收敛 converge 发散 diverge 陡峭 steep 碗型 bow-shaped function 凸函数 convex function</p>
+<p>线性代数 linear algebra 迭代算法 iterative algorithm 正规方程组 normal equations methods 梯度下降的泛化 a generalization of the gradient descent algorithm 越过最低点 overshoot the minimum</p>
+<h1 id="exercises">Exercises</h1>
 <p>1. Consider the problem of predicting how well a student does in her second year of college/university, given how well she did in her first year.</p>
 <p>Specifically, let x be equal to the number of "A" grades (including A-. A and A+ grades) that a student receives in their first year of college (freshmen year). We would like to predict the value of y, which we define as the number of "A" grades they get in their second year (sophomore year).</p>
 <p>Refer to the following training set of a small sample of different students' performances (note that this training set may also be referenced in other questions in this quiz). Here each row is one training example. Recall that in linear regression, our hypothesis is h<sub>θ</sub>(x)=θ<sub>0</sub>+θ<sub>1</sub>x, and we use <em>m</em> to denote the number of training examples.</p>
@@ -913,6 +1084,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

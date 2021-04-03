@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Introduction to Asymptotic Analysis, Chaoqun Yin">
+    <meta name="keywords" content="Linear Regression with Multiple Variables, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Introduction to Asymptotic Analysis | Chaoqun Yin</title>
+    <title>Linear Regression with Multiple Variables | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Introduction to Asymptotic Analysis</h1>
+                    <h1 class="description center-align post-title">Linear Regression with Multiple Variables</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Structures/">
-                                <span class="chip bg-color">Data Structures</span>
+                            <a href="/tags/Machine-Learning/">
+                                <span class="chip bg-color">Machine Learning</span>
                             </a>
                         
                     </div>
@@ -456,28 +456,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.8k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    17 Min
+                    10 Min
                 </div>
                 
 
@@ -497,586 +497,207 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="introduction-to-asymptotic-analysis">Introduction to Asymptotic Analysis</h1>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593">Video</a></p>
-<p>An engineer will do for a dime what any fool will do for a dollar.</p>
-<p>Efficiency comes in two flavours:</p>
+                <h1 id="linear-regression-with-multiple-variables">Linear Regression with Multiple Variables</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/maxiaodoubao/p/9863215.html">搬运</a></p>
+<h2 id="多维特征-multiple-features"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=18">4.1 多维特征 Multiple Features</a></h2>
+<p><strong>Multivariate linear regression 多维线性回归</strong></p>
+<p>之前讨论单变量回归模型。现在讨论多变量模型，模型中的特征（x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>）。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027193128384-982571627.png" /></p>
+<p>引入新的注释：</p>
 <ul>
-<li>Programming cost (course to date. Will also revisit later).
-<ul>
-<li>How long does it take to develop your programs?</li>
-<li>How easy is it to read, modify, and maintain your code?
-<ul>
-<li>More important than you might think!</li>
-<li>Majority of cost is in maintenance, not development!</li>
-</ul></li>
-</ul></li>
-<li>Execution cost (from today until end of course).
-<ul>
-<li>How much time does your program take to execute?</li>
-<li>How much memory does your program require?</li>
-</ul></li>
+<li><p>x<sup>(i)</sup><sub>j</sub> = value of feature j in the i-th training example</p>
+<p>特征矩阵中第 i 行的第 j 个特征，也就是第 i 个训练实例的第 j 个特征</p></li>
+<li><p>x<sup>(i)</sup> = the input (features) of the i-th training example</p>
+<p>第 i 个训练实例，是特征矩阵中的第 i 行，是一个向量（vector）。</p></li>
+<li><p>m = the number of training examples</p>
+<p>训练实例的个数</p></li>
+<li><p>n = the number of features</p>
+<p>特征的数量</p></li>
 </ul>
-<p><strong>Example of Algorithm Cost</strong></p>
-<p>Objective: Determine if a sorted array contains any duplicates.</p>
-<ul>
-<li>Given sorted array A, are there indices i and j where A[i] = A[j]?</li>
-</ul>
-<p><img src="/images/CS61B/10203040.png" /></p>
-<p>Silly algorithm: Consider every possible pair, returning true if any match.</p>
-<ul>
-<li>Are (-3, -1) the same? Are (-3, 2) the same? ...</li>
-</ul>
-<p>Better algorithm?</p>
-<ul>
-<li>For each number A[i], look at A[i+1], and return true the first time you see a match. If you run out of items, return false.</li>
-</ul>
-<p><strong>Today’s goal: Introduce formal technique for comparing algorithmic efficiency.</strong></p>
-<h2 id="intuitive-runtime-characterizations"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mRn8Z46psX8&amp;list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593&amp;index=2">Intuitive Runtime Characterizations</a></h2>
-<h3 id="how-do-i-runtime-characterization">How Do I Runtime Characterization?</h3>
-<p>Our goal is to somehow <u><strong>characterize the runtimes</strong></u> of the functions below.</p>
-<ul>
-<li>Characterization should be <strong>simple</strong> and <strong>mathematically rigorous</strong>.</li>
-<li>Characterization should <strong>demonstrate superiority</strong> of dup2 over dup1.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* dup1 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">dup1</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;  </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; A.length; j += <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (A[i] == A[j]) &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* dup2 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">dup2</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length - <span class="number">1</span>; i += <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (A[i] == A[i + <span class="number">1</span>]) &#123; </span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>; </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="techniques-for-measuring-computational-cost"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=fxDIy6w09fw&amp;list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593&amp;index=3">Techniques for Measuring Computational Cost</a></h3>
-<h4 id="technique-1-measure-execution-time-in-seconds-using-a-client-program.">Technique 1: Measure execution time in seconds using a client program.</h4>
-<ul>
-<li>Tools:
-<ul>
-<li>Physical stopwatch.</li>
-<li>Unix has a built in time command that measures execution time.</li>
-<li>Princeton Standard library has a Stopwatch class.</li>
-</ul></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> N = Integer.parseInt(args[<span class="number">0</span>]);</span><br><span class="line">  <span class="keyword">int</span>[] A = makeArray(N);</span><br><span class="line">  dup1(A);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Time Measurements for</strong> <strong>dup1</strong> <strong>and</strong> <strong>dup2</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>N</th>
-<th>dup1</th>
-<th>dup2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>10000</td>
-<td>0.08</td>
-<td>0.08</td>
-</tr>
-<tr class="even">
-<td>50000</td>
-<td>0.32</td>
-<td>0.08</td>
-</tr>
-<tr class="odd">
-<td>100000</td>
-<td>1.00</td>
-<td>0.08</td>
-</tr>
-<tr class="even">
-<td>200000</td>
-<td>8.26</td>
-<td>0.1</td>
-</tr>
-<tr class="odd">
-<td>400000</td>
-<td>15.4</td>
-<td>0.1</td>
-</tr>
-</tbody>
-</table>
-<p><img src="/images/CS61B/10203041.png" /></p>
-<ul>
-<li>Good: Easy to measure, meaning is obvious.</li>
-<li>Bad: May require large amounts of computation time. Result varies with machine, compiler, input data, etc.</li>
-</ul>
-<h4 id="technique-2a-count-possible-operations-for-an-array-of-size-n-10000.">Technique 2A: Count possible operations for an array of size N = 10,000.</h4>
-<ul>
-<li>Good: Machine independent. Input dependence captured in model.</li>
-<li>Bad: Tedious to compute. Array size was arbitrary. Doesn’t tell you actual time.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; A.length; j += <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (A[i] == A[j]) &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr class="header">
-<th>operation</th>
-<th>count, N=10000</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>i =0</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>j = i +1</td>
-<td>1 to 10000</td>
-</tr>
-<tr class="odd">
-<td>less than (&lt;)</td>
-<td>2 to 50015001</td>
-</tr>
-<tr class="even">
-<td>increment (+=1)</td>
-<td>0 to 50005000</td>
-</tr>
-<tr class="odd">
-<td>equals (==)</td>
-<td>1 to 49995000</td>
-</tr>
-<tr class="even">
-<td>array accesses</td>
-<td>2 to 99990000</td>
-</tr>
-</tbody>
-</table>
-<p><em>The counts are tricky to compute. Work not shown.</em></p>
-<h4 id="technique-2b-count-possible-operations-in-terms-of-input-array-size-n.">Technique 2B: Count possible operations in terms of input array size N.</h4>
-<ul>
-<li>Good: Machine independent. Input dependence captured in model. Tells you how algorithm <strong>scales</strong>.</li>
-<li>Bad: Even more tedious to compute. Doesn’t tell you actual time.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j&lt;A.length; j += <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (A[i] == A[j]) &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr class="header">
-<th>operation</th>
-<th>symbolic count</th>
-<th>count, N=10000</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>i =0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>j = i +1</td>
-<td>1 to N</td>
-<td>1 to 10000</td>
-</tr>
-<tr class="odd">
-<td>less than (&lt;)</td>
-<td>2 to (N<sup>2</sup>+3N+2)/2</td>
-<td>2 to 50015001</td>
-</tr>
-<tr class="even">
-<td>increment (+=1)</td>
-<td>0 to (N<sup>2</sup>+N)/2</td>
-<td>0 to 50005000</td>
-</tr>
-<tr class="odd">
-<td>equals (==)</td>
-<td>1 to (N<sup>2</sup>-N)/2</td>
-<td>1 to 49995000</td>
-</tr>
-<tr class="even">
-<td>array accesses</td>
-<td>2 to N<sup>2</sup>-N</td>
-<td>2 to 99990000</td>
-</tr>
-</tbody>
-</table>
-<h4 id="comparing-algorithms"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=jms0P6p6aQc&amp;list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593&amp;index=5">Comparing Algorithms</a></h4>
-<p>Which algorithm is better? dup2. Why</p>
-<ul>
-<li>Fewer operations to do the same work [e.g. 50,015,001 vs. 10000 operations].</li>
-<li>Better answer: Algorithm <strong>scales better</strong> in the worst case. (N<sup>2</sup>+3N+2)/2 vs. N.</li>
-<li>Even better answer: Parabolas (N<sup>2</sup>) grow faster than lines (N)</li>
-</ul>
-<h3 id="asymptotic-behaviour">Asymptotic Behaviour</h3>
-<p>n most cases, we care only about <u>asymptotic behaviour, i.e. what happens for very large N</u>.</p>
-<ul>
-<li>Simulation of billions of interacting particles.</li>
-<li>Social network with billions of users.</li>
-<li>Logging of billions of transactions.</li>
-<li>Encoding of billions of bytes of video data.</li>
-</ul>
-<p>Algorithms which scale well (e.g. look like lines) have better asymptotic runtime behaviour than algorithms that scale relatively poorly (e.g. look like parabolas).</p>
-<h4 id="parabolas-vs.-lines">Parabolas vs. Lines</h4>
-<p>Suppose we have two algorithms that zerpify a collection of N items.</p>
-<ul>
-<li>zerp1 takes 2N<sup>2</sup> operations.</li>
-<li>zerp2 takes 500N operations.</li>
-</ul>
-<p><img src="/images/CS61B/10203042.png" /></p>
-<p>For small N, zerp1 might be faster, but as dataset size grows, the parabolic algorithm is going to fall farther and farther behind (in time it takes to complete).</p>
-<h4 id="scaling-across-many-domains">Scaling Across Many Domains</h4>
-<p>We’ll informally refer to the “shape” of a runtime function as its <strong>order of growth</strong> (will formalize soon).</p>
-<ul>
-<li>Effect is dramatic! Often determines whether a problem can be solved at all.</li>
-</ul>
-<p><img src="/images/CS61B/10203043.png" /></p>
-<h2 id="worst-case-order-of-growth"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vxYADFsa3HU&amp;list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593&amp;index=6"><strong>Worst Case</strong> Order of Growth</a></h2>
-<h3 id="duplicate-finding">Duplicate Finding</h3>
-<p>Our goal is to somehow <strong>characterize the runtimes</strong> of the functions below.</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-<del>Characterization should be <strong>simple</strong> and <strong>mathematically rigorous</strong>.</del></li>
-<li><input type="checkbox" disabled="" checked="" />
-Characterization should <strong>demonstrate superiority</strong> of dup2 over dup1.</li>
-</ul>
-<p><img src="/images/CS61B/10203044.png" /></p>
-<p>Let’s be more careful about what we mean when we say the left function is “like” a parabola, and the right function is “like” a line.</p>
-<h3 id="intuitive-simplification-1-consider-only-the-worst-case">Intuitive Simplification 1: Consider Only the Worst Case</h3>
-<p>Simplification 1: Consider only the worst case.</p>
-<ul>
-<li><strong>Justification</strong>: When comparing algorithms, we often care only about the worst case [but we will see exceptions in this course].</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>operation</th>
-<th>worst case count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>i =0</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>j = i +1</td>
-<td>N</td>
-</tr>
-<tr class="odd">
-<td>less than (&lt;)</td>
-<td>(N<sup>2</sup>+3N+2)/2</td>
-</tr>
-<tr class="even">
-<td>increment (+=1)</td>
-<td>(N<sup>2</sup>+N)/2</td>
-</tr>
-<tr class="odd">
-<td>equals (==)</td>
-<td>(N<sup>2</sup>-N)/2</td>
-</tr>
-<tr class="even">
-<td>array accesses</td>
-<td>N<sup>2</sup>-N</td>
-</tr>
-</tbody>
-</table>
-<h4 id="intuitive-order-of-growth-identification">Intuitive Order of Growth Identification</h4>
-<p>Consider the algorithm below. What do you expect will be the order of growth** of the runtime for the algorithm?</p>
-<ul>
-<li>N [linear]</li>
-<li>N<sup>2</sup> [quadratic]</li>
-<li><strong>N<sup>3</sup> [cubic]</strong></li>
-<li>N<sup>6</sup> [sextic]</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>operation</th>
-<th>worst case count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>less than (&lt;)</td>
-<td>100N<sup>2</sup>+3N</td>
-</tr>
-<tr class="even">
-<td>greater than (&gt;)</td>
-<td>2N<sup>3</sup>+1</td>
-</tr>
-<tr class="odd">
-<td>and (&amp;&amp;)</td>
-<td>5000</td>
-</tr>
-</tbody>
-</table>
-<p>Argument:</p>
-<ul>
-<li>Suppose &lt; takes α nanoseconds, &gt; takes β nanoseconds, and &amp;&amp; takes γ nanoseconds.</li>
-<li>Total time is α(100N<sup>2</sup> + 3N) + β(2N<sup>3</sup> + 1) + 5000γ nanoseconds.</li>
-<li>For very large N, the 2βN<sup>3</sup> term is <strong>much larger</strong> than the others.</li>
-</ul>
-<h3 id="intuitive-simplification-2-restrict-attention-to-one-operation">Intuitive Simplification 2: Restrict Attention to One Operation</h3>
-<p>Simplification 2: Pick some representative operation to act as a proxy for the overall runtime.</p>
-<ul>
-<li>Good choice: <strong>increment</strong>.</li>
-<li>Bad choice: assignment of j = i + 1.</li>
-</ul>
-<p>We call our choice the “<strong>cost model</strong>”.</p>
-<table>
-<thead>
-<tr class="header">
-<th>operation</th>
-<th>worst case count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><del>i =0</del></td>
-<td><del>1</del></td>
-</tr>
-<tr class="even">
-<td><del>j = i +1</del></td>
-<td><del>N</del></td>
-</tr>
-<tr class="odd">
-<td><del>less than (&lt;)</del></td>
-<td><del>(N<sup>2</sup>+3N+2)/2</del></td>
-</tr>
-<tr class="even">
-<td><strong>increment (+=1)</strong></td>
-<td><strong>(N<sup>2</sup>+N)/2</strong></td>
-</tr>
-<tr class="odd">
-<td><del>equals (==)</del></td>
-<td><del>(N<sup>2</sup>-N)/2</del></td>
-</tr>
-<tr class="even">
-<td><del>array accesses</del></td>
-<td><del>N<sup>2</sup>-N</del></td>
-</tr>
-</tbody>
-</table>
-<p>Here, cost model = <strong>increment</strong>.</p>
-<h3 id="intuitive-simplification-3-eliminate-low-order-terms.">Intuitive Simplification 3: Eliminate low order terms.</h3>
-<p>Simplification 3: Ignore lower order terms.</p>
-<table>
-<thead>
-<tr class="header">
-<th>operation</th>
-<th>worst case count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>increment (+=1)</td>
-<td>(N<sup>2</sup><del>+N</del>)/2</td>
-</tr>
-</tbody>
-</table>
-<h3 id="intuitive-simplification-4-eliminate-multiplicative-constants.">Intuitive Simplification 4: Eliminate multiplicative constants.</h3>
-<p>Simplification 4: Ignore multiplicative constants.</p>
-<ul>
-<li>Why?
-<ul>
-<li>It has no real meaning. We already threw away information when we chose a single proxy operation.</li>
-</ul></li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>operation</th>
-<th>worst case count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>increment (+=1)</td>
-<td>N<sup>2</sup><del>/2</del></td>
-</tr>
-</tbody>
-</table>
-<h3 id="simplification-summary">Simplification Summary</h3>
-<ol type="1">
-<li>Only consider the worst case.</li>
-<li>Pick a representative operation (a.k.a. the cost model).</li>
-<li>Ignore lower order terms.</li>
-<li>Ignore multiplicative constants.</li>
-</ol>
-<p><em>Step 2,3 and 4 simplifications are OK because we only care about the “<strong>order of growth</strong>” of the runtime.</em></p>
-<h2 id="simplified-analysis"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lJ1A8Jyeba0&amp;list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593&amp;index=7">Simplified Analysis</a></h2>
-<p>Rather than building the entire table, we can instead:</p>
-<ul>
-<li>Choose a representative operation to count (a.k.a. cost model).</li>
-<li>Figure out the order of growth for the count of the representative operation by either:
-<ul>
-<li>Making an exact count, then discarding the unnecessary pieces.</li>
-<li>Using intuition and inspection to determine order of growth (only possible with lots of practice).</li>
-</ul></li>
-</ul>
-<h3 id="analysis-of-nested-for-loops-based-on-exact-count">Analysis of Nested For Loops (Based on Exact Count)</h3>
-<p>Find the order of growth of the worst case runtime of dup1.</p>
-<p><img src="/images/CS61B/10203045.png" /></p>
-<p>Worst case number of == operations:</p>
-<ul>
-<li>C = 1 + 2 + 3 + … + (N - 3) + (N - 2) + (N - 1) = N(N-1)/2</li>
-<li>Given by area of right triangle of side length N-1.</li>
-<li>Order of growth of area is N<sup>2</sup>.</li>
-<li>Overall worst case runtime: Θ(N<sup>2</sup>)</li>
-</ul>
-<h2 id="big-theta"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CGdubALgQw4&amp;list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593&amp;index=8">Big-Theta</a></h2>
-<h3 id="formalizing-order-of-growth">Formalizing Order of Growth</h3>
-<p>Given a function Q(N), we can apply our last two simplifications (ignore low orders terms and multiplicative constants) to yield the order of growth of Q(N).</p>
-<ul>
-<li>Example: Q(N) = 3N<sup>3</sup> + N<sup>2</sup></li>
-<li>Order of growth: N<sup>3</sup></li>
-</ul>
-<p>Let’s finish out this lecture by moving to a more formal notation called Big-Theta.</p>
-<ul>
-<li>The math might seem daunting at first</li>
-<li>.… but the idea is exactly the same! Using “Big-Theta” instead of “order of growth” does not change the way we analyse code at all.</li>
-</ul>
-<h3 id="order-of-growth-exercise">Order of Growth Exercise</h3>
-<p>Consider the functions below.</p>
-<ul>
-<li>Informally, what is the “shape” of each function for very large N?</li>
-<li>In other words, what is the order of growth of each function?</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>function</th>
-<th>order of growth</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>N<sup>3</sup> + 3N<sup>4</sup></td>
-<td>N<sup>4</sup></td>
-</tr>
-<tr class="even">
-<td>1/N + N<sup>3</sup></td>
-<td>N<sup>3</sup></td>
-</tr>
-<tr class="odd">
-<td>1/N + 5</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Ne<sup>N</sup> + N</td>
-<td>Ne<sup>N</sup></td>
-</tr>
-<tr class="odd">
-<td>40 sin(N) + 4N<sup>2</sup></td>
-<td>N<sup>2</sup></td>
-</tr>
-</tbody>
-</table>
-<h3 id="big-theta-1">Big-Theta</h3>
-<p>Suppose we have a function R(N) with order of growth f(N).</p>
-<ul>
-<li>In “Big-Theta” notation we write this as R(N) ∈ Θ(f(N)).</li>
-</ul>
-<p><span class="math display">\[
-R(N) ∈ Θ(f(N))
+<p>支持多变量的假设 h 表示为： <span class="math display">\[
+h_θ(x) = θ_0+θ_1x_1+θ_2x_2+...+θ_nx_n
+\]</span> 这个公式中有 n+1 个参数和 n 个变量，为了使得公式能够简化一些，引入 x<sub>0</sub>=1，则公式转化为： <span class="math display">\[
+h_θ(x) = θ_0x_0+θ_1x_1+θ_2x_2+...+θ_nx_n
+\]</span> 此时模型中的参数是一个 n+1 维的向量，任何一个训练实例也都是 n+1 维的向量，特征矩阵 X 的维度是 m × (n+1)。</p>
+<p>公式可以简化为： <span class="math display">\[
+h_θ(x)=θ^TX
 \]</span></p>
-<p>means there exist positive constants k<sub>1</sub> and k<sub>2</sub> such that: <span class="math display">\[
-k_1·f(N)≤R(N)≤K_2·f(N)
-\]</span> for all values of N greater than some N<sub>0</sub>.</p>
-<p>Example: 40 sin(N) + 4N<sup>2</sup> ∈ Θ(N<sup>2</sup>)</p>
+<h2 id="多变量梯度下降-gradient-descent-for-multiple-variables"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=19">4.2 多变量梯度下降 Gradient Descent for Multiple Variables</a></h2>
+<p>在具有多变量的线性回归中，定义代价函数 J(θ) 如下： <span class="math display">\[
+J(θ_0,θ_1...θ_n)=\frac{1}{2m}\sum^{m}_{i=1}(h_θ(x^{(i)})-y^{(i)})^2
+\]</span></p>
+<p><span class="math display">\[
+J(θ)=\frac{1}{2m}\sum^{m}_{i=1}(h_θ(x^{(i)})-y^{(i)})^2
+\]</span></p>
+<p>　多变量线性回归模型如下。为了简化，我们加入X<sub>0</sub> = 1，参数θ为一个n+1维向量vector。算法会同步更新每一个θ<sub>j</sub> （j = 0到n）</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027220942295-1593109817.png" /></p>
+<p>　　对比 单变量梯度下降（左边） 和 多变量梯度下降（右边）。因为x<sub>0</sub><sup>(i)</sup>是我们引入的，其值为1，所以多变量梯度下降前两项 θ0 和θ1 和单变量梯度下降是一样的。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027220846982-1505655652.png" /></p>
+<p>Python 代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeCost</span>(<span class="params">X, y, theta</span>):</span></span><br><span class="line">　　inner = np.power(((X * theta.T) - y), <span class="number">2</span>)</span><br><span class="line">　　<span class="keyword">return</span> np.<span class="built_in">sum</span>(inner) / (<span class="number">2</span> * <span class="built_in">len</span>(X))　　</span><br></pre></td></tr></table></figure>
+<h2 id="梯度下降法实践-1-特征缩放-gradient-descent-in-practice-i---feature-scaling"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=20">4.3 梯度下降法实践 1-特征缩放 Gradient Descent in Practice I - Feature Scaling</a></h2>
+<p>　　多维特征问题中，帮助梯度下降算法更快地收敛，特征需要具有<strong>相近的尺度（similar scale）</strong>，这就需要我们进行 <strong>特征缩放Feature Scaling。</strong> 　　假设两个特征，房屋尺寸的值为 0-2000 平方英尺，而房间数量的值为 0-5，对应的代价函数等高线图会显得很扁（skewed elliptical shape），梯度下降算法需要非常多次的迭代才能收敛（左图）。</p>
+<p>　　把房屋尺寸除以2000，房屋数量除以5，尝试将所有特征的尺度都尽量缩放到 -1 到 1 之间，得到了近乎圆形的等高线（右图）。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027221340016-2047588551.png" /></p>
+<p>尺度也不是必须要 -1 到1，但是范围不能很大，也不能很小，例如：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027221826413-585030478.png" /></p>
+<p>最简单的方法是<strong>均值归一化 Mean normalization</strong>，令： <span class="math display">\[
+x_i:=\frac{x_i-\mu_i}{s_i}
+\]</span> 其中 μ<sub>i</sub> 是第 i 维所有取值的平均值。si 是第 i 维取值的范围 range （或标准差 standard deviation）</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027221958147-329634105.png" /></p>
+<h2 id="梯度下降法实践-2-学习率-gradient-descent-in-practice-ii---learning-rate"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=21">4.4 梯度下降法实践 2-学习率 Gradient Descent in Practice II - Learning Rate</a></h2>
+<p>为保证梯度下降算法正确运行，可以绘制 迭代次数 iteration numbers 和 代价函数的图表，观测算法在何时趋于收敛（左边）。</p>
+<p>还有一些自动测试是否收敛的方法 automatic convergence test，例如使用阈值 ε（右边）。因为阈值的大小很难选取，还是左侧的图表比较好。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027223150596-2076356512.png" /></p>
+<p>随着迭代次数增加，代价函数应该呈下降趋势。如果上升或者频繁升降，说明 α 取得太大，可能导致不能收敛。如果 α 取值太小，算法会运行的很慢，但还是下降的，通常会迭代很多次后收敛。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027223818961-1157090300.png" /></p>
+<p>学习率可以尝试如下值：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027224228554-795723231.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h2 id="特征和多项式回归-features-and-polynomial-regression"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=22">4.5 特征和多项式回归 Features and Polynomial Regression</a></h2>
+<h3 id="创造新的特征">4.5.1 创造新的特征</h3>
+<p>　　不一定非要用已有特征，可以创造新的特征，例如：面积 = 长 × 宽。这时二次函数变成了单变量函数。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028082420712-1257744699.png" /></p>
+<h3 id="多项式回归-polynomial-regression">4.5.2 多项式回归 Polynomial Regression</h3>
+<p>二次方程模型： <span class="math display">\[
+h_\theta(x) = \theta_0 +\theta_1x_1 +\theta_2x_2^2
+\]</span> 三次方程模型： <span class="math display">\[
+h_\theta(x) = \theta_0 +\theta_1x_1 +\theta_2x_2^2+\theta_3x_3^3
+\]</span> 因为实际生活中，随着房屋面积上升、房价不可能减小，而二次曲线会先上升后下降。选择三次方模型，引入另外的变量替换高次幂，将其转换为线性回归模型。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028082945227-1714720568.png" /></p>
+<p>为了和曲线拟合的更好，还可以使用 <strong>平方根 square root</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028083532589-1564606454.png" /></p>
+<h2 id="正规方程-normal-equation"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=23">4.6 正规方程 Normal Equation</a></h2>
+<h3 id="正规方程-normal-equation-1">4.6.1 正规方程 Normal Equation</h3>
+<p>正规方程的思想：假设代价函数 J(Θ) 的偏导数等于0，求解方程，得到使代价函数 J(Θ) 最小的参数 Θ。即求曲线的最低点（切线斜率为0）。</p>
+<p>最简单的情况，只有一维，代价函数是二次曲线：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028093149836-1413890293.png" /></p>
+<p>如果有n个特征，则 θ 为n+1维。针对代价函数 J(θ<sub>j</sub>) 的每一项 J(θ<sub>j</sub>) ，设其偏导数为0。通过数学方法求解方程，得到使代价函数 J(θ<sub>j</sub>) 最小的 θ<sub>j</sub>j。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028093834707-1615371612.png" /></p>
+<h3 id="正规方程的解">4.6.2 正规方程的解</h3>
+<p>假设训练集特征矩阵为 X（包含x<sub>0</sub> = 1），结果为向量y，则解θ可以通过公式求出： <span class="math display">\[
+θ = (X^{T}X)^{-1}X^{T}y
+\]</span> 例子，四个数据：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028083733518-652943300.png" /></p>
+<p>解 θ 为：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028094450130-1857255643.png" /></p>
+<p>　正规方程方法中，不用进行特征缩放 Feature Scaling。</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028084342125-1605839184.png" /></p>
+<p>在Octave 中， 求解的代码为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 pinv( X&#39; * X ) * X&#39; * y </span><br></pre></td></tr></table></figure>
+<h3 id="梯度下降和正规方程的比较">4.6.3 梯度下降和正规方程的比较</h3>
+<p>　　1、梯度下降需要选择学习率 α，迭代很多步，正规方程只需要一步。</p>
+<p>　　2、正规方程依赖于矩阵计算。由于计算逆矩阵的时间复杂度是 O(n<sup>3</sup>)，当n比较大时，计算过程会特别慢</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028084331583-2033259323.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028190858389-20951407.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="总结"><strong>总结</strong></h3>
+<ol type="1">
+<li>特征变量的数目 n 不大的时候，推荐使用正规方程。</li>
+<li>n 比较大的时候（例如10000），考虑梯度下降。</li>
+<li>某些算法（例如分类算法中的逻辑回归）不能使用正规方程法，只能使用梯度下降。</li>
+</ol>
+<p>正规方程的python实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="number">2</span> <span class="function"><span class="keyword">def</span> <span class="title">normalEqn</span>(<span class="params">X, y</span>):</span></span><br><span class="line"><span class="number">3</span>     theta = np.linalg.inv(X.T@X)@X.T@y <span class="comment">#X.T@X 等价于 X.T.dot(X)</span></span><br><span class="line"><span class="number">4</span>     <span class="keyword">return</span> theta</span><br></pre></td></tr></table></figure>
+<h2 id="正规方程及不可逆性-normal-equation-noninvertibility"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=24">4.7 正规方程及不可逆性 Normal Equation Noninvertibility</a></h2>
+<p>当矩阵XTX不可逆怎么办？ 不可逆的问题很少发生，即使发生，使用pinv()也能正常算出结果。</p>
+<blockquote>
+<p>pinv() pseudo-inverse伪逆</p>
 <ul>
-<li>R(N) = 40 sin(N) + 4N<sup>2</sup></li>
-<li>f(N) = N<sup>2</sup></li>
-<li>k<sub>1</sub> = 3</li>
-<li>k<sub>2</sub> = 5</li>
+<li>即使 singular degenerate 也能算出来逆矩阵</li>
 </ul>
-<h3 id="big-theta-and-runtime-analysis">Big-Theta and Runtime Analysis</h3>
-<p>Using Big-Theta doesn’t change anything about runtime analysis (no need to find k<sub>1</sub> or k<sub>2</sub> or anything like that).</p>
+<p>inv() 　 inverse逆 　　　　　</p>
 <ul>
-<li>The only difference is that we use the Θ symbol anywhere we would have said “order of growth”.</li>
+<li>引入了先进的数值计算的概念</li>
 </ul>
-<h2 id="big-o-notation">Big O Notation</h2>
-<ul>
-<li>We used Big Theta to describe the order of growth of a function.</li>
-<li>We also used Big Theta to describe the rate of growth of the runtime of a piece of code.</li>
-</ul>
-<h3 id="big-o"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vg9BDZwQtdQ&amp;list=PL8FaHk7qbOD4oAdQOZ765z6aeqyKs2593&amp;index=9">Big O</a></h3>
-<p>Whereas Big Theta can informally be thought of as something like “equals”, Big O can be thought of as “less than or equal”.</p>
-<p>Example, the following are all true:</p>
-<ul>
-<li>N<sup>3</sup> + 3N<sup>4</sup> ∈ Θ(N<sup>4</sup>)</li>
-<li>N<sup>3</sup> + 3N<sup>4</sup> ∈ O(N<sup>4</sup>)</li>
-<li>N<sup>3</sup> + 3N<sup>4</sup> ∈ O(N<sup>6</sup>)</li>
-<li>N<sup>3</sup> + 3N<sup>4</sup> ∈ O(N!)</li>
-<li>N<sup>3</sup> + 3N<sup>4</sup> ∈ O(N<sup>N!</sup>)</li>
-</ul>
-<p>Example: 40 sin(N) + 4N<sup>2</sup> ∈ O(N<sup>4</sup>)</p>
-<ul>
-<li>R(N) = 40 sin(N) + 4N<sup>2</sup></li>
-<li>f(N) = N<sup>4</sup></li>
-<li>k<sub>2</sub> = 1</li>
-</ul>
-<h3 id="big-theta-vs.-big-o"><strong>Big Theta vs. Big O</strong></h3>
+</blockquote>
+<p>　　两种情况可能导致不可逆：</p>
+<p>1、有冗余特征 redundant features，即特征值线性相关（例如 x<sub>1</sub> = 常数 × x<sub>2</sub>）</p>
+<p>　　解决：删除冗余特征</p>
+<p>2、特征维数 n ≤ 数据规模 m （例如10个样本适应100+1个参数）</p>
+<p>　　解决：删除特征，或者使用线性代数中的正则化 regularization方法</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028090436450-833965276.png" /></p>
+<h2 id="相关术语">相关术语</h2>
+<p>skewed elliptical shape 偏斜椭圆形</p>
+<p>poorly scaled feature 范围不好</p>
+<p>mean normalization 均值归一化</p>
+<p>feature scaling 特征缩放</p>
+<p>iteration numbers 迭代步数</p>
+<p>polynomial regression 多项式回归</p>
+<p>quadratic function 二次函数</p>
+<p>cubic function 三次函数</p>
+<p>square root 平方根</p>
+<p>regulazation 正规化</p>
+<p>redundant features 冗余特征</p>
+<p>noninvertibility 不可逆</p>
+<p>pseudo-inverse 伪逆</p>
+<h1 id="exercise">Exercise</h1>
+<p>1. Suppose <em>m</em>=4 students have taken some class, and the class had a midterm exam and a final exam. You have collected a dataset of their scores on the two exams, which is as follows:</p>
 <table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 34%" />
-<col style="width: 11%" />
-<col style="width: 41%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th>Informal meaning:</th>
-<th>Family</th>
-<th>Family Members</th>
+<th>midterm exam</th>
+<th>(midterm exam)<sup>2</sup></th>
+<th>final exam</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Big ThetaΘ(f(N))</td>
-<td>Order of growth is f(N).</td>
-<td>Θ(N<sup>2</sup>)</td>
-<td>N<sup>2</sup>/2, 2N<sup>2</sup>, N<sup>2</sup> + 38N + N</td>
+<td>89</td>
+<td>7921</td>
+<td>96</td>
 </tr>
 <tr class="even">
-<td>Big OO(f(N))</td>
-<td>Order of growth is less than or equal to f(N).</td>
-<td>O(N<sup>2</sup>)</td>
-<td>N<sup>2</sup>/2, 2N<sup>2</sup>, lg(N)</td>
+<td>72</td>
+<td>5184</td>
+<td>74</td>
+</tr>
+<tr class="odd">
+<td>94</td>
+<td>8836</td>
+<td>87</td>
+</tr>
+<tr class="even">
+<td>69</td>
+<td>4761</td>
+<td>78</td>
 </tr>
 </tbody>
 </table>
-<h3 id="summary">Summary</h3>
-<p>Given a code snippet, we can express its runtime as a function R(N), where N is some property of the input of the function (often the size of the input).</p>
-<p>Rather than finding R(N) exactly, we instead usually only care about the order of growth of R(N).</p>
-<p>One approach (not universal):</p>
+<p>You'd like to use polynomial regression to predict a student's final exam score from their midterm exam score. Concretely, suppose you want to fit a model of the form h<sub>θ</sub>(x)=θ<sub>0</sub>+θ<sub>1</sub>x<sub>1</sub>+θ<sub>2</sub>x<sub>2</sub>, where x<sub>1</sub> is the midterm score and x<sub>2</sub> is (midterm score)<sup>2</sup>. Further, you plan to use both feature scaling (dividing by the "max-min", or range, of a feature) and mean normalization.</p>
+<p>What is the normalized feature x<sub>1</sub><sup>(1)</sup>? (Hint: midterm = 89, final = 96 is training example 1.) Please round off your answer to two decimal places and enter in the text box below.</p>
+<p>0.32</p>
+<p>2. You run gradient descent for 15 iterations with α=0.3 and compute J(θ) after each iteration. You find that the value of J(θ) <strong>increases</strong> over time. Based on this, which of the following conclusions seems most plausible?</p>
 <ul>
-<li>Choose a representative operation, and let C(N) be the count of how many times that operation occurs as a function of N.</li>
-<li>Determine order of growth f(N) for C(N), i.e. C(N) ∈ Θ(f(N))
-<ul>
-<li>Often (but not always) we consider the worst case count.</li>
-</ul></li>
-<li>If operation takes constant time, then R(N) ∈ Θ(f(N))</li>
-<li>Can use O as an alternative for Θ. O is used for upper bounds.</li>
+<li><del>Rather than use the current value of α, it'd be more promising to try a larger value of α (say α=1.0).</del></li>
+<li><del>α=0.3 is an effective choice of learning rate.</del></li>
+<li><strong>Rather than use the current value of α, it'd be more promising to try a smaller value of α (say α=0.1).</strong></li>
 </ul>
-<h2 id="overview">Overview</h2>
-<p><strong>Runtime Measurement.</strong> Some natural techniques:</p>
+<p>3. Suppose you have m = 14 training examples with n = 3 features (excluding the additional all-ones feature for the intercept term, which you should add). The normal equation is θ = (X<sup>T</sup>X)<sup>−1</sup>X<sup>T</sup>y. For the given values of m and n, what are the dimensions of θ, X, and y in this equation?</p>
 <ul>
-<li>Measure the number of seconds that a program takes to complete using a stopwatch (either physical or in software). This tells you the actual runtime, but is dependent on the machine and inputs.</li>
-<li>Count the number of operations needed for inputs of a given size. This is a machine independent analysis, but still depends on the input, and also doesn’t actually tell you how long the code takes to run.</li>
-<li>Derive an algebraic expression relating the number of operations to the size of an input. This tells you how the algorithm scales, but does not tell you how long the code takes to run.</li>
+<li><del>X is 14×3, y is 14×1, θ is 3×1</del></li>
+<li><del>X is 14×3, y is 14×1, θ is 3×3</del></li>
+<li><del>X is 14×4, y is 14×4, θ is 4×4</del></li>
+<li><strong>X is 14×4, y is 14×1, θ is 4×1</strong></li>
 </ul>
-<p><strong>Algorithm Scaling.</strong> While we ultimately care about the runtime of an algorithm in seconds, we’ll often say that one algorithm is better than another simply because of how it scales. By scaling, we mean how the runtime of a piece of code grows as a function of its input size. For example, inserting at the beginning of ArrayList on an old computer might take <strong>R(N)=0.0001N</strong> seconds, where <strong>N</strong> is the size of the list.</p>
-<p>For example, if the runtime of two algorithms is <strong>R<sub>1</sub>(N)=N<sup>2</sup>,</strong> and <strong>R<sub>2</sub>(N)=5000+N</strong>, we’d say algorithm 2 is better, even though R<sub>1</sub> is much faster for small N.</p>
-<p>A rough justification for this argument is that performance critical situations are exactly those for which N is “large”, though this is not an obvious fact. In almost all cases we’d prefer the linear algorithm. In some limited real-world situations like matrix multiplication, one might select one algorithm for small N, and another algorithm for large N. We won’t do this in 61B.</p>
-<p><strong>Simplfying Algebraic Runtime.</strong> We utilize four simplifications to make runtime analysis simpler.</p>
+<p>4. Suppose you have a dataset with m = 50 examples and n = 200000 features for each example. You want to use multivariate linear regression to fit the parameters θ to our data. Should you prefer gradient descent or the normal equation?</p>
 <ul>
-<li>Pick an arbitrary option to be our <em>cost model</em>, e.g. # of array accesses.</li>
-<li>Focus on the worst case, i.e. if the number of operations is between <strong>1</strong> and <strong>2N+1</strong>, consider only the <strong>2N+1</strong>.</li>
-<li>Ignore small inputs, e.g. treat <strong>2N+1</strong> just like <strong>2N.</strong></li>
-<li>Ignore constant scaling factor, e.g. treat <strong>2N</strong> just like <strong>N</strong>.</li>
+<li><del>The normal equation, since gradient descent might be unable to find the optimal θ.</del></li>
+<li><del>The normal equation, since it provides an efficient way to directly find the solution.</del></li>
+<li><strong>Gradient descent, since (X<sup>T</sup>X)<sup>−1</sup> will be very slow to compute in the normal equation.</strong></li>
+<li><del>Gradient descent, since it will always converge to the optimal θ.</del></li>
 </ul>
-<p>As an example, if we have an algorithm that performs between <strong>N</strong> and <strong>2N+1</strong> increment operations and between <strong>N</strong> and <strong>4N<sup>2</sup>+2N+6</strong> compares, our intuitive simplifications will lead us to say that this algorithm has a runtime proportional to <strong>N<sup>2</sup></strong>.</p>
-<p>The cost model is simply an operation that we’re picking to represent the entire piece of code. Make sure to pick an appropriate cost model! If we had chosen the number of increment operations as our cost model, we’d mistakenly determine that the runtime was proportional to NN. This is incorrect since for large N, the comparisons will vastly outnumber the increments.</p>
-<p><strong>Order of Growth.</strong> The result of applying our last 3 simplifications gives us the order of growth of a function. So for example, suppose <strong>R(N)=4N<sup>2</sup>+3N+6</strong>, we’d say that the order of growth of <strong>R(N)</strong> is <strong>N<sup>2</sup></strong>.</p>
-<p>The terms “constant”, “linear”, and “quadratic” are often used for algorithms with order of growth <strong>1</strong>, N, and <strong>N<sup>2</sup></strong>, respectively. For example, we might say that an algorithm with runtime <strong>4N<sup>2</sup>+3N+6</strong> is quadratic.</p>
-<p><strong>Simplified Analysis.</strong> We can apply our simplifications in advance. Rather than computing the number of operations for ALL operations, we can pick a specific operation as our cost model and count only that operation.</p>
-<p>Once we’ve chosen a cost model, we can either:</p>
+<p>5. Which of the following are reasons for using feature scaling?</p>
 <ul>
-<li>Compute the exact expression that counts the number of operations.</li>
-<li>Use intuition and inspection to find the order of growth of the number of operations.</li>
+<li><del>It speeds up gradient descent by making each iteration of gradient descent less expensive to compute.</del></li>
+<li><strong>It speeds up gradient descent by making it require fewer iterations to get to a good solution.</strong></li>
+<li><del>It is necessary to prevent the normal equation from getting stuck in local optima.</del></li>
+<li><del>It prevents the matrix X<sup>T</sup>X (used in the normal equation) from being non-invertable (singular/degenerate).</del></li>
 </ul>
-<p>This latter approach is generally preferable, but requires a lot of practice. One common intuitive/inspection-based approach is use geometric intuition. For example, if we have nested for loops where i goes from 0 to N, and j goes from i + 1 to N, we observe that the runtime is effectively given by a right triangle of side length N. Since the area of a such a triangle grows quadratically, the order of growth of the runtime is quadratic.</p>
-<p><strong>Big Theta.</strong> To formalize our intuitive simplifications, we introduce Big-Theta notation. We say that a function <strong>R(N)∈Θ(f(N))</strong> if there exists positive constants <strong>k<sub>1</sub></strong> and <strong>k<sub>2</sub></strong> such that <strong>k<sub>1</sub>f<sub>1</sub>(N)≤R(N)≤k<sub>2</sub>f<sub>2</sub>(N)</strong>.</p>
-<p>Many authors write <strong>R(N)=Θ(f(N))</strong> instead of <strong>R(N)∈Θ(f(N))</strong>. You may use either notation as you please. I will use them interchangeably.</p>
-<p>An alternate non-standard definition is that <strong>R(N)∈Θ(f(N))</strong> iff the <span class="math display">\[
-lim_{N→∞}\frac{R(N)}{f(N)}=k
-\]</span> , where kk is some positive constant. We will not use this calculus based definition in class. I haven’t thought carefully about this alternate definition, so it might be slightly incorrect due to some calculus subtleties.</p>
-<p>When using <strong>Θ</strong> to capture a function’s asymptotic scaling, we avoid unnecessary terms in our <strong>Θ</strong> expression. For example, while <strong>4N<sup>2</sup>+3N+6∈Θ(4N<sup>2</sup>+3N)</strong>, we will usually make the simpler claim that is <strong>4N<sup>2</sup>+3N+6∈Θ(N<sup>2</sup>)</strong>.</p>
-<p>Big Theta is exactly equivalent to order of growth. That is, if a function <strong>R(N)</strong> has order of growth <strong>N<sup>2</sup></strong>, then we also have that <strong>R(N)∈Θ(f(N))</strong>.</p>
 
                 
             </div>
@@ -1103,7 +724,7 @@ lim_{N→∞}\frac{R(N)}{f(N)}=k
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/03/18/2021-03-18-Introduction-to-Asymptotic-Analysis/">https://yintelligence.tech/2021/03/18/2021-03-18-Introduction-to-Asymptotic-Analysis/</a>
+                    <a href="https://yintelligence.tech/2021/04/01/2021-03-19-Linear-Regression-with-Multiple-Variables/">https://yintelligence.tech/2021/04/01/2021-03-19-Linear-Regression-with-Multiple-Variables/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1141,8 +762,8 @@ lim_{N→∞}\frac{R(N)}{f(N)}=k
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Data-Structures/">
-                                    <span class="chip bg-color">Data Structures</span>
+                                <a href="/tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
                                 </a>
                             
                         </div>
@@ -1190,31 +811,31 @@ lim_{N→∞}\frac{R(N)}{f(N)}=k
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/19/2021-03-19-Iterators/">
+                <a href="/2021/04/01/2021-04-01-Read-Mapping/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Iterators">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Read Mapping">
                         
-                        <span class="card-title">Iterators</span>
+                        <span class="card-title">Read Mapping</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python - Iterators
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Assignments/" class="post-category">
+                                    Assignments
                                 </a>
                             
                             
@@ -1224,8 +845,8 @@ lim_{N→∞}\frac{R(N)}{f(N)}=k
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
-                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    <a href="/tags/Computational-Biology-and-Bioinformatics/">
+                        <span class="chip bg-color">Computational Biology and Bioinformatics</span>
                     </a>
                     
                 </div>
@@ -1239,24 +860,24 @@ lim_{N→∞}\frac{R(N)}{f(N)}=k
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/18/2021-03-18-Turing-Machines/">
+                <a href="/2021/04/01/2021-04-01-Relational-Model-&-Relational-Algebra/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Turing Machines">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Relational Model &amp; Relational Algebra">
                         
-                        <span class="card-title">Turing Machines</span>
+                        <span class="card-title">Relational Model &amp; Relational Algebra</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Turing Machines
+                            Readings Chapters 1-2, 6
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
                             </span>
                         <span class="publish-author">
                             
@@ -1273,8 +894,8 @@ lim_{N→∞}\frac{R(N)}{f(N)}=k
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Fundamentals-of-Computer-Science/">
-                        <span class="chip bg-color">Fundamentals of Computer Science</span>
+                    <a href="/tags/Database-systems/">
+                        <span class="chip bg-color">Database systems</span>
                     </a>
                     
                 </div>
@@ -1442,13 +1063,6 @@ lim_{N→∞}\frac{R(N)}{f(N)}=k
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

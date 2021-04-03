@@ -532,7 +532,7 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://troels.arvin.dk/db/rdbms/">System Comparison</a></p>
 </blockquote></li>
-<li><p>Relational algebra is based on <strong>sets</strong> (unordered, <u>no duplicates</u>). SQL is based on <strong>bags</strong> (unordered, <u>allows duplicates</u>).</p></li>
+<li><p>Relational algebra is based on <strong>sets</strong> (unordered, <u>no duplicates&lt;/u&gt;). SQL is based on <strong>bags</strong> (unordered, <u>allows duplicates&lt;/u&gt;).</p></li>
 </ul>
 <h2 id="example-1129">Example 11:29</h2>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student (</span><br><span class="line">    sid <span class="type">INT</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">16</span>),</span><br><span class="line">    login <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">UNIQUE</span>,</span><br><span class="line">    age <span class="type">SMALLINT</span>,</span><br><span class="line">    gpa <span class="type">FLOAT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> course (</span><br><span class="line">    cid <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> enrolled (</span><br><span class="line">    sid <span class="type">INT</span> <span class="keyword">REFERENCES</span> student (sid),</span><br><span class="line">    cid <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">REFERENCES</span> course (cid),</span><br><span class="line">    grade <span class="type">CHAR</span>(<span class="number">1</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
@@ -657,7 +657,7 @@
 <p>Operations to manipulate and modify DATE/TIME attributes.</p>
 <p>Can be used in either output and predicates.</p>
 <p>Different DBMS have different methods to get the current date, some functions: NOW (), CURRENT_TIMESTAMP (), or the keyword CURRENT_TIMESTAMP...</p>
-<p>You can also get date information through various methods such as EXTRACT or'-' or DATEDIFF (also different syntax according to different DBMS.</p>
+<p>You can also get date information through various methods such as EXTRACT or'-' or DATEDIFF (also different syntax according to different DBMS).</p>
 <h2 id="output-control-redirection">Output Control + Redirection</h2>
 <h3 id="output-redirection-3713">Output Redirection 37:13</h3>
 <p>Instead of having the result a query returned to the client (e.g., terminal), you can tell the DBMS to store the results into another table</p>
@@ -721,7 +721,7 @@
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> course</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> enrolled</span><br><span class="line">    <span class="keyword">WHERE</span> course.cid <span class="operator">=</span> enrolled.cid</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h2 id="window-functions-5532">Window Functions 55:32</h2>
 <p>Performs “moving” calculation across set of tuples.</p>
-<p>Like an aggregation <strong>but tuples are not grouped into a single output tuples ( it still returns the original tuples).</strong>.</p>
+<p>Like an aggregation <strong>but tuples are not grouped into a single output tuples ( it still returns the original tuples).</strong></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... FUNC<span class="operator">-</span>NAME(...) <span class="keyword">OVER</span> (...)</span><br><span class="line">	<span class="keyword">FROM</span> tableName</span><br><span class="line">	</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">FUNC-NAME: Aggregation Functions or Special Functions</span></span><br><span class="line"><span class="comment">Over: How to &quot;Slice&quot; up data, can also sort</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <p><strong>Functions</strong>: Can be any of the aggregation functions that we discussed above. Can also be a special window functions</p>
 <ul>

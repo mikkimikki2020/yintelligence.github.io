@@ -1,0 +1,1376 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Octave Tutorial, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Octave Tutorial | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Octave Tutorial</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Machine-Learning/">
+                                <span class="chip bg-color">Machine Learning</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Notes/" class="post-category">
+                                Notes
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-04-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    5.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    25 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="octave-tutorial">Octave Tutorial</h1>
+<h2 id="基本操作"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=26">5.1 基本操作</a></h2>
+<h3 id="简单运算">5.1.1 <strong>简单运算</strong></h3>
+<p>不等于符号的写法是这个波浪线加上等于符号 ( ~= )，而不是等于感叹号加等号( != )</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 1 &#x3D;&#x3D; 1  　　%  判断相等</span><br><span class="line">2 1 ~&#x3D; 2  　　%  判断不等</span><br><span class="line">3 1 &amp;&amp; 0   　 %  求逻辑与</span><br><span class="line">4 1 || 0    　%  求逻辑或</span><br><span class="line">5 xor(1, 0)   % 求异或</span><br></pre></td></tr></table></figure>
+<p><strong>简化命令行</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PS1(&#39;&gt;&gt; &#39;);</span><br></pre></td></tr></table></figure>
+<p><strong>分号 semicolon 不打印结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; a &#x3D; 3;  %semicolon supressing output</span><br></pre></td></tr></table></figure>
+<p><strong>浮点数的输出</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; a &#x3D; pi;</span><br><span class="line"> 3 &gt;&gt; a</span><br><span class="line"> 5 a &#x3D;  3.1416</span><br><span class="line"> 6 &gt;&gt; disp(a);</span><br><span class="line"> 8  3.1416</span><br><span class="line"> 9 &gt;&gt; disp(sprintf(&#39;2 decimals: %0.2f&#39;, a))</span><br><span class="line">11 2 decimals: 3.14</span><br><span class="line">12 &gt;&gt; disp(sprintf(&#39;6 decimals: %0.6f&#39;, a))</span><br><span class="line">14 6 decimals: 3.141593</span><br></pre></td></tr></table></figure>
+<p><strong>控制输出格式的长短</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; format long</span><br><span class="line"> 3 &gt;&gt; a</span><br><span class="line"> 5 a &#x3D;  3.141592653589793</span><br><span class="line"> 6 &gt;&gt; format short</span><br><span class="line"> 8 &gt;&gt; a</span><br><span class="line">10 a &#x3D;  3.1416</span><br></pre></td></tr></table></figure>
+<h3 id="向量和矩阵">5.1.2 向量和矩阵</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 5    1   2</span><br><span class="line"> 6    3   4</span><br><span class="line"> 7    5   6</span><br><span class="line"> 9 &gt;&gt; A &#x3D; [1 2;</span><br><span class="line">11 3 4;</span><br><span class="line">13 5 6]</span><br><span class="line">17    1   2</span><br><span class="line">18    3   4</span><br><span class="line">19    5   6</span><br><span class="line">21 &gt;&gt; v &#x3D; [1 2 3]</span><br><span class="line">25    1   2   3</span><br><span class="line">27 &gt;&gt; v &#x3D; [1; 2; 3]</span><br><span class="line">31    1</span><br><span class="line">32    2</span><br><span class="line">33    3</span><br></pre></td></tr></table></figure>
+<p><strong>通过步长生成行向量</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; v &#x3D; 1:0.1:2</span><br><span class="line"> 3 v &#x3D;</span><br><span class="line"> 5  Columns 1 through 4:</span><br><span class="line"> 7     1.0000    1.1000    1.2000    1.3000</span><br><span class="line"> 9  Columns 5 through 8:</span><br><span class="line">11     1.4000    1.5000    1.6000    1.7000</span><br><span class="line">13  Columns 9 through 11:</span><br><span class="line">15     1.8000    1.9000    2.0000</span><br><span class="line">17 &gt;&gt; v &#x3D; 1:6　　　</span><br><span class="line">21    1   2   3   4   5   6</span><br></pre></td></tr></table></figure>
+<p><strong>全是1， 或者全是0 的矩阵</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; v &#x3D; ones(2,3)</span><br><span class="line"> 5    1   1   1</span><br><span class="line"> 6    1   1   1</span><br><span class="line"> 8 &gt;&gt; v &#x3D; ones</span><br><span class="line">10 v &#x3D;  1</span><br><span class="line">11 &gt;&gt; v &#x3D; ones(3)</span><br><span class="line">15    1   1   1</span><br><span class="line">16    1   1   1</span><br><span class="line">17    1   1   1</span><br><span class="line">19 &gt;&gt; v &#x3D; 2*ones(2,3)</span><br><span class="line">23    2   2   2</span><br><span class="line">24    2   2   2</span><br><span class="line">26 &gt;&gt; w &#x3D; zeros(1,3)</span><br><span class="line">30    0   0   0</span><br></pre></td></tr></table></figure>
+<p><strong>使用eye() 函数生成单位矩阵</strong>（eye is a pun for identity）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; I &#x3D; eye(6)</span><br><span class="line"> 7    1   0   0   0   0   0</span><br><span class="line"> 8    0   1   0   0   0   0</span><br><span class="line"> 9    0   0   1   0   0   0</span><br><span class="line">10    0   0   0   1   0   0</span><br><span class="line">11    0   0   0   0   1   0</span><br><span class="line">12    0   0   0   0   0   1</span><br></pre></td></tr></table></figure>
+<p><strong>矩阵大小</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 5    1   2</span><br><span class="line"> 6    3   4</span><br><span class="line"> 7    5   6</span><br><span class="line">15 &gt;&gt; sz &#x3D; size(A) % 矩阵大小</span><br><span class="line">19    3   2</span><br><span class="line">21 &gt;&gt; size(sz)      </span><br><span class="line">25    1   2</span><br><span class="line">27 &gt;&gt; size(A,1)　　% 矩阵行数</span><br><span class="line">29 ans &#x3D;  3</span><br><span class="line">30 &gt;&gt; size(A,2)　　% 矩阵列数</span><br><span class="line">32 ans &#x3D;  2</span><br><span class="line">48 &gt;&gt; length(A)   % length输出矩阵最大维的大小</span><br><span class="line">50 ans &#x3D;  3</span><br></pre></td></tr></table></figure>
+<p><strong>获取元素</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt;  A &#x3D; [1 2; 3 4; 5 6; 7 8; 9 10];</span><br><span class="line"> 2 &gt;&gt; A(3,2)    % 获取一个元素</span><br><span class="line"> 3     6</span><br><span class="line"> 4 &gt;&gt; A(2, :)    % 获取一行元素，冒号指所有列</span><br><span class="line"> 5     3   4</span><br><span class="line"> 6 &gt;&gt; A([1 3], :)     % 返回 1、3 两行的元素</span><br><span class="line"> 7     1   5</span><br><span class="line"> 8     2   6</span><br><span class="line"> 9 &gt;&gt;  A(2:4, :)     % 返回 2、3、4 三行元素（注意和上一个的区别）                                                                         </span><br><span class="line">10    3   4</span><br><span class="line">11    5   6</span><br><span class="line">12    7   8</span><br><span class="line">13 </span><br><span class="line">14 &gt;&gt;  A(2:3)    % 这里很奇怪，是从上到下依次返回</span><br><span class="line">15    3   5</span><br><span class="line">16 &gt;&gt;  A(2:5)</span><br><span class="line">17    3   5   7   9</span><br><span class="line">18 &gt;&gt;  A(1:10)</span><br><span class="line">19    1    3    5    7    9    2    4    6    8   10    </span><br></pre></td></tr></table></figure>
+<p><strong>矩阵转置</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 21&gt; A&#39;</span><br><span class="line"> 2 ans &#x3D;</span><br><span class="line"> 3    1   3   5</span><br><span class="line"> 4    2   4   6</span><br><span class="line"> 6 22&gt; (A&#39;)&#39;</span><br><span class="line"> 7 ans &#x3D;</span><br><span class="line"> 8    1   2</span><br><span class="line"> 9    3   4</span><br><span class="line">10    5   6</span><br></pre></td></tr></table></figure>
+<h3 id="矩阵赋值和拼接">5.1.3 矩阵赋值和拼接</h3>
+<p><strong>矩阵赋值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; A(:,2) &#x3D; [10; 11; 12]　　% 给A的第二列赋值</span><br><span class="line">2 A &#x3D;</span><br><span class="line">4     1   10</span><br><span class="line">5     3   11</span><br><span class="line">6     5   12</span><br></pre></td></tr></table></figure>
+<p><strong>扩充矩阵</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [A , [100; 101; 102]]  % 给矩阵添加一列</span><br><span class="line"> 2 A &#x3D;</span><br><span class="line"> 4      1    10   100</span><br><span class="line"> 5      3    11   101</span><br><span class="line"> 6      5    12   102</span><br><span class="line"> 8 &gt;&gt; A &#x3D; [A ; [100 101 102]]　　% 给矩阵添加一行</span><br><span class="line"> 9 A &#x3D;</span><br><span class="line">11      1    10   100</span><br><span class="line">12      3    11   101</span><br><span class="line">13      5    12   102</span><br><span class="line">14    100   101   102</span><br></pre></td></tr></table></figure>
+<p>　<strong>矩阵转换成列向量</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A(:)    % 冒号含义很特殊，将A中所有元素都放于一个列向量中</span><br><span class="line"> 2 ans &#x3D;</span><br><span class="line"> 4      1</span><br><span class="line"> 5      3</span><br><span class="line"> 6      5</span><br><span class="line"> 7    100</span><br><span class="line"> 8     10</span><br><span class="line"> 9     11</span><br><span class="line">10     12</span><br><span class="line">11    101</span><br><span class="line">12    100</span><br><span class="line">13    101</span><br><span class="line">14    102</span><br><span class="line">15    102    </span><br></pre></td></tr></table></figure>
+<p><strong>拼接两个矩阵</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 2 A &#x3D;</span><br><span class="line"> 4    1   2</span><br><span class="line"> 5    3   4</span><br><span class="line"> 6    5   6</span><br><span class="line"> 8 &gt;&gt; B &#x3D; [11 12; 13 14; 15 16]</span><br><span class="line"> 9 B &#x3D;</span><br><span class="line">11    11   12</span><br><span class="line">12    13   14</span><br><span class="line">13    15   16</span><br><span class="line">15 &gt;&gt; C &#x3D; [A B]　　　　　　　 % “横”着连接</span><br><span class="line">18     1    2   11   12</span><br><span class="line">19     3    4   13   14</span><br><span class="line">20     5    6   15   16</span><br><span class="line">23 &gt;&gt; C &#x3D; [A, B]　　　　　　 % “横”着连接</span><br><span class="line">24 C &#x3D;</span><br><span class="line">26     1    2   11   12</span><br><span class="line">27     3    4   13   14</span><br><span class="line">28     5    6   15   16</span><br><span class="line">30 &gt;&gt; C &#x3D; [A; B]　　　　　　% “竖”着连接</span><br><span class="line">31 C &#x3D;</span><br><span class="line">33     1    2</span><br><span class="line">34     3    4</span><br><span class="line">35     5    6</span><br><span class="line">36    11   12</span><br><span class="line">37    13   14</span><br><span class="line">38    15   16</span><br></pre></td></tr></table></figure>
+<h3 id="随机数"><strong>5.1.4 随机数</strong></h3>
+<p><strong>取随机数，定义维度，随机数大小总在0到1之间</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; w &#x3D; rand(3,3)</span><br><span class="line">3 w &#x3D;</span><br><span class="line">5    0.19782   0.42514   0.10275</span><br><span class="line">6    0.83117   0.66312   0.37967</span><br><span class="line">7    0.27300   0.92920   0.62790</span><br></pre></td></tr></table></figure>
+<p><strong>生成一个一行三列的 高斯随机分布</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; w &#x3D; randn(1,3)</span><br><span class="line">3 w &#x3D;</span><br><span class="line">5   -0.025352   0.023321   1.729415</span><br></pre></td></tr></table></figure>
+<p>　 　<strong>生成一个一行10000列，均值为6的高斯随机分布矩阵</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; w &#x3D; - 6 + sqrt(10) * (randn(1,10000));</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029103741659-796527580.png" /></p>
+<p><strong>使用hist()函数展示直方图</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hist(w)</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029101140121-410195463.png" /></p>
+<p>　<strong>生成50个条的直方图</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hist(w, 50) </span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029101228893-9862563.png" /></p>
+<h2 id="移动数据"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=27">5.2 移动数据</a></h2>
+<blockquote>
+<p>pwd 指令：得到Octave默认路径； cd 指令：change direction 即改变路径，自己指定路径，但路径名中不要包含汉字 ls 指令：列出默认路径中包含的所有路径或者文件 load test.dat : 加载文件中的数据到test变量中 load('test.dat') : 同上 test ： 显示test变量里的数据内容 who/whos : 列出目前Octave工作空间中包含的所有变量 clear test : 删除工作空间的变量test V = test(1 : 10) : 取test中的前十个赋值给变量v save hello.mat V : 将变量V保存在hello.mat文件中，注意当再次加载进来时，变量的名称仍然是V 而非文件名hello</p>
+<p>save hello.txt V -ascii： 存为可以看的 txt 文件</p>
+</blockquote>
+<p><strong>从文件中加载数据到变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; ls　　　　　　　　　　　　　　% 查看路径下的文件</span><br><span class="line"> 5  Directory of D:\myc_learn\machine_learning\code\week2</span><br><span class="line"> 6 </span><br><span class="line"> 7 [.]             [..]            featuresX.dat   priceY.dat</span><br><span class="line"> 8                2 File(s)            658 bytes</span><br><span class="line"> 9                2 Dir(s)  770,788,524,032 bytes free</span><br><span class="line">12 &gt;&gt; load featuresX.dat　　　　　　% 使用load 加载房屋特征文件</span><br><span class="line">19 &gt;&gt; featuresX　　　　　　　　　　　% 打印featuresX</span><br><span class="line">20 featuresX &#x3D;</span><br><span class="line">22    2343      3</span><br><span class="line">23    4343      6</span><br><span class="line">24    2222      3</span><br><span class="line">25    1245      2</span><br><span class="line">26    2345      5</span><br><span class="line">27    2234      2</span><br><span class="line">28    2123      6</span><br><span class="line">... ...</span><br><span class="line">72 &gt;&gt; size(featuresX)　　　　% 矩阵大小</span><br><span class="line">73 ans &#x3D;</span><br><span class="line">75    47    2</span><br><span class="line">77 &gt;&gt; load(&#39;priceY.dat&#39;)　　% 加载文件</span><br><span class="line">78 &gt;&gt; size(priceY)</span><br><span class="line">79 ans &#x3D;</span><br><span class="line">81    47    1</span><br></pre></td></tr></table></figure>
+<p><strong>使用who 和whos 查看都有哪些变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; who</span><br><span class="line"> 2 Variables in the current scope:</span><br><span class="line"> 4 A          ans        featuresX  priceY     sz</span><br><span class="line"> 6 &gt;&gt; whos</span><br><span class="line"> 7 Variables in the current scope:</span><br><span class="line"> 9    Attr Name           Size                     Bytes  Class</span><br><span class="line">10    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;           &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">11         A              3x2                         48  double</span><br><span class="line">12         ans            1x2                         16  double</span><br><span class="line">13         featuresX     47x2                        752  double</span><br><span class="line">14         priceY        47x1                        376  double</span><br><span class="line">15         sz             1x2                         16  double</span><br><span class="line">17 Total is 151 elements using 1208 bytes</span><br></pre></td></tr></table></figure>
+<p><strong>删除变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; clear featuresX</span><br><span class="line">2 &gt;&gt; who</span><br><span class="line">3 Variables in the current scope:</span><br><span class="line">5 A       ans     priceY  sz</span><br></pre></td></tr></table></figure>
+<p><strong>保存变量到文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; V &#x3D; priceY(1:10)        % 将priceY的前10个元素赋值给V</span><br><span class="line"> 2 V &#x3D;</span><br><span class="line"> 4    3048</span><br><span class="line"> 5    4702</span><br><span class="line"> 6    6069</span><br><span class="line"> 7    5001</span><br><span class="line"> 8    6321</span><br><span class="line"> 9    3274</span><br><span class="line">10    2183</span><br><span class="line">11    4205</span><br><span class="line">12    8270</span><br><span class="line">13    7704</span><br><span class="line">15 &gt;&gt; save hello.mat V        % 将V保存到文件hello.dat中</span><br><span class="line">16 &gt;&gt; clear V            % 清除变量V</span><br><span class="line">18 &gt;&gt; whos                % 查看都有哪些变量</span><br><span class="line">19 Variables in the current scope:</span><br><span class="line">21    Attr Name        Size                     Bytes  Class</span><br><span class="line">22    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;        &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">23         A           3x2                         48  double</span><br><span class="line">24         ans         1x2                         16  double</span><br><span class="line">25         priceY     47x1                        376  double</span><br><span class="line">26         sz          1x2                         16  double</span><br><span class="line">28 Total is 57 elements using 456 bytes</span><br></pre></td></tr></table></figure>
+<p>保存的 hello.mat 是二进制格式。 如果保存成 dat 格式，文件中数据如下<strong>：</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029123825471-1578597187.png" /></p>
+<p><strong>从文件中加载回变量V</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; load hello.mat</span><br><span class="line"> 2 &gt;&gt; whos</span><br><span class="line"> 3 Variables in the current scope:</span><br><span class="line"> 5    Attr Name        Size                     Bytes  Class</span><br><span class="line"> 6    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;        &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"> 7         A           3x2                         48  double</span><br><span class="line"> 8         V          10x1                         80  double</span><br><span class="line"> 9         ans         1x2                         16  double</span><br><span class="line">10         priceY     47x1                        376  double</span><br><span class="line">11         sz          1x2                         16  double</span><br><span class="line">13 Total is 67 elements using 536 bytes</span><br><span class="line">16 &gt;&gt; V</span><br><span class="line">17 V &#x3D;</span><br><span class="line">19    3048</span><br><span class="line">20    4702</span><br><span class="line">21    6069</span><br><span class="line">22    5001</span><br><span class="line">23    6321</span><br><span class="line">24    3274</span><br><span class="line">25    2183</span><br><span class="line">26    4205</span><br><span class="line">27    8270</span><br><span class="line">28    7704</span><br></pre></td></tr></table></figure>
+<p>　　<strong>保存成可以看的 txt 文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 save hello.txt V -ascii</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029124142051-2048993977.png" /></p>
+<hr />
+<p>因为用到房屋价格数据，干脆用Octave生成了一些随机数，粘贴进了文件 priceY.dat 里<strong> </strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 A   &#x3D; 10000 * rand(1,47)　　　　% 生成47个0-1的随机数，并且乘以10000</span><br><span class="line">2 disp(sprintf(&#39;%0.0f\n&#39;,A))　　 % 打印成整数形式</span><br></pre></td></tr></table></figure>
+<h2 id="计算数据"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=28">5.3 计算数据</a></h2>
+<h3 id="矩阵相乘">5.3.1 矩阵相乘</h3>
+<p><strong>矩阵相乘 矩阵点乘</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 1&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 7 3&gt; C &#x3D; [1 1 ; 2 2]</span><br><span class="line">12 4&gt; A * C    % 矩阵相乘</span><br><span class="line">14     5    5</span><br><span class="line">15    11   11</span><br><span class="line">16    17   17            </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 8 B &#x3D;</span><br><span class="line"> 9    11   12</span><br><span class="line">10    13   14</span><br><span class="line">11    15   16</span><br><span class="line">14 5&gt; A .* B   % 矩阵点乘 各元素逐一相乘</span><br><span class="line">16    11   24</span><br><span class="line">17    39   56</span><br><span class="line">18    75   96</span><br></pre></td></tr></table></figure>
+<p><strong>在每个元素上操作 </strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A .^ 2　　　　　　% 每个元素取平方</span><br><span class="line">1 .&#x2F; A 　　　　　　% 取倒数 </span><br></pre></td></tr></table></figure>
+<h3 id="向量计算">5.3.2 向量计算</h3>
+<p><strong>最大值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 23&gt; a &#x3D; [1 15 2 0.5]</span><br><span class="line"> 5 24&gt; val &#x3D; max(a)</span><br><span class="line"> 6 val &#x3D;  15</span><br><span class="line"> 8 25&gt; [val, ind] &#x3D; max(a)　　　　% ind 返回最大值位置</span><br><span class="line"> 9 val &#x3D;  15</span><br><span class="line">10 ind &#x3D;  2</span><br></pre></td></tr></table></figure>
+<p><strong>向量逻辑判断</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 a &lt; 3　　　　　　% 对每个元素进行逻辑判断</span><br><span class="line">3   1  0  1  1</span><br><span class="line">5 find(a &lt; 3)　　% 在上面进行逻辑判断的基础上，返回结果为真的索引</span><br><span class="line">7    1   3   4</span><br></pre></td></tr></table></figure>
+<p><strong>向量常用函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sum(a)　　　　 % 所有元素求和</span><br><span class="line">prod(a)　　　　% 所有元素相乘</span><br><span class="line">floor(a)  　　% round down 向下取整</span><br><span class="line">ceil(a)  　　 % round up 向上取整round(a)     % 四舍五入std(a)　　    % 求标准差mean(a)      % 求平均值 abs([-1;2;-3])　　 % 取绝对值log(v)            % 取log</span><br><span class="line">exp(v)            % 取e为底的指数， e&#x3D;2.71828</span><br></pre></td></tr></table></figure>
+<p><strong>向量运算</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 12&gt; v</span><br><span class="line"> 3    1</span><br><span class="line"> 4    2</span><br><span class="line"> 5    3</span><br><span class="line">14 15&gt; -v</span><br><span class="line">16   -1</span><br><span class="line">17   -2</span><br><span class="line">18   -3</span><br><span class="line">20 16&gt; v + ones(length(v), 1)</span><br><span class="line">22    2</span><br><span class="line">23    3</span><br><span class="line">24    4</span><br><span class="line">26 18&gt; ones(3,1)</span><br><span class="line">28    1</span><br><span class="line">29    1</span><br><span class="line">30    1</span><br><span class="line">32 19&gt; v + ones(3,1)</span><br><span class="line">34    2</span><br><span class="line">35    3</span><br><span class="line">36    4</span><br><span class="line">38 20&gt; v + 1</span><br><span class="line">40    2</span><br><span class="line">41    3</span><br><span class="line">42    4</span><br></pre></td></tr></table></figure>
+<h3 id="矩阵最大值">5.3.1 矩阵最大值</h3>
+<p><strong>随机矩阵中的最大值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; rand(3)</span><br><span class="line"> 3    0.64927   0.22644   0.61599</span><br><span class="line"> 4    0.87125   0.68797   0.60553</span><br><span class="line"> 5    0.69778   0.25321   0.12596</span><br><span class="line"> 7 &gt;&gt; max(rand(3), rand(3))　　% 随机矩阵中的最大值</span><br><span class="line"> 9    0.51841   0.89632   0.75562</span><br><span class="line">10    0.21897   0.68484   0.75206</span><br><span class="line">11    0.97807   0.73515   0.75578</span><br></pre></td></tr></table></figure>
+<p><strong>求矩阵的行最大值、列最大值 element-wise comparison</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A</span><br><span class="line"> 3    8   1   6</span><br><span class="line"> 4    3   5   7</span><br><span class="line"> 5    4   9   2</span><br><span class="line"> 7 &gt;&gt; max(A)    % 返回每一列的最大值</span><br><span class="line"> 9    8   9   7</span><br><span class="line">11 &gt;&gt; max(A,[],1)  % 返回每一列的最大值</span><br><span class="line">13    8   9   7</span><br><span class="line">15 &gt;&gt; max(A,[],2) % 返回每一行的最大值</span><br><span class="line">17    8</span><br><span class="line">18    7</span><br><span class="line">19    9</span><br></pre></td></tr></table></figure>
+<p>　　<strong>两种求矩阵中所有元素最大值的方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; max(max(A))</span><br><span class="line">2 ans &#x3D;  9</span><br><span class="line">3 &gt;&gt; max(A(:)) </span><br><span class="line">4 ans &#x3D;  9</span><br></pre></td></tr></table></figure>
+<h3 id="矩阵相乘-1">5.3.1 矩阵相乘</h3>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A &#x3D; magic(3)    　　　　   % 生成一个magic squares。其行、列、对角线 元素和等于同一个数</span><br><span class="line">[r,c] &#x3D; find(A&gt;&#x3D;7) 　　　  %返回符合条件元素的行坐标和列坐标</span><br><span class="line">sum(A,1)       　　　　　　% 矩阵每一列相加</span><br><span class="line">sum(A,2) 　　　　　　　  % 矩阵每一行相加</span><br><span class="line">A .* eye(9)　　　　　　　 % 矩阵主对角线的值</span><br><span class="line">sum(sum(A .* eye(9))) 　  % 主对角线求和</span><br><span class="line">flipud(eye(9))    　　　　  % 次对角线的值</span><br><span class="line">sum(sum(A .* flipud(eye(9))))　　% 次对角线求和</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 33&gt; A &#x3D; magic(3) </span><br><span class="line"> 3    8   1   6</span><br><span class="line"> 4    3   5   7</span><br><span class="line"> 5    4   9   2</span><br><span class="line"> 7 34&gt; [r,c] &#x3D; find(A&gt;&#x3D;7) % 返回符合条件元素的行坐标和列坐标</span><br><span class="line"> 8 r &#x3D;</span><br><span class="line"> 9    1</span><br><span class="line">10    3</span><br><span class="line">11    2</span><br><span class="line">13 c &#x3D;</span><br><span class="line">14    1</span><br><span class="line">15    2</span><br><span class="line">16    3     % 即(1,1)(3,2)(2,3)三个元素&gt;&#x3D;7</span><br></pre></td></tr></table></figure>
+<p>　　<strong>矩阵列相加，行相加</strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; magic(9)</span><br><span class="line"> 3    47   58   69   80    1   12   23   34   45</span><br><span class="line"> 4    57   68   79    9   11   22   33   44   46</span><br><span class="line"> 5    67   78    8   10   21   32   43   54   56</span><br><span class="line"> 6    77    7   18   20   31   42   53   55   66</span><br><span class="line"> 7     6   17   19   30   41   52   63   65   76</span><br><span class="line"> 8    16   27   29   40   51   62   64   75    5</span><br><span class="line"> 9    26   28   39   50   61   72   74    4   15</span><br><span class="line">10    36   38   49   60   71   73    3   14   25</span><br><span class="line">11    37   48   59   70   81    2   13   24   35</span><br><span class="line">13 &gt;&gt; sum(A,1)    　　　　% 矩阵每一列相加</span><br><span class="line">15    369   369   369   369   369   369   369   369   369</span><br><span class="line">17 &gt;&gt; sum(A,2) 　　　　　　% 矩阵每一行相加</span><br><span class="line">19    369</span><br><span class="line">20    369</span><br><span class="line">21    369</span><br><span class="line">22    369</span><br><span class="line">23    369</span><br><span class="line">24    369</span><br><span class="line">25    369</span><br><span class="line">26    369</span><br><span class="line">27    369    </span><br></pre></td></tr></table></figure>
+<p>　　<strong>矩阵主对角线的值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A .* eye(9)　　% 矩阵主对角线的值</span><br><span class="line"> 4    47    0    0    0    0    0    0    0    0</span><br><span class="line"> 5     0   68    0    0    0    0    0    0    0</span><br><span class="line"> 6     0    0    8    0    0    0    0    0    0</span><br><span class="line"> 7     0    0    0   20    0    0    0    0    0</span><br><span class="line"> 8     0    0    0    0   41    0    0    0    0</span><br><span class="line"> 9     0    0    0    0    0   62    0    0    0</span><br><span class="line">10     0    0    0    0    0    0   74    0    0</span><br><span class="line">11     0    0    0    0    0    0    0   14    0</span><br><span class="line">12     0    0    0    0    0    0    0    0   35</span><br><span class="line">14 &gt;&gt; sum(sum(A .* eye(9))) 　　% 主对角线求和</span><br><span class="line">15 ans &#x3D;  369</span><br></pre></td></tr></table></figure>
+<p>　<strong>矩阵次对角线的值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; flipud(eye(9))    % 次对角线的值</span><br><span class="line"> 6    0   0   0   0   0   0   0   0   1</span><br><span class="line"> 7    0   0   0   0   0   0   0   1   0</span><br><span class="line"> 8    0   0   0   0   0   0   1   0   0</span><br><span class="line"> 9    0   0   0   0   0   1   0   0   0</span><br><span class="line">10    0   0   0   0   1   0   0   0   0</span><br><span class="line">11    0   0   0   1   0   0   0   0   0</span><br><span class="line">12    0   0   1   0   0   0   0   0   0</span><br><span class="line">13    0   1   0   0   0   0   0   0   0</span><br><span class="line">14    1   0   0   0   0   0   0   0   0</span><br><span class="line">16 &gt;&gt; sum(sum(A .* flipud(eye(9))))　　% 次对角线求和</span><br><span class="line">17 ans &#x3D;  369    </span><br></pre></td></tr></table></figure>
+<h2 id="绘制数据图"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=29">5.4 绘制数据图</a></h2>
+<h3 id="绘制曲线">5.4.1 绘制曲线</h3>
+<h5 id="画一个sin曲线">　　<strong>1、画一个sin曲线</strong></h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; t &#x3D; [0:0.01:0.98];</span><br><span class="line">2 &gt;&gt; y1 &#x3D; sin(2 * pi * 4 * t);</span><br><span class="line">3 &gt;&gt; plot(t,y1);</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029162612078-2099824295.png" /></p>
+<p>　　<strong>2、画一个cos曲线</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; y2 &#x3D; cos(2 * pi * 4 * t);</span><br><span class="line">2 &gt;&gt; plot(t,y2);</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029162704628-1043172928.png" /></p>
+<h5 id="将两个曲线合并在一起"><strong>3、将两个曲线合并在一起</strong></h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; plot(t,y1);</span><br><span class="line">2 &gt;&gt; hold on</span><br><span class="line">3 &gt;&gt; plot(t,y2,&#39;r&#39;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029162857076-718384579.png" /></p>
+<h5 id="给图像添加信息">4、给图像添加信息</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt; xlabel(&#39;time&#39;)　　　　% X轴标签</span><br><span class="line">2 &gt;&gt; ylabel(&#39;value&#39;)　　　% Y轴标签</span><br><span class="line">3 &gt;&gt; legend(&#39;sin&#39;,&#39;cos&#39;)　　% 添加曲线名称</span><br><span class="line">4 &gt;&gt; title(&#39;my plot&#39;)　　% 添加标题</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029163107823-1694970492.png" /></p>
+<h5 id="保存到文件">5、保存到文件</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; print -dpng &#39;myPlot.png&#39;</span><br><span class="line">2 &gt;&gt; ls</span><br><span class="line">3  Directory of D:\myc_learn\machine_learning\code\week2</span><br><span class="line">5 [.]             5.m             hello.dat       myPlot.png</span><br><span class="line">6 [..]            featuresX.dat   hello.txt       priceY.dat</span><br><span class="line">9 &gt;&gt; close</span><br></pre></td></tr></table></figure>
+<h5 id="绘制多张图">6、绘制多张图</h5>
+<p>　　 绘制多张图，需要指定将哪个曲线放在哪个图中。否则会一直绘制在当前窗口，覆盖之前的图形</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; figure(1); plot(t,y1);  % 在figure1中绘制</span><br><span class="line">2 &gt;&gt; figure(2); plot(t,y2);  % 在figure2中绘制</span><br></pre></td></tr></table></figure>
+<h5 id="将两个图显示在一张图片中">7、将两个图显示在一张图片中</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; subplot(1,2,1);  % 将图片划分为两个格子，访问第一个格子</span><br><span class="line">2 &gt;&gt; plot(t,y1)　　　　% 画第一个图像</span><br><span class="line">3 &gt;&gt; subplot(1,2,2);  % 访问第二个格子</span><br><span class="line">4 &gt;&gt; plot(t,y2)　　　　% 画第二个图像</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029163340564-2141014548.png" /></p>
+<h5 id="改变坐标轴范围">8、改变坐标轴范围</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; axis([0.5 1 -1 1])</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029165324481-811738950.png" /></p>
+<p>　　点击一下第一张图片，再运行一下上面那行代码，图变为：</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029165420733-106112330.png" /></p>
+<h5 id="清空和关闭图片">9、清空和关闭图片</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; clf　　　　% 清空</span><br><span class="line">2 &gt;&gt; close　　 % 关闭</span><br></pre></td></tr></table></figure>
+<h3 id="绘制可视化矩阵">5.4.2 绘制可视化矩阵</h3>
+<h5 id="生成矩阵图">1、生成矩阵图</h5>
+<p>　　根据矩阵的值生成图像，不同的颜色对应矩阵中不同的值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; A &#x3D; magic(5)</span><br><span class="line">2 A &#x3D;</span><br><span class="line">3    17   24    1    8   15</span><br><span class="line">4    23    5    7   14   16</span><br><span class="line">5     4    6   13   20   22</span><br><span class="line">6    10   12   19   21    3</span><br><span class="line">7    11   18   25    2    9</span><br><span class="line">8 &gt;&gt; imagesc(A)</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029165848693-1811850458.png" /></p>
+<h5 id="显示颜色条">2、显示颜色条</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; colorbar</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029170024031-956577300.png" /></p>
+<p>　　或者直接使用下面的一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; imagesc(magic(5)), colorbar;</span><br></pre></td></tr></table></figure>
+<h5 id="生成灰度图">3、生成灰度图</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; imagesc(A), colorbar, colormap gray;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029170048929-1308155598.png" /></p>
+<p>　　生成一个15行15列灰度图</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; imagesc(magic(15)),colorbar,colormap gray;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029170338156-1638032088.png" /></p>
+<p>　　以 imagesc(magic(15)),colorbar,colormap gray; 为例。</p>
+<p>　　这种几个逗号隔开的命令一起运行的方式，叫做逗号连接函数调用 comma chaining of function calls 或 comma chaining commands 。</p>
+<p>　　比如赋值操作可以写成：a=1, b=2, c=3;</p>
+<h3 id="散点图">5.4.3 散点图</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1   plot(x,y,&#39;rx&#39;, &#39;MarkerSize&#39;, 10);</span><br><span class="line">2   xlabel(&#39;Population of City in 10,000s&#39;);</span><br><span class="line">3   ylabel(&#39;Profit in $10,000s&#39;);</span><br><span class="line">4   title(&#39;POPULATION AND PROFIT&#39;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030085723851-65757827.png" /></p>
+<p>　图像绘制在Octave官方文档的 15.2.1 Two-Dimensional Plots ，图形属性设置在15.3.3.4 Line Properties。</p>
+<p>如果想设置某个属性，直接写属性名，后面跟一个值。plot (*x, *y, *property, *value, …)**</p>
+<p>　　<strong>例如 plot (*x, *y, *'linewidth', 2*, …);</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030093854840-1836962077.png" /></p>
+<h2 id="控制语句-for-while-if-语句"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=30">5.5 控制语句： for， while， if 语句</a></h2>
+<h5 id="for-循环-通过-index-访问列向量">1、for 循环 通过 index 访问列向量</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; v &#x3D; zeros(10,1)</span><br><span class="line"> 2 v &#x3D;</span><br><span class="line"> 3    0</span><br><span class="line"> 4    0</span><br><span class="line"> 5    0</span><br><span class="line"> 6    0</span><br><span class="line"> 7    0</span><br><span class="line"> 8    0</span><br><span class="line"> 9    0</span><br><span class="line">10    0</span><br><span class="line">11    0</span><br><span class="line">12    0</span><br><span class="line">13 &gt;&gt; for i &#x3D; 1 : 10,</span><br><span class="line">14      v(i) &#x3D; 2 ^ i;</span><br><span class="line">15    end;</span><br><span class="line">16 &gt;&gt; v</span><br><span class="line">17 v &#x3D;</span><br><span class="line">18       2</span><br><span class="line">19       4</span><br><span class="line">20       8</span><br><span class="line">21      16</span><br><span class="line">22      32</span><br><span class="line">23      64</span><br><span class="line">24     128</span><br><span class="line">25     256</span><br><span class="line">26     512</span><br><span class="line">27    1024</span><br></pre></td></tr></table></figure>
+<h5 id="for-循环-直接访问列向量元素">2、for 循环 直接访问列向量元素</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; indices &#x3D; 1 : 10;</span><br><span class="line"> 2 &gt;&gt; indices</span><br><span class="line"> 3 indices &#x3D;</span><br><span class="line"> 4     1    2    3    4    5    6    7    8    9   10</span><br><span class="line"> 5 &gt;&gt; for i &#x3D; indices,</span><br><span class="line"> 6       disp(i);</span><br><span class="line"> 7    end;</span><br><span class="line"> 8  1</span><br><span class="line"> 9  2</span><br><span class="line">10  3</span><br><span class="line">11  4</span><br><span class="line">12  5</span><br><span class="line">13  6</span><br><span class="line">14  7</span><br><span class="line">15  8</span><br><span class="line">16  9</span><br><span class="line">17  10</span><br></pre></td></tr></table></figure>
+<h5 id="while-循环访问列向量">3、while 循环访问列向量</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; i &#x3D; 1;</span><br><span class="line"> 2 &gt;&gt; while i &lt;&#x3D; 5,</span><br><span class="line"> 3       v(i) &#x3D; 100;</span><br><span class="line"> 4       i &#x3D; i + 1;</span><br><span class="line"> 5    end;</span><br><span class="line"> 6 &gt;&gt; v</span><br><span class="line"> 7 v &#x3D;</span><br><span class="line"> 8     100</span><br><span class="line"> 9     100</span><br><span class="line">10     100</span><br><span class="line">11     100</span><br><span class="line">12     100</span><br><span class="line">13      64</span><br><span class="line">14     128</span><br><span class="line">15     256</span><br><span class="line">16     512</span><br><span class="line">17    1024</span><br></pre></td></tr></table></figure>
+<h5 id="whiletrue-和-break">4、while(true) 和 break</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; i &#x3D; 1 ;</span><br><span class="line"> 2 &gt;&gt; while(true),</span><br><span class="line"> 3      v(i) &#x3D; 999;</span><br><span class="line"> 4      i &#x3D; i + 1;</span><br><span class="line"> 5      if i &#x3D;&#x3D; 6,</span><br><span class="line"> 6         break;</span><br><span class="line"> 7      end;</span><br><span class="line"> 8    end;</span><br><span class="line"> 9 &gt;&gt;</span><br><span class="line">10 &gt;&gt; v</span><br><span class="line">11 v &#x3D;</span><br><span class="line">12     999</span><br><span class="line">13     999</span><br><span class="line">14     999</span><br><span class="line">15     999</span><br><span class="line">16     999</span><br><span class="line">17      64</span><br><span class="line">18     128</span><br><span class="line">19     256</span><br><span class="line">20     512</span><br><span class="line">21    1024</span><br></pre></td></tr></table></figure>
+<h5 id="if-else-语句">5、if else 语句</h5>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; v(1) &#x3D; 2;</span><br><span class="line">2 &gt;&gt; if v(1) &#x3D;&#x3D; 1,</span><br><span class="line">3       disp(&#39;The value is one&#39;);</span><br><span class="line">4    elseif v(1) &#x3D;&#x3D; 2,</span><br><span class="line">5       disp(&#39;The value is two&#39;);</span><br><span class="line">6    else,</span><br><span class="line">7       disp(&#39;The value is not one or two&#39;);</span><br><span class="line">8    end;</span><br><span class="line">9 The value is two</span><br></pre></td></tr></table></figure>
+<h5 id="自定义函数-function">6、自定义函数 function</h5>
+<p>　　定义函数 squareThisNumber(x)，内容如下：　</p>
+<figure class="highlight ocaml"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">function</span> y = squareThisNumber(x)</span><br><span class="line"><span class="number">2</span>   y = x^<span class="number">2</span>;</span><br><span class="line"><span class="number">3</span> endfunction</span><br></pre></td></tr></table></figure>
+<p>　　将函数保存为squarethisnumber.m，注意此时是小写。</p>
+<p>　　这时候调用函数 squareThisNumber(2) 提示找不到函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; squareThisNumber(2);</span><br><span class="line">2 error: &#39;squareThisNumber&#39; undefined near line 1 column 1</span><br><span class="line">3 &gt;&gt;</span><br><span class="line">4 &gt;&gt; ls</span><br><span class="line">5 [.]                         featuresX.dat               priceY.dat</span><br><span class="line">6 [..]                        hello.dat                   squarethisnumber.m</span><br></pre></td></tr></table></figure>
+<p>　　将文件命名为函数一致squareThisNumber.m（大小写也一致），这时候调用函数成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; ls</span><br><span class="line">2 [.]                         featuresX.dat               priceY.dat</span><br><span class="line">3 [..]                        hello.dat                   squareThisNumber.m</span><br><span class="line">4 &gt;&gt; squareThisNumber(2);</span><br><span class="line">5 &gt;&gt; a &#x3D; squareThisNumber(2);</span><br><span class="line">6 &gt;&gt; a</span><br><span class="line">7 a &#x3D;  4</span><br></pre></td></tr></table></figure>
+<p>　　这说明：Octave 是大小写敏感的，文件名必须和函数名大小写一致。</p>
+<h5 id="多个返回值的函数">7、多个返回值的函数</h5>
+<p>　　Octave 函数有和其他语言不一样的地方是可以返回多个值。定义方法squareAndCubeThisNumber(x)如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 function [y1, y2] &#x3D; squareAndCubeThisNumber(x),</span><br><span class="line">2   y1 &#x3D; x ^ 2;</span><br><span class="line">3   y2 &#x3D; x ^ 3;</span><br><span class="line">4 endfunction</span><br></pre></td></tr></table></figure>
+<p>　　调用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; a &#x3D; squareAndCubeThisNumber(2)　　% 接受了第一个返回值</span><br><span class="line">2 a &#x3D;  4</span><br><span class="line">3 &gt;&gt; [a, b] &#x3D; squareAndCubeThisNumber(2)　　% 接受两个返回值</span><br><span class="line">4 a &#x3D;  4</span><br><span class="line">5 b &#x3D;  8</span><br></pre></td></tr></table></figure>
+<h5 id="更复杂的函数">8、更复杂的函数</h5>
+<p>　　保存下面的函数到costFunctionJ.m中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 function J &#x3D; costFunctionJ(X, y, theta),</span><br><span class="line"> 2   % X is the &quot;design matrix&quot; containing our training examples</span><br><span class="line"> 3   % y is the class labels</span><br><span class="line"> 4   </span><br><span class="line"> 5   m &#x3D; size(X, 1);   % number of training examples, size of rows</span><br><span class="line"> 6   predictions &#x3D; X * theta; % predictions of hapothesis on all m examples</span><br><span class="line"> 7   sqrErrors &#x3D; (predictions - y) .^ 2; % squared errors .^ 指的是对数据中每个元素平方</span><br><span class="line"> 8   </span><br><span class="line"> 9   J &#x3D; 1 &#x2F; (2 * m) * sum(sqrErrors); </span><br><span class="line">10   </span><br><span class="line">11 endfunction</span><br></pre></td></tr></table></figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029204557554-287746170.png" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029204912196-599036049.png" /></p>
+<p>　　针对上边的数据集初始化矩阵。调用函数，计算代价函数的值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; X &#x3D; [1 1; 1 2 ; 1 3];</span><br><span class="line">2 &gt;&gt; y &#x3D; [1;2;3];</span><br><span class="line">3 &gt;&gt; theta &#x3D; [0;1];　　　　　　% Θ为0,1  h(x)&#x3D;x  此时完全拟合数据，代价函数的值为0</span><br><span class="line">4 &gt;&gt; j &#x3D; costFunctionJ(X,y,theta)</span><br><span class="line">5 j &#x3D; 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; theta &#x3D; [0;0];　　　　　 % Θ 为0,0 h(x)&#x3D;0 此时不能拟合数据</span><br><span class="line">2 &gt;&gt; j &#x3D; costFunctionJ(X,y,theta)</span><br><span class="line">3 j &#x3D;  2.3333</span><br><span class="line">4 </span><br><span class="line">5 &gt;&gt; (1^2 + 2^2 + 3^2) &#x2F; (2*3)　　% 代价函数的值</span><br><span class="line">6 ans &#x3D;  2.3333</span><br></pre></td></tr></table></figure>
+<h2 id="向量化-vectorization"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=31">5.6 向量化 Vectorization</a></h2>
+<p>　　下面是向量化的小例子，如果将所有u(j) 、所有v(j)、所有w(j)都看成列向量，则公式变为为向量加法 u = 2v + 5w</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210555116-680937964.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　再复杂一些，在线性回归中 h(x) 的公式如下：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205341286-1081469612.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　假设此时n=2，只有两个特征。将其向量化：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210831210-1988087809.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　　在Octave中，如果使用for循环实现，则为左边的代码。使用看做向量相乘，则只需要右边一行代码：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205512492-976870318.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　在C++中，for循环和向量化方法的对比如下：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205541255-1708990559.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>当 n = 2 时，梯度下降的公式如下：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205626602-1925653783.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　 实现这三个方程的方式之一，是用一个 for 循环，让 j 分别等于 0、1、2 来更新 Θj。</p>
+<p>　　因为三个参数是同步更新，可以用向量化的方法来实现。我们使用 δ 替代公式中下面这项（注意最右边 x 没有下标）：</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210134226-674393857.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　　则δ是一个 n+1 维向量（在这里是3维）</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210428122-418240397.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　　α 是一个实数，α δ 也是 n+1 维向量</p>
+<p>　　x<sup>(i)</sup> 是一个 n+1 维向量（在这里是3维）</p>
+<figure>
+<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210458272-441674777.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>　　 公式变为一个向量减法：</p>
+<p>　　　　Θ := Θ - α δ</p>
+<p>　有时我们使用几十或几百个特征量来计算线性归回，当使用向量化地实现线性回归，通常运行速度就会比 for 循环快的多</p>
+<h2 id="相关术语">相关术语</h2>
+<p>digram 对角线</p>
+<p>plot 制图</p>
+<p>semicolon 分号</p>
+<p>column vector 列向量</p>
+<p>row vector 行向量</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/04/03/2021-04-03-Octave-Tutorial/">https://yintelligence.tech/2021/04/03/2021-04-03-Octave-Tutorial/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Machine-Learning/">
+                                    <span class="chip bg-color">Machine Learning</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/04/03/2021-04-03-Logistic-Regression/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Logistic Regression">
+                        
+                        <span class="card-title">Logistic Regression</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            逻辑回归
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/03/2021-04-03-Asymptotics-I/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Chaoqun Yin
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
