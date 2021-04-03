@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-04-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    961
+                    1.1k
                 </div>
                 
 
@@ -517,11 +517,15 @@
 <p><img src="/images/OP/205634.png" /></p>
 <p>Managing all hardware requires a layer of software – <strong>the operating system</strong>.</p>
 <ul>
-<li><p>Provide <strong>consistent abstractions</strong> to applications, even on different hardware</p></li>
-<li><p>Manage <strong>sharing of resources</strong> among multiple applications</p></li>
+<li>Provide <strong>consistent abstractions</strong> to applications, even on different hardware</li>
+<li>Manage <strong>sharing of resources</strong> among multiple applications</li>
+<li>Protected access to shared resources</li>
+<li>Security, authentication, isolation, fault tolerance</li>
+<li>Communication among logical entities</li>
+<li>Referee (sharing CPU resources), illusionist (isolation and protection), glue (providing services)</li>
 </ul>
 <p>The one program running at all times on the computer” is the <u><strong>kernel</strong></u> – Everything else is either a system program (ships with the operating system) or an application program</p>
-<h2 id="os-abstracts-underlying-hardware-to-help-tame-complexity">OS Abstracts Underlying Hardware to help Tame Complexity</h2>
+<h3 id="os-abstracts-underlying-hardware-to-help-tame-complexity">OS Abstracts Underlying Hardware to help Tame Complexity</h3>
 <ul>
 <li>Processor → Thread</li>
 <li>Memory → Address Space</li>
@@ -537,6 +541,21 @@
 <h2 id="where-is-the-software">Where is the software?</h2>
 <p>Two modes: User mode and Kernel mode</p>
 <p><img src="/images/OP/whereislocation.png" /></p>
+<h2 id="two-features-offered-by-hardware-protecting-processes">Two features offered by hardware (protecting processes)</h2>
+<ul>
+<li>dual mode operation
+<ul>
+<li>processes run in user or kernel mode (some operations prohibited in user mode)</li>
+</ul></li>
+<li>address translation
+<ul>
+<li>processes have distinct/isolated address spaces 't R/W memory of another program or the OS)
+<ul>
+<li>each process = (an address space) + (&gt;=1 threads of control)</li>
+</ul></li>
+<li>HW translates from virtual to physical addresses</li>
+</ul></li>
+</ul>
 <h2 id="why-do-you-need-an-operating-system">Why do you need an operating system?</h2>
 <ul>
 <li>Allow multiple programs to run at the same time</li>
@@ -561,11 +580,13 @@
 </ul></li>
 <li>Program makes system calls to the OS</li>
 </ul>
-<p><img src="/images/OP/203504.png" /></p>
-<p>Pic: 29:14 - 30:27</p>
+<figure>
+<img src="/images/OP/203504.png" alt="" /><figcaption>29:14 - 30:27</figcaption>
+</figure>
 <h1 id="four-fundamental-os-concepts">Four Fundamental OS Concepts</h1>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iFBwI3ZMn3o&amp;list=PLIMsSuI81pxq7c91oQMpmXgmGICbuDA_c&amp;index=2">CS162 UCB VIDEO</a></p>
-<h3 id="thread-of-control-2302-3936">1. Thread of Control 23:02 ~ 39:36</h3>
+<h2 id="recall-instruction-fetchdecodeexecute-cycle">Recall instruction fetch/decode/execute cycle</h2>
+<h2 id="thread-of-control-2302-3936">1. Thread of Control 23:02 ~ 39:36</h2>
 <ul>
 <li><strong>Thread</strong>: <strong><u>Single unique execution context</u></strong>
 <ul>
@@ -579,7 +600,7 @@
 <li>Often: a copy of the last value for each register stored in memory</li>
 </ul></li>
 </ul>
-<h4 id="illusion-of-multiple-processors-3138">Illusion of Multiple Processors 31:38</h4>
+<h3 id="illusion-of-multiple-processors-3138">Illusion of Multiple Processors 31:38</h3>
 <p><img src="/images/OP/204910.png" /></p>
 <ul>
 <li><p>Multiplex in time!</p>
@@ -603,7 +624,7 @@
 <li>Saved PC, SP, … in vCPU1's thread control block (memory)</li>
 <li>Loaded PC, SP, … from vCPU2's TCB, jumped to PC</li>
 </ul>
-<h3 id="address-space-4356">2. Address Space 43:56</h3>
+<h2 id="address-space-4356">2. Address Space 43:56</h2>
 <ul>
 <li><p><strong>Address space</strong> ⇒ the set of accessible addresses + state associated with them</p>
 <ul>
@@ -623,7 +644,7 @@
 <figure>
 <img src="/images/OP/addressspace.png" alt="" /><figcaption>47:04 - 49:46</figcaption>
 </figure>
-<h4 id="very-simple-multiprogramming">Very Simple Multiprogramming</h4>
+<h3 id="very-simple-multiprogramming">Very Simple Multiprogramming</h3>
 <ul>
 <li>All vCPU's share non-CPU resources
 <ul>
@@ -637,7 +658,7 @@
 <li>Used in early days of computing or embedded systems.</li>
 <li>However it is <strong>risky</strong>!</li>
 </ul>
-<h4 id="simple-multiplexing-has-no-protection">Simple Multiplexing has no Protection!</h4>
+<h3 id="simple-multiplexing-has-no-protection">Simple Multiplexing has no Protection!</h3>
 <ul>
 <li>OS must protect user programs from one another
 <ul>
@@ -652,19 +673,19 @@
 <li>Fairness: each thread should be limited to its appropriate share of system resources (CPU, memory)</li>
 </ul></li>
 </ul>
-<h4 id="what-can-the-hardware-do-to-help-the-os-protect-itself-from-programs-5420">What can the hardware do to help the OS protect itself from programs? 54:20</h4>
+<h3 id="what-can-the-hardware-do-to-help-the-os-protect-itself-from-programs-5420">What can the hardware do to help the OS protect itself from programs? 54:20</h3>
 <ul>
 <li>Simple Protection: Base and Bound (B&amp;B) 55:48 - 1:06:06</li>
 <li>Address Space Translation 1:06:07 - 1:07:36</li>
 </ul>
-<h3 id="process-11057">3. Process 1:10:57</h3>
-<h4 id="definition-execution-environment-with-restricted-rights">Definition: execution environment with restricted rights</h4>
+<h2 id="process-11057">3. Process 1:10:57</h2>
+<h3 id="definition-execution-environment-with-restricted-rights">Definition: execution environment with restricted rights</h3>
 <ul>
 <li><strong>(Protected) Address Space with One or More Threads</strong></li>
 <li>Owns memory (address space), file descriptors, sockets</li>
 <li>Encapsulate one or more threads sharing process resources</li>
 </ul>
-<h4 id="why-processes-11219">Why processes? 1:12:19</h4>
+<h3 id="why-processes-11219">Why processes? 1:12:19</h3>
 <ul>
 <li><strong>Protected from each other! </strong></li>
 <li><strong>OS Protected from them</strong></li>
@@ -672,7 +693,7 @@
 <li>Threads more efficient than processes for parallelism</li>
 </ul>
 <p>A process is a running program, with <strong>protection</strong>!</p>
-<h4 id="single-and-multithreaded-processes">Single and Multithreaded Processes</h4>
+<h3 id="single-and-multithreaded-processes">Single and Multithreaded Processes</h3>
 <figure>
 <img src="/images/OP/214705.png" alt="" /><figcaption>1:14:26 - 1:15:25</figcaption>
 </figure>
@@ -688,7 +709,7 @@
 <li>Concurrency: ease of handling I/O and other simultaneous events</li>
 </ul></li>
 </ul>
-<h4 id="protection-and-isolation">Protection and Isolation</h4>
+<h3 id="protection-and-isolation">Protection and Isolation</h3>
 <ul>
 <li>Processes provide protection and isolation
 <ul>
@@ -705,7 +726,7 @@
 <li>Hardware must support privilege levels</li>
 </ul></li>
 </ul>
-<h3 id="dual-mode-operation-11923">4. Dual Mode Operation 1:19:23</h3>
+<h2 id="dual-mode-operation-11923">4. Dual Mode Operation 1:19:23</h2>
 <p><img src="/images/OP/twomodes.png" /></p>
 <p>Hardware provides at least <strong>two modes</strong>:</p>
 <ol type="1">
@@ -715,10 +736,9 @@
 <p>Certain operations are <strong>prohibited</strong> when running in user mode (privileged instructions).</p>
 <p>Carefully controlled transitions between user mode and kernel mode.</p>
 <figure>
-<img src="/images/OP/UserKernelMode.png" alt="" /><figcaption>User/Kernel (Privileged) Mode</figcaption>
+<img src="/images/OP/UserKernelMode.png" alt="" /><figcaption>User/Kernel (Privileged) Mode 1:20:31 - 1:22:07</figcaption>
 </figure>
-<p>Pic: 1:20:31 - 1:22:07</p>
-<h3 id="conclusion">Conclusion</h3>
+<h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>Thread: Execution Context
 <ul>
@@ -735,6 +755,7 @@
 <li>Dual mode operation / Protection
 <ul>
 <li>Only the “system” has the ability to access certain resources</li>
+<li>Combined with translation, isolates programs from each other</li>
 </ul></li>
 </ul>
 
@@ -1102,13 +1123,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
