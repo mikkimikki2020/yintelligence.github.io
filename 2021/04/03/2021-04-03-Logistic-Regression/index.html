@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                Artificial Intelligence
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-03
+                    2021-04-04
                 </div>
                 
 
@@ -477,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    8 Min
                 </div>
                 
 
@@ -510,7 +510,7 @@
 <ul>
 <li>h<sub>θ</sub>(x) can be &gt;1 or &lt;0</li>
 </ul></li>
-<li>Logistic regression: 0 ≤ h<sub>θ</sub>(x) ≤ 1　　　</li>
+<li>Logistic regression: 0 ≤ h<sub>θ</sub><code>(x)</code> ≤ 1　　　</li>
 </ul>
 <h2 id="假设表示-hypothesis-representation"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=33">6.2 假设表示 Hypothesis Representation</a></h2>
 <p>引入一个新的模型：逻辑回归。该输出变量范围始终在 0和1 之间。 逻辑回归模型的假设是： <span class="math display">\[
@@ -522,34 +522,37 @@ g(z) = \frac{1}{1+e^{-z}}
 <li>𝑋 代表特征向量；</li>
 <li>𝑔 代表逻辑函数Logistic Function 也叫 Sigmoid Function，其曲线如下：</li>
 </ul>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030180622887-1667439365.png" /></p>
-<p>给定输入变量x，根据选择的参数θ，h<sub>θ</sub>(x)给出 y=1 的概率。y=0 的概率是 1 - h<sub>θ</sub>(x) <span class="math display">\[
+<p><img src="/images/AI/542362-20181030180622887-1667439365.png" /></p>
+<p>给定输入变量x，根据选择的参数θ，h<sub>θ</sub><code>(x)</code> 给出 y=1 的概率。y=0 的概率是 1 - h<sub>θ</sub><code>(x)</code> <span class="math display">\[
 h_θ(x) = P(y=1|x;θ)=1-P(y=0|x;θ)\\
 P(y=0|x;θ)+P(y=1|x;θ)=1
 \]</span></p>
 <h2 id="决策边界-decision-boundary"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=34">6.3 决策边界 Decision Boundary</a></h2>
 <p>　决策边界就是模型中预测为1 和预测为0的区域的分界线。The <strong>decision boundary</strong> is the line that separates the area where y = 0 and where y = 1. It is created by our hypothesis function.</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181732431-148102198.png" /></p>
+<p><img src="/images/AI/542362-20181030181732431-148102198.png" /></p>
 <p>线性的决策边界：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181159738-1007505285.png" /></p>
+<p><img src="images/AI/542362-20181030181159738-1007505285.png" /></p>
 <p>　非线性的决策边界：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181445928-559214339.png" /></p>
+<p><img src="/images/AI/542362-20181030181445928-559214339.png" /></p>
 <h2 id="代价函数-cost-function"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=35">6.4 代价函数 Cost Function</a></h2>
-<p>　如果沿用线性回归里的代价函数，则会导致J(𝜃) 不是凸函数，引发很多局部最优解。</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030182648795-2090040752.png" /></p>
-<p>为了拟合逻辑回归模型的参数 𝜃，代价函数如下：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181914858-1153042006.png" /></p>
-<p>　　 根据上面的公式计算代价，当预测和实际一致时代价为0，反之代价为无穷大。</p>
-<p>y = 1时，h<sub>θ</sub>(x) 和 J(𝜃)对应曲线如下：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030181937921-1956212769.png" /></p>
-<p>y = 0时， h<sub>θ</sub>(x) 和 J(𝜃) 对应曲线如下：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030182120690-232373933.png" /></p>
-<p>即有以下规律：</p>
-<ul>
-<li>Cost(h<sub>θ</sub>(x),y) = 0 　if h<sub>θ</sub>(x)=y</li>
-<li>Cost(h<sub>θ</sub>(x),y)→∞ 　if y=0 and h<sub>θ</sub>(x)→1</li>
-<li>Cost(h<sub>θ</sub>(x),y)→∞ 　if y=1 and h<sub>θ</sub>(x)→0</li>
-</ul>
+<p>　如果沿用线性回归里的代价函数，则会导致<code>J(θ)</code>不是凸函数，引发很多局部最优解。</p>
+<p><img src="/images/AI/542362-20181030182648795-2090040752.png" /></p>
+<p>为了拟合逻辑回归模型的参数 𝜃，代价函数如下： <span class="math display">\[
+J(\theta)=\frac{1}{m}\sum^m_{i=1}Cost(h_\theta(x^{(i)}),y^{(i)})\\
+Cost(h_\theta(x),y) = -\log(h_\theta(x))\ if\ y=1\\
+Cost(h_\theta(x),y) = -\log(1-h_\theta(x))\ if\ y=0
+\]</span> 　　 根据上面的公式计算代价，当预测和实际一致时代价为0，反之代价为无穷大。</p>
+<p>y = 1时，h<sub>θ</sub><code>(x)</code> 和 <code>J(θ)</code>对应曲线如下：</p>
+<p><img src="/images/AI/542362-20181030181937921-1956212769.png" /></p>
+<p>y = 0时， h<sub>θ</sub><code>(x)</code> 和 <code>J(θ)</code> 对应曲线如下：</p>
+<p><img src="/images/AI/542362-20181030182120690-232373933.png" /></p>
+<p>即有以下规律： <span class="math display">\[
+Cost(h_θ(x),y) = 0\ \ if\ h_θ(x)=y
+\\
+Cost(h_θ(x),y) = 0→∞\ \ if\ y=0\ and\ h_θ(x)=y→1
+\\
+Cost(h_θ(x),y) = 0→∞\ if\ y=1\ and\ h_θ(x)=y→0
+\]</span></p>
 <h2 id="简化的代价函数和梯度下降"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=36">6.5 简化的代价函数和梯度下降</a></h2>
 <p>　将上面两个式子 简化为下面一个式子（当 y 分别等于0或1时，式子只剩下两项中的一项）： <span class="math display">\[
 Cost(h_θ(x),y)=-y \log(h_θ(x))-(1-y)\log(1-h_θ(x))
@@ -559,25 +562,24 @@ J(θ)=-\frac{1}{m}\sum^m_{i=1}[y^{(i)}\log(h_θ(x^{(i)}))+(1-y^{(i)})\log(1-h_θ
 h = g(X\theta)\\
 J(θ)=\frac{1}{m}·(-y^T\log(h)-(1-y)^T\log(1-h))
 \]</span> 　梯度下降过程如下：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030194624144-283643655.png" /></p>
-<p>　使用数学方法推倒上式中 J(θ) 的导数：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181031161343127-142291410.png" /></p>
+<p><img src="/images/AI/542362-20181030194624144-283643655.png" /></p>
+<p>　使用数学方法推倒上式中 <code>J(θ)</code> 的导数：</p>
+<p><img src="/images/AI/542362-20181031161343127-142291410.png" /></p>
 <p>　　带入更新算法中，得到下面算法：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030194713059-1918213720.png" /></p>
-<p>　上面这个梯度下降算法 看起来和线性回归一样，但事实上是完全不同的。因为之前 h<sub>θ</sub>(x) 是线性函数，而逻辑回归中 h<sub>θ</sub>(x) ) 定义如下： <span class="math display">\[
+<p><img src="/images/AI/542362-20181030194713059-1918213720.png" /></p>
+<p>　上面这个梯度下降算法 看起来和线性回归一样，但事实上是完全不同的。因为之前h<sub>θ</sub><code>(x)</code> 是线性函数，而逻辑回归中h<sub>θ</sub><code>(x)</code> 定义如下： <span class="math display">\[
 h_θ(x)= \frac{1}{1+e^{-θ^TX}}
-\]</span> 　　一个梯度下降的向量化实现如下</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030185310115-1452483191.png" /></p>
+\]</span> 　　一个梯度下降的向量化实现如下 <span class="math display">\[
+\theta: = \theta -\frac{\alpha}{m}X^T(g(X\theta)-\vec y)
+\]</span></p>
 <h2 id="高级优化-advanced-optimization"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=37">6.6 高级优化 Advanced Optimization</a></h2>
 <p>　　除梯度下降算法以外，还有一些常被用来令代价函数最小的算法。这些算法更加复杂和优越，而且通常不需要人工选择学习率，比梯度下降算法要更加快速。这些有： <strong>共轭梯度</strong> （Conjugate Gradient）， <strong>局部优化法</strong> （Broyden fletcher goldfarb shann,BFGS）和<strong>有限内存局部优化法</strong> （LBFGS）。</p>
 <p>　　这些算法有一个智能的内部循环，称为线性搜索(line search)算法，它可以自动尝试不同的学习速率 。只需要给这些算法提供计算导数项和代价函数的方法，就可以返回结果。适用于大型机器学习问题。</p>
-<p>　　它们太复杂，不应该自己实现，而是调用MATLAB方法。例如一个无约束最小值函数 fminunc 。它会使用众多高级优化算法中的一个，就像加强版的梯度下降法，自动选择学习速率，找到最佳的 θ值。</p>
-<p>　　使用时需要提供代价函数和每个参数的求导，我们自己实现 costFunction 函数，传入参数θ，可以一次性返回以下两个值：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030191124502-813621012.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>　　例子，调用 fminunc() 函数，用@传入costFunction函数的指针，初始化的 theta，还可以增加 options（GradObj = on 指 “打开梯度目标参数”，即我们会给这个函数提供梯度参数）：</p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030192343384-1482166314.png" /></p>
+<p>　　它们太复杂，不应该自己实现，而是调用MATLAB方法。例如一个无约束最小值函数 fminunc 。它会使用众多高级优化算法中的一个，就像加强版的梯度下降法，自动选择学习速率，找到最佳的θ值。</p>
+<p>　　使用时需要提供代价函数和每个参数的求导，我们自己实现 costFunction 函数，传入参数θ，可以一次性返回以下两个值： <span class="math display">\[
+J(\theta)\\ \frac{\partial}{\partial\theta_j}J(\theta)
+\]</span> 　　例子，调用 fminunc() 函数，用@传入costFunction函数的指针，初始化的 theta，还可以增加 options（GradObj = on 指 “打开梯度目标参数”，即我们会给这个函数提供梯度参数）：</p>
+<p><img src="/images/AI/542362-20181030192343384-1482166314.png" /></p>
 <h2 id="多类别分类一对多-multiclass-classification_-one-vs-all"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=38">6.7 多类别分类：一对多 Multiclass Classification_ One-vs-all</a></h2>
 <p>　　多分类问题中，y 有 {0,1...n} 一共 n+1 中可能值。方法：</p>
 <ol type="1">
@@ -585,12 +587,10 @@ h_θ(x)= \frac{1}{1+e^{-θ^TX}}
 <li>对每个分类，都预测出一个h<sub>θ</sub>(x)值。代表 y是这个类型的可能性。</li>
 <li>最后结果为可能性最大的那个类型。</li>
 </ol>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030200323586-251217413.png" /></p>
-<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030195537821-153872890.png" /></p>
-<h2 id="相关术语">相关术语</h2>
-<p>decision boundary 决策边界 loophole　漏洞 nonlinear 非线性 penalize 使不利</p>
+<p><img src="/images/AI/542362-20181030200323586-251217413.png" /></p>
+<p><img src="/images/AI/542362-20181030195537821-153872890.png" /></p>
 <h1 id="exercise">Exercise</h1>
-<p>1. Suppose that you have trained a logistic regression classifier, and it outputs on a new example x<em>x</em> a prediction h<sub>θ</sub>(x) = 0.7. This means (check all that apply):</p>
+<p>1. Suppose that you have trained a logistic regression classifier, and it outputs on a new example x<em>x</em> a prediction h<sub>θ</sub><code>(x)</code> = 0.7. This means <code>(check all that apply)</code>:</p>
 <ul>
 <li>Our estimate for P(y=0|x; θ) is 0.3.<br />
 </li>
@@ -639,11 +639,11 @@ h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)
 <ul>
 <li><strong>Adding polynomial features could increase how well we can fit the training data.</strong><br />
 </li>
-<li><strong>At the optimal value of θ (e.g., found by fminunc), we will have J(θ)≥0.</strong><br />
+<li><strong>At the optimal value of θ <code>(e.g., found by fminunc)</code>, we will have <code>J(θ)≥0</code>.</strong><br />
 </li>
 <li><del>Adding polynomial features would increase J(θ) because we are now summing over more terms.</del><br />
 </li>
-<li><del>If we train gradient descent for enough iterations, for some examples x<sup>(i)</sup> in the training set it is possible to obtain h<sub>θ</sub>(x<sup>(i)</sup>)&gt;1.</del></li>
+<li><del>If we train gradient descent for enough iterations, for some examples x<sup>(i)</sup> in the training set it is possible to obtain h<sub>θ</sub><code>(x)</code>&gt;1.</del></li>
 </ul>
 <table>
 <colgroup>
@@ -658,12 +658,12 @@ h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)
 </thead>
 <tbody>
 <tr class="odd">
-<td>J(θ) will be a convex function, so gradient descent should converge to the global minimum.</td>
+<td><code>J(θ)</code> will be a convex function, so gradient descent should converge to the global minimum.</td>
 <td>none</td>
 </tr>
 <tr class="even">
 <td>Adding polynomial features could increase how well we can fit the training data</td>
-<td>Adding new features can only improve the fit on the training set: since setting θ<sub>3</sub>= θ<sub>4</sub> = θ<sub>5</sub> = 0 makes the hypothesis the same as the original one, gradient descent will use those features (by making the corresponding non-zero) only if doing so improves the training set fit</td>
+<td>Adding new features can only improve the fit on the training set: since setting θ<sub>3</sub>= θ<sub>4</sub> = θ<sub>5</sub> = 0 makes the hypothesis the same as the original one, gradient descent will use those features <code>(by making the corresponding non-zero</code> only if doing so improves the training set fit</td>
 </tr>
 </tbody>
 </table>
@@ -674,11 +674,11 @@ h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)
 <p>4. Which of the following statements are true? Check all that apply.</p>
 <ul>
 <li>Linear regression always works well for classification if you classify by using a threshold on the prediction made by linear regression.</li>
-<li>The sigmoid function is never greater than one ( &gt;1 ).<br />
+<li>The sigmoid function is never greater than one <code>( &gt;1 )</code>.<br />
 </li>
-<li>For logistic regression, sometimes gradient descent will converge to a local minimum (and fail to find the global minimum). This is the reason we prefer more advanced optimization algorithms such as fminunc (conjugate gradient/BFGS/L-BFGS/etc).<br />
+<li>For logistic regression, sometimes gradient descent will converge to a local minimum (and fail to find the global minimum). This is the reason we prefer more advanced optimization algorithms such as fminunc <code>(conjugate gradient/BFGS/L-BFGS/etc\)</code>.<br />
 </li>
-<li>The cost function J(θ) for logistic regression trained with m ≥ 1 examples is always greater than or equal to zero.</li>
+<li>The cost function <code>J(θ)</code> for logistic regression trained with m ≥ 1 examples is always greater than or equal to zero.</li>
 </ul>
 <table>
 <colgroup>
@@ -693,8 +693,8 @@ h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)
 </thead>
 <tbody>
 <tr class="odd">
-<td>The cost function J(θ) for logistic regression trained with examples is always greater than or equal to zero.</td>
-<td>The cost for any example x<sub>(i)</sub> is always ≥ 0 since it is the negative log of a quantity less than one. The cost function J(θ) is a summation over the cost for each eample, so the cost function itself must be greater than or equal to zero.</td>
+<td>The cost function <code>J(θ)</code> for logistic regression trained with examples is always greater than or equal to zero.</td>
+<td>The cost for any example x<sub><code>(i)</code></sub> is always ≥ 0 since it is the negative log of a quantity less than one. The cost function <code>J(θ)</code> is a summation over the cost for each eample, so the cost function itself must be greater than or equal to zero.</td>
 </tr>
 <tr class="even">
 <td>The sigmoid function is never greater than one</td>
@@ -702,6 +702,11 @@ h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)
 </tr>
 </tbody>
 </table>
+<h2 id="相关术语">相关术语</h2>
+<p>decision boundary 决策边界</p>
+<p>loophole　漏洞</p>
+<p>nonlinear 非线性</p>
+<p>penalize 使不利</p>
 
                 
             </div>
@@ -887,8 +892,8 @@ h_\theta(x) = g(\theta_0 + \theta_1x_1 + \theta_2 x_2)
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                    Artificial Intelligence
                                 </a>
                             
                             

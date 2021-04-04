@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                Artificial Intelligence
                             </a>
                         
                     </div>
@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.1k
+                    5.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    25 Min
+                    27 Min
                 </div>
                 
 
@@ -503,52 +503,210 @@
                 <h1 id="octave-tutorial">Octave Tutorial</h1>
 <h2 id="基本操作"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=26">5.1 基本操作</a></h2>
 <h3 id="简单运算">5.1.1 <strong>简单运算</strong></h3>
-<p>不等于符号的写法是这个波浪线加上等于符号 ( ~= )，而不是等于感叹号加等号( != )</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 1 &#x3D;&#x3D; 1  　　%  判断相等</span><br><span class="line">2 1 ~&#x3D; 2  　　%  判断不等</span><br><span class="line">3 1 &amp;&amp; 0   　 %  求逻辑与</span><br><span class="line">4 1 || 0    　%  求逻辑或</span><br><span class="line">5 xor(1, 0)   % 求异或</span><br></pre></td></tr></table></figure>
+<p>不等于符号的写法是这个波浪线加上等于符号 <code>~=</code>，而不是等于感叹号加等号<code>!=</code></p>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 1 &#x3D;&#x3D; 1  　　%  判断相等
+2 1 ~&#x3D; 2  　　%  判断不等
+3 1 &amp;&amp; 0   　 %  求逻辑与
+4 1 || 0    　%  求逻辑或
+5 xor(1, 0)   % 求异或<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>简化命令行</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PS1(&#39;&gt;&gt; &#39;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token function">PS1</span><span class="token punctuation">(</span><span class="token string">'>> '</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>分号 semicolon 不打印结果</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; a &#x3D; 3;  %semicolon supressing output</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">&gt;&gt; a &#x3D; 3;  %semicolon supressing output<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>浮点数的输出</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; a &#x3D; pi;</span><br><span class="line"> 3 &gt;&gt; a</span><br><span class="line"> 5 a &#x3D;  3.1416</span><br><span class="line"> 6 &gt;&gt; disp(a);</span><br><span class="line"> 8  3.1416</span><br><span class="line"> 9 &gt;&gt; disp(sprintf(&#39;2 decimals: %0.2f&#39;, a))</span><br><span class="line">11 2 decimals: 3.14</span><br><span class="line">12 &gt;&gt; disp(sprintf(&#39;6 decimals: %0.6f&#39;, a))</span><br><span class="line">14 6 decimals: 3.141593</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; a &#x3D; pi;
+ 3 &gt;&gt; a
+ 5 a &#x3D;  3.1416
+ 6 &gt;&gt; disp(a);
+ 8  3.1416
+ 9 &gt;&gt; disp(sprintf(&#39;2 decimals: %0.2f&#39;, a))
+11 2 decimals: 3.14
+12 &gt;&gt; disp(sprintf(&#39;6 decimals: %0.6f&#39;, a))
+14 6 decimals: 3.141593<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>控制输出格式的长短</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; format long</span><br><span class="line"> 3 &gt;&gt; a</span><br><span class="line"> 5 a &#x3D;  3.141592653589793</span><br><span class="line"> 6 &gt;&gt; format short</span><br><span class="line"> 8 &gt;&gt; a</span><br><span class="line">10 a &#x3D;  3.1416</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; format long
+ 3 &gt;&gt; a
+ 5 a &#x3D;  3.141592653589793
+ 6 &gt;&gt; format short
+ 8 &gt;&gt; a
+10 a &#x3D;  3.1416<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="向量和矩阵">5.1.2 向量和矩阵</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 5    1   2</span><br><span class="line"> 6    3   4</span><br><span class="line"> 7    5   6</span><br><span class="line"> 9 &gt;&gt; A &#x3D; [1 2;</span><br><span class="line">11 3 4;</span><br><span class="line">13 5 6]</span><br><span class="line">17    1   2</span><br><span class="line">18    3   4</span><br><span class="line">19    5   6</span><br><span class="line">21 &gt;&gt; v &#x3D; [1 2 3]</span><br><span class="line">25    1   2   3</span><br><span class="line">27 &gt;&gt; v &#x3D; [1; 2; 3]</span><br><span class="line">31    1</span><br><span class="line">32    2</span><br><span class="line">33    3</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]
+ 5    1   2
+ 6    3   4
+ 7    5   6
+ 9 &gt;&gt; A &#x3D; [1 2;
+11 3 4;
+13 5 6]
+17    1   2
+18    3   4
+19    5   6
+21 &gt;&gt; v &#x3D; [1 2 3]
+25    1   2   3
+27 &gt;&gt; v &#x3D; [1; 2; 3]
+31    1
+32    2
+33    3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>通过步长生成行向量</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; v &#x3D; 1:0.1:2</span><br><span class="line"> 3 v &#x3D;</span><br><span class="line"> 5  Columns 1 through 4:</span><br><span class="line"> 7     1.0000    1.1000    1.2000    1.3000</span><br><span class="line"> 9  Columns 5 through 8:</span><br><span class="line">11     1.4000    1.5000    1.6000    1.7000</span><br><span class="line">13  Columns 9 through 11:</span><br><span class="line">15     1.8000    1.9000    2.0000</span><br><span class="line">17 &gt;&gt; v &#x3D; 1:6　　　</span><br><span class="line">21    1   2   3   4   5   6</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; v &#x3D; 1:0.1:2
+ 3 v &#x3D;
+ 5  Columns 1 through 4:
+ 7     1.0000    1.1000    1.2000    1.3000
+ 9  Columns 5 through 8:
+11     1.4000    1.5000    1.6000    1.7000
+13  Columns 9 through 11:
+15     1.8000    1.9000    2.0000
+17 &gt;&gt; v &#x3D; 1:6　　　
+21    1   2   3   4   5   6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>全是1， 或者全是0 的矩阵</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; v &#x3D; ones(2,3)</span><br><span class="line"> 5    1   1   1</span><br><span class="line"> 6    1   1   1</span><br><span class="line"> 8 &gt;&gt; v &#x3D; ones</span><br><span class="line">10 v &#x3D;  1</span><br><span class="line">11 &gt;&gt; v &#x3D; ones(3)</span><br><span class="line">15    1   1   1</span><br><span class="line">16    1   1   1</span><br><span class="line">17    1   1   1</span><br><span class="line">19 &gt;&gt; v &#x3D; 2*ones(2,3)</span><br><span class="line">23    2   2   2</span><br><span class="line">24    2   2   2</span><br><span class="line">26 &gt;&gt; w &#x3D; zeros(1,3)</span><br><span class="line">30    0   0   0</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; v &#x3D; ones(2,3)
+ 5    1   1   1
+ 6    1   1   1
+ 8 &gt;&gt; v &#x3D; ones
+10 v &#x3D;  1
+11 &gt;&gt; v &#x3D; ones(3)
+15    1   1   1
+16    1   1   1
+17    1   1   1
+19 &gt;&gt; v &#x3D; 2*ones(2,3)
+23    2   2   2
+24    2   2   2
+26 &gt;&gt; w &#x3D; zeros(1,3)
+30    0   0   0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>使用eye() 函数生成单位矩阵</strong>（eye is a pun for identity）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; I &#x3D; eye(6)</span><br><span class="line"> 7    1   0   0   0   0   0</span><br><span class="line"> 8    0   1   0   0   0   0</span><br><span class="line"> 9    0   0   1   0   0   0</span><br><span class="line">10    0   0   0   1   0   0</span><br><span class="line">11    0   0   0   0   1   0</span><br><span class="line">12    0   0   0   0   0   1</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; I &#x3D; eye(6)
+ 7    1   0   0   0   0   0
+ 8    0   1   0   0   0   0
+ 9    0   0   1   0   0   0
+10    0   0   0   1   0   0
+11    0   0   0   0   1   0
+12    0   0   0   0   0   1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>矩阵大小</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 5    1   2</span><br><span class="line"> 6    3   4</span><br><span class="line"> 7    5   6</span><br><span class="line">15 &gt;&gt; sz &#x3D; size(A) % 矩阵大小</span><br><span class="line">19    3   2</span><br><span class="line">21 &gt;&gt; size(sz)      </span><br><span class="line">25    1   2</span><br><span class="line">27 &gt;&gt; size(A,1)　　% 矩阵行数</span><br><span class="line">29 ans &#x3D;  3</span><br><span class="line">30 &gt;&gt; size(A,2)　　% 矩阵列数</span><br><span class="line">32 ans &#x3D;  2</span><br><span class="line">48 &gt;&gt; length(A)   % length输出矩阵最大维的大小</span><br><span class="line">50 ans &#x3D;  3</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]
+ 5    1   2
+ 6    3   4
+ 7    5   6
+15 &gt;&gt; sz &#x3D; size(A) % 矩阵大小
+19    3   2
+21 &gt;&gt; size(sz)      
+25    1   2
+27 &gt;&gt; size(A,1)　　% 矩阵行数
+29 ans &#x3D;  3
+30 &gt;&gt; size(A,2)　　% 矩阵列数
+32 ans &#x3D;  2
+48 &gt;&gt; length(A)   % length输出矩阵最大维的大小
+50 ans &#x3D;  3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>获取元素</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt;  A &#x3D; [1 2; 3 4; 5 6; 7 8; 9 10];</span><br><span class="line"> 2 &gt;&gt; A(3,2)    % 获取一个元素</span><br><span class="line"> 3     6</span><br><span class="line"> 4 &gt;&gt; A(2, :)    % 获取一行元素，冒号指所有列</span><br><span class="line"> 5     3   4</span><br><span class="line"> 6 &gt;&gt; A([1 3], :)     % 返回 1、3 两行的元素</span><br><span class="line"> 7     1   5</span><br><span class="line"> 8     2   6</span><br><span class="line"> 9 &gt;&gt;  A(2:4, :)     % 返回 2、3、4 三行元素（注意和上一个的区别）                                                                         </span><br><span class="line">10    3   4</span><br><span class="line">11    5   6</span><br><span class="line">12    7   8</span><br><span class="line">13 </span><br><span class="line">14 &gt;&gt;  A(2:3)    % 这里很奇怪，是从上到下依次返回</span><br><span class="line">15    3   5</span><br><span class="line">16 &gt;&gt;  A(2:5)</span><br><span class="line">17    3   5   7   9</span><br><span class="line">18 &gt;&gt;  A(1:10)</span><br><span class="line">19    1    3    5    7    9    2    4    6    8   10    </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt;  A &#x3D; [1 2; 3 4; 5 6; 7 8; 9 10];
+ 2 &gt;&gt; A(3,2)    % 获取一个元素
+ 3     6
+ 4 &gt;&gt; A(2, :)    % 获取一行元素，冒号指所有列
+ 5     3   4
+ 6 &gt;&gt; A([1 3], :)     % 返回 1、3 两行的元素
+ 7     1   5
+ 8     2   6
+ 9 &gt;&gt;  A(2:4, :)     % 返回 2、3、4 三行元素（注意和上一个的区别）                                                                         
+10    3   4
+11    5   6
+12    7   8
+13 
+14 &gt;&gt;  A(2:3)    % 这里很奇怪，是从上到下依次返回
+15    3   5
+16 &gt;&gt;  A(2:5)
+17    3   5   7   9
+18 &gt;&gt;  A(1:10)
+19    1    3    5    7    9    2    4    6    8   10    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>矩阵转置</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 21&gt; A&#39;</span><br><span class="line"> 2 ans &#x3D;</span><br><span class="line"> 3    1   3   5</span><br><span class="line"> 4    2   4   6</span><br><span class="line"> 6 22&gt; (A&#39;)&#39;</span><br><span class="line"> 7 ans &#x3D;</span><br><span class="line"> 8    1   2</span><br><span class="line"> 9    3   4</span><br><span class="line">10    5   6</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 21&gt; A&#39;
+ 2 ans &#x3D;
+ 3    1   3   5
+ 4    2   4   6
+ 6 22&gt; (A&#39;)&#39;
+ 7 ans &#x3D;
+ 8    1   2
+ 9    3   4
+10    5   6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="矩阵赋值和拼接">5.1.3 矩阵赋值和拼接</h3>
 <p><strong>矩阵赋值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; A(:,2) &#x3D; [10; 11; 12]　　% 给A的第二列赋值</span><br><span class="line">2 A &#x3D;</span><br><span class="line">4     1   10</span><br><span class="line">5     3   11</span><br><span class="line">6     5   12</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; A(:,2) &#x3D; [10; 11; 12]　　% 给A的第二列赋值
+2 A &#x3D;
+4     1   10
+5     3   11
+6     5   12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>扩充矩阵</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [A , [100; 101; 102]]  % 给矩阵添加一列</span><br><span class="line"> 2 A &#x3D;</span><br><span class="line"> 4      1    10   100</span><br><span class="line"> 5      3    11   101</span><br><span class="line"> 6      5    12   102</span><br><span class="line"> 8 &gt;&gt; A &#x3D; [A ; [100 101 102]]　　% 给矩阵添加一行</span><br><span class="line"> 9 A &#x3D;</span><br><span class="line">11      1    10   100</span><br><span class="line">12      3    11   101</span><br><span class="line">13      5    12   102</span><br><span class="line">14    100   101   102</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; A &#x3D; [A , [100; 101; 102]]  % 给矩阵添加一列
+ 2 A &#x3D;
+ 4      1    10   100
+ 5      3    11   101
+ 6      5    12   102
+ 8 &gt;&gt; A &#x3D; [A ; [100 101 102]]　　% 给矩阵添加一行
+ 9 A &#x3D;
+11      1    10   100
+12      3    11   101
+13      5    12   102
+14    100   101   102<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　<strong>矩阵转换成列向量</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A(:)    % 冒号含义很特殊，将A中所有元素都放于一个列向量中</span><br><span class="line"> 2 ans &#x3D;</span><br><span class="line"> 4      1</span><br><span class="line"> 5      3</span><br><span class="line"> 6      5</span><br><span class="line"> 7    100</span><br><span class="line"> 8     10</span><br><span class="line"> 9     11</span><br><span class="line">10     12</span><br><span class="line">11    101</span><br><span class="line">12    100</span><br><span class="line">13    101</span><br><span class="line">14    102</span><br><span class="line">15    102    </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; A(:)    % 冒号含义很特殊，将A中所有元素都放于一个列向量中
+ 2 ans &#x3D;
+ 4      1
+ 5      3
+ 6      5
+ 7    100
+ 8     10
+ 9     11
+10     12
+11    101
+12    100
+13    101
+14    102
+15    102    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>拼接两个矩阵</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 2 A &#x3D;</span><br><span class="line"> 4    1   2</span><br><span class="line"> 5    3   4</span><br><span class="line"> 6    5   6</span><br><span class="line"> 8 &gt;&gt; B &#x3D; [11 12; 13 14; 15 16]</span><br><span class="line"> 9 B &#x3D;</span><br><span class="line">11    11   12</span><br><span class="line">12    13   14</span><br><span class="line">13    15   16</span><br><span class="line">15 &gt;&gt; C &#x3D; [A B]　　　　　　　 % “横”着连接</span><br><span class="line">18     1    2   11   12</span><br><span class="line">19     3    4   13   14</span><br><span class="line">20     5    6   15   16</span><br><span class="line">23 &gt;&gt; C &#x3D; [A, B]　　　　　　 % “横”着连接</span><br><span class="line">24 C &#x3D;</span><br><span class="line">26     1    2   11   12</span><br><span class="line">27     3    4   13   14</span><br><span class="line">28     5    6   15   16</span><br><span class="line">30 &gt;&gt; C &#x3D; [A; B]　　　　　　% “竖”着连接</span><br><span class="line">31 C &#x3D;</span><br><span class="line">33     1    2</span><br><span class="line">34     3    4</span><br><span class="line">35     5    6</span><br><span class="line">36    11   12</span><br><span class="line">37    13   14</span><br><span class="line">38    15   16</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]
+ 2 A &#x3D;
+ 4    1   2
+ 5    3   4
+ 6    5   6
+ 8 &gt;&gt; B &#x3D; [11 12; 13 14; 15 16]
+ 9 B &#x3D;
+11    11   12
+12    13   14
+13    15   16
+15 &gt;&gt; C &#x3D; [A B]　　　　　　　 % “横”着连接
+18     1    2   11   12
+19     3    4   13   14
+20     5    6   15   16
+23 &gt;&gt; C &#x3D; [A, B]　　　　　　 % “横”着连接
+24 C &#x3D;
+26     1    2   11   12
+27     3    4   13   14
+28     5    6   15   16
+30 &gt;&gt; C &#x3D; [A; B]　　　　　　% “竖”着连接
+31 C &#x3D;
+33     1    2
+34     3    4
+35     5    6
+36    11   12
+37    13   14
+38    15   16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="随机数"><strong>5.1.4 随机数</strong></h3>
 <p><strong>取随机数，定义维度，随机数大小总在0到1之间</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; w &#x3D; rand(3,3)</span><br><span class="line">3 w &#x3D;</span><br><span class="line">5    0.19782   0.42514   0.10275</span><br><span class="line">6    0.83117   0.66312   0.37967</span><br><span class="line">7    0.27300   0.92920   0.62790</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; w &#x3D; rand(3,3)
+3 w &#x3D;
+5    0.19782   0.42514   0.10275
+6    0.83117   0.66312   0.37967
+7    0.27300   0.92920   0.62790<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>生成一个一行三列的 高斯随机分布</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; w &#x3D; randn(1,3)</span><br><span class="line">3 w &#x3D;</span><br><span class="line">5   -0.025352   0.023321   1.729415</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; w &#x3D; randn(1,3)
+3 w &#x3D;
+5   -0.025352   0.023321   1.729415<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>　 　<strong>生成一个一行10000列，均值为6的高斯随机分布矩阵</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; w &#x3D; - 6 + sqrt(10) * (randn(1,10000));</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">&gt;&gt; w &#x3D; - 6 + sqrt(10) * (randn(1,10000));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029103741659-796527580.png" /></p>
 <p><strong>使用hist()函数展示直方图</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hist(w)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">hist(w)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029101140121-410195463.png" /></p>
 <p>　<strong>生成50个条的直方图</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hist(w, 50) </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">hist(w, 50) <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029101228893-9862563.png" /></p>
 <h2 id="移动数据"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=27">5.2 移动数据</a></h2>
 <blockquote>
@@ -556,187 +714,539 @@
 <p>save hello.txt V -ascii： 存为可以看的 txt 文件</p>
 </blockquote>
 <p><strong>从文件中加载数据到变量</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; ls　　　　　　　　　　　　　　% 查看路径下的文件</span><br><span class="line"> 5  Directory of D:\myc_learn\machine_learning\code\week2</span><br><span class="line"> 6 </span><br><span class="line"> 7 [.]             [..]            featuresX.dat   priceY.dat</span><br><span class="line"> 8                2 File(s)            658 bytes</span><br><span class="line"> 9                2 Dir(s)  770,788,524,032 bytes free</span><br><span class="line">12 &gt;&gt; load featuresX.dat　　　　　　% 使用load 加载房屋特征文件</span><br><span class="line">19 &gt;&gt; featuresX　　　　　　　　　　　% 打印featuresX</span><br><span class="line">20 featuresX &#x3D;</span><br><span class="line">22    2343      3</span><br><span class="line">23    4343      6</span><br><span class="line">24    2222      3</span><br><span class="line">25    1245      2</span><br><span class="line">26    2345      5</span><br><span class="line">27    2234      2</span><br><span class="line">28    2123      6</span><br><span class="line">... ...</span><br><span class="line">72 &gt;&gt; size(featuresX)　　　　% 矩阵大小</span><br><span class="line">73 ans &#x3D;</span><br><span class="line">75    47    2</span><br><span class="line">77 &gt;&gt; load(&#39;priceY.dat&#39;)　　% 加载文件</span><br><span class="line">78 &gt;&gt; size(priceY)</span><br><span class="line">79 ans &#x3D;</span><br><span class="line">81    47    1</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; ls　　　　　　　　　　　　　　% 查看路径下的文件
+ 5  Directory of D:\myc_learn\machine_learning\code\week2
+ 6 
+ 7 [.]             [..]            featuresX.dat   priceY.dat
+ 8                2 File(s)            658 bytes
+ 9                2 Dir(s)  770,788,524,032 bytes free
+12 &gt;&gt; load featuresX.dat　　　　　　% 使用load 加载房屋特征文件
+19 &gt;&gt; featuresX　　　　　　　　　　　% 打印featuresX
+20 featuresX &#x3D;
+22    2343      3
+23    4343      6
+24    2222      3
+25    1245      2
+26    2345      5
+27    2234      2
+28    2123      6
+... ...
+72 &gt;&gt; size(featuresX)　　　　% 矩阵大小
+73 ans &#x3D;
+75    47    2
+77 &gt;&gt; load(&#39;priceY.dat&#39;)　　% 加载文件
+78 &gt;&gt; size(priceY)
+79 ans &#x3D;
+81    47    1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>使用who 和whos 查看都有哪些变量</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; who</span><br><span class="line"> 2 Variables in the current scope:</span><br><span class="line"> 4 A          ans        featuresX  priceY     sz</span><br><span class="line"> 6 &gt;&gt; whos</span><br><span class="line"> 7 Variables in the current scope:</span><br><span class="line"> 9    Attr Name           Size                     Bytes  Class</span><br><span class="line">10    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;           &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">11         A              3x2                         48  double</span><br><span class="line">12         ans            1x2                         16  double</span><br><span class="line">13         featuresX     47x2                        752  double</span><br><span class="line">14         priceY        47x1                        376  double</span><br><span class="line">15         sz             1x2                         16  double</span><br><span class="line">17 Total is 151 elements using 1208 bytes</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; who
+ 2 Variables in the current scope:
+ 4 A          ans        featuresX  priceY     sz
+ 6 &gt;&gt; whos
+ 7 Variables in the current scope:
+ 9    Attr Name           Size                     Bytes  Class
+10    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;           &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+11         A              3x2                         48  double
+12         ans            1x2                         16  double
+13         featuresX     47x2                        752  double
+14         priceY        47x1                        376  double
+15         sz             1x2                         16  double
+17 Total is 151 elements using 1208 bytes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>删除变量</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; clear featuresX</span><br><span class="line">2 &gt;&gt; who</span><br><span class="line">3 Variables in the current scope:</span><br><span class="line">5 A       ans     priceY  sz</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; clear featuresX
+2 &gt;&gt; who
+3 Variables in the current scope:
+5 A       ans     priceY  sz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>保存变量到文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; V &#x3D; priceY(1:10)        % 将priceY的前10个元素赋值给V</span><br><span class="line"> 2 V &#x3D;</span><br><span class="line"> 4    3048</span><br><span class="line"> 5    4702</span><br><span class="line"> 6    6069</span><br><span class="line"> 7    5001</span><br><span class="line"> 8    6321</span><br><span class="line"> 9    3274</span><br><span class="line">10    2183</span><br><span class="line">11    4205</span><br><span class="line">12    8270</span><br><span class="line">13    7704</span><br><span class="line">15 &gt;&gt; save hello.mat V        % 将V保存到文件hello.dat中</span><br><span class="line">16 &gt;&gt; clear V            % 清除变量V</span><br><span class="line">18 &gt;&gt; whos                % 查看都有哪些变量</span><br><span class="line">19 Variables in the current scope:</span><br><span class="line">21    Attr Name        Size                     Bytes  Class</span><br><span class="line">22    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;        &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">23         A           3x2                         48  double</span><br><span class="line">24         ans         1x2                         16  double</span><br><span class="line">25         priceY     47x1                        376  double</span><br><span class="line">26         sz          1x2                         16  double</span><br><span class="line">28 Total is 57 elements using 456 bytes</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; V &#x3D; priceY(1:10)        % 将priceY的前10个元素赋值给V
+ 2 V &#x3D;
+ 4    3048
+ 5    4702
+ 6    6069
+ 7    5001
+ 8    6321
+ 9    3274
+10    2183
+11    4205
+12    8270
+13    7704
+15 &gt;&gt; save hello.mat V        % 将V保存到文件hello.dat中
+16 &gt;&gt; clear V            % 清除变量V
+18 &gt;&gt; whos                % 查看都有哪些变量
+19 Variables in the current scope:
+21    Attr Name        Size                     Bytes  Class
+22    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;        &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+23         A           3x2                         48  double
+24         ans         1x2                         16  double
+25         priceY     47x1                        376  double
+26         sz          1x2                         16  double
+28 Total is 57 elements using 456 bytes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>保存的 hello.mat 是二进制格式。 如果保存成 dat 格式，文件中数据如下<strong>：</strong></p>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029123825471-1578597187.png" /></p>
 <p><strong>从文件中加载回变量V</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; load hello.mat</span><br><span class="line"> 2 &gt;&gt; whos</span><br><span class="line"> 3 Variables in the current scope:</span><br><span class="line"> 5    Attr Name        Size                     Bytes  Class</span><br><span class="line"> 6    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;        &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"> 7         A           3x2                         48  double</span><br><span class="line"> 8         V          10x1                         80  double</span><br><span class="line"> 9         ans         1x2                         16  double</span><br><span class="line">10         priceY     47x1                        376  double</span><br><span class="line">11         sz          1x2                         16  double</span><br><span class="line">13 Total is 67 elements using 536 bytes</span><br><span class="line">16 &gt;&gt; V</span><br><span class="line">17 V &#x3D;</span><br><span class="line">19    3048</span><br><span class="line">20    4702</span><br><span class="line">21    6069</span><br><span class="line">22    5001</span><br><span class="line">23    6321</span><br><span class="line">24    3274</span><br><span class="line">25    2183</span><br><span class="line">26    4205</span><br><span class="line">27    8270</span><br><span class="line">28    7704</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; load hello.mat
+ 2 &gt;&gt; whos
+ 3 Variables in the current scope:
+ 5    Attr Name        Size                     Bytes  Class
+ 6    &#x3D;&#x3D;&#x3D;&#x3D; &#x3D;&#x3D;&#x3D;&#x3D;        &#x3D;&#x3D;&#x3D;&#x3D;                     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+ 7         A           3x2                         48  double
+ 8         V          10x1                         80  double
+ 9         ans         1x2                         16  double
+10         priceY     47x1                        376  double
+11         sz          1x2                         16  double
+13 Total is 67 elements using 536 bytes
+16 &gt;&gt; V
+17 V &#x3D;
+19    3048
+20    4702
+21    6069
+22    5001
+23    6321
+24    3274
+25    2183
+26    4205
+27    8270
+28    7704<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　<strong>保存成可以看的 txt 文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 save hello.txt V -ascii</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 save hello.txt V -ascii<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029124142051-2048993977.png" /></p>
 <hr />
 <p>因为用到房屋价格数据，干脆用Octave生成了一些随机数，粘贴进了文件 priceY.dat 里<strong> </strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 A   &#x3D; 10000 * rand(1,47)　　　　% 生成47个0-1的随机数，并且乘以10000</span><br><span class="line">2 disp(sprintf(&#39;%0.0f\n&#39;,A))　　 % 打印成整数形式</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 A   &#x3D; 10000 * rand(1,47)　　　　% 生成47个0-1的随机数，并且乘以10000
+2 disp(sprintf(&#39;%0.0f\n&#39;,A))　　 % 打印成整数形式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="计算数据"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=28">5.3 计算数据</a></h2>
 <h3 id="矩阵相乘">5.3.1 矩阵相乘</h3>
 <p><strong>矩阵相乘 矩阵点乘</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 1&gt; A &#x3D; [1 2; 3 4; 5 6]</span><br><span class="line"> 7 3&gt; C &#x3D; [1 1 ; 2 2]</span><br><span class="line">12 4&gt; A * C    % 矩阵相乘</span><br><span class="line">14     5    5</span><br><span class="line">15    11   11</span><br><span class="line">16    17   17            </span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 8 B &#x3D;</span><br><span class="line"> 9    11   12</span><br><span class="line">10    13   14</span><br><span class="line">11    15   16</span><br><span class="line">14 5&gt; A .* B   % 矩阵点乘 各元素逐一相乘</span><br><span class="line">16    11   24</span><br><span class="line">17    39   56</span><br><span class="line">18    75   96</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 1&gt; A &#x3D; [1 2; 3 4; 5 6]
+ 7 3&gt; C &#x3D; [1 1 ; 2 2]
+12 4&gt; A * C    % 矩阵相乘
+14     5    5
+15    11   11
+16    17   17            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none"> 8 B &#x3D;
+ 9    11   12
+10    13   14
+11    15   16
+14 5&gt; A .* B   % 矩阵点乘 各元素逐一相乘
+16    11   24
+17    39   56
+18    75   96<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>在每个元素上操作 </strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A .^ 2　　　　　　% 每个元素取平方</span><br><span class="line">1 .&#x2F; A 　　　　　　% 取倒数 </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A .^ 2　　　　　　% 每个元素取平方
+1 .&#x2F; A 　　　　　　% 取倒数 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="向量计算">5.3.2 向量计算</h3>
 <p><strong>最大值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 23&gt; a &#x3D; [1 15 2 0.5]</span><br><span class="line"> 5 24&gt; val &#x3D; max(a)</span><br><span class="line"> 6 val &#x3D;  15</span><br><span class="line"> 8 25&gt; [val, ind] &#x3D; max(a)　　　　% ind 返回最大值位置</span><br><span class="line"> 9 val &#x3D;  15</span><br><span class="line">10 ind &#x3D;  2</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 23&gt; a &#x3D; [1 15 2 0.5]
+ 5 24&gt; val &#x3D; max(a)
+ 6 val &#x3D;  15
+ 8 25&gt; [val, ind] &#x3D; max(a)　　　　% ind 返回最大值位置
+ 9 val &#x3D;  15
+10 ind &#x3D;  2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>向量逻辑判断</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 a &lt; 3　　　　　　% 对每个元素进行逻辑判断</span><br><span class="line">3   1  0  1  1</span><br><span class="line">5 find(a &lt; 3)　　% 在上面进行逻辑判断的基础上，返回结果为真的索引</span><br><span class="line">7    1   3   4</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 a &lt; 3　　　　　　% 对每个元素进行逻辑判断
+3   1  0  1  1
+5 find(a &lt; 3)　　% 在上面进行逻辑判断的基础上，返回结果为真的索引
+7    1   3   4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>向量常用函数</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sum(a)　　　　 % 所有元素求和</span><br><span class="line">prod(a)　　　　% 所有元素相乘</span><br><span class="line">floor(a)  　　% round down 向下取整</span><br><span class="line">ceil(a)  　　 % round up 向上取整round(a)     % 四舍五入std(a)　　    % 求标准差mean(a)      % 求平均值 abs([-1;2;-3])　　 % 取绝对值log(v)            % 取log</span><br><span class="line">exp(v)            % 取e为底的指数， e&#x3D;2.71828</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">sum(a)　　　　 % 所有元素求和
+prod(a)　　　　% 所有元素相乘
+floor(a)  　　% round down 向下取整
+ceil(a)  　　 % round up 向上取整round(a)     % 四舍五入std(a)　　    % 求标准差mean(a)      % 求平均值 abs([-1;2;-3])　　 % 取绝对值log(v)            % 取log
+exp(v)            % 取e为底的指数， e&#x3D;2.71828<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>向量运算</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 12&gt; v</span><br><span class="line"> 3    1</span><br><span class="line"> 4    2</span><br><span class="line"> 5    3</span><br><span class="line">14 15&gt; -v</span><br><span class="line">16   -1</span><br><span class="line">17   -2</span><br><span class="line">18   -3</span><br><span class="line">20 16&gt; v + ones(length(v), 1)</span><br><span class="line">22    2</span><br><span class="line">23    3</span><br><span class="line">24    4</span><br><span class="line">26 18&gt; ones(3,1)</span><br><span class="line">28    1</span><br><span class="line">29    1</span><br><span class="line">30    1</span><br><span class="line">32 19&gt; v + ones(3,1)</span><br><span class="line">34    2</span><br><span class="line">35    3</span><br><span class="line">36    4</span><br><span class="line">38 20&gt; v + 1</span><br><span class="line">40    2</span><br><span class="line">41    3</span><br><span class="line">42    4</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 12&gt; v
+ 3    1
+ 4    2
+ 5    3
+14 15&gt; -v
+16   -1
+17   -2
+18   -3
+20 16&gt; v + ones(length(v), 1)
+22    2
+23    3
+24    4
+26 18&gt; ones(3,1)
+28    1
+29    1
+30    1
+32 19&gt; v + ones(3,1)
+34    2
+35    3
+36    4
+38 20&gt; v + 1
+40    2
+41    3
+42    4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="矩阵最大值">5.3.1 矩阵最大值</h3>
 <p><strong>随机矩阵中的最大值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; rand(3)</span><br><span class="line"> 3    0.64927   0.22644   0.61599</span><br><span class="line"> 4    0.87125   0.68797   0.60553</span><br><span class="line"> 5    0.69778   0.25321   0.12596</span><br><span class="line"> 7 &gt;&gt; max(rand(3), rand(3))　　% 随机矩阵中的最大值</span><br><span class="line"> 9    0.51841   0.89632   0.75562</span><br><span class="line">10    0.21897   0.68484   0.75206</span><br><span class="line">11    0.97807   0.73515   0.75578</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 &gt;&gt; rand(3)
+ 3    0.64927   0.22644   0.61599
+ 4    0.87125   0.68797   0.60553
+ 5    0.69778   0.25321   0.12596
+ 7 &gt;&gt; max(rand(3), rand(3))　　% 随机矩阵中的最大值
+ 9    0.51841   0.89632   0.75562
+10    0.21897   0.68484   0.75206
+11    0.97807   0.73515   0.75578<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>求矩阵的行最大值、列最大值 element-wise comparison</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A</span><br><span class="line"> 3    8   1   6</span><br><span class="line"> 4    3   5   7</span><br><span class="line"> 5    4   9   2</span><br><span class="line"> 7 &gt;&gt; max(A)    % 返回每一列的最大值</span><br><span class="line"> 9    8   9   7</span><br><span class="line">11 &gt;&gt; max(A,[],1)  % 返回每一列的最大值</span><br><span class="line">13    8   9   7</span><br><span class="line">15 &gt;&gt; max(A,[],2) % 返回每一行的最大值</span><br><span class="line">17    8</span><br><span class="line">18    7</span><br><span class="line">19    9</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 &gt;&gt; A
+ 3    8   1   6
+ 4    3   5   7
+ 5    4   9   2
+ 7 &gt;&gt; max(A)    % 返回每一列的最大值
+ 9    8   9   7
+11 &gt;&gt; max(A,[],1)  % 返回每一列的最大值
+13    8   9   7
+15 &gt;&gt; max(A,[],2) % 返回每一行的最大值
+17    8
+18    7
+19    9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　<strong>两种求矩阵中所有元素最大值的方法</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; max(max(A))</span><br><span class="line">2 ans &#x3D;  9</span><br><span class="line">3 &gt;&gt; max(A(:)) </span><br><span class="line">4 ans &#x3D;  9</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; max(max(A))
+2 ans &#x3D;  9
+3 &gt;&gt; max(A(:)) 
+4 ans &#x3D;  9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="矩阵相乘-1">5.3.1 矩阵相乘</h3>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A &#x3D; magic(3)    　　　　   % 生成一个magic squares。其行、列、对角线 元素和等于同一个数</span><br><span class="line">[r,c] &#x3D; find(A&gt;&#x3D;7) 　　　  %返回符合条件元素的行坐标和列坐标</span><br><span class="line">sum(A,1)       　　　　　　% 矩阵每一列相加</span><br><span class="line">sum(A,2) 　　　　　　　  % 矩阵每一行相加</span><br><span class="line">A .* eye(9)　　　　　　　 % 矩阵主对角线的值</span><br><span class="line">sum(sum(A .* eye(9))) 　  % 主对角线求和</span><br><span class="line">flipud(eye(9))    　　　　  % 次对角线的值</span><br><span class="line">sum(sum(A .* flipud(eye(9))))　　% 次对角线求和</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 33&gt; A &#x3D; magic(3) </span><br><span class="line"> 3    8   1   6</span><br><span class="line"> 4    3   5   7</span><br><span class="line"> 5    4   9   2</span><br><span class="line"> 7 34&gt; [r,c] &#x3D; find(A&gt;&#x3D;7) % 返回符合条件元素的行坐标和列坐标</span><br><span class="line"> 8 r &#x3D;</span><br><span class="line"> 9    1</span><br><span class="line">10    3</span><br><span class="line">11    2</span><br><span class="line">13 c &#x3D;</span><br><span class="line">14    1</span><br><span class="line">15    2</span><br><span class="line">16    3     % 即(1,1)(3,2)(2,3)三个元素&gt;&#x3D;7</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">A &#x3D; magic(3)    　　　　   % 生成一个magic squares。其行、列、对角线 元素和等于同一个数
+[r,c] &#x3D; find(A&gt;&#x3D;7) 　　　  %返回符合条件元素的行坐标和列坐标
+sum(A,1)       　　　　　　% 矩阵每一列相加
+sum(A,2) 　　　　　　　  % 矩阵每一行相加
+A .* eye(9)　　　　　　　 % 矩阵主对角线的值
+sum(sum(A .* eye(9))) 　  % 主对角线求和
+flipud(eye(9))    　　　　  % 次对角线的值
+sum(sum(A .* flipud(eye(9))))　　% 次对角线求和<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none"> 1 33&gt; A &#x3D; magic(3) 
+ 3    8   1   6
+ 4    3   5   7
+ 5    4   9   2
+ 7 34&gt; [r,c] &#x3D; find(A&gt;&#x3D;7) % 返回符合条件元素的行坐标和列坐标
+ 8 r &#x3D;
+ 9    1
+10    3
+11    2
+13 c &#x3D;
+14    1
+15    2
+16    3     % 即(1,1)(3,2)(2,3)三个元素&gt;&#x3D;7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　<strong>矩阵列相加，行相加</strong></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A &#x3D; magic(9)</span><br><span class="line"> 3    47   58   69   80    1   12   23   34   45</span><br><span class="line"> 4    57   68   79    9   11   22   33   44   46</span><br><span class="line"> 5    67   78    8   10   21   32   43   54   56</span><br><span class="line"> 6    77    7   18   20   31   42   53   55   66</span><br><span class="line"> 7     6   17   19   30   41   52   63   65   76</span><br><span class="line"> 8    16   27   29   40   51   62   64   75    5</span><br><span class="line"> 9    26   28   39   50   61   72   74    4   15</span><br><span class="line">10    36   38   49   60   71   73    3   14   25</span><br><span class="line">11    37   48   59   70   81    2   13   24   35</span><br><span class="line">13 &gt;&gt; sum(A,1)    　　　　% 矩阵每一列相加</span><br><span class="line">15    369   369   369   369   369   369   369   369   369</span><br><span class="line">17 &gt;&gt; sum(A,2) 　　　　　　% 矩阵每一行相加</span><br><span class="line">19    369</span><br><span class="line">20    369</span><br><span class="line">21    369</span><br><span class="line">22    369</span><br><span class="line">23    369</span><br><span class="line">24    369</span><br><span class="line">25    369</span><br><span class="line">26    369</span><br><span class="line">27    369    </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 &gt;&gt; A &#x3D; magic(9)
+ 3    47   58   69   80    1   12   23   34   45
+ 4    57   68   79    9   11   22   33   44   46
+ 5    67   78    8   10   21   32   43   54   56
+ 6    77    7   18   20   31   42   53   55   66
+ 7     6   17   19   30   41   52   63   65   76
+ 8    16   27   29   40   51   62   64   75    5
+ 9    26   28   39   50   61   72   74    4   15
+10    36   38   49   60   71   73    3   14   25
+11    37   48   59   70   81    2   13   24   35
+13 &gt;&gt; sum(A,1)    　　　　% 矩阵每一列相加
+15    369   369   369   369   369   369   369   369   369
+17 &gt;&gt; sum(A,2) 　　　　　　% 矩阵每一行相加
+19    369
+20    369
+21    369
+22    369
+23    369
+24    369
+25    369
+26    369
+27    369    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　<strong>矩阵主对角线的值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; A .* eye(9)　　% 矩阵主对角线的值</span><br><span class="line"> 4    47    0    0    0    0    0    0    0    0</span><br><span class="line"> 5     0   68    0    0    0    0    0    0    0</span><br><span class="line"> 6     0    0    8    0    0    0    0    0    0</span><br><span class="line"> 7     0    0    0   20    0    0    0    0    0</span><br><span class="line"> 8     0    0    0    0   41    0    0    0    0</span><br><span class="line"> 9     0    0    0    0    0   62    0    0    0</span><br><span class="line">10     0    0    0    0    0    0   74    0    0</span><br><span class="line">11     0    0    0    0    0    0    0   14    0</span><br><span class="line">12     0    0    0    0    0    0    0    0   35</span><br><span class="line">14 &gt;&gt; sum(sum(A .* eye(9))) 　　% 主对角线求和</span><br><span class="line">15 ans &#x3D;  369</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 &gt;&gt; A .* eye(9)　　% 矩阵主对角线的值
+ 4    47    0    0    0    0    0    0    0    0
+ 5     0   68    0    0    0    0    0    0    0
+ 6     0    0    8    0    0    0    0    0    0
+ 7     0    0    0   20    0    0    0    0    0
+ 8     0    0    0    0   41    0    0    0    0
+ 9     0    0    0    0    0   62    0    0    0
+10     0    0    0    0    0    0   74    0    0
+11     0    0    0    0    0    0    0   14    0
+12     0    0    0    0    0    0    0    0   35
+14 &gt;&gt; sum(sum(A .* eye(9))) 　　% 主对角线求和
+15 ans &#x3D;  369<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　<strong>矩阵次对角线的值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; flipud(eye(9))    % 次对角线的值</span><br><span class="line"> 6    0   0   0   0   0   0   0   0   1</span><br><span class="line"> 7    0   0   0   0   0   0   0   1   0</span><br><span class="line"> 8    0   0   0   0   0   0   1   0   0</span><br><span class="line"> 9    0   0   0   0   0   1   0   0   0</span><br><span class="line">10    0   0   0   0   1   0   0   0   0</span><br><span class="line">11    0   0   0   1   0   0   0   0   0</span><br><span class="line">12    0   0   1   0   0   0   0   0   0</span><br><span class="line">13    0   1   0   0   0   0   0   0   0</span><br><span class="line">14    1   0   0   0   0   0   0   0   0</span><br><span class="line">16 &gt;&gt; sum(sum(A .* flipud(eye(9))))　　% 次对角线求和</span><br><span class="line">17 ans &#x3D;  369    </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"> 1 &gt;&gt; flipud(eye(9))    % 次对角线的值
+ 6    0   0   0   0   0   0   0   0   1
+ 7    0   0   0   0   0   0   0   1   0
+ 8    0   0   0   0   0   0   1   0   0
+ 9    0   0   0   0   0   1   0   0   0
+10    0   0   0   0   1   0   0   0   0
+11    0   0   0   1   0   0   0   0   0
+12    0   0   1   0   0   0   0   0   0
+13    0   1   0   0   0   0   0   0   0
+14    1   0   0   0   0   0   0   0   0
+16 &gt;&gt; sum(sum(A .* flipud(eye(9))))　　% 次对角线求和
+17 ans &#x3D;  369    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="绘制数据图"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=29">5.4 绘制数据图</a></h2>
 <h3 id="绘制曲线">5.4.1 绘制曲线</h3>
 <h5 id="画一个sin曲线">　　<strong>1、画一个sin曲线</strong></h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; t &#x3D; [0:0.01:0.98];</span><br><span class="line">2 &gt;&gt; y1 &#x3D; sin(2 * pi * 4 * t);</span><br><span class="line">3 &gt;&gt; plot(t,y1);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; t &#x3D; [0:0.01:0.98];
+2 &gt;&gt; y1 &#x3D; sin(2 * pi * 4 * t);
+3 &gt;&gt; plot(t,y1);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029162612078-2099824295.png" /></p>
 <p>　　<strong>2、画一个cos曲线</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; y2 &#x3D; cos(2 * pi * 4 * t);</span><br><span class="line">2 &gt;&gt; plot(t,y2);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; y2 &#x3D; cos(2 * pi * 4 * t);
+2 &gt;&gt; plot(t,y2);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029162704628-1043172928.png" /></p>
 <h5 id="将两个曲线合并在一起"><strong>3、将两个曲线合并在一起</strong></h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; plot(t,y1);</span><br><span class="line">2 &gt;&gt; hold on</span><br><span class="line">3 &gt;&gt; plot(t,y2,&#39;r&#39;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; plot(t,y1);
+2 &gt;&gt; hold on
+3 &gt;&gt; plot(t,y2,&#39;r&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029162857076-718384579.png" /></p>
 <h5 id="给图像添加信息">4、给图像添加信息</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt; xlabel(&#39;time&#39;)　　　　% X轴标签</span><br><span class="line">2 &gt;&gt; ylabel(&#39;value&#39;)　　　% Y轴标签</span><br><span class="line">3 &gt;&gt; legend(&#39;sin&#39;,&#39;cos&#39;)　　% 添加曲线名称</span><br><span class="line">4 &gt;&gt; title(&#39;my plot&#39;)　　% 添加标题</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt; xlabel(&#39;time&#39;)　　　　% X轴标签
+2 &gt;&gt; ylabel(&#39;value&#39;)　　　% Y轴标签
+3 &gt;&gt; legend(&#39;sin&#39;,&#39;cos&#39;)　　% 添加曲线名称
+4 &gt;&gt; title(&#39;my plot&#39;)　　% 添加标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029163107823-1694970492.png" /></p>
 <h5 id="保存到文件">5、保存到文件</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; print -dpng &#39;myPlot.png&#39;</span><br><span class="line">2 &gt;&gt; ls</span><br><span class="line">3  Directory of D:\myc_learn\machine_learning\code\week2</span><br><span class="line">5 [.]             5.m             hello.dat       myPlot.png</span><br><span class="line">6 [..]            featuresX.dat   hello.txt       priceY.dat</span><br><span class="line">9 &gt;&gt; close</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; print -dpng &#39;myPlot.png&#39;
+2 &gt;&gt; ls
+3  Directory of D:\myc_learn\machine_learning\code\week2
+5 [.]             5.m             hello.dat       myPlot.png
+6 [..]            featuresX.dat   hello.txt       priceY.dat
+9 &gt;&gt; close<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="绘制多张图">6、绘制多张图</h5>
 <p>　　 绘制多张图，需要指定将哪个曲线放在哪个图中。否则会一直绘制在当前窗口，覆盖之前的图形</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; figure(1); plot(t,y1);  % 在figure1中绘制</span><br><span class="line">2 &gt;&gt; figure(2); plot(t,y2);  % 在figure2中绘制</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; figure(1); plot(t,y1);  % 在figure1中绘制
+2 &gt;&gt; figure(2); plot(t,y2);  % 在figure2中绘制<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="将两个图显示在一张图片中">7、将两个图显示在一张图片中</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; subplot(1,2,1);  % 将图片划分为两个格子，访问第一个格子</span><br><span class="line">2 &gt;&gt; plot(t,y1)　　　　% 画第一个图像</span><br><span class="line">3 &gt;&gt; subplot(1,2,2);  % 访问第二个格子</span><br><span class="line">4 &gt;&gt; plot(t,y2)　　　　% 画第二个图像</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; subplot(1,2,1);  % 将图片划分为两个格子，访问第一个格子
+2 &gt;&gt; plot(t,y1)　　　　% 画第一个图像
+3 &gt;&gt; subplot(1,2,2);  % 访问第二个格子
+4 &gt;&gt; plot(t,y2)　　　　% 画第二个图像<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029163340564-2141014548.png" /></p>
 <h5 id="改变坐标轴范围">8、改变坐标轴范围</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; axis([0.5 1 -1 1])</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; axis([0.5 1 -1 1])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029165324481-811738950.png" /></p>
 <p>　　点击一下第一张图片，再运行一下上面那行代码，图变为：</p>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029165420733-106112330.png" /></p>
 <h5 id="清空和关闭图片">9、清空和关闭图片</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; clf　　　　% 清空</span><br><span class="line">2 &gt;&gt; close　　 % 关闭</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; clf　　　　% 清空
+2 &gt;&gt; close　　 % 关闭<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="绘制可视化矩阵">5.4.2 绘制可视化矩阵</h3>
 <h5 id="生成矩阵图">1、生成矩阵图</h5>
 <p>　　根据矩阵的值生成图像，不同的颜色对应矩阵中不同的值</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; A &#x3D; magic(5)</span><br><span class="line">2 A &#x3D;</span><br><span class="line">3    17   24    1    8   15</span><br><span class="line">4    23    5    7   14   16</span><br><span class="line">5     4    6   13   20   22</span><br><span class="line">6    10   12   19   21    3</span><br><span class="line">7    11   18   25    2    9</span><br><span class="line">8 &gt;&gt; imagesc(A)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; A &#x3D; magic(5)
+2 A &#x3D;
+3    17   24    1    8   15
+4    23    5    7   14   16
+5     4    6   13   20   22
+6    10   12   19   21    3
+7    11   18   25    2    9
+8 &gt;&gt; imagesc(A)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029165848693-1811850458.png" /></p>
 <h5 id="显示颜色条">2、显示颜色条</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; colorbar</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; colorbar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029170024031-956577300.png" /></p>
 <p>　　或者直接使用下面的一行代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; imagesc(magic(5)), colorbar;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; imagesc(magic(5)), colorbar;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5 id="生成灰度图">3、生成灰度图</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; imagesc(A), colorbar, colormap gray;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; imagesc(A), colorbar, colormap gray;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029170048929-1308155598.png" /></p>
 <p>　　生成一个15行15列灰度图</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; imagesc(magic(15)),colorbar,colormap gray;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1 &gt;&gt; imagesc(magic(15)),colorbar,colormap gray;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029170338156-1638032088.png" /></p>
-<p>　　以 imagesc(magic(15)),colorbar,colormap gray; 为例。</p>
+<p>　　以 <code>imagesc(magic(15)),colorbar,colormap gray</code>; 为例。</p>
 <p>　　这种几个逗号隔开的命令一起运行的方式，叫做逗号连接函数调用 comma chaining of function calls 或 comma chaining commands 。</p>
 <p>　　比如赋值操作可以写成：a=1, b=2, c=3;</p>
 <h3 id="散点图">5.4.3 散点图</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1   plot(x,y,&#39;rx&#39;, &#39;MarkerSize&#39;, 10);</span><br><span class="line">2   xlabel(&#39;Population of City in 10,000s&#39;);</span><br><span class="line">3   ylabel(&#39;Profit in $10,000s&#39;);</span><br><span class="line">4   title(&#39;POPULATION AND PROFIT&#39;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1   plot(x,y,&#39;rx&#39;, &#39;MarkerSize&#39;, 10);
+2   xlabel(&#39;Population of City in 10,000s&#39;);
+3   ylabel(&#39;Profit in $10,000s&#39;);
+4   title(&#39;POPULATION AND PROFIT&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030085723851-65757827.png" /></p>
 <p>　图像绘制在Octave官方文档的 15.2.1 Two-Dimensional Plots ，图形属性设置在15.3.3.4 Line Properties。</p>
-<p>如果想设置某个属性，直接写属性名，后面跟一个值。plot (*x, *y, *property, *value, …)**</p>
-<p>　　<strong>例如 plot (*x, *y, *'linewidth', 2*, …);</strong></p>
+<p>如果想设置某个属性，直接写属性名，后面跟一个值。<code>plot (*x, *y, *property, *value, …)**</code></p>
+<p>　　**例如 <code>plot (*x, *y, *'linewidth', 2*, …);**</code></p>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030093854840-1836962077.png" /></p>
 <h2 id="控制语句-for-while-if-语句"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=30">5.5 控制语句： for， while， if 语句</a></h2>
 <h5 id="for-循环-通过-index-访问列向量">1、for 循环 通过 index 访问列向量</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; v &#x3D; zeros(10,1)</span><br><span class="line"> 2 v &#x3D;</span><br><span class="line"> 3    0</span><br><span class="line"> 4    0</span><br><span class="line"> 5    0</span><br><span class="line"> 6    0</span><br><span class="line"> 7    0</span><br><span class="line"> 8    0</span><br><span class="line"> 9    0</span><br><span class="line">10    0</span><br><span class="line">11    0</span><br><span class="line">12    0</span><br><span class="line">13 &gt;&gt; for i &#x3D; 1 : 10,</span><br><span class="line">14      v(i) &#x3D; 2 ^ i;</span><br><span class="line">15    end;</span><br><span class="line">16 &gt;&gt; v</span><br><span class="line">17 v &#x3D;</span><br><span class="line">18       2</span><br><span class="line">19       4</span><br><span class="line">20       8</span><br><span class="line">21      16</span><br><span class="line">22      32</span><br><span class="line">23      64</span><br><span class="line">24     128</span><br><span class="line">25     256</span><br><span class="line">26     512</span><br><span class="line">27    1024</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; v &#x3D; zeros(10,1)
+ 2 v &#x3D;
+ 3    0
+ 4    0
+ 5    0
+ 6    0
+ 7    0
+ 8    0
+ 9    0
+10    0
+11    0
+12    0
+13 &gt;&gt; for i &#x3D; 1 : 10,
+14      v(i) &#x3D; 2 ^ i;
+15    end;
+16 &gt;&gt; v
+17 v &#x3D;
+18       2
+19       4
+20       8
+21      16
+22      32
+23      64
+24     128
+25     256
+26     512
+27    1024<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="for-循环-直接访问列向量元素">2、for 循环 直接访问列向量元素</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; indices &#x3D; 1 : 10;</span><br><span class="line"> 2 &gt;&gt; indices</span><br><span class="line"> 3 indices &#x3D;</span><br><span class="line"> 4     1    2    3    4    5    6    7    8    9   10</span><br><span class="line"> 5 &gt;&gt; for i &#x3D; indices,</span><br><span class="line"> 6       disp(i);</span><br><span class="line"> 7    end;</span><br><span class="line"> 8  1</span><br><span class="line"> 9  2</span><br><span class="line">10  3</span><br><span class="line">11  4</span><br><span class="line">12  5</span><br><span class="line">13  6</span><br><span class="line">14  7</span><br><span class="line">15  8</span><br><span class="line">16  9</span><br><span class="line">17  10</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; indices &#x3D; 1 : 10;
+ 2 &gt;&gt; indices
+ 3 indices &#x3D;
+ 4     1    2    3    4    5    6    7    8    9   10
+ 5 &gt;&gt; for i &#x3D; indices,
+ 6       disp(i);
+ 7    end;
+ 8  1
+ 9  2
+10  3
+11  4
+12  5
+13  6
+14  7
+15  8
+16  9
+17  10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="while-循环访问列向量">3、while 循环访问列向量</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; i &#x3D; 1;</span><br><span class="line"> 2 &gt;&gt; while i &lt;&#x3D; 5,</span><br><span class="line"> 3       v(i) &#x3D; 100;</span><br><span class="line"> 4       i &#x3D; i + 1;</span><br><span class="line"> 5    end;</span><br><span class="line"> 6 &gt;&gt; v</span><br><span class="line"> 7 v &#x3D;</span><br><span class="line"> 8     100</span><br><span class="line"> 9     100</span><br><span class="line">10     100</span><br><span class="line">11     100</span><br><span class="line">12     100</span><br><span class="line">13      64</span><br><span class="line">14     128</span><br><span class="line">15     256</span><br><span class="line">16     512</span><br><span class="line">17    1024</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; i &#x3D; 1;
+ 2 &gt;&gt; while i &lt;&#x3D; 5,
+ 3       v(i) &#x3D; 100;
+ 4       i &#x3D; i + 1;
+ 5    end;
+ 6 &gt;&gt; v
+ 7 v &#x3D;
+ 8     100
+ 9     100
+10     100
+11     100
+12     100
+13      64
+14     128
+15     256
+16     512
+17    1024<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="whiletrue-和-break">4、while(true) 和 break</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 &gt;&gt; i &#x3D; 1 ;</span><br><span class="line"> 2 &gt;&gt; while(true),</span><br><span class="line"> 3      v(i) &#x3D; 999;</span><br><span class="line"> 4      i &#x3D; i + 1;</span><br><span class="line"> 5      if i &#x3D;&#x3D; 6,</span><br><span class="line"> 6         break;</span><br><span class="line"> 7      end;</span><br><span class="line"> 8    end;</span><br><span class="line"> 9 &gt;&gt;</span><br><span class="line">10 &gt;&gt; v</span><br><span class="line">11 v &#x3D;</span><br><span class="line">12     999</span><br><span class="line">13     999</span><br><span class="line">14     999</span><br><span class="line">15     999</span><br><span class="line">16     999</span><br><span class="line">17      64</span><br><span class="line">18     128</span><br><span class="line">19     256</span><br><span class="line">20     512</span><br><span class="line">21    1024</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; i &#x3D; 1 ;
+ 2 &gt;&gt; while(true),
+ 3      v(i) &#x3D; 999;
+ 4      i &#x3D; i + 1;
+ 5      if i &#x3D;&#x3D; 6,
+ 6         break;
+ 7      end;
+ 8    end;
+ 9 &gt;&gt;
+10 &gt;&gt; v
+11 v &#x3D;
+12     999
+13     999
+14     999
+15     999
+16     999
+17      64
+18     128
+19     256
+20     512
+21    1024<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="if-else-语句">5、if else 语句</h5>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; v(1) &#x3D; 2;</span><br><span class="line">2 &gt;&gt; if v(1) &#x3D;&#x3D; 1,</span><br><span class="line">3       disp(&#39;The value is one&#39;);</span><br><span class="line">4    elseif v(1) &#x3D;&#x3D; 2,</span><br><span class="line">5       disp(&#39;The value is two&#39;);</span><br><span class="line">6    else,</span><br><span class="line">7       disp(&#39;The value is not one or two&#39;);</span><br><span class="line">8    end;</span><br><span class="line">9 The value is two</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; v(1) &#x3D; 2;
+2 &gt;&gt; if v(1) &#x3D;&#x3D; 1,
+3       disp(&#39;The value is one&#39;);
+4    elseif v(1) &#x3D;&#x3D; 2,
+5       disp(&#39;The value is two&#39;);
+6    else,
+7       disp(&#39;The value is not one or two&#39;);
+8    end;
+9 The value is two<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="自定义函数-function">6、自定义函数 function</h5>
 <p>　　定义函数 squareThisNumber(x)，内容如下：　</p>
-<figure class="highlight ocaml"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">function</span> y = squareThisNumber(x)</span><br><span class="line"><span class="number">2</span>   y = x^<span class="number">2</span>;</span><br><span class="line"><span class="number">3</span> endfunction</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-ocaml" data-language="ocaml"><code class="language-ocaml"><span class="token number">1</span> <span class="token keyword">function</span> y <span class="token operator">=</span> squareThisNumber<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token number">2</span>   y <span class="token operator">=</span> x<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token number">3</span> endfunction<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>　　将函数保存为squarethisnumber.m，注意此时是小写。</p>
 <p>　　这时候调用函数 squareThisNumber(2) 提示找不到函数</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; squareThisNumber(2);</span><br><span class="line">2 error: &#39;squareThisNumber&#39; undefined near line 1 column 1</span><br><span class="line">3 &gt;&gt;</span><br><span class="line">4 &gt;&gt; ls</span><br><span class="line">5 [.]                         featuresX.dat               priceY.dat</span><br><span class="line">6 [..]                        hello.dat                   squarethisnumber.m</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; squareThisNumber(2);
+2 error: &#39;squareThisNumber&#39; undefined near line 1 column 1
+3 &gt;&gt;
+4 &gt;&gt; ls
+5 [.]                         featuresX.dat               priceY.dat
+6 [..]                        hello.dat                   squarethisnumber.m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　将文件命名为函数一致squareThisNumber.m（大小写也一致），这时候调用函数成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; ls</span><br><span class="line">2 [.]                         featuresX.dat               priceY.dat</span><br><span class="line">3 [..]                        hello.dat                   squareThisNumber.m</span><br><span class="line">4 &gt;&gt; squareThisNumber(2);</span><br><span class="line">5 &gt;&gt; a &#x3D; squareThisNumber(2);</span><br><span class="line">6 &gt;&gt; a</span><br><span class="line">7 a &#x3D;  4</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; ls
+2 [.]                         featuresX.dat               priceY.dat
+3 [..]                        hello.dat                   squareThisNumber.m
+4 &gt;&gt; squareThisNumber(2);
+5 &gt;&gt; a &#x3D; squareThisNumber(2);
+6 &gt;&gt; a
+7 a &#x3D;  4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　这说明：Octave 是大小写敏感的，文件名必须和函数名大小写一致。</p>
 <h5 id="多个返回值的函数">7、多个返回值的函数</h5>
 <p>　　Octave 函数有和其他语言不一样的地方是可以返回多个值。定义方法squareAndCubeThisNumber(x)如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 function [y1, y2] &#x3D; squareAndCubeThisNumber(x),</span><br><span class="line">2   y1 &#x3D; x ^ 2;</span><br><span class="line">3   y2 &#x3D; x ^ 3;</span><br><span class="line">4 endfunction</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 function [y1, y2] &#x3D; squareAndCubeThisNumber(x),
+2   y1 &#x3D; x ^ 2;
+3   y2 &#x3D; x ^ 3;
+4 endfunction<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　调用：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; a &#x3D; squareAndCubeThisNumber(2)　　% 接受了第一个返回值</span><br><span class="line">2 a &#x3D;  4</span><br><span class="line">3 &gt;&gt; [a, b] &#x3D; squareAndCubeThisNumber(2)　　% 接受两个返回值</span><br><span class="line">4 a &#x3D;  4</span><br><span class="line">5 b &#x3D;  8</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; a &#x3D; squareAndCubeThisNumber(2)　　% 接受了第一个返回值
+2 a &#x3D;  4
+3 &gt;&gt; [a, b] &#x3D; squareAndCubeThisNumber(2)　　% 接受两个返回值
+4 a &#x3D;  4
+5 b &#x3D;  8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="更复杂的函数">8、更复杂的函数</h5>
 <p>　　保存下面的函数到costFunctionJ.m中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 function J &#x3D; costFunctionJ(X, y, theta),</span><br><span class="line"> 2   % X is the &quot;design matrix&quot; containing our training examples</span><br><span class="line"> 3   % y is the class labels</span><br><span class="line"> 4   </span><br><span class="line"> 5   m &#x3D; size(X, 1);   % number of training examples, size of rows</span><br><span class="line"> 6   predictions &#x3D; X * theta; % predictions of hapothesis on all m examples</span><br><span class="line"> 7   sqrErrors &#x3D; (predictions - y) .^ 2; % squared errors .^ 指的是对数据中每个元素平方</span><br><span class="line"> 8   </span><br><span class="line"> 9   J &#x3D; 1 &#x2F; (2 * m) * sum(sqrErrors); </span><br><span class="line">10   </span><br><span class="line">11 endfunction</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 function J &#x3D; costFunctionJ(X, y, theta),
+ 2   % X is the &quot;design matrix&quot; containing our training examples
+ 3   % y is the class labels
+ 4   
+ 5   m &#x3D; size(X, 1);   % number of training examples, size of rows
+ 6   predictions &#x3D; X * theta; % predictions of hapothesis on all m examples
+ 7   sqrErrors &#x3D; (predictions - y) .^ 2; % squared errors .^ 指的是对数据中每个元素平方
+ 8   
+ 9   J &#x3D; 1 &#x2F; (2 * m) * sum(sqrErrors); 
+10   
+11 endfunction<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029204557554-287746170.png" /></p>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029204912196-599036049.png" /></p>
 <p>　　针对上边的数据集初始化矩阵。调用函数，计算代价函数的值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; X &#x3D; [1 1; 1 2 ; 1 3];</span><br><span class="line">2 &gt;&gt; y &#x3D; [1;2;3];</span><br><span class="line">3 &gt;&gt; theta &#x3D; [0;1];　　　　　　% Θ为0,1  h(x)&#x3D;x  此时完全拟合数据，代价函数的值为0</span><br><span class="line">4 &gt;&gt; j &#x3D; costFunctionJ(X,y,theta)</span><br><span class="line">5 j &#x3D; 0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 &gt;&gt; theta &#x3D; [0;0];　　　　　 % Θ 为0,0 h(x)&#x3D;0 此时不能拟合数据</span><br><span class="line">2 &gt;&gt; j &#x3D; costFunctionJ(X,y,theta)</span><br><span class="line">3 j &#x3D;  2.3333</span><br><span class="line">4 </span><br><span class="line">5 &gt;&gt; (1^2 + 2^2 + 3^2) &#x2F; (2*3)　　% 代价函数的值</span><br><span class="line">6 ans &#x3D;  2.3333</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; X &#x3D; [1 1; 1 2 ; 1 3];
+2 &gt;&gt; y &#x3D; [1;2;3];
+3 &gt;&gt; theta &#x3D; [0;1];　　　　　　% Θ为0,1  h(x)&#x3D;x  此时完全拟合数据，代价函数的值为0
+4 &gt;&gt; j &#x3D; costFunctionJ(X,y,theta)
+5 j &#x3D; 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 &gt;&gt; theta &#x3D; [0;0];　　　　　 % Θ 为0,0 h(x)&#x3D;0 此时不能拟合数据
+2 &gt;&gt; j &#x3D; costFunctionJ(X,y,theta)
+3 j &#x3D;  2.3333
+4 
+5 &gt;&gt; (1^2 + 2^2 + 3^2) &#x2F; (2*3)　　% 代价函数的值
+6 ans &#x3D;  2.3333<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="向量化-vectorization"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=31">5.6 向量化 Vectorization</a></h2>
-<p>　　下面是向量化的小例子，如果将所有u(j) 、所有v(j)、所有w(j)都看成列向量，则公式变为为向量加法 u = 2v + 5w</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210555116-680937964.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>　再复杂一些，在线性回归中 h(x) 的公式如下：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205341286-1081469612.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>　假设此时n=2，只有两个特征。将其向量化：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210831210-1988087809.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p>　　下面是向量化的小例子，如果将所有<code>u(j)</code> 、所有<code>v(j)</code>、所有<code>w(j)</code>都看成列向量，则公式变为为向量加法 u = 2v + 5w <span class="math display">\[
+v(j)= 2v(j) +5w(j)\ (for\ all\ j)\\
+u = 2v+5w
+\]</span> 　再复杂一些，在线性回归中 h(x) 的公式如下： <span class="math display">\[
+h_\theta(x) = \sum^n_{j=0}\theta_jx_j
+\]</span> 　假设此时n=2，只有两个特征。将其向量化： <span class="math display">\[
+\theta = \left[ \begin{matrix} \theta_0\\ \theta_1\\\theta_2\end{matrix} \right]\
+x= \left[ \begin{matrix} x_0\\ x_1 \\x_2\end{matrix} \right]
+\]</span></p>
 <p>　　在Octave中，如果使用for循环实现，则为左边的代码。使用看做向量相乘，则只需要右边一行代码：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205512492-976870318.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205512492-976870318.png" /></p>
 <p>　在C++中，for循环和向量化方法的对比如下：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205541255-1708990559.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205541255-1708990559.png" /></p>
 <p>当 n = 2 时，梯度下降的公式如下：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205626602-1925653783.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>　 实现这三个方程的方式之一，是用一个 for 循环，让 j 分别等于 0、1、2 来更新 Θj。</p>
-<p>　　因为三个参数是同步更新，可以用向量化的方法来实现。我们使用 δ 替代公式中下面这项（注意最右边 x 没有下标）：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210134226-674393857.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>　　则δ是一个 n+1 维向量（在这里是3维）</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210428122-418240397.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>　　α 是一个实数，α δ 也是 n+1 维向量</p>
-<p>　　x<sup>(i)</sup> 是一个 n+1 维向量（在这里是3维）</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029210458272-441674777.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>　　 公式变为一个向量减法：</p>
-<p>　　　　Θ := Θ - α δ</p>
-<p>　有时我们使用几十或几百个特征量来计算线性归回，当使用向量化地实现线性回归，通常运行速度就会比 for 循环快的多</p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029205626602-1925653783.png" /></p>
+<p>　 实现这三个方程的方式之一，是用一个 for 循环，让 j 分别等于 0、1、2 来更新 θ<sub>j</sub>。</p>
+<p>　　因为三个参数是同步更新，可以用向量化的方法来实现。我们使用 δ 替代公式中下面这项（注意最右边 x 没有下标）： <span class="math display">\[
+\sum^{m}_{i=1}(h_\theta(x^{(i)}))-y^{(i)})x^{(i)}
+\]</span> 　　则δ是一个 n+1 维向量（在这里是3维） <span class="math display">\[
+δ= \left[ \begin{matrix} δ_0\\ δ_1\\δ_2\end{matrix} \right]
+\]</span> 　　α 是一个实数，α δ 也是 n+1 维向量</p>
+<p>　　x<sup>(i)</sup> 是一个 n+1 维向量（在这里是3维） <span class="math display">\[
+x^{(i)}= \left[ \begin{matrix} x_0^{(i)}\\ x_1^{(i)} \\x_2^{(i)}\end{matrix} \right]
+\]</span> 　　 公式变为一个向量减法： <span class="math display">\[
+θ := θ - α δ
+\]</span> 　有时我们使用几十或几百个特征量来计算线性归回，当使用向量化地实现线性回归，通常运行速度就会比 for 循环快的多</p>
 <h2 id="相关术语">相关术语</h2>
 <p>digram 对角线</p>
 <p>plot 制图</p>
@@ -879,8 +1389,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                    Artificial Intelligence
                                 </a>
                             
                             
