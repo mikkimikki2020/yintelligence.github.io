@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Operating-System/" class="post-category">
+                                Operating System
                             </a>
                         
                     </div>
@@ -456,28 +456,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-10
+                    2021-02-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    294
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    1 Min
                 </div>
                 
 
@@ -501,21 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="introduction-to-operating-systems">Introduction to Operating Systems</h1>
-<p><a href="https://caliweb.vub.be/?page=course-offer&amp;id=004342&amp;anchor=2&amp;target=pr&amp;year=2021&amp;language=en&amp;output=html">Website</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9U1pBOVNQVE4yRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20operating%20systems%20and%20security%20%2D%20lecture%201%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video: 10:45 ~ 50:29</a></p>
-<h2 id="overview">Overview</h2>
-<ul>
-<li>Basis of Operating Systems (~3-4h)
-<ul>
-<li>Process management</li>
-<li>Memory management</li>
-<li>File management</li>
-<li>I/O Control</li>
-</ul></li>
-<li>Virtualization and Cloud (~3h)</li>
-<li>Embedded OS and RTOS (~2h)</li>
-<li>Security (~3h)</li>
-</ul>
 <h2 id="what-is-an-operating-system">What is an operating system?</h2>
 <p><img src="/images/OP/205634.png" /></p>
 <p>Managing all hardware requires a layer of software – <strong>the operating system</strong>.</p>
@@ -586,181 +572,6 @@
 <figure>
 <img src="/images/OP/203504.png" alt="" /><figcaption>29:14 - 30:27</figcaption>
 </figure>
-<h1 id="four-fundamental-os-concepts">Four Fundamental OS Concepts</h1>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iFBwI3ZMn3o&amp;list=PLIMsSuI81pxq7c91oQMpmXgmGICbuDA_c&amp;index=2">CS162 UCB VIDEO</a></p>
-<h2 id="recall-instruction-fetchdecodeexecute-cycle">Recall instruction fetch/decode/execute cycle</h2>
-<h2 id="thread-of-control-2302-3936">1. Thread of Control 23:02 ~ 39:36</h2>
-<ul>
-<li><strong>Thread</strong>: <strong><u>Single unique execution context</u></strong>
-<ul>
-<li>Program Counter, Registers, Execution Flags, Stack, Memory State</li>
-</ul></li>
-<li>A thread is <strong><em>executing</em></strong> on a processor (core) when it is <strong><em>resident</em></strong> in the processor registers</li>
-<li>A thread is <strong><em>suspended</em></strong> (not executing) when its state <strong><em>is not</em></strong> loaded (resident) into the processor
-<ul>
-<li>Processor state pointing at some other thread</li>
-<li>Program counter register <strong><em>is not</em></strong> pointing at next instruction from this thread</li>
-<li>Often: a copy of the last value for each register stored in memory</li>
-</ul></li>
-</ul>
-<h3 id="illusion-of-multiple-processors-3138">Illusion of Multiple Processors 31:38</h3>
-<p><img src="/images/OP/204910.png" /></p>
-<ul>
-<li><p>Multiplex in time!</p>
-<p><img src="/images/OP/205354.png" /></p></li>
-<li><p>Threads are <strong><em>virtual cores</em></strong></p></li>
-<li><p>Contents of virtual core (thread):</p>
-<ul>
-<li>Program counter, stack pointer</li>
-<li>Registers</li>
-</ul></li>
-<li><p>Where is “it” (the thread)?</p>
-<ul>
-<li>On the real (physical) core, or</li>
-<li>Saved in chunk of memory – called the <strong>Thread Control Block (TCB)</strong></li>
-</ul></li>
-</ul>
-<p>Consider: At T1: vCPU1 on real core, vCPU2 in memory and at T2: vCPU2 on real core, vCPU1 in memory, what happened? 38:21</p>
-<p><img src="/images/OP/205355.png" /></p>
-<ul>
-<li>OS Ran, triggering a <em>context switch</em></li>
-<li>Saved PC, SP, … in vCPU1's thread control block (memory)</li>
-<li>Loaded PC, SP, … from vCPU2's TCB, jumped to PC</li>
-</ul>
-<h2 id="address-space-4356">2. Address Space 43:56</h2>
-<ul>
-<li><p><strong>Address space</strong> ⇒ the set of accessible addresses + state associated with them</p>
-<ul>
-<li>For 32-bit processor: 2<sup>32</sup> = 4 billion (10<sup>9</sup>) addresses</li>
-<li>For 64-bit processor: 2<sup>64</sup> = 18 quintillion (10<sup>18</sup>) addresses</li>
-</ul></li>
-<li><p>What happens when you read or write to an address?</p>
-<ul>
-<li><p>Perhaps acts like regular memory</p></li>
-<li><p>Perhaps causes I/O operation</p>
-<p>» (Memory-mapped I/O)</p></li>
-<li><p>Perhaps causes exception (fault)</p></li>
-<li><p>Communicates with another program</p></li>
-<li><p>….</p></li>
-</ul></li>
-</ul>
-<figure>
-<img src="/images/OP/addressspace.png" alt="" /><figcaption>47:04 - 49:46</figcaption>
-</figure>
-<h3 id="very-simple-multiprogramming">Very Simple Multiprogramming</h3>
-<ul>
-<li>All vCPU's share non-CPU resources
-<ul>
-<li>Memory, I/O Devices</li>
-</ul></li>
-<li>Each thread can read/write memory
-<ul>
-<li>Perhaps data of others, including OS!</li>
-<li>can overwrite OS</li>
-</ul></li>
-<li>Used in early days of computing or embedded systems.</li>
-<li>However it is <strong>risky</strong>!</li>
-</ul>
-<h3 id="simple-multiplexing-has-no-protection">Simple Multiplexing has no Protection!</h3>
-<ul>
-<li>OS must protect user programs from one another
-<ul>
-<li>Prevent threads owned by one user from impacting threads owned by another user</li>
-<li>Example: prevent one user from stealing secret information from another user</li>
-</ul></li>
-<li>OS must protect itself from user programs
-<ul>
-<li>Reliability: compromising the operating system generally causes it to crash</li>
-<li>Security: limit the scope of what threads can do</li>
-<li>Privacy: limit each thread to the data it is permitted to access</li>
-<li>Fairness: each thread should be limited to its appropriate share of system resources (CPU, memory)</li>
-</ul></li>
-</ul>
-<h3 id="what-can-the-hardware-do-to-help-the-os-protect-itself-from-programs-5420">What can the hardware do to help the OS protect itself from programs? 54:20</h3>
-<ul>
-<li>Simple Protection: Base and Bound (B&amp;B) 55:48 - 1:06:06</li>
-<li>Address Space Translation 1:06:07 - 1:07:36</li>
-</ul>
-<h2 id="process-11057">3. Process 1:10:57</h2>
-<h3 id="definition-execution-environment-with-restricted-rights">Definition: execution environment with restricted rights</h3>
-<ul>
-<li><strong>(Protected) Address Space with One or More Threads</strong></li>
-<li>Owns memory (address space), file descriptors, sockets</li>
-<li>Encapsulate one or more threads sharing process resources</li>
-</ul>
-<h3 id="why-processes-11219">Why processes? 1:12:19</h3>
-<ul>
-<li><strong>Protected from each other! </strong></li>
-<li><strong>OS Protected from them</strong></li>
-<li>Processes provides memory protection</li>
-<li>Threads more efficient than processes for parallelism</li>
-</ul>
-<p>A process is a running program, with <strong>protection</strong>!</p>
-<h3 id="single-and-multithreaded-processes">Single and Multithreaded Processes</h3>
-<figure>
-<img src="/images/OP/214705.png" alt="" /><figcaption>1:14:26 - 1:15:25</figcaption>
-</figure>
-<ul>
-<li>Threads encapsulate <strong>concurrency</strong> : "Active" component</li>
-<li>Address spaces encapsulate <strong>protection</strong>: "Passive" component
-<ul>
-<li>Keeps buggy program from trashing the system</li>
-</ul></li>
-<li>Why have multiple threads per address space?
-<ul>
-<li>Parallelism: take advantage of actual hardware parallelism (e.g. multicore)</li>
-<li>Concurrency: ease of handling I/O and other simultaneous events</li>
-</ul></li>
-</ul>
-<h3 id="protection-and-isolation">Protection and Isolation</h3>
-<ul>
-<li>Processes provide protection and isolation
-<ul>
-<li>Reliability: bugs can only overwrite memory of process they are in</li>
-<li>Security and privacy: malicious or compromised process can’t read or write other process’ data</li>
-</ul></li>
-<li>Mechanisms:
-<ul>
-<li>Address translation: address space only contains its own data</li>
-<li>BUT: why can’t a process change the page table pointer?
-<ul>
-<li>Or use I/O instructions to bypass the system?</li>
-</ul></li>
-<li>Hardware must support privilege levels</li>
-</ul></li>
-</ul>
-<h2 id="dual-mode-operation-11923">4. Dual Mode Operation 1:19:23</h2>
-<p><img src="/images/OP/twomodes.png" /></p>
-<p>Hardware provides at least <strong>two modes</strong>:</p>
-<ol type="1">
-<li>Kernel Mode (or “supervisor” mode)</li>
-<li>User Mode</li>
-</ol>
-<p>Certain operations are <strong>prohibited</strong> when running in user mode (privileged instructions).</p>
-<p>Carefully controlled transitions between user mode and kernel mode.</p>
-<figure>
-<img src="/images/OP/UserKernelMode.png" alt="" /><figcaption>User/Kernel (Privileged) Mode 1:20:31 - 1:22:07</figcaption>
-</figure>
-<h2 id="conclusion">Conclusion</h2>
-<ul>
-<li>Thread: Execution Context
-<ul>
-<li>Single thread of execution</li>
-</ul></li>
-<li>Address space (with or w/o translation)
-<ul>
-<li>Set of memory addresses accessible to program (for read or write)</li>
-</ul></li>
-<li>Process: an instance of a running program
-<ul>
-<li>Protected Address Space + One or more Threads</li>
-</ul></li>
-<li>Dual mode operation / Protection
-<ul>
-<li>Only the “system” has the ability to access certain resources</li>
-<li>Combined with translation, isolates programs from each other</li>
-</ul></li>
-</ul>
 
                 
             </div>
@@ -787,7 +598,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/10/2021-02-10-Introduction%20to%20operating%20systems/">https://yintelligence.tech/2021/02/10/2021-02-10-Introduction%20to%20operating%20systems/</a>
+                    <a href="https://yintelligence.tech/2021/02/09/2021-02-09-Introduction-to-operating-systems/">https://yintelligence.tech/2021/02/09/2021-02-09-Introduction-to-operating-systems/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -874,31 +685,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/02/10/2021-02-10-Basis-of-Operating-Systems-Process-management/">
+                <a href="/2021/02/09/2021-02-09-Course-Overview/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Process management">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Course Overview">
                         
-                        <span class="card-title">Process management</span>
+                        <span class="card-title">Course Overview</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            OS basis
+                            4011247EER Operating System
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Operating-System/" class="post-category">
+                                    Operating System
                                 </a>
                             
                             
@@ -923,31 +734,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/10/2021-02-18-Course-Introduction/">
+                <a href="/2019/06/27/2019-06-27-Should-trees-have-rights/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Course Introduction">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Should trees have rights?">
                         
-                        <span class="card-title">Course Introduction</span>
+                        <span class="card-title">Should trees have rights?</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Course overview
+                            Should trees have rights?
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-06-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Bioinformatics/" class="post-category">
-                                    Bioinformatics
+                            <a href="/categories/Law/" class="post-category">
+                                    Law
                                 </a>
                             
                             
@@ -957,8 +768,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Computational-Biology-and-Bioinformatics/">
-                        <span class="chip bg-color">Computational Biology and Bioinformatics</span>
+                    <a href="/tags/Environmental-Law/">
+                        <span class="chip bg-color">Environmental Law</span>
                     </a>
                     
                 </div>
