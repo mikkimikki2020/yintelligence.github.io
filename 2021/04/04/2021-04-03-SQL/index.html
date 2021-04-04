@@ -443,12 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
-                            </a>
-                        
-                            <a href="/categories/Database/Assignment/" class="post-category">
-                                Assignment
+                            <a href="/categories/Assignments/" class="post-category">
+                                Assignments
                             </a>
                         
                     </div>
@@ -460,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-04-03
+                    2021-04-04
                 </div>
                 
 
@@ -496,6 +492,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -514,77 +513,143 @@
 <p>You will first need to install SQLite on your development machine.</p>
 <h4 id="install-sqlite-on-ubuntu-linux">Install SQLite on Ubuntu Linux</h4>
 <p>Install the <code>sqlite3</code> and <code>libsqlite3-dev</code> packages by running the following command;</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install sqlite3 libsqlite3-dev</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ sudo apt-get install sqlite3 libsqlite3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="install-sqlite-on-mac-os-x">Install SQLite on MAC OS X</h4>
 <p>On Mac OS Leopard or later, you don't have to! It comes pre-installed. You can upgrade it, if you absolutely need to, with <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/homework1/brew.sh">Homebrew</a>.</p>
 <h3 id="load-the-database-dump">Load the database dump</h3>
 <p>Check if <code>sqlite3</code> is properly working by <a target="_blank" rel="noopener" href="https://sqlite.org/cli.html#getting_started">following this tutorial</a>.</p>
 <p>Download the <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/files/imdb-cmudb2019.db.gz">database dump file</a>:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget https://15445.courses.cs.cmu.edu/fall2019/files/imdb-cmudb2019.db.gz</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ wget https:&#x2F;&#x2F;15445.courses.cs.cmu.edu&#x2F;fall2019&#x2F;files&#x2F;imdb-cmudb2019.db.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Check its MD5 checksum to ensure that you have correctly downloaded the file:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> md5 imdb-cmudb2019.db.gz</span> </span><br><span class="line">MD5 (imdb-cmudb2019.db.gz) = 6443351d4b55eb3c881622bd60a8dc5b</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ md5 imdb-cmudb2019.db.gz 
+MD5 (imdb-cmudb2019.db.gz) &#x3D; 6443351d4b55eb3c881622bd60a8dc5b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>Unzip the database from the provided database dump by running the following commands on your shell. Note that the database file be <strong>900MB</strong> after you decompress it.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gunzip imdb-cmudb2019.db.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sqlite3 imdb-cmudb2019.db</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ gunzip imdb-cmudb2019.db.gz
+$ sqlite3 imdb-cmudb2019.db<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>We have prepared a random sample of the original dataset for this assignment. Although this is not required to complete the assignment, the complete dataset is available by following the steps <a target="_blank" rel="noopener" href="https://pypi.org/project/imdb-sqlite/">here</a>.</p>
 <p>Check the contents of the database by running the <code>.tables</code> command on the <code>sqlite3</code> terminal. You should see <strong>6 tables</strong>, and the output should look like this:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sqlite3 imdb-cmudb2019.db</span></span><br><span class="line">SQLite version 3.11.0</span><br><span class="line">Enter &quot;.help&quot; for usage hints.</span><br><span class="line"><span class="meta">sqlite&gt;</span><span class="bash"> .tables</span></span><br><span class="line">akas      crew      episodes  people    ratings   titles</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ sqlite3 imdb-cmudb2019.db
+SQLite version 3.11.0
+Enter &quot;.help&quot; for usage hints.
+sqlite&gt; .tables
+akas      crew      episodes  people    ratings   titles<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Create indices using the following commands in SQLite:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE INDEX ix_people_name ON people (name);</span><br><span class="line">CREATE INDEX ix_titles_type ON titles (type);</span><br><span class="line">CREATE INDEX ix_titles_primary_title ON titles (primary_title);</span><br><span class="line">CREATE INDEX ix_titles_original_title ON titles (original_title);</span><br><span class="line">CREATE INDEX ix_akas_title_id ON akas (title_id);</span><br><span class="line">CREATE INDEX ix_akas_title ON akas (title);</span><br><span class="line">CREATE INDEX ix_crew_title_id ON crew (title_id);</span><br><span class="line">CREATE INDEX ix_crew_person_id ON crew (person_id);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">CREATE INDEX ix_people_name ON people (name);
+CREATE INDEX ix_titles_type ON titles (type);
+CREATE INDEX ix_titles_primary_title ON titles (primary_title);
+CREATE INDEX ix_titles_original_title ON titles (original_title);
+CREATE INDEX ix_akas_title_id ON akas (title_id);
+CREATE INDEX ix_akas_title ON akas (title);
+CREATE INDEX ix_crew_title_id ON crew (title_id);
+CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="check-the-schema">Check the schema</h3>
 <p>Get familiar with the schema (structure) of the tables (what attributes do they contain, what are the primary and foreign keys). Run the <code>.schema $TABLE_NAME</code> command on the <code>sqlite3</code> terminal for each table. The output should look like the example below for each table.</p>
 <h4 id="people">People</h4>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sqlite&gt; .schema people</span><br><span class="line">CREATE TABLE people (</span><br><span class="line">  person_id VARCHAR PRIMARY KEY,</span><br><span class="line">  name VARCHAR,</span><br><span class="line">  born INTEGER,</span><br><span class="line">  died INTEGER</span><br><span class="line">);</span><br><span class="line">CREATE INDEX ix_people_name ON people (name);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">sqlite&gt; .schema people
+CREATE TABLE people (
+  person_id VARCHAR PRIMARY KEY,
+  name VARCHAR,
+  born INTEGER,
+  died INTEGER
+);
+CREATE INDEX ix_people_name ON people (name);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains details for a person. For example, this is a row from the table:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nm0000003|Brigitte Bardot|1934|</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">nm0000003|Brigitte Bardot|1934|<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>For us, the important fields are <code>person_id</code> (e.g., "nm0000003"), <code>name</code> (e.g., "Brigitte Bardot"), and the year that the person was <code>born</code> (e.g., "1934").</p>
 <h4 id="titles">Titles</h4>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sqlite&gt; .schema titles</span><br><span class="line">CREATE TABLE titles (</span><br><span class="line">  title_id VARCHAR PRIMARY KEY,</span><br><span class="line">  type VARCHAR,</span><br><span class="line">  primary_title VARCHAR,</span><br><span class="line">  original_title VARCHAR,</span><br><span class="line">  is_adult INTEGER,</span><br><span class="line">  premiered INTEGER,</span><br><span class="line">  ended INTEGER,</span><br><span class="line">  runtime_minutes INTEGER,</span><br><span class="line">  genres VARCHAR</span><br><span class="line">);</span><br><span class="line">CREATE INDEX ix_titles_type ON titles (type);</span><br><span class="line">CREATE INDEX ix_titles_primary_title ON titles (primary_title);</span><br><span class="line">CREATE INDEX ix_titles_original_title ON titles (original_title);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">sqlite&gt; .schema titles
+CREATE TABLE titles (
+  title_id VARCHAR PRIMARY KEY,
+  type VARCHAR,
+  primary_title VARCHAR,
+  original_title VARCHAR,
+  is_adult INTEGER,
+  premiered INTEGER,
+  ended INTEGER,
+  runtime_minutes INTEGER,
+  genres VARCHAR
+);
+CREATE INDEX ix_titles_type ON titles (type);
+CREATE INDEX ix_titles_primary_title ON titles (primary_title);
+CREATE INDEX ix_titles_original_title ON titles (original_title);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains details for a title. For example, this is a row from the table:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tt0081400|movie|Raise the Titanic|Raise the Titanic|0|1980||115|Action,Adventure,Drama</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">tt0081400|movie|Raise the Titanic|Raise the Titanic|0|1980||115|Action,Adventure,Drama<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>For us, the important fields are <code>title_id</code> (e.g., "tt0081400"), <code>type</code> (e.g., "movie"), <code>primary_title</code> (e.g., "Raise the Titanic"), <code>runtime_minutes</code> (e.g., 127) and <code>genres</code> (e.g., "Action,Adventure,Drama").</p>
 <h4 id="akas">Akas</h4>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE akas (</span><br><span class="line">  title_id VARCHAR, -- REFERENCES titles (title_id),</span><br><span class="line">  title VARCHAR,</span><br><span class="line">  region VARCHAR,</span><br><span class="line">  language VARCHAR,</span><br><span class="line">  types VARCHAR,</span><br><span class="line">  attributes VARCHAR,</span><br><span class="line">  is_original_title INTEGER</span><br><span class="line">);</span><br><span class="line">CREATE INDEX ix_akas_title_id ON akas (title_id);</span><br><span class="line">CREATE INDEX ix_akas_title ON akas (title);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">CREATE TABLE akas (
+  title_id VARCHAR, -- REFERENCES titles (title_id),
+  title VARCHAR,
+  region VARCHAR,
+  language VARCHAR,
+  types VARCHAR,
+  attributes VARCHAR,
+  is_original_title INTEGER
+);
+CREATE INDEX ix_akas_title_id ON akas (title_id);
+CREATE INDEX ix_akas_title ON akas (title);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The table contains the alternate titles for the dubbed movies. Note that <code>title_id</code> in this table corresponds to <code>title_id</code> in <code>titles</code>.</p>
 <h4 id="crew">Crew</h4>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE crew (</span><br><span class="line">  title_id VARCHAR, -- REFERENCES titles (title_id),</span><br><span class="line">  person_id VARCHAR, -- REFERENCES people (person_id),</span><br><span class="line">  category VARCHAR,</span><br><span class="line">  job VARCHAR</span><br><span class="line">);</span><br><span class="line">CREATE INDEX ix_crew_title_id ON crew (title_id);</span><br><span class="line">CREATE INDEX ix_crew_person_id ON crew (person_id);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">CREATE TABLE crew (
+  title_id VARCHAR, -- REFERENCES titles (title_id),
+  person_id VARCHAR, -- REFERENCES people (person_id),
+  category VARCHAR,
+  job VARCHAR
+);
+CREATE INDEX ix_crew_title_id ON crew (title_id);
+CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains the details of the cast of the title. For example, this is a row from the table:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tt0000003|nm5442194|producer|producer</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">tt0000003|nm5442194|producer|producer<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>For us, the important fields are <code>title_id</code> (e.g., "tt0000003"), <code>person_id</code> (e.g., "nm5442194"), and <code>category</code> (e.g., "producer").</p>
 <p>Note that <code>title_id</code> corresponds to <code>title_id</code> in <code>titles</code> and <code>person_id</code> corresponds to <code>person_id</code> in <code>people</code>.</p>
 <h4 id="ratings">Ratings</h4>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE ratings (</span><br><span class="line">  title_id VARCHAR PRIMARY KEY, -- REFERENCES titles (title_id),</span><br><span class="line">  rating FLOAT,</span><br><span class="line">  votes INTEGER</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">CREATE TABLE ratings (
+  title_id VARCHAR PRIMARY KEY, -- REFERENCES titles (title_id),
+  rating FLOAT,
+  votes INTEGER
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains the ratings for each title. For example, this is a row from the table:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tt0000001|5.6|1529</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">tt0000001|5.6|1529<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>For us, the important fields are <code>title_id</code> (e.g., "tt0000001"), <code>rating</code> (the average rating for all votes, e.g., "5.6") and <code>votes</code> (the number of votes for the title, e.g., "1529").</p>
 <h3 id="sanity-check">Sanity check</h3>
 <p>Count the number of rows in the table</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sqlite&gt; select count(*) from titles;</span><br><span class="line">2294719</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">sqlite&gt; select count(*) from titles;
+2294719<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="construct-the-sql-queries">Construct the SQL queries</h2>
 <h3 id="q1_sample">Q1_SAMPLE</h3>
 <p>The purpose of this query is to make sure that the formatting of your output matches exactly the formatting of our auto-grading script.</p>
 <p><strong>Details:</strong> List all distinct types of titles ordered by type.</p>
 <p><strong>Answer</strong>: Here's the correct SQL query and expected output:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sqlite&gt; select distinct(type) from titles order by type;</span><br><span class="line">    movie</span><br><span class="line">    short</span><br><span class="line">    tvEpisode</span><br><span class="line">    tvMiniSeries</span><br><span class="line">    tvMovie</span><br><span class="line">    tvSeries</span><br><span class="line">    tvShort</span><br><span class="line">    tvSpecial</span><br><span class="line">    video</span><br><span class="line">    videoGame</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">sqlite&gt; select distinct(type) from titles order by type;
+    movie
+    short
+    tvEpisode
+    tvMiniSeries
+    tvMovie
+    tvSeries
+    tvShort
+    tvSpecial
+    video
+    videoGame<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="q2_uncommon_type">Q2_UNCOMMON_TYPE</h3>
 <p>List the longest title of each type along with the runtime minutes.</p>
 <p><strong>Details:</strong> Find the titles which are the longest by runtime minutes. There might be cases where there is a tie for the longest titles - in that case return all of them. Display the types, primary titles and runtime minutes, and order it according to type (ascending) and use primary titles (ascending) as tie-breaker.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="q3_tv_vs_movie">Q3_TV_VS_MOVIE</h3>
 <p>List all types of titles along with the number of associated titles.</p>
 <p><strong>Details:</strong> Print type and number of associated titles. For example, <code>tvShort|4075</code>. Sort by number of titles in ascending or</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="q4_old_is_not_gold">Q4_OLD_IS_NOT_GOLD</h3>
 <p>Which decades saw the most number of titles getting premiered? List the number of titles in every decade. Like <code>2010s|2789741</code>.</p>
 <p><strong>Details:</strong> Print all decades and the number of titles. Print the relevant decade in a fancier format by constructing a string that looks like this: <code>2010s</code>. Sort the decades in decreasing order with respect to the number of titles. Remember to exclude titles which have not been premiered (i.e. where <code>premiered</code> is <code>NULL</code>)</p>
 <p><strong>PS:</strong> Add this to your watchlist: <a target="_blank" rel="noopener" href="https://www.imdb.com/title/tt5174640/">100 Years (2115)</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="q5_percentage">Q5_PERCENTAGE</h3>
 <p>List the decades and the percentage of titles which premiered in the corresponding decade. Display like : <code>2010s|45.7042</code></p>
 <p><strong>Details:</strong> The percentage of titles for a decade is the number of titles which premiered that decade divided by the total number of titles. For the total number of titles, count all titles including ones that have not been premiered. Round the percentage to four decimal places using <code>ROUND()</code>.</p>
 <h3 id="q6_dubbed_smash">Q6_DUBBED_SMASH</h3>
 <p>List the top 10 dubbed titles with the number of dubs.</p>
 <p><strong>Details:</strong> Count the number of titles in <code>akas</code> for each title in the <code>titles</code> table, and list only the top ten. Print the primary title and the number of corresponding dubbed movies.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="q7_imdb_250">Q7_IMDB_250</h3>
 <p>List the IMDB Top 250 movies along with its weighted rating.</p>
 <p><strong>Details:</strong> The weighted rating of a movie is calculated according to the following formula: <span class="math display">\[
@@ -633,7 +698,7 @@ Weighted\ rating\ (WR) = \frac{v}{v=m} × R + \frac{m}{v=m} × C
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/04/03/2021-04-03-SQL/">https://yintelligence.tech/2021/04/03/2021-04-03-SQL/</a>
+                    <a href="https://yintelligence.tech/2021/04/04/2021-04-03-SQL/">https://yintelligence.tech/2021/04/04/2021-04-03-SQL/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -716,36 +781,50 @@ Weighted\ rating\ (WR) = \frac{v}{v=m} × R + \frac{m}{v=m} × C
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/04/03/2021-04-03-Asymptotics-I/">
+                <a href="/2021/04/04/2021-04-03-SQL/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="SQL">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">SQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Assignment 1
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Chaoqun Yin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Assignments/" class="post-category">
+                                    Assignments
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Database-systems/">
+                        <span class="chip bg-color">Database systems</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -757,19 +836,19 @@ Weighted\ rating\ (WR) = \frac{v}{v=m} × R + \frac{m}{v=m} × C
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/03/2021-04-03-Database-Storage-I/">
+                <a href="/2021/04/03/2021-04-03-Logistic-Regression/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Database Storage I">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Logistic Regression">
                         
-                        <span class="card-title">Database Storage I</span>
+                        <span class="card-title">Logistic Regression</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Readings Chapters 10.1-10.2, 10.5-10.6
+                            逻辑回归
                         
                     </div>
                     <div class="publish-info">
@@ -780,11 +859,7 @@ Weighted\ rating\ (WR) = \frac{v}{v=m} × R + \frac{m}{v=m} × C
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
-                                </a>
-                            
-                            <a href="/categories/Database/Notes/" class="post-category">
+                            <a href="/categories/Notes/" class="post-category">
                                     Notes
                                 </a>
                             
@@ -795,8 +870,8 @@ Weighted\ rating\ (WR) = \frac{v}{v=m} × R + \frac{m}{v=m} × C
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Database-systems/">
-                        <span class="chip bg-color">Database systems</span>
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
                 </div>

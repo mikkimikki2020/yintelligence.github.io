@@ -443,11 +443,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
-                            </a>
-                        
-                            <a href="/categories/Database/Notes/" class="post-category">
+                            <a href="/categories/Notes/" class="post-category">
                                 Notes
                             </a>
                         
@@ -496,6 +492,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -540,7 +539,24 @@
 <li><p>Relational algebra is based on <strong>sets</strong> (unordered, <u>no duplicates&lt;/u&gt;). SQL is based on <strong>bags</strong> (unordered, <u>allows duplicates&lt;/u&gt;).</p></li>
 </ul>
 <h2 id="example-1129">Example 11:29</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student (</span><br><span class="line">    sid <span class="type">INT</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">16</span>),</span><br><span class="line">    login <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">UNIQUE</span>,</span><br><span class="line">    age <span class="type">SMALLINT</span>,</span><br><span class="line">    gpa <span class="type">FLOAT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> course (</span><br><span class="line">    cid <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> enrolled (</span><br><span class="line">    sid <span class="type">INT</span> <span class="keyword">REFERENCES</span> student (sid),</span><br><span class="line">    cid <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">REFERENCES</span> course (cid),</span><br><span class="line">    grade <span class="type">CHAR</span>(<span class="number">1</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> student <span class="token punctuation">(</span>
+    sid <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+    name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    login <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">UNIQUE</span><span class="token punctuation">,</span>
+    age <span class="token keyword">SMALLINT</span><span class="token punctuation">,</span>
+    gpa <span class="token keyword">FLOAT</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> course <span class="token punctuation">(</span>
+    cid <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+    name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> enrolled <span class="token punctuation">(</span>
+    sid <span class="token keyword">INT</span> <span class="token keyword">REFERENCES</span> student <span class="token punctuation">(</span>sid<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    cid <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> course <span class="token punctuation">(</span>cid<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    grade <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/DB/1733540.png" /></p>
 <h2 id="aggregations-group-by">Aggregations + Group By</h2>
 <h3 id="aggregates-1159">Aggregates 11:59</h3>
@@ -556,19 +572,23 @@
 <ul>
 <li>Example: “Get # of students with a ’<span class="citation" data-cites="cs">@cs</span>’ login”.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(login) <span class="keyword">AS</span> cnt</span><br><span class="line">    <span class="keyword">FROM</span> student <span class="keyword">WHERE</span> login <span class="keyword">LIKE</span> <span class="string">&#x27;%@cs</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>login<span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+    <span class="token keyword">FROM</span> student <span class="token keyword">WHERE</span> login <span class="token operator">LIKE</span> '<span class="token operator">%</span><span class="token variable">@cs</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>The following two queries are equivalent:</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">AS</span> cnt</span><br><span class="line">	<span class="keyword">FROM</span> student <span class="keyword">WHERE</span> login <span class="keyword">LIKE</span> <span class="string">&#x27;%@cs&#x27;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="number">1</span>) <span class="keyword">AS</span> cnt</span><br><span class="line">	<span class="keyword">FROM</span> student <span class="keyword">WHERE</span> login <span class="keyword">LIKE</span> <span class="string">&#x27;%@cs&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+	<span class="token keyword">FROM</span> student <span class="token keyword">WHERE</span> login <span class="token operator">LIKE</span> <span class="token string">'%@cs'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> cnt
+	<span class="token keyword">FROM</span> student <span class="token keyword">WHERE</span> login <span class="token operator">LIKE</span> <span class="token string">'%@cs'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>Can use multiple aggregates within a single SELECT statement:
 <ul>
 <li>Get the number of students and their average GPA that have a “<span class="citation" data-cites="cs">@cs</span>” login.</li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(gpa), <span class="built_in">COUNT</span>(sid)</span><br><span class="line">	<span class="keyword">FROM</span> student <span class="keyword">WHERE</span> login <span class="keyword">LIKE</span> <span class="string">&#x27;%@cs&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>gpa<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>sid<span class="token punctuation">)</span>
+	<span class="token keyword">FROM</span> student <span class="token keyword">WHERE</span> login <span class="token operator">LIKE</span> <span class="token string">'%@cs'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>Finally, a table containing a tuple (average GPA and number of students) will be output.</p>
 <ul>
 <li>COUNT, SUM, AVG support <strong>DISTINCT</strong> to remove duplicate
@@ -576,27 +596,46 @@
 <li>Get the number of unique students that have an “<span class="citation" data-cites="cs">@cs</span>” login.</li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> login)</span><br><span class="line">	<span class="keyword">FROM</span> student <span class="keyword">WHERE</span> login <span class="keyword">LIKE</span> <span class="string">&#x27;%@cs</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">DISTINCT</span> login<span class="token punctuation">)</span>
+	<span class="token keyword">FROM</span> student <span class="token keyword">WHERE</span> login <span class="token operator">LIKE</span> '<span class="token operator">%</span><span class="token variable">@cs</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>Output of other columns outside of an aggregate is <strong>undefined</strong> (e.cid is undefined below)
 <ul>
 <li>Get the average GPA of students enrolled in each course</li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(s.gpa), e.cid</span><br><span class="line">	<span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> e, student <span class="keyword">AS</span> s</span><br><span class="line">	<span class="keyword">WHERE</span> e.sid <span class="operator">=</span> s.sid</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>gpa<span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>cid
+	<span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> e<span class="token punctuation">,</span> student <span class="token keyword">AS</span> s
+	<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>sid <span class="token operator">=</span> s<span class="token punctuation">.</span>sid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>The results running in different programs (pavlo, mysql, sqlite) can show this undefined behaviour.</p>
 <p>The standards of different programs are the same. <u>An error may be reported directly, or a value may be randomly selected for output.</u> Therefore, avoid this situation</p>
 <h3 id="group-by-1942">Group by 19:42</h3>
 <p>Thus, other columns outside aggregate must be aggregated or used in a GROUP BY command:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(s.gpa), e.cid</span><br><span class="line">    <span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> e, student <span class="keyword">AS</span> s</span><br><span class="line">    <span class="keyword">WHERE</span> e.sid <span class="operator">=</span> s.sid</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> e.sid</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>gpa<span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>cid
+    <span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> e<span class="token punctuation">,</span> student <span class="token keyword">AS</span> s
+    <span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>sid <span class="token operator">=</span> s<span class="token punctuation">.</span>sid
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> e<span class="token punctuation">.</span>sid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Project tuples into subsets and calculate aggregates against each subset.</p>
 <p><img src="/images/DB/1733541.png" /></p>
 <p>Note: <strong>Non-aggregated values</strong> in SELECT output clause <strong>must appear in GROUP BY clause</strong>.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* s.name should appear in GROUP BY clause */</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(s.gpa), e.cid, s.name</span><br><span class="line">    <span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> e, student <span class="keyword">AS</span> s</span><br><span class="line">    <span class="keyword">WHERE</span> e.sid <span class="operator">=</span> s.sid</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> e.cid, s.name</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* s.name should appear in GROUP BY clause */</span>
+<span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>gpa<span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>cid<span class="token punctuation">,</span> s<span class="token punctuation">.</span>name
+    <span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> e<span class="token punctuation">,</span> student <span class="token keyword">AS</span> s
+    <span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>sid <span class="token operator">=</span> s<span class="token punctuation">.</span>sid
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> e<span class="token punctuation">.</span>cid<span class="token punctuation">,</span> s<span class="token punctuation">.</span>name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>If we want to filter the output table, for example, selected average gpa &gt; 3.9, we may think of the following statement, but the result of the aggregate calculation <strong>cannot appear in the ADD statement</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ave_gpa canot be the statement*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(s.gpa) <span class="keyword">AS</span> avg_gpa, e.cid</span><br><span class="line">    <span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> e, student <span class="keyword">AS</span> s</span><br><span class="line">    <span class="keyword">WHERE</span> e.sid <span class="operator">=</span> s.sid</span><br><span class="line">    <span class="keyword">AND</span> avg_gpa <span class="operator">&gt;</span> <span class="number">3.9</span></span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> e.sid</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* ave_gpa canot be the statement*/</span>
+<span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>gpa<span class="token punctuation">)</span> <span class="token keyword">AS</span> avg_gpa<span class="token punctuation">,</span> e<span class="token punctuation">.</span>cid
+    <span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> e<span class="token punctuation">,</span> student <span class="token keyword">AS</span> s
+    <span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>sid <span class="token operator">=</span> s<span class="token punctuation">.</span>sid
+    <span class="token operator">AND</span> avg_gpa <span class="token operator">></span> <span class="token number">3.9</span>
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> e<span class="token punctuation">.</span>sid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>We should use <strong>HAVING</strong>: Filters output results after aggregation. Like a WHERE clause for a GROUP BY</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(s.gpa) <span class="keyword">AS</span> avg_gpa, e.cid</span><br><span class="line">    <span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> e, student <span class="keyword">AS</span> s</span><br><span class="line">    <span class="keyword">WHERE</span> e.sid <span class="operator">=</span> s.sid</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> e.sid</span><br><span class="line">    <span class="keyword">HAVING</span> avg_gpa <span class="operator">&gt;</span> <span class="number">3.0</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>gpa<span class="token punctuation">)</span> <span class="token keyword">AS</span> avg_gpa<span class="token punctuation">,</span> e<span class="token punctuation">.</span>cid
+    <span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> e<span class="token punctuation">,</span> student <span class="token keyword">AS</span> s
+    <span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>sid <span class="token operator">=</span> s<span class="token punctuation">.</span>sid
+    <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> e<span class="token punctuation">.</span>sid
+    <span class="token keyword">HAVING</span> avg_gpa <span class="token operator">></span> <span class="token number">3.0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/DB/1733542.png" /></p>
 <h2 id="string-datetime-operation">String &amp; Date/Time Operation</h2>
 <h3 id="string-operations-2400">String Operations 24:00</h3>
@@ -642,22 +681,34 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;* MySQL *&#x2F;</span><br><span class="line">WHERE name &#x3D; &quot;KaNyE&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* SQL-92 */</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="built_in">UPPER</span>(name) <span class="operator">=</span> <span class="built_in">UPPER</span>(<span class="string">&#x27;KaNyE&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;* MySQL *&#x2F;
+WHERE name &#x3D; &quot;KaNyE&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* SQL-92 */</span>
+<span class="token keyword">WHERE</span> UPPER<span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">=</span> UPPER<span class="token punctuation">(</span><span class="token string">'KaNyE'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Pattern Matching</strong>: The LIKE keyword is used for string matching in predicates.</p>
 <ul>
 <li><p>'%' matches any substrings (including empty).</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> e</span><br><span class="line">	<span class="keyword">WHERE</span> e.cid <span class="keyword">LIKE</span> <span class="string">&#x27;15-%&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> e
+	<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>cid <span class="token operator">LIKE</span> <span class="token string">'15-%'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>'_' matches any one character.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> student <span class="keyword">AS</span> s</span><br><span class="line">	<span class="keyword">WHERE</span> s.login <span class="keyword">LIKE</span> <span class="string">&#x27;%@c_&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> student <span class="token keyword">AS</span> s
+	<span class="token keyword">WHERE</span> s<span class="token punctuation">.</span>login <span class="token operator">LIKE</span> <span class="token string">'%@c_'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>There are functions that can be used in either output and predicates.</p></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUBSTRING</span>(name,<span class="number">0</span>,<span class="number">5</span>) <span class="keyword">AS</span> abbrv_name</span><br><span class="line">	<span class="keyword">FROM</span> student <span class="keyword">WHERE</span> sid <span class="operator">=</span> <span class="number">53688</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> student <span class="keyword">AS</span> s</span><br><span class="line">	<span class="keyword">WHERE</span> <span class="built_in">UPPER</span>(e.name) <span class="keyword">LIKE</span> <span class="string">&#x27;KAN%</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> SUBSTRING<span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> abbrv_name
+	<span class="token keyword">FROM</span> student <span class="token keyword">WHERE</span> sid <span class="token operator">=</span> <span class="token number">53688</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> student <span class="token keyword">AS</span> s
+	<span class="token keyword">WHERE</span> UPPER<span class="token punctuation">(</span>e<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token operator">LIKE</span> 'KAN<span class="token operator">%</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Concatenation</strong>: Two vertical bars (“| |”) will concatenate two or more strings together into a single string.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* SQL-92 */</span></span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> student</span><br><span class="line">    <span class="keyword">WHERE</span> login <span class="operator">=</span> <span class="built_in">LOWER</span>(name) <span class="operator">||</span> <span class="string">&#x27;@cs&#x27;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;* MSSQL *&#x2F;</span><br><span class="line">SELECT name FROM student</span><br><span class="line">    WHERE login &#x3D; LOWER(name) + &#39;@cs&#39;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;* MySQL *&#x2F;</span><br><span class="line">SELECT name FROM student</span><br><span class="line">    WHERE login &#x3D; CONCAT(LOWER(name), &#39;@cs&#39;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* SQL-92 */</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> student
+    <span class="token keyword">WHERE</span> login <span class="token operator">=</span> LOWER<span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">'@cs'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-mssql" data-language="mssql"><code class="language-mssql">&#x2F;* MSSQL *&#x2F;
+SELECT name FROM student
+    WHERE login &#x3D; LOWER(name) + &#39;@cs&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;* MySQL *&#x2F;
+SELECT name FROM student
+    WHERE login &#x3D; CONCAT(LOWER(name), &#39;@cs&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="datetime-operations-2911">Date/time operations 29:11</h3>
 <p>Operations to manipulate and modify DATE/TIME attributes.</p>
 <p>Can be used in either output and predicates.</p>
@@ -669,44 +720,67 @@
 <ul>
 <li><strong>New Table</strong>: Store the output of the query into a new (permanent) table.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* SQL-92 */</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> cid <span class="keyword">INTO</span> CourseIds</span><br><span class="line"><span class="keyword">FROM</span> enrolled;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;* MySQL *&#x2F;</span><br><span class="line">CREATE TABLE CourseIds (</span><br><span class="line">SELECT DISTINCT cid FROM enrolled);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* SQL-92 */</span>
+<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> cid <span class="token keyword">INTO</span> CourseIds
+<span class="token keyword">FROM</span> enrolled<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;* MySQL *&#x2F;
+CREATE TABLE CourseIds (
+SELECT DISTINCT cid FROM enrolled);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>Existing Table</strong>: Store the output of the query into a table that already exists in the database. The target table must have the <strong>same number of columns</strong> with the same types as the target table, but the name of the columns in the output query do not have to match.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> CourseIds</span><br><span class="line">(<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> cid <span class="keyword">FROM</span> enrolled)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> CourseIds
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> cid <span class="token keyword">FROM</span> enrolled<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="output-control">Output Control</h3>
 <h4 id="order-by-4003">ORDER BY 40:03</h4>
 <p>Since results SQL are unordered, you have to use the ORDER BY clause to impose a sort on tuples:</p>
 <ul>
 <li>Order the output tuples by the values in one or more of their columns.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ORDER BY &lt;column*&gt; [ASC|DESC] */</span></span><br><span class="line"><span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled</span><br><span class="line">    <span class="keyword">WHERE</span> cid <span class="operator">=</span> <span class="string">&#x27;15-721&#x27;</span></span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> grade <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* ORDER BY &lt;column*> [ASC|DESC] */</span>
+<span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled
+    <span class="token keyword">WHERE</span> cid <span class="token operator">=</span> <span class="token string">'15-721'</span>
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade <span class="token keyword">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>You can use multiple ORDER BY clauses to break ties or do more complex sorting:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled</span><br><span class="line">    <span class="keyword">WHERE</span> cid <span class="operator">=</span> <span class="string">&#x27;15-721&#x27;</span></span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> grade <span class="keyword">DESC</span>, sid <span class="keyword">ASC</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled
+    <span class="token keyword">WHERE</span> cid <span class="token operator">=</span> <span class="token string">'15-721'</span>
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> grade <span class="token keyword">DESC</span><span class="token punctuation">,</span> sid <span class="token keyword">ASC</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>You can also use any arbitrary expression in the ORDER BY clause:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled <span class="keyword">WHERE</span> cid <span class="operator">=</span> <span class="string">&#x27;15-721&#x27;</span></span><br><span class="line">	<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">UPPER</span>(grade) <span class="keyword">DESC</span>, sid <span class="operator">+</span> <span class="number">1</span> <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled <span class="token keyword">WHERE</span> cid <span class="token operator">=</span> <span class="token string">'15-721'</span>
+	<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> UPPER<span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token keyword">DESC</span><span class="token punctuation">,</span> sid <span class="token operator">+</span> <span class="token number">1</span> <span class="token keyword">ASC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="limit-4147">LIMIT 41:47</h4>
 <p>By default, the DBMS will return all of the tuples produced by the query. You can use the LIMIT clause to restrict the number of result tuples:</p>
 <ul>
 <li>Limit the # of tuples returned in output.</li>
 <li>Can set an offset to return a “range</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* LIMIT &lt;count&gt; [OFFSET] */</span></span><br><span class="line"><span class="keyword">SELECT</span> sid, name <span class="keyword">FROM</span> student</span><br><span class="line">    <span class="keyword">WHERE</span> login <span class="keyword">LIKE</span> <span class="string">&#x27;%@cs&#x27;</span></span><br><span class="line">    LIMIT <span class="number">20</span> <span class="keyword">OFFSET</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* LIMIT &lt;count> [OFFSET] */</span>
+<span class="token keyword">SELECT</span> sid<span class="token punctuation">,</span> name <span class="token keyword">FROM</span> student
+    <span class="token keyword">WHERE</span> login <span class="token operator">LIKE</span> <span class="token string">'%@cs'</span>
+    <span class="token keyword">LIMIT</span> <span class="token number">20</span> <span class="token keyword">OFFSET</span> <span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="nested-queries-4328">Nested Queries 43:28</h2>
 <p>Invoke queries inside of other queries to execute more complex logic within a single query.</p>
 <p>The scope of outer query is included in inner query (i.e. inner query can access attributes from outer query), but not the other way around.</p>
 <p>They are often difficult to optimize. Inner queries can appear (almost) anywhere in query:</p>
 <ol type="1">
 <li><p>SELECT Output Targets:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> <span class="number">1</span>) <span class="keyword">AS</span> <span class="keyword">one</span> <span class="keyword">FROM</span> student;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> one <span class="token keyword">FROM</span> student<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>FROM Clause:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name</span><br><span class="line">	<span class="keyword">FROM</span> student <span class="keyword">AS</span> s, (<span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled) <span class="keyword">AS</span> e</span><br><span class="line">	<span class="keyword">WHERE</span> s.sid <span class="operator">=</span> e.sid;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name
+	<span class="token keyword">FROM</span> student <span class="token keyword">AS</span> s<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled<span class="token punctuation">)</span> <span class="token keyword">AS</span> e
+	<span class="token keyword">WHERE</span> s<span class="token punctuation">.</span>sid <span class="token operator">=</span> e<span class="token punctuation">.</span>sid<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>WHERE Clause:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> student</span><br><span class="line">	<span class="keyword">WHERE</span> sid <span class="keyword">IN</span> ( <span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled );</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">The first sid is connected to student</span></span><br><span class="line"><span class="comment">The second sid is conneced to enrolled</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> student
+	<span class="token keyword">WHERE</span> sid <span class="token operator">IN</span> <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*
+The first sid is connected to student
+The second sid is conneced to enrolled
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Example: “Get the names of students that are enrolled in ’15-445’.”</p></li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> student</span><br><span class="line">	<span class="keyword">WHERE</span> sid <span class="keyword">IN</span> ( <span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled <span class="keyword">WHERE</span> cid <span class="operator">=</span> <span class="string">&#x27;15-445&#x27;</span> );</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> student
+	<span class="token keyword">WHERE</span> sid <span class="token operator">IN</span> <span class="token punctuation">(</span> <span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled <span class="token keyword">WHERE</span> cid <span class="token operator">=</span> <span class="token string">'15-445'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>Note that sid has different scope depending on where it appears in the query.</p>
 <p><strong>Nest Query Results Expressions</strong>:</p>
 <ul>
@@ -716,18 +790,59 @@
 <li><strong>EXISTS</strong>: At least one row is returned.</li>
 </ul>
 <p>Example:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Get the names of students in ‘15-445’ */</span></span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> student</span><br><span class="line">    <span class="keyword">WHERE</span> sid <span class="operator">=</span> <span class="keyword">ANY</span>(</span><br><span class="line">        <span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled</span><br><span class="line">        <span class="keyword">WHERE</span> cid <span class="operator">=</span> <span class="string">&#x27;15-445&#x27;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ver2：The search query can also be placed in the output statement of another search query */</span></span><br><span class="line"><span class="keyword">SELECT</span> (<span class="keyword">SELECT</span> S.name <span class="keyword">FROM</span> student <span class="keyword">AS</span> S</span><br><span class="line">        <span class="keyword">WHERE</span> S.sid <span class="operator">=</span> E.SID) <span class="keyword">AS</span> sname</span><br><span class="line"><span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> E</span><br><span class="line"><span class="keyword">WHERE</span> cid <span class="operator">=</span> <span class="string">&#x27;15-445&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* Get the names of students in ‘15-445’ */</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> student
+    <span class="token keyword">WHERE</span> sid <span class="token operator">=</span> <span class="token keyword">ANY</span><span class="token punctuation">(</span>
+        <span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled
+        <span class="token keyword">WHERE</span> cid <span class="token operator">=</span> <span class="token string">'15-445'</span>
+    <span class="token punctuation">)</span>
+
+<span class="token comment">/* ver2：The search query can also be placed in the output statement of another search query */</span>
+<span class="token keyword">SELECT</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> S<span class="token punctuation">.</span>name <span class="token keyword">FROM</span> student <span class="token keyword">AS</span> S
+        <span class="token keyword">WHERE</span> S<span class="token punctuation">.</span>sid <span class="token operator">=</span> E<span class="token punctuation">.</span>SID<span class="token punctuation">)</span> <span class="token keyword">AS</span> sname
+<span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> E
+<span class="token keyword">WHERE</span> cid <span class="token operator">=</span> <span class="token string">'15-445'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>If we want to get a more complicated result, such as: find student record with the highest id that is enrolled in at least one course.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* WRONG! s.name should be in HAVING, otherwise the output is undefined*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(e.sid), s.name</span><br><span class="line">    <span class="keyword">FROM</span> enrolled <span class="keyword">AS</span> e, student <span class="keyword">AS</span> s</span><br><span class="line">    <span class="keyword">WHERE</span> e.sid <span class="operator">=</span> s.sid</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* WRONG! s.name should be in HAVING, otherwise the output is undefined*/</span>
+<span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>sid<span class="token punctuation">)</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>name
+    <span class="token keyword">FROM</span> enrolled <span class="token keyword">AS</span> e<span class="token punctuation">,</span> student <span class="token keyword">AS</span> s
+    <span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>sid <span class="token operator">=</span> s<span class="token punctuation">.</span>sid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>We could use ALL now:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* sid should satisfy all expressions */</span></span><br><span class="line"><span class="keyword">SELECT</span> sid, name <span class="keyword">FROM</span> student</span><br><span class="line"><span class="keyword">WHERE</span> sid <span class="operator">=</span><span class="operator">&gt;</span> <span class="keyword">ALL</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ver2: we could aslo use IN */</span></span><br><span class="line"><span class="keyword">SELECT</span> sid, name <span class="keyword">FROM</span> student</span><br><span class="line"><span class="keyword">WHERE</span> sid <span class="keyword">IN</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="built_in">MAX</span>(sid) <span class="keyword">FROM</span> enrolled</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ver3 */</span></span><br><span class="line"><span class="keyword">SELECT</span> sid, name <span class="keyword">FROM</span> student</span><br><span class="line"><span class="keyword">WHERE</span> sid <span class="keyword">IN</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> sid <span class="keyword">FROM</span> enrolled</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> sid <span class="keyword">DESC</span> LIMIT <span class="number">1</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/* sid should satisfy all expressions */</span>
+<span class="token keyword">SELECT</span> sid<span class="token punctuation">,</span> name <span class="token keyword">FROM</span> student
+<span class="token keyword">WHERE</span> sid <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">ALL</span><span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled
+<span class="token punctuation">)</span>
+
+<span class="token comment">/* ver2: we could aslo use IN */</span>
+<span class="token keyword">SELECT</span> sid<span class="token punctuation">,</span> name <span class="token keyword">FROM</span> student
+<span class="token keyword">WHERE</span> sid <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>sid<span class="token punctuation">)</span> <span class="token keyword">FROM</span> enrolled
+<span class="token punctuation">)</span>
+
+<span class="token comment">/* ver3 */</span>
+<span class="token keyword">SELECT</span> sid<span class="token punctuation">,</span> name <span class="token keyword">FROM</span> student
+<span class="token keyword">WHERE</span> sid <span class="token operator">IN</span> <span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> sid <span class="token keyword">FROM</span> enrolled
+    <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> sid <span class="token keyword">DESC</span> <span class="token keyword">LIMIT</span> <span class="token number">1</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Find all courses that has no students enrolled in it.</p>
 <p>We could use <strong>NOT EXIST</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> course</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> enrolled</span><br><span class="line">    <span class="keyword">WHERE</span> course.cid <span class="operator">=</span> enrolled.cid</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> course
+<span class="token keyword">WHERE</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span><span class="token punctuation">(</span>
+    <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> enrolled
+    <span class="token keyword">WHERE</span> course<span class="token punctuation">.</span>cid <span class="token operator">=</span> enrolled<span class="token punctuation">.</span>cid
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="window-functions-5532">Window Functions 55:32</h2>
 <p>Performs “moving” calculation across set of tuples.</p>
 <p>Like an aggregation <strong>but tuples are not grouped into a single output tuples ( it still returns the original tuples).</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... FUNC<span class="operator">-</span>NAME(...) <span class="keyword">OVER</span> (...)</span><br><span class="line">	<span class="keyword">FROM</span> tableName</span><br><span class="line">	</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">FUNC-NAME: Aggregation Functions or Special Functions</span></span><br><span class="line"><span class="comment">Over: How to &quot;Slice&quot; up data, can also sort</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> FUNC<span class="token operator">-</span>NAME<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+	<span class="token keyword">FROM</span> tableName
+	
+<span class="token comment">/*
+FUNC-NAME: Aggregation Functions or Special Functions
+Over: How to "Slice" up data, can also sort
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Functions</strong>: Can be any of the aggregation functions that we discussed above. Can also be a special window functions</p>
 <ul>
 <li>Aggregation functions
@@ -744,12 +859,18 @@
 <ul>
 <li>Use <strong>PARTITION BY</strong> to specify group</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> cid, sid,</span><br><span class="line">		<span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> cid)</span><br><span class="line">	<span class="keyword">FROM</span> enrolled</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cid</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> cid<span class="token punctuation">,</span> sid<span class="token punctuation">,</span>
+		ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> cid<span class="token punctuation">)</span>
+	<span class="token keyword">FROM</span> enrolled
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/DB/1733543.png" /></p>
 <ul>
 <li>You can also include an <strong>ORDER BY</strong> in the window grouping to sort entries in each group.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span>,</span><br><span class="line">    	<span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> cid)</span><br><span class="line">    <span class="keyword">FROM</span> enrolled</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cid</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span><span class="token punctuation">,</span>
+    	ROW_NUMBER<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cid<span class="token punctuation">)</span>
+    <span class="token keyword">FROM</span> enrolled
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> cid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Important</strong>: The DBMS computes RANK after the window function sorting, whereas it computes ROW NUMBER before the sorting</p>
 <figure>
 <img src="/images/DB/1733544.png" alt="" /><figcaption>Find the student with the highest grade for each course.</figcaption>
@@ -762,23 +883,45 @@
 </ul>
 <p>The WITH clause binds the output of the inner query to a temporary result with that name.</p>
 <p><strong>Example</strong>: Generate a CTE called “cteName” that contains a single tuple with a single attribute set to “1”. The query at the bottom then just returns all the attributes from “cteName”.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">WITH</span> cteName <span class="keyword">AS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="number">1</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> cteName;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WITH</span> cteName <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token number">1</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> cteName<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>You can bind output columns to names before the <strong>AS</strong>:</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">WITH</span> cteName (col1, col2) <span class="keyword">AS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span> col1 <span class="operator">+</span> col2 <span class="keyword">FROM</span> cteName;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WITH</span> cteName <span class="token punctuation">(</span>col1<span class="token punctuation">,</span> col2<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> col1 <span class="token operator">+</span> col2 <span class="token keyword">FROM</span> cteName<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Find student record with the highest id that is enrolled in at least one course.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">WITH</span> cteSource (maxId) <span class="keyword">AS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="built_in">MAX</span>(sid) <span class="keyword">FROM</span> enrolled</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> student, cteSource</span><br><span class="line">	<span class="keyword">WHERE</span> student.sid <span class="operator">=</span> cteSource.maxId</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WITH</span> cteSource <span class="token punctuation">(</span>maxId<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>sid<span class="token punctuation">)</span> <span class="token keyword">FROM</span> enrolled
+<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> name <span class="token keyword">FROM</span> student<span class="token punctuation">,</span> cteSource
+	<span class="token keyword">WHERE</span> student<span class="token punctuation">.</span>sid <span class="token operator">=</span> cteSource<span class="token punctuation">.</span>maxId<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>A single query can contain multiple CTE declarations:</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">WITH</span> cte1 (col1) <span class="keyword">AS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="number">1</span></span><br><span class="line">),</span><br><span class="line">cte2 (col2) <span class="keyword">AS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> cte1, cte2;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WITH</span> cte1 <span class="token punctuation">(</span>col1<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token number">1</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+cte2 <span class="token punctuation">(</span>col2<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+	<span class="token keyword">SELECT</span> <span class="token number">2</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> cte1<span class="token punctuation">,</span> cte2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Adding the <strong>RECURSIVE</strong> keyword after WITH allows a CTE to reference itself. <em>Example: Print the sequence of numbers from 1 to 10.</em></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">WITH</span> <span class="keyword">RECURSIVE</span> cteSource (counter) <span class="keyword">AS</span> (</span><br><span class="line">    (<span class="keyword">SELECT</span> <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">UNION</span></span><br><span class="line">    (<span class="keyword">SELECT</span> counter <span class="operator">+</span> <span class="number">1</span> <span class="keyword">FROM</span> cteSource</span><br><span class="line">    <span class="keyword">WHERE</span> counter <span class="operator">&lt;</span> <span class="number">10</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> cteSource;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WITH</span> RECURSIVE cteSource <span class="token punctuation">(</span>counter<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">UNION</span>
+    <span class="token punctuation">(</span><span class="token keyword">SELECT</span> counter <span class="token operator">+</span> <span class="token number">1</span> <span class="token keyword">FROM</span> cteSource
+    <span class="token keyword">WHERE</span> counter <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> cteSource<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="conclusion-11812">Conclusion 1:18:12</h2>
 <ul>
 <li>SQL is not a dead language.</li>

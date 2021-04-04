@@ -443,11 +443,7 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Database/" class="post-category">
-                                Database
-                            </a>
-                        
-                            <a href="/categories/Database/Notes/" class="post-category">
+                            <a href="/categories/Notes/" class="post-category">
                                 Notes
                             </a>
                         
@@ -496,6 +492,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -534,7 +533,10 @@
 <p>There would be two files: one for artist and the other for album. An artist could have a name, year, and country attributes, while an album has name, artist and year attributes.</p>
 <p><img src="/images/DB/1604500.png" /></p>
 <p>To get the year that Ice Cube went solo:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">    record = parse(line)</span><br><span class="line">    <span class="keyword">if</span> “Ice Cube” == record[<span class="number">0</span>]:</span><br><span class="line">        <span class="built_in">print</span> <span class="built_in">int</span>(record[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> line <span class="token keyword">in</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
+    record <span class="token operator">=</span> parse<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> “Ice Cube” <span class="token operator">==</span> record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token builtin">int</span><span class="token punctuation">(</span>record<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="issues-with-flat-file">Issues with Flat File</h2>
 <p>But this simple implementation will encounter many problems:</p>
 <ul>
@@ -714,7 +716,8 @@
 </ul>
 <p>Syntax: <strong>σ<sub>predicate</sub>(<em>R</em>)</strong></p>
 <p><img src="/images/DB/1604505.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R</span><br><span class="line"> <span class="keyword">WHERE</span> a_id<span class="operator">=</span><span class="string">&#x27;a2&#x27;</span> <span class="keyword">AND</span> b_id<span class="operator">&gt;</span><span class="number">102</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R
+ <span class="token keyword">WHERE</span> a_id<span class="token operator">=</span><span class="token string">'a2'</span> <span class="token operator">AND</span> b_id<span class="token operator">></span><span class="token number">102</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="projection-π-5150">Projection π 51:50</h3>
 <p>Generate a relation with tuples that contains <strong>only the specified attributes</strong>.</p>
 <ul>
@@ -723,35 +726,44 @@
 </ul>
 <p>Syntax: <strong>π<sub>A1,A2,…,An</sub>(<em>R</em>)</strong></p>
 <p><img src="/images/DB/1604506.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> b_id<span class="number">-100</span>, a_id</span><br><span class="line"> <span class="keyword">FROM</span> R <span class="keyword">WHERE</span> a_id <span class="operator">=</span> <span class="string">&#x27;a2&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> b_id<span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> a_id
+ <span class="token keyword">FROM</span> R <span class="token keyword">WHERE</span> a_id <span class="token operator">=</span> <span class="token string">'a2'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="union-5307">Union ∪ 53:07</h3>
 <p>Generate a relation that contains all tuples that appear in <u>either only one or both input relations</u>.</p>
 <p><strong>Note: The two input relations have to have the exact same attributes.</strong></p>
 <p>Syntax: <strong>(R ∪ S)</strong></p>
 <p><img src="/images/DB/1604507.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R)</span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> S);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R<span class="token punctuation">)</span>
+<span class="token keyword">UNION</span> <span class="token keyword">ALL</span>
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> S<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="intersection-5409">Intersection ∩ 54:09</h3>
 <p>Generate a relation that contains only the tuples that appear in both of the input relations.</p>
 <p><strong>Note: The two input relations have to have the exact same attributes.</strong></p>
 <p>Syntax: <strong>(R ∩ S)</strong></p>
 <p><img src="/images/DB/1604508.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R)</span><br><span class="line"><span class="keyword">INTERSECT</span></span><br><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> S);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R<span class="token punctuation">)</span>
+<span class="token keyword">INTERSECT</span>
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> S<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="difference-5449">Difference – 54:49</h3>
 <p>Generate a relation that contains only the tuples that appear in the first and not the second of the input relations.</p>
 <p><strong>Note: The two input relations have to have the exact same attributes.</strong></p>
 <p>Syntax: <strong>(R – S)</strong></p>
 <p><img src="/images/DB/1604509.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R)</span><br><span class="line"><span class="keyword">EXCEPT</span></span><br><span class="line">(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> S);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R<span class="token punctuation">)</span>
+<span class="token keyword">EXCEPT</span>
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> S<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="product-5521">Product × 55:21</h3>
 <p>Generate a relation that contains all possible combinations of tuples from the input relations.</p>
 <p>Syntax: <strong>(R × S)</strong></p>
 <p><img src="/images/DB/1604510.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> S;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R, S;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">CROSS</span> <span class="token keyword">JOIN</span> S<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R<span class="token punctuation">,</span> S<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="join-5616">Join ⋈ 56:16</h3>
 <p>Generate a relation that contains all tuples that are a combination of two tuples (one from each input relation) with a common value(s) for one or more attributes.</p>
 <p>Syntax: <strong>(R ⋈ S)</strong></p>
 <p><img src="/images/DB/1604511.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">NATURAL</span> <span class="keyword">JOIN</span> S;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">NATURAL</span> <span class="token keyword">JOIN</span> S<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="other-operators-5755">Other operators 57:55</h3>
 <ul>
 <li>Rename (ρ)</li>
@@ -966,11 +978,7 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Database/" class="post-category">
-                                    Database
-                                </a>
-                            
-                            <a href="/categories/Database/Notes/" class="post-category">
+                            <a href="/categories/Notes/" class="post-category">
                                     Notes
                                 </a>
                             
