@@ -543,7 +543,7 @@ CREATE INDEX ix_akas_title ON akas (title);
 CREATE INDEX ix_crew_title_id ON crew (title_id);
 CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="check-the-schema">Check the schema</h3>
-<p>Get familiar with the schema (structure) of the tables (what attributes do they contain, what are the primary and foreign keys). Run the <code>.schema $TABLE_NAME</code> command on the <code>sqlite3</code> terminal for each table. The output should look like the example below for each table.</p>
+<p>Get familiar with the schema <code>(structure)</code> of the tables <code>(what attributes do they contain, what are the primary and foreign keys)</code>. Run the <code>.schema $TABLE_NAME</code> command on the <code>sqlite3</code> terminal for each table. The output should look like the example below for each table.</p>
 <h4 id="people">People</h4>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">sqlite&gt; .schema people
 CREATE TABLE people (
@@ -555,7 +555,7 @@ CREATE TABLE people (
 CREATE INDEX ix_people_name ON people (name);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains details for a person. For example, this is a row from the table:</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">nm0000003|Brigitte Bardot|1934|<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>For us, the important fields are <code>person_id</code> (e.g., "nm0000003"), <code>name</code> (e.g., "Brigitte Bardot"), and the year that the person was <code>born</code> (e.g., "1934").</p>
+<p>For us, the important fields are <code>person_id  (e.g., "nm0000003")</code>, <code>name</code> <code>(e.g., "Brigitte Bardot")</code>, and the year that the person was <code>born</code> (e.g., "1934")`.</p>
 <h4 id="titles">Titles</h4>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">sqlite&gt; .schema titles
 CREATE TABLE titles (
@@ -574,7 +574,7 @@ CREATE INDEX ix_titles_primary_title ON titles (primary_title);
 CREATE INDEX ix_titles_original_title ON titles (original_title);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains details for a title. For example, this is a row from the table:</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">tt0081400|movie|Raise the Titanic|Raise the Titanic|0|1980||115|Action,Adventure,Drama<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>For us, the important fields are <code>title_id</code> (e.g., "tt0081400"), <code>type</code> (e.g., "movie"), <code>primary_title</code> (e.g., "Raise the Titanic"), <code>runtime_minutes</code> (e.g., 127) and <code>genres</code> (e.g., "Action,Adventure,Drama").</p>
+<p>For us, the important fields are <code>title_id</code> <code>(e.g., "tt0081400")</code>, <code>type</code> <code>(e.g., "movie")</code>, <code>primary_title</code> <code>(e.g., "Raise the Titanic")</code>, <code>runtime_minutes</code> <code>(e.g., 127)</code> and <code>genres</code> <code>(e.g., "Action,Adventure,Drama")</code>.</p>
 <h4 id="akas">Akas</h4>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">CREATE TABLE akas (
   title_id VARCHAR, -- REFERENCES titles (title_id),
@@ -599,7 +599,7 @@ CREATE INDEX ix_crew_title_id ON crew (title_id);
 CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains the details of the cast of the title. For example, this is a row from the table:</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">tt0000003|nm5442194|producer|producer<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>For us, the important fields are <code>title_id</code> (e.g., "tt0000003"), <code>person_id</code> (e.g., "nm5442194"), and <code>category</code> (e.g., "producer").</p>
+<p>For us, the important fields are <code>title_id</code> <code>(e.g., "tt0000003")</code>, <code>person_id</code> <code>(e.g., "nm5442194")</code>, and <code>category</code> <code>(e.g., "producer")</code>.</p>
 <p>Note that <code>title_id</code> corresponds to <code>title_id</code> in <code>titles</code> and <code>person_id</code> corresponds to <code>person_id</code> in <code>people</code>.</p>
 <h4 id="ratings">Ratings</h4>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">CREATE TABLE ratings (
@@ -609,7 +609,7 @@ CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" clas
 );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Contains the ratings for each title. For example, this is a row from the table:</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">tt0000001|5.6|1529<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>For us, the important fields are <code>title_id</code> (e.g., "tt0000001"), <code>rating</code> (the average rating for all votes, e.g., "5.6") and <code>votes</code> (the number of votes for the title, e.g., "1529").</p>
+<p>For us, the important fields are <code>title_id</code> <code>(e.g., "tt0000001")</code>, <code>rating</code> <code>(the average rating for all votes, e.g., "5.6")</code> and <code>votes</code> <code>(the number of votes for the title, e.g., "1529")</code>.</p>
 <h3 id="sanity-check">Sanity check</h3>
 <p>Count the number of rows in the table</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">sqlite&gt; select count(*) from titles;
@@ -632,7 +632,7 @@ CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" clas
     videoGame<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="q2_uncommon_type">Q2_UNCOMMON_TYPE</h3>
 <p>List the longest title of each type along with the runtime minutes.</p>
-<p><strong>Details:</strong> Find the titles which are the longest by runtime minutes. There might be cases where there is a tie for the longest titles - in that case return all of them. Display the types, primary titles and runtime minutes, and order it according to type (ascending) and use primary titles (ascending) as tie-breaker.</p>
+<p><strong>Details:</strong> Find the titles which are the longest by runtime minutes. There might be cases where there is a tie for the longest titles - in that case return all of them. Display the types, primary titles and runtime minutes, and order it according to type <code>(ascending)</code> and use primary titles <code>(ascending)</code> as tie-breaker.</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="q3_tv_vs_movie">Q3_TV_VS_MOVIE</h3>
 <p>List all types of titles along with the number of associated titles.</p>
@@ -640,7 +640,7 @@ CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" clas
 <pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="q4_old_is_not_gold">Q4_OLD_IS_NOT_GOLD</h3>
 <p>Which decades saw the most number of titles getting premiered? List the number of titles in every decade. Like <code>2010s|2789741</code>.</p>
-<p><strong>Details:</strong> Print all decades and the number of titles. Print the relevant decade in a fancier format by constructing a string that looks like this: <code>2010s</code>. Sort the decades in decreasing order with respect to the number of titles. Remember to exclude titles which have not been premiered (i.e. where <code>premiered</code> is <code>NULL</code>)</p>
+<p><strong>Details:</strong> Print all decades and the number of titles. Print the relevant decade in a fancier format by constructing a string that looks like this: <code>2010s</code>. Sort the decades in decreasing order with respect to the number of titles. Remember to exclude titles which have not been premiered (i.e. where <code>premiered</code> is <code>NULL</code> )</p>
 <p><strong>PS:</strong> Add this to your watchlist: <a target="_blank" rel="noopener" href="https://www.imdb.com/title/tt5174640/">100 Years (2115)</a></p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="q5_percentage">Q5_PERCENTAGE</h3>
@@ -656,21 +656,21 @@ CREATE INDEX ix_crew_person_id ON crew (person_id);<span aria-hidden="true" clas
 Weighted\ rating\ (WR) = \frac{v}{v=m} × R + \frac{m}{v=m} × C
 \]</span></p>
 <ul>
-<li>- R = average rating for the movie (mean), i.e. ratings.rating</li>
+<li>- R = average rating for the movie <code>(mean)</code>, i.e. ratings.rating</li>
 <li>- v = number of votes for the movie, i.e. ratings.votes</li>
 <li>- m = minimum votes required to be listed in the Top 250 (current 25000)</li>
 <li>- C = weighted average rating of all movies</li>
 </ul>
 <p>Print the movie name along with its weighted rating. For example: <code>The Shawshank Redemption|9.27408375213064</code>.</p>
 <h3 id="q8_number_of_actors">Q8_NUMBER_OF_ACTORS</h3>
-<p>List the number of actors / actresses who have appeared in any title with Mark Hamill (born in 1951).</p>
+<p>List the number of actors / actresses who have appeared in any title with Mark Hamill <code>(born in 1951)</code>.</p>
 <p><strong>Details:</strong> Print only the total number of actors and actresses. The answer should include Mark Hamill himself.</p>
 <h3 id="q9_movie_names">Q9_MOVIE_NAMES</h3>
-<p>List the movies in alphabetical order which cast both Mark Hamill (born in 1951) and George Lucas (born in 1944).</p>
+<p>List the movies in alphabetical order which cast both Mark Hamill <code>(born in 1951)</code> and George Lucas <code>(born in 1944)</code>.</p>
 <p><strong>Details:</strong> Print only the names of the movies in alphabetical order.</p>
 <h3 id="q10_genre_counts">Q10_GENRE_COUNTS</h3>
 <p>List all distinct genres and the number of titles associated with them.</p>
-<p><strong>Details:</strong> The <code>titles</code> table contains the titles with their genres. Each title is associated with zero or more genres stored in the <code>genres</code> column as comma-separated values (like "Documentary,Short"). Count the number of titles associated with each genre, and list the genres and the counts, and order it according to the counts (greatest to least). Don't forget to filter empty genres (where <code>genres</code> is blank).</p>
+<p><strong>Details:</strong> The <code>titles</code> table contains the titles with their genres. Each title is associated with zero or more genres stored in the <code>genres</code> column as comma-separated values (like "Documentary,Short"). Count the number of titles associated with each genre, and list the genres and the counts, and order it according to the counts <code>(greatest to least)</code>. Don't forget to filter empty genres (where <code>genres</code> is blank).</p>
 <p><strong>Hint:</strong> You might find <a target="_blank" rel="noopener" href="https://sqlite.org/lang_with.html">CTEs</a> useful.</p>
 
                 
