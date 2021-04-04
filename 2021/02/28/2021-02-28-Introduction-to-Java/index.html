@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Discussions/" class="post-category">
-                                Discussions
+                            <a href="/categories/Data-model/" class="post-category">
+                                Data model
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    922
+                    903
                 </div>
                 
 
@@ -500,16 +500,71 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="introduction-to-java">Introduction to Java</h1>
+                <h1 id="discussion-1-introduction-to-java">Discussion 1: Introduction to Java</h1>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=h3d8S4QKGbg&amp;feature=youtu.be">Video</a></p>
 <h2 id="our-first-java-program">Our First Java Program</h2>
 <p>Below is our first Java program of the semester. Next to each line, write out what you think the code will do when run. This exercise is adapted from <em>Head First Java</em>.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> size = <span class="number">27</span>;</span><br><span class="line"><span class="comment">// Declares a variable of type int and assigns it the value In Java, all variables must be declared before they are used</span></span><br><span class="line">String name = <span class="string">&quot;Fido&quot;</span>;</span><br><span class="line"><span class="comment">// Declares a variable of type String and assigns it the variable &quot;Fido&quot;</span></span><br><span class="line">Dog myDog = <span class="keyword">new</span> Dog(name, size);</span><br><span class="line"><span class="comment">// Declares and initializes a new variable of type Dog. Calls the Dog constructor to create a new object of type Dog</span></span><br><span class="line"><span class="keyword">int</span> x = size - <span class="number">5</span>;</span><br><span class="line"><span class="comment">//Declares a new variable of type int and assigns it the value 22</span></span><br><span class="line"><span class="keyword">if</span> (x &lt; <span class="number">15</span>) &#123;</span><br><span class="line">    myDog.bark(<span class="number">8</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// If x is less than 15, calls the bark method on an instance of the Dog class. Since x is 22, myDog.bark is not called</span></span><br><span class="line"><span class="keyword">while</span> (x &gt; <span class="number">3</span>) &#123;</span><br><span class="line"><span class="comment">// Checks if x is greater than 3 and if so calls myDog&#x27;s play method. Subtracts 1, and as long as x is bigger than 3, goes back to the beginning of the loop. Play happens a total of 19 times</span></span><br><span class="line">    x -= <span class="number">1</span>;</span><br><span class="line">    myDog.play();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span>[] numList = &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>&#125;;</span><br><span class="line"> <span class="comment">// Declares an array of ints and initializes it to &#123;2, 4, 6, 8&#125;</span></span><br><span class="line">System.out.print(<span class="string">&quot;Hello &quot;</span>);</span><br><span class="line"> <span class="comment">// Prints the String &quot;Hello &quot; to the standard output</span></span><br><span class="line">System.out.println(<span class="string">&quot;Dog: &quot;</span> + name);</span><br><span class="line"><span class="comment">// Prints the String &quot;Dog: Fido&quot; to the standard output and then terminates the line</span></span><br><span class="line">System.out.println(numList[<span class="number">1</span>]);</span><br><span class="line"><span class="comment">// Prints the String &quot;4&quot; to the standard output and then terminates the line. In Java, arrays are indexed from 0</span></span><br><span class="line"><span class="keyword">if</span> (numList[<span class="number">3</span>] == <span class="number">8</span>) &#123;</span><br><span class="line"><span class="comment">// numList[3] is equal to 8</span></span><br><span class="line">    System.out.println(<span class="string">&quot;potato&quot;</span>);</span><br><span class="line"><span class="comment">// Prints the String &quot;potato&quot; to the standard output and then terminates the line</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token number">27</span><span class="token punctuation">;</span>
+<span class="token comment">// Declares a variable of type int and assigns it the value In Java, all variables must be declared before they are used</span>
+<span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string">"Fido"</span><span class="token punctuation">;</span>
+<span class="token comment">// Declares a variable of type String and assigns it the variable "Fido"</span>
+<span class="token class-name">Dog</span> myDog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Declares and initializes a new variable of type Dog. Calls the Dog constructor to create a new object of type Dog</span>
+<span class="token keyword">int</span> x <span class="token operator">=</span> size <span class="token operator">-</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token comment">//Declares a new variable of type int and assigns it the value 22</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">15</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    myDog<span class="token punctuation">.</span><span class="token function">bark</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// If x is less than 15, calls the bark method on an instance of the Dog class. Since x is 22, myDog.bark is not called</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token comment">// Checks if x is greater than 3 and if so calls myDog's play method. Subtracts 1, and as long as x is bigger than 3, goes back to the beginning of the loop. Play happens a total of 19 times</span>
+    x <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    myDog<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> numList <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+ <span class="token comment">// Declares an array of ints and initializes it to &#123;2, 4, 6, 8&#125;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token comment">// Prints the String "Hello " to the standard output</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Dog: "</span> <span class="token operator">+</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Prints the String "Dog: Fido" to the standard output and then terminates the line</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>numList<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Prints the String "4" to the standard output and then terminates the line. In Java, arrays are indexed from 0</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>numList<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token comment">// numList[3] is equal to 8</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"potato"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Prints the String "potato" to the standard output and then terminates the line</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>For your convenience, here is the same code in Python:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">size = <span class="number">27</span></span><br><span class="line">name = <span class="string">&quot;Fido&quot;</span></span><br><span class="line">myDog = Dog(name, size)</span><br><span class="line">x = size - <span class="number">5</span>;</span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">15</span>:</span><br><span class="line">    myDog.bark(<span class="number">8</span>)</span><br><span class="line"><span class="keyword">while</span> x &gt; <span class="number">3</span>:</span><br><span class="line">    x -= <span class="number">1</span></span><br><span class="line">    myDog.play()</span><br><span class="line">numList = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line">print(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;Dog: &quot;</span> + name)</span><br><span class="line">print(numList[<span class="number">1</span>])</span><br><span class="line"><span class="keyword">if</span> numList[<span class="number">3</span>] == <span class="number">8</span>:</span><br><span class="line">    print(<span class="string">&quot;potato&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">size <span class="token operator">=</span> <span class="token number">27</span>
+name <span class="token operator">=</span> <span class="token string">"Fido"</span>
+myDog <span class="token operator">=</span> Dog<span class="token punctuation">(</span>name<span class="token punctuation">,</span> size<span class="token punctuation">)</span>
+x <span class="token operator">=</span> size <span class="token operator">-</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> x <span class="token operator">&lt;</span> <span class="token number">15</span><span class="token punctuation">:</span>
+    myDog<span class="token punctuation">.</span>bark<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> x <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">:</span>
+    x <span class="token operator">-=</span> <span class="token number">1</span>
+    myDog<span class="token punctuation">.</span>play<span class="token punctuation">(</span><span class="token punctuation">)</span>
+numList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Dog: "</span> <span class="token operator">+</span> name<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>numList<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> numList<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"potato"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="mystery">Mystery</h2>
 <p>This is a function (a.k.a. method). It takes an array of integers and an integer as arguments, and returns an integer.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">mystery</span><span class="params">(<span class="keyword">int</span>[] inputArray, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = inputArray[k];</span><br><span class="line">    <span class="keyword">int</span> answer = k;</span><br><span class="line">    <span class="keyword">int</span> index = k + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (index &lt; inputArray.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (inputArray[index] &lt; x) &#123;</span><br><span class="line">            x = inputArray[index];</span><br><span class="line">            answer = index;</span><br><span class="line">        &#125;</span><br><span class="line">        index = index + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">mystery</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> inputArray<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> x <span class="token operator">=</span> inputArray<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> answer <span class="token operator">=</span> k<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> index <span class="token operator">=</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> inputArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>inputArray<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">&lt;</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            x <span class="token operator">=</span> inputArray<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            answer <span class="token operator">=</span> index<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        index <span class="token operator">=</span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> answer<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol type="a">
 <li>What mystery returns if inputArray = [3, 0, 4, 6, 3] and k = 2.</li>
 </ol>
@@ -524,7 +579,16 @@
 <li>The variable x keeps track of the smallest element found so far and the variable answer keeps track of the index of this element. The variable index keeps track of the current position in the array. The while loop steps through the elements of the array starting from index k + 1 and if the current element is less than x, x and answer are updated.</li>
 </ul>
 <p><em>Extra: This is another function. It takes an array of integers and returns nothing.</em></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mystery2</span><span class="params">(<span class="keyword">int</span>[] inputArray)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (index &lt; inputArray.length) &#123;</span><br><span class="line">        <span class="keyword">int</span> targetIndex = mystery(inputArray, index);</span><br><span class="line">        <span class="keyword">int</span> temp = inputArray[targetIndex];</span><br><span class="line">        inputArray[targetIndex] = inputArray[index];</span><br><span class="line">        inputArray[index] = temp;</span><br><span class="line">        index = index + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">mystery2</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> inputArray<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> inputArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> targetIndex <span class="token operator">=</span> <span class="token function">mystery</span><span class="token punctuation">(</span>inputArray<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> temp <span class="token operator">=</span> inputArray<span class="token punctuation">[</span>targetIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        inputArray<span class="token punctuation">[</span>targetIndex<span class="token punctuation">]</span> <span class="token operator">=</span> inputArray<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        inputArray<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+        index <span class="token operator">=</span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Describe what mystery2 does if inputArray = [3, 0, 4, 6, 3].</p>
 <ul>
 <li>If mystery2 is called on the array 3, 0, 4, 6, 3 then after the method runs, the array will be 0, 3, 3, 4, 6. Given any array, the method mystery2 sorts the elements of the array in increasing order.</li>
@@ -533,9 +597,21 @@
 <h3 id="writing-your-first-program">Writing Your First Program</h3>
 <p>Implement fib which takes in an integer n and returns the nth Fibonacci number. You may not need to use all the lines.</p>
 <p>The Fibonacci sequence is 0, 1, 1, 2, 3, 5, 8, 13, 21, . . ..</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">fib</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fib</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Extra: Implement fib in 5 lines or fewer. Your answer must be efficient. You don’t have to make use of the parameter k in your solution.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == k) &#123;</span><br><span class="line">        <span class="keyword">return</span> f0;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fib2(n, k + <span class="number">1</span>, f1, f0 + f1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> f0<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">fib2</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> f1<span class="token punctuation">,</span> f0 <span class="token operator">+</span> f1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -672,8 +748,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Discussions/" class="post-category">
-                                    Discussions
+                            <a href="/categories/Data-model/" class="post-category">
+                                    Data model
                                 </a>
                             
                             

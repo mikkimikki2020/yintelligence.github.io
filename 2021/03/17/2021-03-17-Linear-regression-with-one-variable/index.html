@@ -621,7 +621,7 @@ J(θ_0, θ_1) = \frac{1}{2m}\sum^{m}_{i =1}(h_θ(x^{(i)})-y^{(i)})^2
 <p><img src="/images/AI/542362-20181027071323203-1601274622.png" /></p>
 <p><img src="/images/AI/542362-20181027071336608-264372199.png" /></p>
 <h3 id="梯度下降算法-gradient-descent-algorithm">2.5.2 梯度下降算法 Gradient descent algorithm</h3>
-<p>　　梯度下降算法对θ赋值， 使得 J(θ)按梯度下降最快方向进行， 一直迭代下去， 最终得到局部最小值，即<strong>收敛 convergence</strong>。梯度下降算法不只用于线性回归， 可以<strong>用来最小化任何代价函数</strong> J。公式如下， <span class="math display">\[
+<p>　　梯度下降算法对θ赋值， 使得 <code>J(θ)</code>按梯度下降最快方向进行， 一直迭代下去， 最终得到局部最小值，即<strong>收敛 convergence</strong>。梯度下降算法不只用于线性回归， 可以<strong>用来最小化任何代价函数</strong> J。公式如下， <span class="math display">\[
 θ_j: = θ_j-\alpha\frac{\partial}{\partial j}J(θ)
 \]</span> 　　梯度下降算法中，两个参数 <strong>同步更新 simultaneous update</strong>（左下）。如果是<strong>非同步更新 non-simultaneous update</strong> （右下），则不是梯度下降。</p>
 <p><img src="/images/AI/542362-20181027072252715-1828550575.png" /></p>
@@ -668,8 +668,8 @@ J(θ_0, θ_1) = \frac{1}{2m}\sum^{m}_{i =1}(h_θ(x^{(i)})-y^{(i)})^2
 <p>介绍了一点线性代数 Linear algebra</p>
 <h1 id="exercises">Exercises</h1>
 <p>1. Consider the problem of predicting how well a student does in her second year of college/university, given how well she did in her first year.</p>
-<p>Specifically, let x be equal to the number of "A" grades (including A-. A and A+ grades) that a student receives in their first year of college (freshmen year). We would like to predict the value of y, which we define as the number of "A" grades they get in their second year (sophomore year).</p>
-<p>Refer to the following training set of a small sample of different students' performances (note that this training set may also be referenced in other questions in this quiz). Here each row is one training example. Recall that in linear regression, our hypothesis is h<sub>θ</sub>(x)=θ<sub>0</sub>+θ<sub>1</sub>x, and we use <em>m</em> to denote the number of training examples.</p>
+<p>Specifically, let x be equal to the number of "A" grades （including A-. A and A+ grades） that a student receives in their first year of college （freshmen year）. We would like to predict the value of y, which we define as the number of "A" grades they get in their second year （sophomore year）.</p>
+<p>Refer to the following training set of a small sample of different students' performances （note that this training set may also be referenced in other questions in this quiz）. Here each row is one training example. Recall that in linear regression, our hypothesis is h<sub>θ</sub><code>(x)</code>=θ<sub>0</sub>+θ<sub>1</sub>x, and we use <em>m</em> to denote the number of training examples.</p>
 <table>
 <thead>
 <tr class="header">
@@ -696,10 +696,10 @@ J(θ_0, θ_1) = \frac{1}{2m}\sum^{m}_{i =1}(h_θ(x^{(i)})-y^{(i)})^2
 </tr>
 </tbody>
 </table>
-<p>For the training set given above, what is the value of m<em>m</em>? In the box below, please enter your answer (which should be a number between 0 and 10).</p>
-<p>2. Many substances that can burn (such as gasoline and alcohol) have a chemical structure based on carbon atoms; for this reason they are called hydrocarbons. A chemist wants to understand how the number of carbon atoms in a molecule affects how much energy is released when that molecule combusts (meaning that it is burned). The chemist obtains the dataset below. In the column on the right, “kJ/mol” is the unit measuring the amount of energy released.</p>
+<p>For the training set given above, what is the value of m? In the box below, please enter your answer （which should be a number between 0 and 10）.</p>
+<p>2. Many substances that can burn （such as gasoline and alcohol） have a chemical structure based on carbon atoms; for this reason they are called hydrocarbons. A chemist wants to understand how the number of carbon atoms in a molecule affects how much energy is released when that molecule combusts （meaning that it is burned）. The chemist obtains the dataset below. In the column on the right, “kJ/mol” is the unit measuring the amount of energy released.</p>
 <p><img src="/images/CS229/19.png" /></p>
-<p>You would like to use linear regression (h<sub>θ</sub>(x)=θ<sub>0</sub>+θ<sub>1</sub>x) to estimate the amount of energy released (y) as a function of the number of carbon atoms (x). Which of the following do you think will be the values you obtain for θ<sub>0</sub> and θ<sub>1</sub>? You should be able to select the right answer without actually implementing linear regression.</p>
+<p>You would like to use linear regression （h<sub>θ</sub>（x）=θ<sub>0</sub>+θ<sub>1</sub>x） to estimate the amount of energy released （y）as a function of the number of carbon atoms （x）. Which of the following do you think will be the values you obtain for θ<sub>0</sub> and θ<sub>1</sub>? You should be able to select the right answer without actually implementing linear regression.</p>
 <ul>
 <li><del>θ<sub>0</sub> = −1780.0, θ<sub>1</sub> = −530.9</del></li>
 <li><del>θ<sub>0</sub> = −1780.0, θ<sub>1</sub>=530.9</del></li>
@@ -708,7 +708,7 @@ J(θ_0, θ_1) = \frac{1}{2m}\sum^{m}_{i =1}(h_θ(x^{(i)})-y^{(i)})^2
 </ul>
 <p>3. Suppose we set θ<sub>0</sub> = -1, θ<sub>1</sub> = 2 in the linear regression hypothesis from Q1. What is h<sub>θ</sub>(6)?</p>
 <p>11</p>
-<p>4. Let f be some function so that f(θ<sub>0</sub>,θ<sub>1</sub>) outputs a number. For this problem,f is some arbitrary/unknown smooth function (not necessarily the cost function of linear regression, so f may have local optima).Suppose we use gradient descent to try to minimize f(θ<sub>0</sub>,θ<sub>1</sub>) as a function of θ<sub>0</sub> and θ<sub>1</sub>. Which of the following statements are true? (Check all that apply.)</p>
+<p>4. Let f be some function so that f(θ<sub>0</sub>,θ<sub>1</sub>) outputs a number. For this problem,f is some arbitrary/unknown smooth function （not necessarily the cost function of linear regression, so f may have local optima）.Suppose we use gradient descent to try to minimize f(θ<sub>0</sub>,θ<sub>1</sub>) as a function of θ<sub>0</sub> and θ<sub>1</sub>. Which of the following statements are true? （Check all that apply.）</p>
 <ul>
 <li><del>Even if the learning rate α is very large, every iteration of gradient descent will decrease the value of f(θ<sub>0</sub>,θ<sub>1</sub>).</del></li>
 <li><strong>If the learning rate is too small, then gradient descent may take a very long time to converge.</strong></li>

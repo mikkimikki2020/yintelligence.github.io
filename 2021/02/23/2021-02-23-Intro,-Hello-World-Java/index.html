@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Data-model/" class="post-category">
+                                Data model
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    743
+                    726
                 </div>
                 
 
@@ -527,16 +527,83 @@
 </ul>
 <h2 id="hello-world"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=E3noTK6T8AE&amp;list=PL8FaHk7qbOD5k3bSznbTuZERTwr6lg2d_&amp;index=1">Hello World</a></h2>
 <p><strong>Our First Java Program.</strong> Printing Hello World is as easy as:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello world!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1. All code in Java must be part of a class.</span></span><br><span class="line"><span class="comment">2. We delimit the beginning and end of segments of code</span></span><br><span class="line"><span class="comment">   using &#123; and &#125;.</span></span><br><span class="line"><span class="comment">3. All statements in Java must end in a semi-colon.</span></span><br><span class="line"><span class="comment">4. For code to run we need public static void main(String[] args)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello world!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/*
+1. All code in Java must be part of a class.
+2. We delimit the beginning and end of segments of code
+   using &#123; and &#125;.
+3. All statements in Java must end in a semi-colon.
+4. For code to run we need public static void main(String[] args)
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="static-typing"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xX04gYy9en0&amp;list=PL8FaHk7qbOD5k3bSznbTuZERTwr6lg2d_&amp;index=2">Static Typing</a></h2>
 <p>Let us try doing something a little more complicated.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> x &lt; <span class="number">10</span>:</span><br><span class="line">	print(x)</span><br><span class="line">	x = x + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">x = <span class="string">&quot;horse&quot;</span></span><br><span class="line">print(x)</span><br><span class="line"></span><br><span class="line">print(<span class="number">5</span> + <span class="string">&quot;horse&quot;</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloNumbers</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (x &lt; <span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(x);</span><br><span class="line">			x = x + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		x = <span class="string">&quot;horse&quot;</span>; <span class="comment">//cause error here</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1. Before Java variables can be used, they must be declared.</span></span><br><span class="line"><span class="comment">2. Java variables must have a specific type.</span></span><br><span class="line"><span class="comment">3. Java variable types can never change.</span></span><br><span class="line"><span class="comment">4. Types are verified before the code even runs!!!</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> x <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+	x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span>
+
+x <span class="token operator">=</span> <span class="token string">"horse"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">+</span> <span class="token string">"horse"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloNumbers</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		x <span class="token operator">=</span> <span class="token string">"horse"</span><span class="token punctuation">;</span> <span class="token comment">//cause error here</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/*
+1. Before Java variables can be used, they must be declared.
+2. Java variables must have a specific type.
+3. Java variable types can never change.
+4. Types are verified before the code even runs!!!
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="declaring-functions"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ToJrue6Kg9A&amp;list=PL8FaHk7qbOD5k3bSznbTuZERTwr6lg2d_&amp;index=3">Declaring Functions</a></h2>
 <p>Define a function in python:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">larger</span>(<span class="params">x, y</span>):</span></span><br><span class="line">	<span class="string">&quot;&quot;&quot;Returns the larger of x and y.&quot;&quot;&quot;</span></span><br><span class="line">	<span class="keyword">if</span> (x &gt; y):</span><br><span class="line">		<span class="keyword">return</span> x</span><br><span class="line">	<span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">print(larger(-<span class="number">5</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">larger</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token triple-quoted-string string">"""Returns the larger of x and y."""</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> x
+	<span class="token keyword">return</span> y
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>larger<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Try to do this in Java:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LargerDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** Returns the larger of x and y. */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">larger</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">			<span class="keyword">return</span> x;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> y;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(larger(-<span class="number">5.5</span>, <span class="number">10</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1. Functions must be declared as part of a class in Java.</span></span><br><span class="line"><span class="comment">   A function that is part of a class is called a &quot;method&quot;.</span></span><br><span class="line"><span class="comment">   So in Java, all functions are methods.</span></span><br><span class="line"><span class="comment">2. To define a function in Java, we use &quot;public static&quot;.</span></span><br><span class="line"><span class="comment">   We will see alternate ways of defining functions later.</span></span><br><span class="line"><span class="comment">3. All parameters of a function must have a declared type,</span></span><br><span class="line"><span class="comment">   and the return value of the function must have a declared type.</span></span><br><span class="line"><span class="comment">   Functions in Java return only one value!</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LargerDemo</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">/** Returns the larger of x and y. */</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">larger</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">return</span> x<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">return</span> y<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">larger</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5.5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> 
+
+<span class="token comment">/*
+1. Functions must be declared as part of a class in Java.
+   A function that is part of a class is called a "method".
+   So in Java, all functions are methods.
+2. To define a function in Java, we use "public static".
+   We will see alternate ways of defining functions later.
+3. All parameters of a function must have a declared type,
+   and the return value of the function must have a declared type.
+   Functions in Java return only one value!
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="overview">Overview</h2>
 <p><strong>Key Syntax Features</strong>. Our first programs reveal several important syntax features of Java:</p>
 <ul>

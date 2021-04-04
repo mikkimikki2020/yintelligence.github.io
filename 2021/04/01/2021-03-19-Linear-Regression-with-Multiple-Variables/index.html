@@ -510,7 +510,7 @@
 <ul>
 <li><p>x<sup>(i)</sup><sub>j</sub> = value of feature j in the i-th training example</p>
 <p>特征矩阵中第 i 行的第 j 个特征，也就是第 i 个训练实例的第 j 个特征</p></li>
-<li><p>x<sup>(i)</sup> = the input (features) of the i-th training example</p>
+<li><p>x<sup>(i)</sup> = the input <code>(features)</code> of the i-th training example</p>
 <p>第 i 个训练实例，是特征矩阵中的第 i 行，是一个向量（vector）。</p></li>
 <li><p>m = the number of training examples</p>
 <p>训练实例的个数</p></li>
@@ -521,7 +521,7 @@
 h_θ(x) = θ_0+θ_1x_1+θ_2x_2+...+θ_nx_n
 \]</span> 这个公式中有 n+1 个参数和 n 个变量，为了使得公式能够简化一些，引入 x<sub>0</sub>=1，则公式转化为： <span class="math display">\[
 h_θ(x) = θ_0x_0+θ_1x_1+θ_2x_2+...+θ_nx_n
-\]</span> 此时模型中的参数是一个 n+1 维的向量，任何一个训练实例也都是 n+1 维的向量，特征矩阵 X 的维度是 m × (n+1)。</p>
+\]</span> 此时模型中的参数是一个 n+1 维的向量，任何一个训练实例也都是 n+1 维的向量，特征矩阵 X 的维度是 m × （n+1）。</p>
 <p>公式可以简化为： <span class="math display">\[
 h_θ(x)=θ^TX
 \]</span></p>
@@ -534,7 +534,7 @@ J(θ)=\frac{1}{2m}\sum^{m}_{i=1}(h_θ(x^{(i)})-y^{(i)})^2
 \]</span></p>
 <p>　多变量线性回归模型如下。为了简化，我们加入X<sub>0</sub> = 1，参数θ为一个n+1维向量vector。算法会同步更新每一个θ<sub>j</sub> （j = 0到n）</p>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027220942295-1593109817.png" /></p>
-<p>　　对比 单变量梯度下降（左边） 和 多变量梯度下降（右边）。因为x<sub>0</sub><sup>(i)</sup>是我们引入的，其值为1，所以多变量梯度下降前两项 θ0 和θ1 和单变量梯度下降是一样的。</p>
+<p>　　对比 单变量梯度下降（左边） 和 多变量梯度下降（右边）。因为x<sub>0</sub><sup>(i)</sup>是我们引入的，其值为1，所以多变量梯度下降前两项θ<sub>0</sub>和θ<sub>1</sub> 和单变量梯度下降是一样的。</p>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181027220846982-1505655652.png" /></p>
 <p>Python 代码：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">computeCost</span><span class="token punctuation">(</span>X<span class="token punctuation">,</span> y<span class="token punctuation">,</span> theta<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -594,12 +594,8 @@ h_\theta(x) = \theta_0 +\theta_1x_1 +\theta_2x_2^2+\theta_3x_3^3
 <h3 id="梯度下降和正规方程的比较">4.6.3 梯度下降和正规方程的比较</h3>
 <p>　　1、梯度下降需要选择学习率 α，迭代很多步，正规方程只需要一步。</p>
 <p>　　2、正规方程依赖于矩阵计算。由于计算逆矩阵的时间复杂度是 O(n<sup>3</sup>)，当n比较大时，计算过程会特别慢</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028084331583-2033259323.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028190858389-20951407.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028084331583-2033259323.png" /></p>
+<p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181028190858389-20951407.png" /></p>
 <h3 id="总结"><strong>总结</strong></h3>
 <ol type="1">
 <li>特征变量的数目 n 不大的时候，推荐使用正规方程。</li>
@@ -665,13 +661,13 @@ h_\theta(x) = \theta_0 +\theta_1x_1 +\theta_2x_2^2+\theta_3x_3^3
 <p>You'd like to use polynomial regression to predict a student's final exam score from their midterm exam score. Concretely, suppose you want to fit a model of the form h<sub>θ</sub>(x)=θ<sub>0</sub>+θ<sub>1</sub>x<sub>1</sub>+θ<sub>2</sub>x<sub>2</sub>, where x<sub>1</sub> is the midterm score and x<sub>2</sub> is (midterm score)<sup>2</sup>. Further, you plan to use both feature scaling (dividing by the "max-min", or range, of a feature) and mean normalization.</p>
 <p>What is the normalized feature x<sub>1</sub><sup>(1)</sup>? (Hint: midterm = 89, final = 96 is training example 1.) Please round off your answer to two decimal places and enter in the text box below.</p>
 <p>0.32</p>
-<p>2. You run gradient descent for 15 iterations with α=0.3 and compute J(θ) after each iteration. You find that the value of J(θ) <strong>increases</strong> over time. Based on this, which of the following conclusions seems most plausible?</p>
+<p>2. You run gradient descent for 15 iterations with α=0.3 and compute <code>J(θ)</code> after each iteration. You find that the value of <code>J(θ)</code> <strong>increases</strong> over time. Based on this, which of the following conclusions seems most plausible?</p>
 <ul>
-<li><del>Rather than use the current value of α, it'd be more promising to try a larger value of α (say α=1.0).</del></li>
+<li><del>Rather than use the current value of α, it'd be more promising to try a larger value of α <code>(say α=1.0)</code>.</del></li>
 <li><del>α=0.3 is an effective choice of learning rate.</del></li>
-<li><strong>Rather than use the current value of α, it'd be more promising to try a smaller value of α (say α=0.1).</strong></li>
+<li><strong>Rather than use the current value of α, it'd be more promising to try a smaller value of α <code>(say α=0.1)</code>.</strong></li>
 </ul>
-<p>3. Suppose you have m = 14 training examples with n = 3 features (excluding the additional all-ones feature for the intercept term, which you should add). The normal equation is θ = (X<sup>T</sup>X)<sup>−1</sup>X<sup>T</sup>y. For the given values of m and n, what are the dimensions of θ, X, and y in this equation?</p>
+<p>3. Suppose you have m = 14 training examples with n = 3 features （excluding the additional all-ones feature for the intercept term, which you should add）. The normal equation is θ = (X<sup>T</sup>X)<sup>−1</sup>X<sup>T</sup>y. For the given values of m and n, what are the dimensions of θ, X, and y in this equation?</p>
 <ul>
 <li><del>X is 14×3, y is 14×1, θ is 3×1</del></li>
 <li><del>X is 14×3, y is 14×1, θ is 3×3</del></li>

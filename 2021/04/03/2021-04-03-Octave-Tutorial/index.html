@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.4k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    27 Min
+                    26 Min
                 </div>
                 
 
@@ -504,49 +504,49 @@
 <h2 id="基本操作"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=26">5.1 基本操作</a></h2>
 <h3 id="简单运算">5.1.1 <strong>简单运算</strong></h3>
 <p>不等于符号的写法是这个波浪线加上等于符号 <code>~=</code>，而不是等于感叹号加等号<code>!=</code></p>
-<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">1 1 &#x3D;&#x3D; 1  　　%  判断相等
-2 1 ~&#x3D; 2  　　%  判断不等
-3 1 &amp;&amp; 0   　 %  求逻辑与
-4 1 || 0    　%  求逻辑或
-5 xor(1, 0)   % 求异或<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span>  　　<span class="token comment">%  判断相等</span>
+<span class="token number">1</span> <span class="token operator">~=</span> <span class="token number">2</span>  　　<span class="token comment">%  判断不等</span>
+<span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token number">0</span>   　 <span class="token comment">%  求逻辑与</span>
+<span class="token number">1</span> <span class="token operator">||</span> <span class="token number">0</span>    　<span class="token comment">%  求逻辑或</span>
+<span class="token function">xor</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment">% 求异或</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>简化命令行</strong></p>
 <pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token function">PS1</span><span class="token punctuation">(</span><span class="token string">'>> '</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>分号 semicolon 不打印结果</strong></p>
-<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave">&gt;&gt; a &#x3D; 3;  %semicolon supressing output<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> a <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>  <span class="token comment">%semicolon supressing output</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>浮点数的输出</strong></p>
-<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; a &#x3D; pi;
- 3 &gt;&gt; a
- 5 a &#x3D;  3.1416
- 6 &gt;&gt; disp(a);
- 8  3.1416
- 9 &gt;&gt; disp(sprintf(&#39;2 decimals: %0.2f&#39;, a))
-11 2 decimals: 3.14
-12 &gt;&gt; disp(sprintf(&#39;6 decimals: %0.6f&#39;, a))
-14 6 decimals: 3.141593<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> a <span class="token operator">=</span> <span class="token keyword">pi</span><span class="token punctuation">;</span>
+<span class="token operator">></span><span class="token operator">></span> a
+a <span class="token operator">=</span>  <span class="token number">3.1416</span>
+<span class="token operator">></span><span class="token operator">></span> <span class="token function">disp</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token number">3.1416</span>
+<span class="token operator">></span><span class="token operator">></span> <span class="token function">disp</span><span class="token punctuation">(</span><span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">'2 decimals: %0.2f'</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token number">2</span> decimals<span class="token operator">:</span> <span class="token number">3.14</span>
+<span class="token operator">></span><span class="token operator">></span> <span class="token function">disp</span><span class="token punctuation">(</span><span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">'6 decimals: %0.6f'</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token number">6</span> decimals<span class="token operator">:</span> <span class="token number">3.141593</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>控制输出格式的长短</strong></p>
-<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; format long
- 3 &gt;&gt; a
- 5 a &#x3D;  3.141592653589793
- 6 &gt;&gt; format short
- 8 &gt;&gt; a
-10 a &#x3D;  3.1416<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> format long
+<span class="token operator">></span><span class="token operator">></span> a
+a <span class="token operator">=</span>  <span class="token number">3.141592653589793</span>
+<span class="token operator">></span><span class="token operator">></span> format short
+<span class="token operator">></span><span class="token operator">></span> a
+a <span class="token operator">=</span>  <span class="token number">3.1416</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="向量和矩阵">5.1.2 向量和矩阵</h3>
-<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; A &#x3D; [1 2; 3 4; 5 6]
- 5    1   2
- 6    3   4
- 7    5   6
- 9 &gt;&gt; A &#x3D; [1 2;
-11 3 4;
-13 5 6]
-17    1   2
-18    3   4
-19    5   6
-21 &gt;&gt; v &#x3D; [1 2 3]
-25    1   2   3
-27 &gt;&gt; v &#x3D; [1; 2; 3]
-31    1
-32    2
-33    3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> A <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">]</span>
+    <span class="token number">1</span>   <span class="token number">2</span>
+    <span class="token number">3</span>   <span class="token number">4</span>
+    <span class="token number">5</span>   <span class="token number">6</span>
+<span class="token operator">></span><span class="token operator">></span> A <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">;</span>
+ <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">;</span>
+ <span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">]</span>
+    <span class="token number">1</span>   <span class="token number">2</span>
+    <span class="token number">3</span>   <span class="token number">4</span>
+    <span class="token number">5</span>   <span class="token number">6</span>
+<span class="token operator">></span><span class="token operator">></span> v <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">]</span>
+    <span class="token number">1</span>   <span class="token number">2</span>   <span class="token number">3</span>
+<span class="token operator">></span><span class="token operator">></span> v <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">3</span><span class="token punctuation">]</span>
+    <span class="token number">1</span>
+    <span class="token number">2</span>
+    <span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>通过步长生成行向量</strong></p>
 <pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; v &#x3D; 1:0.1:2
  3 v &#x3D;
@@ -710,7 +710,7 @@
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029101228893-9862563.png" /></p>
 <h2 id="移动数据"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=27">5.2 移动数据</a></h2>
 <blockquote>
-<p>pwd 指令：得到Octave默认路径； cd 指令：change direction 即改变路径，自己指定路径，但路径名中不要包含汉字 ls 指令：列出默认路径中包含的所有路径或者文件 load test.dat : 加载文件中的数据到test变量中 load('test.dat') : 同上 test ： 显示test变量里的数据内容 who/whos : 列出目前Octave工作空间中包含的所有变量 clear test : 删除工作空间的变量test V = test(1 : 10) : 取test中的前十个赋值给变量v save hello.mat V : 将变量V保存在hello.mat文件中，注意当再次加载进来时，变量的名称仍然是V 而非文件名hello</p>
+<p>pwd 指令：得到Octave默认路径； cd 指令：change direction 即改变路径，自己指定路径，但路径名中不要包含汉字 ls 指令：列出默认路径中包含的所有路径或者文件 load test.dat : 加载文件中的数据到test变量中 load（'test.dat'） : 同上 test ： 显示test变量里的数据内容 who/whos : 列出目前Octave工作空间中包含的所有变量 clear test : 删除工作空间的变量test V = test（1 : 10） : 取test中的前十个赋值给变量v save hello.mat V : 将变量V保存在hello.mat文件中，注意当再次加载进来时，变量的名称仍然是V 而非文件名hello</p>
 <p>save hello.txt V -ascii： 存为可以看的 txt 文件</p>
 </blockquote>
 <p><strong>从文件中加载数据到变量</strong></p>
@@ -808,51 +808,56 @@
 27    8270
 28    7704<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>　　<strong>保存成可以看的 txt 文件</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">1 save hello.txt V -ascii<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">save hello.txt V -ascii<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181029124142051-2048993977.png" /></p>
 <hr />
-<p>因为用到房屋价格数据，干脆用Octave生成了一些随机数，粘贴进了文件 priceY.dat 里<strong> </strong></p>
-<pre class="line-numbers language-none"><code class="language-none">1 A   &#x3D; 10000 * rand(1,47)　　　　% 生成47个0-1的随机数，并且乘以10000
-2 disp(sprintf(&#39;%0.0f\n&#39;,A))　　 % 打印成整数形式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>因为用到房屋价格数据，干脆用Octave生成了一些随机数，粘贴进了文件 priceY.dat 里</p>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab">A   <span class="token operator">=</span> <span class="token number">10000</span> <span class="token operator">*</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">47</span><span class="token punctuation">)</span>　　　　<span class="token comment">% 生成47个0-1的随机数，并且乘以10000</span>
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">'%0.0f\n'</span><span class="token punctuation">,</span>A<span class="token punctuation">)</span><span class="token punctuation">)</span>　　 <span class="token comment">% 打印成整数形式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="计算数据"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=28">5.3 计算数据</a></h2>
 <h3 id="矩阵相乘">5.3.1 矩阵相乘</h3>
 <p><strong>矩阵相乘 矩阵点乘</strong></p>
-<pre class="line-numbers language-none"><code class="language-none"> 1 1&gt; A &#x3D; [1 2; 3 4; 5 6]
- 7 3&gt; C &#x3D; [1 1 ; 2 2]
-12 4&gt; A * C    % 矩阵相乘
-14     5    5
-15    11   11
-16    17   17            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none"> 8 B &#x3D;
- 9    11   12
-10    13   14
-11    15   16
-14 5&gt; A .* B   % 矩阵点乘 各元素逐一相乘
-16    11   24
-17    39   56
-18    75   96<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> A <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token number">5</span> <span class="token number">6</span><span class="token punctuation">]</span>
+<span class="token operator">></span><span class="token operator">></span> C <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">1</span> <span class="token punctuation">;</span> <span class="token number">2</span> <span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token operator">></span><span class="token operator">></span> A <span class="token operator">*</span> C    <span class="token comment">% 矩阵相乘</span>
+     <span class="token number">5</span>    <span class="token number">5</span>
+    <span class="token number">11</span>   <span class="token number">11</span>
+    <span class="token number">17</span>   <span class="token number">17</span>            <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab">B <span class="token operator">=</span>
+    <span class="token number">11</span>   <span class="token number">12</span>
+    <span class="token number">13</span>   <span class="token number">14</span>
+    <span class="token number">15</span>   <span class="token number">16</span>
+<span class="token operator">></span><span class="token operator">></span> A <span class="token operator">.*</span> B   <span class="token comment">% 矩阵点乘 各元素逐一相乘</span>
+    <span class="token number">11</span>   <span class="token number">24</span>
+    <span class="token number">39</span>   <span class="token number">56</span>
+    <span class="token number">75</span>   <span class="token number">96</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>在每个元素上操作 </strong></p>
-<pre class="line-numbers language-none"><code class="language-none">A .^ 2　　　　　　% 每个元素取平方
-1 .&#x2F; A 　　　　　　% 取倒数 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab">A <span class="token operator">.^</span> <span class="token number">2</span>　　　　　　<span class="token comment">% 每个元素取平方</span>
+<span class="token number">1</span> <span class="token operator">./</span> A 　　　　　　<span class="token comment">% 取倒数 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="向量计算">5.3.2 向量计算</h3>
 <p><strong>最大值</strong></p>
-<pre class="line-numbers language-none"><code class="language-none"> 1 23&gt; a &#x3D; [1 15 2 0.5]
- 5 24&gt; val &#x3D; max(a)
- 6 val &#x3D;  15
- 8 25&gt; [val, ind] &#x3D; max(a)　　　　% ind 返回最大值位置
- 9 val &#x3D;  15
-10 ind &#x3D;  2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token number">23</span><span class="token operator">></span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">15</span> <span class="token number">2</span> <span class="token number">0.5</span><span class="token punctuation">]</span>
+<span class="token number">24</span><span class="token operator">></span> val <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+val <span class="token operator">=</span>  <span class="token number">15</span>
+<span class="token number">25</span><span class="token operator">></span> <span class="token punctuation">[</span>val<span class="token punctuation">,</span> ind<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>　　　　<span class="token comment">% ind 返回最大值位置</span>
+val <span class="token operator">=</span>  <span class="token number">15</span>
+ind <span class="token operator">=</span>  <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>向量逻辑判断</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">1 a &lt; 3　　　　　　% 对每个元素进行逻辑判断
 3   1  0  1  1
 5 find(a &lt; 3)　　% 在上面进行逻辑判断的基础上，返回结果为真的索引
 7    1   3   4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>向量常用函数</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">sum(a)　　　　 % 所有元素求和
-prod(a)　　　　% 所有元素相乘
-floor(a)  　　% round down 向下取整
-ceil(a)  　　 % round up 向上取整round(a)     % 四舍五入std(a)　　    % 求标准差mean(a)      % 求平均值 abs([-1;2;-3])　　 % 取绝对值log(v)            % 取log
-exp(v)            % 取e为底的指数， e&#x3D;2.71828<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>　　　　 <span class="token comment">% 所有元素求和</span>
+<span class="token function">prod</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>　　　　<span class="token comment">% 所有元素相乘</span>
+<span class="token function">floor</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>  　　<span class="token comment">% round down 向下取整</span>
+<span class="token function">ceil</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>  　　 <span class="token comment">% round up 向上取整</span>
+<span class="token function">round</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>     <span class="token comment">% 四舍五入</span>
+<span class="token function">std</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>　　    <span class="token comment">% 求标准差</span>
+<span class="token function">mean</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>      <span class="token comment">% 求平均值</span>
+<span class="token function">abs</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token number">2</span><span class="token punctuation">;</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>　　 <span class="token comment">% 取绝对值</span>
+<span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>            <span class="token comment">% 取log</span>
+<span class="token function">exp</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>            <span class="token comment">% 取e为底的指数， e=2.71828</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>向量运算</strong></p>
 <pre class="line-numbers language-none"><code class="language-none"> 1 12&gt; v
  3    1
@@ -1064,33 +1069,33 @@ sum(sum(A .* flipud(eye(9))))　　% 次对角线求和<span aria-hidden="true" 
 <p><img src="https://img2018.cnblogs.com/blog/542362/201810/542362-20181030093854840-1836962077.png" /></p>
 <h2 id="控制语句-for-while-if-语句"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=30">5.5 控制语句： for， while， if 语句</a></h2>
 <h5 id="for-循环-通过-index-访问列向量">1、for 循环 通过 index 访问列向量</h5>
-<pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; v &#x3D; zeros(10,1)
- 2 v &#x3D;
- 3    0
- 4    0
- 5    0
- 6    0
- 7    0
- 8    0
- 9    0
-10    0
-11    0
-12    0
-13 &gt;&gt; for i &#x3D; 1 : 10,
-14      v(i) &#x3D; 2 ^ i;
-15    end;
-16 &gt;&gt; v
-17 v &#x3D;
-18       2
-19       4
-20       8
-21      16
-22      32
-23      64
-24     128
-25     256
-26     512
-27    1024<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> v <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+ v <span class="token operator">=</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+    <span class="token number">0</span>
+<span class="token operator">></span><span class="token operator">></span> <span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+      <span class="token function">v</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">^</span> <span class="token number">i</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span><span class="token punctuation">;</span>
+<span class="token operator">></span><span class="token operator">></span> v
+v <span class="token operator">=</span>
+       <span class="token number">2</span>
+       <span class="token number">4</span>
+       <span class="token number">8</span>
+      <span class="token number">16</span>
+      <span class="token number">32</span>
+      <span class="token number">64</span>
+     <span class="token number">128</span>
+     <span class="token number">256</span>
+     <span class="token number">512</span>
+    <span class="token number">1024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="for-循环-直接访问列向量元素">2、for 循环 直接访问列向量元素</h5>
 <pre class="line-numbers language-octave" data-language="octave"><code class="language-octave"> 1 &gt;&gt; indices &#x3D; 1 : 10;
  2 &gt;&gt; indices
@@ -1419,15 +1424,15 @@ x^{(i)}= \left[ \begin{matrix} x_0^{(i)}\\ x_1^{(i)} \\x_2^{(i)}\end{matrix} \ri
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Introduction to Asymptotic Analysis">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Introduction to Asymptotic Analysis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Efficient Programming
                         
                     </div>
                     <div class="publish-info">
@@ -1436,11 +1441,23 @@ x^{(i)}= \left[ \begin{matrix} x_0^{(i)}\\ x_1^{(i)} \\x_2^{(i)}\end{matrix} \ri
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Chaoqun Yin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Data-model/" class="post-category">
+                                    Data model
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
+                    </a>
+                    
                 </div>
                 
             </div>

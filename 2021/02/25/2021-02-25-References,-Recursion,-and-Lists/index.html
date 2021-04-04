@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Data-model/" class="post-category">
+                                Data model
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-04-04
                 </div>
                 
 
@@ -506,13 +506,33 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/Berkeley-CS61B/lectureCode-fa20/tree/master/lists1">Code</a></p>
 <h2 id="primitive-types"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IRwO_wahcsU&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=1">Primitive Types</a></h2>
 <h3 id="variables-in-java">Variables in Java</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Walrus a = <span class="keyword">new</span> Walrus(<span class="number">1000</span>, <span class="number">8.3</span>);</span><br><span class="line">Walrus b;</span><br><span class="line">b = a;</span><br><span class="line">b.weight = <span class="number">5</span>;</span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">weight: 5, tusk size: 8.30 </span></span><br><span class="line"><span class="comment">weight: 5, tusk size: 8.30</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Walrus</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Walrus</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">8.3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Walrus</span> b<span class="token punctuation">;</span>
+b <span class="token operator">=</span> a<span class="token punctuation">;</span>
+b<span class="token punctuation">.</span>weight <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/*
+weight: 5, tusk size: 8.30 
+weight: 5, tusk size: 8.30
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Will the change to b affect a?</p>
 <ul>
 <li><strong>Yes</strong></li>
 <li>No</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line">y = x;</span><br><span class="line">x = <span class="number">2</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;x is: &quot;</span> + x);</span><br><span class="line">System.out.println(<span class="string">&quot;y is: &quot;</span> + y); </span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">x is: 2</span></span><br><span class="line"><span class="comment">y is: 5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> y<span class="token punctuation">;</span>
+y <span class="token operator">=</span> x<span class="token punctuation">;</span>
+x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"x is: "</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"y is: "</span> <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token comment">/*
+x is: 2
+y is: 5
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Will the change to x affect y?</p>
 <ul>
 <li>Yes</li>
@@ -573,7 +593,15 @@
 <li>Java first allocates a box of bits for each instance variable of the class and fills them with a default value (e.g. 0, null).</li>
 <li>The constructor then usually fills every such box with some other value</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Walrus</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> weight;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">double</span> tuskSize;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Walrus</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">double</span> ts)</span> </span>&#123;</span><br><span class="line">        weight = w;</span><br><span class="line">        tuskSize = ts;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Walrus</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> weight<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">double</span> tuskSize<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Walrus</span><span class="token punctuation">(</span><span class="token keyword">int</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> ts<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        weight <span class="token operator">=</span> w<span class="token punctuation">;</span>
+        tuskSize <span class="token operator">=</span> ts<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/CS61B/10.png" /></p>
 <p>Can think of new as returning the address of the newly created object</p>
 <ul>
@@ -612,7 +640,15 @@
 <li>b = a <strong>copies</strong> all the bits from a into b</li>
 </ul>
 <p>Passing parameters obeys the same rule: Simply <strong>copy the bits</strong> (also called pass by value) to the new scope.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">average</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a + b) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x = <span class="number">5.5</span>;</span><br><span class="line">    <span class="keyword">double</span> y = <span class="number">10.5</span>;</span><br><span class="line">    <span class="keyword">double</span> avg = average(x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">double</span> <span class="token function">average</span><span class="token punctuation">(</span><span class="token keyword">double</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">5.5</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> y <span class="token operator">=</span> <span class="token number">10.5</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> avg <span class="token operator">=</span> <span class="token function">average</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -660,7 +696,18 @@
 <li>walrus will not change, but main’s x will decrease by 5.</li>
 <li>Both will decrease.</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Walrus walrus = <span class="keyword">new</span> Walrus(<span class="number">3500</span>, <span class="number">10.5</span>);</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">9</span>;</span><br><span class="line">    doStuff(walrus, x);</span><br><span class="line">    System.out.println(walrus);</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doStuff</span><span class="params">(Walrus W, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    W.weight = W.weight - <span class="number">100</span>;</span><br><span class="line">    x = x - <span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Walrus</span> walrus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Walrus</span><span class="token punctuation">(</span><span class="token number">3500</span><span class="token punctuation">,</span> <span class="token number">10.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+    <span class="token function">doStuff</span><span class="token punctuation">(</span>walrus<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>walrus<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">doStuff</span><span class="token punctuation">(</span><span class="token class-name">Walrus</span> <span class="token class-name">W</span><span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">W</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> <span class="token class-name">W</span><span class="token punctuation">.</span>weight <span class="token operator">-</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    x <span class="token operator">=</span> x <span class="token operator">-</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/CS61B/18.png" /></p>
 <h2 id="instantiation-of-arrays"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=t57Xi1G__Vc&amp;list=PL8FaHk7qbOD7lprwG_xdIMLrwibZDi-Ll&amp;index=6">Instantiation of Arrays</a></h2>
 <p>Arrays are also Objects. As we’ve seen, objects are (usually) instantiated using the <strong><em>new</em></strong> keyword.</p>
@@ -701,13 +748,54 @@
 <li>size()</li>
 <li>iterativeSize()</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntList</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> first;</span><br><span class="line">	<span class="keyword">public</span> IntList rest;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">IntList</span><span class="params">(<span class="keyword">int</span> f, IntList r)</span> </span>&#123;</span><br><span class="line">		first = f;</span><br><span class="line">		rest = r;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Return the size of the list using... recursion! */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (rest == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span> + <span class="keyword">this</span>.rest.size();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Return the size of the list using no recursion! */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">iterativeSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		IntList p = <span class="keyword">this</span>;</span><br><span class="line">		<span class="keyword">int</span> totalSize = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">			totalSize += <span class="number">1</span>;</span><br><span class="line">			p = p.rest;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> totalSize;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		IntList L = <span class="keyword">new</span> IntList(<span class="number">15</span>, <span class="keyword">null</span>);</span><br><span class="line">		L = <span class="keyword">new</span> IntList(<span class="number">10</span>, L);</span><br><span class="line">		L = <span class="keyword">new</span> IntList(<span class="number">5</span>, L);</span><br><span class="line"></span><br><span class="line">		System.out.println(L.get(<span class="number">100</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IntList</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> first<span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token class-name">IntList</span> rest<span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token keyword">int</span> f<span class="token punctuation">,</span> <span class="token class-name">IntList</span> r<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		first <span class="token operator">=</span> f<span class="token punctuation">;</span>
+		rest <span class="token operator">=</span> r<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">/** Return the size of the list using... recursion! */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>rest <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rest<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">/** Return the size of the list using no recursion! */</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">iterativeSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">IntList</span> p <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> totalSize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			totalSize <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+			p <span class="token operator">=</span> p<span class="token punctuation">.</span>rest<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">return</span> totalSize<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">IntList</span> <span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token class-name">L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token class-name">L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="challenge">Challenge</h4>
 <p>Write a method int get(int i) that returns the ith item in the list.</p>
 <ul>
 <li>For simplicity, OK to assume the item exists. ● Front item is the 0th item.</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Returns the ith item of this IntList. */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> first;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> rest.get(i - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** Returns the ith item of this IntList. */</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> first<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> rest<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="overview">Overview</h2>
 <p><strong>Bits</strong> The computer stores information as memory, and represents this information using sequences of bits, which are either 0 or 1.</p>
 <p><strong>Primitives</strong> Primitives are representations of information. There are 8 primitive types in Java: byte, short, int, long, float, double, boolean, and char. Each primitive is represented by a certain number of bits. For example, ints are 32 bit primitives, while bytes are 8 bit primitives.</p>

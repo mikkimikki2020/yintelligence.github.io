@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Data-model/" class="post-category">
+                                Data model
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-04-04
                 </div>
                 
 
@@ -504,18 +504,99 @@
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1Rh3AdTxcik&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=1">Video</a></p>
 <h2 id="from-intlist-to-sllist"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1Rh3AdTxcik&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=1"><strong>From IntList to SLList</strong></a></h2>
 <p><strong>Recursive Implementation of a List</strong>:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntList</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">int</span> first;</span><br><span class="line">   <span class="keyword">public</span> IntList rest;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">IntList</span><span class="params">(<span class="keyword">int</span> f, IntList r)</span> </span>&#123;</span><br><span class="line">      first = f;</span><br><span class="line">      rest = r;</span><br><span class="line">   &#125;</span><br><span class="line">   ...</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IntList</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token keyword">int</span> first<span class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token class-name">IntList</span> rest<span class="token punctuation">;</span>
+ 
+   <span class="token keyword">public</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token keyword">int</span> f<span class="token punctuation">,</span> <span class="token class-name">IntList</span> r<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      first <span class="token operator">=</span> f<span class="token punctuation">;</span>
+      rest <span class="token operator">=</span> r<span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>While functional, “naked” linked lists like the one above are hard to use.</p>
 <p>Users of this class are probably going to need to know <strong>references</strong> very well, and be able to <strong>think recursively</strong>. Let’s make our users’ lives easier</p>
 <p><strong>improvement #1</strong>: <strong>Rebranding and Culling</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">   <span class="keyword">public</span> IntNode next;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">IntNode</span><span class="params">(<span class="keyword">int</span> i, IntNode n)</span> </span>&#123;</span><br><span class="line">      item = i;</span><br><span class="line">      next = n;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">IntNode is now dumb, has no methods. </span></span><br><span class="line"><span class="comment">We will reintroduce functionality.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Not much of an improvement obviously, but this next weird trick will be more impressive.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IntNode</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token keyword">int</span> item<span class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token class-name">IntNode</span> next<span class="token punctuation">;</span>
+ 
+   <span class="token keyword">public</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token class-name">IntNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      item <span class="token operator">=</span> i<span class="token punctuation">;</span>
+      next <span class="token operator">=</span> n<span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/*
+IntNode is now dumb, has no methods. 
+We will reintroduce functionality.
+
+Not much of an improvement obviously, but this next weird trick will be more impressive.
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=63GyeGDLAbw&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=2"><strong>Improvement #2: Bureaucracy</strong></a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">An SLList is a list of integers, which hides the terrible truth of the nakedness within.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> IntNode first;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">SLList</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">      first = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mian</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">       <span class="comment">/* Creates a list of integer, namely 10 */</span></span><br><span class="line">       SLList L = <span class="keyword">new</span> SLList(<span class="number">10</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IntList X = <span class="keyword">new</span> IntList(<span class="number">10</span>, <span class="keyword">null</span>); </span><br><span class="line"></span><br><span class="line">SLList Y = <span class="keyword">new</span> SLList(<span class="number">10</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">SLList is easier to instantiate (no need to specify null), but we will see more advantages to come.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Next: Let’s add addFirst and getFirst methods to SLList.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/*
+An SLList is a list of integers, which hides the terrible truth of the nakedness within.
+*/</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SLList</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token class-name">IntNode</span> first<span class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">mian</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+       <span class="token comment">/* Creates a list of integer, namely 10 */</span>
+       <span class="token class-name">SLList</span> <span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token class-name">IntList</span> <span class="token class-name">X</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token class-name">SLList</span> <span class="token class-name">Y</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/*
+SLList is easier to instantiate (no need to specify null), but we will see more advantages to come.
+
+Next: Let’s add addFirst and getFirst methods to SLList.
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=inV6cAEERRI&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=3"><strong>The Basic SLList and Helper IntNode Class</strong></a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> IntNode first;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">SLList</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">      first = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">       first = <span class="keyword">new</span> IntNode(x, first);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  	  <span class="keyword">return</span> first.item;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">   <span class="keyword">public</span> IntNode next;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">IntNode</span><span class="params">(<span class="keyword">int</span> i, IntNode n)</span> </span>&#123;</span><br><span class="line">   	  item = i;</span><br><span class="line">   	  next = n;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Example usage:</span></span><br><span class="line">SLList L = <span class="keyword">new</span> SLList(<span class="number">15</span>);</span><br><span class="line">L.addFirst(<span class="number">10</span>);</span><br><span class="line">L.addFirst(<span class="number">5</span>); 	</span><br><span class="line"><span class="keyword">int</span> x = L.getFirst();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SLList</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token class-name">IntNode</span> first<span class="token punctuation">;</span>
+ 
+   <span class="token keyword">public</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+ 
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+ 
+   <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  	  <span class="token keyword">return</span> first<span class="token punctuation">.</span>item<span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IntNode</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token keyword">int</span> item<span class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token class-name">IntNode</span> next<span class="token punctuation">;</span>
+ 
+   <span class="token keyword">public</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token class-name">IntNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   	  item <span class="token operator">=</span> i<span class="token punctuation">;</span>
+   	  next <span class="token operator">=</span> n<span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// Example usage:</span>
+<span class="token class-name">SLList</span> <span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	
+<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>SLLists vs. IntLists</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SLList L = <span class="keyword">new</span> SLList(<span class="number">15</span>);</span><br><span class="line">L.addFirst(<span class="number">10</span>);</span><br><span class="line">L.addFirst(<span class="number">5</span>); 	</span><br><span class="line"><span class="keyword">int</span> x = L.getFirst();</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IntList L = <span class="keyword">new</span> IntList(<span class="number">15</span>, <span class="keyword">null</span>);</span><br><span class="line">L = <span class="keyword">new</span> IntList(<span class="number">10</span>, L);</span><br><span class="line">L = <span class="keyword">new</span> IntList(<span class="number">5</span>, L);</span><br><span class="line"><span class="keyword">int</span> x = L.firs</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">SLList</span> <span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	
+<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">IntList</span> <span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token class-name">L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntList</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token class-name">L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token class-name">L</span><span class="token punctuation">.</span>firs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>While functional, “naked” linked lists like the IntList class are hard to use.</p>
 <ul>
 <li>Users of IntList are need to know Java references well, and be able to think recursively.</li>
@@ -525,11 +606,29 @@
 <p><img src="/images/FOCS/20.png" /></p>
 <h2 id="public-vs.-private-nested-classes"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SlCnrzn_bfM&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=4">Public vs. Private Nested Classes</a></h2>
 <p><strong>A Potential SLList Danger</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SLList L = <span class="keyword">new</span> SLList(<span class="number">15</span>);</span><br><span class="line">L.addFirst(<span class="number">10</span>);</span><br><span class="line">L.first.next.next = L.first.next;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">SLList</span> <span class="token class-name">L</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span><span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">L</span><span class="token punctuation">.</span>first<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token class-name">L</span><span class="token punctuation">.</span>first<span class="token punctuation">.</span>next<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>Users of our class might be tempted to try to manipulate our secret IntNode directly in uncouth ways!</p>
 <p>We can prevent programmers from making such mistakes with the <strong>private</strong> keyword.</p>
 <p><strong>Access Control</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> IntNode first;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">SLList</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">      first = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">      first = <span class="keyword">new</span> IntNode(x, first);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Use the private keyword to prevent code in other classes from using members (or constructors) of a class.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SLList</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">private</span> <span class="token class-name">IntNode</span> first<span class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+ 
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+ 
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/*
+Use the private keyword to prevent code in other classes from using members (or constructors) of a class.
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Why Restrict Access?</strong></p>
 <p>Hide implementation details from users of your class.</p>
 <ul>
@@ -547,7 +646,21 @@
 </ul>
 <p><strong>Improvement #4: Nested Classes</strong></p>
 <p>Can combine two classes into one file pretty simply.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123; <span class="comment">// Nested class definition Could have made IntNode a private nested class if we wanted.</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">      <span class="keyword">public</span> IntNode next;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">IntNode</span><span class="params">(<span class="keyword">int</span> i, IntNode n)</span> </span>&#123;</span><br><span class="line">         item = i;</span><br><span class="line">         next = n;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> IntNode first;  <span class="comment">//Instance variables, constructors, and methods of SLList typically go below nested class definition.</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">SLList</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">      first = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">   &#125; ...</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SLList</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IntNode</span> <span class="token punctuation">&#123;</span> <span class="token comment">// Nested class definition Could have made IntNode a private nested class if we wanted.</span>
+
+      <span class="token keyword">public</span> <span class="token keyword">int</span> item<span class="token punctuation">;</span>
+      <span class="token keyword">public</span> <span class="token class-name">IntNode</span> next<span class="token punctuation">;</span>
+      <span class="token keyword">public</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token class-name">IntNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         item <span class="token operator">=</span> i<span class="token punctuation">;</span>
+         next <span class="token operator">=</span> n<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>
+
+   <span class="token keyword">private</span> <span class="token class-name">IntNode</span> first<span class="token punctuation">;</span>  <span class="token comment">//Instance variables, constructors, and methods of SLList typically go below nested class definition.</span>
+   <span class="token keyword">public</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Why Nested Classes?</strong></p>
 <p>Nested Classes are useful when a class doesn’t stand on its own and is obviously subordinate to another class.</p>
 <ul>
@@ -563,7 +676,25 @@
 <li>Static classes cannot access outer class’s instance variables or methods.</li>
 <li>Results in a minor savings of memory. See book for more details / exercise.</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntNode</span> </span>&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">int</span> item;</span><br><span class="line">      <span class="keyword">public</span> IntNode next;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">IntNode</span><span class="params">(<span class="keyword">int</span> i, IntNode n)</span> </span>&#123;</span><br><span class="line">         item = i;</span><br><span class="line">         next = n;</span><br><span class="line">      &#125;</span><br><span class="line">   ...</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">We can declare IntNode static, since it never uses any of SLList’s instance variables or methods.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Analogy: Static methods had no way to access “my” instance variables. Static classes cannot access “my” outer class’s instance variables. </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Unimportant note: For private nested classes, access modifiers are irrelevant.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SLList</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">IntNode</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">public</span> <span class="token keyword">int</span> item<span class="token punctuation">;</span>
+      <span class="token keyword">public</span> <span class="token class-name">IntNode</span> next<span class="token punctuation">;</span>
+      <span class="token keyword">public</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token class-name">IntNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         item <span class="token operator">=</span> i<span class="token punctuation">;</span>
+         next <span class="token operator">=</span> n<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/*
+We can declare IntNode static, since it never uses any of SLList’s instance variables or methods.
+
+Analogy: Static methods had no way to access “my” instance variables. Static classes cannot access “my” outer class’s instance variables. 
+
+Unimportant note: For private nested classes, access modifiers are irrelevant.
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="addlast-and-size"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Gxq_LSsOPNc&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=5">addLast() and size()</a></h2>
 <p><strong>Adding More SLList Functionality</strong></p>
 <p>To motivate our remaining improvements, and to give more functionality to our SLList class, let’s add:</p>
@@ -572,14 +703,43 @@
 <li>.size()</li>
 </ul>
 <p><img src="/images/FOCS/21.png" /></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Adds x to the end of the list. */</span></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"> 		size = size + <span class="number">1</span>; 		</span><br><span class="line"></span><br><span class="line"> 		IntNode p = sentinel;</span><br><span class="line"></span><br><span class="line"> 		<span class="comment">/* Advance p to the end of the list. */</span></span><br><span class="line"> 		<span class="keyword">while</span> (p.next != <span class="keyword">null</span>) &#123;</span><br><span class="line"> 			p = p.next;</span><br><span class="line"> 		&#125;</span><br><span class="line"></span><br><span class="line"> 		p.next = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line"> 	&#125;</span><br><span class="line"> 	</span><br><span class="line"> 	<span class="comment">/** Returns the size of the list. */</span></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 		<span class="keyword">return</span> size;</span><br><span class="line"> 	&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** Adds x to the end of the list. */</span>
+ 	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+ 		size <span class="token operator">=</span> size <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> 		
+
+ 		<span class="token class-name">IntNode</span> p <span class="token operator">=</span> sentinel<span class="token punctuation">;</span>
+
+ 		<span class="token comment">/* Advance p to the end of the list. */</span>
+ 		<span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+ 			p <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+ 		<span class="token punctuation">&#125;</span>
+
+ 		p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 	<span class="token punctuation">&#125;</span>
+ 	
+ 	<span class="token comment">/** Returns the size of the list. */</span>
+ 	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+ 		<span class="token keyword">return</span> size<span class="token punctuation">;</span>
+ 	<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Private Recursive Helper Methods</strong></p>
 <p>To implement a recursive method in a class that is not itself recursive (e.g. SLList):</p>
 <ul>
 <li>Create a private recursive helper method.</li>
 <li>Have the public method call the private recursive helper method.</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(IntNode p)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (p.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line"> </span><br><span class="line">    	<span class="keyword">return</span> <span class="number">1</span> + size(p.next);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> size(first);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SLList</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token class-name">IntNode</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    	<span class="token punctuation">&#125;</span>
+ 
+    	<span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token function">size</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+ 
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">return</span> <span class="token function">size</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ebUw8fhhpKc&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=6">Efficiency of Size</a>: http://yellkey.com/design</strong></p>
 <p>How efficient is size?</p>
 <ul>
@@ -592,13 +752,44 @@
 <li><strong>2,000 seconds.</strong></li>
 <li>2,000,000 seconds.</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SLList</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(IntNode p)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (p.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line"> </span><br><span class="line">    	<span class="keyword">return</span> <span class="number">1</span> + size(p.next);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> size(first);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SLList</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token class-name">IntNode</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    	<span class="token punctuation">&#125;</span>
+ 
+    	<span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token function">size</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+ 
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">return</span> <span class="token function">size</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Improvement #5: Fast size()</strong></p>
 <p>Your goal:</p>
 <ul>
 <li>Modify SLList so that the execution time of size() is always fast (i.e. <strong>independent of the size of the list</strong>).</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> IntNode first;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">SLList</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">      first = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">      First = <span class="keyword">new</span> IntNode(x, front);</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(IntNode p)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (p.next == <span class="keyword">null</span>) </span><br><span class="line">          <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span> + size(p.next);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> size(first);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token class-name">IntNode</span> first<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token class-name">SLList</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token class-name">First</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> front<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> 
+
+  <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token class-name">IntNode</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> 
+          <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token function">size</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token function">size</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Solution: Maintain a special size variable that <strong>caches</strong> the size of the list.</p>
 <ul>
 <li>Caching: putting aside data to speed up retrieval.</li>
@@ -634,7 +825,21 @@
 <ul>
 <li></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  size += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (first == <span class="keyword">null</span>) &#123;</span><br><span class="line">    first = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  IntNode p = first;</span><br><span class="line">  <span class="keyword">while</span> (p.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">    p = p.next;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  p.next = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  size <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>first <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    first <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+ 
+  <span class="token class-name">IntNode</span> p <span class="token operator">=</span> first<span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+ 
+  p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>But there are other ways...</p>
 <h2 id="sentinel-nodes"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HafzSAm3DPE&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=8"><strong>Sentinel Nodes</strong></a></h2>
 <p><strong>addLast’s Fundamental Problem</strong></p>
@@ -670,7 +875,16 @@
 <ul>
 <li>No need for a special case to check if sentinel is null (since it is never null).</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  size += <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">  IntNode p = sentinel;</span><br><span class="line">  <span class="keyword">while</span> (p.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">    p = p.next;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  p.next = <span class="keyword">new</span> IntNode(x, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  size <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+ 
+  <span class="token class-name">IntNode</span> p <span class="token operator">=</span> sentinel<span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+ 
+  p<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntNode</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/CS61B/27.png" /></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Y8i0MpxC2yE&amp;list=PL8FaHk7qbOD4cp06tWA8i9m20pQLvcgE7&amp;index=9"><strong>Invariants</strong></a></p>
 <p>An invariant is a condition that is guaranteed to be true during code execution (assuming there are no bugs in your code).</p>

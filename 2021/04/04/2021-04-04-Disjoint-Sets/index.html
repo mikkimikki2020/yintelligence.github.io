@@ -1,0 +1,1622 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Disjoint Sets, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Disjoint Sets | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Disjoint Sets</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Data-Structures/">
+                                <span class="chip bg-color">Data Structures</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Data-model/" class="post-category">
+                                Data model
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-04-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-04-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    21 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="disjoint-sets">Disjoint Sets</h1>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD59HbdZE3x52KOhJJS54BlT">Video</a> + <a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1I9Jzt95GvxRqwGMzN7DSEIREKhMZ0qEUzPyWLl6CU5g/edit">Slides</a></p>
+<p>Textbook <a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap9/chap91.html">1</a>,<a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap9/chap92.html">2</a>,<a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap9/chap93.html">3</a>,<a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap9/chap94.html">4</a>,<a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap9/chap95.html">5</a></p>
+<p>Meta-goals of the Coming Lectures: <strong>Data Structure Refinement</strong></p>
+<ul>
+<li>Next couple of weeks: Deriving classic solutions to interesting problems, with an emphasis on how sets, maps, and priority queues are implemented.</li>
+<li>Today: Deriving the “Disjoint Sets” data structure for solving the “<strong>Dynamic Connectivity</strong>” problem. We will see:
+<ul>
+<li>How a data structure design can evolve from basic to sophisticated.</li>
+<li>How our choice of underlying abstraction can affect asymptotic runtime (using our formal Big-Theta notation) and code complexity.</li>
+</ul></li>
+</ul>
+<p>In addition to learning about how to implement a fascinating data structure, this chapter will be a chance to see how an implementation of a data structure evolves.</p>
+<p>We will discuss four iterations of a Disjoint Sets design before being satisfied: <em>Quick Find → Quick Union → Weighted Quick Union (WQU) → WQU with Path Compression</em>.</p>
+<p><strong>We will see how design decisions greatly affect asymptotic runtime and code complexity.</strong></p>
+<h2 id="introduction-to-disjoint-sets"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?time_continue=13&amp;v=JNa8BRRs8L4&amp;feature=emb_title">Introduction to Disjoint Sets</a></h2>
+<h3 id="the-disjoint-sets-data-structure">The Disjoint Sets Data Structure</h3>
+<p>Two sets are named <em>disjoint sets</em> if they have no elements in common. A Disjoint-Sets (or Union-Find) data structure keeps track of a fixed number of elements partitioned into a number of <em>disjoint sets</em>. The data structure has two operations:</p>
+<ol type="1">
+<li><code>connect(x, y)</code>: connect <code>x</code> and <code>y</code>. Also known as <code>union</code></li>
+<li><code>isConnected(x, y)</code>: returns true if <code>x</code> and <code>y</code> are connected (i.e. part of the same set).</li>
+</ol>
+<p>A Disjoint Sets data structure has a fixed number of elements that each start out in their own subset. By calling <code>connect(x, y)</code> for some elements <code>x</code> and <code>y</code>, we merge subsets together.</p>
+<p>Useful for many purposes,</p>
+<ul>
+<li>e.g.:Percolation theory:
+<ul>
+<li>Computational chemistry.</li>
+</ul></li>
+<li>Implementation of other algorithms:
+<ul>
+<li>Kruskal’s algorithm</li>
+</ul></li>
+</ul>
+<h3 id="disjoint-sets-on-integers">Disjoint Sets on Integers</h3>
+<p>To keep things simple, we’re going to:</p>
+<ul>
+<li>Force all items to be integers instead of arbitrary data (e.g. 8 instead of USA).</li>
+<li>Declare the number of items in advance, everything is disconnected at start.</li>
+</ul>
+<p><img src="/images/CS61B/9594200.png" /></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">ds <span class="token operator">=</span> <span class="token class-name">DisjointSets</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+ds<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+ds<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+ds<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+ds<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+ds<span class="token punctuation">.</span><span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token boolean">true</span>
+ds<span class="token punctuation">.</span><span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="disjoint-sets-interface">Disjoint Sets interface</h3>
+<p>With this intuition in mind, let's formally define what our Disjoint Sets interface looks like.</p>
+<blockquote>
+<p>As a reminder, an <strong>interface</strong> determines <em>what</em> behaviours a data structure should have (but not <em>how</em> to accomplish it).</p>
+</blockquote>
+<p>For now, we'll only deal with sets of non-negative integers. This is not a limitation because in production we can assign integer values to anything we would like to represent.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DisjointSets</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/** connects two items P and Q */</span>
+    <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/** checks to see if two items are connected */</span>
+    <span class="token keyword">boolean</span> <span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Goal</strong>: Design an efficient Disjoint Sets implementation.</p>
+<ul>
+<li>Number of elements N can be huge.</li>
+<li>Number of method calls M can be huge.</li>
+<li>Calls to methods may be interspersed (e.g. can’t assume it’s only connect operations followed by only isConnected operations).</li>
+</ul>
+<h4 id="the-naive-approach">The Naive Approach</h4>
+<ul>
+<li>Connecting two things: Record every single connecting line in some data structure.</li>
+<li>Checking connectedness: Do some sort of (??) iteration over the lines to see if one thing can be reached from the other.</li>
+</ul>
+<h4 id="a-better-approach-connected-components">A Better Approach: Connected Components</h4>
+<p>Rather than manually writing out every single connecting line, only record the sets that each item belongs to.</p>
+<p>For each item, its <strong>connected component</strong> is the set of all items that are connected to that item.</p>
+<ul>
+<li>Naive approach: Record every single connecting line somehow.</li>
+<li>Better approach: Model connectedness in terms of sets.
+<ul>
+<li>How things are connected isn’t something we need to know.</li>
+<li>Only need to keep track of which connected component each item belongs to.</li>
+</ul></li>
+</ul>
+<h2 id="quick-find"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=W6Dckcv8PIo&amp;list=PL8FaHk7qbOD59HbdZE3x52KOhJJS54BlT&amp;index=2">Quick Find</a></h2>
+<p>Now we tackle <em>how</em> to achieve the desired behaviour of our <code>DisjointSets</code> interface. Our challenge is to keep track of set membership.</p>
+<h3 id="listofsets">ListOfSets</h3>
+<p>Intuitively, we might first consider representing Disjoint Sets as a list of sets, e.g, <code>List&lt;Set&lt;Integer&gt;&gt;</code>.</p>
+<p>For instance, if we have N=6 elements and nothing has been connected yet, our list of sets looks like: <code>[&#123;0&#125;, &#123;1&#125;, &#123;2&#125;, &#123;3&#125;, &#123;4&#125;, &#123;5&#125;, &#123;6&#125;]</code>.</p>
+<p>However, consider how to complete an operation like <code>connect(5, 6)</code>. We'd have to iterate through up to <code>N</code> sets to find 5 and <code>N</code> sets to find 6. Our runtime becomes <code>O(N)</code>. And, if you were to try and implement this, the code would be quite complex.</p>
+<blockquote>
+<p>The lesson to take away is that <strong>initial design decisions determine our code complexity and runtime.</strong></p>
+</blockquote>
+<p><strong>Performance Summary</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Implementation</th>
+<th style="text-align: center;">constructor</th>
+<th style="text-align: center;">connect</th>
+<th style="text-align: center;">isConnected</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ListOfSetsDS</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">O(N)</td>
+<td style="text-align: center;">O(N)</td>
+</tr>
+</tbody>
+</table>
+<p>ListOfSetsDS is <strong>complicated</strong> and slow.</p>
+<ul>
+<li>Operations are linear when number of connections are small.
+<ul>
+<li>Have to iterate over all sets.</li>
+</ul></li>
+<li>Important point: By deciding to use a List of Sets, we have doomed ourselves to complexity and bad performance.</li>
+</ul>
+<h3 id="quickfind">QuickFind</h3>
+<p>Let's consider another approach using a <em>single array of integers</em>.</p>
+<ul>
+<li>The <strong>indices of the array</strong> represent the elements of our set.</li>
+<li>The <strong>value at an index</strong> is the set number it belongs to.</li>
+</ul>
+<p>For example, we represent <code>&#123;0, 1, 2, 4&#125;, &#123;3, 5&#125;, &#123;6&#125;</code> as:</p>
+<p><img src="https://joshhug.gitbooks.io/hug61b/content/chap9/9.2.1.png" /></p>
+<p>The array indices (0...6) are the elements. The value at <code>id[i]</code> is the set it belongs to. <em>The specific set number doesn't matter as long as all elements in the same set share the same id.</em></p>
+<h4 id="connectx-y"><code>connect(x, y)</code></h4>
+<p>Let's see how the connect operation would work. Right now, <code>id[2] = 4</code> and <code>id[3] = 5</code>. After calling <code>connect(2, 3)</code>, all the elements with id 4 and 5 should have the same id. Let's assign them all the value 5 for now:</p>
+<p><img src="https://joshhug.gitbooks.io/hug61b/content/chap9/9.2.2.png" /></p>
+<h4 id="isconnectedx-y"><code>isConnected(x, y)</code></h4>
+<p>To check <code>isConnected(x, y)</code>, we simply check if <code>id[x] == id[y]</code>. Note this is a constant time operation!</p>
+<p>We call this implementation "Quick Find" because finding if elements are connected takes constant time.</p>
+<h4 id="summary-and-code">Summary and Code</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Implementation</th>
+<th style="text-align: center;">Constructor</th>
+<th style="text-align: center;"><code>connect</code></th>
+<th style="text-align: center;"><code>isConnected</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ListOfSets</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">O(N)</td>
+<td style="text-align: center;">O(N)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">QuickFind</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">Θ(1)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>N = number of elements in our DisjointSets data structure</p>
+</blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QuickFindDS</span> <span class="token keyword">implements</span> <span class="token class-name">DisjointSets</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> id<span class="token punctuation">;</span>
+
+    <span class="token comment">/* Θ(N) */</span>
+    <span class="token keyword">public</span> <span class="token class-name">QuickFindDS</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token class-name">N</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        id <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">N</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            id<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">/* Relatively slow: need to iterate through the array => Θ(N) */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> pid <span class="token operator">=</span> id<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> qid <span class="token operator">=</span> id<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> id<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>id<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> pid<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                id<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> qid<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">/* Very fast:  Two array accesses Θ(1) */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>id<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">==</span> id<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>QuickFindDS is too slow for practical use: Connecting two items takes N time.</p>
+<p>Instead, let’s try something more radical.</p>
+<h2 id="quick-union"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=RY7UCusguGg&amp;list=PL8FaHk7qbOD59HbdZE3x52KOhJJS54BlT&amp;index=3">Quick Union</a></h2>
+<p><img src="/images/CS61B/9594201.png" /></p>
+<p>Next approach (QuickUnion): We will still represent everything as connected components, and we will still represent connected components as a list of integers. However, values will be chosen so that connect is fast.</p>
+<p><strong>Hard question</strong>: How could we change our set representation so that combining two sets into their union requires changing <strong>one</strong> value?</p>
+<ul>
+<li>Suggestion, use pointers!</li>
+</ul>
+<p><img src="/images/CS61B/9594202.png" /></p>
+<ul>
+<li>Idea: Assign each item a parent (instead of an id). Results in a tree-like shape.
+<ul>
+<li>An innocuous sounding, seemingly arbitrary solution.</li>
+<li>Unlocks a pretty amazing universe of math that we won’t discuss.</li>
+</ul></li>
+</ul>
+<p>Suppose we prioritize making the <code>connect</code> operation fast. We will still represent our sets with an array. Instead of an id, we assign each item the index of its parent. If an item has no parent, then it is a 'root' and we assign it a negative value.</p>
+<p>This approach allows us to imagine each of our sets as a tree. For example, we represent <code>&#123;0, 1, 2, 4&#125;, &#123;3, 5&#125;, &#123;6&#125;</code> as:</p>
+<p><img src="/images/CS61B/9594203.png" /></p>
+<p><strong>Note</strong> that we represent the sets using <strong>only an array</strong>. We visualize it ourselves as trees.</p>
+<h4 id="connectx-y-1"><code>connect(x, y)</code></h4>
+<p><code>connect(5, 2)</code>: How should we change the parent list to handle this connect operation?</p>
+<ul>
+<li>set id[5] to 2</li>
+</ul>
+<p>What are the potential performance issues with this approach?</p>
+<ul>
+<li>Tree can get too tall! root(x) becomes expensive.</li>
+</ul>
+<p>For QuickUnion we define a helper function <code>find(int item)</code> which returns the root of the tree <code>item</code> is in. For example, for the sets above, <code>find(4) == 0</code>, <code>find(1) == 0</code>, <code>find(5) == 3</code>, etc. Each element has a unique root.</p>
+<p><code>connect(5, 2)</code>:</p>
+<ol type="1">
+<li><code>find(5)</code> -&gt; 3</li>
+<li><code>find(2)</code> -&gt; 0</li>
+<li>Set <code>find(5)</code>'s value to <code>find(2)</code> aka <code>parent[3] = 0</code></li>
+</ol>
+<p><img src="https://joshhug.gitbooks.io/hug61b/content/chap9/9.3.2.png" /> Note how element 3 now points to element 0, combining the two trees/sets into one.</p>
+<p>In the best case, if <code>x</code> and <code>y</code> are both roots of their trees, then <code>connect(x, y)</code> just makes <code>x</code> point to <code>y</code>, a Θ(1) operation! (Hence the name QuickUnion)</p>
+<h4 id="isconnectedx-y-1"><code>isConnected(x, y)</code></h4>
+<p>If two elements are part of the same set, then they will be in the same tree. Thus, they will have the same root. So for <code>isConnected(x, y)</code> we simply check if <code>find(x) == find(y)</code>.</p>
+<h3 id="performance">Performance</h3>
+<p>There is a potential performance issue with QuickUnion: the tree can become very long. In this case, finding the root of an item (<code>find(item)</code>) becomes very expensive. Consider the tree below:</p>
+<p><img src="https://joshhug.gitbooks.io/hug61b/content/chap9/9.3.3.png" /></p>
+<p>In the worst case, we have to traverse all the items to get to the root, which is a Θ(N) runtime. Since we have to call <code>find</code> for both <code>connect</code> and <code>isConnected</code>, the runtime for both is upper bounded by O(N).</p>
+<h3 id="summary-and-code-1">Summary and Code</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Implementation</th>
+<th style="text-align: center;">Constructor</th>
+<th style="text-align: center;"><code>connect</code></th>
+<th style="text-align: center;"><code>isConnected</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">QuickUnion</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">O(N)</td>
+<td style="text-align: center;">O(N)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">QuickFind</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">Θ(1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">QuickUnion</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">O(N)</td>
+<td style="text-align: center;">O(N)</td>
+</tr>
+</tbody>
+</table>
+<p>N = number of elements in our DisjointSets data structure</p>
+<p>From the runtime chart, QuickUnion seems worse than QuickFind! Note however that O(N) as an <strong>upper bound</strong>. When our trees are balanced, both <code>connect</code> and <code>isConnected</code> perform reasonably well. In the next section we'll see how to <em>guarantee</em> they perform well.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">QuickUnionDS</span> <span class="token keyword">implements</span> <span class="token class-name">DisjointSets</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> parent<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">QuickUnionDS</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        parent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            parent<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>parent<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            p <span class="token operator">=</span> parent<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> j<span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        parent<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">find</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="weighted-quick-union-wqu"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xc9s9wdaSdU&amp;list=PL8FaHk7qbOD59HbdZE3x52KOhJJS54BlT&amp;index=4">Weighted Quick Union (WQU)</a></h2>
+<p>Improving on Quick Union relies on a key insight: whenever we call <code>find</code>, we have to climb to the root of a tree. Thus, <u>the shorter the tree the faster it takes</u>!</p>
+<p><strong>New rule:</strong></p>
+<ul>
+<li>Track tree size (<strong>number</strong> of elements).</li>
+<li>Always link root of <strong>smaller</strong> tree <strong>to</strong> <strong>larger</strong> tree.</li>
+</ul>
+<p>Following this rule will give your trees a maximum height of logN, where N is the number of elements in our Disjoint Sets. How does this affect the runtime of <code>connect</code> and <code>isConnected</code></p>
+<p>Let's illustrate the benefit of this with an example. Consider connecting the two sets T1 and T2 below:</p>
+<p><img src="https://joshhug.gitbooks.io/hug61b/content/chap9/9.4.1.png" /></p>
+<p>We have two options for connecting them:</p>
+<p><img src="https://joshhug.gitbooks.io/hug61b/content/chap9/9.4.2.png" /> The first option we link T1 to T2. In the second, we link T2 to T1.</p>
+<p>The <strong>second option is preferable</strong> as it only has a height of 2, rather than 3. By our new rule, we would choose the second option as well because T2 is smaller than T1 (size of 3 compared to 6).</p>
+<p>We determine smaller / larger by the number of items in a tree. Thus, when connecting two trees we need to know their size (or weight). We can store this information in the root of the tree by replacing the <code>-1</code>'s with <code>-(size of tree)</code>.</p>
+<h3 id="implementing-weightedquickunion">Implementing WeightedQuickUnion</h3>
+<p>Minimal changes needed:</p>
+<ul>
+<li>Use parent[] array as before.</li>
+<li>isConnected(int p, int q) requires no changes.</li>
+<li>connect(int p, int q) needs to somehow keep track of sizes
+<ul>
+<li>Two common approaches:
+<ul>
+<li>Use values other than -1 in parent array for root nodes to track size.</li>
+<li>Create a separate size array.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="maximum-height-log-n">Maximum height: Log N</h3>
+<p>Following the above rule ensures that the <em>maximum</em> height of any tree is Θ(log N). N is the number of elements in our Disjoint Sets. <strong>By extension, the runtimes of <code>connect</code> and <code>isConnected</code> are bounded by O(log N).</strong></p>
+<p>Why log N?</p>
+<p>Imagine any element x in tree T1. The depth of x increases by 1 only when T1 is placed below another tree T2. When that happens, the size of the resulting tree will be at least double the size of T1 because size(T2) ≥size(T1). The tree with x can double at most log<sub>2</sub>N times until we've reached a total of N items (2<sup>log<sub>2</sub>N</sup>=N). So we can double up to log<sub>2</sub>N times and each time, our tree adds a level → maximum log<sub>2</sub>N levels.</p>
+<p>You may be wondering why we don't link trees based off of height instead of weight. It turns out this is more complicated to implement and gives us the same Θ(log N) height limit.</p>
+<h3 id="performance-summary">Performance Summary</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Implementation</th>
+<th style="text-align: center;">Constructor</th>
+<th style="text-align: center;"><code>connect</code></th>
+<th style="text-align: center;"><code>isConnected</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">QuickUnion</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">O(N)</td>
+<td style="text-align: center;">O(N)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">QuickFind</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">Θ(1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">QuickUnion</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">O(N)</td>
+<td style="text-align: center;">O(N)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Weighted Quick Union</td>
+<td style="text-align: center;">Θ(N)</td>
+<td style="text-align: center;">O(log N)</td>
+<td style="text-align: center;">O(log N)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>N = number of elements in our DisjointSets data structure</p>
+</blockquote>
+<p>QuickUnion’s runtimes are O(H), and WeightedQuickUnionDS height is given by H = O(log N). Therefore connect and isConnected are both O(log N).</p>
+<h3 id="why-weights-instead-of-heights">Why Weights Instead of Heights?</h3>
+<p>We used the number of items in a tree to decide upon the root.</p>
+<p>Why not use the height of the tree?</p>
+<ul>
+<li>Worst case performance for HeightedQuickUnionDS is asymptotically the same! Both are Θ(log(N)).</li>
+<li>Resulting code is more complicated with no performance gain.</li>
+</ul>
+<h2 id="weighted-quick-union-with-path-compression"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DZKzDebT4gU&amp;list=PL8FaHk7qbOD59HbdZE3x52KOhJJS54BlT&amp;index=5">Weighted Quick Union with Path Compression</a></h2>
+<p>Performing M operations on a DisjointSet object with N elements:</p>
+<ul>
+<li>For our naive implementation, runtime is O(MN).</li>
+<li>For our best implementation, runtime is O(N + M log N).</li>
+<li>For N = 10<sup>9</sup> and M = 10<sup>9</sup>, difference is 30 years vs. 6 seconds.
+<ul>
+<li>Key point: Good data structure unlocks solutions to problems that could otherwise not be solved!</li>
+</ul></li>
+<li>Good enough for all practical uses, but could we theoretically do better?</li>
+</ul>
+<p>The clever insight is realizing that whenever we call <code>find(x)</code> we have to traverse the path from <code>x</code> to root. So, along the way we can connect all the items we visit to their root at no extra asymptotic cost.</p>
+<p>Below is the topology of the worst case if we use WeightedQuickUnion.</p>
+<ul>
+<li>Clever idea: When we do isConnected(15, 10), tie all nodes seen to the root.
+<ul>
+<li>Additional cost is insignificant (same order of growth).</li>
+</ul></li>
+</ul>
+<p><img src="/images/CS61B/9594204.png" /></p>
+<p><strong>Connecting all the items along the way to the root will help make our tree shorter with each call to <code>find</code>.</strong> Path compression results in a union/connected operations that are very very close to amortized constant time.</p>
+<ul>
+<li>M operations on N nodes is O(N + M lg<sup>*</sup> N).</li>
+<li>A tighter bound: O(N + M α(N)), where α is the inverse Ackermann function.</li>
+<li>The inverse ackermann function is less than 5 for all practical inputs!
+<ul>
+<li>See “<a target="_blank" rel="noopener" href="https://www.uni-trier.de/fileadmin/fb4/prof/INF/DEA/Uebungen_LVA-Ankuendigungen/ws07/KAuD/effi.pdf">Efficiency of a Good But Not Linear Set Union Algorithm.</a>”</li>
+<li>Written by Bob Tarjan while at UC Berkeley in 1975.</li>
+</ul></li>
+</ul>
+<p><img src="/images/CS61B/9594205.png" /></p>
+<p>Recall that <strong>both <code>connect(x, y)</code> and <code>isConnected(x, y)</code> always call <code>find(x)</code> and <code>find(y)</code>.</strong> Thus, after calling <code>connect</code> or <code>isConnected</code> enough, essentially all elements will point directly to their root.</p>
+<p>By extension, the average runtime of <code>connect</code> and <code>isConnected</code> becomes <strong>almost constant</strong> in the long term! This is called the <em>amortized runtime</em> (from <a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap8/chap84.html#amortized">amortized analysis, ch. 8.4</a>).</p>
+<p>More specifically, for M operations on N elements, WQU with Path Compression is in O(N + M (lg<sup>*</sup>N)). lg<sup>*</sup> is the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Iterated_logarithm">iterated logarithm</a> which is less than 5 for any real-world input.</p>
+<h3 id="summary">Summary</h3>
+<p>N: number of elements in Disjoint Set</p>
+<table>
+<thead>
+<tr class="header">
+<th>Implementation</th>
+<th><code>isConnected</code></th>
+<th><code>connect</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quick Find</td>
+<td>Θ(N)</td>
+<td>Θ(1)</td>
+</tr>
+<tr class="even">
+<td>Quick Union</td>
+<td>O(N)</td>
+<td>O(N)</td>
+</tr>
+<tr class="odd">
+<td>Weighted Quick Union (WQU)</td>
+<td>O(log N)</td>
+<td>O(log N)</td>
+</tr>
+<tr class="even">
+<td>WQU with Path Compression</td>
+<td>O(α(N))<sup>*</sup></td>
+<td>O(α(N))<sup>*</sup></td>
+</tr>
+</tbody>
+</table>
+<p><sup>*</sup>behaves as constant in long term</p>
+<h2 id="overview">Overview</h2>
+<p><strong>Algorthm Development.</strong> Developing a good algorithm is an iterative process. We create a model of the problem, develop an algorithm, and revise the performance of the algorithm until it meets our needs. This lecture serves as an example of this process.</p>
+<p><strong>The Dynamic Connectivity Problem.</strong> The ultimate goal of this lecture was to develop a data type that support the following operations on a fixed number <em>N</em> of objects:</p>
+<ul>
+<li><code>connect(int p, int q)</code> (called <code>union</code> in our optional textbook)</li>
+<li><code>isConnected(int p, int q)</code> (called <code>connected</code> in our optional textbook)</li>
+</ul>
+<p>We do not care about finding the actual path between <code>p</code> and <code>q</code>. We care only about their connectedness. A third operation we can support is very closely related to <code>connected()</code>:</p>
+<ul>
+<li><code>find(int p)</code>: The <code>find()</code> method is defined so that <code>find(p) == find(q)</code> iff <code>connected(p, q)</code>. We did not use this in class, but it’s in our textbook.</li>
+</ul>
+<p><strong>Key observation: Connectedness is an equivalence relation.</strong> Saying that two objects are connected is the same as saying they are in an equivalence class. This is just fancy math talk for saying “every object is in exactly one bucket, and we want to know if two objects are in the same bucket”. When you connect two objects, you’re basically just pouring everything from one bucket into another.</p>
+<p><strong>Quick find.</strong> This is the most natural solution, where each object is given an explicit number. Uses an array <code>id[]</code> of length NN, where <code>id[i]</code> is the bucket number of object <code>i</code> (which is returned by <code>find(i)</code>). To connect two objects <code>p</code> and <code>q</code>, we set every object in <code>p</code>’s bucket to have <code>q</code>’s number.</p>
+<ul>
+<li><code>connect</code>: May require many changes to <code>id</code>. Takes Θ(N)Θ(N) time, as algorithm must iterate over the entire array.</li>
+<li><code>isConnected</code> (and <code>find</code>): take constant time.</li>
+</ul>
+<p>Performing MM operations takes Θ(MN)Θ(MN) time in the worst case. If MM is proportional to NN, this results in a Θ(N2)Θ(N2) runtime.</p>
+<p><strong>Quick union.</strong> An alternate approach is to change the meaning of our <code>id</code> array. In this strategy, <code>id[i]</code> is the parent object of object <code>i</code>. An object can be its own parent. The <code>find()</code> method climbs the ladder of parents until it reaches the root (an object whose parent is itself). To connect <code>p</code> and <code>q</code>, we set the root of <code>p</code> to point to the root of <code>q</code>.</p>
+<ul>
+<li><code>connect</code>: Requires only one change to <code>id[]</code>, but also requires root finding (worst case Θ(N)Θ(N) time).</li>
+<li><code>isConnected</code> (and <code>find</code>): Requires root finding (worst case Θ(N)Θ(N) time).</li>
+</ul>
+<p>Performing MM operations takes Θ(NM)Θ(NM) time in the worst case. Again, this results in quadratic behavior if MM is proprtional to NN.</p>
+<p><strong>Weighted quick union.</strong> Rather than <code>connect(p, q)</code> making the root of <code>p</code> point to the root of <code>q</code>, we instead make the root of the smaller tree point to the root of the larger one. The tree’s <em>size</em> is the <em>number</em> of nodes, not the height of the tree. Results in tree heights of lgNlg⁡N.</p>
+<ul>
+<li><code>connect</code>: Requires only one change to <code>id</code>, but also requires root finding (worst case lgNlg⁡N time).</li>
+<li><code>isConnected</code> (and <code>find</code>): Requires root finding (worst case lgNlg⁡N time).</li>
+</ul>
+<p>Warning: if the two trees have the same size, the book code has the opposite convention as quick union and sets the root of the second tree to point to the root of the first tree. This isn’t terribly important (you won’t be tested on trivial details like these).</p>
+<p><strong>Weighted quick union with path compression.</strong> When <code>find</code> is called, every node along the way is made to point at the root. Results in nearly flat trees. Making MM calls to union and find with NN objects results in no more than O(Mlog∗N)O(Mlog∗⁡N) array accesses, not counting the creation of the arrays. For any reasonable values of NN in this universe that we inhabit, log∗(N)log∗(N) is at most 5. It is possible to derive an even tighter bound, mentioned briefly in class (known as the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ackermann_function">Ackerman function</a>).</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/04/04/2021-04-04-Disjoint-Sets/">https://yintelligence.tech/2021/04/04/2021-04-04-Disjoint-Sets/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Data-Structures/">
+                                    <span class="chip bg-color">Data Structures</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/04/04/2021-04-04-Disjoint-Sets/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Disjoint Sets">
+                        
+                        <span class="card-title">Disjoint Sets</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Disjoint Sets
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Data-model/" class="post-category">
+                                    Data model
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/04/2021-04-04-Regularization/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Regularization">
+                        
+                        <span class="card-title">Regularization</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            正则化
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                    Artificial Intelligence
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
