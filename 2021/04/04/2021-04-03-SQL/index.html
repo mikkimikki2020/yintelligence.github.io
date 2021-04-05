@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-04
+                    2021-04-05
                 </div>
                 
 
@@ -513,25 +513,25 @@
 <p>You will first need to install SQLite on your development machine.</p>
 <h4 id="install-sqlite-on-ubuntu-linux">Install SQLite on Ubuntu Linux</h4>
 <p>Install the <code>sqlite3</code> and <code>libsqlite3-dev</code> packages by running the following command;</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ sudo apt-get install sqlite3 libsqlite3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> sqlite3 libsqlite3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="install-sqlite-on-mac-os-x">Install SQLite on MAC OS X</h4>
 <p>On Mac OS Leopard or later, you don't have to! It comes pre-installed. You can upgrade it, if you absolutely need to, with <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/homework1/brew.sh">Homebrew</a>.</p>
 <h3 id="load-the-database-dump">Load the database dump</h3>
 <p>Check if <code>sqlite3</code> is properly working by <a target="_blank" rel="noopener" href="https://sqlite.org/cli.html#getting_started">following this tutorial</a>.</p>
 <p>Download the <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/files/imdb-cmudb2019.db.gz">database dump file</a>:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ wget https:&#x2F;&#x2F;15445.courses.cs.cmu.edu&#x2F;fall2019&#x2F;files&#x2F;imdb-cmudb2019.db.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ <span class="token function">wget</span> https://15445.courses.cs.cmu.edu/fall2019/files/imdb-cmudb2019.db.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Check its MD5 checksum to ensure that you have correctly downloaded the file:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ md5 imdb-cmudb2019.db.gz 
-MD5 (imdb-cmudb2019.db.gz) &#x3D; 6443351d4b55eb3c881622bd60a8dc5b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+MD5 <span class="token punctuation">(</span>imdb-cmudb2019.db.gz<span class="token punctuation">)</span> <span class="token operator">=</span> 6443351d4b55eb3c881622bd60a8dc5b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>Unzip the database from the provided database dump by running the following commands on your shell. Note that the database file be <strong>900MB</strong> after you decompress it.</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ gunzip imdb-cmudb2019.db.gz
 $ sqlite3 imdb-cmudb2019.db<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>We have prepared a random sample of the original dataset for this assignment. Although this is not required to complete the assignment, the complete dataset is available by following the steps <a target="_blank" rel="noopener" href="https://pypi.org/project/imdb-sqlite/">here</a>.</p>
 <p>Check the contents of the database by running the <code>.tables</code> command on the <code>sqlite3</code> terminal. You should see <strong>6 tables</strong>, and the output should look like this:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ sqlite3 imdb-cmudb2019.db
-SQLite version 3.11.0
-Enter &quot;.help&quot; for usage hints.
-sqlite&gt; .tables
+SQLite version <span class="token number">3.11</span>.0
+Enter <span class="token string">".help"</span> <span class="token keyword">for</span> usage hints.
+sqlite<span class="token operator">></span> .tables
 akas      crew      episodes  people    ratings   titles<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Create indices using the following commands in SQLite:</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">CREATE INDEX ix_people_name ON people (name);

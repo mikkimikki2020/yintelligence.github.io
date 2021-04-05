@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Data Analytics in Health Care and Connected Care/Health, Chaoqun Yin">
+    <meta name="keywords" content="Database Storage II, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Data Analytics in Health Care and Connected Care/Health | Chaoqun Yin</title>
+    <title>Database Storage II | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Data Analytics in Health Care and Connected Care/Health</h1>
+                    <h1 class="description center-align post-title">Database Storage II</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Analytics-in-Health-Care-and-Connected-Care/">
-                                <span class="chip bg-color">Data Analytics in Health Care and Connected Care</span>
+                            <a href="/tags/Database-systems/">
+                                <span class="chip bg-color">Database systems</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Lab-sessions/" class="post-category">
-                                Lab sessions
+                            <a href="/categories/Database/" class="post-category">
+                                Database
                             </a>
                         
                     </div>
@@ -456,28 +456,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-04-01
+                    2021-04-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-03
+                    2021-04-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    556
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    10 Min
                 </div>
                 
 
@@ -500,40 +500,242 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="standards-in-electronic-medical-records-emr">Standards in electronic medical records (EMR)</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=de5e6e47-f9b6-4a62-9927-acfb00ae2029">Introduction Video 0:55 - 9:15</a></p>
-<p>The main aims of this practical session are to make you:</p>
+                <h1 id="database-storage-ii">Database Storage II</h1>
+<p><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/notes/04-storage2.pdf">Lecture notes</a> + <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/slides/04-storage2.pdf">Slides</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YWRYEXNy6IE&amp;list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi&amp;index=5">Video</a></p>
+<h2 id="data-representation">Data Representation</h2>
+<p>Tuples’ data is essentially just byte arrays. It's the job of the DBMS to <strong>interpret</strong> those bytes into <strong>attribute types</strong> and <strong>values</strong>. A <strong>data representation</strong> scheme is how a DBMS stores the bytes for a value.</p>
+<p>There are four main types that can be stored in tuples:</p>
+<h3 id="variable-precision-numbers">1. Variable Precision Numbers</h3>
+<h4 id="integers">Integers</h4>
 <ul>
-<li>understand the importance of having standards in EMR</li>
-<li>explore how standards are used in practise in EMR.</li>
+<li>Most DBMSs store integers using their “native” C/C++ types as specified by the IEEE-754 standard. <u>These values are fixed length.</u></li>
+<li>Examples: INTEGER, BIGINT, SMALLINT, TINYINT.</li>
 </ul>
-<h2 id="health-informatics-standards">Health Informatics Standards</h2>
-<p>In [<a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-030-58740-6_6">1]</a>, health information standards and standards development organizations are introduced; insights into the relationship between standards and practice are listed; conformance and relevance to practice are also covered from an international perspective. Based on [<a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-030-58740-6_6">1]</a> and the course slides, you should answer the following questions:</p>
+<h4 id="variable-precision-numbers-1">Variable Precision Numbers</h4>
 <ul>
-<li>What is the definition of health informatics (HI) standards and what are the general purposes of them?</li>
-<li>What is one of the greatest challenge in the HI standards world?</li>
-<li>According to you, what are some of the challenges that the widespread use of ICT in healthcare brings/will bring?</li>
-<li>List some similarities (with short explanations if needed) between <a target="_blank" rel="noopener" href="https://www.snomed.org/snomed-ct/why-snomed-ct">snomed-CT</a> and <a target="_blank" rel="noopener" href="https://www.hl7.org/about/index.cfm?ref=nav">hl7</a>.</li>
+<li><em>Inexact, variable-precision numeric type</em> that uses the “native” C/C++ types specified by IEEE-754 standard. <u>These values are also fixed length.</u></li>
+<li>Variable-precision numbers are <strong>faster</strong> to compute than arbitrary precision numbers because the CPU can execute instructions on them directly.</li>
+<li>Examples: FLOAT, REAL/DOUBLE.</li>
 </ul>
-<h2 id="snomed-ct-terminology">Snomed CT Terminology</h2>
+<p>They are all fixed-precision, sacrificed in range and precision, and cannot guarantee the accuracy of calculations that require high accuracy.</p>
+<p>Here is the <strong>rounding problem</strong>:</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
+
+int main() &#123;
+
+    float x &#x3D; 0.1;
+    float y &#x3D; 0.2;
+
+    &#x2F;&#x2F; not rounding
+    printf(&quot;x + y &#x3D; %f\n&quot;, x + y);
+    printf(&quot;0.3 &#x3D; %f\n&quot;, 0.3);
+
+    &#x2F;&#x2F; rounding, error occurs!
+    printf(&quot;x + y &#x3D; %.20f\n&quot;, x + y);
+    printf(&quot;0.3 &#x3D; %.20f\n&quot;, 0.3);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">x+y &#x3D; 0.300000
+0.3 &#x3D; 0.300000
+    
+x+y &#x3D; 0.30000001192092895508
+0.3 &#x3D; 0.29999999999999998890<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This problem occurs mainly because the hardware cannot store fixed-digit decimals.</p>
+<p><strong>In order to solve the rounding problem</strong>, we need to consider using fixed-point decimals to store data. At this time, we need to consider using a method similar to <code>VARCHAR</code> (not as a string ) to store a set of fixed-length binary representations and store them in a way described by metadata (number of storage bits, etc.).</p>
+<h3 id="fixed-point-precision-numbers">2. Fixed Point Precision Numbers</h3>
+<ul>
+<li>These are numeric data types with <strong>arbitrary precision</strong> and scale. They are typically stored in <u>exact, variable-length binary representation</u> with additional meta-data that will tell the system things like where the decimal should be.</li>
+<li>These data types are used when <strong>rounding errors are unacceptable</strong>, but <u>the DBMS pays a performance penalty to get this accuracy.</u></li>
+<li>Example: NUMERIC, DECIMAL.</li>
+</ul>
+<p>Such as Postgres NUMERIC:</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef unsigned char NumericDigit;
+typedef struct &#123;
+    int ndigits;           &#x2F;&#x2F; # of Digits
+    int weight;            &#x2F;&#x2F; Weight of 1st Digit
+    int scale;             &#x2F;&#x2F; Scale Factor
+    int sign;              &#x2F;&#x2F; Positive&#x2F;Negative&#x2F;NaN
+    NumericDigit * digits; &#x2F;&#x2F; Digit Storage
+&#125; numeric;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="variable-length-data">3. Variable Length Data</h3>
+<ul>
+<li>An array of bytes of arbitrary length.</li>
+<li>Has a header that keeps track of the length of the string to make it easy to jump to the next value.</li>
+<li>Most DBMSs do not allow a tuple to exceed the size of a single page, so they solve this issue by writing the value on an overflow page and have the tuple contain a reference to that page.</li>
+<li>Example: VARCHAR, VARBINARY, TEXT, BLOB.</li>
+</ul>
+<p>Most DBMSs don't allow a tuple to exceed the size of a single page.</p>
+<p>To store values that are larger than a page, the DBMS uses separate overflow storage pages.</p>
+<ul>
+<li>Postgres: TOAST (&gt;2KB)</li>
+<li>MySQL: Overflow (&gt;½ size of page)</li>
+<li>SQL Server: Overflow (&gt;size of page)</li>
+</ul>
+<p><img src="https://gblobscdn.gitbook.com/assets%2F-LMjQD5UezC9P8miypMG%2F-LYz1kPQAXFP6nsJROMN%2F-LYz7jTGzXcXun510WMo%2FScreen%20Shot%202019-02-18%20at%201.44.53%20PM.jpg?alt=media&amp;token=a00af1fa-2fc8-46d1-90f8-a6143b45d302" /></p>
+<p>Some systems allow you to store a <strong>really large</strong> value in an external file. Treated as a <code>BLOB</code> type.</p>
+<ul>
+<li>Oracle: BFILE data type</li>
+<li>Microsoft: FILESTREAM data type</li>
+</ul>
+<p>For example, if our database is storing photo information, we can store the photos in the external files rather than having them take up large amounts of space in the DBMS.</p>
+<p>One downside of this is that the DBMS cannot manipulate the contents of an <strong><u>external</u></strong> file.</p>
+<ul>
+<li>No durability protections.</li>
+<li>No transaction protections</li>
+</ul>
+<h3 id="dates-and-times">4. Dates and Times</h3>
+<ul>
+<li>Usually, these are represented as the number of (micro/milli)seconds since the unix epoch.</li>
+<li>Example: TIME, DATE, TIMESTAMP.</li>
+</ul>
+<h3 id="system-catalogs">System Catalogs</h3>
+<p>In order for the DBMS to be able to read these values, it stores meta-data about databases in its internal catalogs.</p>
+<ul>
+<li>Tables, columns, indexes, views</li>
+<li>Users, permissions</li>
+<li>Internal statistics</li>
+</ul>
 <blockquote>
-<p>In this part of the exercise, you should browse and explore <a target="_blank" rel="noopener" href="https://browser.ihtsdotools.org/?">SNOMED International SNOMED CT Browser</a> (Belgian Edition). The browser (provided by SNOMED International to anyone for reference purposes) has been implemented as part of development within the SNOMED International Open Tooling Framework, by the SNOMED International and its development partners.</p>
+<p>The meta-data will contain what tables and columns the databases have along with their types and the orderings of the values.</p>
 </blockquote>
+<p>Almost every DBMS stores their a database's catalog in itself.</p>
 <ul>
-<li>Using the snomed CT browser, find out and list what are the SNOMED-CT top level hierarchy concepts for which information can be encoded.</li>
-<li>Despite the fact that snomed CT is a reference terminology of clinical terms, there is heterogenity in the final codes you might end up having for the same problem. Convince yourself this can be the case (use an example in snomed CT browser) in many situations and explain why this can happen.</li>
-<li>Explore independently all the other functionalities of the browser such us: 'Details', 'Diagrams', 'Expressions' etc.</li>
-<li>What are the pros and cons of snomed-CT?</li>
+<li>Wrap object abstraction around tuples.</li>
+<li>Specialized code for "bootstrapping" catalog tables.</li>
 </ul>
-<h2 id="pymedtermino---medical-terminologies-for-python">PyMedTermino - Medical Terminologies for Python</h2>
-<p><a target="_blank" rel="noopener" href="https://pythonhosted.org/PyMedTermino/tuto_en.html">PyMedTermino</a> is a Python module for easy access to the main medical terminologies such us snomed CT, icd10, etc. Snomed CT data are not included (because they are not freely redistributable) but they can be downloaded for free in XML format, for academic purposes. Please carefully follow all installation procedures which are clearly explained <a target="_blank" rel="noopener" href="https://pythonhosted.org/PyMedTermino/tuto_en.html#installation">here</a>. The application request to have access to snomed data usually takes less than 24 hours but it can take maximum 3 days.</p>
+<p>The user can query the DBMS’s internal <code>INFORMATION_SCHEMA</code> catalog to get info about the database.</p>
+<blockquote>
+<p>ANSI standard set of read-only views that provide info about all of the tables, views, columns, and procedures in a database</p>
+</blockquote>
+<p>But DBMSs have non-standard shortcuts to retrieve this information.</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+  <span class="token keyword">FROM</span> INFORMATION_SCHEMA<span class="token punctuation">.</span><span class="token keyword">TABLES</span>
+ <span class="token keyword">WHERE</span> table_catalog <span class="token operator">=</span> <span class="token string">'&lt;db name>'</span><span class="token punctuation">;</span>
+ 
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+  <span class="token keyword">FROM</span> INFORMATION_SCHEMA<span class="token punctuation">.</span><span class="token keyword">TABLES</span>
+ <span class="token keyword">WHERE</span> table_name <span class="token operator">=</span> <span class="token string">'student'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Postgres" data-language="Postgres"><code class="language-Postgres">\d;
+\d student;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SHOW TABLES;
+DESCRIBE student;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">.tables;
+.schema student;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="workloads">Workloads</h2>
+<p>The relational model does <strong>not</strong> specify that we have to store all of a tuple's attributes together in a single page. This may <strong>not</strong> actually be the best layout for some workloads.</p>
+<p>Wikipedia Example:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaotaoGuo/hexo-blog-pics@master/CMU-DB-5-database-storage-2/wiki_example.png" /></p>
+<p>The application scenario of the database can be roughly described in two dimensions:</p>
+<ol type="1">
+<li>Operation complexity</li>
+<li>Workload Focus (read-write distribution)</li>
+</ol>
+<p>As shown in the following figure:</p>
+<p><img src="https://gblobscdn.gitbook.com/assets%2F-LMjQD5UezC9P8miypMG%2F-LZ4Wq8LNTEzFCmrje83%2F-LZ4X-RjcFWNScWa57u0%2FScreen%20Shot%202019-02-19%20at%2012.50.59%20PM.jpg?alt=media&amp;token=cdee7e3d-45e3-40cf-9959-7e582072d617" /></p>
+<p>We mainly consider two working modes (workload)</p>
+<ol type="1">
+<li>On-line Transaction Processing (OLTP)</li>
+<li>On-line Analytical Processing (OLAP)</li>
+</ol>
+<h3 id="oltp-on-line-transaction-processing">OLTP: On-line Transaction Processing</h3>
+<p><strong>Simple</strong> queries that read/update a <strong>small</strong> amount of data that is related to a single entity in the database.</p>
 <ul>
-<li>Obtain the snomed CT terminology’s first level concepts (i.e. the root concepts). Use the <a target="_blank" rel="noopener" href="https://pythonhosted.org/PyMedTermino/tuto_en.html#iterating-over-snomed-ct">first_levels()</a> method.</li>
-<li>Search snomed CT database by using <a target="_blank" rel="noopener" href="https://pythonhosted.org/PyMedTermino/tuto_en.html#concepts">code search</a> (codes can be taken from snomed CT browser); <a target="_blank" rel="noopener" href="https://pythonhosted.org/PyMedTermino/tuto_en.html#full-text-search">full-text search</a> (for a medical problem of your choice\).</li>
-<li>Explore the <a target="_blank" rel="noopener" href="https://pythonhosted.org/PyMedTermino/tuto_en.html#is-a-relations-parent-and-child-concepts">is-a relations: parent and child concepts</a></li>
+<li>Fast, short running operations</li>
+<li>Queries operate on single entity at a time</li>
+<li>More writes than reads</li>
+<li>Repetitive operations</li>
+<li>Usually the kind of application that people build first</li>
 </ul>
-<p>We recommend that all of you explore the library suggested but however this part of the practical, is not gradable as the database creation requires a few GB of memory. Another option to explore snomed CT using Python can be found <a target="_blank" rel="noopener" href="https://github.com/IHTSDO/SNOMED-in-5-minutes/blob/master/python3-examples/examples.py">here</a> in case any of you would like to explore this more</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Obtain the snomed ct terminology’s first level concepts (i.e. the root concepts). Use the first_levels() method.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Search snomed ct database by using codes (codes can be taken from snomed ct browser).</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Search snomed ct database by using full-text search (for a medical problem of your choice).</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Explore the is-a relations: parent and child concepts</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Explore SNOMED-in-5-minutes</span></span><br></pre></td></tr></table></figure>
+<p><strong>Example</strong>: User invocations of Amazon. They can add things to their cart, they can make purchases, but the actions only affect their account.</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> P<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span> R<span class="token punctuation">.</span><span class="token operator">*</span>
+  <span class="token keyword">FROM</span> pages <span class="token keyword">AS</span> P
+ <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> revisions <span class="token keyword">AS</span> R
+    <span class="token keyword">ON</span> P<span class="token punctuation">.</span>latest <span class="token operator">=</span> R<span class="token punctuation">.</span>revID
+ <span class="token keyword">WHERE</span> P<span class="token punctuation">.</span>pageID <span class="token operator">=</span> ?<span class="token punctuation">;</span>
+ 
+<span class="token keyword">UPDATE</span> useracct
+   <span class="token keyword">SET</span> lastLogin <span class="token operator">=</span> <span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+       hostname <span class="token operator">=</span> ?
+ <span class="token keyword">WHERE</span> userID <span class="token operator">=</span> ?
+ 
+ <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> revisions
+ <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>?<span class="token punctuation">,</span>?<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>?<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This is usually the kind of application that people build first.</p>
+<h3 id="olap-on-line-analytical-processing">OLAP: On-line Analytical Processing</h3>
+<p><strong>Complex</strong> queries that read <strong>large</strong> portions of the database spanning multiple entities.</p>
+<ul>
+<li>Long running, more complex queries</li>
+<li>Reads large portions of the database</li>
+<li>Exploratory queries</li>
+<li>Deriving new data from data collected on the OLTP side</li>
+</ul>
+<p><strong>Example</strong>: Compute the five most bought items over a one month period for these geographical locations.</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>U<span class="token punctuation">.</span>lastLogin<span class="token punctuation">)</span>
+       EXTRACT <span class="token punctuation">(</span><span class="token keyword">month</span> <span class="token keyword">FROM</span> U<span class="token punctuation">.</span>lastLogin<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token keyword">month</span>
+  <span class="token keyword">FROM</span> useracct <span class="token keyword">AS</span> U
+ <span class="token keyword">WHERE</span> U<span class="token punctuation">.</span>hostname <span class="token operator">LIKE</span> <span class="token string">'%.gov'</span>
+ <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> EXTRACT<span class="token punctuation">(</span><span class="token keyword">month</span> <span class="token keyword">FROM</span> U<span class="token punctuation">.</span>lastLogin<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>You execute these workloads on the data you have collected from your OLTP application(s).</p>
+<blockquote>
+<p>Usually OLAP operations are data collected by OLTP applications</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaotaoGuo/hexo-blog-pics@master/CMU-DB-5-database-storage-2/workload_rw.png" /></p>
+<h2 id="storage-models">Storage Models</h2>
+<p>The relational data model combines the attributes of the data into tuples, and the tuples with similar structures into relation, but it does not specify the tuples in these relationships and how the attributes of the tuples are stored.</p>
+<p>In the same page, their actual storage methods can be optimized according to database application scenarios, such as OLTP and OLAP.</p>
+<p>Common Data Storage Models include:</p>
+<ul>
+<li>Row storage: N-ary Storage Model (NSM)</li>
+<li>Column storage: Decomposition Storage Model (DSM)</li>
+</ul>
+<h3 id="n-ary-storage-model-nsm"><em>N</em>-ARY STORAGE MODEL (NSM)</h3>
+<p>The DBMS <u>stores all attributes for a single tuple contiguously in a page</u>, , so NSM is also known as a “row store.”</p>
+<p>Ideal for OLTP workloads where queries tend to operate only on an individual entity and insert-heavy workloads, because it takes only one fetch to be able to get all of the attributes for a single tuple.</p>
+<p><img src="/images/DB/5190033.png" /></p>
+<p>The DBMS establishes an Index for some common attributes, such as userID in the example. A query statement finds the corresponding tuples through the Index and returns the query results. The process is as follows:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaotaoGuo/hexo-blog-pics@master/CMU-DB-5-database-storage-2/nsm_example.png" /></p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Fast inserts, updates, and deletes.</li>
+<li>Good for queries that need the entire tuple.</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>Not good for scanning large portions of the table and/or a subset of the attributes. This is because it pollutes the buffer pool by fetching data that is not needed for processing the query.</li>
+</ul>
+<p><img src="https://gblobscdn.gitbook.com/assets%2F-LMjQD5UezC9P8miypMG%2F-LZ4Wq8LNTEzFCmrje83%2F-LZ4X8I7f3f-3Id2W9Dc%2FScreen%20Shot%202019-02-19%20at%207.09.38%20PM.jpg?alt=media&amp;token=1bdd9fef-e389-4bad-9966-91b29f5653e1" /></p>
+<p>There are two different ways to organize a NSM database:</p>
+<ul>
+<li><strong>Heap-Organized Tables</strong>: Tuples are stored in blocks called a heap, and the heap does not necessarily define an order.</li>
+<li><strong>Index-Organized Tables</strong>: Tuples are stored in the primary key index itself, but different from a clustered index.</li>
+</ul>
+<h3 id="decomposition-storage-model-dsm">Decomposition Storage Model (DSM)</h3>
+<p>The DBMS stores a single attribute (column) for all tuples contiguously in a <strong>block</strong> of data. Also known as a “column store.”</p>
+<p><img src="https://gblobscdn.gitbook.com/assets%2F-LMjQD5UezC9P8miypMG%2F-LZ4Wq8LNTEzFCmrje83%2F-LZ4XAhoVE_WLpjY6lBh%2FScreen%20Shot%202019-02-19%20at%207.17.24%20PM.jpg?alt=media&amp;token=15f47600-d449-4c56-9053-b0e6b3e347c6" /></p>
+<p>This model is ideal for OLAP workloads where read-only queries perform large scans over a subset of the table’s attributes.</p>
+<p><img src="https://gblobscdn.gitbook.com/assets%2F-LMjQD5UezC9P8miypMG%2F-LZ4Wq8LNTEzFCmrje83%2F-LZ4XDfuuJnIRk5wzeoG%2FScreen%20Shot%202019-02-19%20at%207.20.23%20PM.jpg?alt=media&amp;token=16ef9d5a-4de7-4ba9-95ea-1e4b08f80a45" /></p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Reduces the amount of wasted work during query execution because the DBMS only reads the data that it needs for that query.</li>
+<li>Enables better compression because all of the values for the same attribute are stored contiguously.</li>
+</ul>
+<p><strong>Disadvantages</strong>:</p>
+<ul>
+<li>Slow for point queries, inserts, updates, and deletes because of tuple splitting/stitching.</li>
+</ul>
+<p>To put the tuples back together when we are using a column store, we can use:</p>
+<ul>
+<li><strong>Fixed-length offsets</strong>: Start by <strong>assuming the attributes are all fixed-length</strong>. Then when the system wants the attribute for a specific tuple, it knows how to jump to that spot in the file. To accommodate the variable-length fields, the system can pad them so that they are all the same length, or you could use a dictionary that takes a fixed-size integer and maps the integer to the value.</li>
+<li><strong>Embedded Tuple Ids</strong>: For every attribute in the columns, <strong>store the tuple id with it</strong>. The system would also need extra information to tell it how to jump to every attribute that has that id. A little bit waste of space.</li>
+</ul>
+<p><img src="https://gblobscdn.gitbook.com/assets%2F-LMjQD5UezC9P8miypMG%2F-LZ4Wq8LNTEzFCmrje83%2F-LZ4XFUANT4RYk-sof-s%2FScreen%20Shot%202019-02-19%20at%207.25.51%20PM.jpg?alt=media&amp;token=1aa0ba25-6167-4b37-9085-4c30a6607847" /></p>
+<p>Most DBMSs use fixed-length offsets.</p>
+<p>It is important to choose the right storage model for the target workload:</p>
+<ul>
+<li>OLTP = Row Store</li>
+<li>OLAP = Column Store</li>
+</ul>
 
                 
             </div>
@@ -560,7 +762,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/04/01/2021-04-01-Working-with-data-from-wearable-devices/">https://yintelligence.tech/2021/04/01/2021-04-01-Working-with-data-from-wearable-devices/</a>
+                    <a href="https://yintelligence.tech/2021/04/05/2021-04-05-Database-Storage-II/">https://yintelligence.tech/2021/04/05/2021-04-05-Database-Storage-II/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -598,8 +800,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Data-Analytics-in-Health-Care-and-Connected-Care/">
-                                    <span class="chip bg-color">Data Analytics in Health Care and Connected Care</span>
+                                <a href="/tags/Database-systems/">
+                                    <span class="chip bg-color">Database systems</span>
                                 </a>
                             
                         </div>
@@ -643,29 +845,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/04/01/2021-04-01-Relational-Model-&-Relational-Algebra/">
+                <a href="/2021/04/05/2021-04-05-Database-Storage-II/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Relational Model &amp; Relational Algebra">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Database Storage II">
                         
-                        <span class="card-title">Relational Model &amp; Relational Algebra</span>
+                        <span class="card-title">Database Storage II</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Readings Chapters 1-2, 6
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -678,6 +881,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -696,31 +900,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/31/2021-03-30-Storage-Management/">
+                <a href="/2021/04/05/2021-04-05-Asymptotics-II/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Storage Management">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Asymptotics II">
                         
-                        <span class="card-title">Storage Management</span>
+                        <span class="card-title">Asymptotics II</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Analysis of Algorithms
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Data-model/" class="post-category">
+                                    Data model
                                 </a>
                             
                             
@@ -730,8 +934,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Databases/">
-                        <span class="chip bg-color">Databases</span>
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
                     </a>
                     
                 </div>
