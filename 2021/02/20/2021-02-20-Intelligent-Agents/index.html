@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                Artificial Intelligence
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-04-05
                 </div>
                 
 
@@ -701,14 +701,26 @@ AGENT = ARCHITECTURE + PROGRAM
 <li>Agent may not need to know explicitly how it is being judged</li>
 <li>Performance measure may be contained in its Choose-Best-Action function</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Skeleton-Agent( percept ) returns action</span><br><span class="line">    static: memory, the agent’s memory of the world</span><br><span class="line">    </span><br><span class="line">    memory ← Update-Memory( memory, percept )</span><br><span class="line">    action ← Choose-Best-Action( memory )</span><br><span class="line">    memory ← Update-Memory( memory, action )</span><br><span class="line">    return action </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">function Skeleton-Agent( percept ) returns action
+    static: memory, the agent’s memory of the world
+    
+    memory ← Update-Memory( memory, percept )
+    action ← Choose-Best-Action( memory )
+    memory ← Update-Memory( memory, action )
+    return action <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="why-not-just-look-up-the-answers-5921">Why not just look up the answers? 59:21</h3>
 <p>Keep the entire sequence in memory</p>
 <ul>
 <li>use it as an index into a table</li>
 <li>simply look up actions</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Lookup-Agent( percept ) returns action</span><br><span class="line">    static: percepts, a sequence, initially empty</span><br><span class="line">            table, full, indexed by percept sequence</span><br><span class="line">    </span><br><span class="line">    percepts ← Append( percepts, percept )</span><br><span class="line">    action ← Lookup( percepts, table ) </span><br><span class="line">    return action </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">function Lookup-Agent( percept ) returns action
+    static: percepts, a sequence, initially empty
+            table, full, indexed by percept sequence
+    
+    percepts ← Append( percepts, percept )
+    action ← Lookup( percepts, table ) 
+    return action <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>This approach will fail because</p>
 <ul>
 <li>The look-up table for will be too large (for chess, 35100 entries)</li>
@@ -742,7 +754,13 @@ AGENT = ARCHITECTURE + PROGRAM
 </ul>
 <p>Some processing needed to test conditions</p>
 <p>Efficient, but narrow</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Simple-Reflex-Agent( percept ) returns action</span><br><span class="line">    static: rules, a set of productions</span><br><span class="line">    </span><br><span class="line">    state ← Interpret-Input( percept )</span><br><span class="line">    rule ← Rule-Match( state, rules )</span><br><span class="line">    action ← Rule-Action( rule )</span><br><span class="line">    return action</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">function Simple-Reflex-Agent( percept ) returns action
+    static: rules, a set of productions
+    
+    state ← Interpret-Input( percept )
+    rule ← Rule-Match( state, rules )
+    action ← Rule-Action( rule )
+    return action<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="reflex-agents-with-state-10934">Reflex Agents with State 1:09:34</h3>
 <p>Sometimes an agent needs more than just its current percept and must maintain an internal state</p>
 <ul>
@@ -754,7 +772,14 @@ AGENT = ARCHITECTURE + PROGRAM
 <li>By recording its last look in the rear-view mirror in its internal state, it can judge whether it is safe to pull</li>
 </ul>
 <p><img src="/images/AI/2021472.png" /></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Reflex-Agent-State( percept ) returns action</span><br><span class="line">    static: rules, a set of productions</span><br><span class="line">            state, a description of the current world</span><br><span class="line">    state ← Update-State( state, percept )</span><br><span class="line">    rule ← Rule-Match( state, rules )</span><br><span class="line">    action ← Rule-Action( rule )</span><br><span class="line">    state ← Update-State( state, action )</span><br><span class="line">    return action</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">function Reflex-Agent-State( percept ) returns action
+    static: rules, a set of productions
+            state, a description of the current world
+    state ← Update-State( state, percept )
+    rule ← Rule-Match( state, rules )
+    action ← Rule-Action( rule )
+    state ← Update-State( state, action )
+    return action<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Maintaining and updating an internal state requires</p>
 <ul>
 <li>information about how the external world evolves
@@ -1063,6 +1088,55 @@ AGENT = ARCHITECTURE + PROGRAM
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
+                <a href="/2021/02/21/2021-02-21-Problem-Solving-and-Search/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Problem Solving and Search">
+                        
+                        <span class="card-title">Problem Solving and Search</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Searching for Solutions
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                    Artificial Intelligence
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Techniques-of-Artificial-Intelligence/">
+                        <span class="chip bg-color">Techniques of Artificial Intelligence</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/02/20/2021-02-20-Exercise-2---Extended-Entity-Relationship-Model/">
                     <div class="card-image">
                         
@@ -1079,9 +1153,9 @@ AGENT = ARCHITECTURE + PROGRAM
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1099,55 +1173,6 @@ AGENT = ARCHITECTURE + PROGRAM
                     
                     <a href="/tags/Databases/">
                         <span class="chip bg-color">Databases</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/20/2021-02-20-Aligning-sequences/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Aligning sequences">
-                        
-                        <span class="card-title">Aligning sequences</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Aligning multiple sequences
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Bioinformatics/" class="post-category">
-                                    Bioinformatics
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Computational-Biology-and-Bioinformatics/">
-                        <span class="chip bg-color">Computational Biology and Bioinformatics</span>
                     </a>
                     
                 </div>
