@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                Programming Language
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-30
+                    2021-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -501,21 +501,51 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="programming-basics">Programming Basics</h1>
+<p><a href="https://yintelligence.tech/2021/03/14/2021-03-13-Course-overview/">Harvard X - R Basics</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter9.Rmd">Assessment Programming Basics</a></p>
 <h2 id="basic-conditionals">Basic Conditionals</h2>
 <p>Conditional expressions are one of the basic features of programming. They are used for what is called <em>flow control</em>. The most common conditional expression is the if-else statement. In R, we can actually perform quite a bit of data analysis without conditionals. However, they do come up occasionally, and you will need them once you start writing your own functions and packages.</p>
 <p>Here is a very simple example showing the general structure of an if-else statement. The basic idea is to print the reciprocal of <code>a</code> unless <code>a</code> is 0:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># an example showing the general structure of an if-else statement</span></span><br><span class="line">a &lt;- 0</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(a!=<span class="number">0</span>)&#123;</span><br><span class="line">  print(<span class="number">1</span>/a)</span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">  print(<span class="string">&quot;No reciprocal for 0.&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#&gt; [1] &quot;No reciprocal for 0.&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># an example showing the general structure of an if-else statement
+a &lt;- 0
+
+if(a!&#x3D;0)&#123;
+  print(1&#x2F;a)
+&#125; else&#123;
+  print(&quot;No reciprocal for 0.&quot;)
+&#125;
+#&gt; [1] &quot;No reciprocal for 0.&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Let’s look at one more example using the US murders data frame:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># an example that tells us which states, if any, have a murder rate less than 0.5</span></span><br><span class="line">library(dslabs)</span><br><span class="line">data(murders)</span><br><span class="line">murder_rate &lt;- murders$total / murders$population*<span class="number">100000</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># an example that tells us which states, if any, have a murder rate less than 0.5
+library(dslabs)
+data(murders)
+murder_rate &lt;- murders$total &#x2F; murders$population*100000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Here is a very simple example that tells us which states, if any, have a murder rate lower than 0.5 per 100,000. The <code>if</code> statement protects us from the case in which no state satisfies the condition.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># changing the condition to &lt; 0.25 changes the result</span></span><br><span class="line">ind &lt;- which.min(murder_rate)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(murder_rate[ind] &lt; <span class="number">0.5</span>)&#123;</span><br><span class="line">  print(murders$state[ind]) </span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">  print(<span class="string">&quot;No state has murder rate that low&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#&gt; [1] &quot;Vermont&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># changing the condition to &lt; 0.25 changes the result
+ind &lt;- which.min(murder_rate)
+
+if(murder_rate[ind] &lt; 0.5)&#123;
+  print(murders$state[ind]) 
+&#125; else&#123;
+  print(&quot;No state has murder rate that low&quot;)
+&#125;
+#&gt; [1] &quot;Vermont&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>If we try it again with a rate of 0.25, we get a different answer:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(murder_rate[ind] &lt; <span class="number">0.25</span>)&#123;</span><br><span class="line">  print(murders$state[ind]) </span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">  print(<span class="string">&quot;No state has a murder rate that low.&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#&gt; [1] &quot;No state has a murder rate that low.&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">if(murder_rate[ind] &lt; 0.25)&#123;
+  print(murders$state[ind]) 
+&#125; else&#123;
+  print(&quot;No state has a murder rate that low.&quot;)
+&#125;
+#&gt; [1] &quot;No state has a murder rate that low.&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>A related function that is very useful is <code>ifelse</code>. This function takes three arguments: a logical and two possible answers. If the logical is <code>TRUE</code>, the value in the second argument is returned and if <code>FALSE</code>, the value in the third argument is returned. Here is an example:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># the ifelse() function works similarly to an if-else conditional</span></span><br><span class="line">a &lt;- 0</span><br><span class="line">ifelse(a &gt; <span class="number">0</span>, <span class="number">1</span>/a, <span class="literal">NA</span>)</span><br><span class="line"><span class="comment">#&gt; [1] NA</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># the ifelse() function works similarly to an if-else conditional
+a &lt;- 0
+ifelse(a &gt; 0, 1&#x2F;a, NA)
+#&gt; [1] NA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The function is particularly useful because it works on vectors. It examines each entry of the logical vector and returns elements from the vector provided in the second argument, if the entry is <code>TRUE</code>, or elements from the vector provided in the third argument, if the entry is <code>FALSE</code>.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># the ifelse() function is particularly useful on vectors</span></span><br><span class="line">a &lt;- <span class="built_in">c</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, -<span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">result &lt;- ifelse(a &gt; <span class="number">0</span>, <span class="number">1</span>/a, <span class="literal">NA</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># the ifelse() function is particularly useful on vectors
+a &lt;- c(0, 1, 2, -4, 5)
+result &lt;- ifelse(a &gt; 0, 1&#x2F;a, NA)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>This table helps us see what happened:</p>
 <table>
 <thead>
@@ -566,9 +596,18 @@
 </tbody>
 </table>
 <p>Here is an example of how this function can be readily used to replace all the missing values in a vector with zeros:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># the ifelse() function is also helpful for replacing missing values</span></span><br><span class="line">data(na_example)</span><br><span class="line">no_nas &lt;- ifelse(<span class="built_in">is.na</span>(na_example), <span class="number">0</span>, na_example) </span><br><span class="line"><span class="built_in">sum</span>(<span class="built_in">is.na</span>(no_nas))</span><br><span class="line"><span class="comment">#&gt; [1] 0</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># the ifelse() function is also helpful for replacing missing values
+data(na_example)
+no_nas &lt;- ifelse(is.na(na_example), 0, na_example) 
+sum(is.na(no_nas))
+#&gt; [1] 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Two other useful functions are <code>any</code> and <code>all</code>. The <code>any</code> function takes a vector of logicals and returns <code>TRUE</code> if any of the entries is <code>TRUE</code>. The <code>all</code> function takes a vector of logicals and returns <code>TRUE</code> if all of the entries are <code>TRUE</code>. Here is an example:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># the any() and all() functions evaluate logical vectors</span></span><br><span class="line">z &lt;- <span class="built_in">c</span>(<span class="literal">TRUE</span>, <span class="literal">TRUE</span>, <span class="literal">FALSE</span>)</span><br><span class="line"><span class="built_in">any</span>(z)</span><br><span class="line"><span class="comment">#&gt; [1] TRUE</span></span><br><span class="line"><span class="built_in">all</span>(z)</span><br><span class="line"><span class="comment">#&gt; [1] FALSE</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># the any() and all() functions evaluate logical vectors
+z &lt;- c(TRUE, TRUE, FALSE)
+any(z)
+#&gt; [1] TRUE
+all(z)
+#&gt; [1] FALSE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="key-points">Key Points</h3>
 <ul>
 <li>The most common conditional expression in programming is an if-else statement, which has the form "if [condition], perform [expression], else perform [alternative expression]".</li>
@@ -578,16 +617,37 @@
 </ul>
 <h2 id="functions"><a target="_blank" rel="noopener" href="https://rafalab.github.io/dsbook/programming-basics.html#defining-functions">Functions</a></h2>
 <p>As you become more experienced, you will find yourself needing to perform the same operations over and over. A simple example is computing averages. We can compute the average of a vector <code>x</code> using the <code>sum</code> and <code>length</code> functions: <code>sum(x)/length(x)</code>. Because we do this repeatedly, it is much more efficient to write a function that performs this operation. This particular operation is so common that someone already wrote the <code>mean</code> function and it is included in base R. However, you will encounter situations in which the function does not already exist, so R permits you to write your own. A simple version of a function that computes the average can be defined like this:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># example of defining a function to compute the average of a vector x</span></span><br><span class="line">avg &lt;- <span class="keyword">function</span>(x)&#123;</span><br><span class="line">  s &lt;- <span class="built_in">sum</span>(x)</span><br><span class="line">  n &lt;- <span class="built_in">length</span>(x)</span><br><span class="line">  s/n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># example of defining a function to compute the average of a vector x
+avg &lt;- function(x)&#123;
+  s &lt;- sum(x)
+  n &lt;- length(x)
+  s&#x2F;n
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Now <code>avg</code> is a function that computes the mean:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># we see that the above function and the pre-built R mean() function are identical</span></span><br><span class="line">x &lt;- 1:<span class="number">100</span></span><br><span class="line">identical(mean(x), avg(x))</span><br><span class="line"><span class="comment">#&gt; [1] TRUE</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># we see that the above function and the pre-built R mean() function are identical
+x &lt;- 1:100
+identical(mean(x), avg(x))
+#&gt; [1] TRUE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Notice that variables defined inside a function are not saved in the workspace. So while we use <code>s</code> and <code>n</code> when we call <code>avg</code>, the values are created and changed only during the call. Here is an illustrative example:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># variables inside a function are not defined in the workspace</span></span><br><span class="line">s &lt;- 3</span><br><span class="line">avg(<span class="number">1</span>:<span class="number">10</span>)</span><br><span class="line"><span class="comment">#&gt; [1] 5.5</span></span><br><span class="line">s</span><br><span class="line"><span class="comment">#&gt; [1] 3</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># variables inside a function are not defined in the workspace
+s &lt;- 3
+avg(1:10)
+#&gt; [1] 5.5
+s
+#&gt; [1] 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Note how <code>s</code> is still 3 after we call <code>avg</code>.</p>
 <p>In general, functions are objects, so we assign them to variable names with <code>&lt;-</code>. The function <code>function</code> tells R you are about to define a function. The general form of a function definition looks like this:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># the general form of a function</span></span><br><span class="line">my_function &lt;- <span class="keyword">function</span>(VARIABLE_NAME)&#123;</span><br><span class="line">  perform operations on VARIABLE_NAME and calculate VALUE</span><br><span class="line">  VALUE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># the general form of a function
+my_function &lt;- function(VARIABLE_NAME)&#123;
+  perform operations on VARIABLE_NAME and calculate VALUE
+  VALUE
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The functions you define can have multiple arguments as well as default values. For example, we can define a function that computes either the arithmetic or geometric average depending on a user defined variable like this:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># functions can have multiple arguments as well as default values</span></span><br><span class="line">avg &lt;- <span class="keyword">function</span>(x, arithmetic = <span class="literal">TRUE</span>)&#123;</span><br><span class="line">  n &lt;- <span class="built_in">length</span>(x)</span><br><span class="line">  ifelse(arithmetic, <span class="built_in">sum</span>(x)/n, <span class="built_in">prod</span>(x)^(<span class="number">1</span>/n))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># functions can have multiple arguments as well as default values
+avg &lt;- function(x, arithmetic &#x3D; TRUE)&#123;
+  n &lt;- length(x)
+  ifelse(arithmetic, sum(x)&#x2F;n, prod(x)^(1&#x2F;n))
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>We will learn more about how to create functions through experience as we face more complex tasks.</p>
 <h3 id="key-points-1">Key points</h3>
 <ul>
@@ -598,15 +658,41 @@
 </ul>
 <h2 id="for-loops"><a target="_blank" rel="noopener" href="https://rafalab.github.io/dsbook/programming-basics.html#for-loops">For Loops</a></h2>
 <p>The formula for the sum of the series 1+2+⋯+n1+2+⋯+n is n(n+1)/2n(n+1)/2. What if we weren’t sure that was the right function? How could we check? Using what we learned about functions we can create one that computes the SnSn:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># creating a function that computes the sum of integers 1 through n</span></span><br><span class="line">compute_s_n &lt;- <span class="keyword">function</span>(n)&#123;</span><br><span class="line">  x &lt;- 1:n</span><br><span class="line">  <span class="built_in">sum</span>(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># creating a function that computes the sum of integers 1 through n
+compute_s_n &lt;- function(n)&#123;
+  x &lt;- 1:n
+  sum(x)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>How can we compute SnSn for various values of nn, say n=1,…,25n=1,…,25? Do we write 25 lines of code calling <code>compute_s_n</code>? No, that is what for-loops are for in programming. In this case, we are performing exactly the same task over and over, and the only thing that is changing is the value of nn. For-loops let us define the range that our variable takes (in our example n=1,…,10n=1,…,10), then change the value and evaluate expression as you <em>loop</em>.</p>
 <p>Perhaps the simplest example of a for-loop is this useless piece of code:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># a very simple for-loop</span></span><br><span class="line"><span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">5</span>)&#123;</span><br><span class="line">  print(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#&gt; [1] 1</span></span><br><span class="line"><span class="comment">#&gt; [1] 2</span></span><br><span class="line"><span class="comment">#&gt; [1] 3</span></span><br><span class="line"><span class="comment">#&gt; [1] 4</span></span><br><span class="line"><span class="comment">#&gt; [1] 5</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># a very simple for-loop
+for(i in 1:5)&#123;
+  print(i)
+&#125;
+#&gt; [1] 1
+#&gt; [1] 2
+#&gt; [1] 3
+#&gt; [1] 4
+#&gt; [1] 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Here is the for-loop we would write for our SnSn example:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># a for-loop for our summation</span></span><br><span class="line">m &lt;- 25</span><br><span class="line">s_n &lt;- vector(<span class="built_in">length</span> = m) <span class="comment"># create an empty vector</span></span><br><span class="line"><span class="keyword">for</span>(n <span class="keyword">in</span> <span class="number">1</span>:m)&#123;</span><br><span class="line">  s_n[n] &lt;- compute_s_n(n)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># a for-loop for our summation
+m &lt;- 25
+s_n &lt;- vector(length &#x3D; m) # create an empty vector
+for(n in 1:m)&#123;
+  s_n[n] &lt;- compute_s_n(n)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>In each iteration n=1n=1, n=2n=2, etc…, we compute SnSn and store it in the nnth entry of <code>s_n</code>.</p>
 <p>Now we can create a plot to search for a pattern:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># creating a plot for our summation function</span></span><br><span class="line">n &lt;- 1:m</span><br><span class="line">plot(n, s_n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># a table of values comparing our function to the summation formula</span></span><br><span class="line">head(data.frame(s_n = s_n, formula = n*(n+<span class="number">1</span>)/<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># overlaying our function with the summation formula</span></span><br><span class="line">plot(n, s_n)</span><br><span class="line">lines(n, n*(n+<span class="number">1</span>)/<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># creating a plot for our summation function
+n &lt;- 1:m
+plot(n, s_n)
+
+# a table of values comparing our function to the summation formula
+head(data.frame(s_n &#x3D; s_n, formula &#x3D; n*(n+1)&#x2F;2))
+
+# overlaying our function with the summation formula
+plot(n, s_n)
+lines(n, n*(n+1)&#x2F;2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <figure>
 <img src="https://rafalab.github.io/dsbook/book_files/figure-html/sum-of-consecutive-squares-1.png" alt="" /><figcaption>img</figcaption>
 </figure>
@@ -791,7 +877,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Section 3 introduces the R commands and techniques that help you wrangle, analyse, and visualize data.
                         
                     </div>
                     <div class="publish-info">
@@ -802,8 +888,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                    Programming Language
                                 </a>
                             
                             

@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                Programming Language
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-23
+                    2021-04-06
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="vectors-sorting">Vectors, Sorting</h1>
+<p><a href="https://yintelligence.tech/2021/03/14/2021-03-13-Course-overview/">Harvard X - R Basics</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter3.Rmd">Assessments Vectors</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter4.Rmd">Assessments Sorting</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter5.Rmd">Assessments Vector Arithmetics</a></p>
@@ -511,28 +512,49 @@
 <li>The function <code>c()</code>, which stands for concatenate, is useful for creating vectors.</li>
 </ul>
 <p>We may create vectors of class numeric or character with the concatenate function:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">codes &lt;- <span class="built_in">c</span>(<span class="number">380</span>, <span class="number">124</span>, <span class="number">818</span>)</span><br><span class="line">country &lt;- <span class="built_in">c</span>(<span class="string">&quot;italy&quot;</span>, <span class="string">&quot;canada&quot;</span>, <span class="string">&quot;egypt&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">codes &lt;- c(380, 124, 818)
+country &lt;- c(&quot;italy&quot;, &quot;canada&quot;, &quot;egypt&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Name the columns of a vector.</strong></p>
 <p>We can also name the elements of a numeric vector:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Note that the two lines of code below have the same result</span></span><br><span class="line">codes &lt;- <span class="built_in">c</span>(italy = <span class="number">380</span>, canada = <span class="number">124</span>, egypt = <span class="number">818</span>)</span><br><span class="line">codes &lt;- <span class="built_in">c</span>(<span class="string">&quot;italy&quot;</span> = <span class="number">380</span>, <span class="string">&quot;canada&quot;</span> = <span class="number">124</span>, <span class="string">&quot;egypt&quot;</span> = <span class="number">818</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># Note that the two lines of code below have the same result
+codes &lt;- c(italy &#x3D; 380, canada &#x3D; 124, egypt &#x3D; 818)
+codes &lt;- c(&quot;italy&quot; &#x3D; 380, &quot;canada&quot; &#x3D; 124, &quot;egypt&quot; &#x3D; 818)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>We can also name the elements of a numeric vector using the <code>names()</code> function:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">codes &lt;- <span class="built_in">c</span>(<span class="number">380</span>, <span class="number">124</span>, <span class="number">818</span>)</span><br><span class="line">country &lt;- <span class="built_in">c</span>(<span class="string">&quot;italy&quot;</span>,<span class="string">&quot;canada&quot;</span>,<span class="string">&quot;egypt&quot;</span>)</span><br><span class="line"><span class="built_in">names</span>(codes) &lt;- country</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">codes &lt;- c(380, 124, 818)
+country &lt;- c(&quot;italy&quot;,&quot;canada&quot;,&quot;egypt&quot;)
+names(codes) &lt;- country<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>Generate numeric sequences.</strong></p>
 <p>Another useful function for creating vectors is the <code>seq()</code> function, which generates sequences.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; seq(<span class="number">1</span>,<span class="number">10</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line">&gt; seq（<span class="number">1</span>，<span class="number">10</span>，<span class="number">2</span>）</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; seq(1,10)
+[1] 1 2 3 4 5 6 7 8 9 10
+&gt; seq（1，10，2）
+[1] 1 3 5 7 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>If we want consecutive integers, we can use the following shorthand:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; <span class="number">1</span>:<span class="number">10</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; 1:10
+[1] 1 2 3 4 5 6 7 8 9 10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Access specific elements or parts of a vector. Coerce data into different data types as needed.</strong></p>
 <p>Subsetting lets us access specific parts of a vector by using square brackets to access elements of a vector.:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; codes[<span class="number">2</span>]</span><br><span class="line"> canada</span><br><span class="line">    <span class="number">124</span></span><br><span class="line"></span><br><span class="line">codes[<span class="number">1</span>:<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; codes[2]
+ canada
+    124
+
+codes[1:2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>You can get more than one entry by using a multi-entry vector as an index.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; codes[<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">3</span>)]</span><br><span class="line"> italy egypt</span><br><span class="line">   <span class="number">380</span>   <span class="number">818</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; codes[c(1,3)]
+ italy egypt
+   380   818<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>If the entries of a vector are named, they may be accessed by referring to their name:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; codes[<span class="string">&quot;canada&quot;</span>]</span><br><span class="line"> canada</span><br><span class="line">	<span class="number">124</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; codes[&quot;canada&quot;]
+ canada
+	124<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="vector-coercion">Vector Coercion</h3>
 <p>In general, <em>coercion</em> is an attempt by R to be flexible with data types by guessing what was meant when an entry does not match the expected.</p>
 <p>For example, when defining <code>x</code> as:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="number">1</span>, <span class="string">&quot;canada&quot;</span>, <span class="number">3</span>)</span><br><span class="line">&gt; x</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;1&quot;</span> <span class="string">&quot;canada&quot;</span> <span class="string">&quot;3&quot;</span></span><br><span class="line">&gt; <span class="built_in">class</span>(X)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;character&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; x &lt;- c(1, &quot;canada&quot;, 3)
+&gt; x
+[1] &quot;1&quot; &quot;canada&quot; &quot;3&quot;
+&gt; class(X)
+[1] &quot;character&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>R <em>coerced</em> the data into characters. It guessed that because you put a character string in the vector, you meant the 1 and 3 to actually be character strings, <code>"1"</code> and <code>"3"</code>.</p>
 <p>R also offers functions to force a specific coercion.</p>
 <p>For example:</p>
@@ -540,43 +562,59 @@
 <li>The function <code>as.character()</code> turns numbers into characters</li>
 <li>The function <code>as.numeric()</code> turns characters into numbers.</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- 1:<span class="number">5</span></span><br><span class="line">&gt; y &lt;- <span class="built_in">as.character</span>(x)</span><br><span class="line">&gt; y</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;1&quot;</span> <span class="string">&quot;2&quot;</span> <span class="string">&quot;3&quot;</span> <span class="string">&quot;4&quot;</span> <span class="string">&quot;5&quot;</span></span><br><span class="line">&gt; <span class="built_in">as.numeric</span>(y)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; x &lt;- 1:5
+&gt; y &lt;- as.character(x)
+&gt; y
+[1] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;
+&gt; as.numeric(y)
+[1] 1 2 3 4 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><u>In R, missing data is assigned the value NA.</u> For example, when R fails to coerce something, it tries to coerce but it can't, we will get NA.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;3&quot;</span>)</span><br><span class="line">&gt; <span class="built_in">as.numeric</span>(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="literal">NA</span> <span class="number">3</span></span><br><span class="line">Warning message: NAs introduced by coercion</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; x &lt;- c(&quot;1&quot;, &quot;b&quot;, &quot;3&quot;)
+&gt; as.numeric(x)
+[1] 1 NA 3
+Warning message: NAs introduced by coercion<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="assessment">Assessment</h3>
 <p>A vector is a series of values, all of the same type. They are the most basic data type in R and can hold numeric data, character data, or logical data. In R, you can create a vector with the concatenate (or combine) function <code>c()</code>. You place the vector elements separated by a comma between the parentheses. For example a numeric vector would look something like this:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">cost &lt;- <span class="built_in">c</span>(<span class="number">50</span>, <span class="number">75</span>, <span class="number">90</span>, <span class="number">100</span>, <span class="number">150</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">cost &lt;- c(50, 75, 90, 100, 150)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Use the function <code>c()</code> to create a numeric vector with the average high temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San Juan, and Toronto. The average high temperatures are <code>35, 88, 42, 84, 81, and 30</code> degrees Fahrenheit. Call the object <code>temp</code>.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">temp &lt;- <span class="built_in">c</span>(<span class="number">35</span>, <span class="number">88</span>, <span class="number">42</span>, <span class="number">84</span>, <span class="number">81</span>, <span class="number">30</span>)</span><br><span class="line">city &lt;- <span class="built_in">c</span>(<span class="string">&quot;Beijing&quot;</span>, <span class="string">&quot;Lagos&quot;</span>, <span class="string">&quot;Paris&quot;</span>, <span class="string">&quot;Rio de Janeiro&quot;</span>, <span class="string">&quot;San Juan&quot;</span>, <span class="string">&quot;Toronto&quot;</span>)</span><br><span class="line"><span class="built_in">names</span>(temp) &lt;- city</span><br><span class="line">temp</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">temp &lt;- c(35, 88, 42, 84, 81, 30)
+city &lt;- c(&quot;Beijing&quot;, &quot;Lagos&quot;, &quot;Paris&quot;, &quot;Rio de Janeiro&quot;, &quot;San Juan&quot;, &quot;Toronto&quot;)
+names(temp) &lt;- city
+temp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="subsetting-vectors">Subsetting vectors</h4>
 <p>If we want to display only selected values from the object, R can help us do that easily.</p>
 <p>For example, if we want to see the cost of the last 3 items in our food list, we would type:</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">cost[<span class="number">3</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">cost[3:5]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Note here, that we could also type <code>cost[c(3,4,5)]</code> and get the same result. The <code>:</code> operator helps us condense the code and get consecutive values.</p>
 <p>We will learn to subset using several special operators.</p>
 <ul>
 <li>Use the <code>[</code> and <code>:</code> operators to access the temperature of the first three cities in the list, which are already stored in <code>temp</code>.</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">temp[<span class="number">1</span>:<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">temp[1:3]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>This time we will access our object using just the <code>[</code> operator. Use the <code>[</code> operator to access the temperature of Paris and San Juan already stored in the <code>temp</code> object.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">temp[<span class="built_in">c</span>(<span class="string">&quot;Paris&quot;</span>,<span class="string">&quot;San Juan&quot;</span>)]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">temp[c(&quot;Paris&quot;,&quot;San Juan&quot;)]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="sequences">Sequences</h4>
 <p>The <code>:</code> operator helps us create sequences of numbers. For example, <code>32:99</code> would create a list of numbers from 32 to 99.</p>
 <p>Then, if we want to know the length of this sequence, all we need to do is use the <code>length</code> command.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Create a vector m of integers that starts at 32 and ends at 99.</span></span><br><span class="line">m &lt;- 32:<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Determine the length of object m.</span></span><br><span class="line"><span class="built_in">length</span>(m)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># Create a vector m of integers that starts at 32 and ends at 99.
+m &lt;- 32:99
+
+# Determine the length of object m.
+length(m)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>We can also create different types of sequences in R. For example, in <code>seq(7, 49, 7)</code>, the first argument defines the start, and the second the end. The default is to go up in increments of 1, but a third argument lets us tell it by what interval.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Create a vector with the multiples of 7, smaller than 50.</span></span><br><span class="line">seq(<span class="number">7</span>, <span class="number">49</span>, <span class="number">7</span>) </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># Create a vector with the multiples of 7, smaller than 50.
+seq(7, 49, 7) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>The <code>seq()</code> function has another useful argument. The argument <em>length.out</em>. This argument lets us generate sequences that are increasing by the same amount but are of the prespecified length.</p>
 <p>For example, this line of code</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">x &lt;- seq(<span class="number">0</span>, <span class="number">100</span>, length.out = <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">x &lt;- seq(0, 100, length.out &#x3D; 5)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>produces the numbers 0, 25, 50, 75, 100.</p>
 <h4 id="integers">Integers</h4>
 <p>We have discussed the <em>numeric</em> class. We just saw that the <code>seq</code> function can generate objects of this class. For another example, type</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="built_in">class</span>(seq(<span class="number">1</span>, <span class="number">10</span>, <span class="number">0.5</span>))</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">class(seq(1, 10, 0.5))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>into the console and note that the <code>class</code> is <em>numeric</em>. R has another type of vector we have not described, the <em>integer</em> class. You can create an <em>integer</em> by adding the letter <code>L</code> after a whole number. If you type</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="built_in">class</span>(<span class="number">3L</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">class(3L)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>in the console, you see this is an <em>integer</em> and not a <em>numeric</em>. For most practical purposes, integers and numerics are indistinguishable. For example 3, the integer, minus 3 the numeric is 0. To see this type this in the console</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">3L - <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-r" data-language="r"><code class="language-r"><span class="token number">3L</span> <span class="token operator">-</span> <span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>The main difference is that integers occupy less space in the computer memory, so for big computations using integers can have a substantial impact.</p>
 <h4 id="coercion">Coercion</h4>
 <p>The concept of coercion is a very important one. We learned that when an entry does not match what an R function is expecting, R tries to guess what we meant before throwing an error. This might get confusing at times.</p>
@@ -584,22 +622,58 @@
 <p>We can avoid issues with coercion in R by changing characters to numerics and vice-versa. This is known as typecasting. The code, <code>as.numeric(x)</code> helps us convert character strings to numbers. There is an equivalent function that converts its argument to a string, <code>as.character(x)</code>.</p>
 <h2 id="sorting">Sorting</h2>
 <p>The function <code>sort()</code> sorts a vector in increasing order.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; library(dslabs)</span><br><span class="line">&gt; data(murders)</span><br><span class="line">&gt; sort(murders$total)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; library(dslabs)
+&gt; data(murders)
+&gt; sort(murders$total)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>However, this does not give us any information about the states, only about the totals.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="number">31</span>, <span class="number">4</span>, <span class="number">15</span>, <span class="number">92</span>, <span class="number">65</span>)</span><br><span class="line">&gt; x</span><br><span class="line">[<span class="number">1</span>] <span class="number">31</span> <span class="number">4</span> <span class="number">15</span> <span class="number">92</span> <span class="number">65</span></span><br><span class="line">&gt; sort(x)</span><br><span class="line"><span class="comment"># puts elements in order</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">15</span> <span class="number">31</span> <span class="number">65</span> <span class="number">92</span></span><br><span class="line">&gt; index &lt;- order(x)</span><br><span class="line"><span class="comment"># returns index that will put x in order</span></span><br><span class="line">&gt; x[index]</span><br><span class="line"><span class="comment"># rearranging by this index puts elements in order</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">15</span> <span class="number">31</span> <span class="number">65</span> <span class="number">92</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; x &lt;- c(31, 4, 15, 92, 65)
+&gt; x
+[1] 31 4 15 92 65
+&gt; sort(x)
+# puts elements in order
+
+[1] 4 15 31 65 92
+&gt; index &lt;- order(x)
+# returns index that will put x in order
+&gt; x[index]
+# rearranging by this index puts elements in order
+[1] 4 15 31 65 92<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The function order is closer to what we want. It takes a vector and returns the indices that sorts that vector.</p>
 <ul>
 <li>order(x) <strong>is the index puts the vector in order</strong></li>
 </ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; x</span><br><span class="line">[<span class="number">1</span>] <span class="number">31</span> <span class="number">4</span> <span class="number">15</span> <span class="number">92</span> <span class="number">65</span></span><br><span class="line">&gt; order(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">3</span> <span class="number">1</span> <span class="number">5</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; index &lt;- order(murder$total)</span><br><span class="line">&gt; muders$abb[index]</span><br><span class="line"><span class="comment"># order abbreviations by total murders</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; x
+[1] 31 4 15 92 65
+&gt; order(x)
+[1] 2 3 1 5 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; index &lt;- order(murder$total)
+&gt; muders$abb[index]
+# order abbreviations by total murders<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>which.max gives us the index where this number resides.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; <span class="built_in">max</span>(murder$total)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1257</span></span><br><span class="line">&gt; i_max &lt;- which.max(murder$total)</span><br><span class="line"><span class="comment"># index with highest number of murders</span></span><br><span class="line">&gt; i_max</span><br><span class="line">5</span><br><span class="line">&gt; murders$state[i_max]</span><br><span class="line"><span class="comment"># state name with highest number of total murders</span></span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;California&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; max(murder$total)
+[1] 1257
+&gt; i_max &lt;- which.max(murder$total)
+# index with highest number of murders
+&gt; i_max
+5
+&gt; murders$state[i_max]
+# state name with highest number of total murders
+[1] &quot;California&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Rank the elements of a vector in increasing order.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">x &lt;- <span class="built_in">c</span>(<span class="number">31</span>, <span class="number">4</span>, <span class="number">15</span>, <span class="number">92</span>, <span class="number">65</span>)</span><br><span class="line">x</span><br><span class="line">rank(x)    <span class="comment"># returns ranks (smallest to largest)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">x &lt;- c(31, 4, 15, 92, 65)
+x
+rank(x)    # returns ranks (smallest to largest)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="vector-arithmetic">Vector Arithmetic</h2>
 <p>In R, arithmetic operations on vectors occur element-wise.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># The name of the state with the maximum population is found by doing the following</span></span><br><span class="line">&gt; murders$state[which.max(murders$population)]</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;California&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># how to obtain the murder rate</span></span><br><span class="line">&gt; murder_rate &lt;- murders$total / murders$population * <span class="number">100000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ordering the states by murder rate, in decreasing order</span></span><br><span class="line">&gt; murders$state[order(murder_rate, decreasing=<span class="literal">TRUE</span>)]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># The name of the state with the maximum population is found by doing the following
+&gt; murders$state[which.max(murders$population)]
+[1] &quot;California&quot;
+
+# how to obtain the murder rate
+&gt; murder_rate &lt;- murders$total &#x2F; murders$population * 100000
+
+# ordering the states by murder rate, in decreasing order
+&gt; murders$state[order(murder_rate, decreasing&#x3D;TRUE)]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-05
+                    2021-04-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    22 Min
                 </div>
                 
 
@@ -501,153 +501,57 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="aligning-sequences">Aligning sequences</h1>
-<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210218%5F100244%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0Vkazl3OWRfbXR4UGljMlk1MkJMbnRNQjNZZzZabEdhWlNldnRaNjlTNjE2MEE_cnRpbWU9WDV1eVYwTFkyRWc">Video 7:07 ~ end</a></p>
+<p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210218%5F100244%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0Vkazl3OWRfbXR4UGljMlk1MkJMbnRNQjNZZzZabEdhWlNldnRaNjlTNjE2MEE_cnRpbWU9WDV1eVYwTFkyRWc">Video 7:07 ~ end</a> + <a target="_blank" rel="noopener" href="https://owncloud.ulb.ac.be/index.php/s/75k0qKi3NFqam0E?path=%2F#pdfviewer">Slides</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.csie.ntu.edu.tw/~kmchao/seq07fall/alignment.pdf">NTU: A Class Note on Sequence Alignment</a></p>
+<p><a target="_blank" rel="noopener" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-096-algorithms-for-computational-biology-spring-2005/lecture-notes/lecture5_newest.pdf">MIT: Sequence Alignment and Dynamic Programming</a></p>
+<p><a target="_blank" rel="noopener" href="http://sites.fas.harvard.edu/~mcb211/lectures/2004-12-08_Lecture_Notes.pdf">Harvard MCB 211: Sequence Alignment</a></p>
+<p>In nature, even a single amino acid sequence contains all the information necessary to determine the fold of the protein. However, the folding process is still mysterious to us, and some valuable information can be revealed by sequence comparison. Take a look at the following sequence: <span class="math display">\[
+THETR\ UTHIS\ MOREI\ MPORT\ ANTTH\ ANTHE\ FACTS
+\]</span> What did you see in the above sequence? By comparing it with the words in the dictionary, we find the tokens “FACTS,” “IMPORTANT,” “IS,” “MORE,” “THAN,” ”THE,” and “TRUTH.” Then we figure out the above is the sentence “The truth is more important than the facts.”</p>
+<h2 id="definitions-3140---3443">Definitions 31:40 - 34:43</h2>
+<ul>
+<li><p><strong>Identity</strong>: The level of identity is the fraction of residues which are identical between two sequences</p>
+<blockquote>
+<p>The identity between two randomly generated sequences is never 0%</p>
+</blockquote></li>
+<li><p><strong>Similarity</strong>: Two residues are similar when their substitution has no effect on the functionality of the protein. The level of similarity is the fraction of residues that are similar.</p>
+<p><img src="/images/ADVMB/1914351.png" /></p></li>
+<li><p><strong>Homology</strong>: Two sequences are homologous when the similarity between them is derived from a common ancestor</p>
+<blockquote>
+<p>Homology is a binary relationship</p>
+</blockquote></li>
+</ul>
 <h2 id="why-alignment-2830">Why alignment? 28:30</h2>
+<p>To know whether these sequences are <strong>homologs</strong>, a sequence comparison has to be performed.</p>
 <p><img src="/images/ADVMB/191435.png" /></p>
-<h2 id="the-problem-3002">The problem 30:02</h2>
+<blockquote>
+<p>Even though we have not decoded the DNA and protein languages, the emerging flood of sequence data has provided us with a golden opportunity of investigating the evolution and function of biomolecular sequences.</p>
+<p>Sequence comparison plays a major role in this line of research, and thus becomes the most basic tool of bioinformatics.</p>
+</blockquote>
+<h2 id="the-gaps-11804---11924">The gaps 1:18:04 - 1:19:24</h2>
+<p>Homologous sequences often have a different length</p>
+<p><img src="/images/ADVMB/1984350.png" /></p>
+<p>If one wants to align these to sequences in an optimal manner, gaps need to be introduced.</p>
+<p>One often makes the difference between the start of a gap （penalty of -10 and -15） or the extension of existing gaps （penalty of -0.5 or -2 ）.</p>
+<h3 id="challenge-3002">Challenge 30:02</h3>
+<p><strong>Comparing two DNA sequences</strong>: given two possibly related strings S1 and S2, What is the longest common subsequence?</p>
+<p><img src="/images/ADVMB/19143500.png" /></p>
 <p>Comparison may be difficult due to</p>
+<ul>
+<li>substitutions</li>
+<li>insertions or deletions <code>indels</code></li>
+</ul>
 <p><img src="/images/ADVMB/1914350.png" /></p>
-<p><strong>Look for the alignment that produces the <u>maximum similarity</u></strong></p>
-<h2 id="some-definitions-3140">Some definitions 31:40</h2>
-<p><strong>Identity</strong></p>
-<p>The level of identity is the fraction of residues which are identical between two sequences</p>
-<ul>
-<li>The identity between two randomly generated sequences is never 0%</li>
-</ul>
-<p><strong>Similarity</strong></p>
-<p>Two residues are similar when their substitution has no effect on the functionality of the protein. The level of similarity is the fraction of residues that are similar</p>
-<p><img src="/images/ADVMB/1914351.png" /></p>
-<p><strong>Homology</strong></p>
-<p>Two sequences are homologous when the similarity between them is derived from a common ancestor</p>
-<ul>
-<li>Homology is a binary relationship</li>
-</ul>
-<h2 id="why-the-maximum-similarity-3444">Why the maximum similarity? 34:44</h2>
-<p>If we have two genes or proteins that come from the same common ancestor, we want the <strong>amino acids, which are part of this common ancestor, to align properly</strong></p>
+<p>Goal: Look for the alignment that produces the <strong><u>maximum similarity</u></strong>.</p>
+<h3 id="why-the-maximum-similarity-3444">Why the maximum similarity? 34:44</h3>
+<p>If we have two genes or proteins that come from the same common ancestor, we want the <strong>amino acids</strong> to align properly.</p>
 <figure>
 <img src="/images/ADVMB/1914352.png" alt="" /><figcaption>The best way to find this mapping is to look for the maximum similarity between sequences</figcaption>
 </figure>
-<h2 id="attention-3819">Attention !!! 38:19</h2>
-<p>Homology implies a common ancestor <strong>and at the same time it may mean that both sequences have a similar structure or function</strong></p>
-<p>But this is not always the case:</p>
-<p><em>Mutation may result in sequences with different functions or some protein sequences may be completely different, but still perform the same function or two sequences may be similar but have no common ancestor</em></p>
-<p>One always has to be careful and look for additional information to make sure the claim sticks</p>
-<figure>
-<img src="/images/ADVMB/1914353.png" alt="" /><figcaption>Convergent evolution</figcaption>
-</figure>
-<p>Since the common ancestor is often not known, <strong>an alignment is just an hypothesis about a relationship between two sequences</strong></p>
-<p><strong><u>A quantitative method is required that takes into account the changes accepted by evolution</u></strong></p>
-<h2 id="a-quantitative-score-4612">A quantitative score 46:12</h2>
-<p>The idea is that a quantitative method provides a higher score to the alignment of sequences that are indeed derived from a common ancestor than between sequences that are related by chance</p>
-<p>The best score is for the exact alignment = <strong>Optimal alignment</strong></p>
-<p>There is currently no quantitative method that uses a complete and exact model of evolution</p>
-<p>The best score is therefore not necessarily the correct alignment (in terms of a common ancestor)</p>
-<ul>
-<li>These methods are used to look for similar (MAX) or different (MIN) sequences</li>
-</ul>
-<h2 id="example-4729">Example 47:29</h2>
-<p><img src="/images/ADVMB/1914354.png" /></p>
-<h2 id="basic-idea-4923">Basic idea 49:23</h2>
-<p>There are two models that can explain the similarities and differences between two sequences</p>
-<ul>
-<li>a <strong>random model</strong></li>
-<li>a <strong>non-random model</strong> (<strong>evolutionary</strong>)</li>
-</ul>
-<p>When the <strong>probability of a match</strong> between the sequences is determined, one can decide which of the two models is more likely</p>
-<h3 id="random-model-5009">Random model 50:09</h3>
-<p>In this model there are <strong>no constraints on the sequence composition</strong></p>
-<p>Meaning that the choice of each residue is independent from the other residues in the sequence</p>
-<ul>
-<li>The probability depends on the <strong>frequency</strong> of every amino acid in the population (= all characters in the sequences)</li>
-<li>When the frequency of the amino acids a is p<sub>a</sub>, the probability of having a at that position is also p<sub>a</sub></li>
-</ul>
-<p>When two residues a and b are aligned, the <strong>probability of the match is p<sub>a</sub> p<sub>b</sub></strong></p>
-<h3 id="non-random-or-evolutionary-mode-5150">Non-random (or evolutionary) mode 51:50</h3>
-<p>This model proposes that the sequences <strong>are related because of common descent</strong></p>
-<ul>
-<li>This implies that there are constraints on the composition of the sequence</li>
-</ul>
-<p>The probability of a match depends on the residue at the same position in the common ancestor</p>
-<ul>
-<li>This probability is q<sub>a,b</sub>
-<ul>
-<li>The actual value of q<sub>a,b</sub> depends on the evolutionary mechanism</li>
-</ul></li>
-</ul>
-<p>When two residues a and b are aligned, the <strong>probability of a match</strong> is <strong>q<sub>a,b</sub></strong> since the residues are correlated</p>
-<h2 id="basic-idea-5312">Basic idea 53:12</h2>
-<p>The <strong>odds ratio</strong> q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> shows which model is more likely</p>
-<ul>
-<li>When q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> &gt;1 the evolutionary model explains better the alignment</li>
-</ul>
-<p>The model has to explain the complete alignment</p>
-<ul>
-<li>All odds ratio’s need to be combined</li>
-</ul>
-<p><img src="/images/ADVMB/1914355.png" /></p>
-<p>It is often easier to use sums instead of products</p>
-<p><img src="/images/ADVMB/1914356.png" /></p>
-<p>The <strong>log-odds ratio</strong> is the value that is written in a substitution matrix</p>
-<p><img src="/images/ADVMB/1914357.png" /></p>
-<h2 id="substitution-matrices-10313">Substitution matrices 1:03:13</h2>
-<p>Two methods have been used to determine the values of all S<sub>a,b</sub></p>
-<ul>
-<li>All PAM matrices were derived from one manually constructed matrix (PAM1)
-<ul>
-<li>71 groups of manually aligned protein sequences (no gaps) were used and in each group there was an identity of at least 85% between each sequence</li>
-</ul></li>
-</ul>
-<p><img src="/images/ADVMB/1914358.png" /></p>
-<ul>
-<li>Every BLOSUM matrix was constructed from a clustered set of highly conserved blocks of amino acids
-<ul>
-<li>The clustering was also based on identity, meaning that each sequence in each cluster has at least x% identity</li>
-<li>In case of BLOSUM62, this is 62% identity</li>
-</ul></li>
-</ul>
-<p><img src="/images/ADVMB/1914359.png" /></p>
-<h3 id="pam-matrices-10523">PAM matrices 1:05:23</h3>
-<p><img src="/images/ADVMB/1924350.png" /></p>
-<p>The idea was to create a <strong>similarity distance measure</strong></p>
-<p><strong><u>Which requires the definition of a unit of distance</u></strong></p>
-<ul>
-<li><p>PAM1 = 1 mutation accepted for 100 amino acids</p></li>
-<li><p>PAM120 = 120 mutations accepted for 100 amino acids</p>
-<p>(multiple mutations at same position possible!)</p></li>
-</ul>
-<h4 id="substitution-matrices">Substitution matrices</h4>
-<p>The PAM matrices, build by Margaret Dayhoff, provide a similarity score between amino acids</p>
-<p><img src="/images/ADVMB/1924351.png" /></p>
-<p>When two sequence have an identity of 40%, which matrix should we use ?</p>
-<p><img src="/images/ADVMB/1924352.png" /></p>
-<p>BLOSUM matrices were created by using blocks of conserved amino acids in clusters of sequences</p>
-<figure>
-<img src="/images/ADVMB/1924353.png" alt="" /><figcaption>The 62 is the percentage of identity between the sequences used that were used to determine the substitutions values</figcaption>
-</figure>
-<h3 id="analysis-of-blosum62-11222">Analysis of BLOSUM62 1:12:22</h3>
-<figure>
-<img src="/images/ADVMB/1924354.png" alt="" /><figcaption>The substitutions within families of amino acids are often favourable</figcaption>
-</figure>
-<p><img src="/images/ADVMB/1924355.png" /></p>
-<p><img src="/images/ADVMB/1924356.png" /></p>
-<p><img src="/images/ADVMB/1924357.png" /></p>
-<h4 id="substitution-matrices-1">Substitution matrices</h4>
-<p>Which matrix should be used ????</p>
-<p><img src="/images/ADVMB/1924358.png" /></p>
-<p>To evaluate similar sequences one needs matrices that give high values voor identical matches : e.g. BLOSUM 80 or PAM50</p>
-<p>If one is not sure it’s good to start with BLOSUM62 and PAM120</p>
-<p><strong>The matrix choice is biased by the percentage of conservation the biologist expects to find between the sequences</strong></p>
-<h3 id="which-pam-or-blosum-11728">Which PAM or BLOSUM? 1:17:28</h3>
-<p>Using relative entropy (H) one can verify whether the matrix is still capable of making the distinction between the evolutionary and the random model</p>
-<p><img src="/images/ADVMB/1924359.png" /></p>
-<h2 id="the-gaps-11804">The gaps 1:18:04</h2>
-<p>Homologous sequences often have a different length</p>
-<p><img src="/images/ADVMB/1984350.png" /></p>
-<p>If one wants to align these to sequences in an optimal manner, gaps need to be introduced</p>
-<p>One often makes the difference between the start of a gap (penalty of -10 and -15) or the extension of existing gaps (penalty of -0.5 or -2)</p>
 <h2 id="different-kinds-of-alignment-11925">Different kinds of alignment 1:19:25</h2>
 <p>There are two big classes of alignment methods</p>
-<ul>
+<ol type="1">
 <li><strong>Global alignment</strong> : The alignment between the complete sequences
 <ul>
 <li>Interesting to compare two related sequences</li>
@@ -656,38 +560,487 @@
 <ul>
 <li>To detect for instance identical domains or motives</li>
 </ul></li>
-</ul>
-<h2 id="global-alignment-12021">Global alignment 1:20:21</h2>
-<p>Dynamic programming to align two sequences by Saul Needleman and Christian Wunsch in 1970</p>
+</ol>
+<h3 id="global-alignment-12021"><a target="_blank" rel="noopener" href="https://www.cs.princeton.edu/~mona/Lecture/align1.pdf">Global alignment</a> 1:20:21</h3>
+<p>Dynamic programming to align two sequences by Saul Needleman and Christian Wunsch in 1970.</p>
+<p>Dynamic programming has become the method of choice for “rigorous” alignment of DNA and protein sequences. For a number of useful alignment-scoring schemes, this method is guaranteed to produce an alignment of two given sequences having the highest possible score.</p>
+<p>Given two sequences A = （a<sub>1</sub>, a<sub>2</sub>, . . . , a<sub>M</sub>）, and B = （b<sub>1</sub>, b<sub>2</sub>, . . . , b<sub>N</sub>）, an <em>alignment</em> of A and B is obtained by introducing dashes into the two sequences such that the lengths of the two resulting sequences are identical and no column contains two dashes. Let Σ denote the input symbol alphabet.</p>
+<p>To simplify the presentation, we employ a very simple scoring scheme as follows. A score <code>w(a, b)</code> is defined for each （a, b） ∈ Σ×Σ. Each gap symbol is penalized by a constant g. The score of an alignment is the sum of w scores of all columns with no dashes minus the penalties of the gaps.</p>
+<p>Here is an example of an alignment’s score. An optimal alignment is an alignment that maximizes the score. By global alignment we mean that both sequences are aligned globally, i.e., from their first symbols to their last.</p>
+<figure>
+<img src="/images/ADVMB/19843511.png" alt="" /><figcaption>We assume the following simple scoring scheme: match = 8, mismatch = −5, and g = 3. That is, w（a, b） = 8 if a and b are the same; w（a, b） = −5 if a and b are different; and the gap penalty for each gap symbol is 3.</figcaption>
+</figure>
+<p>It is quite helpful to recast the problem of aligning two sequences as an equivalent problem of finding a maximum-score path in a certain graph.</p>
+<p><img src="/images/ADVMB/19843512.png" /></p>
+<p>Let S（i, j）denote the score of an optimal alignment between （a<sub>1</sub>, a<sub>2</sub>, . . . , a<sub>M</sub>）, and （b<sub>1</sub>, b<sub>2</sub>, . . . , b<sub>N</sub>）. With proper initializations, S（i, j）can be computed by the following recurrence: <span class="math display">\[
+S(i,j) = max \left\{
+\begin{aligned}
+S(i-1,j)-g \\
+S(i,j-1) -g\\
+S(i-1,j-1) + w(a_i,b_j)
+\end{aligned}
+\right.
+\]</span> The figure below explains the recurrence by showing that there are three possible ways entering into the grid point（i, j）, and we take the maximum of their path weights. The value S（M,N） is the score of an optimal alignment between sequences A and B.</p>
+<figure>
+<img src="/images/ADVMB/19843513.png" alt="" /><figcaption>There are three ways entering the point （i, j）. In this simple scoring scheme, w(ai , −) = w(−, bj ) = −g.</figcaption>
+</figure>
+<p>Illustrates the tabular computation for S（i, j）:</p>
+<figure>
+<img src="/images/ADVMB/19843514.png" alt="" /><figcaption>The tabular computation. The maximum alignment score is 14. The shaded area is the trace of backtracking.</figcaption>
+</figure>
+<p>Gives an optimal alignment that is corresponding to the backtracking:</p>
+<figure>
+<img src="/images/ADVMB/19843515.png" alt="" /><figcaption>An optimal （global） alignment</figcaption>
+</figure>
 <p><img src="/images/ADVMB/1984351.png" /></p>
 <p><img src="/images/ADVMB/1984352.png" /></p>
-<p>The semiglobal alignment</p>
-<p>Make the penalties on <em>S(i,0)</em> en <em>S(0,j)</em> equal to <em>0</em>. in this way we remove the obligation that the sequences have to align at the start and the end of the sequences</p>
+<h4 id="the-semiglobal-alignment">The semiglobal alignment</h4>
+<p>Make the penalties on S（i, 0） and S（0, j） equal to 0. in this way we remove the obligation that the sequences have to align at the start and the end of the sequences：</p>
 <figure>
 <img src="/images/ADVMB/1984353.png" alt="" /><figcaption>The backtracking starts at the position in the last row that has the highest score</figcaption>
 </figure>
-<p>All the previous methods used a linear penalty for the gaps in the alignment</p>
-<p><em>g(n<sub>gap</sub>) = -n<sub>gap</sub>E</em> linear gap penalty</p>
-<p>As mentioned earlier, we an differentiate between starting a gap and extending one</p>
-<p><em>g(n<sub>gap</sub>) = -I-(n<sub>gap</sub>-1) E</em> Affine gap penalty</p>
-<p><strong>How does the DP algorithm change?</strong></p>
+<p>All the previous methods used a linear penalty for the gaps in the alignment <span class="math display">\[
+g(n_{gap}) = -n_{gap}E\ \ linear\ gap\ penalty
+\]</span> As mentioned earlier, we an differentiate between starting a gap and extending one <span class="math display">\[
+*g(n_{gap}) = -I-(n_{gap}-1) E\  \ Affine\ gap\ penalty
+\]</span> <strong>How does the DP algorithm change?</strong></p>
 <p>Do we open or extend a gap?</p>
 <p><img src="/images/ADVMB/1984354.png" /></p>
-<p>The algorithm can be adapted so that we obtain a solution in O(mn)</p>
+<p>The algorithm can be adapted so that we obtain a solution in <code>O(mn)</code></p>
 <p><img src="/images/ADVMB/1984355.png" /></p>
-<h2 id="an-example-14225">An example 1:42:25</h2>
+<h4 id="an-example-14225">An example 1:42:25</h4>
 <p><img src="/images/ADVMB/1984356.png" /></p>
 <p><img src="/images/ADVMB/1984358.png" /></p>
 <p><img src="/images/ADVMB/1984359.png" /></p>
-<h2 id="local-alignment-14611">Local alignment 1:46:11</h2>
+<h3 id="local-alignment-14611"><a target="_blank" rel="noopener" href="https://www.cs.princeton.edu/~mona/Lecture/align2.pdf">Local alignment</a> 1:46:11</h3>
+<p>Sometimes we only want to find the subsequences that are similar between two sequences.</p>
+<p>Smith and Waterman have proposed a method which resembles strongly the previous system.</p>
 <p><img src="/images/ADVMB/1984550.png" /></p>
-<p><img src="/images/ADVMB/1984551.png" /></p>
+<p>The recurrence relation for the Smith-Waterman algorithm: <span class="math display">\[
+S(i,j) = max \left\{
+\begin{aligned}
+S(i-1,j)+t(i,j) \\
+[jS(i-n_{gap1},j)+g(n_{gap1})]\ 1≤n_{gap1}≤i\\
+[jS(i,j-n_{gap2})+g(n_{gap2})]\ 1≤n_{gap2}≤j
+\end{aligned}
+\right.
+\]</span> When the score of an alignment becomes negative it is replaced by zero and the values of S（i, 0） and S（0, j） are also 0 as in the semiglobal alignment.</p>
+<blockquote>
+<p>The backtracking starts in this case a the highest value in the matrix</p>
+</blockquote>
 <p><img src="/images/ADVMB/1984552.png" /></p>
-<p>Sub-optimal alignments provide information concerning other repetitions common between the two sequences(for instance in case of multiple similar domains)</p>
+<p>Sub-optimal alignments provide information concerning other repetitions common between the two sequences （for instance in case of multiple similar domains）.</p>
 <p><img src="/images/ADVMB/1984553.png" /></p>
+<blockquote>
+<p>When the highest scoring subsequence is found, all values in the DP matrix for this sequence are set to zero</p>
+<p>The elements in the neighbourhood are recalculated using this new information</p>
+<p>Only the elements to the right and below the sequence are affected</p>
+<p>When an element does not change, the recalculation is stopped</p>
+</blockquote>
 <figure>
 <img src="/images/ADVMB/1984554.png" alt="" /><figcaption>Example using LALIGN</figcaption>
 </figure>
+<h2 id="interference-of-mutation-3819">Interference of mutation 38:19</h2>
+<p>Homology implies a common ancestor and at the same time it may mean that both sequences have a similar structure or function.</p>
+<p><strong>But</strong> this is not always the case: <strong>Mutation</strong> may result in sequences with different functions or some protein sequences may be completely different, but still perform the same function or two sequences <u>may be similar but have <strong>no</strong> common ancestor</u>.</p>
+<blockquote>
+<p>One always has to be careful and look for additional information to make sure the claim sticks.</p>
+</blockquote>
+<figure>
+<img src="/images/ADVMB/1914353.png" alt="" /><figcaption>Convergent evolution</figcaption>
+</figure>
+<p>Since the common ancestor is often not known, an alignment is just an <strong>hypothesis</strong> about a relationship between two sequences.</p>
+<h3 id="method-a-quantitative-score-4612">Method: A quantitative score 46:12</h3>
+<p>A <strong>quantitative method</strong> is required that takes into account the changes accepted by evolution.</p>
+<p>The idea is that a quantitative method provides a higher score to the alignment of sequences that are indeed derived from a common ancestor than between sequences that are related by chance.</p>
+<p>However, there is currently no quantitative method that uses a complete and exact model of evolution. Therefore, the best score is not necessarily the correct alignment （in terms of a common ancestor）.</p>
+<blockquote>
+<p>The best score is for the exact alignment = <strong>Optimal alignment</strong></p>
+<p>These methods are used to look for similar （MAX） or different （MIN）sequences.</p>
+</blockquote>
+<h3 id="example-4729">Example 47:29</h3>
+<p><img src="/images/ADVMB/1914354.png" /></p>
+<h2 id="score-models-4923">Score models 49:23</h2>
+<p>There are two models that can explain the similarities and differences between two sequences</p>
+<ol type="1">
+<li>a <strong>random model</strong></li>
+<li>a <strong>non-random model</strong> （<strong>evolutionary</strong>）</li>
+</ol>
+<p>When the <strong>probability of a match</strong> between the sequences is determined, one can decide which of the two models is more likely.</p>
+<h3 id="random-model-5009">Random model 50:09</h3>
+<p>In this model there are <strong>no</strong> constraints on the sequence composition. Meaning that the choice of each residue is <strong>independent</strong> from the other residues in the sequence</p>
+<p>The probability depends on the <strong>frequency</strong> of every amino acid in the population （= all characters in the sequences）.</p>
+<ul>
+<li>When the frequency of the amino acids a is p<sub>a</sub>, the probability of having a at that position is also p<sub>a</sub></li>
+<li>When two residues a and b are aligned, the <strong>probability</strong> of the match is <strong>p<sub>a</sub> p<sub>b</sub></strong></li>
+</ul>
+<h3 id="non-random-or-evolutionary-model-5150">Non-random （or evolutionary） model 51:50</h3>
+<p>This model proposes that the sequences are related because of <strong>common descent</strong>, this implies that there are <strong>constraints</strong> on the composition of the sequence</p>
+<p>The probability of a match depends on the <strong>residue at the same position</strong> in the common ancestor.</p>
+<ul>
+<li>The probability is q<sub>a,b</sub>, the actual value of q<sub>a,b</sub> depends on the evolutionary mechanism</li>
+<li>When two residues a and b are aligned, the <strong>probability of a match</strong> is <strong>q<sub>a,b</sub></strong> since the residues are correlated</li>
+</ul>
+<h3 id="comparation-5312">Comparation 53:12</h3>
+<p>The <strong>odds ratio</strong> q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> shows which model is more likely</p>
+<ul>
+<li>When q<sub>a,b</sub>/p<sub>a</sub>p<sub>b</sub> &gt;1 the evolutionary model explains better the alignment</li>
+</ul>
+<p>The model has to explain the complete alignment</p>
+<ul>
+<li><p>All odds ratio’s need to be combined <span class="math display">\[
+\prod_{u}(\frac{q_{a,b}}{p_aP_b})_u
+\]</span></p></li>
+<li><p>It is often easier to use sums instead of products: <span class="math display">\[
+\sum_u\log(\frac{q_{a,b}}{p_aP_b})_u
+\]</span></p></li>
+</ul>
+<blockquote>
+<p>u is the position in the alignment</p>
+</blockquote>
+<p><img src="/images/ADVMB/1914356.png" /></p>
+<p>The <strong>log-odds ratio</strong> is the value that is written in a substitution matrix: <span class="math display">\[
+S=\sum_u(S_{a,b})_u
+\]</span></p>
+<h2 id="multiple-substitutions">Multiple substitutions</h2>
+<p>Amino acids, nucleotides or any other evolutionary character are replaced by others at some rate.</p>
+<p>For example, imagine an evolutionary sequence with three possible states, A, B and C. If substitution model is time-reversible, there will be three transition rates, A&lt;&gt;B, B&lt;&gt;C and A&lt;&gt;C.</p>
+<p>Suppose the rates are 1, 1 and 0 respectively in units of substitution per 100 characters per unit of time. After one unit of time, in a 300 character long sequence originally composed equally of As, Bs and Cs, we expect there to have been one A to B substitution and one B to C substitution. If we are comparing two homologous sequences in living organisms, because one unit of time has passed for both sequences, we would expect two A to B and two B to C substitutions between the present day sequences.</p>
+<p>No matter how long we run this process for, there will never be a <em>direct</em> replacement of A by C. There will also never be an A to C substitution under a so-called infinite sites model, where no more than one substitution can occur at a single site.</p>
+<p>However since A to B and B to C substitutions are common, under a finite sites model eventually B will be replaced by C at a site where A was previously replaced by B. This indirect replacement of A by C (or equivalently in a time-reversible model, C by A) becomes more likely the longer the time period separating the homologous sequences.</p>
+<p>We simulated sequence evolution based on the the above scenario, running the simulation for 10 units of time. From this substitution I observed the following counts for each site pattern:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">A</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">B</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">91</td>
+</tr>
+</tbody>
+</table>
+<p>Within this relatively short duration, it doesn’t appear as if any A&lt;&gt;C substitutions have occured. However when we reran the simulation for 100 units of time:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">A</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">B</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">C</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">44</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, many “A” characters have been replaced with “C” and <em>vice versa</em>. More generally, under a finite sites model multiple substitutions cause the distribution of site pattern counts to become much flatter beyond simply increasing the proportion of off-diagonal relative to diagonal counts.</p>
+<p>The PAM and BLOSUM score matrices account for <strong>multiple substitutions</strong> in radically different ways.</p>
+<h3 id="substitution-matrices-10313">Substitution matrices 1:03:13</h3>
+<p>Two methods have been used to determine the values of all S<sub>a,b</sub>.</p>
+<ol type="1">
+<li><p>PAM <code>Modeled Change in Protein Sequences</code>:</p>
+<ul>
+<li>All PAM matrices were derived from <u>one manually constructed matrix</u> (PAM1).</li>
+<li>71 groups of manually aligned protein sequences (no gaps) were used and in each group there was an identity of at least 85% between each sequence</li>
+</ul>
+<p><img src="/images/ADVMB/1914358.png" /></p></li>
+<li><p>BLOSUM <code>Experimentally Derived Matrix</code>:</p></li>
+</ol>
+<ul>
+<li>Every BLOSUM matrix was constructed from a <u>clustered set of highly conserved blocks</u> of amino acids</li>
+<li>The clustering was also based on identity, meaning that each sequence in each cluster has at least x% identity</li>
+<li>In case of BLOSUM62, this is 62% identity</li>
+</ul>
+<p><img src="/images/ADVMB/1914359.png" /></p>
+<h4 id="pam-matrices-10523">PAM matrices 1:05:23</h4>
+<p>The name PAM comes from “<u>point accepted mutation</u>”, and refers to the replacement of a single amino acid in a protein with a different amino acid.</p>
+<p>These mutations were identified by comparing highly similar sequences with at least 85% identity, and it is assumed that any observed substitutions were the result of a single mutation between the ancestral sequence and one of the present day sequences.</p>
+<figure>
+<img src="/images/ADVMB/1924350.png" alt="" /><figcaption>The idea was to create a similarity distance measure</figcaption>
+</figure>
+<p>The basic 1-PAM reflects an amount of evolution producing on an average one mutation per hundred amino acids. Two sequences S1 and S2 are at evolutionary distance of one PAM, if S1 has converted to S2 with an average of one accepted point-mutation event per 100 amino acids.</p>
+<ul>
+<li><p>PAM1 = unit of evolutionary divergence in which 1% of the amino acids have been changed.</p></li>
+<li><p>PAM120 = 120 mutations accepted for 100 amino acids</p>
+<blockquote>
+<p>The PAM1 matrix multiplied against itself 120 times.</p>
+<p>multiple mutations at same position possible!</p>
+<p>PAM250 probability matrix, describing the replacement probabilities given 250 PAM units of time, was derived by raising the PAM1 probability matrix to the power 250 （all elements were scaled by 100 for legibility）.</p>
+<p>The replacement probabilities derived using this exponentiation correctly account for multiple substitutions. Not only are the off-diagonal probabilities proportionally larger as you would expect for a longer time duration, but they are flatter. For example, the probability of a valine （V） to isoleucine（I） replacement is 33 × larger than a V to histadine （H)）replacement in the PAM1 matrix, but only 4.5× larger in the PAM250 matrix.</p>
+<p>Score matrices can then be calculated from the probability matrices and observed base frequencies.</p>
+</blockquote></li>
+</ul>
+<p><img src="/images/ADVMB/1924351.png" /></p>
+<p><strong>Question</strong>: when two sequence have an identity of 40%, which matrix should we use ?</p>
+<p><img src="/images/ADVMB/1924352.png" /></p>
+<h4 id="blosum-matrices">BLOSUM matrices</h4>
+<p>The BLOSUM matrices, developed by Steven and Jorja Henikoff and published in 1992, takes a very different approach. Whereas PAM is implicitly applying a stationary finite sites model of evolution using matrix exponentiation, the effect of multiple substitutions is dealt with implicitly in BLOSUM by constructing <strong>different score matrices for different time scales</strong>.</p>
+<p>BLOSUM matrices were created by using blocks of conserved amino acids in clusters of sequences nd then applying statistical methods to the data to obtain the similarity score.</p>
+<blockquote>
+<p>Initially a simple unit matrix is used, where the score is 1 for a match and 0 for a mismatch. Then, from the sets of proteins from public databases that have been grouped into related families, some blocks of sequences （ungapped sequences） that appear to have been conserved are found .</p>
+</blockquote>
+<p>Thus this is not dependent on any specific scoring scheme as the starting point is the unit matrix.</p>
+<p>Let us consider a very simple example: Consider only the alphabet A, B, C and only one block consisting of 6 sequences.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Seq1</th>
+<th>B</th>
+<th>A</th>
+<th>B</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Seq2</td>
+<td>A</td>
+<td>A</td>
+<td>A</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td>Seq3</td>
+<td>A</td>
+<td>A</td>
+<td>C</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>Seq4</td>
+<td>A</td>
+<td>A</td>
+<td>B</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>Seq5</td>
+<td>A</td>
+<td>A</td>
+<td>C</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>Seq6</td>
+<td>A</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<p>Using this data block, the number of occurrences of each amino acid and also the number of pairs of amino acids aligned in the same column are counted. Here we see that A occurs 14 times, B occurs 4 times and C occurs 6 times out of a total of 24. Counting the total number of aligned pairs (vertically - column wise), there are 60 aligned pairs. The frequency of the pair AA is the greatest and that of BB the leasst.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Pair</th>
+<th style="text-align: center;">Frequency of occurrenc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">AA</td>
+<td style="text-align: center;">26</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">AB</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">AC</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">BB</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BC</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CC</td>
+<td style="text-align: center;">7</td>
+</tr>
+</tbody>
+</table>
+<p>Now these observed frequencies are compared to the expected number of times an amino acid pair is aligned if a random collection of amino acids is observed. If two sequences are chosen at random with the probability of occurrence of A as 14/24, B as 4/24 and C as 6/24 and then aligned, then the probability of an A aligning with another A is 14/24 × 14/24. Similarly the probability of a B aligning with an A is 2 × 14/24 × 4/24. （There is a factor of 2 as the alignment could be A from the first sequence and B from the second or it could be B from the first sequence and A from the second.）</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Pair</th>
+<th style="text-align: center;">Observed （O）</th>
+<th style="text-align: center;">Expected 9E）</th>
+<th style="text-align: center;">2log<sub>2</sub>（O/E）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">AA</td>
+<td style="text-align: center;">26/60</td>
+<td style="text-align: center;">196/576</td>
+<td style="text-align: center;">0.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">AB</td>
+<td style="text-align: center;">8/60</td>
+<td style="text-align: center;">112/576</td>
+<td style="text-align: center;">-1.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">AC</td>
+<td style="text-align: center;">10/60</td>
+<td style="text-align: center;">168/576</td>
+<td style="text-align: center;">-1.61</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">BB</td>
+<td style="text-align: center;">3/60</td>
+<td style="text-align: center;">16/576</td>
+<td style="text-align: center;">1.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BC</td>
+<td style="text-align: center;">6/60</td>
+<td style="text-align: center;">48/576</td>
+<td style="text-align: center;">0.53</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CC</td>
+<td style="text-align: center;">7/60</td>
+<td style="text-align: center;">36/576</td>
+<td style="text-align: center;">1.80</td>
+</tr>
+</tbody>
+</table>
+<p>The last column gives the ratio of the occurrence each amino acid combination in the observed data to the expected value of occurrence of the pair. This is called the <em>log odd ratio</em>. It is rounded off and used in the substitution matrix. The substitution matrix for this data looks as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: left;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">2</td>
+</tr>
+</tbody>
+</table>
+<p>This method gives a positive score to those pairs that are more likely than chance to occur and negative scores to those pairs that are less likely.</p>
+<figure>
+<img src="/images/ADVMB/1924353.png" alt="" /><figcaption>The 62 is the percentage of identity between the sequences used that were used to determine the substitutions valu es</figcaption>
+</figure>
+<p>One of the shortcomings of this method is that it overlooks an important factor that could bias the results. If there are many closely related proteins in one block and a few others that are less closely related, then the substitution matrix will be biased toward the closely related proteins.</p>
+<p>To reduce this bias, grouping of closely related proteins in one block is done and their contributions are normalized.</p>
+<p>In the first stage of building the BLOSUM matrix, while choosing the blocks, amino acid sequences which are more than x% identical are grouped or clustered together. Thus the contributions of multiple entries of closely related sequences is reduced, as their contribution is weighted to sum to one. The matrix built from blocks with no more than x% of similarity is called BLOSUM X, for example if the 0.85 similarity criterion is adopted, the final matrix is called BLOSUM 85.</p>
+<p>A further refinement to this is that after obtaining the substitution matrix, it is used instead of the conservative “unit” matrix to construct the set of blocks. This process can be repeated again and it is from this third set of blocks that the final BLOSUM matrices are defined.</p>
+<h5 id="analysis-of-blosum62-11222">Analysis of BLOSUM62 1:12:22</h5>
+<figure>
+<img src="/images/ADVMB/1924354.png" alt="" /><figcaption>The substitutions within families of amino acids are often favourable</figcaption>
+</figure>
+<p><img src="/images/ADVMB/1924355.png" /></p>
+<p><img src="/images/ADVMB/1924356.png" /></p>
+<p><img src="/images/ADVMB/1924357.png" /></p>
+<h4 id="comparation">Comparation</h4>
+<p>Although they take different routes, the final BLOSUM and PAM score matrices are actually pretty similar. According to Henikoff and Henikoff, the following PAM and BLOSUM matrices are comparible:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">PAM</th>
+<th style="text-align: right;">BLOSUM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">PAM250</td>
+<td style="text-align: right;">BLOSUM45</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">PAM160</td>
+<td style="text-align: right;">BLOSUM62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">PAM120</td>
+<td style="text-align: right;">BLOSUM80</td>
+</tr>
+</tbody>
+</table>
+<p>The main difference between the PAM and BLOSUM matrices is that PAM is derived from global alignments of proteins, while BLOSUM comes from alignments of shorter sequences - blocks of sequences that match each other at some defined level of similarity. The BLOSUM method incorporates much more data into its matrices and is hence supposed to be more reliable.</p>
+<p>Which matrix should be used ????</p>
+<ul>
+<li>The PAM number underlines the evolutionary divergence between sequences</li>
+<li>The BLOSUM number represents the percentage if identity between the sequences in the same group</li>
+</ul>
+<p>NCBI recommendations for choosing BLOSUM or PAM are:</p>
+<ul>
+<li>Default matrix to use is BLOSUM62 or PAM120</li>
+<li>For long and distantly related proteins: BLOSUM45</li>
+<li>For closely related sequences: Don’t care.</li>
+<li>For short sequences: PAM30 （length &lt; 35）, PAM70 （length &gt; 50）</li>
+</ul>
+<p><img src="/images/ADVMB/1924358.png" /></p>
+<p>To evaluate similar sequences one needs matrices that give high values on identical matches : e.g. BLOSUM 80 or PAM50</p>
+<blockquote>
+<p>The matrix choice is biased by the percentage of conservation the biologist expects to find between the sequences .</p>
+</blockquote>
+<h4 id="which-pam-or-blosum-11728">Which PAM or BLOSUM? 1:17:28</h4>
+<p>Using relative entropy <code>H</code> one can verify whether the matrix is still capable of making the distinction between the evolutionary and the random model</p>
+<p><img src="/images/ADVMB/1924359.png" /></p>
 
                 
             </div>
@@ -1053,6 +1406,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

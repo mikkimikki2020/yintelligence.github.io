@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                Programming Language
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="r-basics-functions-and-data-types"><a target="_blank" rel="noopener" href="https://courses.edx.org/courses/course-v1:HarvardX+PH125.1x+1T2021/courseware/cfded5c208bc4e379606cb712cc54f25/9f677d4dd55d4d729d4b8163598146eb/">R Basics, Functions, and Data Types</a></h1>
+<p><a href="https://yintelligence.tech/2021/03/14/2021-03-13-Course-overview/">Harvard X - R Basics</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter1.Rmd">Assessments R Basics</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/datacamp/misc-courses-HarvardX-IDS-Mod-1/blob/master/chapter2.Rmd">Assessments Data Types</a></p>
 <p>R is not a programming language like C or Java. It was not created by software engineers for software development. Instead, it was developed by statisticians and data analysts as an interactive environment for data analysis.</p>
@@ -515,7 +516,8 @@
 <p>And as a result, there are numerous resources for learning and asking questions. It's easy for others to contribute add-ons, which enable developers to share software implementations of new data science techniques.</p>
 <p>As a very quick and simple example, try using the console to calculate a 15% tip on a meal that costs $19.71.</p>
 <p>Here's how you do it.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt; <span class="number">0.15</span> * <span class="number">19.71</span></span><br><span class="line">[<span class="number">1</span>]<span class="number">2.96</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt; 0.15 * 19.71
+[1]2.96<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>You just write the numbers out, hit Return, and you get your answer. You should leave a tip of $2.96.</p>
 <p>One of the great advantages of R over point and click analysis software is that you can save your work as scripts. You can edit and save these scripts using a text editor.</p>
 <h2 id="installing-packages">Installing Packages</h2>
@@ -525,7 +527,9 @@
 <li>Install packages from R console: install.packages("pkg_name") Install packages from RStudio interface: Tools &gt; Install Packages (allows autocomplete).</li>
 <li>Once installed, we can use library(pkg_name) to load a package each time we want to use it.</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;dslabs&quot;</span>) <span class="comment"># to install a single package</span></span><br><span class="line">install packages(<span class="built_in">c</span>(<span class="string">&quot;tidyverse&quot;</span> <span class="string">&quot;dslabs&quot;</span>)） <span class="comment"># to install two packages at the same tim</span></span><br><span class="line">installed.package() <span class="comment"># to see the list of all installed packages</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">install.packages(&quot;dslabs&quot;) # to install a single package
+install packages(c(&quot;tidyverse&quot; &quot;dslabs&quot;)） # to install two packages at the same tim
+installed.package() # to see the list of all installed packages<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="running-commands-while-editing-scripts">Running Commands While Editing Scripts</h2>
 <p>RStudio has many useful features as an R editor, including the ability to test code easily as we write scripts and several autocomplete features.</p>
 <ul>
@@ -534,7 +538,13 @@
 <li>Run a single line of script: Ctrl+Enter on Windows and Command+Return on Mac while the cursor is pointing to that line, or select the chunk and click "run"</li>
 <li>Open a new script: Ctrl+Shift+N on Windows and Command+Shift+N on Mac</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">library(tidyverse)</span><br><span class="line">library(dslabs)</span><br><span class="line">data(murders)</span><br><span class="line"></span><br><span class="line">murders %&gt;%</span><br><span class="line">	ggplot(aes(population, total, label=abb, color=region)) +</span><br><span class="line">    geom_label()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">library(tidyverse)
+library(dslabs)
+data(murders)
+
+murders %&gt;%
+	ggplot(aes(population, total, label&#x3D;abb, color&#x3D;region)) +
+    geom_label()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="r-basics">R Basics</h2>
 <ul>
 <li>To define a variable, we may use the assignment symbol, <strong>&lt;-</strong> .</li>
@@ -551,7 +561,14 @@
 </ul></li>
 </ul>
 <p><strong>Code: solving the equation: x<sup>2</sup> + x − 1 = 0</strong></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># assigning values to variables</span></span><br><span class="line">a &lt;-<span class="number">1</span></span><br><span class="line">b &lt;-<span class="number">1</span></span><br><span class="line"><span class="built_in">c</span> &lt;--<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># solving the quadratic equation</span></span><br><span class="line">(-b + <span class="built_in">sqrt</span>(b^<span class="number">2</span> - <span class="number">4</span>*a*<span class="built_in">c</span>))/(<span class="number">2</span>*a)</span><br><span class="line">(-b - <span class="built_in">sqrt</span>(b^<span class="number">2</span> - <span class="number">4</span>*a*<span class="built_in">c</span>))/(<span class="number">2</span>*a)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># assigning values to variables
+a &lt;-1
+b &lt;-1
+c &lt;--1
+
+# solving the quadratic equation
+(-b + sqrt(b^2 - 4*a*c))&#x2F;(2*a)
+(-b - sqrt(b^2 - 4*a*c))&#x2F;(2*a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="functions"><a target="_blank" rel="noopener" href="https://rafalab.github.io/dsbook/r-basics.html#functions">Functions</a></h2>
 <ul>
 <li>In general, to evaluate a function we need to use parentheses. If we type a function without parenthesis, R shows us the code for the function. Most functions also require an argument, that is, something to be written inside the parenthesis.</li>
@@ -569,9 +586,12 @@
 <ul>
 <li>For example, we need to distinguish numbers from character strings and tables from simple lists of numbers. The function "class" helps us determine the type of an object. For example, if I define a as 2 and I look at its class, I will see it's a numeric.</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt;a &lt;- 2</span><br><span class="line">&gt;<span class="built_in">class</span>(a)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;numeric&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt;a &lt;- 2
+&gt;class(a)
+[1] &quot;numeric&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>Let's look at the class of the function ls. Not surprisingly, we see that it's a function.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">&gt;<span class="built_in">class</span>(ls)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;function&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">&gt;class(ls)
+[1] &quot;function&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>The function "str" stands for structure, and it shows us the structure of an object. If we type str(murders), it shows us that</p>
 <p>Up to now, the variables we have defined have been just one number. This is not very useful for storing data. The most common way of storing data sets in R is with <strong>data frames</strong>. Conceptually, we can think of data frames as tables. Rows represent observations, and different variables are represented by different columns.</p>
 <p>Data frames are particularly useful for data sets because we can combine different types into one single object. We store the data for a motivating example in a data frame.</p>
@@ -587,7 +607,33 @@
 <li>We use quotes "" to distinguish between variable names and character strings.</li>
 <li>Factors are useful for storing categorical data, and are more memory efficient than storing characters.</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="comment"># loading the dslabs package and the murders dataset</span></span><br><span class="line">library(dslabs)</span><br><span class="line">data(murders)</span><br><span class="line"><span class="comment"># determining that the murders dataset is of the &quot;data frame&quot; class</span></span><br><span class="line"><span class="built_in">class</span>(murders)</span><br><span class="line"><span class="comment"># finding out more about the structure of the object</span></span><br><span class="line">str(murders)</span><br><span class="line"><span class="comment"># showing the first 6 lines of the dataset</span></span><br><span class="line">head(murders)</span><br><span class="line"><span class="comment"># using the accessor operator to obtain the population column</span></span><br><span class="line">murders$population</span><br><span class="line"><span class="comment"># displaying the variable names in the murders dataset</span></span><br><span class="line"><span class="built_in">names</span>(murders)</span><br><span class="line"><span class="comment"># determining how many entries are in a vector</span></span><br><span class="line">pop &lt;- murders$population</span><br><span class="line"><span class="built_in">length</span>(pop)</span><br><span class="line"><span class="comment"># vectors can be of class numeric and character</span></span><br><span class="line"><span class="built_in">class</span>(pop)</span><br><span class="line"><span class="built_in">class</span>(murders$state)</span><br><span class="line"><span class="comment"># logical vectors are either TRUE or FALSE</span></span><br><span class="line">z &lt;- 3 == <span class="number">2</span></span><br><span class="line">z</span><br><span class="line"><span class="built_in">class</span>(z)</span><br><span class="line"><span class="comment"># factors are another type of class</span></span><br><span class="line"><span class="built_in">class</span>(murders$region)</span><br><span class="line"><span class="comment"># obtaining the levels of a factor</span></span><br><span class="line">levels(murders$region)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R"># loading the dslabs package and the murders dataset
+library(dslabs)
+data(murders)
+# determining that the murders dataset is of the &quot;data frame&quot; class
+class(murders)
+# finding out more about the structure of the object
+str(murders)
+# showing the first 6 lines of the dataset
+head(murders)
+# using the accessor operator to obtain the population column
+murders$population
+# displaying the variable names in the murders dataset
+names(murders)
+# determining how many entries are in a vector
+pop &lt;- murders$population
+length(pop)
+# vectors can be of class numeric and character
+class(pop)
+class(murders$state)
+# logical vectors are either TRUE or FALSE
+z &lt;- 3 &#x3D;&#x3D; 2
+z
+class(z)
+# factors are another type of class
+class(murders$region)
+# obtaining the levels of a factor
+levels(murders$region)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -713,7 +759,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Exercise
                         
                     </div>
                     <div class="publish-info">
@@ -724,8 +770,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Exercises/" class="post-category">
-                                    Exercises
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                    Programming Language
                                 </a>
                             
                             
@@ -754,15 +800,15 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Course overview">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Harvard X - R Basics">
                         
-                        <span class="card-title">Course overview</span>
+                        <span class="card-title">Harvard X - R Basics</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Course overview
                         
                     </div>
                     <div class="publish-info">
@@ -773,8 +819,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                    Programming Language
                                 </a>
                             
                             

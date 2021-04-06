@@ -1,0 +1,1363 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Buffer Pools, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Buffer Pools | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Buffer Pools</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Database-systems/">
+                                <span class="chip bg-color">Database systems</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Database/" class="post-category">
+                                Database
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-04-06
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-04-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    1.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    12 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="buffer-pools">Buffer Pools</h1>
+<p><a href="https://yintelligence.tech/2021/04/01/2021-04-01-Course-Introduction-and-the-Relational-Model/">CMU 15-445/645 Database systems</a></p>
+<p><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/notes/05-bufferpool.pdf">Lecture Notes</a> + <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/slides/05-bufferpool.pdf">Slides</a> + <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uZ3-aeFYE5k&amp;list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi&amp;index=6">Video</a></p>
+<p>Problem #1: How the DBMS represents the database in files on disk.</p>
+<p><strong>Problem #2</strong>: How the DBMS manages its memory and move data back-and-forth from disk.</p>
+<p><strong>Spatial Control</strong>:</p>
+<ul>
+<li>Where to write pages on disk.</li>
+<li>The goal is to keep pages that are used together often as physically close together as possible on disk.</li>
+</ul>
+<p><strong>Temporal Control</strong>:</p>
+<ul>
+<li>When to read pages into memory, and when to write them to disk.</li>
+<li>The goal is minimize the number of stalls from having to read data from disk.</li>
+</ul>
+<figure>
+<img src="/images/DB/17394800.png" alt="" /><figcaption>DISK-ORIENTED DBMS</figcaption>
+</figure>
+<h2 id="locks-vs.-latches">Locks vs. Latches</h2>
+<p>We need to make a distinction between locks and latches when discussing <u>how the DBMS protects its internal elements</u>.</p>
+<p><strong>Locks</strong></p>
+<ul>
+<li>Protect the database <strong>logical contents</strong> (e.g., tuples, tables, databases) from other transactions.</li>
+<li>Held for <strong>transaction</strong> duration.</li>
+<li>Need to be able to rollback changes (Cancel).</li>
+</ul>
+<p><strong>Latches</strong> (Mutex in OS)</p>
+<ul>
+<li>Protects the <strong>critical sections</strong> of the DBMS’s internal data structures from other threads.</li>
+<li>Held for <strong>operation</strong> duration.</li>
+<li>Do <strong>not</strong> need to be able to rollback changes.</li>
+</ul>
+<p>The <code>mutex</code> we commonly used in the operating system is actually the second concept here. It is more concerned with the mutual interference caused by different threads operating in the same area.</p>
+<p>The <code>lock</code> in the database is the first concept. The functions that need to be implemented are more complicated, and are also implemented through <code>latches</code> at the bottom layer.</p>
+<h2 id="page-table-vs.-page-directory">Page table vs. page directory</h2>
+<p>The <strong><em>page directory</em></strong> is the mapping from page ids to page locations in the database files.</p>
+<ul>
+<li>All changes <strong>must be recorded on disk</strong> to allow the DBMS to find on restart.</li>
+</ul>
+<p>The <strong><em>page table</em></strong> is the mapping from page ids to a copy of the page in buffer pool frames.</p>
+<ul>
+<li>This is an <strong>in-memory data structure</strong> that <u>does <strong>not</strong> need to be stored on disk.</u></li>
+</ul>
+<h2 id="buffer-pool-manager">Buffer Pool Manager</h2>
+<p>The buffer pool is an <strong>in-memory cache</strong> of pages read from disk.</p>
+<p>It is a region of memory organized as an array of <strong>fixed</strong> size pages. Each array entry is called a <strong><em>frame</em></strong>.</p>
+<p>When the DBMS starts, it will apply for a memory area from OS, namely the <strong>Buffer Pool</strong>, and divide this area into pages of the same size. In order to distinguish it from disk pages, it is usually called <strong>frames</strong>. When the DBMS requests a disk page, it first needs to be Copy to a frame of the Buffer Pool, as shown in the following figure:</p>
+<p><img src="/images/DB/page_frame.png" /></p>
+<p>Meanwhile, the DBMS will maintain a <strong>page table</strong>, which is responsible for <u>recording the location</u> of each page in memory, whether it has been written (<strong>Dirty Flag</strong>), whether it has been referenced or reference count (<strong>Pin/Reference Counter</strong>) and other meta-information, as shown in the following figure:</p>
+<p><img src="/images/DB/1801200.png" /></p>
+<p>Meta-data maintained by the buffer pool:</p>
+<ul>
+<li><strong>Page Table</strong>: In-memory hash table that keeps track of pages that are currently in memory. It maps page ids to frame locations in the buffer pool.</li>
+<li><strong>Dirty-flag</strong>: Threads set this flag when it modifies a page. This indicates to storage manager that the page must be written back to disk.</li>
+<li><strong>Pin Counter</strong>: This tracks the number of threads that are currently accessing that page (either reading or modifying it). A thread has to increment the counter before they access the page. If a page’s count is greater than zero, then the storage manager is not allowed to evict that page from memory.</li>
+</ul>
+<p>When a page in the page table is referenced, the reference number (pin/reference) will be recorded, indicating that the page is being used and should <strong>not</strong> be removed when the space is insufficient.</p>
+<p>When the requested page is not in the page table, the DBMS will First apply for a <strong>latch</strong> to indicate that the entry is occupied, then read the relevant page from the disk to the buffer pool, and release the latch. The above two processes are shown in the following figure:</p>
+<p><img src="/images/DB/1801201.png" /></p>
+<h3 id="optimizations">Optimizations</h3>
+<h4 id="multiple-buffer-pools">Multiple Buffer Pools</h4>
+<p>The DBMS can also have multiple buffer pools for different purposes. This helps <u>reduce latch contention and improves locality</u></p>
+<ul>
+<li>Multiple buffer pool instances</li>
+<li>Per-database buffer pool</li>
+<li>Per-page type buffer pool</li>
+</ul>
+<p>There are two ways to maintain multiple buffer pools, namely:</p>
+<ul>
+<li><strong>object id</strong>: add an additional object id to each transmission record to map it to a buffer pool</li>
+<li>Hashing: directly map the page id to a certain buffer pool through a hash table</li>
+</ul>
+<h4 id="pre-fetching">Pre-Fetching</h4>
+<p>The DBMS can also optimize by pre-fetching pages <u>based on the query plan</u>. Commonly done when accessing pages sequentially.</p>
+<ul>
+<li>Sequential Scans</li>
+<li>Index Scans</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> A
+    <span class="token keyword">WHERE</span> val <span class="token operator">BETWEEN</span> <span class="token number">100</span> <span class="token operator">AND</span> <span class="token number">250</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure>
+<img src="/images/DB/1801202.png" alt="" /><figcaption>Sequential Scans</figcaption>
+</figure>
+<figure>
+<img src="/images/DB/1801203.png" alt="" /><figcaption>Index Scans</figcaption>
+</figure>
+<p>First, the buffer pool scans the pages on the disk sequentially and reads them into the buffer pool (page0, page1).</p>
+<p>When page1 is read, through page1 we know that the <code>val</code> of page3 is 100-199 (binary tree storage); we also know The range we need to query is 100-250, so we can locate page5 through page3 according to whether we store through the binary tree, and then read the two pages in, without having to visit page2, page4 one by one.</p>
+<p>We are able to do this because the DBMS knows how to store data internally and can also obtain which pages are needed through the analysis of the query operation, which is impossible for a general OS.</p>
+<h4 id="scan-sharing">Scan Sharing</h4>
+<p>Queries can reuse data retrieved from storage or operator computations.</p>
+<blockquote>
+<p>This is different from result caching.</p>
+</blockquote>
+<p>Allow multiple queries to attach to a single cursor that scans a table.</p>
+<ul>
+<li>Queries do <strong>not</strong> have to be the same.</li>
+<li>Can also share intermediate results.</li>
+</ul>
+<blockquote>
+<p>Note that this is <strong>not</strong> the same concept as <strong>result caching</strong> (result caching means that the result is cached after you perform a query operation before, and you can directly get the last one when you perform this operation together)</p>
+</blockquote>
+<p>If a query starts a scan and if there exists one already doing this, then the DBMS will attach to the second query's cursor. The DBMS keeps track of where the second query joined with the first so that it can finish the scan when it reaches the end of the data structure.</p>
+<blockquote>
+<p>Fully supported in IBM DB2 and MSSQL. Oracle only supports cursor sharing for identical queries.</p>
+</blockquote>
+<p><img src="/images/DB/1801204.png" /></p>
+<h4 id="buffer-pool-bypass">Buffer Pool Bypass</h4>
+<p>When encountering a Sequential Scan with a large amount of data, if the required pages are sequentially stored in the Buffer Pool, it will cause the pollution, because these pages are usually only used once, and their entry will cause some that may be more needed in the future pages are removed.</p>
+<p>Therefore, some DBMSs have made corresponding optimizations. When this kind of query appears, a separate piece of local memory is allocated for it to isolate its impact on the Buffer Pool.</p>
+<ul>
+<li>For a query, the memory is originally a <strong>local location</strong>. When the query ends, all frame pages in the memory will be released, so in some cases it is better to bypass it directly (especially when these pages do not need to be used for a long time)</li>
+<li>Works well if operator needs to read a large sequence of pages that are contiguous on disk.</li>
+<li>Can also be used for temporary data (sorting, joins).</li>
+</ul>
+<h4 id="os-page-cache">OS Page Cache</h4>
+<p>Most disk operations go through the OS API. Unless you tell it not to, the OS maintains its own filesystem cache.</p>
+<p>This will cause a copy of data to be cached twice in OS and DMBS respectively. Most DBMSs use <strong>direct I/O</strong> (<code>O_DIRECT</code>)to bypass the OS's cache.</p>
+<ul>
+<li>Redundant copies of pages.</li>
+<li>Different eviction policies.</li>
+</ul>
+<p><em>Demo Video: Postgres</em></p>
+<h3 id="allocation-policies">Allocation Policies</h3>
+<ul>
+<li><strong>Global Policies</strong>: How a DBMS should make decisions for all active txns.</li>
+<li><strong>Local Policies</strong>: Allocate frames to a specific txn without considering the behaviour of concurrent txns.</li>
+</ul>
+<h2 id="replacement-policies">Replacement Policies</h2>
+<p>A replacement policy is an algorithm that the DBMS implements that makes a decision on which pages to evict from buffer pool when it needs space.</p>
+<p>Implementation goals:</p>
+<ul>
+<li>Correctness</li>
+<li>Accuracy</li>
+<li>Speed</li>
+<li>Meta-data overhead</li>
+</ul>
+<h3 id="least-recently-used-lru">Least Recently Used (LRU)</h3>
+<p>Maintain a timestamp of when each page was last accessed.</p>
+<p>When the DBMS needs to evict a page, select the one with the oldest timestamp.</p>
+<ul>
+<li>Keep the pages in sorted order to reduce the search time on eviction.</li>
+</ul>
+<h3 id="clock">Clock</h3>
+<p>Approximation of LRU without needing a separate timestamp per page.</p>
+<ul>
+<li>Each page has a <u>reference bit</u></li>
+<li>When a page is accessed, set to 1</li>
+</ul>
+<p>Organize the pages in a circular buffer with a “clock hand”</p>
+<ul>
+<li>Upon sweeping check if a pages bit is set to 1
+<ul>
+<li>If yes, set to zero, if no, then evict</li>
+</ul></li>
+<li>Clock hand remembers position between evictions</li>
+</ul>
+<p><img src="/images/DB/clock.png" /></p>
+<h3 id="problems-of-lru-and-clock">Problems of LRU and CLOCK</h3>
+<p>LRU and CLOCK replacement policies are susceptible to <strong>sequential flooding</strong>.</p>
+<ul>
+<li>A query performs a sequential scan that reads every page.</li>
+<li>This pollutes the buffer pool with pages that are read once and then never again.</li>
+</ul>
+<p><strong>The most recently used page is actually the most unneeded page.</strong></p>
+<blockquote>
+<p>It may be that the LRU page is actually important due to not tracking meta-data of how a page is used.</p>
+</blockquote>
+<p>For details, please refer to the following example. When Q1 is executed, page 0 is read in first, and then when Q2 is executed, page1 and page2 are read in order because it is a scan operation. When page3 needs to be read, page0 is released because of LRU. Note that if the Q3 we execute next is the same as Q0, page0 is what we need to keep:</p>
+<p><img src="/images/DB/例子.png" /></p>
+<p><strong>Better solutions</strong>:</p>
+<ul>
+<li><p><strong>LRU-K</strong></p>
+<ul>
+<li>Track the history of the last K references as timestamps and compute the interval between subsequent accesses.</li>
+<li>The DBMS then uses this history to estimate the next time that page is going to be accessed.</li>
+</ul></li>
+<li><p>Priority hints:</p>
+<ul>
+<li><p>Allow txns to tell the buffer pool whether page is important or not</p>
+<blockquote>
+<p>Sometimes the DBMS knows the context information of each page during query execution</p>
+</blockquote></li>
+</ul></li>
+<li><p><strong>Localization</strong>:</p>
+<ul>
+<li><p>Choose pages to evict on a per txn/query basis</p></li>
+<li><p>Keep track of the pages that a query has accessed.</p></li>
+<li><p>Similar to rate limit of API</p>
+<blockquote>
+<p>Example: Postgres maintains a small ring buffer that is private to the query.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h3 id="dirty-pages">Dirty Pages</h3>
+<ol type="1">
+<li><strong>FAST</strong>: If a page in the buffer pool is not dirty, then the DBMS can simply "drop" it.</li>
+<li><strong>SLOW</strong>: If a page is dirty, then the DBMS must write back to disk to ensure that its changes are persisted.</li>
+</ol>
+<p>When choosing which type of page to release, we need to consider trade off: quickly release an unmodified page (but it may be accessed frequently) or write a modified page that will not be accessed in a short time. The DBMS can periodically perform some background access to the page table and write the dirty page into the disk and then reset its dirty flag (Need to be careful that we don’t write dirty pages before their log records have been written…).</p>
+<p>In addition to being directly considered in the replacement strategy, some DBMSs use <em>background writing</em> for processing. The DBMS can periodically walk through the page table and write dirty pages to disk, and do not need to consider the problems caused by dirty data when replacement occurs.</p>
+<p>When a dirty page is safely written, the DBMS can either evict the page or just unset the dirty flag.</p>
+<h3 id="other-memory-pools">Other Memory Pools</h3>
+<p>The DBMS needs memory for things other than just tuples and indexes.</p>
+<p>These other memory pools may not always backed by disk. Depends on implementation</p>
+<ul>
+<li>Sorting + Join Buffers</li>
+<li>Query Caches</li>
+<li>Maintenance Buffers</li>
+<li>Log Buffers</li>
+<li>Dictionary Caches</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>The DBMS can manage that sweet memory better than the OS.</p>
+<p>Leverage the semantics about the query plan to make better decisions:</p>
+<ul>
+<li>Evictions</li>
+<li>Allocations</li>
+<li>Pre-fetching</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/04/06/2021-04-06-Buffer-Pools/">https://yintelligence.tech/2021/04/06/2021-04-06-Buffer-Pools/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Database-systems/">
+                                    <span class="chip bg-color">Database systems</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/04/06/2021-04-06-Buffer-Pools/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Buffer Pools">
+                        
+                        <span class="card-title">Buffer Pools</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Chapter 10.5-10.8
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Database/" class="post-category">
+                                    Database
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Database-systems/">
+                        <span class="chip bg-color">Database systems</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/06/2021-04-06-Neural-Networks-Learning-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AD%A6%E4%B9%A0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Neural Networks Learning 神经网络的学习">
+                        
+                        <span class="card-title">Neural Networks Learning 神经网络的学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            How to train Neural Networks
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Artificial-Intelligence/" class="post-category">
+                                    Artificial Intelligence
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
