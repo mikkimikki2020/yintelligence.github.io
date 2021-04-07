@@ -602,7 +602,7 @@ S(i-1,j-1) + w(a_i,b_j)
 <p>All the previous methods used a linear penalty for the gaps in the alignment <span class="math display">\[
 g(n_{gap}) = -n_{gap}E\ \ linear\ gap\ penalty
 \]</span> As mentioned earlier, we an differentiate between starting a gap and extending one <span class="math display">\[
-*g(n_{gap}) = -I-(n_{gap}-1) E\  \ Affine\ gap\ penalty
+g(n_{gap}) = -I-(n_{gap}-1) E\  \ Affine\ gap\ penalty
 \]</span> <strong>How does the DP algorithm change?</strong></p>
 <p>Do we open or extend a gap?</p>
 <p><img src="/images/ADVMB/1984354.png" /></p>
@@ -698,7 +698,6 @@ S(i-1,j)+t(i,j) \\
 <blockquote>
 <p>u is the position in the alignment</p>
 </blockquote>
-<p><img src="/images/ADVMB/1914356.png" /></p>
 <p>The <strong>log-odds ratio</strong> is the value that is written in a substitution matrix: <span class="math display">\[
 S=\sum_u(S_{a,b})_u
 \]</span></p>
@@ -707,7 +706,7 @@ S=\sum_u(S_{a,b})_u
 <p>For example, imagine an evolutionary sequence with three possible states, A, B and C. If substitution model is time-reversible, there will be three transition rates, A&lt;&gt;B, B&lt;&gt;C and A&lt;&gt;C.</p>
 <p>Suppose the rates are 1, 1 and 0 respectively in units of substitution per 100 characters per unit of time. After one unit of time, in a 300 character long sequence originally composed equally of As, Bs and Cs, we expect there to have been one A to B substitution and one B to C substitution. If we are comparing two homologous sequences in living organisms, because one unit of time has passed for both sequences, we would expect two A to B and two B to C substitutions between the present day sequences.</p>
 <p>No matter how long we run this process for, there will never be a <em>direct</em> replacement of A by C. There will also never be an A to C substitution under a so-called infinite sites model, where no more than one substitution can occur at a single site.</p>
-<p>However since A to B and B to C substitutions are common, under a finite sites model eventually B will be replaced by C at a site where A was previously replaced by B. This indirect replacement of A by C (or equivalently in a time-reversible model, C by A) becomes more likely the longer the time period separating the homologous sequences.</p>
+<p>However since A to B and B to C substitutions are common, under a finite sites model eventually B will be replaced by C at a site where A was previously replaced by B. This indirect replacement of A by C （or equivalently in a time-reversible model, C by A） becomes more likely the longer the time period separating the homologous sequences.</p>
 <p>We simulated sequence evolution based on the the above scenario, running the simulation for 10 units of time. From this substitution I observed the following counts for each site pattern:</p>
 <table>
 <thead>
@@ -777,8 +776,8 @@ S=\sum_u(S_{a,b})_u
 <ol type="1">
 <li><p>PAM <code>Modeled Change in Protein Sequences</code>:</p>
 <ul>
-<li>All PAM matrices were derived from <u>one manually constructed matrix</u> (PAM1).</li>
-<li>71 groups of manually aligned protein sequences (no gaps) were used and in each group there was an identity of at least 85% between each sequence</li>
+<li>All PAM matrices were derived from <u>one manually constructed matrix</u> （PAM1）.</li>
+<li>71 groups of manually aligned protein sequences （no gaps)）were used and in each group there was an identity of at least 85% between each sequence</li>
 </ul>
 <p><img src="/images/ADVMB/1914358.png" /></p></li>
 <li><p>BLOSUM <code>Experimentally Derived Matrix</code>:</p></li>
