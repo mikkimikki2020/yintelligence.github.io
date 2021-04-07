@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.7k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    10 Min
+                    14 Min
                 </div>
                 
 
@@ -518,7 +518,7 @@
 <p><strong>机器学习诊断法 Machine learning diagnostic</strong> 的定义：这是一种测试法，你通过执行这种测试，能够深入了解某种算法到底是否有用。这通常也能够告诉你，要想改进一种算法的效果，什么样的尝试，才是有意义的。</p>
 <p>Diagnostic: A test that you can run to gain insight what is/isn’t working with a learning algorithm, and gain guidance as to how best to improve its performance.'</p>
 <p>这些诊断法的执行和实现，是需要花些时间的，有时候确实需要花很多时间来理解和实现，但这样做的确是把时间用在了刀刃上.</p>
-<h2 id="评估一个假设"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=59">10.2 评估一个假设</a></h2>
+<h2 id="评估一个假设-evaluating-a-hypothesis"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=59">10.2 评估一个假设 Evaluating a Hypothesis</a></h2>
 <p>本节视介绍怎样用学过的算法来评估假设函数。</p>
 <p><img src="/images/AI/542362-20181206113307089-2090056700.png" /></p>
 <p>当我们确定学习算法的参数的时候，我们考虑的是选择参量来使训练误差最小化，有人认为得到一个非常小的训练误差一定是一件好事，但我们已经知道，仅仅是因为这个假设具有很小的训练误差，并不能说明它就一定是一个好的假设函数。而且我们也学习了<strong>过拟合</strong>假设函数的例子，所以这推广到新的训练集上是不适用的。</p>
@@ -555,9 +555,13 @@ Test\ Error = \frac{1}{m_{test}}\sum^{m_{test}}_{i=1}err({h_{\theta}(x^{(i)}_{te
 <p>产生过拟合的一个原因是：仅仅在测试集合上调试 θ 得到的训练误差，通常<strong>不能</strong>作为对实际泛化误差的一个好的估测。</p>
 <p><img src="/images/AI/542362-20181206115319270-319474740.png" /></p>
 <p>那么究竟应该选择几次多项式来作为我们的模型呢？</p>
-<p>假设我们要在10个不同次数的二项式模型之间进行选择:</p>
-<p><img src="https://github.com/fengdu78/Coursera-ML-AndrewNg-Notes/raw/master/images/1b908480ad78ee54ba7129945015f87f.jpg" /></p>
-<p>每个多项式，在训练集上训练出 θ 。然后分别使用 test 集合计算误差，分别得到 J<sub>test</sub>（θ<sup>（1）</sup>）,...J<sub>test</sub>（θ<sup>（10）</sup>），发现 J<sub>test</sub>（θ<sup>（5）</sup>）的值最小，因此选择 d=5 这个模型。 <img src="/images/AI/542362-20181206115807121-1381399460.png" /></p>
+<p>假设我们要在10个不同次数的二项式模型之间进行选择: <span class="math display">\[
+h_\theta(x) = \theta_0 + \theta_1x\\
+h_\theta(x) = \theta_0 + \theta_1x + \theta_2x^2\\
+h_\theta(x) = \theta_0 + \theta_1x + ... + \theta_3x^3\\
+...\\
+h_\theta(x) = \theta_0 + \theta_1x + + ... + \theta_{10}x^{10}\\
+\]</span> 每个多项式，在训练集上训练出 θ 。然后分别使用 test 集合计算误差，分别得到 J<sub>test</sub>（θ<sup>（1）</sup>）,...J<sub>test</sub>（θ<sup>（10）</sup>），发现 J<sub>test</sub>（θ<sup>（5）</sup>）的值最小，因此选择 d=5 这个模型。 <img src="/images/AI/542362-20181206115807121-1381399460.png" /></p>
 <p>显然越高次数的多项式模型越能够适应我们的训练数据集，但是<strong>适应训练数据集并不代表着能推广至一般情况</strong>，我们应该选择一个更能适应一般情况的模型。我们需要使用<strong>交叉验证集cross validation set（cv, 或者直接简称validation set）</strong>来帮助选择模型。</p>
 <p>但这里有个问题：我们选的这个模型，就是能够最好地拟合测试集的参数d（d = θ from polynomial with lower error）的值及多项式的度。因此，再使用同样的测试集来评价假设，显然很不公平，很可能导致过拟合。所以，我们改为将数据集分为 6:2:2 三部分：training set、cross validation set（cv, 或者直接简称validation set）、test set</p>
 <p>即：使用60%的数据作为训练集，使用 20%的数据作为交叉验证集，使用20%的数据作为测试集。</p>
@@ -579,89 +583,106 @@ J_{cv}(\theta) = \frac{1}{2m_{cv}}\sum_\limits{i=1}^{m}(h_{\theta}(x^{(i)}{cv})-
 J_{test}(\theta)=\frac{1}{2m_{test}}\sum_\limits{i=1}^{m_{test}}(h_{\theta}(x^{(i)}{cv})-y^{(i)}{cv})^2
 \]</span></p>
 <h2 id="检验误差和方差-diagnosing-bias-vs.-variance"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=61">10.4 检验误差和方差 Diagnosing bias vs. variance</a></h2>
-<p>模型表现不好，通常有两种情况：</p>
+<p>当你运行一个学习算法时，如果这个算法的表现不理想，那么多半是出现两种情况：</p>
 <ol type="1">
-<li><p>误差 bias 过大，导致欠拟合 underfitting；</p></li>
-<li><p>方差 variance 过大，导致过拟合 overfitting</p></li>
+<li>误差 bias 过大，导致欠拟合 underfitting；</li>
+<li>方差 variance 过大，导致过拟合 overfitting</li>
 </ol>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206122940445-549949413.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>使用多项式的度 d 作为横轴，在训练集和cv集上分别计算 J(θ)，得到曲线：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206123049605-1564503297.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/images/AI/542362-20181206122940445-549949413.png" /></p>
+<p>使用多项式的度 d 作为横轴，在训练集和cv集上分别计算 <code>J(θ)</code>，得到曲线：</p>
+<p><img src="/images/AI/278288272918.png" /></p>
 <p>下面说如何根据两条曲线判断模型是高误差(欠拟合)、还是高方差(过拟合)。</p>
 <ol type="1">
-<li><p>先看曲线左边，当 d=1 ，训练集和cv集的误差都很大，说明欠拟合</p></li>
-<li><p>再看曲线右边，当 d=4 ，训练集误差很小、cv集误差远大于训练误差，说明在训练集上过拟合</p></li>
+<li>先看曲线左边，当 d=1 ，训练集和cv集的误差都很大，说明欠拟合</li>
+<li>再看曲线右边，当 d=4 ，训练集误差很小、cv集误差远大于训练误差，说明在训练集上过拟合</li>
 </ol>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206123451620-294163215.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<h2 id="正规化-和-偏差方差"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=62">10.5 正规化 和 偏差/方差</a></h2>
+<p><img src="/images/AI/542362-20181206123451620-294163215.png" /></p>
+<p><strong>High bias （underfitting）</strong>: both J<sub>train</sub>（θ） and J<sub>cv</sub>（θ）will be high. Also, J<sub>cv</sub>（θ） ) ≈ J<sub>train</sub>（θ）</p>
+<p><strong>High variance （overfitting）</strong>: J<sub>train</sub>（θ） will be low and J<sub>cv</sub>（θ） will be much greater than J<sub>train</sub>（θ）</p>
+<h2 id="正规化和偏差方差-regularization-and-biasvariance"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=62">10.5 正规化和偏差/方差 Regularization and Bias/Variance</a></h2>
+<p>在我们在训练模型的过程中，一般会使用一些正则化方法来防止过拟合。但是我们可能会正则化的程度太高或太小了，即我们在选择λ的值时也需要思考与刚才选择多项式模型次数类似的问题。</p>
 <p>考虑正则化的线性回归模型：</p>
 <ol type="1">
-<li><p>当 λ 过大，θ 被惩罚后会变得很小、接近于0，最后方程只剩下 θ0 这一项，成为一条直线，导致高偏差bias、欠拟合。</p></li>
-<li><p>当 λ 过小，正则项不起作用，导致高方差 variance、过拟合。</p></li>
+<li>当 λ 过大，θ 被惩罚后会变得很小、接近于0，最后方程只剩下 θ<sub>0</sub> 这一项，成为一条直线，导致高偏差bias、欠拟合。</li>
+<li>当 λ 过小，正则项不起作用，导致高方差 variance、过拟合。</li>
 </ol>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206123809043-1943627394.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/images/AI/542362-20181206123809043-1943627394.png" /></p>
 <p>那怎么选择 λ 的值呢？</p>
 <p>首先，当我们定义每个集合上的误差函数时，不考虑 λ。</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206124232291-1347727331.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>然后按照步长两倍的方式递增 λ，针对每个 λ 训练θ。然后分别计算对应的Jcv(θ)，得到最小的Jcv(θ(5))。然后在 test 集合上进行测试。</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206124334646-1562643862.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/images/AI/542362-20181206124232291-1347727331.png" /></p>
+<p>然后按照步长2倍的方式递增 λ，针对每个 λ 训练θ。然后分别计算对应的J<sub>cv</sub>（θ），得到最小的J<sub>cv</sub>（θ<sup>（5）</sup>）。然后在 test 集合上进行测试。</p>
+<p><img src="/images/AI/542362-20181206124334646-1562643862.png" /></p>
 <p>现在我们看一下，λ 的大小对损失函数的影响。</p>
 <ol type="1">
-<li><p>先看曲线左边，当 λ 很小 ，Jcv(θ) 的值远大于 Jtrain(θ)，说明过拟合</p></li>
-<li><p>再看曲线右边，当 λ 很大 ，Jcv(θ) 和 Jtrain(θ) 都很大，说明欠拟合</p></li>
+<li>先看曲线左边，当 λ 很小 ，J<sub>cv</sub>（θ） 的值远大于 J<sub>train</sub>（θ），说明过拟合</li>
+<li>再看曲线右边，当 λ 很大 ，J<sub>cv</sub>（θ） 和 J<sub>train</sub>（θ） 都很大，说明欠拟合</li>
 </ol>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206124637841-1716618479.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<h2 id="学习曲线"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=63">10.6 学习曲线</a></h2>
-<p>m指训练样本的个数，曲线显示不同的m对于J(θ)的影响</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206125215588-2029025576.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>高偏差 bias、欠拟合：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206125354521-351041422.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>高方差 variance、过拟合。两个曲线会有一个很大的gap：</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206125433397-1803368129.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<h2 id="接下来"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=64">10.7 接下来</a></h2>
+<p><img src="/images/AI/542362-20181206124637841-1716618479.png" /></p>
+<p><strong>总结</strong>：选择λ的方法为：</p>
+<ol type="1">
+<li>使用训练集训练出12个不同程度正则化的模型</li>
+<li>用12个模型分别对交叉验证集计算的出交叉验证误差</li>
+<li>选择得出交叉验证误差<strong>最小</strong>的模型</li>
+<li>运用步骤3中选出模型对测试集计算得出推广误差，我们也可以同时将训练集和交叉验证集模型的代价函数误差与λ的值绘制在一张图表上。</li>
+</ol>
+<h2 id="学习曲线-learning-curves"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=63">10.6 学习曲线 Learning Curves</a></h2>
+<p>学习曲线是学习算法的一个很好的<strong>合理检验</strong>（<strong>sanity check</strong>）。学习曲线是将训练集误差和交叉验证集cv误差作为训练集样本数量（m）的函数绘制的图表。</p>
+<p>曲线显示不同的m对于<code>J(θ)</code>的影响:</p>
+<p><img src="/images/AI/542362-20181206125215588-2029025576.png" /></p>
+<h3 id="experiencing-high-bias高偏差欠拟合">Experiencing high bias高偏差/欠拟合</h3>
+<p>如何利用学习曲线识别高偏差/欠拟合：作为例子，我们尝试用一条直线来适应下面的数据，可以看出，无论训练集有多么大误差都不会有太大改观：</p>
+<ul>
+<li><strong>Low training set size</strong>: causes J<sub>train</sub>（θ）to be low and J<sub>cv</sub>（θ） to be high.</li>
+<li><strong>Large training set size</strong>: causes both J<sub>train</sub>（θ）and J<sub>cv</sub>（θ） to be high with J<sub>train</sub>（θ） ≈ J<sub>cv</sub>（θ） .</li>
+</ul>
+<p><img src="/images/AI/542362-20181206125354521-351041422.png" /></p>
+<h3 id="experiencing-high-variance高方差-过拟合">Experiencing high variance高方差 /过拟合</h3>
+<ul>
+<li><strong>Low training set size</strong>: J<sub>train</sub>（θ） will be low and J<sub>cv</sub>（θ） will be high.</li>
+<li><strong>Large training set size</strong>: J<sub>train</sub>（θ） increases with training set size and J<sub>cv</sub>（θ） continues to decrease without leveling off. Also, J<sub>train</sub>（θ） &lt; J<sub>cv</sub>（θ） but the difference between them remains significant.</li>
+</ul>
+<p>两个曲线会有一个很大的gap：</p>
+<p><img src="/images/AI/542362-20181206125433397-1803368129.png" /></p>
+<p>也就是说在高方差/过拟合的情况下，<strong>增加更多数据到训练集</strong>可能可以提高算法效果。</p>
+<h2 id="deciding-what-to-do-next"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=64">10.7 Deciding What to Do Next</a></h2>
+<p>我们已经介绍了怎样评价一个学习算法，我们讨论了模型选择问题，偏差和方差的问题。那么这些诊断法则怎样帮助我们判断，哪些方法可能有助于改进学习算法的效果，而哪些可能是徒劳的呢？</p>
 <p>每种解决方案对应的问题如下（箭头右侧指向的是表现出的问题，左侧是解决方案）：</p>
+<ol type="1">
+<li>获得更多的训练样本——解决高方差</li>
+<li>尝试减少特征的数量——解决高方差</li>
+<li>尝试获得更多的特征——解决高偏差</li>
+<li>尝试增加多项式特征——解决高偏差</li>
+<li>尝试减少正则化程度λ——解决高偏差</li>
+<li>尝试增加正则化程度λ——解决高方差</li>
+</ol>
+<h3 id="diagnosing-neural-networks">Diagnosing Neural Networks</h3>
 <figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206125546159-307099408.png" alt="" /><figcaption>img</figcaption>
+<img src="/images/AI/542362-20181206125704205-227057414.png" alt="" /><figcaption>神经网络的方差和偏差</figcaption>
 </figure>
-<p>对于神经网络，开始可以尝试一个相对比较简单的神经网络模型，计算量小。</p>
-<p>如果使用大型神经网络，使用正则化来修正过拟合。</p>
-<p>如果不知道选择几层hidden layer，可以将数据分为三个数据集之后，分别做测试。</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181206125704205-227057414.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<h2 id="附">附</h2>
-<p>关于偏差和方差的解释，参考：https://blog.csdn.net/u010626937/article/details/74435109</p>
+<ul>
+<li>Lower-order polynomials （low model complexity） have high bias and low variance. In this case, the model fits poorly consistently.</li>
+<li>Higher-order polynomials （high model complexity） fit the training data extremely well and the test data extremely poorly. These have low bias on the training data, but very high variance.</li>
+<li>In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well.</li>
+</ul>
+<p>使用较小的神经网络，类似于参数较少的情况，容易导致高偏差和欠拟合，但计算代价较小使用较大的神经网络，类似于参数较多的情况，容易导致高方差和过拟合，虽然计算代价比较大，但是可以通过正则化手段来调整而更加适应数据。</p>
+<blockquote>
+<p>通常选择较大的神经网络并采用正则化处理会比采用较小的神经网络效果要好。</p>
+</blockquote>
+<p>如果不知道选择几层hidden layer，通常从一层开始逐渐增加层数，为了更好地作选择，可以把数据分为训练集、交叉验证集和测试集，针对不同隐藏层层数的神经网络训练神经网络， 然后选择交叉验证集代价最小的神经网络。</p>
+<h2 id="附-10.4">附 ~10.4</h2>
+<p>关于偏差和方差的解释，<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010626937/article/details/74435109">参考</a></p>
 <p><strong>偏差</strong>：描述的是预测值的期望与真实值之间的差距。偏差越大，越偏离真实数据集。（Ps:假设靶心是最适合给定数据的模型，离靶心越远，我们的预测就越糟糕）</p>
 <p><strong>方差</strong>：描述的是预测值的变化范围，离散程度，也就是离其期望值的距离。方差越大，预测结果数据的分布越散。</p>
 <p><strong>基于偏差的误差</strong>：所谓基于偏差的误差是我们模型预期的预测与我们将要预测的真实值之间的差值。偏差是用来衡量我们的模型的预测同真实值的差异。</p>
 <p><strong>基于方差的误差</strong>：基于方差的误差描述了一个模型对给定的数据进行预测的可变性。比如，当你多次重复构建完整模型的进程时，方差是在预测模型的不同关系间变化的多少。</p>
-<figure>
-<img src="https://img2018.cnblogs.com/blog/542362/201812/542362-20181218102815735-845631180.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>左上：低偏差bias，低方差variance。预测结果准确率很高，并且模型比较健壮（稳定），预测结果高度集中。</p>
-<p>右上：低偏差bias，高方差variance。预测结果准确率较高，但是模型不稳定，预测结果比较发散。</p>
-<p>左下：高偏差bias，低方差variance。预测结果准确率较低，但是模型稳定，预测结果比较集中。</p>
-<p>右下：高偏差bias，高方差variance。预测结果准确率较低，并且模型不稳定，预测结果比较发散。</p>
+<p><img src="/images/AI/542362-20181218102815735-845631180.png" /></p>
+<ul>
+<li>左上：低偏差bias，低方差variance。预测结果准确率很高，并且模型比较健壮（稳定），预测结果高度集中。</li>
+<li>右上：低偏差bias，高方差variance。预测结果准确率较高，但是模型不稳定，预测结果比较发散。</li>
+<li>左下：高偏差bias，低方差variance。预测结果准确率较低，但是模型稳定，预测结果比较集中。</li>
+<li>右下：高偏差bias，高方差variance。预测结果准确率较低，并且模型不稳定，预测结果比较发散。</li>
+</ul>
+<h1 id="exercise"><a target="_blank" rel="noopener" href="https://www.cnblogs.com/maxiaodoubao/p/10076195.html">Exercise</a></h1>
 
                 
             </div>
@@ -771,48 +792,46 @@ J_{test}(\theta)=\frac{1}{2m_{test}}\sum_\limits{i=1}^{m_{test}}(h_{\theta}(x^{(
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/04/07/2021-04-07-Advice-for-Applying-Machine-Learning/">
+                <a href="/2021/04/07/2021-04-07-B-Trees/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Advice for Applying Machine Learning 机器学习应用建议">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="B-Trees">
                         
-                        <span class="card-title">Advice for Applying Machine Learning 机器学习应用建议</span>
+                        <span class="card-title">B-Trees</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            How to tell when a learning algorithm is doing poorly, and describe the 'best practices' for how to 'debug' your learning algorithm and go about improving its performance.
+                            Analysis of Algorithms
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Artificial-Intelligence/" class="post-category">
-                                    Artificial Intelligence
+                            <a href="/categories/Data-model/" class="post-category">
+                                    Data model
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
                     </a>
                     
                 </div>

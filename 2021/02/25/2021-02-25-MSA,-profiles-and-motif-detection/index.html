@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-06
+                    2021-04-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    666
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    11 Min
                 </div>
                 
 
@@ -502,72 +502,145 @@
             <div id="articleContent">
                 <h1 id="msa-profiles-and-motif-detection">MSA, profiles and motif detection</h1>
 <p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
-<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210225%5F100412%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VmNHlJT19TaE1GTnJGdDB1VlMxSnNvQlJlOV9heXRYanVKeGZqSGtJQ2UxSHc_cnRpbWU9TnpDSFk1cloyRWc">Video</a></p>
-<h2 id="multiple-sequence-alignment-2542">Multiple sequence alignment? 25:42</h2>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210225%5F100412%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VmNHlJT19TaE1GTnJGdDB1VlMxSnNvQlJlOV9heXRYanVKeGZqSGtJQ2UxSHc_cnRpbWU9TnpDSFk1cloyRWc">Video</a> + <a target="_blank" rel="noopener" href="https://owncloud.ulb.ac.be/index.php/s/75k0qKi3NFqam0E#pdfviewer">Slides</a></p>
+<p><a href="https://yintelligence.tech/2021/03/13/2021-03-13-Aligning-sequences-and-detecting-motifs/">Related assignment</a></p>
+<h2 id="multiple-sequence-alignment-2542">Multiple sequence alignment 25:42</h2>
 <p>An alignment of 2 sequences is an hypothesis that is supported or rejected by the score one obtains for the alignment, but…</p>
 <ul>
 <li>the score does not guarantee that there really is a common ancestor</li>
 <li>no guarantee that the elements are correctly aligned, only that the alignment is the one with maximum similarity</li>
 </ul>
-<p><strong>We can reduce this uncertainty by aligning additional sequences</strong></p>
-<p>A <strong>multiple sequence alignment (MSA)</strong> algorithm performs this task and can more clearly show:</p>
+<p>We can <u>reduce this uncertainty</u> by aligning additional sequences, a <strong>multiple sequence alignment （MSA）</strong> algorithm performs this task and can more clearly show:</p>
 <ul>
 <li>The similarity between positions</li>
 <li>The <strong>conservation</strong> of certain amino acids within a family of homologous proteins</li>
 </ul>
+<p>The alignment of multiple sequences is a method of choice to detect <strong>conserved regions</strong> in protein or DNA sequences. These particular regions are usually associated with:</p>
+<ul>
+<li>Signals （promoters, signatures for phosphorylation, cellular location, ...）;</li>
+<li>Structure （correct folding, protein-protein interactions...）;</li>
+<li>Chemical reactivity （catalytic sites,... ）.</li>
+</ul>
+<p>Different methods exist to build models of these conserved regions:</p>
+<ul>
+<li>Consensus sequences;</li>
+<li>Patterns;</li>
+<li>Position Specific Score Matrices （PSSMs）;</li>
+<li>Profiles;</li>
+<li>Hidden Markov Models （HMMs）,</li>
+<li>... and a few others</li>
+</ul>
 <h3 id="why-msa-3014">Why MSA? 30:14</h3>
 <ul>
-<li><p>Improve the alignment between two sequences</p>
-<p><img src="/images/ADVMB/1011170.png" /></p></li>
-<li><p>Conserved regions provide information on the similarities in structure and function</p>
-<p><img src="/images/ADVMB/1011171.png" /></p></li>
-<li><p>Yet since the methods can only approximate the optimal solution, there can be differences between methods</p>
-<p><img src="/images/ADVMB/1011172.png" /></p></li>
+<li><p>Help prediction of the secondary and tertiary structures of proteins of new sequences</p></li>
+<li><p>Help to find motifs or signatures characteristic of protein family</p></li>
 </ul>
-<h3 id="many-msa-methods">Many MSA methods</h3>
+<p><strong>Multiple sequence alignment （MSA）:</strong></p>
+<ul>
+<li><p><strong>Improve</strong> the alignment between two sequences</p>
+<blockquote>
+<p>The conserved regions: In green the identical residues and in blue the elements with the same properties</p>
+</blockquote>
+<p><img src="/images/ADVMB/1011170.png" /></p></li>
+<li><p>Conserved regions provide information on the similarities in structure and function which can be used to align sequences, search similar sequences in the databases or annotate new sequences.</p>
+<p><img src="/images/ADVMB/1011171.png" /></p></li>
+</ul>
+<p>Yet since the methods can only approximate the optimal solution, there can be differences between methods</p>
+<p><img src="/images/ADVMB/1011172.png" /></p>
+<h3 id="two-important-features-of-multiple-alignment">Two important features of multiple alignment</h3>
+<ul>
+<li>Position specific scoring</li>
+<li>The evolutionary relationship between sequences</li>
+</ul>
+<h3 id="example">Example</h3>
 <p><img src="/images/ADVMB/1011173.png" /></p>
-<h3 id="the-msa-problem-3552">The MSA problem 35:52</h3>
+<p>As shown in the picture, there are 8 fragments from immunoglobulin sequences.</p>
+<p>Alignment <strong>highlights</strong>:</p>
+<ul>
+<li>conserved residues</li>
+<li>conserved regions</li>
+<li>more sophisticated patterns, like the dominance of hydrophobic residues （V,L,I） at fragment positions 1 and 3.</li>
+</ul>
+<p>The alignment can also enable us to infer the evolutionary history of the sequences. It looks like the first 4 sequences and the last 4 sequences are derived from 2 different common ancestors, that in turn derived from a "root" ancestor.</p>
+<blockquote>
+<p>But true phylogentic analysis is more complex</p>
+</blockquote>
+<h2 id="the-msa-problem-3552">The MSA problem 35:52</h2>
 <p>Determining the alignment between N sequences is a hard problem = <strong>Combinatorial optimisation problem (COP)</strong></p>
 <p>To solve this COP we need provide two systems:</p>
 <ol type="1">
-<li><strong>Calculating the score of the alignment</strong></li>
-<li><strong>Algorithm that finds the MSA with the optimal (or close to optimal) score</strong></li>
+<li>Calculating the score of the alignment
+<ul>
+<li>SP scores</li>
+</ul></li>
+<li>Algorithm that finds the MSA with the optimal （or close to optimal） score
+<ul>
+<li>An optimised version of the standard pairwise <strong>DP algorithms</strong>; limited applicability but exact</li>
+<li><strong>Progressive alignment</strong> （the CLUSTAL system）</li>
+<li><strong>Iterative improvement</strong> methods for multiple sequence alignment （the SAGA system）</li>
+</ul></li>
 </ol>
 <h3 id="the-scoring-system-3628">The scoring system 36:28</h3>
 <p>How can we calculate the score of an MSA?</p>
-<ul>
-<li>The total score: S(m)=∑ S(m<sub>i</sub>)
-<ul>
-<li>So the assumption is made that the score of one column (i) is independent of the other columns</li>
-<li>Sum-of-pairs or <strong>SP</strong></li>
-</ul></li>
-<li>The score of column i: <strong>S(m<sub>i</sub>)=∑ s(m<sup>k</sup><sub>i</sub>, m<sup>l</sup><sub>i</sub>)</strong>
+<p>For pairwise alignments, we scored each column by looking at matches, mismatches, and gaps in the two sequences.</p>
+<blockquote>
+<p>in practice, protein sequences are scored using substitution matrices.</p>
+</blockquote>
+<p>Here, each column in an alignment is scored by summing the scores of all pairs of symbols in that column.</p>
+<p>The score of column i （Sum-of-pairs or <strong>SP</strong>）: <span class="math display">\[
+S(m_{i})=\sum_{k,l}s(m^k_i,m^l_i)
+\]</span></p>
 <ul>
 <li><strong>m<sup>k</sup><sub>i</sub></strong> is a residue in the sequence k in column i</li>
-<li><strong>s(m<sup>k</sup><sub>i</sub>, m<sup>l</sup><sub>i</sub>)</strong> The score from the substitution matrix</li>
-</ul></li>
+<li><strong>s（m<sup>k</sup><sub>i</sub>, m<sup>l</sup><sub>i</sub>）</strong> The score from the substitution matrix</li>
 </ul>
-<p>SP and its alternatives (column scores)</p>
-<p><img src="/images/ADVMB/1011174.png" /></p>
-<p>Minimum entropy: <strong>S(m<sub>i</sub>)=∑ <em>f<sup>k</sup><sub>i</sub>ln(f<sup>k</sup><sub>i</sub>)</em></strong></p>
-<p>Maximum likelihood</p>
-<h3 id="methods-3-4020">Methods 3 40:20</h3>
-<p><strong>Well-known methods:</strong></p>
+<blockquote>
+<p>where scores s（a,b） come from a substitution scoring matrix such as a PAM or BLOSUM matrix. For simple linear gap costs, gaps are handled by defining s（a,-）and s（-,a）to be the gap cost. Otherwise gaps are scored separately.</p>
+</blockquote>
+<p>The score of the entire alignment is then summed over all column scores: <span class="math display">\[
+S(m)=\sum_{i}S(m_{i})
+\]</span></p>
 <ul>
-<li>An optimised version of the standard pairwise <strong>DP algorithms</strong>; limited applicability but exact</li>
-<li><strong>Progressive alignment</strong> (the CLUSTAL system)</li>
+<li>So the assumption is made that the score of one column i is independent of the other columns</li>
 </ul>
+<h4 id="sum-of-pairs-sp-scores">Sum of pairs: SP scores</h4>
+<p>SP (Sum of Pair) score is the most widely used because its simplicity.</p>
+<p>The following is a MSA of 4 sequences MQPILLLV, MLRLL, MKILLL, and MPPVLILV.</p>
+<p><img src="/images/ADVMB/10111730.png" /> <span class="math display">\[
+\begin{align}
+SP(I,-,I,V)
+&amp;= score(I,-) + score(I, I) +score(I,V) + score(-,I) + score (-,V) + score(I,V)\\
+&amp;= -2 + 1 + -1 + -2 + -2 + -1 \\
+&amp;= -7
+\end{align}
+\]</span> Although there is never an entire column of gaps, if we look at any 2 sequences in the alignment, there may be columns where both have gaps. The value of score（-,-） is set equal to 0; this eliminates double counting （or extra penalization） for the use of gaps.</p>
+<figure>
+<img src="/images/ADVMB/1011174.png" alt="" /><figcaption>SP and its alternatives (column scores)</figcaption>
+</figure>
+<blockquote>
+<p>Details: <a target="_blank" rel="noopener" href="https://www.cs.princeton.edu/~mona/Lecture/msa1.pdf">Princeton note</a></p>
+</blockquote>
+<p>Minimum entropy: <span class="math display">\[
+S(m_i)=\sum_if^k_i\ln(f^k_i)
+\]</span></p>
+<h3 id="progressive-alignment-clustal-system-4020">Progressive alignment: CLUSTAL system 40:20</h3>
+<p>CLUSTALW creates a multiple alignment by:</p>
+<ol type="1">
+<li><p>a pairwise alignment of the two most similar sequences is performed, producing a cluster of two aligned sequences.</p></li>
+<li><p>This cluster can then be aligned to the next most related sequence or cluster of aligned sequences. Two clusters of sequences can be aligned by a simple extension of the pairwise alignment of two individual sequences.</p></li>
+<li><p>The final alignment is achieved by a series of progressive, pairwise alignments that include increasingly dissimilar sequences and clusters, until all sequences have been included in the final pairwise alignment.</p>
+<blockquote>
+<p>Before alignment, the sequences are first clustered by similarity to produce a dendrogram （tree representation） of clustering relationships. It is this dendrogram that directs the order of the subsequent pairwise alignments.</p>
+</blockquote></li>
+</ol>
 <p><img src="/images/ADVMB/1011175.png" /></p>
-<ul>
-<li><strong>Iterative improvement</strong> methods for multiple sequence alignment (the SAGA system)</li>
-</ul>
 <h4 id="progressive-alignment-problems-4525">Progressive alignment problems 45:25</h4>
 <p>This method suffers from at least 2 problems:</p>
 <ul>
 <li><strong>The local minimum problem</strong>
 <ul>
 <li>New sequences are added on top of existing alignments.</li>
-<li><em>Hence any early errors (misaligned regions) propagate to the complete alignment (due to divergence between sequences)</em></li>
+<li><em>Hence any early errors （misaligned regions） propagate to the complete alignment （due to divergence between sequences）</em></li>
 </ul></li>
 <li><strong>The choice of alignment parameters</strong>
 <ul>
@@ -575,55 +648,158 @@
 <li><em>This works often for highly related sequences, yet starts to fail seriously as soon as sequences diverge</em></li>
 </ul></li>
 </ul>
-<h4 id="iterative-improvement-4622">Iterative improvement 46:22</h4>
+<h3 id="iterative-improvement-saga-system-4622">Iterative improvement: SAGA system 46:22</h3>
 <p><img src="/images/ADVMB/1011176.png" /></p>
 <h2 id="profiles-5704">Profiles 57:04</h2>
-<p>Using a <strong>profile</strong> we can better detect similarities between distantly related proteins.</p>
+<p>Using a <strong>profile</strong> we can better detect similarities between <u><strong>distantly</strong> related proteins</u>.</p>
 <p>Profiles store general information properties of a MSA :</p>
 <ol type="1">
 <li>Frequency information concerning the residues in each column of the MSA</li>
 <li>The evolutionary importance of every residue in that position</li>
 </ol>
-<p><strong>Position specific scoring matrix (PSSM)</strong></p>
-<h3 id="how-to-construct-a-pssm-5756">How to construct a PSSM ? 57:56</h3>
-<p><strong>Step 1</strong>: determine the frequencies for each amino acid b in every column u for N<sub>seq</sub> aligned sequences</p>
-<p><img src="/images/ADVMB/1011177.png" /></p>
+<h3 id="position-specific-scoring-matrix-pssm"><strong>Position specific scoring matrix (PSSM)</strong></h3>
+<h4 id="how-to-construct-a-pssm-5756">How to construct a PSSM ? 57:56</h4>
+<p>A PSSM is based on the <strong>frequencies</strong> of each residue in a specific position of a multiple alignment.</p>
+<p>Determine the frequencies for each amino acid b in every column u for N<sub>seq</sub> aligned sequences, take for instance:</p>
+<p><img src="/images/ADVMB/1011177.png" /> <span class="math display">\[
+f_{2,R}=\frac{2}{3}=0.67\ \ f_{(i)2,R}=0.5\\
+f_{6,E}=\frac{3}{3}=1\ \ f_{8,L}= \frac{1}{3}
+\]</span></p>
+<p><span class="math display">\[
+f_{u,b}=\frac{n_{u,b}}{N_{seq}}\\
+f(i)_{u,b}=\frac{\ln(1-(\frac{n_{u,b}}{N_{seq}+1}))}{\ln(\frac{1}{N_{seq}+1})}
+\]</span></p>
+<blockquote>
+<p>Different frequency-dependent calculations possible!</p>
+</blockquote>
 <p><img src="/images/ADVMB/1011178.png" /></p>
-<p>A profile stores for <strong>each column</strong> in the MSA, the frequency multiplied by the alignment score with every other AA.</p>
+<p>A profile stores for <strong>each column</strong> in the MSA, the frequency multiplied by the alignment score with every other AA. <span class="math display">\[
+m_{u,a}=\sum_{b∈\{AA\}}f_{u,b}S_{a,b}
+\]</span></p>
+<blockquote>
+<p>m<sub>u,a</sub> is actually an alignment score between a residue a and the column u. s<sub>a,b</sub> is the matrix score.</p>
+</blockquote>
 <p><img src="/images/ADVMB/1011179.png" /></p>
 <p><img src="/images/ADVMB/1011180.png" /></p>
+<blockquote>
+<p>Without the penalty line, the matrix is called a PSSM （Position-specific scoring matrix）</p>
+</blockquote>
+<p>Probability of a match of a particular amino acid a with column u</p>
+<blockquote>
+<p>can be calculated in different ways!</p>
+</blockquote>
+<p><span class="math display">\[
+m_{u,a}-\log\frac{q_{u,a}}{p_a} \ (same\ as \ pairwise)
+\]</span></p>
+<blockquote>
+<p>This method is only useful when there are sufficient sequences and all amino acids appear at least once</p>
+</blockquote>
+<p>The probability p<sub>a</sub> is again the overall probability that one can find a particular amino acid in any of the positions.</p>
 <p><img src="/images/ADVMB/1011181.png" /></p>
 <p>The score m<sub>u,a</sub> is the score for aligning a residue a with the column u</p>
-<ul>
-<li>We can therefore use the same DP algorithm as before to align a <strong>new</strong> sequence to an <strong>existing</strong> MSA (profile)</li>
-</ul>
-<p>The biggest problem in creating profiles is that the number of sequences can be too small, resulting in q<sub>u,a</sub> of zero, and as a consequence not every amino acids is present in each column</p>
-<ul>
-<li>log 0 =-∞</li>
-</ul>
-<p>As a result the alignment can not be made using the log-formula (see PAM and BLOSUM discussion)</p>
+<blockquote>
+<p>We can therefore use the same DP algorithm as before to align a <strong>new</strong> sequence to an <strong>existing</strong> MSA （profile）</p>
+</blockquote>
+<p>The biggest problem in creating profiles is that the number of sequences can be <strong>too small</strong>, resulting in q<sub>u,a</sub> of zero, and as a consequence not every amino acids is present in each column <span class="math display">\[
+log 0 =-∞
+\]</span> As a result the alignment can not be made using the log-formula （see PAM and BLOSUM discussion）</p>
 <ul>
 <li><strong>→PSEUDOCOUNTS</strong></li>
 </ul>
-<p><img src="/images/ADVMB/1011182.png" /></p>
+<h4 id="pseudo-counts">Pseudo-counts</h4>
+<p>Pseudo-counts are constants that one adds to the values in the profile to avoid zero’s. <span class="math display">\[
+q_{u,a}=\frac{n_{u,a}+1}{N_{seq}+20}
+\]</span></p>
+<blockquote>
+<p>Pseudo-counts provide the prior information that we have on the amino acids</p>
+</blockquote>
+<p>Thus, q<sub>u,a</sub> will never be 0 ! <span class="math display">\[
+β=\sqrt{N_{seq}}\\
+q_{u,a}=\frac{n_{u,a}+βp_a}{N_{seq}+β}
+\]</span></p>
+<blockquote>
+<p>β is weighting factor that tunes the importance of the pseudo-counts in the value of q<sub>u,a</sub></p>
+</blockquote>
+<p><strong>Calculating p<sub>a</sub></strong></p>
 <figure>
-<img src="/images/ADVMB/1011183.png" alt="" /><figcaption><a href="%5BUniProtKB/Swiss-Prot%20Release%202021_01%20statistics%20(expasy.org)%5D(https://web.expasy.org/docs/relnotes/relstat.html)">Calculating p<sub>a</sub></a></figcaption>
+<img src="/images/ADVMB/1011183.png" alt="" /><figcaption><a href="%5BUniProtKB/Swiss-Prot%20Release%202021_01%20statistics%20(expasy.org)%5D(https://web.expasy.org/docs/relnotes/relstat.html)"></a></figcaption>
 </figure>
-<p><img src="/images/ADVMB/1011184.png" /></p>
+<p>We can further generalize this function and introduce f<sub>u,a</sub> directly <span class="math display">\[
+q_{u,a}=\frac{\alpha f_{u,a}+βp_a}{\alpha +β}
+\]</span></p>
+<blockquote>
+<p>α is also a weighting factor that tunes the importance of the actual data.</p>
+<p>Sometimes α = N<sub>seq-1</sub> is used</p>
+</blockquote>
+<p>When there is no data （no sequence） then the pseudo-counts will determine the values in the profiles</p>
+<p>Therefore, <strong><em>pseudo-counts</em></strong> correspond to the <strong>prior distribution</strong>, which corresponds to what we know about the system before introducing the data.</p>
 <p><img src="/images/ADVMB/1011185.png" /></p>
 <p>Once the profile is determined one can also derive a <strong>consensus sequence</strong> which contains for every column the amino acid with the highest score m<sub>u,a</sub></p>
 <p><img src="/images/ADVMB/1011186.png" /></p>
-<p><img src="/images/ADVMB/1011187.png" /></p>
+<p>Also possible to calculate the information content for every column u in the sequence （log base 2, bitscore） <span class="math display">\[
+I_u=\log_220-H_u
+\]</span></p>
+<blockquote>
+<p>information content</p>
+</blockquote>
+<p><span class="math display">\[
+H_u=-\sum f_{u,a}\log_2f_{u,a}
+\]</span></p>
+<blockquote>
+<p>uncertainty</p>
+</blockquote>
+<p>A position with one highly conserved amino acid has the lowest uncertainty, and the maximum information content.</p>
+<p>The contribution of each amino acid to this score is given by f<sub>u,a</sub><em>I</em><sub>u</sub>.</p>
 <figure>
 <img src="/images/ADVMB/1011188.png" alt="" /><figcaption>Profiles, sequence logo 11</figcaption>
 </figure>
-<h3 id="aligning-to-a-profile-13317">Aligning to a profile 1:33:17</h3>
-<p>Simply use either Needleman-Wunsch (L3) or Smith-Waterman (L3) to make the alignment</p>
+<h4 id="aligning-to-a-profile-13317">Aligning to a profile 1:33:17</h4>
+<p>Simply use either Needleman-Wunsch （L3） or Smith-Waterman （L3） to make the alignment</p>
 <p><img src="/images/ADVMB/1011189.png" /></p>
-<p>But now use the information in the PSSM to calculate the score (<em>linear gap penalty</em>):</p>
-<p><img src="/images/ADVMB/1011190.png" /></p>
+<blockquote>
+<p>The profile contains now the alignment scores</p>
+<p>The major difficulty lies in the way in which gap penalties are assigned.</p>
+</blockquote>
+<p>But now use the information in the PSSM to calculate the score (<em>linear gap penalty</em>): <span class="math display">\[
+S(i,j)=
+\begin{cases}
+S(i-1,j-1)+PSSM(seq(i)),j)\\
+S(i-1,j)+PSSM(&quot;-&quot;,j)\\
+S(i,j-1)+PSSM(&quot;-&quot;,j-1)\\
+0
+\end{cases}
+\]</span></p>
+<ul>
+<li>j is column in PSSM</li>
+<li>PSSM（“-“,j） is penalty for gap in position j</li>
+<li>seq（i） is the amino acid in position i of the sequence</li>
+</ul>
 <p>Use in your project the following formula for calculating the values in your PSSM</p>
-<p><img src="/images/ADVMB/1011191.png" /></p>
+<p><span class="math display">\[
+m_[u,a]=\log\frac{q_{u,a}}{p_a}
+\]</span> With: <span class="math display">\[
+q_{u,a}=\frac{\alpha f_{u,a}+βp_a}{\alpha +β}\\
+\alpha=N_{seq}-1\\
+β=\sqrt{N_{seq}}
+\]</span></p>
+<h4 id="pssm-conclusion">PSSM: Conclusion</h4>
+<ul>
+<li>Advantages:
+<ul>
+<li>Good for short, conserved regions.</li>
+<li>Relatively fast and simple to implement.</li>
+<li>Produce match scores that can be interpreted based on statistical theory.</li>
+</ul></li>
+<li>Limitations:
+<ul>
+<li>Insertions and deletions are strictly forbidden.</li>
+<li>Relatively long sequence regions can therefore not be described with this method.</li>
+</ul></li>
+<li>When I use it?
+<ul>
+<li>To model small regions with high variability but constant length.</li>
+</ul></li>
+</ul>
 
                 
             </div>
@@ -989,6 +1165,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
