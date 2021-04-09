@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Lab-sessions/" class="post-category">
-                                Lab sessions
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                Digital Health
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    895
+                    860
                 </div>
                 
 
@@ -546,7 +546,9 @@
 </ul></li>
 </ul>
 <p>You will be performing some basic analysis (using Python) which will help you to better understand the data available. To work with the excel files, you should use <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/getting_started/overview.html">pandas library</a>. For plotting, you are allowed to use <a target="_blank" rel="noopener" href="https://matplotlib.org/">matplotlib</a>/<a target="_blank" rel="noopener" href="https://seaborn.pydata.org/">seaborn</a>/<a target="_blank" rel="noopener" href="https://bokeh.org//">bokeh</a>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#import libraries</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np, pandas <span class="keyword">as</span> pd, seaborn <span class="keyword">as</span> sns, matplotlib.pyplot <span class="keyword">as</span> plt, bokeh</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, date </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#import libraries</span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np<span class="token punctuation">,</span> pandas <span class="token keyword">as</span> pd<span class="token punctuation">,</span> seaborn <span class="token keyword">as</span> sns<span class="token punctuation">,</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt<span class="token punctuation">,</span> bokeh
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime<span class="token punctuation">,</span> date <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="basic-analysis-on-patients-using-python">Basic analysis on patients using Python</h3>
 <p>Perform some basic statistics on the 'patient.xlsx' file.</p>
 <ul>
@@ -556,7 +558,18 @@
 <li>Add a new column 'age' in the dataframe. The age of each patient can be computed from 'dob' column.</li>
 </ul>
 <p>In [ ]:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#read &#x27;patient.xlsx&#x27; file into a DataFrame.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#check if there are empty/NaN values</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#count and print the occurencies of male and female patients</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#plot their occurencies using one of the specified plotting libraries</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#compute age from &#x27;dob&#x27; column: </span></span><br><span class="line">    <span class="comment"># --&gt; (a) use to_datetime() method to convert &#x27;dob&#x27; to datetime format</span></span><br><span class="line">    <span class="comment"># --&gt; (b) create a function that returns the age from &#x27;dob&#x27;</span></span><br><span class="line">    <span class="comment"># --&gt; (c) apply the function to the column &#x27;dob&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#read 'patient.xlsx' file into a DataFrame.</span>
+
+<span class="token comment">#check if there are empty/NaN values</span>
+
+<span class="token comment">#count and print the occurencies of male and female patients</span>
+
+<span class="token comment">#plot their occurencies using one of the specified plotting libraries</span>
+
+<span class="token comment">#compute age from 'dob' column: </span>
+    <span class="token comment"># --> (a) use to_datetime() method to convert 'dob' to datetime format</span>
+    <span class="token comment"># --> (b) create a function that returns the age from 'dob'</span>
+    <span class="token comment"># --> (c) apply the function to the column 'dob'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="basic-data-analysis-on-ehr-information-using-python">Basic data analysis on EHR information using Python</h3>
 <p>In this part, you will analyse the EHR information found in 'noteevents.xlsx' file.</p>
 <ul>
@@ -566,7 +579,17 @@
 <li>Filter the dataframe to return information only for male patients whose age is more than 50 years old.</li>
 <li>Plot which category has the highest amount of requests and this corresponding amount per gender.</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#read &#x27;noteevents.xlsx&#x27; file into a DataFrame.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#print the unique values of &#x27;category&#x27; column</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#merge noteevents and patient dataframe based on the patient_id</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#groupby() to show the mean age per gender</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#filter the dataframe to return information only for patients whose age is more than 50 years old. </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#plot which category has the highest amount of requests and this corresponding amount per gender</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#read 'noteevents.xlsx' file into a DataFrame.</span>
+
+<span class="token comment">#print the unique values of 'category' column</span>
+
+<span class="token comment">#merge noteevents and patient dataframe based on the patient_id</span>
+
+<span class="token comment">#groupby() to show the mean age per gender</span>
+
+<span class="token comment">#filter the dataframe to return information only for patients whose age is more than 50 years old. </span>
+
+<span class="token comment">#plot which category has the highest amount of requests and this corresponding amount per gender</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="requesting-access-to-mimic-iii">Requesting access to MIMIC-III</h2>
 <hr />
 <blockquote>
@@ -576,15 +599,50 @@
 <p>After successfully submitting your request, you should receive an email with subject "PhysioNet credentialing application notification" from PhysioNet confirming that you have successfully submitted your request.</p>
 </blockquote>
 <h1 id="example">Example</h1>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">&#x27;Dummy data.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># print all the columns data type</span></span><br><span class="line">df.dtypes</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Feature1    float64</span></span><br><span class="line"><span class="string">Feature2    float64</span></span><br><span class="line"><span class="string">Feature3    float64</span></span><br><span class="line"><span class="string">Feature4    float64</span></span><br><span class="line"><span class="string">Label         int64</span></span><br><span class="line"><span class="string">dtype: object</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># print only the head of the df</span></span><br><span class="line">df.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#list all the df column names</span></span><br><span class="line">df.columns</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Index([&#x27;Feature1&#x27;, &#x27;Feature2&#x27;, &#x27;Feature3&#x27;, &#x27;Feature4&#x27;, &#x27;Label&#x27;], dtype=&#x27;object&#x27;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># get some descriptive information about your df</span></span><br><span class="line">df.describe()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#select a single column</span></span><br><span class="line">df[<span class="string">&#x27;Feature1&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">0     1.833101</span></span><br><span class="line"><span class="string">1     0.301937</span></span><br><span class="line"><span class="string">2     0.936987</span></span><br><span class="line"><span class="string">3    -0.072283</span></span><br><span class="line"><span class="string">4    -1.967827</span></span><br><span class="line"><span class="string">        ...   </span></span><br><span class="line"><span class="string">95    2.509049</span></span><br><span class="line"><span class="string">96   -1.429179</span></span><br><span class="line"><span class="string">97    0.466618</span></span><br><span class="line"><span class="string">98    0.281702</span></span><br><span class="line"><span class="string">99   -2.653730</span></span><br><span class="line"><span class="string">Name: Feature1, Length: 100, dtype: float64</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#select multiple columns</span></span><br><span class="line">df.loc[:,[<span class="string">&#x27;Feature1&#x27;</span>,<span class="string">&#x27;Feature2&#x27;</span>]]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#select subset for whicch a condition is true</span></span><br><span class="line">df[df[<span class="string">&#x27;Feature1&#x27;</span>]&gt;<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'Dummy data.xlsx'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># print all the columns data type</span>
+df<span class="token punctuation">.</span>dtypes
+
+<span class="token triple-quoted-string string">"""
+Feature1    float64
+Feature2    float64
+Feature3    float64
+Feature4    float64
+Label         int64
+dtype: object
+"""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># print only the head of the df</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#list all the df column names</span>
+df<span class="token punctuation">.</span>columns
+
+<span class="token triple-quoted-string string">"""
+Index(['Feature1', 'Feature2', 'Feature3', 'Feature4', 'Label'], dtype='object')
+"""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># get some descriptive information about your df</span>
+df<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#select a single column</span>
+df<span class="token punctuation">[</span><span class="token string">'Feature1'</span><span class="token punctuation">]</span>
+
+<span class="token triple-quoted-string string">"""
+0     1.833101
+1     0.301937
+2     0.936987
+3    -0.072283
+4    -1.967827
+        ...   
+95    2.509049
+96   -1.429179
+97    0.466618
+98    0.281702
+99   -2.653730
+Name: Feature1, Length: 100, dtype: float64
+"""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#select multiple columns</span>
+df<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'Feature1'</span><span class="token punctuation">,</span><span class="token string">'Feature2'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#select subset for whicch a condition is true</span>
+df<span class="token punctuation">[</span>df<span class="token punctuation">[</span><span class="token string">'Feature1'</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -770,8 +828,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Assignments/" class="post-category">
-                                    Assignments
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                    Digital Health
                                 </a>
                             
                             

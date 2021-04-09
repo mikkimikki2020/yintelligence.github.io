@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-06
+                    2021-04-09
                 </div>
                 
 
@@ -504,27 +504,27 @@
 <p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
 <p><strong>Detailed discussion methodologies:</strong></p>
 <ul>
-<li><strong>GOR III</strong>: Gibrat, J.F., Garnier, J., Robson, B. (1987) <em>J. Mol. Bio.</em> <strong>198</strong>, 425-443.</li>
-<li><strong>MCC</strong> : Matthews, B.W. (1975) <em>Biochim. Biophys. Acta</em> <strong>405</strong>, 442–451.</li>
+<li><strong>GOR III</strong>: Gibrat, J.F., Garnier, J., Robson, B. （1987） <em>J. Mol. Bio.</em> <strong>198</strong>, 425-443.</li>
+<li><strong>MCC</strong> : Matthews, B.W. （1975） <em>Biochim. Biophys. Acta</em> <strong>405</strong>, 442–451.</li>
 </ul>
 <h2 id="introduction">Introduction</h2>
-<p>The aim of this assignment is to give you insight in the data and concepts behind secondary structure prediction. You will implement the <strong>GOR III algorithm</strong> and apply the ‘jack-knife’/‘leave-one-out’ for internal cross-validation. If you have already implement GOR III before, you may implement <strong>another prediction approach</strong> (<em>e.g.</em> an SVM) with 10-fold cross-validation. You will then investigate the influence of using evolutionary information on the prediction performance, and interpret the results.</p>
+<p>The aim of this assignment is to give you insight in the data and concepts behind secondary structure prediction. You will implement the <strong>GOR III algorithm</strong> and apply the ‘jack-knife’/‘leave-one-out’ for internal cross-validation. If you have already implement GOR III before, you may implement <strong>another prediction approach</strong> （<em>e.g.</em> an SVM） with 10-fold cross-validation. You will then investigate the influence of using evolutionary information on the prediction performance, and interpret the results.</p>
 <ol type="1">
-<li>The provided <strong>starting data set</strong> is the secondary structure data per residue for a set of 494 proteins (single chains from the Protein Data Bank (PDB)). Three data sets are available:
+<li>The provided <strong>starting data set</strong> is the secondary structure data per residue for a set of 494 proteins （single chains from the Protein Data Bank （PDB））. Three data sets are available:
 <ol type="1">
-<li>The per-residue secondary structure from STRIDE (<em>stride_info.txt</em>)</li>
-<li>The per-residue secondary structure from DSSP (<em>dssp_info.txt</em>).</li>
-<li>The per-protein CATH protein family (<em>cath_info.txt</em>).</li>
+<li>The per-residue secondary structure from STRIDE （<em>stride_info.txt</em>）.</li>
+<li>The per-residue secondary structure from DSSP （<em>dssp_info.txt</em>）.</li>
+<li>The per-protein CATH protein family （<em>cath_info.txt</em>）.</li>
 </ol></li>
-<li>You implement the GOR III algorithm (or another approach), separately trained on the STRIDE and DSSP per-residue secondary structure data sets.</li>
-<li>To assess the performance of your approach, you apply a ‘jack-knife’/‘leave-one-out’ approach for GOR III (a 10-fold cross validation is also acceptable for other methods). This means that you take the protein(s) you want to predict out of your training data set, parameterise your prediction algorithm on this reduced dataset, and then predict the secondary structure for the protein(s) you removed.</li>
-<li>You compare the results from STRIDE and from DSSP with the Q<sub>3</sub> and MCC quality scores (see below) to look at the variation in the prediction performance, both overall (for the whole set) and per protein family (make subsets per CATH protein family).</li>
+<li>You implement the GOR III algorithm （or another approach）, separately trained on the STRIDE and DSSP per-residue secondary structure data sets.</li>
+<li>To assess the performance of your approach, you apply a ‘jack-knife’/‘leave-one-out’ approach for GOR III （a 10-fold cross validation is also acceptable for other methods）. This means that you take the protein（s） you want to predict out of your training data set, parameterise your prediction algorithm on this reduced dataset, and then predict the secondary structure for the protein（s） you removed.</li>
+<li>You compare the results from STRIDE and from DSSP with the Q<sub>3</sub> and MCC quality scores （see below) to look at the variation in the prediction performance, both overall （for the whole set） and per protein family （make subsets per CATH protein family）.</li>
 <li>You then predict the protein family of each sequence, based on the secondary structure prediction results you obtained for each protein. To do so, you can determine your own criteria and approach, and then assess the performance of your method on the actual protein family as determined by CATH.</li>
 <li>The final part of this assignment is <strong>not required</strong> if you run out of time, but is interesting to perform, and will give you ‘bonus’ points. The task is to explore the improvement in the GOR III approach by combining it with a sequence alignment search from UniProt. This should improve the reliability of the prediction, as described for GOR V and many other secondary structure prediction methods.</li>
 </ol>
 <h2 id="additional-details-for-steps-above">Additional details for steps above</h2>
 <ol type="1">
-<li><p>The STRIDE (<em>stride_info.txt</em>), and DSSP (<em>dssp_info.txt</em>) files are tab delimited and contain the following information per column:</p>
+<li><p>The STRIDE （<em>stride_info.txt</em>）, and DSSP （<em>dssp_info.txt</em>） files are tab delimited and contain the following information per column:</p>
 <table>
 <thead>
 <tr class="header">
@@ -545,8 +545,8 @@
 </tr>
 </tbody>
 </table>
-<p>Only use the data if <em>residue_name</em> is one of the 20 natural amino acids. The <em>secondary_structure</em> field is <strong>Helix</strong>, <strong>Beta</strong>, <strong>Other</strong> or <strong>Coil</strong>. For the purposes of this assignment, classify residues with <strong>Other</strong> secondary structure as <strong>Coil</strong>. The (PDB_code, PDB_chain_code) combination is the unique identifier for each protein.</p>
-<p>The file with the protein family information (<em>cath_info.txt</em>) is also tab delimited and contains the following information per column:</p>
+<p>Only use the data if <em>residue_name</em> is one of the 20 natural amino acids. The <em>secondary_structure</em> field is <strong>Helix</strong>, <strong>Beta</strong>, <strong>Other</strong> or <strong>Coil</strong>. For the purposes of this assignment, classify residues with <strong>Other</strong> secondary structure as <strong>Coil</strong>. The （PDB_code, PDB_chain_code） combination is the unique identifier for each protein.</p>
+<p>The file with the protein family information （<em>cath_info.txt</em>） is also tab delimited and contains the following information per column:</p>
 <table>
 <thead>
 <tr class="header">
@@ -563,11 +563,11 @@
 </tr>
 </tbody>
 </table>
-<p>Where protein_family is <strong>Alpha</strong> (helical), <strong>Beta</strong> (sheet), <strong>Alpha/beta</strong> (mix of both) or <strong>None</strong>. There will be small inconsistencies in the input data, which you will have to deal with.</p></li>
+<p>Where protein_family is <strong>Alpha</strong> <code>(helical)</code>, <strong>Beta</strong> <code>(sheet)</code>, <strong>Alpha/beta</strong> <code>(mix of both)</code> or <strong>None</strong>. There will be small inconsistencies in the input data, which you will have to deal with.</p></li>
 <li><p>In the original GOR III implementation the authors used ‘dummy’ frequencies because they did not have enough data. The dataset provided here is much larger so you will not have to do this; just implement with the data as is.</p>
 <p>The short one-letter codes to be used for the secondary structure are H for alpha helix, E for beta sheet and C for coil.</p>
-<p><em>Note that amino acids can be indicated by their three-letter code (e.g. ALA) or by their one-letter code (e.g. A). You can find mappings between these online, or via Biopython.</em></p></li>
-<li><p>Efficiency is necessary for this step; think about how to do this ‘leave-one-out’ as quickly as possible without having to recount all data. The general approach you should take is to first count the frequencies for all proteins, keep track of the values for the individual proteins while you do so, and then subtract the values from the protein you are predicting from the total values (but make sure you always start from the original total values!). You then only have to recalculate the log scores.</p></li>
+<p><em>Note that amino acids can be indicated by their three-letter code （e.g. ALA） or by their one-letter code （e.g. A）. You can find mappings between these online, or via Biopython.</em></p></li>
+<li><p>Efficiency is necessary for this step; think about how to do this ‘leave-one-out’ as quickly as possible without having to recount all data. The general approach you should take is to first count the frequencies for all proteins, keep track of the values for the individual proteins while you do so, and then subtract the values from the protein you are predicting from the total values （but make sure you always start from the original total values!）. You then only have to recalculate the log scores.</p></li>
 <li><p>The formulas for the Q<sub>3</sub> and MCC scores are: <span class="math display">\[
 Q_3 = \frac{N_{residues\_correctly\_predicted}}{N_{residues\_total}}
 \]</span></p>
@@ -575,11 +575,11 @@ Q_3 = \frac{N_{residues\_correctly\_predicted}}{N_{residues\_total}}
 MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
 \]</span></p></li>
 <li><p>In this step you can show some creativity and understanding; what criteria would you use to determine the protein family from the secondary structure prediction?</p></li>
-<li><p>The basic procedure for this step is that you get a set of similar sequences from Uniprot, run your GOR III predictor on each of them, and then combine the results as described in the lesson – basically the ‘highest count’ for the predicted secondary structure per column in the multiple sequence alignment. You should check <strong>at least two</strong> of the protein sequences below; first the amino acid sequence is given, then in green the corresponding secondary structure assignment (for validation purposes).</p>
+<li><p>The basic procedure for this step is that you get a set of similar sequences from Uniprot, run your GOR III predictor on each of them, and then combine the results as described in the lesson – basically the ‘highest count’ for the predicted secondary structure per column in the multiple sequence alignment. You should check <strong>at least two</strong> of the protein sequences below; first the amino acid sequence is given, then in green the corresponding secondary structure assignment （for validation purposes）.</p>
 <p><img src="/images/ADVMB/p1.png" /></p>
 <p><img src="/images/ADVMB/p2.png" /></p></li>
 </ol>
-<p>You do <strong>not</strong> have to implement a procedure to do a multiple sequence alignment (MSA) to get sequences to compare to. You can just go to UniProt to download the alignment and start from there: I will describe that procedure here, but you may choose a different one to get your MSA.</p>
+<p>You do <strong>not</strong> have to implement a procedure to do a multiple sequence alignment （MSA） to get sequences to compare to. You can just go to UniProt to download the alignment and start from there: I will describe that procedure here, but you may choose a different one to get your MSA.</p>
 <ol type="1">
 <li>Go to http://www.uniprot.org/</li>
 <li>Click on the top left ‘<strong>Blast</strong>’ tab</li>
@@ -590,16 +590,16 @@ MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
 <li>After the results show up, there will be a table of sequences under the Alignment header. Click the top left box next to ‘Alignments’ title. This will select all the sequences that were found by BLAST.</li>
 <li>Now click on the ‘<strong>Align’</strong> button just below the ‘Alignments’ title.</li>
 <li>Wait for the results…</li>
-<li>You can now download the multiple sequence alignment (MSA) for the proteins with the ‘Download’ button above the ‘Alignment’ title.</li>
+<li>You can now download the multiple sequence alignment （MSA） for the proteins with the ‘Download’ button above the ‘Alignment’ title.</li>
 </ol>
 <p><em>Note that, in order to predict each sequence, you have to first remove the gaps from the sequence, then predict the secondary structure, and finally map the predictions back to the MSA. Then you count the predominant secondary structure code for each non-gap column in the original sequence!</em></p>
 <h2 id="evaluation">Evaluation</h2>
 <p>You should implement your work on the Jupyter platform, and comment your code and analysis results. On there we should find:</p>
 <ol type="1">
-<li><p>The code, the secondary structure prediction per protein (as done from the DSSP and STRIDE data), with the Q<sub>3</sub> and MCC scores for each, and your protein family prediction. An example line in this output file would be:</p>
+<li><p>The code, the secondary structure prediction per protein （as done from the DSSP and STRIDE data）, with the Q<sub>3</sub> and MCC scores for each, and your protein family prediction. An example line in this output file would be:</p>
 <pre class="line-numbers language-none"><code class="language-none">9xyz   A	CCHHHHHHCCEEEECCEEEEECCCHHHH	67.3	0.523	Alpha&#x2F;beta<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>with the first column the PDB code, the second the chain code, the third the prediction, the fourth the Q<sub>3</sub> score, the fifth the MCC score, and the sixth your protein family prediction.</p></li>
-<li><p>An analysis and report on the implementation of the GOR III and the ‘leave-one-out’ approach, and a discussion of the results from steps 4, 5 and 6. For step 6 this report should describe the Q<sub>3</sub> and per-secondary structure MCC quality indicators for 2 proteins, with only GOR III (or your improved version of it) and with the combined GOR III/sequence alignment method. Use graphs to clarify your results and indicate distribution ranges where appropriate!</p></li>
+<li><p>An analysis and report on the implementation of the GOR III and the ‘leave-one-out’ approach, and a discussion of the results from steps 4, 5 and 6. For step 6 this report should describe the Q<sub>3</sub> and per-secondary structure MCC quality indicators for 2 proteins, with only GOR III （or your improved version of it） and with the combined GOR III/sequence alignment method. Use graphs to clarify your results and indicate distribution ranges where appropriate!</p></li>
 </ol>
 
                 
@@ -786,8 +786,8 @@ MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Lab-sessions/" class="post-category">
-                                    Lab sessions
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                    Digital Health
                                 </a>
                             
                             

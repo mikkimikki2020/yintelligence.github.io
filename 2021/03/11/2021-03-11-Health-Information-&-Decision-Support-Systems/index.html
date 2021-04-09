@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                Digital Health
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    991
+                    989
                 </div>
                 
 
@@ -730,9 +730,11 @@
 <p>SQL is a standard language for storing, manipulating and retrieving data in databases.</p>
 <h4 id="examples">Examples</h4>
 <p>Get all patients with first name Marc</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">from</span> patients <span class="keyword">WHERE</span> firstname<span class="operator">=</span><span class="string">&#x27;Marc’</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> patients <span class="token keyword">WHERE</span> firstname<span class="token operator">=</span>'Marc’<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Get the names of all patients who visited a surgeon</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> patients.firstname, patients.lastname, cases.date <span class="keyword">from</span> patients,cases,staff</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span> patients.id <span class="operator">=</span> cases.patient_id <span class="keyword">AND</span> staff.id <span class="operator">=</span> cases.dr_id <span class="keyword">AND</span> staff.profession<span class="operator">=</span><span class="string">&#x27;Surgeon&#x27;</span> </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> patients<span class="token punctuation">.</span>firstname<span class="token punctuation">,</span> patients<span class="token punctuation">.</span>lastname<span class="token punctuation">,</span> cases<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token keyword">from</span> patients<span class="token punctuation">,</span>cases<span class="token punctuation">,</span>staff
+
+<span class="token keyword">WHERE</span> patients<span class="token punctuation">.</span>id <span class="token operator">=</span> cases<span class="token punctuation">.</span>patient_id <span class="token operator">AND</span> staff<span class="token punctuation">.</span>id <span class="token operator">=</span> cases<span class="token punctuation">.</span>dr_id <span class="token operator">AND</span> staff<span class="token punctuation">.</span>profession<span class="token operator">=</span><span class="token string">'Surgeon'</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="relational-data-model-strengths">Relational data model strengths</h3>
 <ul>
 <li>Data model is clear.</li>

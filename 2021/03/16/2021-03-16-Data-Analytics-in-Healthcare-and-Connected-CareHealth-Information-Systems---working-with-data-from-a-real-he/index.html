@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Lab-sessions/" class="post-category">
-                                Lab sessions
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                Digital Health
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-04-09
                 </div>
                 
 
@@ -511,7 +511,8 @@
 <h2 id="getting-started-with-sqlite-in-python">Getting started with SQLite in Python</h2>
 <p>Accessing data from a database like Structured Query Language (SQL) is not only efficient, but it allows you also to subset and import only the parts of the data that you need.</p>
 <p>During this practical session, you will use <a target="_blank" rel="noopener" href="https://sqlite.org/docs.html">SQLite</a> (a C-language library that implements a small, fast, self-contained SQL database engine) and the 'mimicdata.sqlite' file shared in Canvas.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#import libraries </span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np, pandas <span class="keyword">as</span> pd, matplotlib.pyplot <span class="keyword">as</span> plt, seaborn <span class="keyword">as</span> sns, matplotlib.pyplot <span class="keyword">as</span> plt, bokeh, sqlite3</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#import libraries </span>
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np<span class="token punctuation">,</span> pandas <span class="token keyword">as</span> pd<span class="token punctuation">,</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt<span class="token punctuation">,</span> seaborn <span class="token keyword">as</span> sns<span class="token punctuation">,</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt<span class="token punctuation">,</span> bokeh<span class="token punctuation">,</span> sqlite3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>In this first part of the lab session, you should:</p>
 <ul>
 <li>connect to the MIMIC database using sqlite3 library.</li>
@@ -521,7 +522,7 @@
 <li>read these two tables into a dataframe.</li>
 </ul>
 <p>Keywords: <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/sqlite3.html#connection-objects">sqlite 3 connection</a>, <a target="_blank" rel="noopener" href="https://mimic.physionet.org/mimictables/">MIMIC tables</a> ,<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/sqlite3.html#sqlite3.Cursor.execute">query execution</a>, <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql_query.html">read sql query into a DataFrame.</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="explore-the-data-using-sql-queries">Explore the data using SQL queries</h2>
 <p>The main goal of this part of the lab session is to familiarize yourself with simple and complex sql queries that you can write in order to retrieve only a part of the data you have interest to perform analysis. We suggest that you save your queries into variables to avoid having to re-think/re-write them each time you want to use again. Towards reaching the main goal mentioned, you need to:</p>
 <p><strong>Write sql queries to query single tables</strong></p>
@@ -540,13 +541,13 @@
 <li>Write a query that selects SUBJECT_ID, GENDER, ICUSTAY_ID and adds a column 'LOS_nominal' that converts the 'LOS' into a nominal variable ('Short' if los value &lt;= 3 else 'Long').</li>
 </ul>
 <p>Keywords: <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/sqlite3.html#module-functions-and-constants">sqlite</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-select/">sqlite select</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-where/">sqlite where</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-select-distinct">sqlite select distinct</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-order-by/">sqlite order by</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-in/">sqlite IN operator</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-group-by/">sqlite group by</a>, <a target="_blank" rel="noopener" href="https://www.sqlitetutorial.net/sqlite-join/">sqlite join</a>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="analysing-patients-laboratory-measurements">Analysing patient's laboratory measurements</h2>
 <p>Table 'LABEVENTS' contains all laboratory measurements for some specific patients. 'D_LABITEMS' contains definitions for all ITEM_ID associated with lab measurements in the MIMIC database. In this part of the lab session, you should analyse the glucose levels for subject with id 40161. Query the database to retrive only the relevant information; plot the glucose levels for the given subject and interpret the results.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="analysing-patients-vital-signs">Analysing patient's vital signs</h2>
 <p>During an intensive care unit (ICU) stay, the primary repository of a patient’s information is their electronic chart which displays patients’ routine vital signs,laboratory values, mental status, etc. 'CHARTEVENTS' table contains all the charted data available for a patient. 'ICUSTAYS' table (derived from the 'TRANSFERS' table) provides information about the date and time when the patient was transferred into/out the ICU. 'D_ITEMS' provides information about all items in the ICU databases. Considering the information you get from these three tables, find out how does the oxygen saturation level for patient with icu_stay_id 256307 change over time and interpret the results.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>

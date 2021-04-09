@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-08
+                    2021-04-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    668
+                    923
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -503,10 +503,9 @@
                 <h1 id="prediction-methodologies">Prediction methodologies</h1>
 <p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
 <p><a href="https://yintelligence.tech/2021/03/04/2021-03-04-From-sequence-to-structure/">From sequence to structure - Secondary structure prediction</a></p>
-<h3 id="predictions-5330">Predictions 53:30</h3>
-<figure>
-<img src="/images/ADVMB/2002200.png" alt="" /><figcaption>A bit of history… how predictions evolve</figcaption>
-</figure>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210311%5F100144%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VlQ2JydHBTTHRGQ2tQclFhV0Jhd3hJQnc2UnVQWXdoc0dVdzBNQ0tPY0pTX2c_cnRpbWU9TEZoQTM2UGsyRWc">Video Part 53:30 ~ 1:50:17</a></p>
+<p><img src="/images/ADVMB/2002200.png" /></p>
+<p>Predictions 53:30</p>
 <ul>
 <li>Model based
 <ul>
@@ -514,16 +513,23 @@
 </ul></li>
 <li>Machine learning
 <ul>
-<li>Many approaches, training steps essentia</li>
+<li>Many approaches, training steps essential</li>
 </ul></li>
 </ul>
-<h4 id="chou-fasman-5442">Chou-Fasman 54:42</h4>
+<h2 id="chou-fasman-5442">Chou-Fasman 54:42</h2>
 <ul>
 <li>Original attempt at predicting secondary structure</li>
-<li>Chou and Fasman (1970s)</li>
+<li>Chou and Fasman （1970s）</li>
 <li>Based on very limited number of protein structures</li>
 </ul>
-<p>Statistical propensity for each amino acid (R) to adopt a certain secondary structure (S)</p>
+<p>Statistical propensity for each amino acid （R） to adopt a certain secondary structure （S） <span class="math display">\[
+Pr^R_S=\frac{Pr_{R,S}}{Pr_R}\\
+Pr_{R,S}=\frac{f_{R,S}}{f_S}\\
+Pr_R=\frac{f_R}{N}
+\]</span></p>
+<blockquote>
+<p>N: total number amino acids</p>
+</blockquote>
 <p><img src="/images/ADVMB/2002201.png" /></p>
 <h5 id="chou-fasman-algorithm">Chou-Fasman algorithm</h5>
 <ul>
@@ -573,27 +579,27 @@
 </ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002204.png" /></p>
-<h4 id="gor-method-11122">GOR method 1:11:22</h4>
+<h2 id="gor-method-11122">GOR method 1:11:22</h2>
 <ul>
 <li><p>Evolved from GOR to GOR-V</p>
 <ul>
 <li><em>Jean Garnier, David Osguthorpe, Barry Robson</em></li>
 </ul></li>
-<li><p>Based on information theory approach (Bayes)</p>
+<li><p>Based on information theory approach （Bayes）</p>
 <ul>
 <li>Self-information</li>
 <li>Directional information</li>
 <li>Pair information</li>
 </ul></li>
 <li><p>Clearly defined model to get to results</p></li>
-<li><p>Self-information (related to Chou-Fasman)</p></li>
+<li><p>Self-information （related to Chou-Fasman）</p></li>
 </ul>
 <p><img src="/images/ADVMB/2002205.png" /></p>
 <ul>
 <li>Self-information, more general</li>
 </ul>
 <p><img src="/images/ADVMB/2002206.png" /></p>
-<p><em>Calculated for the three conformations, the highest value of Eq. (2) for one of the conformations S will be the predicted conformation and will be the propensity for that residue to be in that conformation, usually expressed in centinat units when natural logarithms are used.</em></p>
+<p><em>Calculated for the three conformations, the highest value of Eq. （2） for one of the conformations S will be the predicted conformation and will be the propensity for that residue to be in that conformation, usually expressed in centinat units when natural logarithms are used.</em></p>
 <ul>
 <li>Include local sequence information
 <ul>
@@ -601,17 +607,17 @@
 </ul></li>
 </ul>
 <p><span class="math display">\[
-I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
-, R_1,..., R_n )/ P(n − S_j
-, R_1,..., R_n )]
-+log[P(n − S)/ P(S)]
+I(ΔS_j;R_1,..., R_n ) = \log[\frac{P(S_j
+, R_1,..., R_n )}{P(n − S_j
+, R_1,..., R_n )}]
++log[\frac{P(n − S)}{P(S)}]
 \]</span></p>
-<h5 id="gor-iii-12122">GOR I/II 1:21:22</h5>
+<h3 id="gor-iii-12122">GOR I/II 1:21:22</h3>
 <h6 id="gor-i-and-ii-approximation">GOR I and II approximation</h6>
 <ul>
 <li>Self and directional information
 <ul>
-<li>26 proteins, ~4500 residues (1978, GOR I)</li>
+<li>26 proteins, ~4500 residues （1978, GOR I）</li>
 </ul></li>
 <li>Uses windows of 17 residues
 <ul>
@@ -622,23 +628,172 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 <ul>
 <li>GOR I and II implementation</li>
 </ul>
-<p><img src="/images/ADVMB/2002208.png" /></p>
+<p><span class="math display">\[
+I(\Delta{S_j};R_j)=\log(\frac{f_{S_j,R_j}}{f_{n-S_j,R_j}})+\log(\frac{f_{n-S}}{f_S})
+\]</span></p>
+<p>Asparagine N at position j:</p>
+<table>
+<thead>
+<tr class="header">
+<th>S</th>
+<th>f<sub>S,R</sub></th>
+<th>f<sub>n-S,R</sub></th>
+<th>f<sub>n-S</sub></th>
+<th>f<sub>S</sub></th>
+<th>I</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Helix</td>
+<td>200</td>
+<td>800</td>
+<td>17000</td>
+<td>7000</td>
+<td>-0.50</td>
+</tr>
+<tr class="even">
+<td>Sheet</td>
+<td>300</td>
+<td>700</td>
+<td>19000</td>
+<td>5000</td>
+<td>0.49</td>
+</tr>
+<tr class="odd">
+<td>Coil</td>
+<td>500</td>
+<td>500</td>
+<td>12000</td>
+<td>12000</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>1000 <code>Asn (N)</code> 24000 total</p>
+</blockquote>
+<p><img src="/images/ADVMsB/2002208.png" /> <span class="math display">\[
+I(\Delta{S_j};R_{j+m})=\log(\frac{f_{S_j,R_{j+m}}}{f_{n-S_j,R_{j+m}}})+\log(\frac{f_{n-S}}{f_S})
+\]</span> ThreonineT at position j-8, any residue at position j in conformation S:</p>
+<table>
+<thead>
+<tr class="header">
+<th>S</th>
+<th>f<sub>S,R</sub></th>
+<th>f<sub>n-S,R</sub></th>
+<th>f<sub>n-S</sub></th>
+<th>f<sub>S</sub></th>
+<th>I</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Helix</td>
+<td>100</td>
+<td>300</td>
+<td>17000</td>
+<td>7000</td>
+<td>-0.21</td>
+</tr>
+<tr class="even">
+<td>Sheet</td>
+<td>200</td>
+<td>200</td>
+<td>19000</td>
+<td>5000</td>
+<td>1.33</td>
+</tr>
+<tr class="odd">
+<td>Coil</td>
+<td>100</td>
+<td>300</td>
+<td>12000</td>
+<td>12000</td>
+<td>-1.10</td>
+</tr>
+</tbody>
+</table>
+<p>59</p>
+<table>
+<thead>
+<tr class="header">
+<th>S,0</th>
+<th>R,-8</th>
+<th>R,-7</th>
+<th>R,-6</th>
+<th>R,-5</th>
+<th>R,-4</th>
+<th>R,-3</th>
+<th>R,-2</th>
+<th>...</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>T</td>
+<td>H</td>
+<td>I</td>
+<td>S</td>
+<td>I</td>
+<td>S</td>
+<td>M</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td>Helix</td>
+<td>-0.21</td>
+<td>-0.24</td>
+<td>-0.25</td>
+<td>-0.71</td>
+<td>0.07</td>
+<td>-0.07</td>
+<td>0.96</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td>Sheet</td>
+<td>1.33</td>
+<td>0.44</td>
+<td>0.48</td>
+<td>0.75</td>
+<td>-0.42</td>
+<td>0.49</td>
+<td>-0.53</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td>Coil</td>
+<td>-1.10</td>
+<td>-0.18</td>
+<td>-0.21</td>
+<td>-0.11</td>
+<td>0.15</td>
+<td>-0.62</td>
+<td>-1.19</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
 <p><img src="/images/ADVMB/2002209.png" /></p>
 <p><img src="/images/ADVMB/2002210.png" /></p>
 <ul>
 <li>GOR I results…
 <ul>
 <li>Has Q<sub>3</sub> around 49%, but includes turns</li>
-<li>Bad at β sheet, tweaks get higher Q<sub>3</sub> (up to 60%)</li>
+<li>Bad at β sheet, tweaks get higher Q<sub>3</sub> （up to 60%）</li>
 </ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002211.png" /></p>
-<h5 id="gor-iii-13505">GOR III 1:35:05</h5>
+<h3 id="gor-iii-13505">GOR III 1:35:05</h3>
 <h6 id="gor-iii-approximation">GOR III approximation</h6>
 <ul>
-<li>68 proteins, 12000 residues (1987)</li>
+<li>68 proteins, 12000 residues （1987）</li>
 </ul>
-<p><img src="/images/ADVMB/2002212.png" /></p>
+<p><img src="/images/ADVMB/2002212.png" /> <span class="math display">\[
+I(\Delta{S_j};R_{j+m}|R_j)=\log(\frac{f_{S_j,R_{j+m},R_j}}{f_{n-S_j,R_{j+m},R_j}})+\log(\frac{g_{n-S_j,R_j}}{f_{S_j,R_j}})
+\]</span></p>
 <ul>
 <li>The results
 <ul>
@@ -647,10 +802,10 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 </ul>
 <p><img src="/images/ADVMB/2002213.png" /></p>
 <p>How to improve this method?</p>
-<h5 id="gor-iv-13706">GOR IV 1:37:06</h5>
+<h3 id="gor-iv-13706">GOR IV 1:37:06</h3>
 <h6 id="gor-iv-approximation">GOR IV approximation</h6>
 <ul>
-<li>267 proteins, 63000 residues (1996)</li>
+<li>267 proteins, 63000 residues （1996）</li>
 <li>Consider information for all residue pairs</li>
 </ul>
 <p><img src="/images/ADVMB/2002214.png" /></p>
@@ -659,7 +814,7 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 </ul>
 <p><img src="/images/ADVMB/2002215.png" /></p>
 <ul>
-<li>Residue at position j in conformation S (and n-S):
+<li>Residue at position j in conformation S （and n-S）:
 <ul>
 <li>For threonine T at position j-8:
 <ul>
@@ -674,7 +829,7 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 </ul>
 <p><img src="/images/ADVMB/2002216.png" /></p>
 <ul>
-<li><p>Residue at position j in conformation S (and n-S):</p></li>
+<li><p>Residue at position j in conformation S （and n-S）:</p></li>
 <li><p>Probability threonine T at position j-8</p></li>
 <li><p>Probability histidine H at position j-7</p></li>
 <li><p>…</p></li>
@@ -686,11 +841,11 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 <li><em>Zvelebil and Baum, Understanding Bioinformatics, Garland Science.</em></li>
 <li>All α, all β, α/β and α+β</li>
 </ul></li>
-<li>Ranges from 39.2% (α+β) to 67.2% (α/β)</li>
+<li>Ranges from 39.2% （α+β） to 67.2% （α/β）</li>
 </ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002217.png" /></p>
-<h5 id="gor-v-14506">GOR V 1:45:06</h5>
+<h3 id="gor-v-14506">GOR V 1:45:06</h3>
 <ul>
 <li>Uses multiple sequence alignment
 <ul>
@@ -710,12 +865,12 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 </ul></li>
 <li>Various other improvements
 <ul>
-<li>513 proteins, 84107 residues (2002)</li>
+<li>513 proteins, 84107 residues （2002）</li>
 </ul></li>
 <li>The results…
 <ul>
 <li>Has mean Q<sub>3</sub> of 73.5%</li>
-<li>Q<sub>3</sub> ranges from 60.3% (allβ) to 84.3% (allα)</li>
+<li>Q<sub>3</sub> ranges from 60.3% （allβ） to 84.3% (allα）</li>
 </ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002218.png" /></p>
@@ -1087,6 +1242,13 @@ I(ΔS_j;R_1,..., R_n ) = \log[P(S_j
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
