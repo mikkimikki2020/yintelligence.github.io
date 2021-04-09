@@ -1,0 +1,1461 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Trees Indexes I, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Trees Indexes I | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Trees Indexes I</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Database-systems/">
+                                <span class="chip bg-color">Database systems</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Database/" class="post-category">
+                                Database
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-04-10
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-04-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    14 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="trees-indexes-i">Trees Indexes I</h1>
+<p><a href="https://yintelligence.tech/2021/04/01/2021-04-01-Course-Introduction-and-the-Relational-Model/">CMU 15-445/645 Database systems</a></p>
+<p>Lecture <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/notes/07-trees1.pdf">Notes</a> + <a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2019/slides/07-trees1.pdf">Slides</a> + <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JHZFc4hMGhk&amp;list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi&amp;index=8">Video</a></p>
+<p>This lecture continues our discussion of data structures. The first three points can be applied in hash table with good results.</p>
+<ul>
+<li>Internal Meta-data</li>
+<li>Core Data Storage</li>
+<li>Temporary Data Structures</li>
+<li><strong>Table Indexes</strong></li>
+</ul>
+<p>But tree is better in table indexes, so that is why the the default table index of each DBMS is tree. We are going to focus on table indexes.</p>
+<h2 id="indexes">Indexes</h2>
+<p>A <strong>table index</strong> is a replica of a subset of a table’s columns that is organized in such a way that allows the DBMS to find tuples more quickly than performing a sequential scan.</p>
+<blockquote>
+<p>Strictly, index is not necessary, it is a data structure to speed up search. If it is not applied, then use linear sequential scan to find the desired tuple, O(n).</p>
+</blockquote>
+<p>The DBMS ensures that the contents of the tables and the indexes are always in sync.</p>
+<blockquote>
+<p>The index actually stores the contents of the original table in a data structure, so it also duplicates(replica) a part of the contents of the original table.</p>
+<p>If we update the original table (write operation), we also need to perform the same operation on index to <strong>synchronize</strong> the original table and index.</p>
+</blockquote>
+<p>It is the DBMS’s job to figure out the best indexes to use to execute queries.</p>
+<p>There is a <strong>trade-off</strong> on the number of indexes to create per database (indexes <u>use storage and require maintenanc</u>e).</p>
+<ul>
+<li>Storage Overhead</li>
+<li>Maintenance Overhead</li>
+</ul>
+<h2 id="b-tree-family">B-Tree Family</h2>
+<p>There is a specific data structure called a <strong>B-Tree</strong>.</p>
+<p>People also use the term to generally refer to a class of balanced tree data structures:</p>
+<ul>
+<li>B-Tree (1971)</li>
+<li>B+Tree (1973)</li>
+<li>B*Tree (1977?)</li>
+<li>B<sup>link</sup>-Tree (1981)</li>
+</ul>
+<h2 id="btree">B+Tree</h2>
+<p>A <strong>B+Tree</strong> is a <u>self-balancing</u> tree data structure that keeps data sorted and allows searches, sequential access, insertion, and deletions in <strong>O(log(n))</strong>.</p>
+<ul>
+<li>Generalization of a binary search tree in that a node can have more than two children.</li>
+<li>Optimized for systems that read and write large blocks of data.</li>
+</ul>
+<blockquote>
+<p>Almost every modern DBMS that supports order-preserving indexes uses a B+ Tree. There is a specific data structure called a <strong>B-Tree</strong>, but people also use the term to generally refer to a class of data structures.</p>
+<p>Modern B+ Tree implementations combine features from other B-Tree variants, such as the sibling pointers used in the B<sup>link</sup>-Tree.</p>
+</blockquote>
+<h3 id="btree-properties">B+Tree properties</h3>
+<p>A B+Tree is an <strong>M</strong>-way search tree with the following properties:</p>
+<ul>
+<li><p>It is perfectly balanced (i.e., every leaf node is at the same depth).</p></li>
+<li><p>Every inner node other than the root is at least half full</p>
+<p>(<strong>M/2-1 ≤ num of keys ≤ M-1</strong> )</p></li>
+<li><p>Every inner node with <strong>k</strong> keys has <strong>k+1</strong> non-null children</p></li>
+</ul>
+<p><img src="/images/DB/1513330.png" /></p>
+<ul>
+<li><strong>Leaf node</strong>: node at the bottom layer
+<ul>
+<li>composed by <code>&lt;value&gt;</code> and <code>&lt;key&gt;</code></li>
+</ul></li>
+<li><strong>Inner node</strong>: node that is not a leaf node
+<ul>
+<li>composed by <code>&lt;node*&gt;</code> and <code>&lt;key&gt;</code></li>
+</ul></li>
+<li><strong>Sibling pointer</strong>: leaf nodes that has the same father</li>
+</ul>
+<h3 id="node">Node</h3>
+<p>Every B+Tree node is comprised of an array of key/value pairs.</p>
+<ul>
+<li>The keys are derived from the attributes(s) that the index is based on.</li>
+<li>The values will differ based on whether the node is classified as inner nodes or leaf nodes.</li>
+<li>Arrays at every node are (almost) sorted by the keys</li>
+</ul>
+<p><img src="/images/DB/1513331.png" /></p>
+<ul>
+<li><code>prev</code> and <code>next</code> are two pointers to the <strong>sibling node</strong></li>
+</ul>
+<p><img src="/images/DB/15133310.png" /></p>
+<p>The <code>sorted keys</code> are arranged together. Because only the <code>key</code> is checked during scan. In addition, the data types of the <code>keys</code> are the same in size, but the data types of the <code>values</code> are likely to be inconsistent.</p>
+<p>Two approaches for leaf node values:</p>
+<ol type="1">
+<li><strong>Record IDs</strong>
+<ul>
+<li>A pointer to the location of the tuple</li>
+</ul></li>
+<li><strong>Tuple Data</strong>
+<ul>
+<li>The actual contents of the tuple is stored in the leaf node</li>
+<li>Secondary indexes have to store the record id as their values.</li>
+</ul></li>
+</ol>
+<h3 id="b-tree-vs.-b-tree">B Tree vs. B+ Tree</h3>
+<p>The original <strong>B-Tree</strong> from 1972 stored keys + values in all nodes in the tree.</p>
+<ul>
+<li><p>More space efficient since each key only appears once in the tree.</p>
+<blockquote>
+<p>There is <strong>no</strong> duplication in B Tree</p>
+</blockquote></li>
+</ul>
+<p>A <strong>B+Tree</strong> only stores <strong>values</strong> in <code>leaf nodes</code>. <code>Inner nodes</code> only <strong>guide</strong> the search process.</p>
+<blockquote>
+<p>There are <strong>duplicates</strong> in B+ Tree</p>
+</blockquote>
+<p>The storage location of the key not only affects the appearance of the tree, but also affects the performance of multithreading to change tree information.</p>
+<blockquote>
+<p>The key information of B+ Tree is only in the leaf node. After the information is changed, it only needs to go upwards (so only an upward direction of latch is needed).</p>
+<p>But B Tree needs latch in two directions, namely up and down. We will discuss this in detail in the next two classes.</p>
+</blockquote>
+<h3 id="insertion">Insertion</h3>
+<ol type="1">
+<li>Find correct leaf <strong>L</strong>.</li>
+<li>Add new entry into <strong>L</strong> in sorted order:
+<ul>
+<li>If <strong>L</strong> has enough space, the operation done.</li>
+<li>Otherwise split L into two nodes <strong>L</strong> and <strong>L2</strong>.
+<ul>
+<li>Redistribute entries evenly and copy up middle key.</li>
+<li>Insert index entry pointing to <strong>L2</strong> into parent of L.</li>
+</ul></li>
+</ul></li>
+<li>To split an inner node, redistribute entries evenly, but push up the middle key.</li>
+</ol>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">B+Tree Visualization</a></p>
+</blockquote>
+<h3 id="deletion">Deletion</h3>
+<ol type="1">
+<li><p>Find correct leaf <strong>L</strong></p></li>
+<li><p>Remove the entry:</p>
+<ol type="1">
+<li><p>If <strong>L</strong> is at least half full, the operation is done.</p></li>
+<li><p>If <strong>L</strong> has only <strong>M/2-1</strong> entries</p>
+<ul>
+<li><p>try to redistribute, borrowing from sibling.</p>
+<blockquote>
+<p>(adjacent node with same parent as <strong>L</strong></p>
+</blockquote></li>
+<li><p>If redistribution fails, merge <strong>L</strong> and sibling.</p></li>
+</ul></li>
+</ol></li>
+<li><p>If merge occurred, you must delete entry (pointing to <strong>L</strong> or sibling) from parent of <strong>L</strong>.</p></li>
+</ol>
+<h3 id="b-tree-in-practice">B+ Tree In Practice</h3>
+<ul>
+<li><p>Typical Fill-Factor: 67%.</p>
+<blockquote>
+<p>Fill-Factor = num of leaf nodes / num of all nodes</p>
+</blockquote></li>
+<li><p>Typical Capacities:</p>
+<ul>
+<li>Height 4: 1334 = 312,900,721 entries</li>
+<li>Height 3: 1333 = 2,406,104 entries</li>
+</ul></li>
+<li><p>Pages per level:</p>
+<ul>
+<li><p>Level 1 = 1 page = 8 KB</p></li>
+<li><p>Level 2 = 134 pages = 1 MB</p></li>
+<li><p>Level 3 = 17,956 pages = 140 MB</p>
+<blockquote>
+<p>In practice, the B + tree does not need more than 5 levels</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h3 id="clustered-indexes">Clustered Indexes</h3>
+<p>The table is stored in the sort order specified by the primary key.</p>
+<ul>
+<li>Can be either heap- or index-organized storage.</li>
+</ul>
+<p>Some DBMSs always use a clustered index.</p>
+<ul>
+<li>If a table doesn’t contain a primary key, the DBMS will automatically make a hidden row id primary key.</li>
+</ul>
+<p>Other DBMSs cannot use them at all.</p>
+<blockquote>
+<p>Clustered Indexes is very helpful for range query.</p>
+<p>An example of a range query is to require all tuples whose <code>primary key</code> is between 0 and 100.</p>
+<p>If we need 5 pages, then these 5 pages are continuous on the disk after the clustered index, and a sequential I/O can be solved.</p>
+<p>If you don't use clustered indexes, there may be 5 random I/O.</p>
+</blockquote>
+<h3 id="selection-conditions">Selection Conditions</h3>
+<p>The DBMS can use a B+Tree index if the query provides any of the attributes of the search key.</p>
+<p>Example: Index on &lt;a,b,c&gt;</p>
+<ul>
+<li>Supported: <strong>(a=5 AND b=3)</strong></li>
+<li>Supported: <strong>(b=3)</strong></li>
+</ul>
+<blockquote>
+<p>Not all DBMSs support this.</p>
+</blockquote>
+<p>Selection Conditions is the advantage of B+ tree, which means that we can search for the <code>prefix</code>, <code>suffix</code>, or other part of the search key corresponding to the index.</p>
+<p>This is something that <u>hash table</u> cannot do. It can <u>only search for a complete search key</u>, we must have all attributes in search key.</p>
+<p><img src="/images/DB/15133322.png" /></p>
+<h4 id="prefix"><code>prefix</code></h4>
+<p>Through the prefix, we can know the interval in which the tuple we want to find appears in the index, that is, scan from a position smaller than our prefix to a position larger than our prefix.</p>
+<p>The following are two examples of prefixes:</p>
+<p><img src="/images/DB/1513332.png" /></p>
+<p><img src="/images/DB/15133320.png" /></p>
+<h4 id="suffix"><code>suffix</code></h4>
+<p>We are missing a <code>prefix</code>, so fill in all possible prefixes. This will generate several intervals that need to be scanned, and the number of these intervals is equal to the number of possible prefixes. As shown in the figure below * can be A, B, C　 (the latter two intervals are merged together in the example):</p>
+<p><img src="/images/DB/15133321.png" /></p>
+<h2 id="btree-design-decisions">B+Tree Design Decisions</h2>
+<h3 id="node-size">Node Size</h3>
+<p>The optimal node size for a B+Tree depends on the <strong>speed of the disk</strong>.</p>
+<blockquote>
+<p>Node can be one page or multiple pages</p>
+</blockquote>
+<p>The slower the disk, then the larger the optimal node size for B+ Tree.</p>
+<ul>
+<li>HDD ~1MB</li>
+<li>SSD: ~10KB</li>
+<li>In-Memory: ~512B</li>
+</ul>
+<p>Optimal sizes can vary depending on the workload</p>
+<ul>
+<li><p>Leaf Node Scans vs. Root-to-Leaf Traversals</p>
+<blockquote>
+<p><strong>Leaf node scan</strong>: involves a large number of nodes, which is sequential I/O</p>
+<p><strong>Root-to-leaf traversal</strong>: involves a small number of nodes, but it is random I/O, because these pages are not stored together with a high probability</p>
+</blockquote></li>
+</ul>
+<blockquote>
+<p>Some workloads may be more scan-heavy versus having more single key look-ups.</p>
+</blockquote>
+<p>The idea is to amortize the cost of reading a node from disk into memory over as many key/value pairs as possible.</p>
+<p>In addition, the index and the original table can use two buffer pools:</p>
+<ul>
+<li>Index buffer page: 1 MB</li>
+<li>Table data buffer page: 8 KB</li>
+</ul>
+<h3 id="merge-threshold">Merge Threshold</h3>
+<p>Some DBMS do not always merge when it’s half full.</p>
+<p>Delaying a merge operation may reduce the amount of reorganization.</p>
+<p>It may be better for the DBMS to let underflows to occur and then periodically rebuild the entire tree to re-balance it.</p>
+<h3 id="variable-length-keys">Variable Length keys</h3>
+<h4 id="approach-1-pointers">Approach #1: Pointers</h4>
+<p>Store keys as pointers to the tuples attribute.</p>
+<blockquote>
+<p>Too slow, very rarely used.</p>
+</blockquote>
+<h4 id="approach-2-variable-length-nodes">Approach #2: Variable Length Nodes</h4>
+<p>The size of each node in the B+Tree can vary, but requires careful memory management.</p>
+<blockquote>
+<p>Not suitable for fix size page. This approach is also rare.</p>
+</blockquote>
+<h4 id="approach-3-padding">Approach #3: Padding</h4>
+<p>Always pad the key to be max length of the key type.</p>
+<blockquote>
+<p>Waste of space.</p>
+</blockquote>
+<h4 id="approach-4-key-map-indirection">Approach #4: Key Map / Indirection</h4>
+<p>Embed an array of pointers that map to the key+value list within the node.</p>
+<blockquote>
+<p>This is similar to <strong>slotted pages</strong> discussed before. This is the most common approach.</p>
+</blockquote>
+<p><img src="/images/DB/15133323.png" /></p>
+<p><img src="/images/DB/15133324.png" /></p>
+<p>We can save an initial letter in the <code>sorted key map</code> area, which can reduce the number of jumps to the <code>key+values</code> area. It is not necessary to read all the contents of each <code>key</code>.</p>
+<h3 id="non-unique-indexes">Non-Unique Indexes</h3>
+<h4 id="approach-1-duplicate-keys">Approach #1: Duplicate Keys</h4>
+<p>Use the same leaf node layout but store duplicate keys multiple times.</p>
+<p><img src="/images/DB/15133325.png" /></p>
+<h4 id="approach-2-value-lists">Approach #2: Value Lists</h4>
+<p>Store each key only once and maintain a linked list of unique values.</p>
+<p><img src="/images/DB/15133326.png" /></p>
+<h3 id="intra-node-search">Intra-Node Search</h3>
+<p>Intra-Node Search means searching in the node, which can be imagined as searching in the sorted data in the page.</p>
+<h4 id="approach-1-linear">Approach #1: Linear</h4>
+<p>Scan the key/value entries in the node from beginning to end. Stop when you find the key that you are looking for.</p>
+<p>This does not require the key/value entries to be pre-sorted.</p>
+<p><img src="/images/DB/15133327.png" /></p>
+<h4 id="approach-2-binary">Approach #2: Binary</h4>
+<p>Jump to the middle key, and then pivot left/right depending on whether that middle key is less than or greater than the search key.</p>
+<p>This requires the key/value entries to be pre-sorted.</p>
+<p><img src="/images/DB/15133328.png" /></p>
+<p><img src="/images/DB/15133329.png" /></p>
+<h4 id="approach-3-interpolation">Approach #3: Interpolation</h4>
+<p>Approximate the starting location of the search key based on the known low/high key values in the node. Then perform linear scan from that location.</p>
+<p>This requires the key/value entries to be pre-sorted.</p>
+<p><img src="/images/DB/15133319.png" /></p>
+<h2 id="btree-optimizations">B+Tree Optimizations</h2>
+<h3 id="prefix-compression">Prefix Compression</h3>
+<p>Prefix Compression means that the prefixes shared by the strings only need to be stored once, which can efficiently save storage space. At the same time, it can also reduce the height of the B+ Tree and speed up the search.</p>
+<ul>
+<li>Sorted keys in the same leaf node are likely to have the same prefix.</li>
+<li>Instead of storing the entire key each time, extract common prefix and store only unique suffix for each key.
+<ul>
+<li>Many variations</li>
+</ul></li>
+</ul>
+<p><img src="/images/DB/15133318.png" /></p>
+<h3 id="suffix-truncation">Suffix Truncation</h3>
+<p>We said at the beginning that the leaf node plays the role of storing information, and the inner node plays the role of navigation in the lookup.</p>
+<p>For strings, there is no need to save everything in the inner node, just save enough prefixes to <strong>ensure the relationship between greater than and less than and the role of navigation</strong>.</p>
+<ul>
+<li>The keys in the inner nodes are only used to “direct traffic”, we do not need the entire key.</li>
+<li>Store a minimum prefix that is needed to correctly route probes into the index.</li>
+</ul>
+<p>For the example below, in fact <code>a</code> and <code>l</code> are sufficient:</p>
+<p><img src="/images/DB/15133317.png" /></p>
+<p><img src="/images/DB/15133316.png" /></p>
+<h3 id="bulk-insert">Bulk Insert</h3>
+<p>Bulk Insert is to sort the keys first, then complete the leaf node, and then complete the inner node according to the leaf node. Bulk Insert allows us to get a B+ Tree faster.</p>
+<blockquote>
+<p>This will be faster than inserting one-by-one since there are no splits or merges.</p>
+<p>It is very slow to insert a B+ Tree again and again</p>
+</blockquote>
+<p>The fastest way to build a B+Tree from scratch is to first sort the keys and then build the index from the bottom up.</p>
+<p><img src="/images/DB/15133315.png" /></p>
+<h3 id="pointer-swizzling">Pointer Swizzling</h3>
+<p>Every time we need a page from the B+ Tree, we need to call the function in the buffer pool and use the <code>pageid</code> to get the pointer of the corresponding page.</p>
+<p>This (indirection) brings fixed overhead. And we can save this part, especially in the upper layers of the B+ Tree. Because each query requires the upper levels of pages, they belong to hot pages, that is, they often need to be accessed, and it is more expensive to find the buffer pool every time.</p>
+<p>We can keep these pages in memory all the time, and then directly bring pointers to their contents in B+Tree, so that they don't need to go through the buffer pool to access them. The number of these hot pages is not very large, and they can be kept in memory for a long time.</p>
+<p><img src="/images/DB/15133314.png" /></p>
+<p><img src="/images/DB/15133313.png" /></p>
+<p>Nodes use page ids to reference other nodes in the index. The DBMS must get the memory location from the page table during traversal.</p>
+<p>If a page is pinned in the buffer pool, then we can store raw pointers instead of page ids. This avoids address lookups from the page table.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The venerable B+Tree is always a good choice for your DBMS.</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/04/10/2021-04-09-Trees-Indexes-I/">https://yintelligence.tech/2021/04/10/2021-04-09-Trees-Indexes-I/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Database-systems/">
+                                    <span class="chip bg-color">Database systems</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/04/10/2021-04-09-Trees-Indexes-I/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Trees Indexes I">
+                        
+                        <span class="card-title">Trees Indexes I</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Chapter 11.1-11.4
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Database/" class="post-category">
+                                    Database
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Database-systems/">
+                        <span class="chip bg-color">Database systems</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/09/2021-04-09-Range-Searching-and-Multi-Dimensional-Data/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Range Searching and Multi-Dimensional Data">
+                        
+                        <span class="card-title">Range Searching and Multi-Dimensional Data</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Balanced Trees
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Data-model/" class="post-category">
+                                    Data model
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1460 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Range Searching and Multi-Dimensional Data, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Range Searching and Multi-Dimensional Data | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Range Searching and Multi-Dimensional Data</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Data-Structures/">
+                                <span class="chip bg-color">Data Structures</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Data-model/" class="post-category">
+                                Data model
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-04-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-04-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    15 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="range-searching-and-multi-dimensional-data">Range Searching and Multi-Dimensional Data</h1>
+<p><a href="https://yintelligence.tech/2021/02/22/2021-02-22-Introduction-to-data-structure/">CS61B: Data structure</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg">Video</a> + <a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1b3DAvlP1jDw-6KYOVVDxbIsg1Y3DcRWEbx1hE2J0gO8/edit#slide=id.g409413421_0637">Slide</a></p>
+<p>Textbook <a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap16/chap161.html">1</a>, <a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap16/chap162.html">2</a>, <a target="_blank" rel="noopener" href="https://joshhug.gitbooks.io/hug61b/content/chap16/chap163.html">3</a></p>
+<h2 id="range-finding-and-nearest"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KWsh6aLe_eE&amp;list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg&amp;index=1&amp;t=33s">Range-Finding and Nearest</a></h2>
+<p>So far we’ve seen three different efficient implementations of a Map (or Set):</p>
+<ul>
+<li>Binary Search Tree.</li>
+<li>2-3 Tree / 2-3-4 Tree / B-Tree.</li>
+<li>Red Black Tree.</li>
+</ul>
+<p>These “search tree” data structures support very fast insert, remove, and delete operations for arbitrary amounts of data.</p>
+<ul>
+<li>Requires that data can be <strong>compared to each other</strong> with some total order.</li>
+<li>We used the “<strong>Comparable</strong>” interface as our comparison engine.</li>
+</ul>
+<p>So far we’ve only discussed “one dimensional data”. That is, all data could be compared under some total order. Examples:</p>
+<ul>
+<li>1 &lt; 3 &lt; 6 &lt; 9 &lt; 15“cat” &lt; “doghouse” &lt; “if” &lt; “zebra” [using alphabetical order]</li>
+<li>“if” &lt; “cat” &lt; “zebra” &lt; “doghouse” [using string length]</li>
+</ul>
+<p>But not all data can be compared along a single dimension. We’ll see that search trees require some design tweaks to function efficiently on <strong>multi-dimensional data</strong>.</p>
+<h2 id="multi-dimensional-data"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9U2GTS7SP80&amp;list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg&amp;index=2">Multi-dimensional Data</a></h2>
+<h3 id="motivation">Motivation</h3>
+<p>Suppose we want to perform operations on a <strong>set</strong> of Body objects in 2D space. For example, perhaps we wanted to ask questions about the Sun bodies (shown as yellow dots below) in our two-dimension image space.</p>
+<p><img src="/images/CS61B/1117080.png" /></p>
+<p>First Question: <strong>2D Range Finding</strong></p>
+<p><strong>How many objects are in a region</strong>, such as in the highlighted green rectangle above?</p>
+<p>Second Question: <strong>Nearest Neighbours</strong></p>
+<p><strong>What is the closest object to another object</strong>, such as which sun is closest to our space horse? (The desired answer as found by visual inspection is the sun closest to its back hoof.)</p>
+<p>Ideally, we’d like to store our data in a format (like a BST) that allows more efficient approaches than just iterating over all objects.</p>
+<p>Let’s see what goes wrong if we try to build a BST of 2 dimensional data.</p>
+<h3 id="building-trees-of-two-dimensional-data">Building Trees of Two Dimensional Data</h3>
+<p>Consider trying to build a BST of Body objects in 2D space.</p>
+<ul>
+<li>earth.xPos = 1.5, earth.yPos = 1.6</li>
+<li>mars.xPos = 1.0, mars.yPos = 2.8</li>
+</ul>
+<p><img src="/images/CS61B/11170801.png" /></p>
+<p>For a BST, we need some notion of “<strong>less than</strong>”:</p>
+<ul>
+<li>In xPos, Mars &lt; Earth (tree on left).</li>
+<li>In yPos, Mars &gt; Earth (tree on right).</li>
+</ul>
+<p><img src="/images/CS61B/11170802.png" /></p>
+<p>Could just pick one, but you’re losing some of your information about ordering.</p>
+<ul>
+<li>Will make nearest/2D range finding slow.</li>
+</ul>
+<h3 id="example-of-a-2d-range-finding-query">Example of a 2D Range-Finding Query</h3>
+<p>Suppose we want to know “What are all the points with x-coordinate less than -1.5?</p>
+<blockquote>
+<p>Equivalent to “What’s in the green rectangle?”</p>
+</blockquote>
+<p><img src="/images/CS61B/11170803.png" /></p>
+<blockquote>
+<p>As humans, we can easily visually identify them (E and F).</p>
+</blockquote>
+<p>Let’s see what happens if we try to store them in a BST ordered by X, then Y coordinate.</p>
+<h4 id="x-based-tree-representation">X-based tree representation</h4>
+<p>Suppose we put points into a BST map ordered by x-coordinate.</p>
+<ul>
+<li>put((-1, -1), A)</li>
+<li>put(( 2, 2), B)</li>
+<li>put(( 0, 1), C)</li>
+<li>put(( 1, 0), D)</li>
+<li>put((-2, -2), E)</li>
+<li>put((-3, 2.5), F)</li>
+</ul>
+<p><img src="/images/CS61B/11170804.png" /></p>
+<p>To identify all the points with x-coordinate less than -1.5, how can you avoid looking at every node?</p>
+<p>We can simply work our way down the tree, ignoring pursuing any options that are impossible.</p>
+<ul>
+<li>This process of cutting off a tree search early is called “<strong>Pruning</strong>”</li>
+</ul>
+<p><img src="/images/CS61B/11170805.png" /></p>
+<p>For example, no need to go down the right child of A because no point over there could possible have x coordinate &lt; -1.5.</p>
+<h4 id="y-based-tree-representation">Y-based tree representation</h4>
+<p>If we’d used y coordinate for comparisons, we’d get a slightly different BST.</p>
+<p><img src="/images/CS61B/11170806.png" /></p>
+<p>In this case, <u>pruning was <strong>impossible</strong></u>!</p>
+<h4 id="comparation">Comparation</h4>
+<p>In the X-oriented tree, the “A” node partitioned the universe into a left and right side.</p>
+<ul>
+<li>Left: All points with X &lt; -1.</li>
+<li>Right: All points with X &gt; -1.</li>
+</ul>
+<blockquote>
+<p>Right side doesn’t intersect query rectangle.</p>
+</blockquote>
+<p>In the Y-oriented tree, the “A” node partitioned the universe into a top and bottom side.</p>
+<ul>
+<li>Bottom (left): All points with Y &lt; -1.</li>
+<li>Top (right): All points with Y &gt; -1.</li>
+</ul>
+<blockquote>
+<p>Both sides intersect query rectangle.</p>
+</blockquote>
+<p>No matter whether we choose the X-based tree representation or the Y-based tree representation, we will always have suboptimal pruning; search in the optimized dimension will be log<em>N</em>, but search in the non-optimized dimension will be N<em>N</em> in runtime.</p>
+<p>We’ll see two efficient approaches to storing 2D data in a tree.</p>
+<h2 id="quadtrees">QuadTrees</h2>
+<p>We can solve this problem by splitting in both directions simultaneously. This is the QuadTree.</p>
+<p>Every Node has <strong>four</strong> children:</p>
+<ul>
+<li>Top left, a.k.a. northwest.</li>
+<li>Top right, a.k.a. northeast.</li>
+<li>Bottom left, a.k.a. southwest.</li>
+<li>Bottom right, a.k.a. southeast.</li>
+</ul>
+<p><img src="/images/CS61B/1117081.png" /></p>
+<p>Here, we see that node splits its surrounding area into a northwest, northeast, southeast, and southwest region.</p>
+<p>So if we insert Earth, then Mars, we have the unique tree below:</p>
+<figure>
+<img src="/images/CS61B/11170810.png" alt="" /><figcaption>Quadtree Representation of 5 objects in 2D space</figcaption>
+</figure>
+<blockquote>
+<p>Note that just like in a BST, the <strong>order</strong> in which we insert nodes determines the topology of the QuadTree.</p>
+</blockquote>
+<p>Here, we see that node A splits its surrounding area into a northwest, northeast, southeast, and southwest region. Since B resides in the northeast quadrant of A, when we insert B, we can put it as a child of A as its NE child.</p>
+<blockquote>
+<p>Insertion Demo: <a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1vqAJkvUxSh-Eq4iIJZevjpY29nagNTjx-4N3HpDi0UQ/pub?start=false&amp;loop=false&amp;delayms=3000">Link</a></p>
+</blockquote>
+<p>Quadtrees are a form of “spatial partitioning” in disguise. QuadTrees hierarchically partition by having each node "own" 4 subspaces.</p>
+<ul>
+<li>Space is more finely divided in regions where there are more points.</li>
+<li>Results in better runtime in many circumstances.</li>
+</ul>
+<h3 id="range-search-using-a-quadtree">Range Search using a QuadTree</h3>
+<p>Quadtrees allow us to prune when performing a rectangle search.</p>
+<ul>
+<li><p>Simple idea: Prune (i.e. don’t explore) subspaces that don’t intersect the query rectangle.</p>
+<blockquote>
+<p>Range Search Demo: <a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1ZVvh_Q15Lh2D1_NnzZ4PR_aDsLBwvAU9JYQAwlSuXSM/edit?usp=sharing">Link</a></p>
+</blockquote></li>
+</ul>
+<p><img src="/images/CS61B/11170811.png" /></p>
+<p>For the example below, we were able to prune all of the dotted links.</p>
+<p><img src="/images/CS61B/11170812.png" /></p>
+<p>Notice that with the 4-way division imposed by each node of the QuadTree, we still have the pruning effect that was so advantageous in our X-Based Tree and Y-Based Tree!</p>
+<p>If we are looking for points inside a green rectangle as shown below, from any node we can decide whether the green rectangle lies within one or more quadrants, and only explore the branches/subtrees corresponding to those quadrants.</p>
+<p>All other quadrants can be safely ignored and pruned away. Below, we see that the green rectangle lies only in the northeast quadrant, and so the NW, SE, and SW quadrants can all be pruned away and left unexplored. We can proceed recursively.</p>
+<h2 id="d-data"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=cUssdK0Tku4&amp;list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg&amp;index=6">3D Data</a></h2>
+<p>Quad-Trees are great for 2-D spaces, because there are only 4 quadrants. However, what do we do if we want to move into higher dimension space?</p>
+<p>Such as in 3D space: Quadtrees only have four directions, but in 3D, there are 8.</p>
+<h3 id="oct-tree-or-octree">Oct-tree (or Octree)</h3>
+<p><img src="/images/CS61B/1117082.png" /></p>
+<h2 id="even-higher-dimensional-space">Even Higher Dimensional Space</h2>
+<p>You may want to organize data on a large number of dimensions.</p>
+<p>Example: Want to find songs with the following features:</p>
+<ul>
+<li>Length between 3 minutes and 6 minutes.</li>
+<li>Between 1000 and 20,000 listens.</li>
+<li>Between 120 to 150 BPM.</li>
+<li>Were recorded after 2004.</li>
+</ul>
+<p>In these cases, one somewhat common solution is a K-D tree.</p>
+<ul>
+<li><p>Fascinating data structure that handles arbitrary numbers of dimensions.</p>
+<ul>
+<li>K-D means “K Dimensional”.</li>
+</ul>
+<blockquote>
+<p>For the sake of simplicity in lecture, we’ll use 2D data, but the idea generalizes naturally.</p>
+</blockquote></li>
+</ul>
+<h3 id="k-d-tree"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=mxrUFkdXaR8&amp;list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg&amp;index=7">K-D Tree</a></h3>
+<p>One way we can extend the hierarchical partitioning idea to dimensions greater than two is by using a K-D Tree. It works by rotating through all the dimensions level by level.</p>
+<p>K-D tree example for 2-D:</p>
+<ul>
+<li>Basic idea, root node partitions entire space into left and right (by x).</li>
+<li>All depth 1 nodes partition subspace into up and down (by y).</li>
+<li>All depth 2 nodes partition subspace into left and right (by x).</li>
+</ul>
+<p><img src="/images/CS61B/1117083.png" /></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1WW56RnFa3g6UJEquuIBymMcu9k2nqLrOE1ZlnTYFebg/edit?usp=sharing">K-d tree insertion demo</a>.</p>
+</blockquote>
+<p>Each point owns 2 subspaces.</p>
+<ul>
+<li>Similar to a quadtree.</li>
+<li>Example: D owns the two subspaces shown.
+<ul>
+<li>The top subspace is infinitely large.</li>
+</ul></li>
+</ul>
+<p>You can see the nodes of the tree in relation to one another in the 2-D space.</p>
+<blockquote>
+<p><strong>Note</strong> when you are running operations on a K-D Tree or quadtree, you should be thinking about the tree structure and not the 2-D space because only the tree holds information about the levels.</p>
+<p>For the 3-D case, it rotates between each of the three dimensions every three levels, and so on and so forth for even higher dimensions.</p>
+<p>Here you can see the advantages in a K-D Tree in how it is more easily generalized to higher dimensions.</p>
+<p>But, no matter how high the dimensions get, a K-D tree will always be a <strong>binary</strong> tree, since each level is partitioned into "greater" and "less than".</p>
+</blockquote>
+<p>We can break ties by saying that items equal in one dimension should always fall the same way across the border. (For example, an item equal in the x-dimension to its parent node will always fall to the right of the partition.)</p>
+<h3 id="nearest-neighbour-using-a-k-d-tree"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nll58oqEsBg&amp;list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg&amp;index=8">Nearest Neighbour using a K-D Tree</a></h3>
+<p>Just like spatial partitioning and quadtrees, k-d trees support an efficient nearest method.</p>
+<blockquote>
+<p>Optimization: Do not explore subspaces that can’t possible have a better answer than your current best.</p>
+</blockquote>
+<p><strong>Example</strong>: Find the nearest point to (0, 7).</p>
+<p><img src="/images/CS61B/11170380.png" /></p>
+<ul>
+<li><p>Answer is (1, 5).</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1DNunK22t-4OU_9c-OBgKkMAdly9aZQkWuv_tBkDg1G4/edit?usp=sharing">K-d tree nearest demo.</a></p>
+</blockquote></li>
+</ul>
+<p><strong>Nearest Pseudocode</strong></p>
+<p>Nearest is a helper method that returns whichever is closer to goal out of the following two choices:</p>
+<ol type="1">
+<li>best 2</li>
+<li>all items in the subtree starting at n</li>
+</ol>
+<p><code>nearest(Node n, Point goal, Node best)</code>:</p>
+<ul>
+<li><p>If n is null, return best</p></li>
+<li><p>If n.distance(goal) &lt; best.distance(goal), best = n</p>
+<ul>
+<li>If goal &lt; n (according to n’s comparator):
+<ul>
+<li>goodSide = n.”left”Child</li>
+<li>badSide = n.”right”Child</li>
+</ul></li>
+<li>else:
+<ul>
+<li>goodSide = n.”right”Child</li>
+<li>badSide = n.”left”Childbest = nearest(goodSide, goal, best)</li>
+</ul></li>
+</ul></li>
+<li><p>If bad side could still have something useful</p>
+<blockquote>
+<p>This is our pruning rule.</p>
+</blockquote>
+<ul>
+<li>best = nearest(badSide, goal, best)</li>
+</ul></li>
+<li><p>return best</p></li>
+</ul>
+<p>To find the point that is the nearest neighbour to a query point, we follow this procedure in our K-D Tree:</p>
+<ul>
+<li>Start at the root and store that point as the "best so far". Compute its distance to the query point, and save that as the "score to beat"..</li>
+<li>This node partitions the space around it into two subspaces. For each subspace, ask: "Can a better point be possibly found inside of this space?" This question can be answered by computing the shortest distance between the query point and the edge of our subspace.</li>
+<li>Continue recursively for each subspace identified as containing a possibly better point.</li>
+<li>In the end, our "best so far" is the best point; the point closest to the query point.</li>
+</ul>
+<h2 id="uniform-partitioning"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=FjeD8fLV7jw&amp;list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg&amp;index=9">Uniform Partitioning</a></h2>
+<p>Let’s discuss a totally different approach called “Uniform partitioning”. Unlike other approaches, isn’t based on a tree at all.</p>
+<p>Simplest idea: Partition space into uniform rectangular buckets (also called “bins”).</p>
+<p>Example on right for 4x4 grid of such buckets.</p>
+<p><img src="/images/CS61B/1117084.png" /></p>
+<h4 id="range-finding">Range Finding</h4>
+<p>Which buckets do we need to iterate over to find all points in the green range?</p>
+<ul>
+<li>Only boxes 5, 6, 9, and 10.</li>
+</ul>
+<p>Note: Algorithm is still θ(N), but it’s faster than iterating over all points.</p>
+<p>Which buckets do we need to look at to solve nearest horse? Assume we’re looking at distance to the red dot in the middle.</p>
+<p><img src="/images/CS61B/1117085.png" /></p>
+<p>After looking at bucket 1, we can prune 0, 4, 5, and 6 because there are no possible points in these boxes that could be closer than the closest in 1.</p>
+<p>Overall runtime is still Θ(N), but maybe up to 16 times faster than iterating over all points.</p>
+<h3 id="uniform-vs.-hierarchical-partitioning">Uniform vs. Hierarchical Partitioning</h3>
+<p>All of our approaches today boil down to spatial partitioning.</p>
+<ul>
+<li>Uniform partitioning (perfect grid of rectangles).</li>
+<li>Quadtrees and K-D Trees: Hierarchical partitioning.
+<ul>
+<li>Each node “owns” 4 and 2 subspaces, respectively.</li>
+<li>Space is more finely divided into subspaces where there are more points.</li>
+</ul></li>
+</ul>
+<p><img src="/images/CS61B/1117086.png" /></p>
+<p>Uniform partitioning is easier to implement than a Quadtree or KD-Tree.</p>
+<blockquote>
+<p>May be good enough for many applications.</p>
+</blockquote>
+<h2 id="summary-and-applications"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ogw3Ywy8ZYM&amp;list=PL8FaHk7qbOD4F7nPFfgD0dGdLos1uhUPg&amp;index=10">Summary and Applications</a></h2>
+<p>Set operations can be more complex than just contains, e.g.:</p>
+<ul>
+<li><p><strong>Range Finding</strong>: What are all the objects inside this (rectangular) subspace?</p></li>
+<li><p><strong>Nearest</strong>: What is the closest object to a specific point?</p>
+<blockquote>
+<p>Note: Can be generalized to k-nearest.</p>
+</blockquote></li>
+</ul>
+<p>The most common approach is <strong>spatial partitioning</strong>:</p>
+<ul>
+<li><strong>Quadtree</strong>: Generalized 2D BST where each node “owns” 4 subspaces.</li>
+<li><strong>K-d Tree</strong>: Generalized k-d BST where each node “owns” 2 subspaces.
+<ul>
+<li>Dimension of ownership cycles with each level of depth in tree.</li>
+</ul></li>
+<li><strong>Uniform Partitioning</strong>: Partition space into uniform chunks.</li>
+</ul>
+<p>Spatial partitioning allows for <strong>pruning</strong> of the search space.</p>
+<h3 id="application-1-murmuration">Application #1: Murmuration</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eakKfY5aHmYSimulated">Real starlings</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nbbd5uby0sY">starlings</a></li>
+<li>Efficient simulation means “birds” have to find their nearest neighbors efficiently.</li>
+</ul>
+<h3 id="application-2-nbody-simulation">Application #2: NBody Simulation</h3>
+<ul>
+<li>Every object has to calculate the force from every other object.</li>
+<li>This is very silly if the force exerted is small, e.g. individual star in the Andromeda galaxy pulling on the sun.</li>
+</ul>
+<p>One optimization is called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Barnes–Hut_simulation">Barnes-Hut</a>. Basic idea:</p>
+<ul>
+<li>Represent universe as a quadtree (or octree) of objects.</li>
+<li>If a node is sufficiently far away from X, then treat that node and all of its children as a single object.
+<ul>
+<li>Example: Andromeda is very far away, so treat it as a single object for the purposes of force calculation on our sun.</li>
+</ul></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ouO6wmKqycc">Visualization</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p><strong>Additional Set Operations</strong> There are many other operations we might be interested in supporting on a set. For example, we might have a <code>select(int i)</code> method that returns the ith smallest item in the set. Or we might have a <code>subSet(T from, T to)</code> operation that returns all items in the set between <code>from</code> and <code>to</code>. Or if we have some notion of distance, we might have a <code>nearest(T x)</code> method that finds the closest item in the set to x.</p>
+<p>On 1D data, it is relatively straightforward to support such operations efficiently. If we use only one of the coordinates (e.g. X or Y coordinate), the structure of our data will fail to reflect the full ordering of the data.</p>
+<p><strong>QuadTrees</strong></p>
+<p>A natural approach is to make a new type of Tree– the QuadTree. The QuadTree has 4 neighbors, Northwest,Northeast, Southwest, and Southeast. As you move your way down the tree to support queries, it is possible to prune branches that do not contain a useful result.</p>
+<p><strong>K-D Trees</strong> One final data structure that we have for dealing with 2 dimensional data is the K-d Tree. Essentially the idea of a K-D tree is that it’s a normal Binary Search Tree, except we alternate what value we’re looking at when we traverse through the tree. For example at the root everything to the left has an X value less than the root and everything to the right has a X value greater than the root. Then on the next level, every item to the left of some node has a Y value less than that item and everything to the right has a Y value greater than it. Somewhat surprisingly, KdTrees are quite efficient.</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/04/09/2021-04-09-Range-Searching-and-Multi-Dimensional-Data/">https://yintelligence.tech/2021/04/09/2021-04-09-Range-Searching-and-Multi-Dimensional-Data/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Data-Structures/">
+                                    <span class="chip bg-color">Data Structures</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/04/10/2021-04-09-Trees-Indexes-I/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Trees Indexes I">
+                        
+                        <span class="card-title">Trees Indexes I</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Chapter 11.1-11.4
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Database/" class="post-category">
+                                    Database
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Database-systems/">
+                        <span class="chip bg-color">Database systems</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/08/2021-04-08-Red-Black-Trees/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Red Black Trees">
+                        
+                        <span class="card-title">Red Black Trees</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Balanced Trees
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Data-model/" class="post-category">
+                                    Data model
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Data-Structures/">
+                        <span class="chip bg-color">Data Structures</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

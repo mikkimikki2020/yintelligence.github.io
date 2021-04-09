@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    923
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    9 Min
                 </div>
                 
 
@@ -501,11 +501,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="prediction-methodologies">Prediction methodologies</h1>
-<p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
+<p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a> + <a target="_blank" rel="noopener" href="https://owncloud.ulb.ac.be/index.php/s/75k0qKi3NFqam0E#pdfviewer">Slides</a></p>
 <p><a href="https://yintelligence.tech/2021/03/04/2021-03-04-From-sequence-to-structure/">From sequence to structure - Secondary structure prediction</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.princeton.edu/~mona/Lecture/sec-structure.pdf">Princeton: Secondary structure prediction</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210311%5F100144%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VlQ2JydHBTTHRGQ2tQclFhV0Jhd3hJQnc2UnVQWXdoc0dVdzBNQ0tPY0pTX2c_cnRpbWU9TEZoQTM2UGsyRWc">Video Part 53:30 ~ 1:50:17</a></p>
-<p><img src="/images/ADVMB/2002200.png" /></p>
-<p>Predictions 53:30</p>
+<h2 id="predictions-5330">Predictions 53:30</h2>
 <ul>
 <li>Model based
 <ul>
@@ -516,56 +516,74 @@
 <li>Many approaches, training steps essential</li>
 </ul></li>
 </ul>
-<h2 id="chou-fasman-5442">Chou-Fasman 54:42</h2>
+<p>Given a protein sequence with amino acids a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>, the secondary structure prediction problem is to predict whether each amino acid a<sub>i</sub> is in an α−helix, a β−sheet, or neither.</p>
+<p>If you know the actual secondary structure for each amino acid, then the 3-state accuracy is the percent of residues for which your prediction matches reality. It is called “3-state” because each residue can be in one of 3 “states”: α, β, or other （<em>O</em>）. Because there are only 3 states, random guessing would yield a 3-state accuracy of about 33% assuming that all structures are equally likely.</p>
+<h2 id="chou-fasman-method-5442"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Chou%E2%80%93Fasman_method">Chou-Fasman method</a> 54:42</h2>
+<p>If you were asked to determine whether an amino acid in a protein of interest is part of a α-helix or β-sheet, you might think to look in a protein database and see which secondary structures amino acids in similar contexts belonged to.</p>
+<p>The Chou-Fasman method （1978） is a combination of such statistics-based methods and rule-based methods.</p>
 <ul>
 <li>Original attempt at predicting secondary structure</li>
 <li>Chou and Fasman （1970s）</li>
-<li>Based on very limited number of protein structures</li>
+<li>Based on <u>very limited number</u> of protein structures</li>
 </ul>
-<p>Statistical propensity for each amino acid （R） to adopt a certain secondary structure （S） <span class="math display">\[
-Pr^R_S=\frac{Pr_{R,S}}{Pr_R}\\
-Pr_{R,S}=\frac{f_{R,S}}{f_S}\\
+<p>Here are the steps of the Chou-Fasman algorithm:</p>
+<h3 id="step-1.-calculate-propensities-from-a-set-of-solved-structures">Step 1. Calculate propensities from a set of solved structures</h3>
+<p>Statistical propensity for each amino acid （R） to adopt a certain secondary structure （S）: <span class="math display">\[
+Pr^R_S=\frac{Pr_{R,S}}{Pr_R}\ \ 
+Pr_{R,S}=\frac{f_{R,S}}{f_S}\ \ 
 Pr_R=\frac{f_R}{N}
 \]</span></p>
 <blockquote>
 <p>N: total number amino acids</p>
 </blockquote>
+<p>That is, we determine the probability that amino acid （R） is in each structure, normalized by the background probability that （R） occurs at all.</p>
+<p>For example, let’s say that there are 20,000 amino acids in the database, of which 2000 are serine, and there are 5000 amino acids in helical conformation, of which 500 are serine. Then the helical propensity for serine is: <span class="math display">\[
+\frac{\frac{500}{5000}}{\frac{2000}{20000}}=1.0
+\]</span></p>
 <p><img src="/images/ADVMB/2002201.png" /></p>
-<h5 id="chou-fasman-algorithm">Chou-Fasman algorithm</h5>
+<h3 id="step-2-assign-αβ-propensities-to-each-amino-acid">Step 2: Assign α/β propensities to each amino acid</h3>
+<p>Once the propensities are calculated, each amino acid is categorized using the propensities as one of:</p>
 <ul>
-<li>Assign α/β propensities to each amino acid</li>
+<li>helix-former</li>
+<li>helix-breaker</li>
+<li>helix-indifferent</li>
 </ul>
-<p><img src="/images/ADVMB/2002202.png" /></p>
+<blockquote>
+<p>That is, helix-formers have high helical propensities, helix-breakers have low helical propensities, and helix-indifferents have intermediate propensities.</p>
+</blockquote>
+<p>Each amino acid is also categorized as one of:</p>
 <ul>
+<li>sheet-former</li>
+<li>sheet-breaker</li>
+<li>sheet-indifferent</li>
+</ul>
+<blockquote>
+<p>For example, it was found that glycine and prolines are helix-breakers.</p>
+</blockquote>
+<p>When a sequence is input, find <strong>nucleation sites</strong>. These are short subsequences with a high-concentration of helix-formers （or sheet-formers）. These sites are found with some heuristic rule （e.g. “a sequence of 6 amino acids with at least 4 helix-formers, and no helix-breakers”）.</p>
+<figure>
+<img src="/images/ADVMB/2002200.png" alt="" /><figcaption>In the Chou-Fasman method, nucleation sites are found along the protein using a heuristic rule, and then extended</figcaption>
+</figure>
+<ol type="1">
 <li>Find region with 4/6 connected residues p<sub>α</sub> &gt; 1.0
 <ul>
 <li>Extend on both ends until:
 <ul>
 <li>4 connected residues have average p<sub>α</sub> &lt; 1.0 → End of α helix</li>
+<li>Total segment longer than 5 residues, average p<sub>α</sub> &gt; p<sub>β</sub> ?</li>
 </ul></li>
-<li>Total segment longer than 5 residues, average p<sub>α</sub> &gt; p<sub>β</sub> ?
-<ul>
 <li>Assign as α helix</li>
 </ul></li>
-</ul></li>
-</ul>
+</ol>
+<p><img src="/images/ADVMB/2002202.png" /></p>
+<p>Find region with 3/5 connected residues p<sub>β</sub> &gt; 1.0 - Extend on both ends until: - 4 connected residues have average p<sub>β</sub> &lt; 1.0 → End of β sheet - Average p<sub>β</sub> &gt; 1.05 and average p<sub>β</sub> &gt; p<sub>α</sub>? - Assign as β sheet</p>
 <p><img src="/images/ADVMB/2002203.png" /></p>
+<p>Repeat for whole sequence</p>
 <ul>
-<li>Find region with 3/5 connected residues p<sub>β</sub> &gt; 1.0
-<ul>
-<li>Extend on both ends until:
-<ul>
-<li>4 connected residues have average p<sub>β</sub> &lt; 1.0 → End of β sheet</li>
-</ul></li>
-<li>Average p<sub>β</sub> &gt; 1.05 and average p<sub>β</sub> &gt; p<sub>α</sub>?
-<ul>
-<li>Assign as β sheet</li>
-</ul></li>
-</ul></li>
-<li>Repeat for whole sequence</li>
-<li>If α/β overlap, choose which one by highest average p</li>
+<li>If α/β overlap, choose which one by <strong>highest average p</strong></li>
 </ul>
-<p>Overall Chou-Fasman algorithm:</p>
+<h3 id="overall">Overall</h3>
+<p>Chou-Fasman algorithm:</p>
 <ul>
 <li>Based on statistics</li>
 <li>Very simple
@@ -573,13 +591,14 @@ Pr_R=\frac{f_R}{N}
 <li>Per-residue, no residue interactions included</li>
 <li>Algorithm <strong>cutoffs</strong> are pretty arbitrary</li>
 </ul></li>
-<li>But gives better than random results!
+<li>Gives better than random results!
 <ul>
 <li>Q<sub>3</sub> score of 42-52% depending on protein family</li>
 </ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002204.png" /></p>
 <h2 id="gor-method-11122">GOR method 1:11:22</h2>
+<p>To determine the structure for a given amino acid position j, the GOR method （named for the authors Garnier, Osguthorpe, Robson） looks at a window of n amino acids before and n after the position of interest.</p>
 <ul>
 <li><p>Evolved from GOR to GOR-V</p>
 <ul>
@@ -592,19 +611,33 @@ Pr_R=\frac{f_R}{N}
 <li>Pair information</li>
 </ul></li>
 <li><p>Clearly defined model to get to results</p></li>
-<li><p>Self-information （related to Chou-Fasman）</p></li>
 </ul>
-<p><img src="/images/ADVMB/2002205.png" /></p>
-<ul>
-<li>Self-information, more general</li>
-</ul>
-<p><img src="/images/ADVMB/2002206.png" /></p>
-<p><em>Calculated for the three conformations, the highest value of Eq. （2） for one of the conformations S will be the predicted conformation and will be the propensity for that residue to be in that conformation, usually expressed in centinat units when natural logarithms are used.</em></p>
-<ul>
-<li>Include local sequence information
+<p>Self-information （related to Chou-Fasman） <span class="math display">\[
+\begin{align}
+I(S;R) &amp;=\log[\frac{P(S|R)}{P(S)}] \tag{1} \\
+P(S|R) &amp;= \frac{P(S,R)}{P(R)} \tag{2}\\
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+P(S,R)=\frac{f_{S,R}}{N}\ P(R)=\frac{f_R}{N}\ P(S)=\frac{f_{S}}{N}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+I(S;R) &amp;=\log(\frac{\frac{f_{S,R}}{f_R}}{\frac{f_{S}}{N}})\tag{3}
+\end{align}
+\]</span></p>
+<p>Self-information, more general: <span class="math display">\[
+\begin{align}
+I(\Delta S;R) &amp;=I(S;R)-I(n-S;R) \tag{1} \\
+I(\Delta S;R) &amp;= \log(\frac{f_{S,R}}{f_R}) + \log(\frac{f_{n-S}}{f_S})\tag{2}\\
+\end{align}
+\]</span></p>
+<blockquote>
+<p>Calculated for the three conformations, the highest value of Eq. （2） for one of the conformations S will be the predicted conformation and will be the propensity for that residue to be in that conformation, usually expressed in centonate units when natural logarithms are used.</p>
+</blockquote>
+<p>Include local sequence information</p>
 <ul>
 <li>How often do you see a residue in relation to a secondary structure element at position j?</li>
-</ul></li>
 </ul>
 <p><span class="math display">\[
 I(ΔS_j;R_1,..., R_n ) = \log[\frac{P(S_j
@@ -613,15 +646,15 @@ I(ΔS_j;R_1,..., R_n ) = \log[\frac{P(S_j
 +log[\frac{P(n − S)}{P(S)}]
 \]</span></p>
 <h3 id="gor-iii-12122">GOR I/II 1:21:22</h3>
-<h6 id="gor-i-and-ii-approximation">GOR I and II approximation</h6>
 <ul>
-<li>Self and directional information
+<li><p>Self and directional information</p>
 <ul>
 <li>26 proteins, ~4500 residues （1978, GOR I）</li>
 </ul></li>
-<li>Uses windows of 17 residues
+<li><p>Uses windows of 17 residues</p>
 <ul>
-<li>For residue at position j, consider j-8 to j+8</li>
+<li><p>For residue at position j, consider j-8 to j+8</p>
+<p><img src="/images/ADVMB/2002205.png" /></p></li>
 </ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002207.png" /></p>
@@ -631,6 +664,7 @@ I(ΔS_j;R_1,..., R_n ) = \log[\frac{P(S_j
 <p><span class="math display">\[
 I(\Delta{S_j};R_j)=\log(\frac{f_{S_j,R_j}}{f_{n-S_j,R_j}})+\log(\frac{f_{n-S}}{f_S})
 \]</span></p>
+<h4 id="gor-i-and-ii-approximation">GOR I and II approximation</h4>
 <p>Asparagine N at position j:</p>
 <table>
 <thead>
@@ -673,7 +707,8 @@ I(\Delta{S_j};R_j)=\log(\frac{f_{S_j,R_j}}{f_{n-S_j,R_j}})+\log(\frac{f_{n-S}}{f
 <blockquote>
 <p>1000 <code>Asn (N)</code> 24000 total</p>
 </blockquote>
-<p><img src="/images/ADVMsB/2002208.png" /> <span class="math display">\[
+<p><strong>Directional information:</strong></p>
+<p><img src="/images/ADVMB/2002208.png" /> <span class="math display">\[
 I(\Delta{S_j};R_{j+m})=\log(\frac{f_{S_j,R_{j+m}}}{f_{n-S_j,R_{j+m}}})+\log(\frac{f_{n-S}}{f_S})
 \]</span> ThreonineT at position j-8, any residue at position j in conformation S:</p>
 <table>
@@ -714,7 +749,7 @@ I(\Delta{S_j};R_{j+m})=\log(\frac{f_{S_j,R_{j+m}}}{f_{n-S_j,R_{j+m}}})+\log(\fra
 </tr>
 </tbody>
 </table>
-<p>59</p>
+<p>GOR I and II approximation:</p>
 <table>
 <thead>
 <tr class="header">
@@ -776,42 +811,37 @@ I(\Delta{S_j};R_{j+m})=\log(\frac{f_{S_j,R_{j+m}}}{f_{n-S_j,R_{j+m}}})+\log(\fra
 </tr>
 </tbody>
 </table>
-<p><img src="/images/ADVMB/2002209.png" /></p>
-<p><img src="/images/ADVMB/2002210.png" /></p>
-<ul>
-<li>GOR I results…
+<blockquote>
+<p>In total 20 R ×16 positions × 3 = 960 values</p>
+</blockquote>
+<h4 id="gor-i-result">GOR I result</h4>
 <ul>
 <li>Has Q<sub>3</sub> around 49%, but includes turns</li>
 <li>Bad at β sheet, tweaks get higher Q<sub>3</sub> （up to 60%）</li>
-</ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002211.png" /></p>
 <h3 id="gor-iii-13505">GOR III 1:35:05</h3>
-<h6 id="gor-iii-approximation">GOR III approximation</h6>
+<p><strong>GOR III approximation</strong></p>
 <ul>
 <li>68 proteins, 12000 residues （1987）</li>
 </ul>
 <p><img src="/images/ADVMB/2002212.png" /> <span class="math display">\[
-I(\Delta{S_j};R_{j+m}|R_j)=\log(\frac{f_{S_j,R_{j+m},R_j}}{f_{n-S_j,R_{j+m},R_j}})+\log(\frac{g_{n-S_j,R_j}}{f_{S_j,R_j}})
+I(\Delta{S_j};R_{j+m}|R_j)=\log(\frac{f_{S_j,R_{j+m},R_j}}{f_{n-S_j,R_{j+m},R_j}})+\log(\frac{f_{n-S_j,R_j}}{f_{S_j,R_j}})
 \]</span></p>
-<ul>
-<li>The results
+<p><strong>The results</strong>:</p>
 <ul>
 <li>GOR III has Q<sub>3</sub> around 63%</li>
-</ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002213.png" /></p>
 <p>How to improve this method?</p>
 <h3 id="gor-iv-13706">GOR IV 1:37:06</h3>
-<h6 id="gor-iv-approximation">GOR IV approximation</h6>
+<p><strong>GOR IV approximation</strong></p>
 <ul>
 <li>267 proteins, 63000 residues （1996）</li>
 <li>Consider information for all residue pairs</li>
 </ul>
 <p><img src="/images/ADVMB/2002214.png" /></p>
-<ul>
-<li>GOR IV implementation</li>
-</ul>
+<h4 id="gor-iv-implementation-pair-information"><strong>GOR IV implementation （Pair information）</strong></h4>
 <p><img src="/images/ADVMB/2002215.png" /></p>
 <ul>
 <li>Residue at position j in conformation S （and n-S）:
@@ -827,13 +857,15 @@ I(\Delta{S_j};R_{j+m}|R_j)=\log(\frac{f_{S_j,R_{j+m},R_j}}{f_{n-S_j,R_{j+m},R_j}
 </ul></li>
 </ul></li>
 </ul>
+<h4 id="gor-iv-implementation-self-information"><strong>GOR IV implementation （Self information）</strong></h4>
 <p><img src="/images/ADVMB/2002216.png" /></p>
 <ul>
-<li><p>Residue at position j in conformation S （and n-S）:</p></li>
-<li><p>Probability threonine T at position j-8</p></li>
-<li><p>Probability histidine H at position j-7</p></li>
-<li><p>…</p></li>
-<li><p>The results</p>
+<li>Residue at position j in conformation S （and n-S）:</li>
+<li>Probability threonine T at position j-8</li>
+<li>Probability histidine H at position j-7</li>
+<li>…</li>
+</ul>
+<h4 id="the-results">The results</h4>
 <ul>
 <li>have mean Q<sub>3</sub> of 64.4%</li>
 <li>Example sequence of each protein class
@@ -842,36 +874,20 @@ I(\Delta{S_j};R_{j+m}|R_j)=\log(\frac{f_{S_j,R_{j+m},R_j}}{f_{n-S_j,R_{j+m},R_j}
 <li>All α, all β, α/β and α+β</li>
 </ul></li>
 <li>Ranges from 39.2% （α+β） to 67.2% （α/β）</li>
-</ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002217.png" /></p>
 <h3 id="gor-v-14506">GOR V 1:45:06</h3>
+<p>Uses multiple sequence alignment - Structure is more conserved than sequence - Insertions/deletions not as common in αhelices andβsheets, more so in loops. - PSI-BLAST on query sequence - Get set of sequences with high identity - Cutoff 30% if lots of hits, lower to 20% if not that many - Predict secondary structure for each sequence - Average predictions for each residue</p>
 <ul>
-<li>Uses multiple sequence alignment
-<ul>
-<li>Structure is more conserved than sequence
-<ul>
-<li>Insertions/deletions not as common in αhelices andβsheets, more so in loops.</li>
-</ul></li>
-<li>PSI-BLAST on query sequence
-<ul>
-<li>Get set of sequences with high identity
-<ul>
-<li>Cutoff 30% if lots of hits, lower to 20% if not that many</li>
-</ul></li>
-<li>Predict secondary structure for each sequence</li>
-<li>Average predictions for each residue</li>
-</ul></li>
-</ul></li>
 <li>Various other improvements
 <ul>
 <li>513 proteins, 84107 residues （2002）</li>
 </ul></li>
-<li>The results…
+</ul>
+<h4 id="the-results-1">The results</h4>
 <ul>
 <li>Has mean Q<sub>3</sub> of 73.5%</li>
 <li>Q<sub>3</sub> ranges from 60.3% （allβ） to 84.3% (allα）</li>
-</ul></li>
 </ul>
 <p><img src="/images/ADVMB/2002218.png" /></p>
 <ul>
