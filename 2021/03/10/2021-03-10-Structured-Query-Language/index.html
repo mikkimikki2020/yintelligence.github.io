@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Database/" class="post-category">
+                                Database
                             </a>
                         
                     </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-24
+                    2021-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.6k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    22 Min
+                    20 Min
                 </div>
                 
 
@@ -598,7 +598,9 @@
 <li><p>The creation of catalogues is not covered by the SQL standard and therefore implementation specific</p></li>
 <li><p>Schemas can be created and deleted via the <strong>CREATE</strong> and <strong>DROP</strong> statements</p></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">createSchema <span class="operator">=</span> &quot;CREATE SCHEMA&quot; , name , &quot;AUTHORIZATION&quot; , creator ,</span><br><span class="line">[ ddlStatements ];</span><br><span class="line">dropSchema <span class="operator">=</span> &quot;DROP SCHEMA&quot; , name , [ &quot;RESTRICT&quot; <span class="operator">|</span> &quot;CASCADE&quot; ];</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">createSchema <span class="token operator">=</span> <span class="token string">"CREATE SCHEMA"</span> <span class="token punctuation">,</span> name <span class="token punctuation">,</span> <span class="token string">"AUTHORIZATION"</span> <span class="token punctuation">,</span> creator <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> ddlStatements <span class="token punctuation">]</span><span class="token punctuation">;</span>
+dropSchema <span class="token operator">=</span> <span class="token string">"DROP SCHEMA"</span> <span class="token punctuation">,</span> name <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"RESTRICT"</span> <span class="token operator">|</span> <span class="token string">"CASCADE"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>The default parameter of the <strong>DROP SCHEMA</strong> statement is <strong>RESTRICT</strong>
 <ul>
@@ -800,7 +802,42 @@
 <p>Order (<u><strong>orderId</strong></u>, customerID, cdID, date, amount, status)</p>
 <p>Supplier (<u><strong>supplierID</strong></u>, name, postcode, city)</p>
 <h4 id="table-definition-example-1053">Table Definition Example 10:53</h4>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Customer (</span><br><span class="line">customerID <span class="type">INTEGER</span> <span class="keyword">CHECK</span> (customerID <span class="operator">&gt;</span> <span class="number">0</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">street <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">postcode <span class="type">SMALLINT</span> <span class="keyword">CHECK</span> (postcode <span class="operator">&gt;</span> <span class="number">0</span>),</span><br><span class="line">city <span class="type">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> CD (</span><br><span class="line">cdID <span class="type">INTEGER</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">duration <span class="type">TIME</span>,</span><br><span class="line">price <span class="type">NUMERIC</span>(<span class="number">6</span>,<span class="number">2</span>),</span><br><span class="line"><span class="keyword">year</span> <span class="type">SMALLINT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Supplier (</span><br><span class="line">supplierID <span class="type">INTEGER</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">postcode <span class="type">SMALLINT</span> <span class="keyword">CHECK</span> (postcode <span class="operator">&gt;</span> <span class="number">0</span>),</span><br><span class="line">city <span class="type">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">Order</span> (</span><br><span class="line">orderID <span class="type">INTEGER</span> <span class="keyword">CHECK</span> (orderID <span class="operator">&gt;</span> <span class="number">0</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">customerID <span class="type">INTEGER</span>,</span><br><span class="line">cdID <span class="type">INTEGER</span> ,</span><br><span class="line"><span class="type">date</span> <span class="type">DATE</span>,</span><br><span class="line">amount <span class="type">INTEGER</span>,</span><br><span class="line">Status <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;open&#x27;</span>,</span><br><span class="line"><span class="keyword">UNIQUE</span> (customerID, cdID, <span class="type">date</span>),</span><br><span class="line"><span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (customerID) <span class="keyword">REFERENCES</span> Customer(customerID)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">SET</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (cdID) <span class="keyword">REFERENCES</span> CD(cdID)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Customer <span class="token punctuation">(</span>
+customerID <span class="token keyword">INTEGER</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>customerID <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+street <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+postcode <span class="token keyword">SMALLINT</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>postcode <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+city <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> CD <span class="token punctuation">(</span>
+cdID <span class="token keyword">INTEGER</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+duration <span class="token keyword">TIME</span><span class="token punctuation">,</span>
+price <span class="token keyword">NUMERIC</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">year</span> <span class="token keyword">SMALLINT</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Supplier <span class="token punctuation">(</span>
+supplierID <span class="token keyword">INTEGER</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+postcode <span class="token keyword">SMALLINT</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>postcode <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+city <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">Order</span> <span class="token punctuation">(</span>
+orderID <span class="token keyword">INTEGER</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>orderID <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+customerID <span class="token keyword">INTEGER</span><span class="token punctuation">,</span>
+cdID <span class="token keyword">INTEGER</span> <span class="token punctuation">,</span>
+<span class="token keyword">date</span> <span class="token keyword">DATE</span><span class="token punctuation">,</span>
+amount <span class="token keyword">INTEGER</span><span class="token punctuation">,</span>
+<span class="token keyword">Status</span> <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'open'</span><span class="token punctuation">,</span>
+<span class="token keyword">UNIQUE</span> <span class="token punctuation">(</span>customerID<span class="token punctuation">,</span> cdID<span class="token punctuation">,</span> <span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>customerID<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Customer<span class="token punctuation">(</span>customerID<span class="token punctuation">)</span>
+<span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CASCADE</span> <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">SET</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+<span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>cdID<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> CD<span class="token punctuation">(</span>cdID<span class="token punctuation">)</span>
+<span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CASCADE</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="table-constraints-1537">Table Constraints 15:37</h3>
 <ul>
 <li>We can have only one PRIMARY KEY constraint but multiple UNIQUE constraints
@@ -820,24 +857,60 @@
 </ul></li>
 </ul>
 <h3 id="table-definition">Table Definition</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">createTable <span class="operator">=</span> &quot;CREATE TABLE&quot; , <span class="keyword">table</span> , &quot;(&quot; ,</span><br><span class="line">( columnElement <span class="operator">|</span> tableConstraint ) ,</span><br><span class="line">&#123; &quot;,&quot; , ( columnElement | tableConstraint ) &#125; , &quot;)&quot;;</span><br><span class="line"></span><br><span class="line">columnElement <span class="operator">=</span> <span class="keyword">column</span> , datatype ,</span><br><span class="line">[ &quot;DEFAULT&quot; , ( value | &quot;NULL&quot; ) ] , &#123; columnConstraint &#125;;</span><br><span class="line"></span><br><span class="line">columnConstraint <span class="operator">=</span> &quot;NOT NULL&quot; <span class="operator">|</span> &quot;UNIQUE&quot; <span class="operator">|</span> &quot;PRIMARY KEY&quot; <span class="operator">|</span></span><br><span class="line">( &quot;REFERENCES&quot; , <span class="keyword">table</span> , [ &quot;(&quot; , <span class="keyword">column</span> , &quot;)&quot; ] ,</span><br><span class="line">&#123; referentialAction &#125; ) |</span><br><span class="line">( &quot;CHECK (&quot; , searchCondition , &quot;)&quot; );</span><br><span class="line"></span><br><span class="line">tableConstraint <span class="operator">=</span> ( ( &quot;UNIQUE&quot; <span class="operator">|</span> &quot;PRIMARY KEY ) , &quot;(&quot; , column ,</span><br><span class="line">&#123; &quot;,&quot; , column &#125; , &quot;)&quot; ) |</span><br><span class="line">( &quot;<span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (&quot; , column , &#123; &quot;,&quot; , column &#125; , &quot;)&quot; ,</span><br><span class="line">&quot;<span class="keyword">REFERENCES</span>&quot; , table , [ &quot;(&quot; , column , &#123; &quot;,&quot; , column &#125; , &quot;)&quot; ] ,</span><br><span class="line">&#123; referentialAction &#125; ) |</span><br><span class="line">( &quot;<span class="keyword">CHECK</span> (&quot; , searchCondition , &quot;)&quot; );</span><br><span class="line"></span><br><span class="line">referentialAction = ( &quot;<span class="keyword">ON</span> <span class="keyword">UPDATE</span>&quot; | &quot;<span class="keyword">ON</span> <span class="keyword">DELETE</span>&quot; ) ,</span><br><span class="line">( &quot;CASCADE&quot; | &quot;<span class="keyword">SET</span> <span class="keyword">DEFAULT</span>&quot; | &quot;<span class="keyword">SET</span> <span class="keyword">NULL</span>&quot; | &quot;<span class="keyword">NO</span> ACTION&quot; );  </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">createTable <span class="token operator">=</span> <span class="token string">"CREATE TABLE"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span> <span class="token string">"("</span> <span class="token punctuation">,</span>
+<span class="token punctuation">(</span> columnElement <span class="token operator">|</span> tableConstraint <span class="token punctuation">)</span> <span class="token punctuation">,</span>
+&#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> columnElement <span class="token operator">|</span> tableConstraint <span class="token punctuation">)</span> &#125; <span class="token punctuation">,</span> <span class="token string">")"</span><span class="token punctuation">;</span>
+
+columnElement <span class="token operator">=</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> datatype <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"DEFAULT"</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token keyword">value</span> <span class="token operator">|</span> <span class="token string">"NULL"</span> <span class="token punctuation">)</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> &#123; columnConstraint &#125;<span class="token punctuation">;</span>
+
+columnConstraint <span class="token operator">=</span> <span class="token string">"NOT NULL"</span> <span class="token operator">|</span> <span class="token string">"UNIQUE"</span> <span class="token operator">|</span> <span class="token string">"PRIMARY KEY"</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> <span class="token string">"REFERENCES"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+&#123; referentialAction &#125; <span class="token punctuation">)</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> <span class="token string">"CHECK ("</span> <span class="token punctuation">,</span> searchCondition <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+tableConstraint <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token string">"UNIQUE"</span> <span class="token operator">|</span> <span class="token string">"PRIMARY KEY ) , "</span><span class="token punctuation">(</span><span class="token string">" , column ,
+&#123; "</span><span class="token punctuation">,</span><span class="token string">" , column &#125; , "</span><span class="token punctuation">)</span><span class="token string">" ) |
+( "</span><span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token string">" , column , &#123; "</span><span class="token punctuation">,</span><span class="token string">" , column &#125; , "</span><span class="token punctuation">)</span><span class="token string">" ,
+"</span><span class="token keyword">REFERENCES</span><span class="token string">" , table , [ "</span><span class="token punctuation">(</span><span class="token string">" , column , &#123; "</span><span class="token punctuation">,</span><span class="token string">" , column &#125; , "</span><span class="token punctuation">)</span><span class="token string">" ] ,
+&#123; referentialAction &#125; ) |
+( "</span><span class="token keyword">CHECK</span> <span class="token punctuation">(</span><span class="token string">" , searchCondition , "</span><span class="token punctuation">)</span><span class="token string">" );
+
+referentialAction = ( "</span><span class="token keyword">ON</span> <span class="token keyword">UPDATE</span><span class="token string">" | "</span><span class="token keyword">ON</span> <span class="token keyword">DELETE</span><span class="token string">" ) ,
+( "</span><span class="token keyword">CASCADE</span><span class="token string">" | "</span><span class="token keyword">SET</span> <span class="token keyword">DEFAULT</span><span class="token string">" | "</span><span class="token keyword">SET</span> <span class="token boolean">NULL</span><span class="token string">" | "</span><span class="token keyword">NO</span> <span class="token keyword">ACTION</span>" <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="sql-datatypes-2024">SQL Datatypes 20:24</h2>
 <h3 id="character-data">Character data</h3>
 <ul>
 <li>fixed-length or variable-length sequence of characters</li>
 <li>optional multibyte character sets (e.g. for Japanese etc.)</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> <span class="operator">=</span> fixedChar <span class="operator">|</span> varyingChar [charSet];</span><br><span class="line">fixedChar <span class="operator">=</span> &quot;CHAR&quot; , [ &quot;(&quot; , length , &quot;)&quot; ];</span><br><span class="line">varyingChar <span class="operator">=</span> &quot;VARCHAR&quot; , [ &quot;(&quot; , maxLength , &quot;)&quot; ];</span><br><span class="line">charSet <span class="operator">=</span> &quot;CHARACTER SET&quot; charSetName;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">char</span> <span class="token operator">=</span> fixedChar <span class="token operator">|</span> varyingChar <span class="token punctuation">[</span><span class="token keyword">charSet</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+fixedChar <span class="token operator">=</span> <span class="token string">"CHAR"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> length <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+varyingChar <span class="token operator">=</span> <span class="token string">"VARCHAR"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> maxLength <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">charSet</span> <span class="token operator">=</span> <span class="token string">"CHARACTER SET"</span> charSetName<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="large-character-data-or-binary-data">Large character data or binary data</h3>
 <ul>
 <li>often a so-called <strong>locator</strong> is returned to access a large object in pieces instead of loading the entire object into memory</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">lob <span class="operator">=</span> <span class="type">clob</span> <span class="operator">|</span> <span class="type">blob</span>;</span><br><span class="line"><span class="type">clob</span> <span class="operator">=</span> &quot;CLOB&quot; , [ &quot;(&quot; , size , &quot;)&quot; ];</span><br><span class="line"><span class="type">blob</span> <span class="operator">=</span> &quot;BLOB&quot; , [ &quot;(&quot; , size , &quot;)&quot; ];</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">lob <span class="token operator">=</span> clob <span class="token operator">|</span> <span class="token keyword">blob</span><span class="token punctuation">;</span>
+clob <span class="token operator">=</span> <span class="token string">"CLOB"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> size <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">blob</span> <span class="token operator">=</span> <span class="token string">"BLOB"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> size <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="numeric-data">Numeric data</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="type">numeric</span> <span class="operator">=</span> <span class="type">decimal</span> <span class="operator">|</span> <span class="type">int</span> <span class="operator">|</span> <span class="type">smallInt</span> <span class="operator">|</span> <span class="type">float</span> <span class="operator">|</span> <span class="type">real</span> <span class="operator">|</span> <span class="keyword">double</span>;</span><br><span class="line"><span class="type">decimal</span> <span class="operator">=</span> &quot;DECIMAL&quot; , [ &quot;(&quot; , <span class="keyword">precision</span> , [ &quot;,&quot; , scale ] , &quot;)&quot; ];</span><br><span class="line"><span class="type">int</span> <span class="operator">=</span> &quot;INTEGER&quot;;</span><br><span class="line"><span class="type">smallInt</span> <span class="operator">=</span> &quot;SMALLINT&quot;;</span><br><span class="line"><span class="type">float</span> <span class="operator">=</span> &quot;FLOAT&quot; , [ &quot;(&quot; , <span class="keyword">precision</span> , &quot;)&quot; ];</span><br><span class="line"><span class="type">real</span> <span class="operator">=</span> &quot;REAL&quot;;</span><br><span class="line"><span class="keyword">double</span> <span class="operator">=</span> &quot;DOUBLE PRECISION&quot;;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">numeric</span> <span class="token operator">=</span> <span class="token keyword">decimal</span> <span class="token operator">|</span> <span class="token keyword">int</span> <span class="token operator">|</span> <span class="token keyword">smallInt</span> <span class="token operator">|</span> <span class="token keyword">float</span> <span class="token operator">|</span> <span class="token keyword">real</span> <span class="token operator">|</span> <span class="token keyword">double</span><span class="token punctuation">;</span>
+<span class="token keyword">decimal</span> <span class="token operator">=</span> <span class="token string">"DECIMAL"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">precision</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">","</span> <span class="token punctuation">,</span> scale <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token operator">=</span> <span class="token string">"INTEGER"</span><span class="token punctuation">;</span>
+<span class="token keyword">smallInt</span> <span class="token operator">=</span> <span class="token string">"SMALLINT"</span><span class="token punctuation">;</span>
+<span class="token keyword">float</span> <span class="token operator">=</span> <span class="token string">"FLOAT"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">precision</span> <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">real</span> <span class="token operator">=</span> <span class="token string">"REAL"</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token operator">=</span> <span class="token string">"DOUBLE PRECISION"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The DECIMAL datatype is sometimes used as a synonym for the NUMERIC datatype</p>
 <h3 id="datetime-data">Datetime data</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">datetime <span class="operator">=</span> <span class="type">date</span> <span class="operator">|</span> <span class="type">time</span> <span class="operator">|</span> <span class="type">timestamp</span>;</span><br><span class="line"><span class="type">date</span> <span class="operator">=</span> &quot;DATE&quot;;</span><br><span class="line"><span class="type">time</span> <span class="operator">=</span> &quot;TIME&quot; , [ &quot;(&quot; , <span class="keyword">precision</span> , &quot;)&quot; ] ,</span><br><span class="line">[ &quot;WITH TIME ZONE&quot; , timezone ];</span><br><span class="line"><span class="type">timestamp</span> <span class="operator">=</span> &quot;TIMESTAMP&quot; , [ &quot;(&quot; , <span class="keyword">precision</span> , &quot;)&quot; ] ,</span><br><span class="line">[ &quot;WITH TIME ZONE&quot; , timezone ]; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">datetime</span> <span class="token operator">=</span> <span class="token keyword">date</span> <span class="token operator">|</span> <span class="token keyword">time</span> <span class="token operator">|</span> <span class="token keyword">timestamp</span><span class="token punctuation">;</span>
+<span class="token keyword">date</span> <span class="token operator">=</span> <span class="token string">"DATE"</span><span class="token punctuation">;</span>
+<span class="token keyword">time</span> <span class="token operator">=</span> <span class="token string">"TIME"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">precision</span> <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"WITH TIME ZONE"</span> <span class="token punctuation">,</span> timezone <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">timestamp</span> <span class="token operator">=</span> <span class="token string">"TIMESTAMP"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">precision</span> <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"WITH TIME ZONE"</span> <span class="token punctuation">,</span> timezone <span class="token punctuation">]</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Format of the datetime values:</p>
 <ul>
 <li>date: YYYY-MM-DD</li>
@@ -850,14 +923,16 @@
 <li>a thrid UNKNOWN truth value is used to represent NULL values</li>
 <li>introduced in SQL:1999</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="operator">=</span> &quot;BOOLEAN&quot;;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">boolean</span> <span class="token operator">=</span> <span class="token string">"BOOLEAN"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="bit-data">Bit data</h3>
 <ul>
 <li>fixed or varying sequence of binary digits (0 or 1)</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">bit <span class="operator">=</span> fixedBit <span class="operator">|</span> varyingBit;</span><br><span class="line">fixedBit <span class="operator">=</span> &quot;BIT&quot; , [ &quot;(&quot; , length , &quot;)&quot; ];</span><br><span class="line">varyingBit <span class="operator">=</span> &quot;BIT VARYING&quot; , [ &quot;(&quot; , maxLength , &quot;)&quot; ];</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">bit</span> <span class="token operator">=</span> fixedBit <span class="token operator">|</span> varyingBit<span class="token punctuation">;</span>
+fixedBit <span class="token operator">=</span> <span class="token string">"BIT"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> length <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+varyingBit <span class="token operator">=</span> <span class="token string">"BIT VARYING"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> maxLength <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>For further details about the presented datatypes as well as information about vendor-specific datatypes one has to consult the specific database manuals</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">datatype <span class="operator">=</span> <span class="type">char</span> <span class="operator">|</span> lob <span class="operator">|</span> <span class="type">numeric</span> <span class="operator">|</span> datetime <span class="operator">|</span> <span class="type">boolean</span> <span class="operator">|</span> bit;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">datatype <span class="token operator">=</span> <span class="token keyword">char</span> <span class="token operator">|</span> lob <span class="token operator">|</span> <span class="token keyword">numeric</span> <span class="token operator">|</span> <span class="token keyword">datetime</span> <span class="token operator">|</span> <span class="token keyword">boolean</span> <span class="token operator">|</span> <span class="token keyword">bit</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="data-manipulation-2532">Data Manipulation 25:32</h2>
 <p>After a table has been created, we can use the <strong>INSERT</strong> command to add tuples</p>
 <ul>
@@ -865,33 +940,43 @@
 <li>attribute order can be changed via optional column names</li>
 <li>"bulk loader" utilities to insert large amounts of tuples</li>
 </ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="operator">=</span> &quot;INSERT INTO&quot; , <span class="keyword">table</span> ,</span><br><span class="line">[ &quot;(&quot; , column , &#123; &quot;,&quot; , column &#125; , &quot;)&quot; ] ,</span><br><span class="line">( &quot;VALUES (&quot; , expr , &#123; &quot;,&quot; , expr &#125; , &quot;)&quot; ) | ( &quot;(&quot; , query , &quot;)&quot; ); </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token operator">=</span> <span class="token string">"INSERT INTO"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> &#125; <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+<span class="token punctuation">(</span> <span class="token string">"VALUES ("</span> <span class="token punctuation">,</span> expr <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> expr &#125; <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span> <span class="token string">"("</span> <span class="token punctuation">,</span> query <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>Example</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Customer <span class="keyword">VALUES</span>(<span class="number">8</span>,<span class="string">&#x27;Max Frisch&#x27;</span>,<span class="string">&#x27;ETH Zentrum&#x27;</span>, <span class="number">8001</span>, <span class="string">&#x27;Zurich&#x27;</span>); </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Customer <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">'Max Frisch'</span><span class="token punctuation">,</span><span class="token string">'ETH Zentrum'</span><span class="token punctuation">,</span> <span class="token number">8001</span><span class="token punctuation">,</span> <span class="token string">'Zurich'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Expressions</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">expr = exprElement &#123; ( &quot;+&quot; | &quot;-&quot; | &quot;*&quot; | &quot;/&quot; ) , exprElement &#125;;</span><br><span class="line">exprElement <span class="operator">=</span> <span class="keyword">column</span> <span class="operator">|</span> <span class="keyword">value</span> <span class="operator">|</span></span><br><span class="line">&quot;COUNT&quot; , &quot;(&quot; ( &quot;*&quot; <span class="operator">|</span> ( [ &quot;ALL&quot; <span class="operator">|</span> &quot;DISTINCT&quot; ] , <span class="keyword">column</span> ) , &quot;)&quot; <span class="operator">|</span></span><br><span class="line">( &quot;MIN&quot; <span class="operator">|</span> &quot;MAX&quot; ) , &quot;(&quot; , expr , &quot;)&quot; <span class="operator">|</span></span><br><span class="line">( &quot;SUM&quot; <span class="operator">|</span> &quot;AVG&quot; ) , &quot;(&quot; , [ &quot;DISTINCT&quot; ] , expr , &quot;)&quot;; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">expr <span class="token operator">=</span> exprElement &#123; <span class="token punctuation">(</span> <span class="token string">"+"</span> <span class="token operator">|</span> <span class="token string">"-"</span> <span class="token operator">|</span> <span class="token string">"*"</span> <span class="token operator">|</span> <span class="token string">"/"</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> exprElement &#125;<span class="token punctuation">;</span>
+exprElement <span class="token operator">=</span> <span class="token keyword">column</span> <span class="token operator">|</span> <span class="token keyword">value</span> <span class="token operator">|</span>
+<span class="token string">"COUNT"</span> <span class="token punctuation">,</span> <span class="token string">"("</span> <span class="token punctuation">(</span> <span class="token string">"*"</span> <span class="token operator">|</span> <span class="token punctuation">(</span> <span class="token punctuation">[</span> <span class="token string">"ALL"</span> <span class="token operator">|</span> <span class="token string">"DISTINCT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> <span class="token string">"MIN"</span> <span class="token operator">|</span> <span class="token string">"MAX"</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">"("</span> <span class="token punctuation">,</span> expr <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> <span class="token string">"SUM"</span> <span class="token operator">|</span> <span class="token string">"AVG"</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"DISTINCT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> expr <span class="token punctuation">,</span> <span class="token string">")"</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>The <strong>DELETE</strong> statement can be used to delete tuples</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="operator">=</span> &quot;DELETE FROM&quot; , <span class="keyword">table</span> [ &quot;WHERE&quot; , searchCondition ];</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token operator">=</span> <span class="token string">"DELETE FROM"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">[</span> <span class="token string">"WHERE"</span> <span class="token punctuation">,</span> searchCondition <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li><p>Tuples can be updated via the <strong>UPDATE</strong> statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="operator">=</span> &quot;UPDATE&quot; , <span class="keyword">table</span> , &quot;SET&quot; ,</span><br><span class="line"><span class="keyword">column</span> , &quot;=&quot; , ( &quot;NULL&quot; <span class="operator">|</span> expr <span class="operator">|</span> &quot;(&quot; , query , &quot;)&quot; ) ,</span><br><span class="line">&#123; &quot;,&quot; , column , &quot;=&quot; , (&quot;NULL&quot; | expr | &quot;(&quot; , query , &quot;)&quot; ) &#125; ,</span><br><span class="line">[ &quot;WHERE&quot; , searchCondition ];</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> <span class="token operator">=</span> <span class="token string">"UPDATE"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span> <span class="token string">"SET"</span> <span class="token punctuation">,</span>
+<span class="token keyword">column</span> <span class="token punctuation">,</span> <span class="token string">"="</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token string">"NULL"</span> <span class="token operator">|</span> expr <span class="token operator">|</span> <span class="token string">"("</span> <span class="token punctuation">,</span> query <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span>
+&#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> <span class="token string">"="</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"NULL"</span> <span class="token operator">|</span> expr <span class="token operator">|</span> <span class="token string">"("</span> <span class="token punctuation">,</span> query <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">)</span> &#125; <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"WHERE"</span> <span class="token punctuation">,</span> searchCondition <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Example</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> Customer <span class="keyword">SET</span> name <span class="operator">=</span> <span class="string">&#x27;Walter Faber&#x27;</span> <span class="keyword">WHERE</span> customerID <span class="operator">=</span> <span class="number">8</span>; </span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">UPDATE</span> Customer <span class="token keyword">SET</span> name <span class="token operator">=</span> <span class="token string">'Walter Faber'</span> <span class="token keyword">WHERE</span> customerID <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>The <strong>DROP TABLE</strong> statement can be used to delete a relation from the database</p></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">dropTable <span class="operator">=</span> &quot;DROP TABLE&quot; , <span class="keyword">table</span>; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">dropTable <span class="token operator">=</span> <span class="token string">"DROP TABLE"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li><p>A relation schema can be modified via the <strong>ALTER TABLE</strong> command</p>
 <ul>
 <li><p>existing tuples are assigned a NULL value for the new attribute</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">alterTable <span class="operator">=</span> &quot;ALTER TABLE&quot; , <span class="keyword">table</span> , &quot;ADD&quot; ,</span><br><span class="line">( columnElement <span class="operator">|</span> columnConstraint );</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">alterTable <span class="token operator">=</span> <span class="token string">"ALTER TABLE"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span> <span class="token string">"ADD"</span> <span class="token punctuation">,</span>
+<span class="token punctuation">(</span> columnElement <span class="token operator">|</span> columnConstraint <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>Example</p></li>
 </ul>
-<p><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Customer <span class="keyword">ADD</span> birthdate <span class="type">DATE</span>;</span><br></pre></td></tr></table></figure> ## Basic SQL Query Structure 34:53</p></li>
+<p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> Customer <span class="token keyword">ADD</span> birthdate <span class="token keyword">DATE</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> ## Basic SQL Query Structure 34:53</p></li>
 </ul>
 <p>A basic SQL query consists of a <strong>SELECT</strong>, a <strong>FROM</strong> and a <strong>WHERE</strong> clause</p>
 <ul>
@@ -934,7 +1019,8 @@
 <li>user has to eliminate duplicates explicitly via <strong>DISTINCT</strong> keyword</li>
 </ul>
 <h3 id="select-clause-4106">SELECT Clause 41:06</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Customer;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Customer<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -984,7 +1070,8 @@
 </tbody>
 </table>
 <p>A '<strong>*</strong>' can be used in the SELECT clause as a shortcut to get all tuple attributes</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name</span><br><span class="line"><span class="keyword">FROM</span> Customer;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name
+<span class="token keyword">FROM</span> Customer<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1012,7 +1099,8 @@
 <ul>
 <li><strong>Duplicate tuples</strong> resulting from a projection to specific attributes are <strong><u>not eliminated by default</u></strong></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> name</span><br><span class="line"><span class="keyword">FROM</span> Customer;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> name
+<span class="token keyword">FROM</span> Customer<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1038,7 +1126,8 @@
 <li>The DISTINCT keyword can be used to eliminate duplicates</li>
 </ul>
 <h3 id="computed-attributes-and-rename-4257">Computed Attributes and Rename 42:57</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, price <span class="operator">*</span> <span class="number">1.5</span> <span class="keyword">AS</span> newPrice</span><br><span class="line"><span class="keyword">FROM</span> CD;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> price <span class="token operator">*</span> <span class="token number">1.5</span> <span class="token keyword">AS</span> newPrice
+<span class="token keyword">FROM</span> CD<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1096,7 +1185,9 @@
 <li>check whether the expression is a NULL value (<strong>IS NULL</strong>)</li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, postcode</span><br><span class="line"><span class="keyword">FROM</span> Customer</span><br><span class="line"><span class="keyword">WHERE</span> city <span class="operator">=</span> <span class="string">&#x27;Zurich&#x27;</span> <span class="keyword">AND</span> postcode <span class="operator">&gt;=</span> <span class="number">8040</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> postcode
+<span class="token keyword">FROM</span> Customer
+<span class="token keyword">WHERE</span> city <span class="token operator">=</span> <span class="token string">'Zurich'</span> <span class="token operator">AND</span> postcode <span class="token operator">>=</span> <span class="token number">8040</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1111,7 +1202,9 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, price</span><br><span class="line"><span class="keyword">FROM</span> CD</span><br><span class="line"><span class="keyword">WHERE</span> price <span class="keyword">BETWEEN</span> <span class="number">15.0</span> <span class="keyword">AND</span> <span class="number">17.0</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> price
+<span class="token keyword">FROM</span> CD
+<span class="token keyword">WHERE</span> price <span class="token operator">BETWEEN</span> <span class="token number">15.0</span> <span class="token operator">AND</span> <span class="token number">17.0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1133,7 +1226,9 @@
 <ul>
 <li>Check for set membership with the <strong>IN</strong> construct</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Customer</span><br><span class="line"><span class="keyword">WHERE</span> city <span class="keyword">IN</span> (<span class="string">&#x27;Zurich&#x27;</span>, <span class="string">&#x27;Brussels&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Customer
+<span class="token keyword">WHERE</span> city <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token string">'Zurich'</span><span class="token punctuation">,</span> <span class="token string">'Brussels'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1188,7 +1283,9 @@
 <li>e.g. LIKE '_e%'</li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> name</span><br><span class="line"><span class="keyword">FROM</span> Customer</span><br><span class="line"><span class="keyword">WHERE</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;%Ein%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> name
+<span class="token keyword">FROM</span> Customer
+<span class="token keyword">WHERE</span> name <span class="token operator">LIKE</span> <span class="token string">'%Ein%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1213,7 +1310,9 @@
 <ul>
 <li>The NULL keyword can also be used in predicates to check for null values</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> CD</span><br><span class="line"><span class="keyword">WHERE</span> price <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> CD
+<span class="token keyword">WHERE</span> price <span class="token operator">IS</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1261,7 +1360,9 @@
 <li>the same can be achieved in SQL by explicitly specifying the <strong>matching attributes</strong></li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, street</span><br><span class="line"><span class="keyword">FROM</span> Customer, <span class="keyword">Order</span></span><br><span class="line"><span class="keyword">WHERE</span> Order.customerID <span class="operator">=</span> Customer.customerID <span class="keyword">AND</span> status <span class="operator">=</span> <span class="string">&#x27;open&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> street
+<span class="token keyword">FROM</span> Customer<span class="token punctuation">,</span> <span class="token keyword">Order</span>
+<span class="token keyword">WHERE</span> <span class="token keyword">Order</span><span class="token punctuation">.</span>customerID <span class="token operator">=</span> Customer<span class="token punctuation">.</span>customerID <span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'open'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1281,11 +1382,15 @@
 <ul>
 <li>Inner Joins</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">NATURAL</span> <span class="keyword">JOIN</span> S;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">CROSS</span> <span class="keyword">JOIN</span> S;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">JOIN</span> S <span class="keyword">ON</span> R.A <span class="operator">&gt;</span> S.B;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">NATURAL</span> <span class="token keyword">JOIN</span> S<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">CROSS</span> <span class="token keyword">JOIN</span> S<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">JOIN</span> S <span class="token keyword">ON</span> R<span class="token punctuation">.</span>A <span class="token operator">></span> S<span class="token punctuation">.</span>B<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Outer Joins</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> S <span class="keyword">ON</span> R.A <span class="operator">=</span> S.B;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> S <span class="keyword">ON</span> R.A <span class="operator">=</span> S.B;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> R <span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> S <span class="keyword">ON</span> R.A <span class="operator">=</span> S.B;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">LEFT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> S <span class="token keyword">ON</span> R<span class="token punctuation">.</span>A <span class="token operator">=</span> S<span class="token punctuation">.</span>B<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">RIGHT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> S <span class="token keyword">ON</span> R<span class="token punctuation">.</span>A <span class="token operator">=</span> S<span class="token punctuation">.</span>B<span class="token punctuation">;</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> R <span class="token keyword">FULL</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> S <span class="token keyword">ON</span> R<span class="token punctuation">.</span>A <span class="token operator">=</span> S<span class="token punctuation">.</span>B<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="correlation-variable-5522">Correlation Variable 55:22</h3>
 <ul>
 <li>A correlation variable can be used as an alias for a table</li>
@@ -1294,7 +1399,9 @@
 <li><em>"Find all pairs of CDs that were produced in the same year"</em></li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c1.name <span class="keyword">AS</span> name1, c2.name <span class="keyword">AS</span> name2</span><br><span class="line"><span class="keyword">FROM</span> CD c1, CD c2</span><br><span class="line"><span class="keyword">WHERE</span> c1.year <span class="operator">=</span> c2.year <span class="keyword">AND</span> c1.cdID <span class="operator">&lt;</span> c2.cdID;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> c1<span class="token punctuation">.</span>name <span class="token keyword">AS</span> name1<span class="token punctuation">,</span> c2<span class="token punctuation">.</span>name <span class="token keyword">AS</span> name2
+<span class="token keyword">FROM</span> CD c1<span class="token punctuation">,</span> CD c2
+<span class="token keyword">WHERE</span> c1<span class="token punctuation">.</span><span class="token keyword">year</span> <span class="token operator">=</span> c2<span class="token punctuation">.</span><span class="token keyword">year</span> <span class="token operator">AND</span> c1<span class="token punctuation">.</span>cdID <span class="token operator">&lt;</span> c2<span class="token punctuation">.</span>cdID<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1315,7 +1422,9 @@
 <li>multiple sort keys can be specified; highest priority first</li>
 <li>tuples with NULL values are either before or after non-NULL tuples</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, street, city</span><br><span class="line"><span class="keyword">FROM</span> Customer</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> city <span class="keyword">ASC</span>, name <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> street<span class="token punctuation">,</span> city
+<span class="token keyword">FROM</span> Customer
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> city <span class="token keyword">ASC</span><span class="token punctuation">,</span> name <span class="token keyword">DESC</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1361,7 +1470,11 @@
 <li>the ALL keyword has to be used to retain duplicates</li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> name</span><br><span class="line"><span class="keyword">FROM</span> Customer)</span><br><span class="line"><span class="keyword">INTERSECT</span></span><br><span class="line">(<span class="keyword">SELECT</span> name</span><br><span class="line"><span class="keyword">FROM</span> Supplier);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token punctuation">(</span><span class="token keyword">SELECT</span> name
+<span class="token keyword">FROM</span> Customer<span class="token punctuation">)</span>
+<span class="token keyword">INTERSECT</span>
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> name
+<span class="token keyword">FROM</span> Supplier<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1380,7 +1493,9 @@
 <ul>
 <li><em>"Find the number of customers in each city"</em></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> city, <span class="built_in">COUNT</span>(customerID) <span class="keyword">AS</span> number</span><br><span class="line"><span class="keyword">FROM</span> Customer</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> city;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> city<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>customerID<span class="token punctuation">)</span> <span class="token keyword">AS</span> number
+<span class="token keyword">FROM</span> Customer
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> city<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1420,7 +1535,10 @@
 <li><em>"Find all the suppliers who are no customers"</em></li>
 </ul></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">ELECT <span class="keyword">DISTINCT</span> name</span><br><span class="line"><span class="keyword">FROM</span> Supplier</span><br><span class="line"><span class="keyword">WHERE</span> name <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> name</span><br><span class="line">       <span class="keyword">FROM</span> Customer);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">ELECT <span class="token keyword">DISTINCT</span> name
+<span class="token keyword">FROM</span> Supplier
+<span class="token keyword">WHERE</span> name <span class="token operator">NOT</span> <span class="token operator">IN</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> name
+       <span class="token keyword">FROM</span> Customer<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1435,7 +1553,10 @@
 </table>
 <h4 id="nested-subqueries-10445">Nested Subqueries 1:04:45</h4>
 <p>Example: <em>"Find all CDs with a price smaller than average"</em></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> CD</span><br><span class="line"><span class="keyword">WHERE</span> price <span class="operator">&lt;</span> (<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(price)</span><br><span class="line">      <span class="keyword">FROM</span> CD);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> CD
+<span class="token keyword">WHERE</span> price <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span>
+      <span class="token keyword">FROM</span> CD<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1469,7 +1590,10 @@
 <li>&gt; SOME, &gt;= SOME, &lt; SOME, &lt;= SOME, = SOME, &lt;&gt; SOME as well as the same combination with AL</li>
 </ul>
 <p>Example: <em>"Find the customers with a postcode greater than all supplier postcodes"</em></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name ,postcode</span><br><span class="line"><span class="keyword">FROM</span> Customer</span><br><span class="line"><span class="keyword">WHERE</span> postcode <span class="operator">&gt;</span> <span class="keyword">ALL</span> (<span class="keyword">SELECT</span> postcode</span><br><span class="line">           <span class="keyword">FROM</span> Supplier);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name <span class="token punctuation">,</span>postcode
+<span class="token keyword">FROM</span> Customer
+<span class="token keyword">WHERE</span> postcode <span class="token operator">></span> <span class="token keyword">ALL</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> postcode
+           <span class="token keyword">FROM</span> Supplier<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1493,7 +1617,11 @@
 <ul>
 <li>Example: <em>"Find the customers who are also suppliers"</em></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name</span><br><span class="line"><span class="keyword">FROM</span> Customer</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">		<span class="keyword">FROM</span> Supplier</span><br><span class="line">		<span class="keyword">WHERE</span> Supplier.name <span class="operator">=</span> Customer.name);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name
+<span class="token keyword">FROM</span> Customer
+<span class="token keyword">WHERE</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+		<span class="token keyword">FROM</span> Supplier
+		<span class="token keyword">WHERE</span> Supplier<span class="token punctuation">.</span>name <span class="token operator">=</span> Customer<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1512,21 +1640,53 @@
 <li>in this case, a name has to be given to the relation</li>
 </ul>
 <p>Example: <em>"Find the number of customers in the city with the most customers"</em></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(noCustomers) <span class="keyword">AS</span> max</span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> city, <span class="built_in">COUNT</span>(customerID)</span><br><span class="line">	<span class="keyword">FROM</span> Customer</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> city) <span class="keyword">AS</span> CityTotal(city, noCustomers);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>noCustomers<span class="token punctuation">)</span> <span class="token keyword">AS</span> max
+<span class="token keyword">FROM</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> city<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>customerID<span class="token punctuation">)</span>
+	<span class="token keyword">FROM</span> Customer
+	<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> city<span class="token punctuation">)</span> <span class="token keyword">AS</span> CityTotal<span class="token punctuation">(</span>city<span class="token punctuation">,</span> noCustomers<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="basic-sql-query-structure">Basic SQL Query Structure</h2>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">query = select &#123; (&quot;UNION&quot; | &quot;INTERSECT&quot; | &quot;EXCEPT&quot;) , [ &quot;ALL&quot; ] , select&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">=</span> &quot;SELECT&quot; [ &quot;ALL&quot; <span class="operator">|</span> &quot;DISTINCT&quot; ] ,</span><br><span class="line">(&quot;*&quot; <span class="operator">|</span> ( expr , [ &quot;AS&quot; , newName ] ,</span><br><span class="line">&#123; &quot;,&quot; , expr , [ &quot;AS&quot; , newName ] &#125; ) ,</span><br><span class="line">&quot;FROM&quot; , <span class="keyword">table</span> , [ correlationVar ] ,</span><br><span class="line">&#123; &quot;,&quot; , table , [ correlationVar ] &#125; ,</span><br><span class="line">[ &quot;WHERE&quot; , searchCondition ] ,</span><br><span class="line">[ &quot;GROUP BY&quot; , column , &#123; &quot;,&quot; , column &#125; ,</span><br><span class="line">[ &quot;HAVING&quot; , searchCondition ] ];</span><br><span class="line"> </span><br><span class="line">orderedQuery <span class="operator">=</span> query , &quot;ORDER BY&quot; , <span class="keyword">column</span> , [ &quot;ASC&quot; <span class="operator">|</span> &quot;DESC&quot; ] ,</span><br><span class="line">&#123; &quot;,&quot; , column , [ &quot;ASC&quot; | &quot;DESC&quot; ] &#125;;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">query <span class="token operator">=</span> <span class="token keyword">select</span> &#123; <span class="token punctuation">(</span><span class="token string">"UNION"</span> <span class="token operator">|</span> <span class="token string">"INTERSECT"</span> <span class="token operator">|</span> <span class="token string">"EXCEPT"</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"ALL"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token keyword">select</span>&#125;<span class="token punctuation">;</span>
+
+<span class="token keyword">select</span> <span class="token operator">=</span> <span class="token string">"SELECT"</span> <span class="token punctuation">[</span> <span class="token string">"ALL"</span> <span class="token operator">|</span> <span class="token string">"DISTINCT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token string">"*"</span> <span class="token operator">|</span> <span class="token punctuation">(</span> expr <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"AS"</span> <span class="token punctuation">,</span> newName <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+&#123; <span class="token string">","</span> <span class="token punctuation">,</span> expr <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"AS"</span> <span class="token punctuation">,</span> newName <span class="token punctuation">]</span> &#125; <span class="token punctuation">)</span> <span class="token punctuation">,</span>
+<span class="token string">"FROM"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> correlationVar <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+&#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> correlationVar <span class="token punctuation">]</span> &#125; <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"WHERE"</span> <span class="token punctuation">,</span> searchCondition <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"GROUP BY"</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> &#125; <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"HAVING"</span> <span class="token punctuation">,</span> searchCondition <span class="token punctuation">]</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+ 
+orderedQuery <span class="token operator">=</span> query <span class="token punctuation">,</span> <span class="token string">"ORDER BY"</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"ASC"</span> <span class="token operator">|</span> <span class="token string">"DESC"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+&#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"ASC"</span> <span class="token operator">|</span> <span class="token string">"DESC"</span> <span class="token punctuation">]</span> &#125;<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The query statement can be used to retrieve information from one or multiple database tables</p>
 <ul>
 <li>can perform the relational algebra's <strong>selection</strong>, <strong>projection</strong> and <strong>join</strong> operation in a single SELECT FROM WHERE command</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">searchCondition <span class="operator">=</span> [ &quot;NOT&quot; ] , <span class="keyword">search</span> ,</span><br><span class="line">&#123; ( &quot;AND&quot; | &quot;OR&quot; ) , [ &quot;NOT&quot; ] , search &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">search</span> <span class="operator">=</span> ( expr , [ &quot;NOT&quot; ] , &quot;BETWEEN&quot; , expr , &quot;AND&quot; , expr ) <span class="operator">|</span></span><br><span class="line">( expr , [ &quot;NOT&quot; ] , &quot;LIKE&quot; , &quot;&#x27;&quot; , ( string <span class="operator">|</span> &quot;_&quot; <span class="operator">|</span> &quot;%&quot; ) ,</span><br><span class="line">&#123; string | &quot;_&quot; | &quot;%&quot; &#125; , &quot;&#x27;&quot; ) |</span><br><span class="line">( <span class="keyword">column</span> <span class="operator">|</span> ( &quot;(&quot; , expr , &quot;)&quot; ) , &quot;IS&quot; , [ &quot;NOT&quot; ] , &quot;NULL&quot; ) <span class="operator">|</span></span><br><span class="line">( expr , ( &quot;=&quot; <span class="operator">|</span> &quot;&lt;&gt;&quot; <span class="operator">|</span> &quot;&gt;&quot; <span class="operator">|</span> &quot;&gt;=&quot; <span class="operator">|</span> &quot;&lt;&quot; <span class="operator">|</span> &quot;&lt;=&quot; ) , ( expr <span class="operator">|</span></span><br><span class="line">( [ &quot;SOME&quot; <span class="operator">|</span> &quot;ALL&quot; ] , &quot;(&quot; , query , &quot;)&quot; ) ) ) <span class="operator">|</span></span><br><span class="line">( expr , [ &quot;NOT&quot; ] , &quot;IN (&quot; ,</span><br><span class="line">( ( value , &#123; &quot;,&quot; , value &#125; ) | query ) , &quot;)&quot; |</span><br><span class="line">( &quot;EXISTS (&quot; , query , &quot;)&quot;; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">searchCondition <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">"NOT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> search <span class="token punctuation">,</span>
+&#123; <span class="token punctuation">(</span> <span class="token string">"AND"</span> <span class="token operator">|</span> <span class="token string">"OR"</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"NOT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> search &#125;<span class="token punctuation">;</span>
+
+search <span class="token operator">=</span> <span class="token punctuation">(</span> expr <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"NOT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token string">"BETWEEN"</span> <span class="token punctuation">,</span> expr <span class="token punctuation">,</span> <span class="token string">"AND"</span> <span class="token punctuation">,</span> expr <span class="token punctuation">)</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> expr <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"NOT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token string">"LIKE"</span> <span class="token punctuation">,</span> <span class="token string">"'"</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> string <span class="token operator">|</span> <span class="token string">"_"</span> <span class="token operator">|</span> <span class="token string">"%"</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span>
+&#123; string <span class="token operator">|</span> <span class="token string">"_"</span> <span class="token operator">|</span> <span class="token string">"%"</span> &#125; <span class="token punctuation">,</span> <span class="token string">"'"</span> <span class="token punctuation">)</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> <span class="token keyword">column</span> <span class="token operator">|</span> <span class="token punctuation">(</span> <span class="token string">"("</span> <span class="token punctuation">,</span> expr <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">"IS"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"NOT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token string">"NULL"</span> <span class="token punctuation">)</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> expr <span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token string">"="</span> <span class="token operator">|</span> <span class="token string">"&lt;>"</span> <span class="token operator">|</span> <span class="token string">">"</span> <span class="token operator">|</span> <span class="token string">">="</span> <span class="token operator">|</span> <span class="token string">"&lt;"</span> <span class="token operator">|</span> <span class="token string">"&lt;="</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> expr <span class="token operator">|</span>
+<span class="token punctuation">(</span> <span class="token punctuation">[</span> <span class="token string">"SOME"</span> <span class="token operator">|</span> <span class="token string">"ALL"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token string">"("</span> <span class="token punctuation">,</span> query <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> expr <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"NOT"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span> <span class="token string">"IN ("</span> <span class="token punctuation">,</span>
+<span class="token punctuation">(</span> <span class="token punctuation">(</span> <span class="token keyword">value</span> <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">value</span> &#125; <span class="token punctuation">)</span> <span class="token operator">|</span> query <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token operator">|</span>
+<span class="token punctuation">(</span> <span class="token string">"EXISTS ("</span> <span class="token punctuation">,</span> query <span class="token punctuation">,</span> <span class="token string">")"</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="with-clause-10953">WITH Clause 1:09:53</h3>
 <p>The <strong>WITH</strong> clause can be used to improve the readability by introducing temporary new relations</p>
 <ul>
 <li>introduced only in SQL:1999 and not supported by all databases</li>
 </ul>
 <p>Example: <em>"Find all customers who bought one of the most expensive CDs"</em></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">WITH</span> Expensive(price) <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(price)</span><br><span class="line"><span class="keyword">FROM</span> CD</span><br><span class="line"><span class="keyword">SELECT</span> Customer.name</span><br><span class="line"><span class="keyword">FROM</span> Customer, CD, <span class="keyword">Order</span></span><br><span class="line"><span class="keyword">WHERE</span> CD.price <span class="operator">=</span> Expensive.price <span class="keyword">AND</span> CD.cdID <span class="operator">=</span> Order.cdID <span class="keyword">AND</span></span><br><span class="line">Order.customerID <span class="operator">=</span> Customer.customerID;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WITH</span> Expensive<span class="token punctuation">(</span>price<span class="token punctuation">)</span> <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> CD
+<span class="token keyword">SELECT</span> Customer<span class="token punctuation">.</span>name
+<span class="token keyword">FROM</span> Customer<span class="token punctuation">,</span> CD<span class="token punctuation">,</span> <span class="token keyword">Order</span>
+<span class="token keyword">WHERE</span> CD<span class="token punctuation">.</span>price <span class="token operator">=</span> Expensive<span class="token punctuation">.</span>price <span class="token operator">AND</span> CD<span class="token punctuation">.</span>cdID <span class="token operator">=</span> <span class="token keyword">Order</span><span class="token punctuation">.</span>cdID <span class="token operator">AND</span>
+<span class="token keyword">Order</span><span class="token punctuation">.</span>customerID <span class="token operator">=</span> Customer<span class="token punctuation">.</span>customerID<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1550,9 +1710,15 @@
 <ul>
 <li>materialised views have to be updated when its relations change (<strong><em>view maintenance</em></strong>)</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">createView <span class="operator">=</span> &quot;CREATE VIEW&quot; , <span class="keyword">table</span> ,</span><br><span class="line">[ &quot;(&quot; , column , &#123; &quot;,&quot; , column &#125; , &quot;)&quot; ] ,</span><br><span class="line">&quot;AS&quot; , query; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">createView <span class="token operator">=</span> <span class="token string">"CREATE VIEW"</span> <span class="token punctuation">,</span> <span class="token keyword">table</span> <span class="token punctuation">,</span>
+<span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> &#125; <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span> <span class="token punctuation">,</span>
+<span class="token string">"AS"</span> <span class="token punctuation">,</span> query<span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>Example:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> CustomerCD <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> Customer.customerID, Customer.name, CD.cdID, CD.name <span class="keyword">AS</span> cdName</span><br><span class="line"><span class="keyword">FROM</span> Customer, <span class="keyword">Order</span>, CD</span><br><span class="line"><span class="keyword">WHERE</span> Customer.customerID <span class="operator">=</span> Order.customerID <span class="keyword">AND</span></span><br><span class="line">Order.cdID <span class="operator">=</span> CD.cdID;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> CustomerCD <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> Customer<span class="token punctuation">.</span>customerID<span class="token punctuation">,</span> Customer<span class="token punctuation">.</span>name<span class="token punctuation">,</span> CD<span class="token punctuation">.</span>cdID<span class="token punctuation">,</span> CD<span class="token punctuation">.</span>name <span class="token keyword">AS</span> cdName
+<span class="token keyword">FROM</span> Customer<span class="token punctuation">,</span> <span class="token keyword">Order</span><span class="token punctuation">,</span> CD
+<span class="token keyword">WHERE</span> Customer<span class="token punctuation">.</span>customerID <span class="token operator">=</span> <span class="token keyword">Order</span><span class="token punctuation">.</span>customerID <span class="token operator">AND</span>
+<span class="token keyword">Order</span><span class="token punctuation">.</span>cdID <span class="token operator">=</span> CD<span class="token punctuation">.</span>cdID<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Note that a view can be used like any other relation</li>
 <li>Views are useful for queries but they present a serious problem for UPDATE, INSERT and DELETE operations

@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Database/" class="post-category">
+                                Database
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-24
+                    2021-04-24
                 </div>
                 
 
@@ -726,7 +726,7 @@
 <li>the intersection of each row and column contains <strong><em>one and only one value</em></strong></li>
 </ul>
 <h4 id="functional-dependencies-3816"><strong>Functional Dependencies</strong> 38:16</h4>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TeacherDept (teacherID, teacher, salary, department, building, budget)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">TeacherDept (teacherID, teacher, salary, department, building, budget)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>In this example, there are various sets of attributes that <strong><em>uniquely identify</em></strong> a set of other attributes</p>
 <ul>
 <li>teacherID → teacher</li>
@@ -768,7 +768,11 @@
 <h4 id="closure-of-attributes-4751">Closure of Attributes 47:51</h4>
 <p>For a given relation schema <em>R</em>, a number of functional dependencies and a set of attributes α <strong>⊆</strong> <em>R</em>, the <strong><em>closure</em></strong> a<sup>+</sup> is defined by all attributes <em>B<sub>i</sub></em> such that α → <em>B<sub>i</sub></em></p>
 <p>Computing the closure</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Initialise the set s with the attributes of α</span><br><span class="line">Repeat until the set s does not grow anymore &#123;</span><br><span class="line"> if there is a functional dependency β → γ and β is in s, then</span><br><span class="line"> add γ to the set s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Initialise the set s with the attributes of α
+Repeat until the set s does not grow anymore &#123;
+ if there is a functional dependency β → γ and β is in s, then
+ add γ to the set s
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>If the closure a<sup>+</sup> contains all attributes of the relation schema <em>R</em>, then the attributes α form a superkey of <em>R</em></p>
 <h4 id="computation-of-superkeys">Computation of Superkeys</h4>
 <p>We can test whether α is a superkey for a given relation schema <em>R</em> by checking whether the closure a<sup>+</sup> contains all attributes of <em>R</em></p>

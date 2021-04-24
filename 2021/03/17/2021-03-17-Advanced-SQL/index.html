@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Database/" class="post-category">
+                                Database
                             </a>
                         
                     </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-19
+                    2021-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.3k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    14 Min
+                    13 Min
                 </div>
                 
 
@@ -513,22 +513,36 @@
 </ul></li>
 <li>The creator of a new relation is automatically given all privileges on that relation</li>
 </ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">grantPrivilege <span class="operator">=</span> &quot;GRANT&quot; , &quot;ALL PRIVILEGES&quot; , &quot;TO&quot; , ( &quot;PUBLIC&quot; <span class="operator">|</span></span><br><span class="line">grantee ) | &quot;GRANT&quot; , privilege , &#123; &quot;,&quot; , privilege &#125; ) , &quot;ON&quot; ,</span><br><span class="line">( table | view ) , &#123; &quot;,&quot; , ( table | view ) &#125; , &quot;TO&quot; ,</span><br><span class="line">( &quot;PUBLIC&quot; <span class="operator">|</span> grantee ) , [ &quot;WITH GRANT OPTION&quot; ]; </span><br><span class="line"></span><br><span class="line">privilege <span class="operator">=</span> &quot;INSERT&quot; <span class="operator">|</span> &quot;SELECT&quot; <span class="operator">|</span> ( &quot;UPDATE&quot; , [ &quot;(&quot; , <span class="keyword">column</span> ,</span><br><span class="line">&#123; &quot;,&quot; , column &#125; , &quot;)&quot; ] ) | &quot;DELETE&quot;;</span><br><span class="line"></span><br><span class="line">grantee = ( user | role ) , &#123; &quot;,&quot; , ( user | role ) &#125;;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">grantPrivilege <span class="token operator">=</span> <span class="token string">"GRANT"</span> <span class="token punctuation">,</span> <span class="token string">"ALL PRIVILEGES"</span> <span class="token punctuation">,</span> <span class="token string">"TO"</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token string">"PUBLIC"</span> <span class="token operator">|</span>
+grantee <span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">"GRANT"</span> <span class="token punctuation">,</span> privilege <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> privilege &#125; <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token string">"ON"</span> <span class="token punctuation">,</span>
+<span class="token punctuation">(</span> <span class="token keyword">table</span> <span class="token operator">|</span> <span class="token keyword">view</span> <span class="token punctuation">)</span> <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token keyword">table</span> <span class="token operator">|</span> <span class="token keyword">view</span> <span class="token punctuation">)</span> &#125; <span class="token punctuation">,</span> <span class="token string">"TO"</span> <span class="token punctuation">,</span>
+<span class="token punctuation">(</span> <span class="token string">"PUBLIC"</span> <span class="token operator">|</span> grantee <span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"WITH GRANT OPTION"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> 
+
+privilege <span class="token operator">=</span> <span class="token string">"INSERT"</span> <span class="token operator">|</span> <span class="token string">"SELECT"</span> <span class="token operator">|</span> <span class="token punctuation">(</span> <span class="token string">"UPDATE"</span> <span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">"("</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> <span class="token punctuation">,</span>
+&#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token keyword">column</span> &#125; <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token string">"DELETE"</span><span class="token punctuation">;</span>
+
+grantee <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token keyword">user</span> <span class="token operator">|</span> role <span class="token punctuation">)</span> <span class="token punctuation">,</span> &#123; <span class="token string">","</span> <span class="token punctuation">,</span> <span class="token punctuation">(</span> <span class="token keyword">user</span> <span class="token operator">|</span> role <span class="token punctuation">)</span> &#125;<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>An update privilege may be limited to certain attributes only</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">TO</span> Alice, Bob;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INSERT</span>, <span class="keyword">UPDATE</span> (amount, status) <span class="keyword">ON</span> <span class="keyword">Order</span> <span class="keyword">TO</span> Eve <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">TO</span> Alice<span class="token punctuation">,</span> Bob<span class="token punctuation">;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">INSERT</span><span class="token punctuation">,</span> <span class="token keyword">UPDATE</span> <span class="token punctuation">(</span>amount<span class="token punctuation">,</span> <span class="token keyword">status</span><span class="token punctuation">)</span> <span class="token keyword">ON</span> <span class="token keyword">Order</span> <span class="token keyword">TO</span> Eve <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>Roles can be used to group users</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">createRole <span class="operator">=</span> &quot;CREATE ROLE&quot; , role;</span><br><span class="line"></span><br><span class="line">grantRole <span class="operator">=</span> &quot;GRANT&quot; , role , &quot;TO&quot;</span><br><span class="line">( &quot;PUBLIC&quot; <span class="operator">|</span> grantee );</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ROLE PowerUser;</span><br><span class="line"><span class="keyword">GRANT</span> PowerUser <span class="keyword">TO</span> Alice, Bob;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">createRole <span class="token operator">=</span> <span class="token string">"CREATE ROLE"</span> <span class="token punctuation">,</span> role<span class="token punctuation">;</span>
+
+grantRole <span class="token operator">=</span> <span class="token string">"GRANT"</span> <span class="token punctuation">,</span> role <span class="token punctuation">,</span> <span class="token string">"TO"</span>
+<span class="token punctuation">(</span> <span class="token string">"PUBLIC"</span> <span class="token operator">|</span> grantee <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> ROLE PowerUser<span class="token punctuation">;</span>
+<span class="token keyword">GRANT</span> PowerUser <span class="token keyword">TO</span> Alice<span class="token punctuation">,</span> Bob<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>Privileges can be passed to other users if the <strong>WITH GRANT OPTION</strong> has been specified</li>
 <li>Privileges and roles can be removed via the <strong>REVOKE</strong> command (similar to <strong>GRANT</strong> statement)</li>
 <li>Examples</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> <span class="keyword">Order</span> <span class="keyword">FROM</span> Eve;</span><br><span class="line"><span class="keyword">REVOKE</span> PowerUser <span class="keyword">FROM</span> Bob;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">REVOKE</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token keyword">Order</span> <span class="token keyword">FROM</span> Eve<span class="token punctuation">;</span>
+<span class="token keyword">REVOKE</span> PowerUser <span class="token keyword">FROM</span> Bob<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>Note that the revocation of a privilege may have an effect on grants that have been passed to other users
 <ul>
@@ -636,7 +650,42 @@
 </ul>
 <h2 id="example-database-1753">Example Database 17:53</h2>
 <p><img src="/images/DB/18001702.png" /></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Customer (</span><br><span class="line">customerID <span class="type">INTEGER</span> <span class="keyword">CHECK</span> (customerID <span class="operator">&gt;</span> <span class="number">0</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">street <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">postcode <span class="type">SMALLINT</span> <span class="keyword">CHECK</span> (postcode <span class="operator">&gt;</span> <span class="number">0</span>),</span><br><span class="line">city <span class="type">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Producer (</span><br><span class="line">name <span class="type">VARCHAR</span>(<span class="number">40</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">address <span class="type">VARCHAR</span>(<span class="number">30</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">Order</span> (</span><br><span class="line">orderID <span class="type">INTEGER</span> <span class="keyword">CHECK</span> (orderID <span class="operator">&gt;</span> <span class="number">0</span>) <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">customerID <span class="type">INTEGER</span>,</span><br><span class="line">cdID <span class="type">INTEGER</span>,</span><br><span class="line"><span class="type">date</span> <span class="type">DATE</span>,</span><br><span class="line">amount <span class="type">INTEGER</span>,</span><br><span class="line">Status <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;open&#x27;</span>,</span><br><span class="line"><span class="keyword">UNIQUE</span> (customerID, cdID, <span class="type">date</span>),</span><br><span class="line"><span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (customerID) <span class="keyword">REFERENCES</span> Customer(customerID)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">SET</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (cdID) <span class="keyword">REFERENCES</span> CD(cdID)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> CD (</span><br><span class="line">cdID <span class="type">INTEGER</span> <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span>,</span><br><span class="line">title <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">duration <span class="type">SMALLINT</span>,</span><br><span class="line">price <span class="type">SMALLINT</span>,</span><br><span class="line"><span class="keyword">year</span> <span class="type">SMALLINT</span>,</span><br><span class="line">producer <span class="type">VARCHAR</span>(<span class="number">40</span>),</span><br><span class="line"><span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (producer) <span class="keyword">REFERENCES</span> Producer(name)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Customer <span class="token punctuation">(</span>
+customerID <span class="token keyword">INTEGER</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>customerID <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+street <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+postcode <span class="token keyword">SMALLINT</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>postcode <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+city <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Producer <span class="token punctuation">(</span>
+name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+address <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">Order</span> <span class="token punctuation">(</span>
+orderID <span class="token keyword">INTEGER</span> <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>orderID <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+customerID <span class="token keyword">INTEGER</span><span class="token punctuation">,</span>
+cdID <span class="token keyword">INTEGER</span><span class="token punctuation">,</span>
+<span class="token keyword">date</span> <span class="token keyword">DATE</span><span class="token punctuation">,</span>
+amount <span class="token keyword">INTEGER</span><span class="token punctuation">,</span>
+<span class="token keyword">Status</span> <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'open'</span><span class="token punctuation">,</span>
+<span class="token keyword">UNIQUE</span> <span class="token punctuation">(</span>customerID<span class="token punctuation">,</span> cdID<span class="token punctuation">,</span> <span class="token keyword">date</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>customerID<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Customer<span class="token punctuation">(</span>customerID<span class="token punctuation">)</span>
+<span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CASCADE</span> <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">SET</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+<span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>cdID<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> CD<span class="token punctuation">(</span>cdID<span class="token punctuation">)</span>
+<span class="token keyword">ON</span> <span class="token keyword">UPDATE</span> <span class="token keyword">CASCADE</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> CD <span class="token punctuation">(</span>
+cdID <span class="token keyword">INTEGER</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+title <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+duration <span class="token keyword">SMALLINT</span><span class="token punctuation">,</span>
+price <span class="token keyword">SMALLINT</span><span class="token punctuation">,</span>
+<span class="token keyword">year</span> <span class="token keyword">SMALLINT</span><span class="token punctuation">,</span>
+producer <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>producer<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> Producer<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="embedded-sql-1830">Embedded SQL 18:30</h2>
 <ul>
 <li>The expressiveness of SQL can be enhanced by embedding SQL statements into application code</li>
@@ -691,7 +740,18 @@
 <li>Limited code portability among SQL platforms due to vendor-specific SQL dialects</li>
 </ul>
 <h4 id="opening-a-jdbc-connection">Opening a JDBC Connection</h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Connection <span class="title">openConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Connection conn = DriverManager.getConnection(</span><br><span class="line">            <span class="string">&quot;jdbc:microsoft:sqlserver://localhost:1433&quot;</span>, </span><br><span class="line">            <span class="string">&quot;fred&quot;</span>, </span><br><span class="line">            <span class="string">&quot;password&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> conn;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Opening JDBC Connection failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Connection</span> <span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Connection</span> conn <span class="token operator">=</span> <span class="token class-name">DriverManager</span><span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span>
+            <span class="token string">"jdbc:microsoft:sqlserver://localhost:1433"</span><span class="token punctuation">,</span> 
+            <span class="token string">"fred"</span><span class="token punctuation">,</span> 
+            <span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> conn<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Opening JDBC Connection failed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>The JDBC URL varies for different drivers
 <ul>
@@ -723,8 +783,23 @@
 </ul></li>
 <li>No parameters are required for PreparedStatements</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertProducer</span><span class="params">(String name, String address)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Connection conn = <span class="keyword">this</span>.openConnection();</span><br><span class="line">        Statement s = conn.createStatement();</span><br><span class="line">        s.executeUpdate(<span class="string">&quot;INSERT INTO Producer VALUES (&#x27;&quot;</span> + name + <span class="string">&quot;&#x27;, &#x27;&quot;</span> + address + <span class="string">&quot;&#x27;)&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Inserting \&quot;&quot;</span> + name + <span class="string">&quot;\&quot; failed.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertProducer</span><span class="params">(String name, String address)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Connection conn = <span class="keyword">this</span>.openConnection();</span><br><span class="line">        Statement s = conn.prepareStatement(<span class="string">&quot;INSERT INTO Producer VALUES (&#x27;&quot;</span> + name + <span class="string">&quot;&#x27;, &quot;</span> + address + <span class="string">&quot;)&quot;</span>);</span><br><span class="line">        s.executeUpdate();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Inserting \&quot;&quot;</span> + name + <span class="string">&quot;\&quot; failed.&quot;</span>); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">void</span> <span class="token function">insertProducer</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token class-name">String</span> address<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Connection</span> conn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Statement</span> s <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">.</span><span class="token function">executeUpdate</span><span class="token punctuation">(</span><span class="token string">"INSERT INTO Producer VALUES ('"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"', '"</span> <span class="token operator">+</span> address <span class="token operator">+</span> <span class="token string">"')"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Inserting \""</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"\" failed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insertProducer</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token class-name">String</span> address<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Connection</span> conn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Statement</span> s <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">prepareStatement</span><span class="token punctuation">(</span><span class="token string">"INSERT INTO Producer VALUES ('"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"', "</span> <span class="token operator">+</span> address <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">.</span><span class="token function">executeUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Inserting \""</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"\" failed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="result-set">Result Set</h4>
 <ul>
 <li>JDBC represents cursors as <strong>ResultSet</strong></li>
@@ -737,7 +812,23 @@
 <li>API offers various get methods to fetch data as well as update methods for common SQL data types</li>
 </ul>
 <p>Example:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getAverageCDLength</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> result = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Connection conn = <span class="keyword">this</span>.openConnection();</span><br><span class="line">        Statement s = conn.createStatement();</span><br><span class="line">        ResultSet set = s.executeQuery(<span class="string">&quot;SELECT length FROM CD&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (set.next()) &#123;</span><br><span class="line">            result += set.getInt(<span class="number">1</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result/i;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Calculation of average length failed.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">float</span> <span class="token function">getAverageCDLength</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">float</span> result <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Connection</span> conn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Statement</span> s <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ResultSet</span> set <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span><span class="token string">"SELECT length FROM CD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>set<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            result <span class="token operator">+=</span> set<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> result<span class="token operator">/</span>i<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Calculation of average length failed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Note that it would be easier to use the SQL AVG operator</li>
 </ul>
@@ -758,7 +849,20 @@
 </ul></li>
 </ul>
 <p>Example:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertProducers</span><span class="params">(List&lt;Producer&gt; producers)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Connection conn = <span class="keyword">this</span>.openConnection();</span><br><span class="line">        Statement s = conn.prepareStamement(</span><br><span class="line">            <span class="string">&quot;INSERT INTO Producer(name, address) VALUES(?, ?)&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Producer producer : producers) &#123;</span><br><span class="line">            s.setString(<span class="number">1</span>, producer.getName());</span><br><span class="line">            s.setString(<span class="number">2</span>, producer.getAddress());</span><br><span class="line">            s.executeUpdate();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Insertion of Producers failed.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insertProducers</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Producer</span><span class="token punctuation">></span></span> producers<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Connection</span> conn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Statement</span> s <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">prepareStamement</span><span class="token punctuation">(</span>
+            <span class="token string">"INSERT INTO Producer(name, address) VALUES(?, ?)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Producer</span> producer <span class="token operator">:</span> producers<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            s<span class="token punctuation">.</span><span class="token function">setString</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> producer<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s<span class="token punctuation">.</span><span class="token function">setString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> producer<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            s<span class="token punctuation">.</span><span class="token function">executeUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Insertion of Producers failed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="special-datatypes-and-null-values">Special Datatypes and NULL Values</h4>
 <ul>
 <li>Some SQL datatypes cannot be easily mapped to Java datatypes</li>
@@ -816,7 +920,11 @@
 <ul>
 <li>assignments, branches, loops, subroutines and exceptions</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">createProcedure <span class="operator">=</span> &quot;CREATE PROCEDURE&quot; , name , &quot;(&quot; , parameters , &quot;)&quot; ,</span><br><span class="line">localDeclarations , procedureBody;</span><br><span class="line"></span><br><span class="line">createFunction <span class="operator">=</span> &quot;CREATE FUNCTION&quot; , name , &quot;(&quot; , parameters , &quot;)&quot; ,</span><br><span class="line">&quot;RETURNS&quot; , type , localDeclarations , functionBody;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">createProcedure <span class="token operator">=</span> <span class="token string">"CREATE PROCEDURE"</span> <span class="token punctuation">,</span> name <span class="token punctuation">,</span> <span class="token string">"("</span> <span class="token punctuation">,</span> parameters <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">,</span>
+localDeclarations <span class="token punctuation">,</span> procedureBody<span class="token punctuation">;</span>
+
+createFunction <span class="token operator">=</span> <span class="token string">"CREATE FUNCTION"</span> <span class="token punctuation">,</span> name <span class="token punctuation">,</span> <span class="token string">"("</span> <span class="token punctuation">,</span> parameters <span class="token punctuation">,</span> <span class="token string">")"</span> <span class="token punctuation">,</span>
+<span class="token string">"RETURNS"</span> <span class="token punctuation">,</span> <span class="token keyword">type</span> <span class="token punctuation">,</span> localDeclarations <span class="token punctuation">,</span> functionBody<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>SQL/PSM defines three types for parameters
@@ -842,54 +950,105 @@
 </ul></li>
 </ul>
 <h3 id="procedure-example">Procedure Example</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> RelocateProducer(</span><br><span class="line">    <span class="keyword">IN</span> oldAddress <span class="type">VARCHAR</span>(<span class="number">30</span>),</span><br><span class="line">    <span class="keyword">IN</span> newAddress <span class="type">VARCHAR</span>(<span class="number">30</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> Producer</span><br><span class="line"><span class="keyword">SET</span> address <span class="operator">=</span> newAddress</span><br><span class="line"><span class="keyword">WHERE</span> address <span class="operator">=</span> oldAddress;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">PROCEDURE</span> RelocateProducer<span class="token punctuation">(</span>
+    <span class="token operator">IN</span> oldAddress <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">IN</span> newAddress <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">UPDATE</span> Producer
+<span class="token keyword">SET</span> address <span class="token operator">=</span> newAddress
+<span class="token keyword">WHERE</span> address <span class="token operator">=</span> oldAddress<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>DB administrators often create these type of procedures (for maintenance)</li>
 </ul>
 <h3 id="function-example">Function Example</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> AverageCDLengthOfProducer(</span><br><span class="line">	<span class="keyword">IN</span> name <span class="type">VARCHAR</span>(<span class="number">30</span>),</span><br><span class="line">) </span><br><span class="line"><span class="keyword">RETURNS</span> <span class="type">INTEGER</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DECLARE</span> <span class="keyword">result</span> <span class="type">INTEGER</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">SELECT</span> <span class="built_in">AVG</span>(length) <span class="keyword">INTO</span> <span class="keyword">result</span></span><br><span class="line">    <span class="keyword">FROM</span> CD </span><br><span class="line">    <span class="keyword">WHERE</span> producer <span class="operator">=</span> name;</span><br><span class="line">    <span class="keyword">RETURN</span> <span class="keyword">result</span>;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">FUNCTION</span> AverageCDLengthOfProducer<span class="token punctuation">(</span>
+	<span class="token operator">IN</span> name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> 
+<span class="token keyword">RETURNS</span> <span class="token keyword">INTEGER</span>
+
+<span class="token keyword">DECLARE</span> result <span class="token keyword">INTEGER</span><span class="token punctuation">;</span>
+
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span> <span class="token keyword">INTO</span> result
+    <span class="token keyword">FROM</span> CD 
+    <span class="token keyword">WHERE</span> producer <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">RETURN</span> result<span class="token punctuation">;</span>
+<span class="token keyword">END</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="sqlpsm-statements">SQL/PSM Statements</h3>
 <ul>
 <li><p>Procedure calls</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CALL</span> name (arguments)</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CALL</span> name <span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>Function evaluation</p>
 <ul>
 <li>functions cannot be called</li>
 <li>functions are directly invoked as parts of expressions</li>
 </ul></li>
 <li><p>Return statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">RETURN</span> expression</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">RETURN</span> expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>does not terminate the function</li>
 <li>additional RETURN statements may cause the return value to change after an initial return statement</li>
 </ul></li>
 <li><p>Local variable declaration</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DECLARE</span> name type</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DECLARE</span> name <span class="token keyword">type</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>Assignments</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SET</span> variable <span class="operator">=</span> expression</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SET</span> variable <span class="token operator">=</span> expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>NULL is a permissible expression</li>
 </ul></li>
 <li><p>Compound statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span> ... <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">BEGIN</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">END</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="branch-statement">Branch Statement</h3></li>
 <li><p>If statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">IF <span class="keyword">condition</span> <span class="keyword">THEN</span></span><br><span class="line">	statements</span><br><span class="line">ELSEIF <span class="keyword">condition</span> <span class="keyword">THEN</span></span><br><span class="line">	statements</span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line">	statements</span><br><span class="line">ENDIF</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">IF</span> condition <span class="token keyword">THEN</span>
+	statements
+<span class="token keyword">ELSEIF</span> condition <span class="token keyword">THEN</span>
+	statements
+<span class="token keyword">ELSE</span>
+	statements
+ENDIF<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>ELSEIFs and final ELSE are optional</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> IsExpensive(</span><br><span class="line">	<span class="keyword">IN</span> cdTitle <span class="type">CHAR</span>(<span class="number">30</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="type">BOOLEAN</span></span><br><span class="line"></span><br><span class="line">IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>(<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">        <span class="keyword">FROM</span> CD</span><br><span class="line">        <span class="keyword">WHERE</span> title <span class="operator">=</span> cdTitle) <span class="keyword">THEN</span></span><br><span class="line">	<span class="keyword">RETURN</span> <span class="literal">FALSE</span>;</span><br><span class="line">ELSEIF <span class="number">50</span> <span class="operator">&lt;</span> (<span class="keyword">SELECT</span> <span class="built_in">MAX</span>(price)</span><br><span class="line">        <span class="keyword">FROM</span> CD</span><br><span class="line">        <span class="keyword">WHERE</span> title <span class="operator">=</span> cdTitle) <span class="keyword">THEN</span></span><br><span class="line">    <span class="keyword">RETURN</span> <span class="literal">TRUE</span>;</span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line">	<span class="keyword">RETURN</span> <span class="literal">FALSE</span>;</span><br><span class="line">ENDIF;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">FUNCTION</span> IsExpensive<span class="token punctuation">(</span>
+	<span class="token operator">IN</span> cdTitle <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">RETURNS</span> <span class="token keyword">BOOLEAN</span>
+
+<span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+        <span class="token keyword">FROM</span> CD
+        <span class="token keyword">WHERE</span> title <span class="token operator">=</span> cdTitle<span class="token punctuation">)</span> <span class="token keyword">THEN</span>
+	<span class="token keyword">RETURN</span> <span class="token boolean">FALSE</span><span class="token punctuation">;</span>
+<span class="token keyword">ELSEIF</span> <span class="token number">50</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>price<span class="token punctuation">)</span>
+        <span class="token keyword">FROM</span> CD
+        <span class="token keyword">WHERE</span> title <span class="token operator">=</span> cdTitle<span class="token punctuation">)</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">RETURN</span> <span class="token boolean">TRUE</span><span class="token punctuation">;</span>
+<span class="token keyword">ELSE</span>
+	<span class="token keyword">RETURN</span> <span class="token boolean">FALSE</span><span class="token punctuation">;</span>
+ENDIF<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="loop-statements">Loop Statements</h3></li>
 <li><p>Basic loop statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">label: LOOP</span><br><span class="line">	statements</span><br><span class="line"><span class="keyword">END</span> LOOP</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">label: <span class="token keyword">LOOP</span>
+	statements
+<span class="token keyword">END</span> <span class="token keyword">LOOP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>The loop can be terminated with <strong>LEAVE</strong> label</p>
 <ul>
 <li>the label identifies which loop has to be aborted</li>
 </ul></li>
 <li><p>While loop statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">WHILE <span class="keyword">condition</span> DO</span><br><span class="line">	statements</span><br><span class="line"><span class="keyword">END</span> WHILE</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">WHILE</span> condition <span class="token keyword">DO</span>
+	statements
+<span class="token keyword">END</span> <span class="token keyword">WHILE</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Repeat loop statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">REPEAT</span><br><span class="line">	statements</span><br><span class="line">UNTIL <span class="keyword">condition</span></span><br><span class="line"><span class="keyword">END</span> REPEAT</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">REPEAT</span>
+	statements
+UNTIL condition
+<span class="token keyword">END</span> <span class="token keyword">REPEAT</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>For loop statement</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FOR</span> name <span class="keyword">AS</span> <span class="keyword">cursor</span> <span class="keyword">CURSOR</span> <span class="keyword">FOR</span></span><br><span class="line">	query</span><br><span class="line">DO</span><br><span class="line">	statements</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">FOR</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">FOR</span> name <span class="token keyword">AS</span> <span class="token keyword">cursor</span> <span class="token keyword">CURSOR</span> <span class="token keyword">FOR</span>
+	query
+<span class="token keyword">DO</span>
+	statements
+<span class="token keyword">END</span> <span class="token keyword">FOR</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Convenience statement to iterate over cursor</p>
 <ul>
 <li>open / close cursor</li>
@@ -898,7 +1057,27 @@
 <li><p><em>Name</em> and <em>cursor</em> are needed for transformation into basic loop (by PSM interpreter)</p></li>
 </ul>
 <p>Example:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> LengthVarianceOfProducer(</span><br><span class="line">	<span class="keyword">IN</span> name <span class="type">VARCHAR</span>(<span class="number">40</span>),</span><br><span class="line">) <span class="keyword">RETURNS</span> <span class="type">REAL</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DECLARE</span> variance <span class="type">REAL</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> mean <span class="type">REAL</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> count <span class="type">INTEGER</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">SET</span> variance <span class="operator">=</span> <span class="number">0.0</span>; <span class="keyword">SET</span> mean <span class="operator">=</span> <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">SET</span> count <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">FOR</span> cdLoop <span class="keyword">AS</span> cdCursor <span class="keyword">CURSOR</span> <span class="keyword">FOR</span></span><br><span class="line">		<span class="keyword">SELECT</span> length <span class="keyword">FROM</span> CD <span class="keyword">WHERE</span> producer <span class="operator">=</span> name;</span><br><span class="line">	DO </span><br><span class="line">        <span class="keyword">SET</span> count <span class="operator">=</span> count <span class="operator">+</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">SET</span> variance <span class="operator">=</span> variance <span class="operator">+</span> length <span class="operator">*</span> length;</span><br><span class="line">        <span class="keyword">SET</span> mean <span class="operator">=</span> mean <span class="operator">+</span> length;</span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">FOR</span>;</span><br><span class="line">    <span class="keyword">SET</span> mean <span class="operator">=</span> mean<span class="operator">/</span>count;</span><br><span class="line">    <span class="keyword">RETURN</span> variance<span class="operator">/</span>count – mean <span class="operator">*</span> mean;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">FUNCTION</span> LengthVarianceOfProducer<span class="token punctuation">(</span>
+	<span class="token operator">IN</span> name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token keyword">RETURNS</span> <span class="token keyword">REAL</span>
+
+<span class="token keyword">DECLARE</span> variance <span class="token keyword">REAL</span><span class="token punctuation">;</span>
+<span class="token keyword">DECLARE</span> mean <span class="token keyword">REAL</span><span class="token punctuation">;</span>
+<span class="token keyword">DECLARE</span> count <span class="token keyword">INTEGER</span><span class="token punctuation">;</span>
+
+<span class="token keyword">BEGIN</span>
+    <span class="token keyword">SET</span> variance <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span> <span class="token keyword">SET</span> mean <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+    <span class="token keyword">SET</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">FOR</span> cdLoop <span class="token keyword">AS</span> cdCursor <span class="token keyword">CURSOR</span> <span class="token keyword">FOR</span>
+		<span class="token keyword">SELECT</span> length <span class="token keyword">FROM</span> CD <span class="token keyword">WHERE</span> producer <span class="token operator">=</span> name<span class="token punctuation">;</span>
+	<span class="token keyword">DO</span> 
+        <span class="token keyword">SET</span> count <span class="token operator">=</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">SET</span> variance <span class="token operator">=</span> variance <span class="token operator">+</span> length <span class="token operator">*</span> length<span class="token punctuation">;</span>
+        <span class="token keyword">SET</span> mean <span class="token operator">=</span> mean <span class="token operator">+</span> length<span class="token punctuation">;</span>
+    <span class="token keyword">END</span> <span class="token keyword">FOR</span><span class="token punctuation">;</span>
+    <span class="token keyword">SET</span> mean <span class="token operator">=</span> mean<span class="token operator">/</span>count<span class="token punctuation">;</span>
+    <span class="token keyword">RETURN</span> variance<span class="token operator">/</span>count – mean <span class="token operator">*</span> mean<span class="token punctuation">;</span>
+<span class="token keyword">END</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="sqlpsm-summary">SQL/PSM Summary</h3>
 <ul>
 <li>Perform computation on the server side</li>
@@ -982,7 +1161,10 @@
 </ul></li>
 <li><p>Triggers are a powerful tool for checks before/after an operation on a relation (e.g. for integrity constraints)</p></li>
 <li><p>Example</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> setNull BEFORE <span class="keyword">UPDATE</span> <span class="keyword">ON</span> Producer</span><br><span class="line">	<span class="keyword">REFERENCING</span> <span class="keyword">NEW</span> <span class="type">ROW</span> <span class="keyword">AS</span> newRow</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line"><span class="keyword">WHEN</span> newRow.address <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">SET</span> newRow.address <span class="operator">=</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TRIGGER</span> setNull BEFORE <span class="token keyword">UPDATE</span> <span class="token keyword">ON</span> Producer
+	REFERENCING NEW <span class="token keyword">ROW</span> <span class="token keyword">AS</span> newRow
+<span class="token keyword">FOR EACH ROW</span>
+<span class="token keyword">WHEN</span> newRow<span class="token punctuation">.</span>address <span class="token operator">=</span> <span class="token string">''</span> <span class="token keyword">SET</span> newRow<span class="token punctuation">.</span>address <span class="token operator">=</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>When data is restored from a backup or replicated, triggers often have to be disabled</p>
 <ul>
 <li>otherwise triggers might be executed multiple times</li>

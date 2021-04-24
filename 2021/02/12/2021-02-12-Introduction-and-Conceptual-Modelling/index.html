@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Database/" class="post-category">
+                                Database
                             </a>
                         
                     </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    10 Min
+                    11 Min
                 </div>
                 
 
@@ -501,10 +501,16 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="introduction-and-conceptual-modelling">Introduction and Conceptual Modelling</h1>
+<p><a href="https://yintelligence.tech/2021/02/12/2021-02-12-overview/">VUB 4019814ENR Databases</a></p>
 <p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/785a6d4625e12df097a070aca142abecb520cf6e-1612960645104/capture/">Video 2:28 ~ end</a></p>
 <p><a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">Exercise</a></p>
 <h2 id="basic-terminology">Basic Terminology</h2>
+<h3 id="database-system-dbs-db-dbms">Database System (DBS) = DB + DBMS</h3>
 <h3 id="database">Database</h3>
+<p>A <em>database</em> is an organized collection of inter-related data that models some aspect of the real-world (e.g., modeling the students in a class or a digital music store).</p>
+<blockquote>
+<p>refers to the data itself, not the program</p>
+</blockquote>
 <ul>
 <li>collection of logically related data</li>
 <li>database <strong><em>schema</em></strong> describes the database design (blueprint)
@@ -514,53 +520,75 @@
 <li>collection of data stored in a database at <strong>a given time</strong> is called an <strong><em>instance</em></strong> of the database (Database change over time)</li>
 </ul>
 <h3 id="database-management-systems-dbms">Database Management Systems (DBMS)</h3>
-<p>tools (programs) to efficiently store, maintain and retrieve information from a database</p>
+<p>People often confuse “databases” with “database management systems” (e.g., MySQL, Oracle, MongoDB). <u>A database management system (DBMS) is the tools (programs) to efficiently store, maintain and retrieve information from a database.</u></p>
 <ul>
-<li>support of <strong><em>c</em></strong>reate, <strong><em>r</em></strong>ead, <strong><em>u</em></strong>pdate and <strong><em>d</em></strong>elete data (<em>CRUD</em> operations)</li>
-<li><em>data definition language (DDL)</em> to define the database schema</li>
-<li><em>data manipulation language (DML)</em> to query and update the data
+<li><p>support of <strong><em>c</em></strong>reate, <strong><em>r</em></strong>ead, <strong><em>u</em></strong>pdate and <strong><em>d</em></strong>elete data (<em>CRUD</em> operations)</p></li>
+<li><p><strong><em>data definition language (DDL)</em></strong> to define the database schema</p></li>
+<li><p><strong><em>data manipulation language (DML)</em></strong> to query and update the data</p>
 <ul>
 <li>often declarative fourth generation languages (4GLs) such as SQL</li>
 </ul></li>
-<li>data access control, <em>transactions</em> and concurrency control</li>
+<li><p>data access control, <strong><em>transactions</em></strong> and concurrency control</p>
+<ul>
+<li><p>A transaction is a sequence of operations that is treated as a single logical operation</p></li>
+<li><p>Transactions are <em>all-or-nothing</em>: all of a transaction’s changes take effect or none of them do.</p>
+<blockquote>
+<p>Example: a balance transfer:</p>
+<pre class="line-numbers language-none"><code class="language-none">read balance1
+write(balance1 - 500)
+read balance2
+write(balance2 + 500)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Other examples:</p>
+<ul>
+<li>making a flight reservation: select flight, reserve seat, make payment</li>
+<li>making an online purchase</li>
 </ul>
-<p>A <em>database</em> is an organized collection of inter-related data that models some aspect of the real-world (e.g., modeling the students in a class or a digital music store).</p>
-<p>People often confuse “databases” with “database management systems” (e.g., MySQL, Oracle, MongoDB). <u>A database management system (DBMS) is the software that manages a database.</u> Consider a database that models a digital music store (e.g., Spotify). Let the database hold information about the artists and which albums those artists have released.</p>
-<h2 id="file-processing-system-513">File Processing System 5:13</h2>
+<p>Why Do We Need Transactions?</p>
+<ul>
+<li>To ensure that operations performed by different users don’t overlap in problematic ways.</li>
+</ul>
+</blockquote></li>
+</ul></li>
+</ul>
+<p>Consider a database that models a digital music store (e.g., Spotify). Let the database hold information about the artists and which albums those artists have released.</p>
+<p><img src="/images/DB/040227777.png" /></p>
+<h3 id="file-processing-system-513">File Processing System 5:13</h3>
 <p>Why should we not just use multiple files in a file system to store our data?</p>
 <p>There are various disadvantages of such an approach:</p>
 <ul>
-<li>data redundancy and inconsistency
+<li><p>data redundancy and inconsistency</p>
 <ul>
 <li>different file formats over time</li>
 <li>duplication of information in different files</li>
 </ul></li>
-<li>limited data access
+<li><p>limited data access</p>
 <ul>
 <li>we have to write new programs to carry out new tasks</li>
 <li>data cannot be retrieved in a convenient and efficient manner</li>
 </ul></li>
-<li>data isolation
+<li><p>data isolation</p>
 <ul>
 <li>data may be distributed over different files without a common format</li>
 </ul></li>
-<li>integrity
+<li><p>integrity</p></li>
+<li><p>integrity constraints (e.g. balance &gt; 0) are hidden in the program code and not explicitly stated and checked</p></li>
+<li><p>missing atomic operations</p>
 <ul>
-<li>integrity constraints (e.g. balance &gt; 0) are hidden in the program code and not explicitly stated and checked</li>
+<li><p>system failures and crashes may leave the data in an <strong>inconsistent state</strong> (e.g. only parts of a operation have been carried out)</p></li>
+<li><p>example: transfer of money from one account to another account</p>
+<blockquote>
+<p>we later discuss <strong><em>transaction management</em></strong> as a solution</p>
+</blockquote></li>
 </ul></li>
-<li>missing atomic operations
+<li><p>concurrent update anomalies</p>
 <ul>
-<li>system failures and crashes may leave the data in an <strong>inconsistent state</strong> (e.g. only parts of a operation have been carried out)</li>
-<li>example: transfer of money from one account to another account</li>
-<li>we later discuss <strong><em>transaction management</em></strong> as a solution</li>
+<li><p>concurrent updates may leave the data in an <strong>inconsistent state</strong></p></li>
+<li><p>example: two programs simultaneously removing money from a single account</p>
+<blockquote>
+<p>we later discuss <strong><em>scheduling</em></strong> as a solution</p>
+</blockquote></li>
 </ul></li>
-<li>concurrent update anomalies
-<ul>
-<li>concurrent updates may leave the data in an <strong>inconsistent state</strong></li>
-<li>example: two programs simultaneously removing money from a single account</li>
-<li>we later discuss <strong><em>scheduling</em></strong> as a solution</li>
-</ul></li>
-<li>limited security control
+<li><p>limited security control</p>
 <ul>
 <li>difficult to give a user only access to parts of a file</li>
 </ul></li>
@@ -571,32 +599,67 @@
 </ul>
 <h2 id="database-management-system-dbms-1325">Database Management System (DBMS) 13:25</h2>
 <p><img src="/images/DB/040226.png" /></p>
+<ul>
+<li>Query compiler
+<ul>
+<li>parses and analyses the query, creates exec code</li>
+</ul></li>
+<li>Query optimizer
+<ul>
+<li>find efficient exec strategy</li>
+</ul></li>
+<li>Constraint enforcer
+<ul>
+<li>enforces integrity constraints</li>
+</ul></li>
+<li>Runtime database processor
+<ul>
+<li>executes code</li>
+</ul></li>
+<li>Stored data manager
+<ul>
+<li>interacts with OS for physical access to data</li>
+</ul></li>
+<li>System catalog/data dictionary
+<ul>
+<li>Metadata – info about the data model, the internal, conceptual &amp; views</li>
+</ul></li>
+<li>Concurrency, control, backup, recovery units: additional possible units</li>
+</ul>
 <h2 id="data-abstraction-1441">Data Abstraction 14:41</h2>
 <p><img src="/images/DB/040227.png" /></p>
 <ul>
-<li>DBMS <strong><em>provides abstract view of data</em></strong>
+<li><p>DBMS <strong><em>provides abstract view of data</em></strong></p>
 <ul>
 <li>hide some details how data is stored</li>
 </ul></li>
-<li>Physical level
+<li><p>Physical level</p>
 <ul>
-<li><em>physical schema</em> describes <u><em>how</em> the data is stored</u> (complex low-level data structures)</li>
+<li><em>physical schema</em> describes <u><strong><em>how</em></strong> the data is <strong>stored</strong></u> (complex low-level data structures)</li>
 </ul></li>
-<li>Logical level
+<li><p>Logical level</p>
 <ul>
-<li><em>logical schema</em> describes <u><em>what</em> data is stored</u>
+<li><p><em>logical schema</em> describes <u><strong><em>what</em></strong> data is <strong>stored</strong></u></p>
+<ul>
+<li><p>provides an abstract representation of the data</p>
 <ul>
 <li>simple structures: attribute names, data types and relationships between data</li>
-<li>implementation of simple structures might be based on complex physical-level structures but the user of the logical level should not be aware of that -&gt; <strong><em>physical data independence</em></strong></li>
+</ul></li>
+<li><p>based on some data model</p></li>
+<li><p>includes some query language, tool, or API for accessing and modifying the data</p>
+<blockquote>
+<p>implementation of simple structures might be based on complex physical-level structures but the user of the logical level should not be aware of that -&gt; <strong><em>physical data independence</em></strong></p>
+</blockquote></li>
 </ul></li>
 </ul></li>
-<li>View level
+<li><p>View level</p>
 <ul>
 <li><strong><em>subschemas</em></strong> provide only access to <strong><em>parts of the database</em></strong> - reduce complexity and introduce security</li>
 </ul></li>
 </ul>
-<h2 id="duality-of-the-database-schema-1750">Duality of the Database Schema 17:50</h2>
-<p><img src="/images/DB/040756.png" /></p>
+<figure>
+<img src="/images/DB/040756.png" alt="" /><figcaption>Duality of the Database Schema 17:50</figcaption>
+</figure>
 <h2 id="data-models-and-history-of-dbmss-1856">Data Models and History of DBMSs 18:56</h2>
 <ul>
 <li>A <strong><em>data model</em></strong> is a collection of conceptual tools
@@ -668,7 +731,13 @@
 </ul></li>
 </ul>
 <h2 id="database-design-3144">Database Design 31:44</h2>
-<p>Conceptual Design</p>
+<p>In database design, we determine:</p>
+<ul>
+<li>which pieces of data to include</li>
+<li>how they are related</li>
+<li>how they should be grouped/decomposed</li>
+</ul>
+<h3 id="conceptual-design">Conceptual Design</h3>
 <ul>
 <li>define an abstract <strong><em>conceptual</em></strong> application <strong><em>model</em></strong> containing the main domain concepts
 <ul>
@@ -683,7 +752,7 @@
 <li>ensure that operations can be realised based on the conceptual model</li>
 </ul></li>
 </ul>
-<p>Database implementation based on conceptual model</p>
+<h3 id="database-implementation-based-on-conceptual-model">Database implementation based on conceptual model</h3>
 <ul>
 <li><strong><em>logical design phase</em></strong>
 <ul>
@@ -698,28 +767,40 @@
 <li>define the physical database layout based on the logical database schema</li>
 </ul></li>
 </ul>
-<p>Two major database design pitfalls have to be avoided 34:08</p>
+<h3 id="two-major-database-design-pitfalls-have-to-be-avoided-3408">Two major database design pitfalls have to be avoided 34:08</h3>
 <ul>
-<li>we should avoid any <strong><em>redundancy</em></strong> where information is repeated at multiple places since this might lead to <strong><em>inconsistent data</em></strong>
-<ul>
-<li>e.g. a lecture management system where a student's name is stored for each lecture they are attending instead of storing it in a separate student entity</li>
-</ul></li>
-<li>a database design may be <strong><em>incomplete</em></strong> and not enable the representation of certain aspects of the application domain
-<ul>
-<li>e.g. in a shopping application where the customer information is stored as part of an order we cannot enter new customer data without having an order</li>
-</ul></li>
+<li><p>we should avoid any <strong><em>redundancy</em></strong> where information is repeated at multiple places since this might lead to <strong><em>inconsistent data</em></strong></p>
+<blockquote>
+<p>e.g. a lecture management system where a student's name is stored for each lecture they are attending instead of storing it in a separate student entity</p>
+</blockquote></li>
+<li><p>a database design may be <strong><em>incomplete</em></strong> and not enable the representation of certain aspects of the application domain</p>
+<blockquote>
+<p>e.g. in a shopping application where the customer information is stored as part of an order we cannot enter new customer data without having an order</p>
+</blockquote></li>
 </ul>
-<p>There is often <strong>more than one "good design"</strong></p>
+<p>There is often <strong>more than one "good design"</strong>:</p>
 <ul>
-<li>e.g. when do we model something as a relationship and when as a separate entity?</li>
-<li>modelling is a challenging task that requires a combination of engineering skills and "good taste"</li>
+<li><p>e.g. when do we model something as a relationship and when as a separate entity?</p>
+<blockquote>
+<p>modelling is a challenging task that requires a combination of engineering skills and "good taste"</p>
+</blockquote></li>
 </ul>
 <h2 id="entity-relationship-er-model-3627">Entity-Relationship (ER) Model 36:27</h2>
+<p>An entity-relationship (ER) model is a tool for database design.</p>
+<blockquote>
+<p><strong><em>Conceptual model</em></strong> based on a set of entities and relationships</p>
+<p>Introduced and formalised by Peter Chen</p>
+</blockquote>
+<p>ER models specify:</p>
 <ul>
-<li><strong><em>Conceptual model</em></strong> based on a set of entities and relationships</li>
+<li>the relevant entities (“things”) in a given domain
+<ul>
 <li>An <strong><em>entity</em></strong> is a "thing" or "object" that can be distinguished from other objects</li>
+</ul></li>
+<li>the relationships between them
+<ul>
 <li>A <strong><em>relationship</em></strong> describes an association between multiple entities</li>
-<li>Introduced and formalised by Peter Chen</li>
+</ul></li>
 </ul>
 <h3 id="entities-3722">Entities 37:22</h3>
 <ul>
@@ -761,11 +842,11 @@
 </ul>
 <p>A <strong>multivalued attribut</strong>e is represented by a <strong><em>double ellipse</em></strong></p>
 <p><strong>Derived attributes</strong> are indicated by <strong><em>dashed ellipses</em></strong></p>
-<p><u>address</u> is an example of composite attribute</p>
+<p><u>address</u> is an example of <strong><em>composite attribute</em></strong></p>
 <figure>
 <img src="/images/DB/04242911.png" alt="" /><figcaption>44:36 - 50:05</figcaption>
 </figure>
-<h3 id="keys-5237">Keys 52:37</h3>
+<h4 id="keys-5237">Keys 52:37</h4>
 <ul>
 <li>An entity's attribute values must uniquely identify the entity</li>
 <li>A subset of attributes that uniquely identify an entity is called <strong><em>superkey</em></strong></li>
@@ -779,7 +860,10 @@
 <h3 id="relationships-10002">Relationships 1:00:02</h3>
 <ul>
 <li>A relationship is an association between multiple entities</li>
-<li>A <strong><em>relationship set</em></strong> (<em>diamond</em>) is a set of relationships of the same type</li>
+<li>A <strong><em>relationship set</em></strong> (<em>diamond</em>) is a set of relationships of the same type
+<ul>
+<li>e.g. LocatedAt</li>
+</ul></li>
 </ul>
 <figure>
 <img src="/images/DB/042817.png" alt="" /><figcaption>~ 1:05:00</figcaption>
@@ -997,9 +1081,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Course overview">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="VUB 4019814ENR Databases">
                         
-                        <span class="card-title">Course overview</span>
+                        <span class="card-title">VUB 4019814ENR Databases</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1016,8 +1100,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Database/" class="post-category">
+                                    Database
                                 </a>
                             
                             

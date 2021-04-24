@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Discussions/" class="post-category">
-                                Discussions
+                            <a href="/categories/Database/" class="post-category">
+                                Database
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -503,7 +503,14 @@
                 <h1 id="sql">SQL</h1>
 <p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/2dcaac46a6f525c57e5547f03f6d1027de434152-1615553873510/capture/">Video</a></p>
 <h2 id="sql-create">SQL: CREATE</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Students (</span><br><span class="line">       studentId <span class="type">INTEGER</span>,</span><br><span class="line">       firstName <span class="type">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">       lastName <span class="type">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">       birthDate <span class="type">DATE</span>,</span><br><span class="line">       grade <span class="type">INTEGER</span>,</span><br><span class="line">       <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (studentId)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> Students <span class="token punctuation">(</span>
+       studentId <span class="token keyword">INTEGER</span><span class="token punctuation">,</span>
+       firstName <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+       lastName <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+       birthDate <span class="token keyword">DATE</span><span class="token punctuation">,</span>
+       grade <span class="token keyword">INTEGER</span><span class="token punctuation">,</span>
+       <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>studentId<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -526,7 +533,8 @@
 </table>
 <p>Currently no data</p>
 <h2 id="sql-insert">SQL: INSERT</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Students</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">&#x27;Mickey&#x27;</span>, <span class="string">&#x27;Mouse&#x27;</span>, <span class="string">&#x27;1954-10-27&#x27;</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> Students
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'Mickey'</span><span class="token punctuation">,</span> <span class="token string">'Mouse'</span><span class="token punctuation">,</span> <span class="token string">'1954-10-27'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -548,7 +556,9 @@
 </tbody>
 </table>
 <h2 id="sql-update">SQL: UPDATE</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> Students</span><br><span class="line"><span class="keyword">SET</span> grade <span class="operator">=</span> <span class="number">2</span></span><br><span class="line"><span class="keyword">WHERE</span> studentId <span class="operator">=</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">UPDATE</span> Students
+<span class="token keyword">SET</span> grade <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token keyword">WHERE</span> studentId <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -570,7 +580,9 @@
 </tbody>
 </table>
 <h2 id="sql-select">SQL: SELECT</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> firstName</span><br><span class="line"><span class="keyword">FROM</span> Students</span><br><span class="line"><span class="keyword">WHERE</span> grade <span class="operator">=</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> firstName
+<span class="token keyword">FROM</span> Students
+<span class="token keyword">WHERE</span> grade <span class="token operator">=</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -695,13 +707,16 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Students, Enrollments;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Students<span class="token punctuation">,</span> Enrollments<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="sql-join-condition">SQL: Join Condition</h2>
 <ul>
 <li>Similar to a select in relational algebra where you compare the IDs</li>
 <li>σ<sub>studentId=studentId2</sub>(Students × ρ<sub>E2(studentId2,className) </sub>(Enrollments))</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Students, Enrollments</span><br><span class="line"><span class="keyword">WHERE</span> Students.studentId <span class="operator">=</span> Enrollments.studentId;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Students<span class="token punctuation">,</span> Enrollments
+<span class="token keyword">WHERE</span> Students<span class="token punctuation">.</span>studentId <span class="token operator">=</span> Enrollments<span class="token punctuation">.</span>studentId<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -758,18 +773,35 @@
 </tbody>
 </table>
 <h2 id="sql-join-condition-alternative">SQL: Join Condition (Alternative)</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Students</span><br><span class="line"><span class="keyword">JOIN</span> Enrollments</span><br><span class="line"><span class="keyword">ON</span> (Students.studentId <span class="operator">=</span> Enrollments.studentId)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Students
+<span class="token keyword">JOIN</span> Enrollments
+<span class="token keyword">ON</span> <span class="token punctuation">(</span>Students<span class="token punctuation">.</span>studentId <span class="token operator">=</span> Enrollments<span class="token punctuation">.</span>studentId<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>This method also allows for INNER JOIN or OUTER JOIN</strong></p>
 <h2 id="sql-aggregation-Ꮆ">SQL: Aggregation (Ꮆ)</h2>
 <p><strong>Give the amount of students for each year and for each class</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.grade, e.className, <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">as</span> count</span><br><span class="line"><span class="keyword">FROM</span> Students s, Enrollments e</span><br><span class="line"><span class="keyword">WHERE</span> s.studentId <span class="operator">=</span> e.studentId</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> s.grade, e.className</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> s.grade, e.className;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> s<span class="token punctuation">.</span>grade<span class="token punctuation">,</span> e<span class="token punctuation">.</span>className<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> count
+<span class="token keyword">FROM</span> Students s<span class="token punctuation">,</span> Enrollments e
+<span class="token keyword">WHERE</span> s<span class="token punctuation">.</span>studentId <span class="token operator">=</span> e<span class="token punctuation">.</span>studentId
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> s<span class="token punctuation">.</span>grade<span class="token punctuation">,</span> e<span class="token punctuation">.</span>className
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> s<span class="token punctuation">.</span>grade<span class="token punctuation">,</span> e<span class="token punctuation">.</span>className<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>Problem: For each class, give the name of the oldest student following that class</p></li>
 <li><p>Idea 1: The question seems to suggest a GROUP BY</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> className, <span class="built_in">min</span>(studentDateOfBirth)</span><br><span class="line"><span class="keyword">FROM</span> Students s, Enrollments e</span><br><span class="line"><span class="keyword">WHERE</span> e.studentId <span class="operator">=</span> s.studentId</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> className</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> className<span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>studentDateOfBirth<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> Students s<span class="token punctuation">,</span> Enrollments e
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>studentId <span class="token operator">=</span> s<span class="token punctuation">.</span>studentId
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> className<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>Problem Idea 1</strong>: How to return the name of the student?</p></li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> e1.className, s1.firstName, s1.lastName</span><br><span class="line"><span class="keyword">FROM</span> Students s1, Enrollments e1</span><br><span class="line"><span class="keyword">WHERE</span> s1.studentId <span class="operator">=</span> e1.studentId</span><br><span class="line"><span class="keyword">AND</span> s1.birthDate <span class="operator">=</span></span><br><span class="line">(<span class="keyword">SELECT</span> <span class="built_in">min</span>(birthDate)</span><br><span class="line"><span class="keyword">FROM</span> Students s2, Enrollments e2</span><br><span class="line"><span class="keyword">WHERE</span> s2.studentId <span class="operator">=</span> e2.studentId</span><br><span class="line"><span class="keyword">AND</span> e1.className <span class="operator">=</span> e2.className)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> e1<span class="token punctuation">.</span>className<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>firstName<span class="token punctuation">,</span> s1<span class="token punctuation">.</span>lastName
+<span class="token keyword">FROM</span> Students s1<span class="token punctuation">,</span> Enrollments e1
+<span class="token keyword">WHERE</span> s1<span class="token punctuation">.</span>studentId <span class="token operator">=</span> e1<span class="token punctuation">.</span>studentId
+<span class="token operator">AND</span> s1<span class="token punctuation">.</span>birthDate <span class="token operator">=</span>
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token function">min</span><span class="token punctuation">(</span>birthDate<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> Students s2<span class="token punctuation">,</span> Enrollments e2
+<span class="token keyword">WHERE</span> s2<span class="token punctuation">.</span>studentId <span class="token operator">=</span> e2<span class="token punctuation">.</span>studentId
+<span class="token operator">AND</span> e1<span class="token punctuation">.</span>className <span class="token operator">=</span> e2<span class="token punctuation">.</span>className<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><em>Note: We compare the e2.className from our subquery with the e1.className from our main query</em></p>
 <h2 id="exercises">Exercises</h2>
 <p>In these exercises we will use an online tool for creating and managing our database. However, you are free to use software such as <a target="_blank" rel="noopener" href="https://github.com/pawelsalawa/sqlitestudio/releases">SQLiteStudio</a> or <a target="_blank" rel="noopener" href="https://sqlitebrowser.org/dl/">DB Browser for SQLite</a>.</p>

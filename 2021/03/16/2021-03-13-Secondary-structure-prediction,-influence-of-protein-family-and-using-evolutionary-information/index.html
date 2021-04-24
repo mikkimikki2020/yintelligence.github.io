@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-09
+                    2021-04-10
                 </div>
                 
 
@@ -508,19 +508,24 @@
 <li><strong>MCC</strong> : Matthews, B.W. （1975） <em>Biochim. Biophys. Acta</em> <strong>405</strong>, 442–451.</li>
 </ul>
 <h2 id="introduction">Introduction</h2>
-<p>The aim of this assignment is to give you insight in the data and concepts behind secondary structure prediction. You will implement the <strong>GOR III algorithm</strong> and apply the ‘jack-knife’/‘leave-one-out’ for internal cross-validation. If you have already implement GOR III before, you may implement <strong>another prediction approach</strong> （<em>e.g.</em> an SVM） with 10-fold cross-validation. You will then investigate the influence of using evolutionary information on the prediction performance, and interpret the results.</p>
+<p>The aim of this assignment is to give you insight in the data and concepts behind secondary structure prediction.</p>
+<p>You will implement the <strong>GOR III algorithm</strong> and apply the ‘jack-knife’/‘leave-one-out’ for internal cross-validation. If you have already implement GOR III before, you may implement <strong>another prediction approach</strong> （<em>e.g.</em> an SVM） with 10-fold cross-validation.</p>
+<p>You will then investigate the influence of using evolutionary information on the prediction performance, and interpret the results.</p>
 <ol type="1">
-<li>The provided <strong>starting data set</strong> is the secondary structure data per residue for a set of 494 proteins （single chains from the Protein Data Bank （PDB））. Three data sets are available:
+<li><p>The provided <strong>starting data set</strong> is the secondary structure data per residue for a set of 494 proteins （single chains from the Protein Data Bank （PDB））. Three data sets are available:</p>
 <ol type="1">
 <li>The per-residue secondary structure from STRIDE （<em>stride_info.txt</em>）.</li>
 <li>The per-residue secondary structure from DSSP （<em>dssp_info.txt</em>）.</li>
 <li>The per-protein CATH protein family （<em>cath_info.txt</em>）.</li>
 </ol></li>
-<li>You implement the GOR III algorithm （or another approach）, separately trained on the STRIDE and DSSP per-residue secondary structure data sets.</li>
-<li>To assess the performance of your approach, you apply a ‘jack-knife’/‘leave-one-out’ approach for GOR III （a 10-fold cross validation is also acceptable for other methods）. This means that you take the protein（s） you want to predict out of your training data set, parameterise your prediction algorithm on this reduced dataset, and then predict the secondary structure for the protein（s） you removed.</li>
-<li>You compare the results from STRIDE and from DSSP with the Q<sub>3</sub> and MCC quality scores （see below) to look at the variation in the prediction performance, both overall （for the whole set） and per protein family （make subsets per CATH protein family）.</li>
-<li>You then predict the protein family of each sequence, based on the secondary structure prediction results you obtained for each protein. To do so, you can determine your own criteria and approach, and then assess the performance of your method on the actual protein family as determined by CATH.</li>
-<li>The final part of this assignment is <strong>not required</strong> if you run out of time, but is interesting to perform, and will give you ‘bonus’ points. The task is to explore the improvement in the GOR III approach by combining it with a sequence alignment search from UniProt. This should improve the reliability of the prediction, as described for GOR V and many other secondary structure prediction methods.</li>
+<li><p>You implement the GOR III algorithm （or another approach）, separately trained on the STRIDE and DSSP per-residue secondary structure data sets.</p></li>
+<li><p>To assess the performance of your approach, you apply a ‘jack-knife’/‘leave-one-out’ approach for GOR III （a 10-fold cross validation is also acceptable for other methods）.</p>
+<p>This means that you take the protein（s） you want to predict out of your training data set, parameterise your prediction algorithm on this reduced dataset, and then predict the secondary structure for the protein（s） you removed.</p></li>
+<li><p>You compare the results from STRIDE and from DSSP with the Q<sub>3</sub> and MCC quality scores （see below) to look at the variation in the prediction performance, both overall （for the whole set） and per protein family （make subsets per CATH protein family）.</p></li>
+<li><p>You then predict the protein family of each sequence, based on the secondary structure prediction results you obtained for each protein.</p>
+<p>To do so, you can determine your own criteria and approach, and then assess the performance of your method on the actual protein family as determined by CATH.</p></li>
+<li><p>The final part of this assignment is <strong>not required</strong> if you run out of time, but is interesting to perform, and will give you ‘bonus’ points.</p>
+<p>The task is to explore the improvement in the GOR III approach by combining it with a sequence alignment search from UniProt. This should improve the reliability of the prediction, as described for GOR V and many other secondary structure prediction methods.</p></li>
 </ol>
 <h2 id="additional-details-for-steps-above">Additional details for steps above</h2>
 <ol type="1">
@@ -596,10 +601,13 @@ MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
 <h2 id="evaluation">Evaluation</h2>
 <p>You should implement your work on the Jupyter platform, and comment your code and analysis results. On there we should find:</p>
 <ol type="1">
-<li><p>The code, the secondary structure prediction per protein （as done from the DSSP and STRIDE data）, with the Q<sub>3</sub> and MCC scores for each, and your protein family prediction. An example line in this output file would be:</p>
+<li><p>The code, the secondary structure prediction per protein （as done from the DSSP and STRIDE data）, with the Q<sub>3</sub> and MCC scores for each, and your protein family prediction.</p>
+<p>An example line in this output file would be:</p>
 <pre class="line-numbers language-none"><code class="language-none">9xyz   A	CCHHHHHHCCEEEECCEEEEECCCHHHH	67.3	0.523	Alpha&#x2F;beta<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>with the first column the PDB code, the second the chain code, the third the prediction, the fourth the Q<sub>3</sub> score, the fifth the MCC score, and the sixth your protein family prediction.</p></li>
-<li><p>An analysis and report on the implementation of the GOR III and the ‘leave-one-out’ approach, and a discussion of the results from steps 4, 5 and 6. For step 6 this report should describe the Q<sub>3</sub> and per-secondary structure MCC quality indicators for 2 proteins, with only GOR III （or your improved version of it） and with the combined GOR III/sequence alignment method. Use graphs to clarify your results and indicate distribution ranges where appropriate!</p></li>
+<li><p>An analysis and report on the implementation of the GOR III and the ‘leave-one-out’ approach, and a discussion of the results from steps 4, 5 and 6.</p>
+<p>For step 6 this report should describe the Q<sub>3</sub> and per-secondary structure MCC quality indicators for 2 proteins, with only GOR III （or your improved version of it） and with the combined GOR III/sequence alignment method.</p>
+<p>Use graphs to clarify your results and indicate distribution ranges where appropriate!</p></li>
 </ol>
 
                 
@@ -737,8 +745,8 @@ MCC = \frac{TP×TN-TP×FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Assignments/" class="post-category">
-                                    Assignments
+                            <a href="/categories/Database/" class="post-category">
+                                    Database
                                 </a>
                             
                             
