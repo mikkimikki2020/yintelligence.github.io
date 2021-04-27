@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-04-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    8 Min
                 </div>
                 
 
@@ -501,8 +501,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="extended-er-model-and-other-modelling-languages">Extended ER Model and other Modelling Languages</h1>
+<p><a href="https://yintelligence.tech/2021/02/12/2021-02-12-overview/">VUB 4019814ENR Databases</a></p>
 <p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/3b0c2525ba56071f1d017b50298d66d1d59e3b10-1613565889329/capture/">Video ~ 41:05</a></p>
-<p><a target="_blank" rel="noopener" href="https://cs.ulb.ac.be/public/_media/teaching/infoh303/ernotes.pdf">ULB</a></p>
+<p><a href="https://yintelligence.tech/2021/02/17/2021-02-17-Exercise-1-Entity-Relationship-Model/">Exercise</a></p>
+<p>Related sources: <a target="_blank" rel="noopener" href="http://www.cs.toronto.edu/~jm/2507S/Notes04/EER.pdf">Toronto</a>, <a target="_blank" rel="noopener" href="https://cs.uwaterloo.ca/~tozsu/courses/CS338/lectures/11%20EER%20Model.pdf">Uwaterloo</a>, <a href="infolab..edu/~ullman/fcdb/aut07/slides/er.pdf">Stanford</a>, <a target="_blank" rel="noopener" href="http://web.cs.ucla.edu/classes/fall09/cs143/notes/er-handout.pdf">UCLA</a>, <a target="_blank" rel="noopener" href="https://cs.ulb.ac.be/public/_media/teaching/infoh303/ernotes.pdf">ULB</a>, <a target="_blank" rel="noopener" href="https://www.cs.purdue.edu/homes/bb/cs448_Spring2014/lecture-files/pdf/ch03-Data%20Modeling%20Using%20the%20Entity-Relationship%20(ER)%20Model.pdf">Purdue</a></p>
+<p>The <strong>Extended Entity-Relationship</strong> (EER) model is a <strong>conceptual</strong> (or semantic) data model, capable of describing the data requirements for a new information system in a direct and easy to understand graphical notation.</p>
+<p>Data requirements for a database are described in terms of a <strong>conceptual</strong> schema, using the EER model. EER model.</p>
+<p>EER schemata are comparable to UML class diagrams.</p>
+<p><img src="/images/DB/1254125800.png" /></p>
 <h2 id="extended-entity-relationship-eer-model">Extended Entity-Relationship (EER) Model</h2>
 <p>Over the years the ER model has been <strong>extended</strong> with additional concepts to <u>increase its expressiveness</u></p>
 <ul>
@@ -511,14 +517,46 @@
 <li>aggregation</li>
 </ul>
 <h3 id="specialisation-and-generalisation-243">Specialisation and Generalisation 2:43</h3>
-<p>An entity set can be further subgrouped or <strong><em>specialised</em></strong> into distinctive entity sets</p>
+<h4 id="specialisation">Specialisation</h4>
+<p><strong><em>Specialization</em></strong> is the process of defining a set of subclasses of a superclass.</p>
+<p>The set of subclasses is based upon some distinguishing characteristics of the entities in the superclass</p>
 <ul>
-<li>an entity subset may for example have additional attributes</li>
+<li><p>Example: {SECRETARY, ENGINEER, TECHNICIAN} is a specialization of EMPLOYEE based upon job type.</p></li>
+<li><p>Example: Another specialization of EMPLOYEE based on method of pay is {SALARIED_EMPLOYEE, HOURLY_EMPLOYEE}.</p>
+<blockquote>
+<p>May have several specializations of the same superclass</p>
+</blockquote></li>
+</ul>
+<p>An entity set can be further subgrouped or <strong><em>specialised</em></strong> into distinctive entity sets</p>
+<blockquote>
+<p>an entity subset may for example have additional attributes</p>
+<p>Attributes of a subclass are called specific or local attributes.</p>
+<ul>
+<li>For example, the attribute TypingSpeed of SECRETARY</li>
+</ul>
+<p>The subclass can also participate in specific relationship types.</p>
+<ul>
+<li>For example, a relationship BELONGS_TO of HOURLY_EMPLOYEE</li>
+</ul>
+</blockquote>
+<ul>
 <li><strong><em>top-down approach</em></strong></li>
 </ul>
+<h4 id="generalisation">Generalisation</h4>
+<p><strong>Generalization</strong> is the reverse of the specialization process</p>
 <p>Parts of multiple entity sets may be <strong><em>generalised</em></strong> in a higher level entity set</p>
 <ul>
 <li><strong><em>bottom-up approach</em></strong></li>
+</ul>
+<p>Several classes with common features are generalized into a superclass;</p>
+<ul>
+<li>original classes become its subclasses</li>
+</ul>
+<p>Example: CAR, TRUCK generalized into VEHICLE;</p>
+<ul>
+<li>both CAR, TRUCK become subclasses of the superclass VEHICLE.</li>
+<li>We can view {CAR, TRUCK} as a specialization of VEHICLE</li>
+<li>Alternatively, we can view VEHICLE as a generalization of CAR and TRUCK</li>
 </ul>
 <p>Specialisations as well as generalisations are represented by the same <strong><em><u>ISA relationship</u></em></strong> construct</p>
 <ul>

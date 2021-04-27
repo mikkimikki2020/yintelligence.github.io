@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-06
+                    2021-04-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    470
+                    729
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    4 Min
                 </div>
                 
 
@@ -503,36 +503,50 @@
                 <h1 id="read-mapping">Read Mapping</h1>
 <p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/radwa_elsayed_elaraby_ahmed_hado_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fradwa%5Felsayed%5Felaraby%5Fahmed%5Fhado%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210325%5F100100%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fradwa%5Felsayed%5Felaraby%5Fahmed%5Fhado%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvcmFkd2FfZWxzYXllZF9lbGFyYWJ5X2FobWVkX2hhZG9fdnViX2JlL0VSczNocXk5SkI1RGhLbmlBWGc5cXhJQmFKaFdXZXUwd3RWOVFyVmxFY2MzbFE_cnRpbWU9bVZkS29NVHYyRWc">Video 1:32 ~ 1:16:00</a></p>
+<p>Related resources: <a target="_blank" rel="noopener" href="https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/mapping/tutorial.html">Mapping</a>, CAM: <a target="_blank" rel="noopener" href="https://www.ebi.ac.uk/sites/ebi.ac.uk/files/content.ebi.ac.uk/materials/2013/131021_HTS/mapping-lecture-e.turro_.pdf">Mapping strategies for sequence reads</a>, Colostate: <a target="_blank" rel="noopener" href="https://www.cs.colostate.edu/~cs425/spring17/slides/Lecture_16_read_mapping.pdf">Mapping Reads to a Reference</a></p>
 <h2 id="introduction">Introduction</h2>
 <p>Sequencing produces a collection of sequences without genomic context. We do not know to which part of the genome the sequences correspond to.</p>
 <p>Mapping the reads of an experiment to a reference genome is a key step in modern genomic data analysis.</p>
 <h2 id="what-is-read-mapping-149---419">What is read mapping? 1:49 - 4:19</h2>
+<p><strong>Map reads</strong> on a reference genome. <strong>Read mapping</strong> is the process to align the <strong>reads</strong> on a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Reference_genome">reference genomes</a>.</p>
+<p>A mapper takes as input a reference genome and a set of <strong>reads</strong>.</p>
 <ul>
-<li><strong>Map reads</strong> on a reference genome. <strong>Read mapping</strong> is the process to align the <strong>reads</strong> on a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Reference_genome">reference genomes</a>.</li>
-<li>A mapper takes as input a reference genome and a set of <strong>reads</strong>.</li>
+<li><strong>Input</strong>: Many reads, length l strings R<sub>1</sub>,...,R<sub>m</sub> and approximate reference genome string G</li>
+<li><strong>Output</strong>: positions in G where reads match</li>
 </ul>
 <figure>
 <img src="/images/ADVMB/2241011.png" alt="" /><figcaption>Mapping to a reference genome</figcaption>
 </figure>
-<p>With the mapping the reads are assigned to a specific location in the genome and insights like the expression level of genes can be gained.</p>
-<h3 id="reference-genome-10155---10226">Reference Genome 1:01:55 - 1:02:26</h3>
-<p><img src="/images/ADVMB/2241032.png" /></p>
-<p>A <em>reference genome</em> (also known as a <em>reference</em> assembly) is a digital nucleic acid sequence database, assembled by scientists as a representative example of the set of genes in one idealized individual organism of a species.</p>
+<p>With the mapping the reads are assigned to a <strong>specific location</strong> in the genome and insights like the expression level of genes can be gained.</p>
 <h3 id="read-mapping-input-10226">Read mapping: input 1:02:26</h3>
 <ul>
-<li>Set of reads</li>
-<li>Referene genome(s)</li>
+<li><p>Set of reads</p></li>
+<li><p>Reference genome(s)</p>
+<blockquote>
+<p>A <em>reference genome</em> (also known as a <em>reference</em> assembly) is a digital nucleic acid sequence database, assembled by scientists as a representative example of the set of genes in one idealized individual organism of a species.</p>
+</blockquote></li>
 </ul>
 <p><img src="/images/ADVMB/2241033.png" /></p>
+<figure>
+<img src="/images/ADVMB/2241032.png" alt="" /><figcaption>Reference Genome 1:01:55 - 1:02:26</figcaption>
+</figure>
 <h3 id="read-mapping-output-mapped-reads--10305">Read mapping: output (mapped reads) -1:03:05</h3>
 <ul>
 <li>List of reads with positions</li>
 </ul>
 <p><img src="/images/ADVMB/2241034.png" /></p>
-<h2 id="unique-multi-reads-5827">Unique / multi reads 58:27</h2>
+<h3 id="unique-multi-reads-5827">Unique / multi reads 58:27</h3>
 <p><img src="/images/ADVMB/2241010.png" /></p>
 <p>One read can map to one unique position: uni-read or to multiple positions: multi-read.</p>
-<h3 id="strategies-for-mapping-multi-reads-10003---10155">Strategies for mapping multi-reads 1:00:03 - 1:01:55</h3>
+<h2 id="complications">Complications</h2>
+<ul>
+<li>Millions of reads to analyse</li>
+<li>Repetitive regions: non-unique mapping</li>
+<li>Mutations/errors: imperfect match, incorrect mapping</li>
+<li>Paired end reads</li>
+<li>Numbers: ~100M reads, |G| ~ 3×10<sup>9</sup>, read length: 100-200bp</li>
+</ul>
+<h2 id="strategies-for-mapping-multi-reads-10003---10155">Strategies for mapping multi-reads 1:00:03 - 1:01:55</h2>
 <p><img src="/images/ADVMB/2241031.png" /></p>
 <p>The multi read resolution strategies are:</p>
 <ul>
@@ -541,12 +555,29 @@
 <li>The mapping location is randomly chosen among the possibilities</li>
 </ul>
 <h2 id="mapping-strategy-1-seed-and-extend-10305---11239">Mapping strategy 1: seed and extend 1:03:05 - 1:12:39</h2>
+<p>Seed-and-extend strategy is based on the observation that a good alignment should contain exact or inexact short matches between two sequences.</p>
 <h3 id="principle">Principle</h3>
 <p><img src="/images/ADVMB/2241035.png" /></p>
 <ol type="1">
 <li>Find an exact match using a seed of size k.</li>
 <li>Extend the seed allowing mismatches.</li>
 </ol>
+<p>A general view of seed-and-extend strategy that contains four steps:</p>
+<ol type="1">
+<li>seed generation
+<ul>
+<li>Seeds are the shorter sequences extracted from a read and can be generated using different methods.</li>
+</ul></li>
+<li>seed mapping
+<ul>
+<li>The seeds that exactly match a reference sequence can be identified through a mapping process facilitated by an <strong>index</strong> method.</li>
+</ul></li>
+<li>extending each matched seed</li>
+<li>alignment of the read to the reference sequence.</li>
+</ol>
+<figure>
+<img src="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4695832/bin/pharmaceutics-07-00523-g002.jpg" alt="" /><figcaption>A brief workflow of seed-and-extend strategy in alignment. Generally, the strategy can be divided into three steps: (1) generate raw seed from a read; (2) identify the matched seed; and (3) extend the matched seed and do the local alignment through standard dynamic programming algorithms based on Needleman–Wunsch (NW) algorithm or Smith–Waterman (SW) algorithm</figcaption>
+</figure>
 <h3 id="index-the-genome">Index the genome</h3>
 <p><img src="/images/ADVMB/2241036.png" /></p>
 <h3 id="index-lookup-10818">Index lookup 1:08:18</h3>
@@ -555,6 +586,16 @@
 <p><img src="/images/ADVMB/2241038.png" /></p>
 <h2 id="mapping-strategy-2-suffix-tree-and-suffix-array">Mapping strategy 2: suffix tree and suffix array</h2>
 <h3 id="suffix-tree">Suffix tree</h3>
+<ul>
+<li><p>Build suffix tree for G</p></li>
+<li><p>For each read R<sub>i</sub>, find matches of R<sub>i</sub> to G by tree traversal</p></li>
+<li><p>Time complexity: O(lm+|G|) for exact matching</p></li>
+<li><p>Can store human genome text in 750M bytes (6G bits)</p>
+<blockquote>
+<p>but need ~64G bytes for the tree</p>
+</blockquote></li>
+<li><p>Large constants, hard to implement</p></li>
+</ul>
 <p><img src="/images/ADVMB/2241039.png" /></p>
 <h4 id="suffix-tree-construction">Suffix tree: construction</h4>
 <p><img src="/images/ADVMB/2241040.png" /></p>

@@ -471,21 +471,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-23
+                    2021-04-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    567
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    7 Min
                 </div>
                 
 
@@ -511,15 +511,133 @@
                 <h1 id="suffix-tree-and-suffix-array">Suffix tree and suffix array</h1>
 <p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/radwa_elsayed_elaraby_ahmed_hado_vub_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fradwa%5Felsayed%5Felaraby%5Fahmed%5Fhado%5Fvub%5Fbe%2FDocuments%2FOpnamen%2FAlgorithms%20in%20bioinfo%5Fcomputational%20biology%2D20210325%5F100100%2DMeeting%20Recording%2Emp4&amp;parent=%2Fpersonal%2Fradwa%5Felsayed%5Felaraby%5Fahmed%5Fhado%5Fvub%5Fbe%2FDocuments%2FOpnamen&amp;originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOnY6L2cvcGVyc29uYWwvcmFkd2FfZWxzYXllZF9lbGFyYWJ5X2FobWVkX2hhZG9fdnViX2JlL0VSczNocXk5SkI1RGhLbmlBWGc5cXhJQmFKaFdXZXUwd3RWOVFyVmxFY2MzbFE_cnRpbWU9bVZkS29NVHYyRWc">Video 4:46 ~ 40:27</a></p>
-<p>Related resources: <a target="_blank" rel="noopener" href="http://www.cs.jhu.edu/~langmea/resources/lecture_notes/tries_and_suffix_tries.pdf">JHU</a>, <a target="_blank" rel="noopener" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/calendar-and-notes/MIT6_851S12_L16.pdf">MIT</a>, <a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~ckingsf/bioinfo-lectures/suffixtrees.pdf">CMU</a>, <a target="_blank" rel="noopener" href="https://www.cs.tau.ac.il/~rshamir/algmb/presentations/Suffix-Trees.pdf">TAU</a>, <a target="_blank" rel="noopener" href="http://web.cs.iastate.edu/~cs548/suffix.pdf">IASTATE</a></p>
-<h2 id="suffix-tree"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Suffix_tree#:~:text=In%20computer%20science,%20a%20suffix%20tree%20(also%20called,particularly%20fast%20implementations%20of%20many%20important%20string%20operations)">Suffix Tree</a></h2>
-<h3 id="suffix-trie-530">Suffix trie 5:30</h3>
+<p>Related resources: <a target="_blank" rel="noopener" href="http://www.cs.jhu.edu/~langmea/resources/lecture_notes/tries_and_suffix_tries.pdf"><strong>JHU</strong></a>, <a target="_blank" rel="noopener" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/calendar-and-notes/MIT6_851S12_L16.pdf">MIT</a>, <a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~ckingsf/bioinfo-lectures/suffixtrees.pdf">CMU</a>, <a target="_blank" rel="noopener" href="https://www.cs.tau.ac.il/~rshamir/algmb/presentations/Suffix-Trees.pdf">TAU</a>, <a target="_blank" rel="noopener" href="http://web.cs.iastate.edu/~cs548/suffix.pdf">IASTATE</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Exact String/Pattern Matching, |S| = m,</p>
+<p>n different patterns p<sub>1</sub> … p<sub>n</sub></p>
+<p><img src="/images/ADVMB/2241012580.png" /></p>
+<p>Given a text S, answer queries of the form: is the pattern p<sub>i</sub> a substring of S?</p>
+<ul>
+<li>Suffix tree solution:
+<ul>
+<li>O(|S| + Σ<sub>i</sub> | p<sub>i</sub> |) time for n queries</li>
+</ul></li>
+<li>The suffix tree algorithm
+<ul>
+<li>pre-process S in O(|S| ): builds a data structure called suffix tree for S</li>
+<li>when a pattern p is input, the algorithm searches it in O(|p|) time using the suffix tree</li>
+</ul></li>
+</ul>
+<h3 id="prefixes-suffixes">Prefixes &amp; Suffixes</h3>
+<ul>
+<li><p>Notation: S[i,j] =S(i), S(i+1),…, S(j)</p></li>
+<li><p>Prefix of S: substring of S beginning at the first position of S</p></li>
+<li><p>Suffix of S: substring that ends at last position</p></li>
+<li><p>S=AACTAG</p>
+<ul>
+<li>Prefixes: AACTAG,AACTA,AACT,AAC,AA,A</li>
+<li>Suffixes: AACTAG,ACTAG,CTAG,TAG,AG,G</li>
+</ul>
+<blockquote>
+<p>Note: P is a substring of S iff P is a prefix of some suffix of S</p>
+</blockquote></li>
+</ul>
+<h2 id="tries"><a target="_blank" rel="noopener" href="http://www.cs.jhu.edu/~langmea/resources/lecture_notes/tries_and_suffix_tries.pdf">Tries</a></h2>
+<p>A trie, pronounced “try”, is a tree that exploits some structure in the keys.</p>
+<ul>
+<li>e.g. if the keys are strings, a binary search tree would compare the entire strings, but a trie would look at their individual characters</li>
+</ul>
+<p>Smallest tree such that:</p>
+<ul>
+<li>Each edge is labeled with a character c ∈ Σ</li>
+<li>A node has at most one outgoing edge labeled c, for c ∈ Σ</li>
+<li>Each key is “spelled out” along some path starting at the root</li>
+</ul>
+<blockquote>
+<p>Natural way to represent either a set or a map where keys are strings</p>
+</blockquote>
+<h3 id="example">Example</h3>
+<p>Represent this map with a trie:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Key</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">instant</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">internal</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">internet</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/ADVMB/2241012581.png" /></p>
+<ul>
+<li><p>Checking for presence of a key P, where n = | P |, is <strong>O(n)</strong> time</p>
+<blockquote>
+<p>If total length of all keys is N, trie has ??? nodes</p>
+</blockquote></li>
+<li><p>What about | Σ | ?</p>
+<ul>
+<li>Depends how we represent outgoing edges. If we don’t assume | Σ | is a small constant, it shows up in one or both bounds.</li>
+</ul></li>
+</ul>
+<h3 id="implementation">Implementation</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">TrieMap</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""	
+    Trie implementation	of a map. 
+    Associating keys (strings or other sequence	type) with values.		
+    Values can be any type.	
+    """</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>	kvs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+        <span class="token comment"># For each key (string)/value pair</span>
+        <span class="token keyword">for</span>	<span class="token punctuation">(</span>k<span class="token punctuation">,</span>	v<span class="token punctuation">)</span>	<span class="token keyword">in</span>	kvs<span class="token punctuation">:</span>	self<span class="token punctuation">.</span>add<span class="token punctuation">(</span>k<span class="token punctuation">,</span>	v<span class="token punctuation">)</span>
+				
+	<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> k<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""	Add	a	key-value	pair	"""</span>
+        cur	<span class="token operator">=</span> self<span class="token punctuation">.</span>root
+        <span class="token keyword">for</span> c <span class="token keyword">in</span> k<span class="token punctuation">:</span>	<span class="token comment">#	for	each character in the string</span>
+            <span class="token keyword">if</span> c <span class="token keyword">not</span> <span class="token keyword">in</span>	cur<span class="token punctuation">:</span>
+                cur<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>	<span class="token comment">#	if not	there,	make new edge on character c</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">[</span>c<span class="token punctuation">]</span>
+            cur<span class="token punctuation">[</span><span class="token string">'value'</span><span class="token punctuation">]</span> <span class="token operator">=</span> v <span class="token comment">#	at the	end	of the	path, add the value</span>
+
+	<span class="token keyword">def</span> <span class="token function">query</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>	k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""	Given	key,	return	associated	value	or	None	"""</span>
+        cur	<span class="token operator">=</span> self<span class="token punctuation">.</span>root
+        <span class="token keyword">for</span>	c <span class="token keyword">in</span> k<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> c <span class="token keyword">not</span> <span class="token keyword">in</span>	cur<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">None</span> <span class="token comment"># key wasn't in the	trie</span>
+            cur	<span class="token operator">=</span>	cur<span class="token punctuation">[</span>c<span class="token punctuation">]</span>
+           <span class="token comment"># get value,	or None if	there's	no value associated	with this node</span>
+        <span class="token keyword">return</span>	cur<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="alternatives">Alternatives</h3>
+<p>Tries aren’t the only tree structure that can encode sets or maps with string keys. E.g. binary or ternary search trees.</p>
+<p><img src="/images/ADVMB/22410125800.png" /></p>
+<h2 id="suffix-trie-530"><a target="_blank" rel="noopener" href="http://www.cs.jhu.edu/~langmea/resources/lecture_notes/tries_and_suffix_tries.pdf">Suffix trie 5:30</a></h2>
+<p>Until now, our indexes have been based on extracting substrings from T</p>
+<p>A very different approach is to extract <strong>suffixes</strong> from T. This will lead us to some interesting and practical index data structures:</p>
 <ul>
 <li><p><strong>INPUT</strong>: sequence to index</p>
 <ul>
 <li>G = ATA</li>
 </ul></li>
-<li><p><strong>Step 1</strong>: add $</p>
+<li><p><strong>Step 1</strong>: add special terminal character <strong>$</strong> to the end of T</p>
+<blockquote>
+<p>$ is a character that does not appear elsewhere in T, and we define it to be less than other characters (for DNA: $ &lt; A &lt; C &lt; G &lt; T)</p>
+<p>$ enforces a rule we’re all used to using: e.g. “as” comes before “ash” in the dictionary.</p>
+<p>$ also guarantees no suffix is a prefix of any other suffix.</p>
+</blockquote>
 <ul>
 <li>G = ATA$</li>
 </ul></li>
@@ -527,7 +645,7 @@
 <ul>
 <li><p>ATA$</p>
 <p>TA$</p>
-<p>​ A$</p></li>
+<p>A$</p></li>
 </ul></li>
 <li><p>Step 3: build a tree</p>
 <ul>
@@ -539,9 +657,15 @@
 <p><img src="/images/ADVMB/2241013.png" /></p>
 <p><img src="/images/ADVMB/2241014.png" /></p>
 <p><img src="/images/ADVMB/2241015.png" /></p>
+<p>We can think of nodes as having labels, where the label spells out characters on the path from the root to the node</p>
 <p><img src="/images/ADVMB/2241016.png" /></p>
 <p>To simplify notations: $ is not shown in the tree.</p>
 <p>Ending nodes (directly connected to a leaf) are shown in <strong>black</strong>.</p>
+<blockquote>
+<p>How do we check whether a string S is a substring of T?</p>
+<p>Note: Each of T’s substrings is spelled out along a path from the root.</p>
+<p>I.e., every substring is a prefix of some suffix of T</p>
+</blockquote>
 <h3 id="suffix-trie-substrings-1446">Suffix trie: substrings 14:46</h3>
 <p><img src="/images/ADVMB/2241017.png" /></p>
 <p>A path starting from the root is a substring of G. A path starting from the root and ending on a black node is both a substring and a suffix</p>
@@ -554,7 +678,7 @@
 <h3 id="compacted-suffix-trie-2706">Compacted suffix trie 27:06</h3>
 <p><img src="/images/ADVMB/2241020.png" /></p>
 <p>Internal nodes with only one child can be removed by adapting the labels.</p>
-<h3 id="suffix-tree-1">Suffix tree</h3>
+<h2 id="suffix-tree"><a target="_blank" rel="noopener" href="http://www.cs.jhu.edu/~langmea/resources/lecture_notes/08_suffix_trees_v2.pdf">Suffix tree</a></h2>
 <p><img src="/images/ADVMB/2241021.png" /></p>
 <p><em>(4,1) is a substring starting at position 4 of length 1: A.</em></p>
 <p>Labels can be replaced by tuples formed by the substring starting positions and its length (we need to keep the input sequence G). This allows to reduce the data stored in the tree.</p>
