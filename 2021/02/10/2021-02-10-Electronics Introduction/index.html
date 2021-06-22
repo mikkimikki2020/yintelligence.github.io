@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Electronics/" class="post-category">
+                                Electronics
                             </a>
                         
                     </div>
@@ -456,28 +456,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-09
+                    2021-02-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-24
+                    2021-06-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    637
+                    798
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -518,15 +518,16 @@
 <h5 id="what-are-the-inputsoutputs-what-parameters-can-be-optimized-for">What are the inputs/outputs? What parameters can be optimized for?</h5>
 <p><img src="/images/EP/221429.png" /></p>
 <p>Pic : 24:52 - 26:20 Video</p>
-<h3 id="processing">Processing</h3>
+<h3 id="processing"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IEPXTHNXoBc">Processing</a></h3>
 <ul>
-<li><p>Analog processing</p>
+<li><p>Analog processing 模拟信号 连续变化</p>
+<p><img src="/images/EP/22142919.png" /></p>
 <ul>
 <li>Sensitive to noise</li>
 <li>Constrained dynamical range</li>
 <li>Important on input/output, but generally <strong>unfavourable for computation</strong></li>
 </ul></li>
-<li><p>Digital processing 28:30</p>
+<li><p>Digital processing 28:30 数字信号 分立</p>
 <p><img src="/images/EP/Digital_Processing.png" /></p>
 <ul>
 <li>Range: mostly fixed-point (integer) or floating-point</li>
@@ -540,11 +541,11 @@
 </ul>
 <h4 id="conversion-between-analog-and-digital-3234">Conversion between analog and digital 32:34</h4>
 <ul>
-<li><p>Sampling</p></li>
+<li><p>Sampling 切割的越细质量越高数据量越大</p></li>
 <li><p>Dynamic range</p></li>
 <li><p>Quantization</p></li>
 <li><p>Noise, dependencies on environment</p></li>
-<li><p><strong>(Non-)linearity?</strong>36:03 - 37:45</p>
+<li><p><strong>(Non-)linearity?</strong> 36:03 - 37:45</p>
 <p><img src="/images/EP/strain_gauge.png" /></p></li>
 </ul>
 <h2 id="micro-electronics">Micro-electronics</h2>
@@ -563,15 +564,45 @@
 <li>Storage of charge carriers</li>
 <li>Controlled access to capacitors -&gt; controlled voltage -&gt; <strong>memory</strong></li>
 </ul>
-<h2 id="electronics-for-computing">Electronics for computing</h2>
-<h3 id="computing-speed-does-not-scale-linearly-with-the-number-of-cores-2-x-3-ghz-6ghz"><strong>Computing speed does not scale linearly with the number of cores!</strong> 2 x 3 Ghz &lt; 6Ghz</h3>
+<h3 id="electronics-for-computing">Electronics for computing</h3>
+<h4 id="dennard-scaling">Dennard Scaling</h4>
+<ul>
+<li><p>Power = alpha * CFV <sup>2</sup></p>
+<ul>
+<li>Alpha - percent time switched</li>
+<li>C - capacitance</li>
+<li>F - frequency</li>
+<li>V - voltage</li>
+</ul></li>
+<li><p>Capacitance is related to area</p>
+<blockquote>
+<p>As the size of the transistors shrunk, and the voltage was reduced, circuits could operate at higher frequencies at the same power.</p>
+</blockquote></li>
+<li><p>End of Dennard Scaling</p>
+<blockquote>
+<p>Dennard Scaling ignored the "leakage current" and "threshold voltage", which establish a baseline of power per transistor.</p>
+</blockquote>
+<ul>
+<li>As transistors get smaller, power density increases becuase these do not scale with size</li>
+<li>These created a "<em>Power Wall</em>" that limited practical processor frequency to around 4GHz since 2006</li>
+</ul></li>
+</ul>
+<h4 id="computing-speed-does-not-scale-linearly-with-the-number-of-cores-2-x-3-ghz-6ghz"><strong>Computing speed does not scale linearly with the number of cores!</strong> 2 x 3 Ghz &lt; 6Ghz</h4>
+<p><img src="/images/EP/221323333.png" /></p>
 <ul>
 <li>Coordination overhead, cache coherency</li>
 <li>Not all problems lend themselves to (much) parallelization</li>
 <li>Programming difficulty (harder to reason about, complex dependencies)</li>
 </ul>
-<h2 id="solutions-increased-processor-complexity">Solutions: increased processor complexity</h2>
+<h5 id="solutions-increased-processor-complexity">Solutions: increased processor complexity</h5>
+<blockquote>
 <p>Modern processors are not just “faster” clones of older processor generations</p>
+</blockquote>
+<p>Processors have become much more complex, to the point that it has become nearly impossible for a single person to grasp the entire system.</p>
+<ul>
+<li>x86-64 ASM (assembly) has essentially become another programming layer</li>
+<li>High-performance analysis has become statistical</li>
+</ul>
 <p>Some notable advances:</p>
 <ul>
 <li>High core count (“AMD Threadripper” goes up to 64 cores as of 2020)</li>
@@ -584,16 +615,16 @@
 <li>Advanced power management, even within chip regions</li>
 <li>Complex cache hierarchy</li>
 </ul>
-<h2 id="solutions-different-hardware-topologies-5852">Solutions: different hardware topologies 58:52</h2>
-<h4 id="gpu-graphics-processing-units--10201">GPU (Graphics Processing Units) -1:02:01</h4>
+<h5 id="solutions-different-hardware-topologies-5852">Solutions: different hardware topologies 58:52</h5>
+<h6 id="gpu-graphics-processing-units--10201">GPU (Graphics Processing Units) -1:02:01</h6>
 <p>many tasks, especially involving signals, lend themselves to <strong>extreme parallelization</strong> (graphics, light transport, sound, weather systems, ...)</p>
-<h4 id="tpu-tensor-processing-units---10254">TPU (Tensor Processing Units) - 1:02:54</h4>
+<h6 id="tpu-tensor-processing-units---10254">TPU (Tensor Processing Units) - 1:02:54</h6>
 <p>deep learning requires large amounts of multiply-adds for computing convolutions -&gt; specialized hardware.</p>
 <p><img src="/images/EP/GPUTPU.png" /></p>
 <h2 id="future-of-computing">Future of computing</h2>
 <p><strong>As complexity increases, optimization becomes increasingly important!</strong></p>
 <ul>
-<li>• Performance = Saving energy</li>
+<li>Performance = Saving energy</li>
 <li>Tight feedback between software and hardware design</li>
 <li>Tune algorithms to specific architecture (Big-O analysis alone won’t do)</li>
 <li>New paradigms (quantum, neuromorphic, FPGA)</li>
@@ -603,7 +634,9 @@
 <h3 id="extreme-ultra-violet-euv-lithography">Extreme Ultra-Violet (EUV) Lithography</h3>
 <h3 id="wafer-scale-integration">Wafer-scale integration</h3>
 <p>Shrinking transistors reaches fundamental limits(1:22:48), Atomic-level manufacturing variations</p>
+<p><img src="/images/EP/221323334.png" /></p>
 <p><em>As a metal oxide–semiconductor field effect transistor (MOSFET) shrinks, the gate dielectric (yellow) thickness approaches several atoms (0.5 nm at the 22-nm technology node).</em></p>
+<p><img src="/images/EP/221323335.png" /></p>
 <h3 id="heterogeneous-computing-at-all-scales">Heterogeneous computing at all scales</h3>
 <p>Arrange GPU CPU together: At chip-level, node-level, cluster-level and network-level</p>
 <p><img src="/images/EP/HETRO.png" /></p>
@@ -646,7 +679,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/09/2021-02-10-Electronics%20Introduction/">https://yintelligence.tech/2021/02/09/2021-02-10-Electronics%20Introduction/</a>
+                    <a href="https://yintelligence.tech/2021/02/10/2021-02-10-Electronics%20Introduction/">https://yintelligence.tech/2021/02/10/2021-02-10-Electronics%20Introduction/</a>
                 </span>
             </div>
             <div class="reprint__notice">
