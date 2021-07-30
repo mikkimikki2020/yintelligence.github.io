@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-07-29
+                    2021-07-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    10 Min
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="an-introduction-to-python">An Introduction to Python</h1>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f9dafb6b-9e7e-438c-b8d0-ac3f00d40227">Video</a> + <a href="https://yintelligence.tech/2021/01/05/2021-01-05-Python-Basics/">Exercise</a></p>
 <h2 id="python-as-a-smart-calculator">Python as a smart calculator</h2>
 <h3 id="arithmetic-operators">7 arithmetic operators</h3>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> <span class="token number">5</span>
@@ -834,8 +835,8 @@ pow(...)
 	<span class="token keyword">print</span><span class="token punctuation">(</span>ph<span class="token punctuation">,</span>” <span class="token keyword">is</span> VERY acidic! Be careful<span class="token punctuation">.</span>”<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Output: 2 is acidic</p>
 <p><strong>What did we do wrong?</strong></p>
-<h2 id="repeating-code">Repeating code</h2>
-<h3 id="the-for-loop">the for loop</h3>
+<h2 id="repeating-code---the-while-loop">Repeating code - the <code>while</code> loop</h2>
+<h3 id="the-for-loop">the <code>for</code> loop</h3>
 <p>Repeats a block of statements over a group of values</p>
 <p>Syntax:</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> <span class="token operator">&lt;&lt;</span>variable<span class="token operator">>></span> <span class="token keyword">in</span> <span class="token operator">&lt;&lt;</span>group of values<span class="token operator">>></span><span class="token punctuation">:</span>
@@ -924,6 +925,117 @@ pow(...)
         k <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">**</span>i
         <span class="token builtin">sum</span> <span class="token operator">=</span> <span class="token builtin">sum</span> <span class="token operator">+</span> k
     <span class="token keyword">return</span> <span class="token builtin">sum</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="repeating-code---the-while-loop-1">Repeating code - the <code>while</code> loop</h2>
+<p>Repeat a block of code until use types <code>quit</code></p>
+<ul>
+<li>How do we ask information from a user?</li>
+<li>Can we use a for loop?</li>
+</ul>
+<h3 id="how-do-we-ask-information-from-a-user">How do we ask information from a user?</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">variable <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+variable <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">[</span>prompt<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>An example:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">age <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span>’What <span class="token keyword">is</span> your age?<span class="token punctuation">:</span> ’<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">’What <span class="token keyword">is</span> your age?<span class="token punctuation">:</span> ’
+<span class="token operator">></span>? <span class="token number">25</span>
+<span class="token number">25</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>Warning</strong>: Be careful with typecasting!</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">age <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span>’What <span class="token keyword">is</span> your age?<span class="token punctuation">:</span> ’<span class="token punctuation">)</span>
+<span class="token builtin">type</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'str'</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>With type casting:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">age <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span>’What <span class="token keyword">is</span> your age?<span class="token punctuation">:</span> ’<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token builtin">type</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="can-we-use-a-for-loop">Can we use a for loop?</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">text <span class="token operator">=</span> ’’
+	<span class="token keyword">while</span> text <span class="token operator">!=</span> ’quit’<span class="token punctuation">:</span>
+	text <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span>’Please enter a chemical formula<span class="token punctuation">:</span> ’<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> text <span class="token operator">==</span> ’quit’<span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span>’Exiting program’<span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> text <span class="token operator">==</span> ’H2O’<span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span>’water’<span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> text <span class="token operator">==</span> ’NH3’<span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span>’ammonia’<span class="token punctuation">)</span>
+	<span class="token keyword">else</span><span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span>’Unknown Compound’<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="the-while-loop">The <code>while</code> loop</h3>
+<p>Repeats a block of statements <em>while</em> a given condition is True</p>
+<p>Syntax:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">while</span> <span class="token operator">&lt;&lt;</span>expression<span class="token operator">>></span><span class="token punctuation">:</span>
+	<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Example:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">temperature <span class="token operator">=</span> <span class="token number">90</span>
+<span class="token keyword">while</span> temperature <span class="token operator">></span> <span class="token number">78</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>temperature<span class="token punctuation">)</span>
+	temperature <span class="token operator">=</span> temperature <span class="token operator">-</span> <span class="token number">1</span>
+	
+<span class="token keyword">print</span><span class="token punctuation">(</span>’Tea can be served<span class="token punctuation">.</span>’<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="for-versus-while-loop"><code>for</code> versus <code>while</code> loop</h2>
+<p>Compute the factorial n!</p>
+<ul>
+<li><p>With a <code>for</code> loop</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">fact <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	fact <span class="token operator">=</span> fact <span class="token operator">*</span> i
+<span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>' factorial <span class="token keyword">is</span> ’<span class="token punctuation">,</span>fact<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>With a <code>while</code> loop</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">fact <span class="token operator">=</span> <span class="token number">1</span>
+i <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token keyword">while</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">:</span>
+    fact <span class="token operator">=</span> fact <span class="token operator">*</span> i
+    i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>' factorial <span class="token keyword">is</span> ’<span class="token punctuation">,</span>fact<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>In general</strong></p></li>
+</ul>
+<p><strong>When to use a <code>for</code> loop?</strong></p>
+<ul>
+<li><p>We want to iterate over <strong><em>each</em></strong> element</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> elem <span class="token keyword">in</span> sequence<span class="token punctuation">:</span>
+	<span class="token comment"># do something</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>We want to iterate a <strong><em>fixed number</em></strong> of times</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">:</span>
+	<span class="token comment"># do something</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>When to use a <code>while</code> loop?</strong></p></li>
+<li><p>Repetition might not be based on an iterable or sequential object</p></li>
+<li><p>We don’t know <strong>how many times</strong> we need to iterate</p></li>
+</ul>
+<h2 id="controlling-loops">Controlling loops</h2>
+<h3 id="break">Break</h3>
+<p><img src="/images/NET/1831393.png" /></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> <span class="token operator">&lt;&lt;</span>variable<span class="token operator">>></span> <span class="token keyword">in</span> <span class="token operator">&lt;&lt;</span>sequence<span class="token operator">>></span><span class="token punctuation">:</span>
+	<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside for loop</span>
+	<span class="token keyword">if</span> <span class="token operator">&lt;&lt;</span>condition<span class="token operator">>></span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span>
+	<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside for loop</span>
+	
+<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#outside for loop</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">while</span> <span class="token operator">&lt;&lt;</span>expression<span class="token operator">>></span><span class="token punctuation">:</span>
+    <span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside while loop</span>
+    <span class="token keyword">if</span> <span class="token operator">&lt;&lt;</span>condition<span class="token operator">>></span><span class="token punctuation">:</span>
+		<span class="token keyword">break</span>
+	<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside while loop</span>
+<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#outside while loop</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="continue">Continue</h3>
+<p><img src="/images/NET/1831394.png" /></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> <span class="token operator">&lt;&lt;</span>variable<span class="token operator">>></span> <span class="token keyword">in</span> <span class="token operator">&lt;&lt;</span>sequence<span class="token operator">>></span><span class="token punctuation">:</span>
+    <span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside for loop</span>
+    <span class="token keyword">if</span> <span class="token operator">&lt;&lt;</span>condition<span class="token operator">>></span><span class="token punctuation">:</span>
+    	<span class="token keyword">continue</span>
+    <span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside for loop</span>
+    
+<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#outside for loop</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">while</span> <span class="token operator">&lt;&lt;</span>expression<span class="token operator">>></span><span class="token punctuation">:</span>
+    <span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside while loop</span>
+    <span class="token keyword">if</span> <span class="token operator">&lt;&lt;</span>condition<span class="token operator">>></span><span class="token punctuation">:</span>
+    	<span class="token keyword">continue</span>
+    <span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#inside while loop</span>
+    
+<span class="token operator">&lt;&lt;</span>block<span class="token operator">>></span> <span class="token comment">#outside while loop</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1041,9 +1153,9 @@ pow(...)
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Python Basics">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Python exercises – series 1">
                         
-                        <span class="card-title">Python Basics</span>
+                        <span class="card-title">Python exercises – series 1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
