@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Notes/" class="post-category">
-                                Notes
+                            <a href="/categories/Computer-Systems/" class="post-category">
+                                Computer Systems
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-07-30
                 </div>
                 
 
@@ -602,7 +602,11 @@
 <h3 id="time-of-check-to-tome-of-use-attacks">Time of Check to Tome of Use Attacks</h3>
 <p>Exploits a race condition</p>
 <p>Example:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> fd;</span><br><span class="line"><span class="keyword">if</span>(access(<span class="string">&quot;./my_document&quot;</span>, W_OK)!=<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">fd = open(<span class="string">&quot;./my_document&quot;</span>, O_WRONGLY)</span><br><span class="line">write(fd, user_input, <span class="keyword">sizeof</span>(user_input))</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fd;
+if(access(&quot;.&#x2F;my_document&quot;, W_OK)!&#x3D;0)
+    exit(1);
+fd &#x3D; open(&quot;.&#x2F;my_document&quot;, O_WRONGLY)
+write(fd, user_input, sizeof(user_input))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Between the statements, attacker creates a symbolic link with the same file name to the password file</p>
 <p>Then user writes password information to attackers file.</p>
 <h4 id="insider-attacks">Insider Attacks</h4>
@@ -828,8 +832,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Exercises/" class="post-category">
-                                    Exercises
+                            <a href="/categories/Math/" class="post-category">
+                                    Math
                                 </a>
                             
                             

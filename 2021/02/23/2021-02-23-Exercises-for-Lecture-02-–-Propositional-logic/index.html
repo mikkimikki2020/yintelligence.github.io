@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Exercises/" class="post-category">
-                                Exercises
+                            <a href="/categories/Math/" class="post-category">
+                                Math
                             </a>
                         
                     </div>
@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-07-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    915
+                    894
                 </div>
                 
 
@@ -514,7 +514,59 @@
 </ul>
 <p>When you are finished, formalize everything in the IDP system and use it to verify your answers.</p>
 <h3 id="solution">Solution</h3>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">vocabulary V&#123;</span><br><span class="line">	RossiVotesBerlusconi</span><br><span class="line">	BianchiVotesBerlusconi</span><br><span class="line">	VerdiVotesBerlusconi</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vocabulary V_extended&#123;</span><br><span class="line">    extern vocabulary V</span><br><span class="line">    RossiTruth</span><br><span class="line">    BianchiTruth</span><br><span class="line">    VerdiTruth</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory point1 :V&#123;</span><br><span class="line"> // Use this theory to solve the question <span class="string">&quot;Are the declarations consistent?&quot;</span></span><br><span class="line">    BianchiVotesBerlusconi =&gt; VerdiVotesBerlusconi.</span><br><span class="line">    ~ RossiVotesBerlusconi =&gt; ~VerdiVotesBerlusconi.</span><br><span class="line">    RossiVotesBerlusconi &amp; ~BianchiVotesBerlusconi. </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory point2:V_extended&#123;</span><br><span class="line"> //Use this to solve the second question (hint: maybe you need to extended V <span class="keyword">for</span> this...)</span><br><span class="line">  RossiTruth &lt;=&gt; (BianchiVotesBerlusconi =&gt; VerdiVotesBerlusconi).</span><br><span class="line">  BianchiTruth &lt;=&gt; (  ~ RossiVotesBerlusconi =&gt; ~VerdiVotesBerlusconi).</span><br><span class="line">  VerdiTruth &lt;=&gt; ( RossiVotesBerlusconi &amp; ~BianchiVotesBerlusconi ). </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">structure no_assignments:V&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">structure allThreeVoteB:V&#123;</span><br><span class="line">//If needed you can put (partial) assignments here</span><br><span class="line">	RossiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line">	BianchiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line">	VerdiVotesBerlusconi = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">procedure main()&#123;</span><br><span class="line">    //Check the first <span class="keyword">and</span> third question:</span><br><span class="line">    printmodels(allmodels(point1,no_assignments))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We see two solutions, from this we conclude the statements are consistent&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We also see that in both solutions Bianchi did not vote Berslusconi and Rossi did vote Berlusconi. We can however make no conclusion about Verdi&quot;</span>)</span><br><span class="line"></span><br><span class="line">    //Check the last question</span><br><span class="line">    printmodels(allmodels(point2,allThreeVoteB))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;We see that Verdi lies in this case&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">vocabulary <span class="token function">V</span><span class="token punctuation">&#123;</span>
+	RossiVotesBerlusconi
+	BianchiVotesBerlusconi
+	VerdiVotesBerlusconi
+    
+    
+<span class="token punctuation">&#125;</span>
+
+vocabulary <span class="token function">V_extended</span><span class="token punctuation">&#123;</span>
+    extern vocabulary V
+    RossiTruth
+    BianchiTruth
+    VerdiTruth
+<span class="token punctuation">&#125;</span>
+
+theory point1 <span class="token punctuation">:</span><span class="token function">V</span><span class="token punctuation">&#123;</span>
+ <span class="token operator">//</span> Use this theory to solve the question <span class="token string">"Are the declarations consistent?"</span>
+    BianchiVotesBerlusconi <span class="token operator">=</span><span class="token operator">></span> VerdiVotesBerlusconi<span class="token punctuation">.</span>
+    <span class="token operator">~</span> RossiVotesBerlusconi <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">~</span>VerdiVotesBerlusconi<span class="token punctuation">.</span>
+    RossiVotesBerlusconi <span class="token operator">&amp;</span> <span class="token operator">~</span>BianchiVotesBerlusconi<span class="token punctuation">.</span> 
+<span class="token punctuation">&#125;</span>
+
+theory point2<span class="token punctuation">:</span><span class="token function">V_extended</span><span class="token punctuation">&#123;</span>
+ <span class="token operator">//</span>Use this to solve the second <span class="token function">question</span> <span class="token punctuation">(</span>hint<span class="token punctuation">:</span> maybe you need to extended V <span class="token keyword">for</span> this<span class="token punctuation">...</span><span class="token punctuation">)</span>
+  RossiTruth <span class="token operator">&lt;=</span><span class="token operator">></span> <span class="token punctuation">(</span>BianchiVotesBerlusconi <span class="token operator">=</span><span class="token operator">></span> VerdiVotesBerlusconi<span class="token punctuation">)</span><span class="token punctuation">.</span>
+  BianchiTruth <span class="token operator">&lt;=</span><span class="token operator">></span> <span class="token punctuation">(</span>  <span class="token operator">~</span> RossiVotesBerlusconi <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">~</span>VerdiVotesBerlusconi<span class="token punctuation">)</span><span class="token punctuation">.</span>
+  VerdiTruth <span class="token operator">&lt;=</span><span class="token operator">></span> <span class="token punctuation">(</span> RossiVotesBerlusconi <span class="token operator">&amp;</span> <span class="token operator">~</span>BianchiVotesBerlusconi <span class="token punctuation">)</span><span class="token punctuation">.</span> 
+<span class="token punctuation">&#125;</span>
+
+
+structure no_assignments<span class="token punctuation">:</span><span class="token function">V</span><span class="token punctuation">&#123;</span>
+    
+<span class="token punctuation">&#125;</span>
+
+structure allThreeVoteB<span class="token punctuation">:</span><span class="token function">V</span><span class="token punctuation">&#123;</span>
+<span class="token operator">//</span>If needed you can <span class="token function">put</span> <span class="token punctuation">(</span>partial<span class="token punctuation">)</span> assignments here
+	RossiVotesBerlusconi <span class="token operator">=</span> <span class="token keyword">true</span>
+	BianchiVotesBerlusconi <span class="token operator">=</span> <span class="token keyword">true</span>
+	VerdiVotesBerlusconi <span class="token operator">=</span> <span class="token keyword">true</span>
+
+<span class="token punctuation">&#125;</span>
+
+procedure <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token operator">//</span>Check the first <span class="token keyword">and</span> third question<span class="token punctuation">:</span>
+    <span class="token function">printmodels</span><span class="token punctuation">(</span><span class="token function">allmodels</span><span class="token punctuation">(</span>point1<span class="token punctuation">,</span>no_assignments<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"We see two solutions, from this we conclude the statements are consistent"</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"We also see that in both solutions Bianchi did not vote Berslusconi and Rossi did vote Berlusconi. We can however make no conclusion about Verdi"</span><span class="token punctuation">)</span>
+
+    <span class="token operator">//</span>Check the last question
+    <span class="token function">printmodels</span><span class="token punctuation">(</span><span class="token function">allmodels</span><span class="token punctuation">(</span>point2<span class="token punctuation">,</span>allThreeVoteB<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"We see that Verdi lies in this case"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The statements can be formalized in logic as follows:</p>
 <table>
 <thead>
@@ -563,7 +615,50 @@
 <li>Use the IDP system to find colorings for the given graph. Do this twice, once with your theory before putting it in CNF and once after. Verify that they admit the same colorings.</li>
 </ol>
 <h3 id="solution-1">Solution</h3>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">vocabulary V&#123;</span><br><span class="line">	//The possible edges.</span><br><span class="line">	e_ia</span><br><span class="line">	e_ah</span><br><span class="line">	e_ih</span><br><span class="line"></span><br><span class="line">	//Whether <span class="keyword">or</span> <span class="keyword">not</span> a country is black:</span><br><span class="line">	b_i</span><br><span class="line">	b_a</span><br><span class="line">	b_h</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory notInCNF :V&#123;</span><br><span class="line"> // Put your theory BEFORE transformation to CNF here</span><br><span class="line">	e_ia =&gt; (b_i &lt;=&gt; ~b_a).</span><br><span class="line">	e_ah =&gt; (b_a &lt;=&gt; ~b_h).</span><br><span class="line">	e_ih =&gt; (b_i &lt;=&gt; ~b_h).</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">theory inCNF:V&#123;</span><br><span class="line"> // Put your theory AFTER transformation to CNF here</span><br><span class="line">    ~e_ia  | ~b_i | ~b_a. </span><br><span class="line">    ~e_ia  | b_i | b_a. </span><br><span class="line">    ~e_ah  | ~b_h | ~b_a. </span><br><span class="line">    ~e_ah  | b_h | b_a. </span><br><span class="line">    ~e_ih  | ~b_i | ~b_h. </span><br><span class="line">    ~e_ih  | b_i | b_h. </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">structure S:V&#123;</span><br><span class="line">	//You can put (partial) assignments here</span><br><span class="line">    //We interpret the edge:</span><br><span class="line">    e_ia = <span class="literal">true</span></span><br><span class="line">    e_ah = <span class="literal">true</span></span><br><span class="line">    e_ih = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">procedure main()&#123;</span><br><span class="line"> //Generate the models of both of the theories. We see they indeed agree:</span><br><span class="line">    printmodels(allmodels(notInCNF,S))</span><br><span class="line">    printmodels(allmodels(inCNF,S))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua">vocabulary <span class="token function">V</span><span class="token punctuation">&#123;</span>
+	<span class="token operator">//</span>The possible edges<span class="token punctuation">.</span>
+	e_ia
+	e_ah
+	e_ih
+
+	<span class="token operator">//</span>Whether <span class="token keyword">or</span> <span class="token keyword">not</span> a country is black<span class="token punctuation">:</span>
+	b_i
+	b_a
+	b_h
+<span class="token punctuation">&#125;</span>
+
+theory notInCNF <span class="token punctuation">:</span><span class="token function">V</span><span class="token punctuation">&#123;</span>
+ <span class="token operator">//</span> Put your theory BEFORE transformation to CNF here
+	e_ia <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>b_i <span class="token operator">&lt;=</span><span class="token operator">></span> <span class="token operator">~</span>b_a<span class="token punctuation">)</span><span class="token punctuation">.</span>
+	e_ah <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>b_a <span class="token operator">&lt;=</span><span class="token operator">></span> <span class="token operator">~</span>b_h<span class="token punctuation">)</span><span class="token punctuation">.</span>
+	e_ih <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>b_i <span class="token operator">&lt;=</span><span class="token operator">></span> <span class="token operator">~</span>b_h<span class="token punctuation">)</span><span class="token punctuation">.</span>
+    
+<span class="token punctuation">&#125;</span>
+
+theory inCNF<span class="token punctuation">:</span><span class="token function">V</span><span class="token punctuation">&#123;</span>
+ <span class="token operator">//</span> Put your theory AFTER transformation to CNF here
+    <span class="token operator">~</span>e_ia  <span class="token operator">|</span> <span class="token operator">~</span>b_i <span class="token operator">|</span> <span class="token operator">~</span>b_a<span class="token punctuation">.</span> 
+    <span class="token operator">~</span>e_ia  <span class="token operator">|</span> b_i <span class="token operator">|</span> b_a<span class="token punctuation">.</span> 
+    <span class="token operator">~</span>e_ah  <span class="token operator">|</span> <span class="token operator">~</span>b_h <span class="token operator">|</span> <span class="token operator">~</span>b_a<span class="token punctuation">.</span> 
+    <span class="token operator">~</span>e_ah  <span class="token operator">|</span> b_h <span class="token operator">|</span> b_a<span class="token punctuation">.</span> 
+    <span class="token operator">~</span>e_ih  <span class="token operator">|</span> <span class="token operator">~</span>b_i <span class="token operator">|</span> <span class="token operator">~</span>b_h<span class="token punctuation">.</span> 
+    <span class="token operator">~</span>e_ih  <span class="token operator">|</span> b_i <span class="token operator">|</span> b_h<span class="token punctuation">.</span> 
+<span class="token punctuation">&#125;</span>
+
+
+structure S<span class="token punctuation">:</span><span class="token function">V</span><span class="token punctuation">&#123;</span>
+	<span class="token operator">//</span>You can <span class="token function">put</span> <span class="token punctuation">(</span>partial<span class="token punctuation">)</span> assignments here
+    <span class="token operator">//</span>We interpret the edge<span class="token punctuation">:</span>
+    e_ia <span class="token operator">=</span> <span class="token keyword">true</span>
+    e_ah <span class="token operator">=</span> <span class="token keyword">true</span>
+    e_ih <span class="token operator">=</span> <span class="token keyword">false</span>
+<span class="token punctuation">&#125;</span>
+
+procedure <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+ <span class="token operator">//</span>Generate the models of both of the theories<span class="token punctuation">.</span> We see they indeed agree<span class="token punctuation">:</span>
+    <span class="token function">printmodels</span><span class="token punctuation">(</span><span class="token function">allmodels</span><span class="token punctuation">(</span>notInCNF<span class="token punctuation">,</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">printmodels</span><span class="token punctuation">(</span><span class="token function">allmodels</span><span class="token punctuation">(</span>inCNF<span class="token punctuation">,</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -700,8 +795,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Computer-Systems/" class="post-category">
+                                    Computer Systems
                                 </a>
                             
                             
@@ -749,8 +844,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Math/" class="post-category">
+                                    Math
                                 </a>
                             
                             
@@ -929,13 +1024,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

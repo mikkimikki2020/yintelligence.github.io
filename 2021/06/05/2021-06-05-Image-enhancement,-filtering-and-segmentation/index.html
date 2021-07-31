@@ -1,0 +1,2286 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Image enhancement, filtering and segmentation, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Image enhancement, filtering and segmentation | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Image enhancement, filtering and segmentation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Biomedical-Signals-and-Images/">
+                                <span class="chip bg-color">Biomedical Signals and Images</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                Digital Health
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-06-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-07-31
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    8.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    40 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="image-enhancement-filtering-and-segmentation">Image enhancement, filtering and segmentation</h1>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e7b303f0-1fd9-4cea-a84e-ac77005fc603">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18933/files/648186?module_item_id=119760">Slide</a></p>
+<p>Image enhancement and filtering: Post-processing operations to enhance or suppress certain properties before <strong>reviewing</strong> or further <strong>processing</strong></p>
+<p>图像增强和过滤：在<strong>审查</strong>或进一步<strong>处理</strong>之前进行后处理操作以增强或抑制某些属性</p>
+<p><img src="/images/HMS/2249370.png" /></p>
+<h2 id="image-enhancement-图像增强">Image enhancement 图像增强</h2>
+<ul>
+<li><p>Objectives</p>
+<ul>
+<li><p>Improve the appearance of images to human viewers</p>
+<p>改善图像对人类观众的外观</p></li>
+<li><p>Enhance the performance of other image processing algorithms</p>
+<p>增强其他图像处理算法的性能</p></li>
+</ul></li>
+<li><p>Application and modality specific 特定于应用程序和模式</p>
+<ul>
+<li><p>Methods that are suited for one application, due not perform well for another</p>
+<p>适合一种应用的方法，但不适用于另一种应用</p></li>
+<li><p>Methods tend to be different for, e.g. x-ray images vs MR images</p>
+<p>方法往往会有所不同，例如 X 射线图像与 MR 图像</p></li>
+</ul></li>
+<li><p>Focus on histogram based techniques 专注于基于直方图的技术</p>
+<ul>
+<li><p>Modify the grey value / intensity of pixels without considering neighbourhood</p>
+<p>在不考虑邻域的情况下修改像素的灰度值/强度</p>
+<blockquote>
+<p>Methods that do consider neighbourhood are discussed later （filters）</p>
+<p>稍后讨论考虑邻域的方法（过滤器）</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h3 id="the-image-histogram">The image histogram</h3>
+<p>A representation of the distribution of the intensities 强度分布的表示</p>
+<ul>
+<li><p>For all intensities （X-axis）, count the pixels （Y-axis）</p>
+<p>对于所有强度（X 轴），计算像素（Y 轴）</p></li>
+<li><p>In practice, group pixels into intensity bins</p>
+<p>在实践中，将像素分组到强度箱中</p>
+<ul>
+<li><p>Intensity between [I<sub>lower</sub>,I<sub>upper</sub>] in one bin, to limit amount of bins and increase pixel count</p>
+<p>一个 bin 中[I<sub>lower</sub>,I<sub>upper</sub>]之间的强度，以限制 bin 数量并增加像素数</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249371.png" /></p>
+<h4 id="examples-of-histograms">Examples of histograms</h4>
+<ul>
+<li><p>Intensities concentrated in one end of the scale 强度集中在天平的一端</p>
+<ul>
+<li>Dark or bright images 黑暗或明亮的图像</li>
+</ul></li>
+<li><p>High number of Intensities <strong>spread over limited range</strong></p>
+<p>高强度<strong>分布在有限范围内</strong></p>
+<ul>
+<li>Low contrast 低对比度</li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249372.png" /></p>
+<p>Low contrast reduces the <strong>visual separation</strong> between structures 低对比度减少了结构之间的<strong>视觉分离</strong></p>
+<ul>
+<li><p>May reduce sensitivity for detecting changes or abnormalities</p>
+<p>可能会降低检测变化或异常的灵敏度</p></li>
+</ul>
+<h3 id="global-histogram-operations-全局直方图操作">Global histogram operations 全局直方图操作</h3>
+<h4 id="linear-contrast-mapping-线性对比映射">Linear contrast mapping 线性对比映射</h4>
+<p><strong>Objective</strong>: Find a <u>linear intensity transformation T</u>, that maps the intensities i such that they cover <u>the full intensity range</u>.</p>
+<p><strong>目标</strong>：找到<u>线性强度变换T</u>，映射强度i，使其覆盖<u>整个强度范围</u>。 <span class="math display">\[
+j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\ (j_{min}= 0 \and j_{max}= 255) → j = 255\frac{i- i_{min}}{i_{max}-i_{min}}
+\]</span></p>
+<ul>
+<li>Also termed histogram stretching 也称为直方图拉伸</li>
+<li>Operation is reversible 操作是可逆的
+<ul>
+<li>Except for rounding errors in the intensity transformation</li>
+<li>强度变换中的舍入误差除外</li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249373.png" /></p>
+<p><strong>Linear contrast mapping: example</strong></p>
+<p><img src="/images/HMS/2249374.png" /></p>
+<ul>
+<li><p>Original image</p>
+<ul>
+<li><p>Not the full range of intensities used</p>
+<p>不是使用的全部强度范围</p></li>
+</ul></li>
+<li><p>Resulting image</p>
+<ul>
+<li><p>Shows higher intensity range, more contrast between neighbouring structures</p>
+<p>显示更高的强度范围，相邻结构之间的对比度更高</p></li>
+</ul></li>
+</ul>
+<h4 id="intensity-gray-scale-windowing-灰度窗口">Intensity （Gray scale） windowing 灰度窗口</h4>
+<p>Map a certain <strong>range</strong> of the intensity values, to the full display range</p>
+<p>将强度值的某个<strong>范围</strong>映射到完整的显示范围</p>
+<ul>
+<li><p>Often performed <strong>interactively</strong> while reviewing the image</p>
+<p>经常在查看图像时以<strong>交互方式</strong>执行</p>
+<ul>
+<li><p>In that case, only affects the displayed image, image on disk remains unaltered</p>
+<p>在这种情况下，只影响显示的图像，磁盘上的图像保持不变</p></li>
+<li><p>Comes down to changing the <strong>look-up table</strong> used for displaying the image</p>
+<p>归结为更改用于显示图像的<strong>查找表</strong></p></li>
+</ul></li>
+<li><p>Specify a <strong>window</strong> （width） and <strong>level</strong></p>
+<p>指定 <strong>window</strong>（宽度）和 <strong>level</strong></p></li>
+<li><p>Values outside are mapped to black and white （clipped or saturated）</p>
+<p>外面的值被映射到黑色和白色（剪切或饱和）</p></li>
+</ul>
+<p><img src="/images/HMS/2249375.png" /></p>
+<h5 id="ct-images">CT images</h5>
+<p><img src="/images/HMS/2249376.png" /></p>
+<ul>
+<li>Standard scale of [-1024, 3071] HU</li>
+<li>12-bit pixel representation</li>
+<li>Settings showing
+<ul>
+<li>All tissues</li>
+<li>Soft tissue</li>
+<li>Lungs</li>
+<li>Bones</li>
+</ul></li>
+</ul>
+<h3 id="histogram-equalisation-直方图均衡">Histogram equalisation 直方图均衡</h3>
+<ul>
+<li><p>Objective</p>
+<ul>
+<li><p>Find a non-linear intensity transformation T, that maps the intensities i such that the histogram becomes uniform</p>
+<p>找到一个非线性强度变换 T，它映射强度 i 使得直方图变得均匀</p></li>
+<li><p>Comes down to a non -linear stretching</p>
+<p>归结为非线性拉伸</p></li>
+</ul></li>
+<li><p>Sought transform is the cumulative histogram</p>
+<p>寻求变换是累积直方图</p></li>
+<li><p>In practice, the result is approximate 在实践中，结果是近似的</p>
+<ul>
+<li><p>Discrete nature of images and histograms does not allow to obtain a perfect homogeneous distribution</p>
+<p>图像和直方图的离散特性不允许获得完美的均匀分布</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249377.png" /></p>
+<figure>
+<img src="/images/HMS/2249378.png" alt="" /><figcaption>说明</figcaption>
+</figure>
+<h4 id="applied-on-the-whole-image-region-应用于整个图像区域">Applied on the whole image region 应用于整个图像区域</h4>
+<ul>
+<li><p>The background may take up large region 背景可能会占据很大的区域</p>
+<ul>
+<li><p>Many voxels with low range （noise）</p>
+<p>许多体素具有低范围（噪声）</p></li>
+</ul></li>
+<li><p>When equalizing this region 均衡该区域时</p>
+<ul>
+<li><p>Amplifying noise by shifting it to higher intensities</p>
+<p>通过将噪音转移到更高的强度来放大噪音</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249379.png" /></p>
+<h4 id="applied-on-a-part-of-the-image-region-应用于局部图像区域">Applied on a part of the image region 应用于局部图像区域</h4>
+<ul>
+<li>Only image structures present, no background 仅存在图像结构，无背景</li>
+<li>Locally optimizing the contrast 局部优化对比度</li>
+</ul>
+<p><img src="/images/HMS/2249380.png" /></p>
+<h2 id="image-filtering-图像过滤">Image filtering 图像过滤</h2>
+<p>Filters are used in medical imaging to enhance or suppress certain features of images 过滤器在医学成像中用于增强或抑制图像的某些特征</p>
+<ul>
+<li><p>Before <strong>reviewing</strong> them 在<strong>审查</strong>他们之前</p></li>
+<li><p>As a <strong>pre-processing</strong> step for further processing</p>
+<p>作为进一步处理的<strong>预处理</strong>步骤</p></li>
+</ul>
+<p>Histogram operations do not take into account the <strong>spatial distribution</strong> of intensities 直方图操作不考虑强度的<strong>空间分布</strong></p>
+<h3 id="image-filters-图像过滤器">Image filters 图像过滤器</h3>
+<ul>
+<li>Will alter the grey values of a pixel, typically by looking at the pixel and a certain <strong>neighbourhood</strong> 将改变像素的灰度值，通常通过查看像素和某个<strong>邻域</strong></li>
+<li>The region considered for each pixel can often be represented using a <strong>mask</strong> 为每个像素考虑的区域通常可以使用 <strong>mask</strong> 表示</li>
+</ul>
+<p><img src="/images/HMS/2249381.png" /></p>
+<h3 id="spatial-filter-masks-空间过滤掩码">Spatial filter masks 空间过滤掩码</h3>
+<h4 id="image-filtering-using-a-spatial-filter-mask-使用空间过滤器掩码进行图像过滤">Image filtering using a spatial filter mask 使用空间过滤器掩码进行图像过滤</h4>
+<ul>
+<li><p>Spatial filter mask is placed over a pixel</p>
+<p>空间过滤器蒙版放置在一个像素上</p>
+<ul>
+<li><p>All elements of the mask are visited</p>
+<p>访问掩码的所有元素</p></li>
+</ul></li>
+<li><p>The underlying pixels are <strong>combined</strong> to a new value for the central pixel</p>
+<p>底层像素<strong>组合</strong>为中心像素的新值</p>
+<ul>
+<li>Averaged</li>
+<li>Median</li>
+<li>Weighted</li>
+</ul></li>
+<li><p>In case the mask contains weights to linearly combine the underlying pixels 如果蒙版包含权重以线性组合底层像素</p>
+<ul>
+<li><p><strong>Linear convolution</strong> of mask and image</p>
+<p><strong>面具和图像的线性卷积</strong></p>
+<ul>
+<li><p>The values of the mask also make an image</p>
+<p>蒙版的值也使图像</p></li>
+<li><p>Mask also called a kernel</p>
+<p>蒙版也称为内核</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249382.png" /> <span class="math display">\[
+f(x,y)*g(x,y)=\sum^{K-|\frac{K}{2}|-1}_{k=-|\frac{K}{2}|}\sum^{L-|\frac{L}{2}|-1}_{l=-|\frac{L}{2}|}f(k,l)g(x-k,y-l)
+\]</span></p>
+<h4 id="linear-filtering-using-a-spatial-filter-mask-使用空间过滤器掩码的线性过滤">Linear filtering using a spatial filter mask 使用空间过滤器掩码的线性过滤</h4>
+<p><img src="/images/HMS/2249383.png" /></p>
+<p>For <strong>linear</strong> spatial filtering, the result, R, at a point （x,y） is <span class="math display">\[
+R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
+\]</span></p>
+<h3 id="filters-for-noise-suppression-噪声抑制滤波器">Filters for noise suppression 噪声抑制滤波器</h3>
+<ul>
+<li><p>The measured pixels in real medical image data have finite accuracy, leading to <strong>variability</strong> and <strong>uncertainty</strong> on the intensities</p>
+<p>真实医学图像数据中的测量像素精度有限，导致强度的<strong>可变性</strong>和<strong>不确定性</strong></p></li>
+<li><p>This uncertainty is undesirable and interpreted as noise</p>
+<p>这种不确定性是不可取的，被解释为噪音</p>
+<ul>
+<li><p>Noise can often be assumed to be of <strong>high-frequency</strong></p>
+<p>通常可以假设噪声是<strong>高频</strong></p></li>
+<li><p>Noise suppression often aims at suppressing high frequencies</p>
+<p>噪声抑制通常旨在抑制高频</p></li>
+</ul></li>
+<li><p>Linear low-pass filtering 线性低通滤波</p>
+<ul>
+<li><p><strong>Linear filtering</strong> using convolution with a mask in spatial domain</p>
+<p><strong>线性过滤</strong>在空间域中使用带有掩码的卷积</p></li>
+</ul></li>
+<li><p>Non-linear noise suppression or <u><strong>edge preserving smoothing</strong></u></p>
+<p>非线性噪声抑制或<u><strong>边缘保持平滑</strong></u></p>
+<ul>
+<li><p>Non-linear methods aiming at better preservation of image features</p>
+<p>旨在更好地保留图像特征的非线性方法</p></li>
+</ul></li>
+</ul>
+<h4 id="the-2d-gaussian-function-二维高斯函数">The 2D Gaussian function 二维高斯函数</h4>
+<p>The 2D truncated Gaussian kernel 二维截断高斯核 <span class="math display">\[
+\frac{1}{2\pi\sigma^2}^{\frac{x^2+y^2}{2\sigma^2}}
+\]</span></p>
+<ul>
+<li><p>Often used for linear low-pass filtering 常用于线性低通滤波</p></li>
+<li><p>The typical bell-shape 典型的钟形</p>
+<ul>
+<li>Gradually less contribution of more distant pixels to the central one 更远的像素对中心像素的贡献逐渐减少</li>
+</ul></li>
+<li><p>The integral is equal to one 积分等于一</p>
+<ul>
+<li><p>Normalized, retain the same intensity range as before</p>
+<p>标准化，保持与以前相同的强度范围</p></li>
+</ul></li>
+<li><p><strong>Truncated 截断</strong></p>
+<ul>
+<li><p>Limit the amount of operations to compute the filtered values</p>
+<p>限制计算过滤值的操作数量</p></li>
+</ul></li>
+</ul>
+<h4 id="linear-low-pass-filtering-线性低通滤波">Linear low pass filtering 线性低通滤波</h4>
+<p>Small kernels are often used for efficiency 小内核通常用于提高效率</p>
+<ul>
+<li><p>Coarsely <strong>sampled Gaussian functions</strong> 粗<strong>采样高斯函数</strong></p>
+<ul>
+<li><p>Elements are <u>scaled to a sum of 1</u> to preserve the intensity range and average</p>
+<p>元素缩放到总和为 1 以保留强度范围和平均值</p>
+<p><img src="/images/HMS/2249384.png" /></p></li>
+</ul></li>
+<li><p>Two parameters 两个参数</p>
+<ul>
+<li><p><strong>Mask size</strong> determines the extent of the sampling</p>
+<p><strong>Mask size</strong> 决定了采样的范围</p></li>
+<li><p><strong>Sigma of the Gaussian</strong> function determines smoothing</p>
+<p><strong>高斯函数的 Sigma</strong> 决定平滑</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249385.png" /></p>
+<p>Repeated application leads to progressively more smoothing, blurring the image 重复应用会逐渐变得更加平滑，使图像变得模糊</p>
+<h4 id="mean-filtering-均值过滤">Mean filtering 均值过滤</h4>
+<ul>
+<li><p>3×3 mean or moving average filter 3×3 均值或移动平均滤波器</p>
+<ul>
+<li><p>Each pixel becomes the average of its surrounding</p>
+<p>每个像素成为其周围的平均值</p></li>
+</ul></li>
+<li><p>Mask corresponds to a rectangular pulse Mask对应一个矩形脉冲</p>
+<ul>
+<li><p><u>Convolution with a pulse</u> in spatial domain</p>
+<p><u>空间域中的脉冲卷积</u></p></li>
+<li><p><u>Multiplication with a Sinc</u> function in frequency domain</p>
+<p><u>与频域中的Sinc函数相乘</u></p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249386.png" /></p>
+<h5 id="illustration-of-the-process-过程图示">Illustration of the process 过程图示</h5>
+<ul>
+<li>Filter kernel /mask is placed over red numbers 过滤内核/掩码放在红色数字上</li>
+<li>Pixels are multiplied with mask weights 像素乘以蒙版权重
+<ul>
+<li>mean of the 9 values 9 个值的平均值</li>
+</ul></li>
+<li>Output saved at central pixel 输出保存在中心像素</li>
+</ul>
+<p><img src="/images/HMS/2249387.png" /></p>
+<p><img src="/images/HMS/2249389.png" /></p>
+<h4 id="non-linear-filters-for-noise-suppression-用于噪声抑制的非线性滤波器">Non-linear filters for noise suppression 用于噪声抑制的非线性滤波器</h4>
+<ul>
+<li><p>Linear low-pass filtering 线性低通滤波</p>
+<ul>
+<li><p>Reduces the noise, at the cost of also deforming the useful signal 降低噪声，代价是也使有用信号变形</p></li>
+<li><p>Blurring the edges of an image, often undesirable</p>
+<p>模糊图像的边缘，通常是不受欢迎的</p></li>
+<li><p>Some non-linear filter tend to preserve the edges</p>
+<p>一些非线性滤波器倾向于保留边缘</p></li>
+</ul></li>
+<li><p>Median filtering consists of taking the median of the values</p>
+<p>中值过滤包括取值的中值</p>
+<ul>
+<li><strong>非线性</strong>过滤方法 <strong>Non-linear filtering</strong> approach</li>
+<li>对异常值更稳健，即高度不同的像素 More robust to outliers, i.e. highly different pixels</li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249389.png" /></p>
+<p>For uneven amount of elements, the median is the middle value of the sorted sequence 对于不均匀数量的元素，中位数是排序序列的中间值</p>
+<h4 id="symmetric-nearest-neighbour-filtering-对称最近邻过滤">Symmetric nearest neighbour filtering 对称最近邻过滤</h4>
+<ul>
+<li>Non-linear, edge-preserving filter 非线性、边缘保留滤波器</li>
+<li>Aims at making piece-wise uniform images 旨在制作分段均匀的图像</li>
+</ul>
+<p><strong>Process</strong></p>
+<p><img src="/images/HMS/2249390.png" /></p>
+<ul>
+<li><p>Two pixels symmetrical w.r.t. centre are compared</p>
+<p>两个像素对称 w.r.t. 中心比较</p>
+<ul>
+<li>The most similar selected 最相似的选择</li>
+</ul></li>
+<li><p>This is done for all neighbours in the mask 这对mask中的所有邻居完成</p></li>
+<li><p>The selected pixels are combined 合并选定的像素</p>
+<ul>
+<li>Mean, median,.. 平均值、中位数、..</li>
+<li>Used to replace the central value 用于替换中心值</li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249391.png" /></p>
+<h4 id="dual-symmetric-nearest-neighbour-filter-双对称最近邻滤波器">Dual symmetric nearest neighbour filter 双对称最近邻滤波器</h4>
+<ul>
+<li>Non-linear, edge-preserving filter 非线性、边缘保留滤波器</li>
+<li>Compares four symmetric values 比较四个对称值</li>
+<li>Preserves right edges 保留右边缘</li>
+</ul>
+<p><strong>Process</strong></p>
+<p><img src="/images/HMS/2249392.png" /></p>
+<ul>
+<li><p>Four pixels symmetrical w.r.t. centre are compared</p>
+<p>四个像素对称 w.r.t. 中心比较</p>
+<ul>
+<li>The most similar selected 最相似的选择</li>
+</ul></li>
+<li><p>This is done for all neighbours in the mask</p>
+<p>这对mask中的所有邻居完成</p></li>
+<li><p>The selected pixels are combined 合并选定的像素</p>
+<ul>
+<li>Mean, median,.. 平均值、中位数、..</li>
+<li>Used to replace the central value 用于替换中心值</li>
+</ul></li>
+</ul>
+<h4 id="bilateral-filtering">Bilateral filtering</h4>
+<p><span class="math display">\[
+J_s=\frac{1}{k(s)}\sum_{p∈\Omega}f(p-s)g(I_p-I_s)I_P\\
+k(s)=\sum_{p∈\Omega}f(p-s)g(I_p-I_s)
+\]</span></p>
+<ul>
+<li><p>Perform noise filtering by computing a weighted average of pixels</p>
+<p>通过计算像素的加权平均值来执行噪声过滤</p></li>
+<li><p>Weights depend on functions of spatial vicinity f and pixel similarity g</p>
+<p>权重取决于空间邻近函数 f 和像素相似度 g</p></li>
+<li><p>Gaussian functions of distances and intensity differences are common, but expensive to compute k</p>
+<p>距离和强度差异的高斯函数很常见，但计算 k 的成本很高</p></li>
+</ul>
+<p><img src="/images/HMS/2249393.png" /></p>
+<h5 id="bilateral-filtering-rationale-双边过滤基本原理">Bilateral filtering: rationale 双边过滤：基本原理</h5>
+<ul>
+<li><p>Gaussian filtering 高斯滤波</p>
+<ul>
+<li><p>Only takes into account the spatial vicinity of the pixels</p>
+<p>只考虑像素的空间邻近性</p></li>
+<li><p>Will blur across edges by combining pixels with very different intensity 通过组合具有非常不同强度的像素来模糊边缘</p></li>
+</ul></li>
+<li><p>Symmetric filtering （with mean operator） 对称过滤（使用均值算子）</p>
+<ul>
+<li><p>Considers the similarity of the intensities 考虑强度的相似性</p></li>
+<li><p>Assigns a weight of 0 （=not-selected） and 1 （=selected） for all pixels within the mask</p>
+<p>为蒙版内的所有像素分配 0（=未选中）和 1（=选中）的权重</p></li>
+</ul></li>
+</ul>
+<h3 id="filters-for-edge-enhancement-detection-用于边缘增强和检测的过滤器">Filters for edge enhancement &amp; detection 用于边缘增强和检测的过滤器</h3>
+<ul>
+<li><p>To enhance the <strong>edge contrast</strong> of an image 增强图像的<strong>边缘对比度</strong></p>
+<ul>
+<li>Improve its apparent sharpness 提高其明显的清晰度</li>
+</ul></li>
+<li><p>In case the goal is to obtain an edge map 如果目标是获得边缘图</p>
+<ul>
+<li>i.e. a binary image of the edges, 即边缘的二值图像，</li>
+<li><strong>edge detection</strong> <strong>边缘检测</strong></li>
+</ul></li>
+<li><p>Edge detection can be useful for <strong>segmentation</strong> 边缘检测可用于<strong>分割</strong></p>
+<ul>
+<li><p>Image feature that drives edge based segmentation approaches</p>
+<p>驱动基于边缘的分割方法的图像特征</p></li>
+</ul></li>
+<li><p>Edges are typically represented with <strong>high frequencies</strong></p>
+<p>边缘通常用<strong>高频</strong>表示</p>
+<ul>
+<li><p>Most approaches rely on high-pass filtering or boosting</p>
+<p>大多数方法依赖于高通滤波或增强</p></li>
+</ul></li>
+</ul>
+<p>Differential operators along the spatial directions x, y 沿空间方向 x, y 的微分算子</p>
+<ul>
+<li><p>The gradient magnitude image provides a measure for the rate of intensity transitions → <strong>edges</strong></p>
+<p>梯度幅值图像提供了强度转换率的衡量标准 → <strong>edges</strong></p></li>
+</ul>
+<p><img src="/images/HMS/2249394.png" /></p>
+<h4 id="rotation-invariance-of-the-gradient-magnitude-梯度幅值的旋转不变性">Rotation invariance of the gradient magnitude 梯度幅值的旋转不变性</h4>
+<p>Important for the reproducibility of the measure and resulting edge map</p>
+<p>对于测量的可重复性和生成的边缘图很重要 <span class="math display">\[
+Rotation\ transform =\left\{
+\begin{aligned}
+x  = &amp; x&#39;\cos\theta-y&#39;\sin\theta \\
+z  = &amp; x&#39;\sin\theta+y&#39;\cos\theta
+\end{aligned}
+\right.
+\]</span> Partial derivatives <span class="math display">\[
+\frac{\partial f}{\partial x&#39;}=\frac{\partial f}{\partial x}\frac{\partial x}{\partial x&#39;}+\frac{\partial f}{\partial y}\frac{\partial y}{\partial x&#39;}=\frac{\partial f}{\partial x}\cos\theta+\frac{\partial f}{\partial y}\sin\theta
+\]</span> Gradient magnitude <span class="math display">\[
+→(\frac{\partial f}{\partial x&#39;})^2+(\frac{\partial f}{\partial y&#39;})^2=(\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2
+\]</span></p>
+<blockquote>
+<p>The gradient magnitude is <strong>rotation invariant （approximately for discrete masks）</strong>, the partial derivatives are not</p>
+<p>梯度幅度是<strong>旋转不变的（近似于离散mask）</strong>，偏导数不是</p>
+</blockquote>
+<h4 id="filters-for-edge-detection-边缘检测过滤器">Filters for edge detection 边缘检测过滤器</h4>
+<ul>
+<li><p>Compact masks 紧凑型mask</p>
+<ul>
+<li><p>Fast computations 快速计算</p></li>
+<li><p>Discrete approximation of gradient components through <strong>linear filtering</strong></p>
+<p>通过<strong>线性过滤</strong>梯度分量的离散逼近</p></li>
+</ul></li>
+<li><p>Sum of coefficients of the linear mask = 0 线性mask的系数总和 = 0</p>
+<ul>
+<li><p>The <strong>DC component</strong> （local average） is removed</p>
+<p><strong>DC 分量</strong>（局部平均值）被移除</p></li>
+<li><p>Result is variations （+/-） around zero</p>
+<p>结果是零附近的变化 （+/-）</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249395.png" /></p>
+<h5 id="prewitt-mask">Prewitt mask</h5>
+<p>Sum of absolute values sometimes used as an approximation of gradient magnitude 绝对值的总和有时用作梯度幅度的近似值</p>
+<p><img src="/images/HMS/2249396.png" /></p>
+<h5 id="edge-detection">Edge detection</h5>
+<p>Thresholding the gradient magnitude, or sum of absolute values after Prewitt or Sobel filtering 阈值梯度幅度或 Prewitt 或 Sobel 过滤后的绝对值总和</p>
+<ul>
+<li><p>Provides an <strong>edge map</strong> 提供<strong>边缘图</strong></p>
+<ul>
+<li><p>Binary image with location of edges</p>
+<p>带有边缘位置的二值图像</p></li>
+</ul></li>
+<li><p>Difficult to select of an adequate threshold 难以选择合适的阈值</p>
+<ul>
+<li><p>Edges are often more than one pixel thick</p>
+<p>边缘通常不止一个像素厚</p></li>
+<li><p><strong>Uncertainty</strong> on localisation of edge 边缘定位的<strong>不确定性</strong></p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249397.png" /></p>
+<h5 id="edge-detection-via-second-order-derivatives-通过二阶导数进行边缘检测">Edge detection via second order derivatives 通过二阶导数进行边缘检测</h5>
+<ul>
+<li>Gradient magnitude 梯度幅度
+<ul>
+<li>Can lead to wide edges and interruptions 可能导致宽边和中断</li>
+<li>Uncertainty on the detection of the edge 边缘检测的不确定性</li>
+</ul></li>
+<li>Second order derivatives 二阶导数
+<ul>
+<li>Will rise and fall near edges 将在边缘附近上升和下降</li>
+<li><strong>Zero-crossing</strong> in between <strong>中间过零</strong></li>
+</ul></li>
+<li>Zero-crossing of the 2nd order derivatives 二阶导数的过零
+<ul>
+<li>Popular method for edge detection 边缘检测的流行方法</li>
+<li><strong>Laplacian operator</strong> <strong>拉普拉斯算子</strong></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249398.png" /></p>
+<h6 id="the-laplace-operator-a-high-pass-filter-拉普拉斯算子高通滤波器">The Laplace operator, a high-pass filter 拉普拉斯算子，高通滤波器</h6>
+<p>The Laplace operator <span class="math display">\[
+\Delta f=\nabla^2f=\nabla.\nabla f=(\frac{\partial^2 f}{\partial x^2})+(\frac{\partial^2 f}{\partial y^2})
+\]</span> Compact （3×3） masks that approximate the Laplacian output 近似拉普拉斯输出的紧凑 （3×3） 掩码 <span class="math display">\[
+f(i + 1, j) + f(i-1, j) + f(i, j + 1) + f(i, j-1)  4f(i, j)
+= f(i, j) + f(i + 1, j) + f(i-1, j) + f(i, j + 1) + f(i, j-1)  5f(i, j)
+\]</span></p>
+<ul>
+<li><p>Proportional to the difference of the average gray level in a neighbourhood and the central pixel （i,j）</p>
+<p>与邻域和中心像素的平均灰度级差成正比 （i,j）</p></li>
+<li><p>Sum of coefficients of the linear mask = 0 线性掩码的系数总和 = 0</p>
+<ul>
+<li><p>The DC component （the local average） is removed</p>
+<p>去除了直流分量（局部平均值）</p></li>
+</ul></li>
+<li><p>A <strong>rotation invariant measure</strong>, only approximately in the discrete case</p>
+<p><strong>旋转不变测度</strong>，仅在离散情况下近似</p></li>
+<li><p>The negated kernel is also a high-pass filter 否定内核也是一个高通滤波器</p></li>
+</ul>
+<p><img src="/images/HMS/2249399.png" /> <span class="math display">\[
+LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2+y^2}{\sigma^4}-\frac{2}{\sigma^2})e^{-\frac{x^2+y^2}{2\sigma^2}}
+\]</span></p>
+<ul>
+<li><p>Second order derivatives 二阶衍生品</p>
+<ul>
+<li><strong>Amplify the image noise</strong> tremendously <strong>极大地放大图像噪声</strong></li>
+<li>Amplification of high frequencies 高频放大</li>
+</ul></li>
+<li><p>Laplacian is often combined with smoothing 拉普拉斯算子通常与平滑结合使用</p></li>
+<li><p><strong>Laplace of a Gaussian</strong> <strong>高斯拉普拉斯</strong></p>
+<ul>
+<li><p>Laplacian and smoothing can be performed simultaneously</p>
+<p>拉普拉斯算子和平滑可以同时进行</p></li>
+<li><p>Using one kernel / filter operation</p>
+<p>使用一个内核/过滤器操作</p></li>
+</ul></li>
+</ul>
+<h6 id="zero-crossing-algorithm-过零算法">Zero-crossing: algorithm 过零：算法</h6>
+<p>After filtering with the Laplacian of Gaussian 用高斯拉普拉斯算子滤波后</p>
+<ul>
+<li><p>Each pixel of the filtered image is compared with its <strong>4 direct neighbours</strong> 过滤图像的每个像素与其<strong>4个直接邻居</strong>进行比较</p></li>
+<li><p>If a sign change is detected, <u>a zero-crossing is marked</u> on the pixel with the smallest, hence negative, value.</p>
+<p>如果检测到符号变化，则<u>在具有最小（因此为负）值的像素上标记过零</u>。</p></li>
+<li><p>In this way, contours of only <strong>one -pixel wide</strong> are obtained</p>
+<p>这样，只得到了<strong>一个像素宽</strong>的轮廓</p></li>
+</ul>
+<p>The edges obtained by zero-crossing detection have the advantage to directly form closed contours 过零检测得到的边缘具有直接形成闭合轮廓的优点</p>
+<ul>
+<li><p>A problem is that this method does not take into account the strength of the edge 一个问题是这个方法没有考虑边缘的强度</p></li>
+<li><p>Zero-crossings can be produced by slight variations in the intensity</p>
+<p>强度的轻微变化可以产生过零</p></li>
+<li><p>These kind of unwanted edges are commonly called spurious edges.</p>
+<p>这种不需要的边缘通常称为虚假边缘。</p></li>
+<li><p>They can be eliminated by choosing a larger σ for the Gaussian filter</p>
+<p>可以通过为高斯滤波器选择更大的 σ 来消除它们</p></li>
+</ul>
+<p><img src="/images/HMS/2249400.png" /></p>
+<p>Edge detection by means of the Zero-Crossings of the Laplacian of a Gaussian通过高斯拉普拉斯算子的过零进行边缘检测</p>
+<p><img src="/images/HMS/2249401.png" /></p>
+<p>Edge map obtained for increasing values of sigma / smoothing</p>
+<h4 id="filters-for-edge-enhancement-边缘增强过滤器">Filters for edge enhancement 边缘增强过滤器</h4>
+<ul>
+<li><p>Unsharp masking 不锐化遮罩</p>
+<ul>
+<li><p>Related to <strong>high-pass filtering or boosting</strong></p>
+<p>与<strong>高通滤波或增强</strong>相关</p></li>
+<li><p>Emphasize the high-frequency components</p>
+<p>强调高频成分</p></li>
+</ul></li>
+<li><p>Many implementations exist, following same principal</p>
+<p>存在许多实现，遵循相同的原则</p>
+<ul>
+<li><p>Add a scaled （factor 0.2-0.7） high-pass version of the image to the original 将图像的缩放（因子 0.2-0.7）高通版本添加到原始图像</p>
+<ul>
+<li><p>The high-pass can be obtained by subtracting a low-pass, unsharp version from the original</p>
+<p>高通可以通过从原始版本中减去一个低通、不清晰的版本来获得</p></li>
+<li><p>Can be obtained directly using a <strong>high-pass filter</strong></p>
+<p>高通可以通过从原始版本中减去一个低通、不清晰的版本来获得</p></li>
+<li><p>The sign should be appropriate to <strong>emphasize</strong> the transitions</p>
+<p>标志应该适合<strong>强调</strong>过渡</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249402.png" /></p>
+<h5 id="unsharp-mask-filtering-using-compact-masks-使用紧凑蒙版进行锐化蒙版过滤">Unsharp mask filtering using compact masks 使用紧凑蒙版进行锐化蒙版过滤</h5>
+<p>Masks that can be used for linear unsharp mask filtering 可用于线性非锐化蒙版过滤的蒙版</p>
+<ul>
+<li>Sum of all elements =1 所有元素的总和 =1
+<ul>
+<li>Preserve average intensity locally 保持局部平均强度</li>
+</ul></li>
+<li>Minus 1 on the central element 中心元素减 1
+<ul>
+<li>Shows the （scaled） high pass filter 显示（缩放）高通滤波器</li>
+</ul></li>
+<li>Can be combined with smoothing 可以结合平滑
+<ul>
+<li>Avoid amplifying noise 避免放大噪音</li>
+<li>Laplacian of a Gaussian高斯拉普拉斯算子</li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249403.png" /></p>
+<p>Unsharp mask filter only feasible on high-quality, low noise images. Or should be combined with noise suppression.</p>
+<p>Unsharp mask filter 只适用于高质量、低噪声的图像。 或者应该结合噪声抑制。</p>
+<p><img src="/images/HMS/2249404.png" /></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WeNpd_YEF6I">Intuitive explanation of unsharp masking</a></p>
+<h2 id="image-segmentation-图像分割">Image segmentation 图像分割</h2>
+<ul>
+<li><p>Delineation of the outer edge / surface 外边缘/表面的描绘</p>
+<ul>
+<li><p>Partition of image region in in-out or {0,1}</p>
+<p>图像区域在进出或{0,1}中的划分</p></li>
+</ul></li>
+<li><p>Used for <strong>measurements</strong> 用于<strong>测量</strong></p>
+<ul>
+<li>Position size, area, volume 仓位大小、面积、成交量</li>
+</ul></li>
+<li><p>Used for <strong>visualization </strong>用于<strong>可视化</strong></p>
+<ul>
+<li>3D rendering or visualisation of organs 器官的 3D 渲染或可视化</li>
+<li>Showing outer shape of organs 显示器官的外形
+<ul>
+<li>Segmented boundaries or surfaces 分段边界或表面</li>
+<li>Enhanced using textures 使用纹理增强</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="different-approaches-to-segmentation">Different approaches to segmentation</h3>
+<p>Many methods exist. The choice depends on</p>
+<ul>
+<li>The type of images 图像的类型</li>
+<li>The image quality 图像质量</li>
+<li>The type of structure to segment 要分段的结构类型</li>
+</ul>
+<p>Two main approaches can be termed <strong>region-based</strong> &amp; <strong>edge-based</strong></p>
+<p>两种主要方法可以称为<strong>基于区域的</strong>和<strong>基于边缘的</strong></p>
+<ul>
+<li>Additional constraints 额外的限制
+<ul>
+<li>Connectivity 连通性</li>
+<li>Shape and geometry, … 形状和几何形状，...</li>
+</ul></li>
+</ul>
+<h4 id="region-based-基于区域">Region-based 基于区域</h4>
+<ul>
+<li><p>The object can be identified based on its intensity （e.g. CT）</p>
+<p>可以根据物体的强度（例如 CT）识别物体</p></li>
+<li><p>It differs from its surrounding based on the intensity</p>
+<p>根据强度与周围环境不同</p>
+<ul>
+<li><p>It is not connected to other regions with similar intensity?</p>
+<p>它没有连接到具有相似强度的其他区域吗？</p></li>
+</ul></li>
+<li><p>We use the region to identify the object</p>
+<p>我们使用区域来识别对象</p></li>
+<li><p>The area or volume is the goal, 面积或体积是目标，</p>
+<ul>
+<li>e.g. for volume measurements 例如用于体积测量</li>
+<li>Surface is less important 表面不那么重要</li>
+</ul></li>
+</ul>
+<h4 id="edge-based-基于边缘">Edge-based 基于边缘</h4>
+<ul>
+<li><p>The border between the regions is the best guide</p>
+<p>地区之间的边界是最好的指南</p>
+<ul>
+<li><p>Intensity progressively changes across the object?</p>
+<p>强度在物体上逐渐变化？</p></li>
+</ul></li>
+<li><p>A smooth shape delimits the structure of interest</p>
+<p>光滑的形状划定了感兴趣的结构</p></li>
+<li><p>We use the edge to identify the object</p>
+<p>我们使用边缘来识别物体</p></li>
+<li><p>The final contour / surface is the goal, 最终的轮廓/表面是目标，</p>
+<ul>
+<li>eg for 3D visualisation 例如用于 3D 可视化</li>
+</ul></li>
+</ul>
+<h3 id="thresholding-阈值">Thresholding 阈值</h3>
+<h4 id="interactive-thresholding-交互式阈值">Interactive thresholding 交互式阈值</h4>
+<ul>
+<li><p>Simplest and fastest segmentation method 最简单、最快的分割方法</p>
+<ul>
+<li><p>Region-based method solely guided by intensity</p>
+<p>完全由强度指导的基于区域的方法</p></li>
+<li><p>Works best if tissue type and intensity are related</p>
+<p>如果组织类型和强度相关，效果最佳</p></li>
+<li><p>e.g. if the modality constitutes a quantitative measurement as in CT</p>
+<p>例如如果模态构成 CT 中的定量测量</p></li>
+</ul></li>
+<li><p>Partitioning based on the image histogram 基于图像直方图的分区</p>
+<ul>
+<li><p>Define one or multiple <strong>intensity boundaries</strong></p>
+<p>定义一个或多个<strong>强度边界</strong></p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249405.png" /></p>
+<ul>
+<li><p>Pixels that fall within the boundaries → 1 or <strong>foreground / inside / in</strong></p>
+<p>落在边界内的像素 → 1 或 <strong>foreground / inside / in</strong></p></li>
+<li><p>Pixels that are outside the boundaries → 0 or <strong>background / outside / out</strong></p>
+<p>边界外的像素 → 0 或 <strong>background/outside/out</strong></p></li>
+</ul>
+<p><img src="/images/HMS/2249406.png" /></p>
+<h4 id="automated-thresholding-自动阈值">Automated thresholding 自动阈值</h4>
+<ul>
+<li><p>Thresholding can be done manually 阈值可以手动完成</p>
+<ul>
+<li><p>Interactive adjustment of borders till it matches the sought structures</p>
+<p>边界的交互式调整，直到它匹配所寻求的结构</p></li>
+</ul></li>
+<li><p>In some cases, <strong>automated thresholding</strong> is feasible</p>
+<p>在某些情况下，<strong>自动阈值处理</strong>是可行的</p>
+<ul>
+<li><p>Based on valleys in histogram or separation of classes</p>
+<p>基于直方图中的谷值或类的分离</p></li>
+<li><p>Bimodal or multi-modal distributions</p>
+<p>双峰或多峰分布</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249407.png" /></p>
+<p>Otsu thresholding 大津阈值</p>
+<ul>
+<li>Minimize the inner class variance 最小化内部类方差</li>
+<li>Maximize the between class variance 最大化类间方差</li>
+<li>Extendable to multiple labels 可扩展到多个标签</li>
+</ul>
+<h3 id="region-growing-区域增长">Region growing 区域增长</h3>
+<p>With an intensity based criterion, closely related to thresholding 使用基于强度的标准，与阈值密切相关</p>
+<ul>
+<li><p>Region-based, incorporating the notion of <strong>spatial connectivity</strong></p>
+<p>基于区域，结合<strong>空间连通性</strong>的概念</p></li>
+<li><p><u>Allows to limit the segmentation to spatially connected regions</u></p>
+<p><u>允许将分割限制为空间连接区域</u></p></li>
+</ul>
+<p><img src="/images/HMS/2249408.png" /></p>
+<p>Grow a region starting from a <strong>seed point</strong> 从<strong>种子点</strong>开始种植区域</p>
+<ul>
+<li><p>User defined <strong>starting point（s）</strong> given through interface / interaction</p>
+<p>用户定义的<strong>起点</strong>通过界面/交互给出</p></li>
+<li><p>Region growing criterion, 区域生长标准，</p>
+<ul>
+<li><p>e.g. intensity should lie between certain threshold values</p>
+<p>例如强度应介于某些阈值之间</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/2249409.png" /></p>
+<pre class="line-numbers language-none"><code class="language-none">Algorithm
+
+1. add seeds to Ωin
+2. list neighbours N of Ωin
+	if N[i] is not in Ωout,in
+    	add N[i] to B
+    end
+3. for all pixels in B
+    if C(B[i]) is true
+    	add B[i] to Ωin
+    else
+    	add B[i] to Ωout
+    end
+4. repeat 2-3 while new B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Algorithms vary in inclusion and stopping criterion 算法在包含和停止标准方面有所不同</p>
+<ul>
+<li><p>Average neighbourhood before applying criterion</p>
+<p>应用标准前的平均邻域</p>
+<ul>
+<li><p>Improve <strong>robustness</strong> to noise</p>
+<p>提高<strong>鲁棒性</strong>噪声</p></li>
+</ul></li>
+<li><p>Apply criterion to all pixels in neighbourhood before including central pixel 在包括中心像素之前，将标准应用于邻域中的所有像素</p>
+<ul>
+<li><p>Prevent <strong>leaking</strong> through thin structures</p>
+<p>通过薄结构防止<strong>泄漏</strong></p></li>
+</ul></li>
+<li><p>Progressively relax threshold and stop when relative growth becomes too large （explosion-controlled region growing）</p>
+<p>逐步放宽阈值并在相对增长变得太大时停止（爆炸控制区域增长）</p>
+<ul>
+<li><p>Allows to <u>automatically find threshold</u> segmenting a structure, without leaking into adjacent structure</p>
+<p>允许<u>自动找到阈值</u>分割结构，而不会泄漏到相邻结构中</p></li>
+</ul></li>
+</ul>
+<h3 id="deformable-models-可变形模型">Deformable models 可变形模型</h3>
+<ul>
+<li><p>Flexible contours （2D） or surfaces （3D） with controllable properties</p>
+<p>具有可控属性的柔性轮廓 （2D） 或表面 （3D）</p>
+<ul>
+<li>Evolve initial shape until it matches the outer contour of an object 进化初始形状，直到它与对象的外轮廓相匹配</li>
+<li>Driven by <strong>virtual forces</strong> derived from the image, edge-based method 由来自图像的<strong>虚拟力</strong>驱动，基于边缘的方法</li>
+</ul></li>
+<li><p>Also termed <strong>active contours</strong> 也称为<strong>活动轮廓</strong></p></li>
+</ul>
+<p><img src="/images/HMS/2249410.png" /></p>
+<p>Theory based on continuum mechanics and elasticity theory 基于连续介质力学和弹性理论的理论</p>
+<ul>
+<li>Elasticity, tension, rigidity 弹性、张力、刚性</li>
+<li>Smoothness, curvature 平滑度、曲率</li>
+<li>Expansion, contraction 扩张、收缩</li>
+</ul>
+<h4 id="snakes-a-simple-active-contour">Snakes, a simple active contour</h4>
+<h5 id="mathematical-formulation">Mathematical formulation</h5>
+<ul>
+<li><p>A deformable contour parameterized by a single parameter s</p>
+<p>由单个参数 s 参数化的可变形轮廓</p></li>
+<li><p>Internal energy based on <strong>deformation</strong></p>
+<p>基于<strong>变形</strong>的内能</p></li>
+<li><p>External energy based on <strong>image</strong></p>
+<p>基于<strong>图像</strong>的外部能量</p></li>
+<li><p>Snake should minimize</p>
+<p>Snake应该最小化</p></li>
+</ul>
+<p><img src="/images/HMS/2249411.png" /></p>
+<h5 id="internal-forces">Internal forces</h5>
+<p><span class="math display">\[
+E_{int}=\int^1_0\omega_1(s)\frac{|\vec{v}_s|^2}{2}+\omega_2(s)\frac{|\vec{v}_ss|^2}{2}ds
+\]</span></p>
+<ul>
+<li>v<sub>s</sub> is the first order derivative to s, a measure of <strong>stretching</strong> <strong>拉伸</strong>的度量</li>
+<li>v<sub>ss</sub> is the second order derivative, a measure of <strong>curvature</strong> <strong>曲率</strong>的度量</li>
+<li>w<sub>1</sub> and w<sub>2</sub> control their influence, i.e. the <strong>tension 张力</strong> and <strong>rigidity 刚性</strong></li>
+</ul>
+<h5 id="external-forces">External forces</h5>
+<p><span class="math display">\[
+E_{ext}(\vec{v})=\int^1_0E_{ext}(\vec{v}(s))ds=\int^1_0P(\vec{v}(s))ds=\int^1_0P(x(s),y(s))ds
+\]</span></p>
+<ul>
+<li><p>P is a <strong>potential</strong> derived from the image features and edges</p>
+<p>P 是从图像特征和边缘导出的<strong>势</strong></p></li>
+<li><p>Typical energies include 典型的能量包括</p>
+<ul>
+<li><p><strong>Negative gradient magnitude 负梯度幅度</strong></p></li>
+<li><p>Negative gradient magnitude after Gaussian smoothing</p>
+<p>高斯平滑后的负梯度幅度</p></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+E_{ext}^{(1)}f(x,y)|=-|\vec{\nabla}f(x,y)| \or E_{ext}^{(2)}f(x,y)|=-|\vec{\nabla}(G_{\sigma}(x,y)*f(x,y))|
+\]</span></p>
+<h5 id="workflow">Workflow</h5>
+<p>Success also depends on suitable <strong>pre-processing</strong> 成功还取决于合适的<strong>预处理</strong></p>
+<ul>
+<li><p>Filtering to eliminate the noise and enhance the edges,</p>
+<p>过滤以消除噪声并增强边缘，</p></li>
+<li><p>Proper edge detector to obtain a suitable force field map</p>
+<p>适当的边缘检测器以获得合适的力场图</p></li>
+</ul>
+<p>Success also depends on suitable <strong>initialization</strong> 成功还取决于合适的<strong>初始化</strong></p>
+<ul>
+<li>Typically, a manually identified polygon 通常，手动识别的多边形</li>
+<li>A rough segmentation obtained through another method 通过另一种方法获得的粗略分割</li>
+</ul>
+<h5 id="behaviour-of-snakes">Behaviour of snakes</h5>
+<p><img src="/images/HMS/2249412.png" /></p>
+<h3 id="mathematical-morphology-数学形态学">Mathematical Morphology 数学形态学</h3>
+<ul>
+<li><p>Morphology</p>
+<ul>
+<li><p>A branch of biology that deals with the <strong>form</strong> and <strong>structure</strong> from animals</p>
+<p>处理来自动物的<strong>形式</strong>和<strong>结构</strong>的生物学分支</p></li>
+</ul></li>
+<li><p>In image processing</p>
+<ul>
+<li><p>A set of tools for extracting image <strong>components</strong> and enhancing their <strong>shape</strong></p>
+<p>一组用于提取图像<strong>组件</strong>并增强其<strong>形状</strong>的工具</p></li>
+</ul></li>
+<li><p>Morphologic operations can <strong>simplify</strong> objects</p>
+<p>形态学操作可以<strong>简化</strong>对象</p>
+<ul>
+<li>Eliminate irrelevant image structures 消除不相关的图像结构</li>
+<li>Restore objects while respecting shape 在尊重形状的同时恢复对象</li>
+</ul></li>
+<li><p>Very well suited for image segmentation 常适合图像分割</p>
+<ul>
+<li><p>Typically used for <strong>post-processing</strong>, cleaning a segmentation</p>
+<p>通常用于<strong>后处理</strong>，清理分割</p></li>
+<li><p>Applied to all kinds of images, but here only <strong>binary</strong></p>
+<p>适用于各种图像，但这里只有 <strong>binary</strong></p></li>
+</ul></li>
+</ul>
+<h4 id="definitions">Definitions</h4>
+<ul>
+<li><p>We represent a binary image using mathematical sets I and I<sub>c</sub> <span class="math display">\[
+I = \{r|f(r)=1\}\\
+I^c= \{r|f(r)=0\}
+\]</span></p></li>
+<li><p>Structuring elements B defined with respect to a central pixel</p>
+<p><img src="/images/HMS/2249413.png" /></p></li>
+<li><p>Translations of B over a vector r <span class="math display">\[
+T_r(B) = \{b|b - r ∈ B\}= \{b + r|b ∈ B\}
+\]</span></p></li>
+</ul>
+<h4 id="erosion-侵蚀">Erosion 侵蚀</h4>
+<p>Binary dilation through union of translations 通过翻译联合进行二元膨胀 <span class="math display">\[
+I⊖B = \{r|r + b ∈ I , ∀b ∈ B\}=∩_{b ∈ B}T_{-b}(I)
+\]</span></p>
+<ul>
+<li><p>Place the central pixel of B on all pixels of I</p>
+<p>将 B 的中心像素放在 I 的所有像素上</p></li>
+<li><p>Take the union of the elements of B and I</p>
+<p>取 B 和 I 的元素的并集</p></li>
+</ul>
+<p><img src="/images/HMS/2249414.png" /></p>
+<h4 id="dilation-膨胀">Dilation 膨胀</h4>
+<p>Binary erosion through cross-section of translations 通过翻译横截面的二元侵蚀 <span class="math display">\[
+I⊖B = \{r|r = i + b , i ∈ I \and b ∈ B\}=∪_{b ∈ B}T_{b}(I)
+\]</span></p>
+<ul>
+<li><p>Place the central pixel of B on all pixels of I</p>
+<p>将 B 的中心像素放在 I 的所有像素上</p></li>
+<li><p>Only retain the central pixel if B falls entirely in I</p>
+<p>如果 B 完全落在 I 中，则仅保留中心像素</p></li>
+</ul>
+<p><img src="/images/HMS/2249415.png" /></p>
+<h4 id="binary-closing-二进制关闭">Binary closing 二进制关闭</h4>
+<p><span class="math display">\[
+I•B=(I⊕B)⊖B
+\]</span></p>
+<ul>
+<li>Dilation followed by erosion 膨胀后腐蚀</li>
+<li>Swelling is compensated by erosion 膨胀后腐蚀</li>
+<li>Fills cracks and holes, makes structures more solid 填充裂缝和孔洞，使结构更坚固</li>
+</ul>
+<p><img src="/images/HMS/2249418.png" /></p>
+<h4 id="binary-opening-二进制打开">Binary opening 二进制打开</h4>
+<p><span class="math display">\[
+I∘B=(I⊖B)⊕B
+\]</span></p>
+<ul>
+<li>Erosion followed by dilation 侵蚀后扩张</li>
+<li>Shrinking is undone by the dilation 收缩被扩张消除</li>
+<li>Eliminates small structures 消除小结构</li>
+</ul>
+<p><img src="/images/HMS/2249417.png" /></p>
+<h4 id="gradient">Gradient</h4>
+<p><span class="math display">\[
+G_B(I)=\frac{(I⊕B)}{I⊖B}
+\]</span></p>
+<ul>
+<li>Dilation minus erosion 膨胀减去侵蚀</li>
+<li>Edge detection of binary objects 二进制对象的边缘检测</li>
+</ul>
+<p><img src="/images/HMS/2249416.png" /></p>
+<h1 id="summary">Summary</h1>
+<h2 id="image-enhancement-图像增强-1">Image enhancement 图像增强</h2>
+<ul>
+<li><p>Aimed at improving the appearance of the image</p>
+<p>旨在改善图像的外观</p>
+<ul>
+<li><p>For visual inspection or further processing</p>
+<p>用于目视检查或进一步处理</p></li>
+</ul></li>
+<li><p>Histogram: graphical representation of image intensities</p>
+<p>直方图：图像强度的图形表示</p>
+<ul>
+<li><p>Allows to inspect the spread of the intensities</p>
+<p>允许检查强度的分布</p></li>
+</ul></li>
+<li><p>Histogram-based techniques 基于直方图的技术</p>
+<ul>
+<li><p>Modify the intensity of pixels without considering neighbourhood</p>
+<p>在不考虑邻域的情况下修改像素的强度</p></li>
+</ul></li>
+<li><p>Linear contrast mapping 线性对比映射</p>
+<ul>
+<li><p>Transform the intensities linearly such that entire range is used</p>
+<p>线性变换强度，以便使用整个范围</p></li>
+</ul></li>
+<li><p>Intensity windowing 强度窗口</p>
+<ul>
+<li><p>Select a window level and width, and map the intensities inside the window to black and white</p>
+<p>选择一个窗口级别和宽度，并将窗口内的强度映射到黑白</p></li>
+</ul></li>
+<li><p>Non-linear contrast mapping or equalisation 非线性对比度映射或均衡</p>
+<ul>
+<li><p>Transform the intensities non-linearly such that the histogram becomes approximately homogeneous</p>
+<p>非线性变换强度，使直方图变得近似均匀</p></li>
+</ul></li>
+</ul>
+<h2 id="image-filtering-图像过滤-1">Image filtering 图像过滤</h2>
+<ul>
+<li><p>Filters adapt intensities of image by taking into account the neighbourhood 过滤器通过考虑邻域来适应图像的强度</p>
+<ul>
+<li><p>The neighbourhood can be defined by a spatial filter mask</p>
+<p>邻域可以由空间滤波器掩码定义</p></li>
+</ul></li>
+<li><p>The size of the mask will determine the amount of pixels taken into account while filtering 蒙版的大小将决定过滤时考虑的像素数量</p>
+<ul>
+<li>Will have impact on computational cost 会影响计算成本</li>
+</ul></li>
+<li><p>Linear filters involve a linear operation on the pixels of the neighbourhood 线性滤波器涉及对邻域像素的线性运算</p>
+<ul>
+<li><p>E.g. linear combination or weighted average of the pixels</p>
+<p>例如 像素的线性组合或加权平均</p></li>
+<li><p>The filtering can be represented as the convolution of the image with the mask containing the weights</p>
+<p>过滤可以表示为图像与包含权重的掩码的卷积</p></li>
+</ul></li>
+<li><p>Non-linear filters involve a non-linear operation on the pixels of the neighbourhood</p>
+<p>非线性滤波器涉及对邻域像素的非线性操作</p>
+<ul>
+<li><p>Cannot be represented using a convolution</p>
+<p>不能用卷积表示</p></li>
+</ul></li>
+</ul>
+<h2 id="filters-for-noise-suppression-噪声抑制过滤器">Filters for noise suppression 噪声抑制过滤器</h2>
+<ul>
+<li><p>Noise is often high-frequency 噪音通常是高频的</p>
+<ul>
+<li><p>Filters often exploit this to suppress the noise</p>
+<p>滤波器经常利用这一点来抑制噪声</p></li>
+</ul></li>
+<li><p>Linear low-pass filtering: average filtering, gaussian filtering, …</p>
+<p>线性低通滤波：平均滤波、高斯滤波……</p>
+<ul>
+<li><p>Can be approximated using compact （3×3, 5×5, ..） masks</p>
+<p>可以使用紧凑型 （3×3, 5×5, ...） 蒙版近似</p></li>
+<li><p>The sum of the weights in the mask is always 1</p>
+<p>掩码中的权重总和始终为 1</p></li>
+<li><p>Can suppress noise at the cost of also blurring the edges</p>
+<p>可以以模糊边缘为代价来抑制噪声</p></li>
+<li><p>Comes down to averaging pixels （with a certain weight） within the mask region</p>
+<p>归结为平均蒙版区域内的像素（具有一定的权重）</p></li>
+</ul></li>
+<li><p>Non-linear filters for noise suppression 用于噪声抑制的非线性滤波器</p>
+<ul>
+<li><p>Aim at reducing the noise, without impacting the edges</p>
+<p>旨在降低噪音，不影响边缘</p></li>
+</ul></li>
+<li><p>Median filtering 中值过滤</p>
+<ul>
+<li><p>Median is less sensitive to outliers than the average</p>
+<p>中位数对异常值的敏感度低于平均值</p></li>
+<li><p>Will blur edges less, good for Salt&amp;Pepper noise</p>
+<p>边缘模糊较少，有利于椒盐噪声</p></li>
+</ul></li>
+<li><p>（Dual） symmetric filters for noise suppression</p>
+<p>用于噪声抑制的（双）对称滤波器</p>
+<ul>
+<li><p>Aim at preserving straight edges （and angles）</p>
+<p>旨在保留直边（和角度）</p></li>
+<li><p>A selection of similar pixels is performed to avoid edge blurring</p>
+<p>执行相似像素的选择以避免边缘模糊</p></li>
+</ul></li>
+<li><p>Bilateral filtering for noise suppression 用于噪声抑制的双边滤波</p>
+<ul>
+<li><p>Aims at noise suppression while preserving edges</p>
+<p>旨在在保留边缘的同时抑制噪声</p></li>
+<li><p>By considering weights for the spatial neighbourhood and for the pixel similarity</p>
+<p>通过考虑空间邻域和像素相似性的权重</p></li>
+</ul></li>
+</ul>
+<h2 id="filters-for-edge-enhancement-and-detection-用于边缘增强和检测的过滤器">Filters for edge enhancement and detection 用于边缘增强和检测的过滤器</h2>
+<ul>
+<li><p>Edges are typically high-frequencies 边缘通常是高频</p>
+<ul>
+<li><p>Filters often exploit this to boost or detect the edges</p>
+<p>过滤器经常利用这一点来增强或检测边缘</p></li>
+</ul></li>
+<li><p>Gradient magnitude is non-zero near an edge 边缘附近的梯度幅度不为零</p>
+<ul>
+<li><p>Apply differential operators along each dimension, and compute magnitude</p>
+<p>沿每个维度应用微分算子，并计算幅度</p></li>
+<li><p>Can be approximated using compact Prewitt or Sobel masks</p>
+<p>可以使用紧凑型 Prewitt 或 Sobel 蒙版近似</p></li>
+<li><p>High-pass filters will always have a sum of weights = 0</p>
+<p>高通滤波器的权重总和 = 0</p></li>
+</ul></li>
+<li><p>Edge detection requires making a binary selection: edge or not</p>
+<p>边缘检测需要进行二元选择：边缘与否</p>
+<ul>
+<li><p>Apply a certain threshold on the gradient magnitude image</p>
+<p>在梯度幅值图像上应用一定的阈值</p></li>
+</ul></li>
+<li><p>Second order derivatives allow to detect edges at the zero-crossing</p>
+<p>二阶导数允许检测零交叉处的边缘</p>
+<ul>
+<li><p>Laplacian operator can also be approximated with compact masks 拉普拉斯算子也可以用紧凑的掩码来近似</p></li>
+<li><p>As this amplifies noise, noise is best supressed beforehand</p>
+<p>因为这会放大噪音，所以最好事先抑制噪音</p></li>
+</ul></li>
+<li><p>Edge enhancement can be obtained by adding a （scaled） high-pass version of the image, to the original image</p>
+<p>可以通过将图像的（缩放）高通版本添加到原始图像来获得边缘增强</p>
+<ul>
+<li>Unsharp mask filtering 锐化蒙版过滤</li>
+<li>High-pass version can be obtained by subtracting a low-pass version from the original 高通版本可以通过从原始版本中减去一个低通版本来获得</li>
+</ul></li>
+</ul>
+<h2 id="region-based-segmentation-methods-基于区域的分割方法">Region-based segmentation methods 基于区域的分割方法</h2>
+<ul>
+<li><p>Thresholding is a global operation based in the pixel intensity</p>
+<p>阈值是基于像素强度的全局操作</p>
+<ul>
+<li><p>In the histogram, select range which is mapped to 1, rest to 0</p>
+<p>在直方图中，选择映射到 1 的范围，其余为 0</p></li>
+</ul></li>
+<li><p>Automated thresholding aims at automatically finding the threshold</p>
+<p>自动阈值旨在自动找到阈值</p>
+<ul>
+<li><p>Otsu: minimise inner-class variance</p>
+<p>Otsu：最小化内部类方差</p></li>
+</ul></li>
+<li><p>Region-growing allows to use the spatial connectivity</p>
+<p>区域增长允许使用空间连接</p>
+<ul>
+<li>From a seed point, grow into all connected pixels based on a certain criterion 从一个种子点，根据一定的标准成长为所有连接的像素</li>
+</ul></li>
+<li><p>Several variants of region growing exist 存在区域增长的几种变体</p>
+<ul>
+<li><p>Based on applying different criteria for growing</p>
+<p>基于应用不同的生长标准</p></li>
+<li><p>Trying to automatically find a threshold</p>
+<p>试图自动找到一个阈值</p></li>
+</ul></li>
+</ul>
+<h2 id="edge-based-segmentation-methods-基于边缘的分割方法">Edge-based segmentation methods 基于边缘的分割方法</h2>
+<ul>
+<li><p>Directly manipulate the contour/ surface of the segmentation</p>
+<p>直接操作分割的轮廓/表面</p>
+<ul>
+<li><p>Starting from a beginning position, manipulate the contour till it conforms to the （edges of） the image</p>
+<p>从开始位置开始，操纵轮廓直到它符合图像（边缘）</p></li>
+</ul></li>
+<li><p>Deformable models will typically minimise an internal and external energy 可变形模型通常会最小化内部和外部能量</p>
+<ul>
+<li><p>Internal: based on the contour itself</p>
+<p>内部：基于轮廓本身</p></li>
+<li><p>External: based on the underlying image</p>
+<p>外部：基于底层图像</p></li>
+</ul></li>
+<li><p>The internal energy 内能</p>
+<ul>
+<li><p>E.g.: amount of bending and stretching of the contour</p>
+<p>例如：轮廓的弯曲和拉伸量</p></li>
+</ul></li>
+<li><p>The external energy 外部能量</p>
+<ul>
+<li>The value of the negated gradient magnitude at the position of the contour 轮廓位置处的负梯度幅值</li>
+</ul></li>
+<li><p>Proper segmentation will require tuning the relative weights</p>
+<p>适当的分割将需要调整相对权重</p></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/06/05/2021-06-05-Image-enhancement,-filtering-and-segmentation/">https://yintelligence.tech/2021/06/05/2021-06-05-Image-enhancement,-filtering-and-segmentation/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Biomedical-Signals-and-Images/">
+                                    <span class="chip bg-color">Biomedical Signals and Images</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/06/05/2021-06-05-Image-enhancement,-filtering-and-segmentation/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Image enhancement, filtering and segmentation">
+                        
+                        <span class="card-title">Image enhancement, filtering and segmentation</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Introduction to medical image processing
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                    Digital Health
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Biomedical-Signals-and-Images/">
+                        <span class="chip bg-color">Biomedical Signals and Images</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/04/2021-06-04-Biomedical-Images/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Biomedical Images">
+                        
+                        <span class="card-title">Biomedical Images</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Overview of biomedical image modalities
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Digital-Health/" class="post-category">
+                                    Digital Health
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Biomedical-Signals-and-Images/">
+                        <span class="chip bg-color">Biomedical Signals and Images</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
