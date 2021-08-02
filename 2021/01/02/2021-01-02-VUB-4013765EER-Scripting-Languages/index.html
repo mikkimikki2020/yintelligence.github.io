@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-01
+                    2021-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    441
+                    695
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    4 Min
                 </div>
                 
 
@@ -532,6 +532,10 @@
 <li>An introduction to Computer Science using Python, Jennifer Campbell, Paul Gries, Jason Montojo, Greg Wilson</li>
 <li>Foundations of programming languages, Seyed H. Roosta, Thomson-Brooks/Cole, 2003.</li>
 </ul>
+<h2 id="related-sources">Related sources</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1016959735620448">Python 教程 - 廖雪峰</a></li>
+</ul>
 <h2 id="learning-outcomes">Learning Outcomes</h2>
 <p>The Competences that are expected are:</p>
 <ul>
@@ -567,10 +571,170 @@
 <li><strong>Output</strong>: The messages printed to the user by a program</li>
 <li><strong>Console</strong>: The text box onto which the output is printed</li>
 </ul>
-<h2 id="related-sources">Related sources</h2>
+<h2 id="python-as-a-smart-calculator">Python as a smart calculator</h2>
+<h3 id="arithmetic-operators">7 arithmetic operators</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> <span class="token number">5</span>
+y <span class="token operator">=</span> <span class="token number">6</span>
+z <span class="token operator">=</span> x <span class="token operator">*</span> y
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output: 5 6 30</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1016959735620448">Python 教程 - 廖雪峰</a></li>
+<li>x, y and z are variables</li>
+<li>x is assigned the value 5</li>
+<li>y is assigned the value 6</li>
+<li>z is assigned the value of the multiplications of the values of x and y</li>
 </ul>
+<blockquote>
+<p>We assume this is Python 3.X. In Python 2.X the last line would be print x, y, z</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">+</th>
+<th style="text-align: center;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Subtraction</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">*</td>
+<td style="text-align: center;">Multiplication</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">Division</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">%</td>
+<td style="text-align: center;">Modulus</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">**</td>
+<td style="text-align: center;">Exponent</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">//</td>
+<td style="text-align: center;">Integer division</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Warning In Python 2.X / is the integer division</p>
+</blockquote>
+<h3 id="operator-precedence">Operator precedence</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Precedence</th>
+<th style="text-align: center;">Operator</th>
+<th style="text-align: center;">Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Highest</td>
+<td style="text-align: center;">**</td>
+<td style="text-align: center;">Exponentiation</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Negation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">*, /, //, %</td>
+<td style="text-align: center;">Multiplication, division, etc</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Lowest</td>
+<td style="text-align: center;">+, -</td>
+<td style="text-align: center;">Addition and subtraction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="more-operations">More operations</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> math
+
+x <span class="token operator">=</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>math<span class="token punctuation">.</span>pi<span class="token punctuation">)</span>
+y <span class="token operator">=</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>math<span class="token punctuation">.</span>pi<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Output</strong>: -1.0 6.12323399574e-17</p>
+<ul>
+<li>Additional math operations can be found in the math module</li>
+<li>Use the import keyword to load a module</li>
+<li>All operations from a module must have the right prefix</li>
+</ul>
+<p>Or alternatively:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> math <span class="token keyword">import</span> <span class="token operator">*</span>
+
+x <span class="token operator">=</span> cos<span class="token punctuation">(</span>pi<span class="token punctuation">)</span>
+y <span class="token operator">=</span> cos<span class="token punctuation">(</span>pi<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="other-useful-commands">Other useful commands</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Command name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">abs(<strong>value</strong>)</td>
+<td style="text-align: left;">absolute value</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ceil(<strong>value</strong>)</td>
+<td style="text-align: left;">rounds up</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cos(<strong>value</strong>)</td>
+<td style="text-align: left;">cosine, in radians</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">floor(<strong>value</strong>)</td>
+<td style="text-align: left;">rounds down</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">log(<strong>value</strong>)</td>
+<td style="text-align: left;">logarithm, base e</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">log10(<strong>value</strong>)</td>
+<td style="text-align: left;">logarithm, base 10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">max(<strong>value1</strong>, <strong>value2</strong>)</td>
+<td style="text-align: left;">larger of two values</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">min(<strong>value1</strong>, <strong>value2</strong>)</td>
+<td style="text-align: left;">smaller of two values</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">round(<strong>value</strong>)</td>
+<td style="text-align: left;">nearest whole number</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sin(<strong>value</strong>)</td>
+<td style="text-align: left;">sine, in radians</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sqrt(<strong>value</strong>)</td>
+<td style="text-align: left;">square root</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Don’t forget to write the following line at the top of your Python program:</p>
+<p>from math import *</p>
+</blockquote>
 
                 
             </div>
