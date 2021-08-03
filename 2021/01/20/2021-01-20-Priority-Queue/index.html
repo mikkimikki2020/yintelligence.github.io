@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-08-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.7k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    8 Min
                 </div>
                 
 
@@ -614,9 +614,75 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
-<li>完成基于Sorted Linked List的Priority Queue类的实现。</li>
-<li>我们现在已经将优先级队列实现为一个排序的链表。 我们也可以将优先级队列实现为一个未排序的链表。 制作一个图表来展示这个实现的样子并实现它。</li>
-<li>假设您需要将元素存储到优先级队列中。 考虑只有两个可能的优先级的特殊情况，比如 A 和 B。如果您确定优先级将是 A 或 B，则优先级队列的实现具有 O(1) 中的 push 和 pop 方法。 提供一个优先级队列类的这样一个实现，包括一个构造函数、一个push方法和一个pop方法。</li>
+<li><p>完成基于Sorted Linked List的Priority Queue类的实现。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// LinkedList. java</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addSorted</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> o<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span>item<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Node</span> d <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>rest <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>rest<span class="token punctuation">.</span>item<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            d <span class="token operator">=</span> d<span class="token punctuation">.</span>rest<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">Node</span> next <span class="token operator">=</span> d<span class="token punctuation">.</span>rest<span class="token punctuation">;</span>
+        d<span class="token punctuation">.</span>rest <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// PriorityQueue. java</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PriorityQueue</span> 
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PriorityPair</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">public</span> <span class="token class-name">Object</span> element<span class="token punctuation">;</span>
+		<span class="token keyword">public</span> <span class="token class-name">Object</span> priority<span class="token punctuation">;</span>
+		
+		<span class="token keyword">public</span> <span class="token class-name">PriorityPair</span><span class="token punctuation">(</span><span class="token class-name">Object</span> element<span class="token punctuation">,</span> <span class="token class-name">Object</span> priority<span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>element <span class="token operator">=</span> element<span class="token punctuation">;</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>priority <span class="token operator">=</span> priority<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		
+		<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			<span class="token class-name">PriorityPair</span> p2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">PriorityPair</span><span class="token punctuation">)</span>o<span class="token punctuation">;</span>
+			<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span><span class="token punctuation">)</span>priority<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span>priority<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">private</span> <span class="token class-name">LinkedList</span> data<span class="token punctuation">;</span>
+	
+	<span class="token keyword">public</span> <span class="token class-name">PriorityQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">,</span> <span class="token class-name">Object</span> <span class="token class-name">Priority</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token class-name">PriorityPair</span> pair <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityPair</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span><span class="token class-name">Priority</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		data<span class="token punctuation">.</span><span class="token function">addSorted</span><span class="token punctuation">(</span>pair<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> 
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> 
+	<span class="token punctuation">&#123;</span>
+		<span class="token class-name">PriorityQueue</span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PriorityQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>我们现在已经将优先级队列实现为一个排序的链表。 我们也可以将优先级队列实现为一个未排序的链表。 制作一个图表来展示这个实现的样子并实现它。</p></li>
+<li><p>假设您需要将元素存储到优先级队列中。 考虑只有两个可能的优先级的特殊情况，比如 A 和 B。如果您确定优先级将是 A 或 B，则优先级队列的实现具有 O(1) 中的 push 和 pop 方法。 提供一个优先级队列类的这样一个实现，包括一个构造函数、一个push方法和一个pop方法。</p></li>
 </ol>
 <h2 id="remark">Remark</h2>
 <ul>
