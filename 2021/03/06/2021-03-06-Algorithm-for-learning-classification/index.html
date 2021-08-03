@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-05
+                    2021-08-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.7k
+                    5.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    16 Min
+                    26 Min
                 </div>
                 
 
@@ -501,15 +501,16 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="id3-algorithm-for-learning-classification">ID3 algorithm for learning classification</h1>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/776526?module_item_id=79396">Slide</a> + <a target="_blank" rel="noopener" href="https://www.dropbox.com/s/969ylem4rhhy8ph/Techniques%20of%20Artificial%20Intelligence%202021%20Topic%205.mov?dl=0">Video</a> + Exercise</p>
 <h2 id="outline">Outline</h2>
 <ul>
-<li>The classification problem
+<li>The classification problem 分类问题
 <ul>
-<li>geometrical interpretation</li>
+<li>geometrical interpretation 几何解释</li>
 </ul></li>
-<li>Attribute selection
+<li>Attribute selection 属性选择
 <ul>
-<li>entropy, mutual information</li>
+<li>entropy 熵, mutual information 互信息</li>
 </ul></li>
 <li>Some classifiers
 <ul>
@@ -517,75 +518,96 @@
 </ul></li>
 <li>The ID3 algorithm
 <ul>
-<li>Avoiding overfitting</li>
+<li>Avoiding overfitting 避免过拟合</li>
 </ul></li>
 </ul>
 <h2 id="classification">Classification</h2>
 <p><strong>Goal</strong>: given a set of examples described by several attributes (or features) and a set of classes, label each example with a class</p>
 <p><strong>Applications:</strong></p>
 <ul>
-<li>biometry: identify a person from her voice, face, gait, ...</li>
-<li>category recognition (object, speech, musical instrument,...)</li>
-<li>data mining: predict the user’s behaviour depending on his past history</li>
-<li>medical diagnosis: knowing the symptoms and eventual test results, determine whether a patient is sick</li>
+<li><p>biometry: identify a person from her voice, face, gait, ...</p>
+<p>生物测定：通过声音、面部、步态等识别一个人</p></li>
+<li><p>category recognition （object, speech, musical instrument,...）</p>
+<p>类别识别（物体、语音、乐器等）</p></li>
+<li><p>data mining: predict the user’s behaviour depending on his past history</p>
+<p>数据挖掘：根据用户过去的历史预测用户的行为</p></li>
+<li><p>medical diagnosis: knowing the symptoms and eventual test results, determine whether a patient is sick</p>
+<p>医学诊断：了解症状和最终检测结果，确定患者是否生病</p></li>
 </ul>
 <h3 id="why-is-it-hard">Why is it hard?</h3>
 <ul>
-<li><p>The classes themselves are not observable</p>
+<li><p>The classes themselves are not observable 类本身是不可观察的</p>
 <ul>
-<li><p>the classes represent high-level information (identity, behaviour,...) but only low-level attributes (pixel values, numbers of clicks on a web page,...) are observed</p></li>
+<li><p>the classes represent high-level information （identity, behaviour,...） but only low-level attributes （pixel values, numbers of clicks on a web page,...） are observed</p>
+<p>这些类表示高级信息（身份、行为等），但只观察到低级属性（像素值、网页点击次数等）</p></li>
 <li><p>the human brain is good at making sense of data, but we still don’t know how</p></li>
 </ul></li>
-<li><p>There are many attributes</p>
+<li><p>There are many attributes 有很多属性</p>
 <ul>
-<li>each attribute individually has little correlation with the classes
+<li>each attribute individually has little correlation with the classes 每个属性单独与类几乎没有相关性
 <ul>
-<li>so we need a lot of attributes</li>
+<li><p>so we need a lot of attributes</p>
+<p>所以我们需要很多属性</p></li>
 </ul></li>
-<li>the correlation between the attributes and the classes is not known beforehand
+<li>the correlation between the attributes and the classes is not known beforehand 属性和类之间的相关性是事先未知的
 <ul>
-<li>it has to be learnt</li>
+<li><p>it has to be learnt</p>
+<p>它必须被学习</p></li>
 </ul></li>
 </ul></li>
 <li><p>There are many examples</p>
 <ul>
-<li>if not, it could be done by hand</li>
-<li>learning algorithms are costly</li>
+<li><p>if not, it could be done by hand</p>
+<p>如果没有，可以手工完成</p></li>
+<li><p>learning algorithms are costly</p>
+<p>学习算法成本高昂</p></li>
 </ul></li>
 </ul>
-<h3 id="machine-learning-for-classification">Machine learning for classification</h3>
+<h3 id="machine-learning-for-classification-机器学习分类">Machine learning for classification 机器学习分类</h3>
 <ul>
 <li><p>Classifier: a function that takes features and returns the class of an example with those features</p>
+<p>分类器：获取特征并返回具有这些特征的示例的类的函数</p>
 <ul>
-<li>a classifier can label any possible example, not only the problem set</li>
+<li><p>a classifier can label any possible example, not only the problem set</p>
+<p>分类器可以标记任何可能的示例，而不仅仅是问题集</p></li>
 </ul></li>
-<li><p>Machine learning approach</p>
+<li><p>Machine learning approach 机器学习方法</p>
 <ul>
-<li>learn the classifier from a training set, then apply it to the problem examples
+<li><p>learn the classifier from a training set, then apply it to the problem examples</p>
+<p>从训练集中学习分类器，然后将其应用于问题示例</p>
 <ul>
-<li>supervised learning: the classes of the training examples are known</li>
-<li>the training set is much smaller than the problem set</li>
+<li><p>supervised learning: the classes of the training examples are known</p>
+<p>监督学习：训练样本的类别是已知的</p></li>
+<li><p>the training set is much smaller than the problem set</p>
+<p>训练集远小于问题集</p></li>
 </ul></li>
 </ul></li>
-<li><p>The learning step is costly but performed only once</p></li>
+<li><p>The learning step is costly but performed only once</p>
+<p>学习步骤成本高，但只执行一次</p></li>
 <li><p>How can we ensure that the classifier will work on the problem data?</p>
+<p>我们如何确保分类器能够处理问题数据？</p>
 <ul>
-<li>we cannot for sure :(</li>
-<li>Occam’s razor: the simplest solution is often the right one</li>
+<li><p>we cannot for sure 我们不能确定:</p></li>
+<li><p>Occam’s razor: the simplest solution is often the right one</p>
+<p>奥卡姆剃刀：最简单的解决方案往往是正确的</p></li>
 </ul></li>
 </ul>
-<h3 id="geometrical-view">Geometrical view</h3>
+<h4 id="geometrical-view-几何视图">Geometrical view 几何视图</h4>
 <ul>
-<li>The examples lie in the attribute space ‣ each attribute is a dimension ‣ each example is a point
+<li><p>The examples lie in the attribute space 示例位于属性空间</p>
 <ul>
-<li>classes are represented by colours</li>
+<li><p>each attribute is a dimension 每个属性是一个维度</p></li>
+<li><p>each example is a point 每个示例都是一个点</p></li>
+<li><p>classes are represented by colours 类用颜色表示</p></li>
 </ul></li>
-<li>A classifier embodies a partition of the attribute space</li>
-<li>Learning a classifier is partitioning the training set into homogeneous subsets
+<li><p>A classifier embodies a partition of the attribute space</p>
+<p>分类器体现了属性空间的划分</p></li>
+<li><p>Learning a classifier is partitioning the training set into homogeneous subsets 学习分类器是将训练集划分为同构子集</p>
 <ul>
-<li>each subspace contains training examples of exactly 1 class</li>
+<li><p>each subspace contains training examples of exactly 1 class</p>
+<p>每个子空间包含恰好 1 个类的训练示例</p></li>
 </ul></li>
-<li>Applying a classifier is therefore just checking in which subspace a point lies</li>
+<li><p>Applying a classifier is therefore just checking in which subspace a point lies 因此，应用分类器只是检查点位于哪个子空间</p></li>
 </ul>
 <figure>
 <img src="/images/AI/2006470.png" alt="" /><figcaption>Geometrical view</figcaption>
@@ -596,86 +618,111 @@
 <figure>
 <img src="/images/AI/2006472.png" alt="" /><figcaption>Applying the classifier</figcaption>
 </figure>
-<h4 id="structure-of-the-classifier">Structure of the classifier</h4>
+<h5 id="structure-of-the-classifier-分类器的结构">Structure of the classifier 分类器的结构</h5>
 <p><img src="/images/AI/2006473.png" /></p>
 <ul>
-<li>The subspaces of the classifier do not have to be connected</li>
-<li>The border can be much more complex than a single line</li>
-<li>Generally, the types of borders allowed are set by the algorithm
+<li><p>The subspaces of the classifier do not have to be connected</p>
+<p>分类器的子空间不必连接</p></li>
+<li><p>The border can be much more complex than a single line</p>
+<p>边框可以比单线复杂得多</p></li>
+<li><p>Generally, the types of borders allowed are set by the algorithm</p>
+<p>一般允许的边框类型由算法设置</p>
 <ul>
-<li>need expert knowledge of the problem</li>
-<li>there is no single algorithm that solves every problem</li>
+<li><p>need expert knowledge of the problem</p>
+<p>需要对问题的专业知识</p></li>
+<li><p>there is no single algorithm that solves every problem</p>
+<p>没有一种算法可以解决所有问题</p></li>
 </ul></li>
 </ul>
-<h2 id="attribute-selection">Attribute selection</h2>
-<h3 id="symbolic-and-numeric-attributes">Symbolic and numeric attributes</h3>
+<h2 id="attribute-selection-属性选择">Attribute selection 属性选择</h2>
 <ul>
-<li>Symbolic attributes
-<ul>
-<li>finite, discrete valued: e.g. gender, status,...</li>
-<li>no notion of order or distance between values, only boolean comparison</li>
-<li>can be enumerated</li>
-<li>must use logic to combine different attributes after testing them</li>
-</ul></li>
-<li>Numeric attributes
-<ul>
-<li>real or integer valued: e.g. grades, temperature, pixels, samples,...</li>
-<li>can be measured</li>
-<li>can use algebra to combine different attributes before testing them
-<ul>
-<li>can create new attributes</li>
-</ul></li>
-</ul></li>
-</ul>
-<h3 id="attribute-selectionengineering">Attribute selection/engineering</h3>
-<ul>
-<li><p>Learning is hard. Learning algorithms in general are both costly and suboptimal.</p></li>
+<li><p>Learning is hard. Learning algorithms in general are both costly and suboptimal. 学习很难。学习算法通常既昂贵又次优。</p></li>
 <li><p>Learning is easier if one starts with “good” attributes</p>
+<p>如果从“好”属性开始，学习会更容易</p>
 <ul>
-<li>fewer attributes decrease the cost of learning</li>
-<li>a good initial guess helps finding the best classifier</li>
+<li><p>fewer attributes decrease the cost of learning</p>
+<p>更少的属性降低了学习成本</p></li>
+<li><p>a good initial guess helps finding the best classifier</p>
+<p>一个好的初始猜测有助于找到最好的分类器</p></li>
 </ul></li>
-<li><p>What is a “good” attribute?</p>
+<li><p>What is a “good” attribute? 什么是“好”属性？</p>
 <ul>
-<li>easiest case: the classes themselves as an attribute</li>
-<li>hardest case (insoluble): no attributes at all</li>
-<li>an attribute that carries a lot of “information”</li>
-<li>an attribute whose “information” is related to the clas</li>
+<li><p>easiest case: the classes themselves as an attribute</p>
+<p>最简单的情况：类本身作为属性</p></li>
+<li><p>hardest case （insoluble）: no attributes at all</p>
+<p>最难的情况（不可解决）：根本没有属性</p></li>
+<li><p>an attribute that carries a lot of “information”</p>
+<p>一个携带大量“信息”的属性</p></li>
+<li><p>an attribute whose “information” is related to the class</p>
+<p>其“信息”与类相关的属性</p></li>
 </ul></li>
 </ul>
-<h3 id="entropy">Entropy</h3>
-<h4 id="information-theory-shannon-1948">Information theory (Shannon 1948)</h4>
+<h3 id="symbolic-and-numeric-attributes-符号和数字属性">Symbolic and numeric attributes 符号和数字属性</h3>
+<ul>
+<li>Symbolic attributes 符号属性
+<ul>
+<li><p>finite, discrete valued: e.g. gender, status,...</p>
+<p>有限的、离散的值：例如性别、地位、...</p></li>
+<li><p>no notion of order or distance between values, only boolean comparison</p>
+<p>没有顺序或值之间的距离的概念，只有布尔比较</p></li>
+<li><p>can be enumerated 可以列举</p></li>
+<li><p>must use logic to combine different attributes after testing them</p>
+<p>测试后必须使用逻辑来组合不同的属性</p></li>
+</ul></li>
+<li>Numeric attributes 数字属性
+<ul>
+<li><p>real or integer valued: e.g. grades, temperature, pixels, samples,...</p>
+<p>实数或整数值：例如等级、温度、像素、样本...</p></li>
+<li><p>can be measured 可以测量</p></li>
+<li><p>can use algebra to combine different attributes before testing them 可以在测试之前使用代数组合不同的属性</p>
+<ul>
+<li>can create new attributes 可以创建新属性</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="entropy-熵">Entropy 熵</h3>
+<h4 id="information-theory-shannon-1948">Information theory （Shannon 1948）</h4>
 <ul>
 <li><p>Communication problem: how to compress a signal, i.e. a stream of independent random variables X ?</p>
+<p>通信问题：如何压缩信号，即独立随机变量 X 的流？</p>
 <ul>
-<li>e.g.: signal = succession of coin tosses</li>
+<li><p>e.g.: signal = succession of coin tosses</p>
+<p>例如：信号 = 连续抛硬币</p></li>
 </ul></li>
 <li><p>Quantity of information in the signal = minimum bit rate needed to transmit it</p>
+<p>信号中的信息量 = 传输它所需的最小比特率</p>
 <ul>
-<li>i.e. the average number of bits per symbol.</li>
+<li><p>i.e. the average number of bits per symbol.</p>
+<p>即每个符号的平均位数。</p></li>
 </ul></li>
-<li><p>It is a function of the probability distribution of the signal</p>
+<li><p>It is a function of the probability distribution of the signal 它是信号概率分布的函数</p>
 <ul>
-<li>the distribution represents what is known before the actual transmission, i.e. what does not depend on the number of samples</li>
-<li>the bit rate should be chosen before transmission</li>
+<li><p>the distribution represents what is known before the actual transmission, i.e. what does not depend on the number of samples</p>
+<p>分布代表在实际传输之前已知的内容，即不依赖于样本数量的内容</p></li>
+<li><p>the bit rate should be chosen before transmission</p>
+<p>传输前应选择比特率</p></li>
 </ul></li>
-<li><p>The more uncertain the distribution, the more information in the content</p></li>
-<li><p>if the coin is double-headed, then there is nothing to transmit</p></li>
-<li><p>Probabilities are multiplicative, information is additive</p>
+<li><p>The more uncertain the distribution, the more information in the content 分布越不确定，内容中的信息就越多</p></li>
+<li><p>if the coin is double-headed, then there is nothing to transmit</p>
+<p>如果硬币是双头的，那么就没有什么可传输的</p></li>
+<li><p>Probabilities are multiplicative, information is additive 概率是可乘的，信息是可加的</p>
 <ul>
-<li>if ones tosses a coin n times, there are 2 n possible outcomes, but they can all be written using n bits only</li>
-<li>information content depends on the logarithm of the probability distribution</li>
+<li><p>if ones tosses a coin n times, there are 2 n possible outcomes, but they can all be written using n bits only</p>
+<p>如果一个人掷硬币 n 次，则有 2 n 种可能的结果，但它们都只能使用 n 位写入</p></li>
+<li><p>information content depends on the logarithm of the probability distribution 信息内容取决于概率分布的对数</p></li>
 </ul></li>
-<li><p>Impossible events should not matter</p>
+<li><p>Impossible events should not matter 不可能的事件应该无关紧要</p>
 <ul>
-<li>adding “the coin can rest on its side with probability 0” should not change the amount of information</li>
-<li>weight the logarithms by the probability of each event</li>
+<li><p>adding “the coin can rest on its side with probability 0” should not change the amount of information</p>
+<p>添加“硬币可以以 0 的概率侧放”不应改变信息量</p></li>
+<li><p>weight the logarithms by the probability of each event</p>
+<p>通过每个事件的概率对对数进行加权</p></li>
 </ul></li>
 <li><p>Entropy: <span class="math display">\[
 H(x) = - \sum_{X = x}p_x\log_2p_x
 \]</span></p></li>
 </ul>
-<h4 id="example-coin-toss">Example: coin toss</h4>
+<h4 id="example-coin-toss-例子抛硬币">Example: coin toss 例子：抛硬币</h4>
 <ul>
 <li>Two values (e.g. Heads and Tails)
 <ul>
@@ -685,141 +732,171 @@ H(x) = - \sum_{X = x}p_x\log_2p_x
 <p><img src="/images/AI/2006474.png" /></p>
 <h5 id="what-does-it-mean">What does it mean?</h5>
 <ul>
-<li>How can one coin-toss hold less than 1 bit of information when there are still 2 possible outcomes?
+<li><p>How can one coin-toss hold less than 1 bit of information when there are still 2 possible outcomes?</p>
+<p>当仍然有 2 种可能的结果时，一次抛硬币怎么能包含少于 1 位的信息？</p>
 <ul>
-<li>The result is <em>probabilistic</em>: for any bit rate b&gt;H(X) and any arbitrarily low error rate e&gt;0, there is an encoder with bit rate b and error rate e.</li>
+<li><p>The result is <em>probabilistic</em>: for any bit rate <code>b&gt;H(X)</code> and any arbitrarily low error rate e&gt;0, there is an encoder with bit rate b and error rate e.</p>
+<p>结果是<em>概率性的</em>：对于任何比特率 <code>b&gt;H(X)</code> 和任何任意低的错误率 e&gt;0，都有一个比特率 b 和错误率 e 的编码器。</p></li>
 </ul></li>
-<li>What does an non-integer quantity of information mean?
+<li><p>What does an non-integer quantity of information mean? 非整数信息量是什么意思？</p>
 <ul>
-<li>It is a rate for a stream of independent samples</li>
-<li>The stream is encoded by grouping samples together into words</li>
-<li>H(X) = 0.4 means that words of 10 samples can be encoded using 4 bits only.</li>
+<li>It is a rate for a stream of independent samples 它是独立样本流的速率</li>
+<li>The stream is encoded by grouping samples together into words 通过将样本分组为单词来编码流</li>
+<li><code>H(X)</code> = 0.4 means that words of 10 samples can be encoded using 4 bits only. <code>H(X)</code> = 0.4 意味着 10 个样本的字只能使用 4 位进行编码。</li>
 </ul></li>
-<li>How does it work?
+<li><p>How does it work?</p>
 <ul>
-<li>If H(X) is less than maximal, then there are rare events</li>
-<li>Conjunctions of rare events become rarer and rarer as word length increases</li>
-<li>At some point they become negligible and do not need to be encoded anymore</li>
+<li><p>If <code>H(X)</code> is less than maximal, then there are rare events</p>
+<p>如果 <code>H(X)</code> 小于最大值，则存在罕见事件</p></li>
+<li><p>Conjunctions of rare events become rarer and rarer as word length increases</p>
+<p>随着字长的增加，罕见事件的连词变得越来越罕见</p></li>
+<li><p>At some point they become negligible and do not need to be encoded anymore</p>
+<p>在某些时候，它们变得可以忽略不计，不再需要编码</p></li>
 </ul></li>
 </ul>
-<h3 id="mutual-information">Mutual information</h3>
+<h3 id="mutual-information-相互信息">Mutual information 相互信息</h3>
 <p>Objective: measure how much of the information in two random variables is shared</p>
+<p><strong>目标</strong>：衡量两个随机变量中有多少信息是共享的</p>
 <ul>
-<li>0 if the variables are independent</li>
-<li>maximal if one variable is a function of the other.</li>
-<li>Mutual information: <em>I(X;Y) = H(X) + H(Y) - H(X,Y)</em></li>
+<li><p>if the variables are independent 如果变量是独立的</p></li>
+<li><p>maximal if one variable is a function of the other</p>
+<p>如果一个变量是另一个变量的函数，则为最大值</p></li>
+<li><p>Mutual information: <em><code>I(X;Y) = H(X) + H(Y) - H(X,Y)</code></em></p></li>
 </ul>
 <p><img src="/images/AI/2006475.png" /></p>
-<h4 id="computing-the-entropy-numerically">Computing the entropy numerically</h4>
+<h4 id="computing-the-entropy-numerically-数值计算熵">Computing the entropy numerically 数值计算熵</h4>
 <ul>
-<li><p>Don’t forget that log(0<sup>+</sup>) tends to -∞...</p>
+<li><p>Don’t forget that log（0<sup>+</sup>） tends to -∞...</p>
 <ul>
-<li>... but 0 +log0<sup>+</sup>) converges to 0</li>
-<li>test if the probability is 0, do not compute explicitly in that case</li>
+<li>... but 0 +log0<sup>+</sup>） converges to 0 收敛到 0</li>
+<li>test if the probability is 0, do not compute explicitly in that case 测试概率是否为 0，在这种情况下不要显式计算</li>
 </ul></li>
 <li><p>How to compute log<sub>2</sub>:</p>
 <ul>
-<li><p>many languages do have a log<sub>2</sub> function (MATLAB, C, C++,...)</p></li>
-<li><p>... but some do not (Java,...)</p></li>
+<li><p>many languages do have a log<sub>2</sub> function （MATLAB, C, C++,...）</p></li>
+<li><p>... but some do not （Java,...）</p></li>
 <li><p>for any bases a and b, <span class="math display">\[
 \log_bx = \frac{\log_ax}{\log_ab}
 \]</span></p></li>
 </ul></li>
 <li><p>in our case b=2</p></li>
-<li><p>a is usually e, maybe 10 (does it matter?)</p></li>
+<li><p>a is usually e, maybe 10</p></li>
 </ul>
-<h4 id="back-to-attribute-selection">Back to attribute selection</h4>
+<h4 id="back-to-attribute-selection-返回属性选择">Back to attribute selection 返回属性选择</h4>
 <ul>
-<li>Finding attributes with high entropy:
+<li>Finding attributes with high entropy寻找具有高熵的属性:
 <ul>
-<li>start with a compressing transform (e.g. time/frequency for sounds, wavelet or DCT for images, movement vectors for video,...)</li>
-<li>for numeric attributes, variance can often be used as a good surrogate for entropy, and is easier to compute</li>
+<li><p>start with a compressing transform （e.g. time/frequency for sounds, wavelet or DCT for images, movement vectors for video,...）</p>
+<p>从压缩变换开始（例如声音的时间/频率，图像的小波或 DCT，视频的运动矢量，......）</p></li>
+<li><p>for numeric attributes, <strong>variance</strong> can often be used as a good surrogate for entropy, and is easier to compute</p>
+<p>对于数值属性，<strong>方差</strong>通常可以用作熵的一个很好的替代品，并且更容易计算</p></li>
 </ul></li>
-<li>Finding features with high mutual information with the classes:
+<li>Finding features with high mutual information with the classes 查找具有高互信息的类的特征:
 <ul>
-<li>expert knowledge may be available (e.g., pitch is key to music transcription)</li>
+<li><p>expert knowledge may be available （e.g., pitch is key to music transcription）</p>
+<p>可能有专业知识（例如，音高是音乐转录的关键）</p></li>
+<li><p>Common sense works 常识有效!</p>
+<ul>
+<li><p>e.g., don’t classify text documents based on frequency of “a”, “the”, “and”, ...</p>
+<p>例如，不要根据“a”、“the”、“and”、...的频率对文本文档进行分类</p></li>
 </ul></li>
-<li>Common sense works!
-<ul>
-<li>e.g., don’t classify text documents based on frequency of “a”, “the”, “and”, ...</li>
 </ul></li>
 </ul>
-<h2 id="some-common-classifiers">Some common classifiers</h2>
-<h3 id="bayesian-classifiers">Bayesian classifiers</h3>
+<h2 id="some-common-classifiers-一些常见的分类器">Some common classifiers 一些常见的分类器</h2>
+<h3 id="bayesian-classifiers-贝叶斯分类器">Bayesian classifiers 贝叶斯分类器</h3>
 <ul>
-<li><p>Maximum Likelihood learning: for each class C, learn a probability distribution p(.|C) that maximizes ∏p(m|C) for all the <em>m</em> in the training data.</p></li>
-<li><p>classification: for a point <em>m</em>, find the class C that maximises p(C|m)</p>
+<li><p>Maximum Likelihood learning: for each class C, learn a probability distribution <code>p(.|C)</code> that maximizes <code>∏p(m|C)</code> for all the <em>m</em> in the training data.</p>
+<p>最大似然学习：对于每个类 C，学习一个概率分布 <code>p(.|C)</code>，它使训练数据中所有m 的<code>∏p(m|C)</code> 最大化。</p></li>
+<li><p>classification: for a point <em>m</em>, find the class C that maximises <code>p(C|m)</code></p>
+<p>分类：对于点<em>m</em>，找到最大化 <code>p(C|m)</code> 的类 C</p>
 <ul>
 <li>using Bayes’ rule: <span class="math display">\[
 p(C|m) = \frac{p(C)p(m|C)}{p(m)}
 \]</span></li>
 </ul></li>
-<li><p>scales linearly with the number of classes</p></li>
+<li><p>scales linearly with the number of classes 与类数成线性比例</p></li>
 </ul>
-<h3 id="support-vector-machines-svm">Support Vector Machines (SVM)</h3>
+<h3 id="support-vector-machines支持向量机-svm">Support Vector Machines支持向量机 （SVM）</h3>
 <ul>
-<li>linear classifiers: boundaries are hyperplanes</li>
-<li>Maximal Margin learning: learn the hyperplane that is the furthest away from making a mistake
+<li><p>linear classifiers: boundaries are <strong>hyperplanes</strong></p>
+<p>线性分类器：边界是<strong>超平面</strong></p></li>
+<li><p>Maximal Margin learning: learn the hyperplane that is the furthest away from making a mistake</p>
+<p>最大边际学习：学习离犯错最远的超平面</p>
 <ul>
-<li>maximize the distance to the closest (=worst) points of each class (the support vectors)</li>
+<li><p>maximize the distance to the closest （=worst） points of each class （the support vectors）</p>
+<p>最大化到每个类（支持向量）的最近（=最差）点的距离</p></li>
 </ul></li>
-<li>mainly for 2 classes</li>
+<li><p>mainly for 2 classes</p></li>
 </ul>
-<h3 id="decision-trees">Decision trees</h3>
+<h3 id="decision-trees-决策树">Decision trees 决策树</h3>
 <ul>
-<li>A tool to represent decision making</li>
-<li>Decompose a complex problem into a sequence of simple questions</li>
-<li>Which question to ask next depends on the previous answers
+<li><p>A tool to represent decision making</p>
+<p>代表决策的工具</p></li>
+<li><p>Decompose a complex problem into a sequence of simple questions</p>
+<p>将复杂问题分解为一系列简单问题</p></li>
+<li><p>Which question to ask next depends on the previous answers</p>
+<p>接下来问哪个问题取决于之前的答案</p>
 <ul>
-<li>can be represented as a tree</li>
+<li>can be represented as a tree 可以表示为一棵树</li>
 </ul></li>
-<li>Tree structure:
+<li><p>Tree structure 树结构:</p>
 <ul>
-<li>leaves: decisions</li>
-<li>nodes: questions</li>
-<li>branches: possible answers to the parent question</li>
+<li>leaves叶: decisions 决策</li>
+<li>nodes节点: questions 问题</li>
+<li>branches分支: possible answers to the parent question 父问题的可能答案</li>
 </ul></li>
 </ul>
 <h4 id="the-morning-problem">The morning problem</h4>
 <p>Should I attend the class or not?</p>
 <p><img src="/images/AI/2006476.png" /></p>
-<h4 id="decision-trees-and-classification">Decision trees and classification</h4>
+<h4 id="decision-trees-and-classification-决策树和分类">Decision trees and classification 决策树和分类</h4>
 <ul>
-<li>Classification can be seen as a decision problem
+<li><p>Classification can be seen as a decision problem</p>
+<p>分类可以看作是一个决策问题</p>
 <ul>
-<li>the decision to take: which label apply to a data point?</li>
+<li><p>the decision to take: which label apply to a data point?</p>
+<p>采取的决定：哪个标签适用于数据点？</p></li>
 </ul></li>
-<li>Classifiers can be represented as a decision tree
+<li><p>Classifiers can be represented as a decision tree</p>
+<p>分类器可以表示为决策树</p>
 <ul>
-<li>a decision tree also partitions the attribute space</li>
-<li>question: on which side of a given border is the point we’re interested in?</li>
-<li>several trees can represent the same classifier</li>
-</ul></li>
-</ul>
-<h4 id="learning-decision-trees">Learning decision trees</h4>
-<ul>
-<li><p>Learning problem</p></li>
-<li><p>which questions to ask?</p></li>
-<li><p>If one asks enough questions, one will eventually classify the training set</p>
-<ul>
-<li>1 question = 1 new split of the space</li>
-<li>with enough splits, one can eventually separate each training point from all others</li>
-</ul>
-<p>but would that classifier generalise well to data it hasn’t seen before?</p></li>
-<li><p>Goals of the learning:</p>
-<ul>
-<li>the classifier should be general</li>
-<li>it should be fast to apply
-<ul>
-<li>build a classifier that needs to ask few questions before taking a decision (a shallow, bushy tree)</li>
-</ul></li>
+<li><p>a decision tree also partitions the attribute space</p>
+<p>决策树也划分了属性空间</p></li>
+<li><p>question: on which side of a given border is the point we’re interested in?</p>
+<p>问题：在给定边界的哪一侧是我们感兴趣的点？</p></li>
+<li><p>several trees can represent the same classifier</p>
+<p>几棵树可以代表同一个分类器</p></li>
 </ul></li>
 </ul>
-<h2 id="id3-algorithm-quinlan-1986">ID3 algorithm (Quinlan 1986)</h2>
-<p>ID3 takes a training set and builds a decision tree such that each leaf is homogeneous</p>
+<h4 id="learning-decision-trees-学习决策树">Learning decision trees 学习决策树</h4>
 <ul>
-<li>builds the tree from the root to the leaves</li>
-<li>greedy algorithm: no backtracking</li>
+<li><p>Learning problem 学习问题</p></li>
+<li><p>which questions to ask?要问哪些问题？</p></li>
+<li><p>If one asks enough questions, one will eventually classify the training set 如果问足够多的问题，最终会对训练集进行分类</p>
+<ul>
+<li><p>1 question = 1 new split of the space</p>
+<p>1 个问题 = 1 个新的空间分割</p></li>
+<li><p>with enough splits, one can eventually separate each training point from all others</p>
+<p>通过足够的分割，最终可以将每个训练点与所有其他训练点分开</p></li>
+</ul>
+<p>but would that classifier generalise well to data it hasn’t seen before?</p>
+<p>但是这个分类器能很好地泛化到它以前没有见过的数据吗？</p></li>
+<li><p>Goals of the learning 学习目标:</p>
+<ul>
+<li><p>the classifier should be general 分类器应该是通用的</p></li>
+<li><p>it should be fast to apply 申请应该很快</p>
+<ul>
+<li><p>build a classifier that needs to ask few questions before taking a decision （a shallow, bushy tree）</p>
+<p>建立一个分类器，在做出决定之前需要问几个问题（一棵浅而浓密的树）</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="id3-algorithm-quinlan-1986">ID3 algorithm （Quinlan 1986）</h2>
+<p>ID3 takes a training set and builds a decision tree such that each leaf is homogeneous D3 接受一个训练集并构建一个决策树，使得每个叶子都是同质的</p>
+<ul>
+<li><p>builds the tree from the root to the leaves 从根到叶构建树</p></li>
+<li><p>greedy algorithm: no backtracking</p>
+<p>贪心算法：无回溯</p></li>
 </ul>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">ID3</span><span class="token punctuation">(</span>Training_Set<span class="token punctuation">)</span> <span class="token operator">=</span>
 	<span class="token keyword">if</span> all the points in Training_Set have the same class C
@@ -828,60 +905,71 @@ p(C|m) = \frac{p(C)p(m|C)}{p(m)}
 		Question <span class="token operator">=</span> <span class="token function">Find_Best_Question</span><span class="token punctuation">(</span>Training_Set<span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token punctuation">[</span>Set_1<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>Set_n<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Split</span><span class="token punctuation">(</span>Training_set<span class="token punctuation">,</span> Question<span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token keyword">return</span> <span class="token function">Tree</span><span class="token punctuation">(</span>Question<span class="token punctuation">,</span> <span class="token function">ID3</span><span class="token punctuation">(</span>Set_1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span><span class="token function">ID3</span><span class="token punctuation">(</span>Set_n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>How does Find_Best_Question work?</p>
+<p>How does `<code>Find_Best_Question</code> work?</p>
 <ul>
-<li>which questions are allowed?</li>
-<li>how to select the best one?</li>
+<li>which questions are allowed 哪些问题是允许的?</li>
+<li>how to select the best one 如何选择最好的?</li>
 </ul>
-<h4 id="finding-the-next-question-to-ask">Finding the next question to ask</h4>
+<h4 id="finding-the-next-question-to-ask-寻找下一个要问的问题">Finding the next question to ask 寻找下一个要问的问题</h4>
 <ul>
-<li>ID3 restricts itself to questions that test only one attribute
+<li><p>ID3 restricts itself to questions that test only one attribute</p>
+<p>ID3 将自身限制为仅测试一个属性的问题</p>
 <ul>
-<li>fewer questions to choose from</li>
-<li>geometrically, all the borders are orthogonal to one axis</li>
-<li>for symbolic attributes mainly
+<li><p>fewer questions to choose from 可供选择的问题更少</p></li>
+<li><p>geometrically, all the borders are orthogonal to one axis</p>
+<p>在几何上，所有边界都与一个轴正交</p></li>
+<li><p>for symbolic attributes mainly 主要用于符号属性</p>
 <ul>
-<li>symbolic attributes cannot be combined</li>
-<li>symbolic attributes can be enumerated</li>
+<li>symbolic attributes cannot be combined 符号属性不能组合</li>
+<li>symbolic attributes can be enumerated 可以枚举符号属性</li>
 </ul></li>
 </ul></li>
-<li>Each question is chosen so that the resulting subsets are as classified as possible
+<li><p><strong>Each question is chosen so that the resulting subsets are as classified as possible 选择每个问题，以便尽可能对结果子集进行分类</strong></p>
 <ul>
-<li>the entropy of the class variable within a set measures how classified it is</li>
+<li><p>the entropy of the class variable within a set measures how classified it is</p>
+<p>集合中类变量的熵衡量它的分类程度</p></li>
 </ul></li>
 </ul>
 <p><span class="math display">\[
 H(s) = - \sum_{C = c}p_c\log_2p_c
 \]</span></p>
-<h4 id="finding-the-best-question">Finding the best question</h4>
+<h4 id="finding-the-best-question-找到最好的问题">Finding the best question 找到最好的问题</h4>
 <ul>
-<li><p>The entropy of a partition is the sum of the entropies of the subsets weighted by their size</p></li>
-<li><p>Entropy also provides a stopping criterion: a leaf is a node with entropy 0</p></li>
+<li><p>The entropy of a partition is the sum of the entropies of the subsets weighted by their size 分区的熵是按其大小加权的子集的熵之和</p></li>
+<li><p>Entropy also provides a stopping criterion: a leaf is a node with entropy 0</p>
+<p>熵还提供了一个停止标准：叶子是熵为 0 的节点</p></li>
 <li><p>The information gain is defined as the difference between the total entropies before and after partitioning</p>
+<p>信息增益定义为分区前后总熵之差</p>
 <ul>
-<li>It is also the mutual information between the attribute and the class, conditioned to the previous splits <span class="math display">\[
+<li><p>It is also the mutual information between the attribute and the class, conditioned to the previous splits</p>
+<p>信息增益定义为分区前后总熵之差 <span class="math display">\[
 G(S,Q) = H(S)-\sum_{S_i∈Split(S,Q)}\frac{|S_i|}{|S|}H(S_i)
-\]</span></li>
+\]</span></p></li>
 </ul></li>
-<li><p>Compute G for all possible questions and select the largest one</p></li>
+<li><p>Compute G for all possible questions and select the largest one 为所有可能的问题计算 G 并选择最大的一个</p></li>
 </ul>
-<h4 id="which-questions-to-ask">Which questions to ask?</h4>
+<h4 id="which-questions-to-ask-要问哪些问题">Which questions to ask? 要问哪些问题？</h4>
 <ul>
-<li>Symbolic attributes (gender, hair colour,...):
+<li>符号属性Symbolic attributes（性别，头发颜色，...）:
 <ul>
-<li>only a finite number of possible values for all data</li>
-<li>one branch for each different value</li>
+<li><p>only a finite number of possible values for all data</p>
+<p>所有数据只有有限数量的可能值</p></li>
+<li><p>one branch for each different value</p>
+<p>每个不同值的一个分支</p></li>
 </ul></li>
-<li>Numerical attributes (temperature, pixel value,...):
+<li>数值属性Numerical attributes（温度、像素值等）:
 <ul>
-<li>infinite range even if only a finite number of values are present in the training set</li>
-<li>choose a threshold t and ask the question: value &lt; t?</li>
+<li><p>infinite range even if only a finite number of values are present in the training set</p>
+<p>即使训练集中仅存在有限数量的值，也具有无限范围</p></li>
+<li><p>choose a threshold t and ask the question: value &lt; t?</p>
+<p>选择一个阈值 t 并提出问题：value &lt; t?</p></li>
 </ul></li>
-<li>Threshold choice:
+<li>Threshold choice 阈值选择:
 <ul>
-<li>the information gain criterion still holds</li>
-<li>the best threshold must be between two training examples of different classes</li>
-<li>try all possible thresholds</li>
+<li><p>the information gain criterion still holds</p>
+<p>信息增益准则仍然成立</p></li>
+<li><p>the best threshold must be between two training examples of different classes 最佳阈值必须在不同类别的两个训练样本之间</p></li>
+<li><p>try all possible thresholds 尝试所有可能的阈值</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/AI/2006477.png" /></p>
@@ -1060,88 +1148,109 @@ G(windy?)=H(S) - \frac{4}{8}H(windy)- \frac{4}{8}H(¬windy)=0.1887
 <p>A split along Windy classifies the branch</p>
 <h5 id="example-the-final-tree">Example: the final tree</h5>
 <p><img src="/images/AI/2006480.png" /></p>
-<h3 id="strong-and-weak-points-of-id3">Strong and weak points of ID3</h3>
+<h2 id="strong-and-weak-points-of-id3-id3的优缺点">Strong and weak points of ID3 ID3的优缺点</h2>
 <ul>
-<li>Each question only checks one feature:
+<li>Each question only checks one feature 每个问题只检查一个特征:
 <ul>
-<li>works well with attributes of different types (ex: size and gender)</li>
-<li>designs rectangular regions only, even if it does not fit the data</li>
+<li><p>works well with attributes of different types （ex: size and gender）</p>
+<p>适用于不同类型的属性（例如：大小和性别）</p></li>
+<li><p>designs rectangular regions only, even if it does not fit the data</p>
+<p>仅设计矩形区域，即使它不适合数据</p></li>
 </ul></li>
-<li>Generates the shortest possible tree:
+<li>Generates the shortest possible tree 生成最短的树:
 <ul>
-<li>fast classification after learning</li>
-<li>helps to generalise the model</li>
-<li>helps to understand the generated rules</li>
+<li>fast classification after learning 学习后快速分类</li>
+<li>helps to generalise the model 有助于泛化模型</li>
+<li>helps to understand the generated rules 有助于理解生成的规则</li>
 </ul></li>
 <li>Training is expensive:
 <ul>
-<li>try all possible questions at each node</li>
-<li>for each question, compute the answer with each data point of the subset</li>
-<li>infinite range attributes generate lots of different questions</li>
+<li><p>try all possible questions at each node</p>
+<p>在每个节点尝试所有可能的问题</p></li>
+<li><p>for each question, compute the answer with each data point of the subset</p>
+<p>对于每个问题，使用子集的每个数据点计算答案</p></li>
+<li><p>infinite range attributes generate lots of different questions</p>
+<p>对于每个问题，使用子集的每个数据点计算答案</p></li>
 </ul></li>
 </ul>
-<h3 id="a-word-on-overfitting">A word on overfitting</h3>
+<h3 id="a-word-on-overfitting-关于过拟合的一句话">A word on overfitting 关于过拟合的一句话</h3>
 <ul>
-<li>Noise blurs the boundaries between classes</li>
-<li>Sampling can alter the perception of the problem
+<li><p>Noise blurs the boundaries between classes</p>
+<p>噪音模糊了类之间的界限</p></li>
+<li><p>Sampling can alter the perception of the problem</p>
+<p>抽样可以改变对问题的看法</p>
 <ul>
-<li>selection bias</li>
-<li>rare events</li>
+<li>selection bias 选择偏差</li>
+<li>rare events 罕见事件</li>
 </ul></li>
-<li>General solution: more data! (not always possible)</li>
-<li><strong>Overfitting</strong>
+<li><p>General solution: more data! (not always possible)</p>
+<p>通用解决方案：更多数据！（并非总是可能）</p></li>
+<li><p><strong>Overfitting过拟合</strong></p>
 <ul>
-<li>learning a tree that models properties specific to the training set
+<li><p>learning a tree that models properties specific to the training set 学习一棵树来模拟训练集特有的属性</p>
 <ul>
-<li>the tree works on the training set but not on the problem data</li>
-<li>perfect classification of the training set is most often too much</li>
+<li><p>the tree works on the training set but not on the problem data</p>
+<p>该树适用于训练集，但不适用于问题数据</p></li>
+<li><p>perfect classification of the training set is most often too much</p>
+<p>训练集的完美分类通常太多了</p></li>
 </ul></li>
 </ul></li>
-</ul>
-<p><img src="/images/AI/2006481.png" /></p>
-<h3 id="reduced-error-pruning">Reduced-error pruning</h3>
-<ul>
-<li>Split the training set in two:
-<ul>
-<li>one for learning</li>
-<li>one for pruning</li>
-</ul></li>
-<li>Goal: learn a tree that classifies the pruning set well although it was not learnt on it</li>
-<li>First build a tree with ID3 on the training set</li>
-<li>Then greedily prune nodes to improve the classification of the pruning set</li>
-<li>What if we don’t have enough data to make a pruning set?</li>
-</ul>
-<h3 id="rule-pruning">Rule pruning</h3>
-<p>The tree can be written as a set of logical rules</p>
-<ul>
-<li>each path is a single conjunction of tests</li>
-<li>there is a disjunction between different paths</li>
 </ul>
 <p><img src="/images/AI/2006481.png" /></p>
-<h3 id="rule-post-pruning">Rule post-pruning</h3>
+<h2 id="pruning-修剪">Pruning 修剪</h2>
+<h3 id="reduced-error-pruning-减少错误修剪">Reduced-error pruning 减少错误修剪</h3>
 <ul>
-<li>First convert the tree into rules</li>
-<li>Then greedily prune the rules by removing preconditions</li>
-<li>Only prune if the precision of the rule does not decrease
+<li><p>Split the training set in two 将训练集一分为二:</p>
 <ul>
-<li>Precision = fraction of points of the correct class among the points picked by the rule</li>
+<li>one for learning 一个学习</li>
+<li>one for pruning 一种用于修剪</li>
 </ul></li>
-<li>The pruning is done on the training set directly
+<li><p><strong>Goal</strong>: learn a tree that classifies the pruning set well although it was not learnt on it</p>
+<p><strong>目标</strong>：学习一棵树，它可以很好地对剪枝集进行分类，尽管没有在上面学习</p></li>
+<li><p>First build a tree with ID3 on the training set 首先在训练集上建一个ID3的树</p></li>
+<li><p>Then greedily prune nodes to improve the classification of the pruning set 然后贪婪地修剪节点以提高修剪集的分类</p></li>
+<li><p>What if we don’t have enough data to make a pruning set? 如果我们没有足够的数据来制作剪枝集怎么办？</p></li>
+</ul>
+<h3 id="rule-pruning-规则修剪">Rule pruning 规则修剪</h3>
+<p>The tree can be written as a set of logical rules 树可以写成一组逻辑规则</p>
 <ul>
-<li>no need to split the set in two</li>
-<li>more used in practice</li>
+<li>each path is a single conjunction of tests 每条路径都是测试的单一结合</li>
+<li>there is a disjunction between different paths 不同路径之间存在分离</li>
+</ul>
+<p><img src="/images/AI/2006481.png" /></p>
+<h3 id="rule-post-pruning-规则后修剪">Rule post-pruning 规则后修剪</h3>
+<ul>
+<li><p>First convert the tree into rules</p>
+<p>首先将树转换为规则</p></li>
+<li><p>Then greedily prune the rules by removing preconditions</p>
+<p>然后通过删除先决条件来贪婪地修剪规则</p></li>
+<li><p>Only prune if the precision of the rule does not decrease</p>
+<p>仅在规则的精度不降低时进行修剪</p>
+<ul>
+<li><p>Precision = fraction of points of the correct class among the points picked by the rule</p>
+<p>精度 = 规则选取的点中正确类别的点的分数</p></li>
+</ul></li>
+<li><p>The pruning is done on the training set directly</p>
+<p>剪枝直接在训练集上完成</p>
+<ul>
+<li>no need to split the set in two 无需将集合一分为二</li>
+<li>more used in practice 在实践中更多地使用</li>
 </ul></li>
 </ul>
-<h3 id="summary">Summary</h3>
+<h2 id="summary">Summary</h2>
 <ul>
-<li>Information as a measurable quantity
+<li><p>Information as a measurable quantity</p>
+<p>作为可测量数量的信息</p>
 <ul>
-<li>information as structure in data</li>
+<li><p>information as structure in data</p>
+<p>作为数据结构的信息</p></li>
 </ul></li>
-<li>ID3: a method of using information to decide on structure</li>
-<li>Overfitting
+<li><p>ID3: a method of using information to decide on structure</p>
+<p>ID3：一种使用信息来决定结构的方法</p></li>
+<li><p>Overfitting 过拟合</p>
 <ul>
-<li>pruning to re-generalise</li>
+<li><p>pruning to re-generalise</p>
+<p>修剪以重新概括</p></li>
 </ul></li>
 </ul>
 
@@ -1509,6 +1618,13 @@ G(windy?)=H(S) - \frac{4}{8}H(windy)- \frac{4}{8}H(¬windy)=0.1887
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

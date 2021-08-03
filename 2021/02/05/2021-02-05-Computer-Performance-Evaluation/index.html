@@ -1,0 +1,1565 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Computer Performance Evaluation, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Computer Performance Evaluation | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Computer Performance Evaluation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Computer-Systems/">
+                                <span class="chip bg-color">Computer Systems</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Computer-Systems/" class="post-category">
+                                Computer Systems
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-02-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-08-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    5.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    22 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="computer-performance-evaluation">Computer Performance Evaluation</h1>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fdf3140b-3f54-488c-843f-ac42015e4b9c">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564899">Slide</a></p>
+<h2 id="preliminary-questions">Preliminary questions</h2>
+<ul>
+<li>Why performance studies?</li>
+<li>Performance under what workload?</li>
+<li>How is the computer defined?</li>
+</ul>
+<h3 id="why-performance-studies">Why performance studies?</h3>
+<p>Performance evaluations可以有几个完全不同的目标：</p>
+<p>最常见的动机是为给定的应用选择产品。 很明显，这样的评估会受到未被选中的供应商的批评。 需要非常谨慎的客观方法来回答这些批评。</p>
+<p>当购买的系统不能满足其购买者的期望时，就会出现第二个更微妙的性能评估动机。 这种情况通常会导致中立的专家将实际表现与指定的表现进行比较。</p>
+<p>现有系统在其生命周期内通常会通过增加内存大小memory size、添加磁盘存储disc storage等进行扩展。建议在投资之前评估此类扩展的影响。</p>
+<p>最后，计划推出新系统的供应商最好在对新系统的设计进行大量投资之前，将他们计划的系统与竞争对手的系统进行比较。</p>
+<ul>
+<li>selection of a product for a given application;</li>
+<li>when a purchased system dose not fulfil the expectations of its buyer; the most important of evaluation is identifying bottlenecks.</li>
+</ul>
+<h3 id="performance-under-what-workload">Performance under what workload?</h3>
+<ul>
+<li>A Priori
+<ul>
+<li>Which system can fulfil the <strong>needs</strong>?</li>
+</ul></li>
+<li>A posteriori
+<ul>
+<li>Does the system fulfil the <strong>needs</strong>?</li>
+</ul></li>
+<li>BUT
+<ul>
+<li>What are the <strong>needs</strong>?</li>
+</ul></li>
+</ul>
+<p>不可能独立于其工作负载workload来定义计算机系统的性能。 因此，在进行性能比较以选择新系统之前，正确定义workload是绝对必要的。</p>
+<p>然而，准确precisely和定量quantitatively定义代表未来系统必须处理的实际工作负载的工作负载通常比性能评估本身更困难。</p>
+<h4 id="workload-evolution">Workload evolution</h4>
+<p>当需要购买新系统来替换现有系统时，通常会使用现有系统的工作量来比较候选人的表现。 <span class="math display">\[
+Performance = f(Workload)
+\]</span> <img src="/images/OP/08-03062544.png" /></p>
+<p>当新系统具有与旧系统非常相似的architecture时，这是可以的。 否则，架构接近古代的候选者将具有显着优势，因为随着时间的推移，<u>现有应用程序最常针对现有系统进行优化，而这些优化可能会对架构完全不同的系统产生不利影响。</u></p>
+<p>例如，可以考虑矩阵求逆matrix inversion，如果arithmetic unit功能强大而memory不足时，将使用其他算法而不是memory充足时使用的算法，但arithmetic unit没有有效处理indices的设施。</p>
+<h3 id="how-is-the-computer-defined">How is the computer defined?</h3>
+<ul>
+<li>In general
+<ul>
+<li><strong>Global system performance</strong> is important .</li>
+</ul></li>
+<li>However :
+<ul>
+<li><u>Performance of components</u> is easier to evaluate precisely</li>
+</ul></li>
+<li>But
+<ul>
+<li>Performance of components only relevant when system bottlenecks</li>
+<li>Influence of individual components on overall system performance hard to predict</li>
+</ul></li>
+</ul>
+<p>在任何性能评估或规范之前需要考虑的最后一个因素是所考虑系统的<strong>确切exact轮廓contour</strong>。 很明显，最终用户对整个系统的整体性能感兴趣，但指定和评估系统中定义良好的部分的性能要简单得多。</p>
+<p>不幸的是，系统的整体性能global performance是其组件性能的高度非线性函数highly non linear function。 <strong>事实上，在大多数系统中，global performance由构成特定应用程序bottleneck的单个组件决定</strong>。</p>
+<p>这意味着性能研究通常<u>必须尝试识别bottleneck并确定系统不同组件的dimension</u>，以免导致系统中大量昂贵的部件未得到充分利用。</p>
+<h3 id="a-fault-tolerant-computer">A fault-tolerant computer</h3>
+<p>关注<strong>整个系统</strong>而不是其组件的重要性的一个极端现实例子来自一家连锁超市，该连锁超市因控制所有收银机的计算机系统的硬件故障而蒙受巨大损失，随后 与硬件供应商签订合同，以相当大的成本保证其硬件的 100% 可用性。</p>
+<p>不幸的是，他们没有在合同中指定有关软件的任何内容，在该硬件上，该软件平均每月崩溃一次并需要半小时才能重新启动。</p>
+<h2 id="performance-indices">Performance Indices</h2>
+<p>Indices that can be</p>
+<ul>
+<li><strong>defined</strong></li>
+<li><strong>measured</strong></li>
+</ul>
+<p>Examples</p>
+<ul>
+<li>Pages printed per hour</li>
+<li>Response time</li>
+<li>Availability</li>
+<li>User Friendliness</li>
+</ul>
+<p><u><strong>系统性能的任何客观比较都应基于明确定义的、可衡量的指标。</strong></u></p>
+<ul>
+<li>Availability
+<ul>
+<li>How often is the system unavailable</li>
+</ul></li>
+<li>Productivity
+<ul>
+<li>How much work can be done per day 2</li>
+</ul></li>
+<li>Responsiveness
+<ul>
+<li>How long does one have to wait before a specific task is done</li>
+</ul></li>
+<li>Utilization
+<ul>
+<li>How often is a subsystem being used</li>
+</ul></li>
+</ul>
+<p>可能还有其他重要的标准来衡量系统的性能，例如它们的“用户友好性user friendliness”，但尽管付出了很多努力，但这个高度主观的指标从未得到明确定义或可衡量。</p>
+<h2 id="availability">Availability</h2>
+<p><strong>可用性指数availability index通常表示为系统运行时间的百分比 a percentage of time the system is operational。</strong></p>
+<p>人们应该意识到真正的交互式服务，例如自动柜员系统、商店收银机和在线服务（例如 Google 或 Facebook）需要具有令人印象深刻的高可用性，至少达到 99.99% 的数量级才能被社会接受。</p>
+<p>一般通过故障概率 failure probabilities和平均恢复时间average recovery times研究可用性数据</p>
+<p><strong>It depends on :</strong></p>
+<ul>
+<li><p><strong>Reliability</strong> <code>R(t)</code></p></li>
+<li><ul>
+<li>Probability of performing the specific service during unit t after start-up;</li>
+</ul></li>
+<li><p><strong>Maintainability</strong> <code>M(t)</code></p></li>
+<li><ul>
+<li>Probability that a system can be restored within unit t after a failure;</li>
+</ul></li>
+</ul>
+<h3 id="reliability">Reliability</h3>
+<ul>
+<li><p>R（0） = 1 , R（∞）= 0</p></li>
+<li><p>Failure density <span class="math display">\[
+f(t)=\frac{-dR(t)}{dt}
+\]</span></p></li>
+<li><p>Failure rate λ（t） <span class="math display">\[
+\lambda(t)=\frac{f(t)}{R(t)}
+\]</span></p>
+<ul>
+<li>λ（t）dt is the conditional probability that a system will fail in the interval dt , provided it has been operational at the beginning of this interval</li>
+<li>When λ（t） = constant then R（t）= e<sup>-λt</sup></li>
+<li>1/λ = MTTF （ Mean Time to Fail ）</li>
+</ul></li>
+</ul>
+<p>为了预测可用性availability，人们经常使用概率论probability theory。 此类研究中的一个重要参数是组件的故障率Failure rate λ（t）。 通常，由于可能的制造缺陷，当组件是新的时，λ 具有较高但减小的值，然后，当没有制造缺陷时，λ 长时间保持较低的恒定值，最后，如果组件磨损，则 λ 再次攀升直到最后的失败。</p>
+<p>为了表征组件正常使用期间 λ 的低常数值low constant value，人们经常提到 1/λ，这被称为“平均故障时间Mean Time to Fail ”（MTTF）。 许多组件具有数千年数量级的 MTTF 的事实并不意味着这些组件将活那么久，因为在某个时候它们的 λ 将开始增长，但它是方便计算组件在给定时间间隔内失败的概率的参数。</p>
+<h2 id="productivity">Productivity</h2>
+<blockquote>
+<p>"How much work can be done per unit of time?"</p>
+</blockquote>
+<ul>
+<li>Hardware oriented indices
+<ul>
+<li>Clock speed</li>
+<li>MIPS, FLOPS, ...</li>
+</ul></li>
+<li>Application oriented indices: <strong><em>benchmarks</em></strong>
+<ul>
+<li>Whetstones, Dhrystones, Linpacks, ...</li>
+<li>TPC transactions per second, ...</li>
+</ul></li>
+</ul>
+<p>许多不同的指标被用来评估计算机每单位时间可以执行的工作量。 如此众多的指数清楚地表明，没有真正适合该目的的指数！</p>
+<p>某些指标基于processor的硬件特性hardware characteristics，例如时钟速度clock speed或每秒可执行的指令数instructions per second that can be executed。</p>
+<p>其他人则通过测量执行特定测试程序所需的时间来采取更全面的观点。</p>
+<h3 id="hardware-oriented-indices">Hardware oriented indices</h3>
+<h4 id="clock-speed">Clock speed</h4>
+<p><strong>Its meaning depends on the processor!</strong></p>
+<p>处理器的Clock speed对其productivity的影响很难确定。 根据所使用的电路，类似指令的执行可能需要完全不同的时钟周期数，如这个（非常古老的）示例所示。</p>
+<p><img src="/images/OP/625440.png" /></p>
+<p>由于各种性能增强技术（例如流水线），这种明显差异在现代处理器中不再可见，但它们仍然存在，即使在具有相同指令集的处理器之间（例如英特尔和 AMD 制造的 PC 处理器）</p>
+<p><strong>Memory access time is also important</strong></p>
+<p>处理器Clock speed不能很好地反映计算机生产率的另一个原因是中央存储器central memory与processor本身的速度相比速度较慢。</p>
+<p><img src="/images/OP/625441.png" /></p>
+<p><strong>Clock speed</strong> is hard to measure:</p>
+<ul>
+<li>Instructions may take different clock cycles;</li>
+<li>The speed of central memory is slower than the processor and is depends on the size of cache;</li>
+</ul>
+<p>在访问memory时，几乎所有的处理器都需要等待memory完成请求的读或写。 缓存caching技术减少了memory的平均访问时间，因此生产力productivity将更多地受memory大小而不是处理器时钟processor clock速度的影响。</p>
+<h4 id="native-mipsmillions-of-instructions-per-second">Native MIPS（Millions of Instructions Per Second）</h4>
+<p>为了避免与时钟速度相关的不确定性，生产率通常以<strong>每秒执行的指令数</strong>来表示。 <span class="math display">\[
+Z:=X+Y
+\]</span> 要比较具有完全相同架构和相同指令集的计算机的生产率，这可能是一个有用的指标，<u>但是当用于比较非常不同架构（例如 RISC 和 CISC）的生产率时，MIPS 数字几乎没有意义</u> 。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">RISC</th>
+<th style="text-align: center;">CISC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">LOAD X</td>
+<td style="text-align: center;">ADD X,Y,Z</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">LOAD Y</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">ADD</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">STORE Z</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MIPS = （Meaningless Index for Pushy Salesmen）Except when used to compare machines with identical architectures</strong></p>
+<h4 id="flops-floating-point-operations-per-second">FLOPS （Floating Point Operations Per Second）</h4>
+<p>大型科学计算机的生产力通常是通过计算每秒可以执行的浮点运算数量Floating Point Operations来估计的。</p>
+<p>由于所有科学计算机都使用各种形式的并行处理parallel processing和向量指令来提高其生产力，因此整体性能将在很大程度上取决于解决的问题对可用资源的利用程度。 例如，通过一条指令，Cray 超级计算机可以将两个 64 维向量相加，但如果您的问题是在传统的 3 维空间中，您将无法使用所有可用资源。</p>
+<p>通过乘以处理器数量，FLOPS 数字惊人地增长。</p>
+<h4 id="teps-traversed-edges-per-second">TEPS （Traversed Edges Per Second）</h4>
+<p>对于超级计算机来说，一个新的硬件指标比 FLOPS 数字越来越重要，它是 TEPS 数字 <strong>Increasing FLOPS seems to decrease TEPS!</strong></p>
+<h3 id="application-oriented-indices">Application oriented indices</h3>
+<h4 id="benchmark-programs">Benchmark Programs</h4>
+<p>由于硬件指标无法准确预测生产力，因此称为基准测试benchmark的<strong>测试程序test program</strong>最常用于在或多或少标准化standardized的条件下评估生产力。</p>
+<ul>
+<li><strong>Advantage</strong>: including the entire system for measurement;
+<ul>
+<li>CPU + Memory + Cache + OS + Compiler</li>
+</ul></li>
+<li><strong>Disadvantage</strong>: not always represent the true workload;</li>
+</ul>
+<p>There are 2 types:</p>
+<ul>
+<li>Synthetic benchmarks 合成基准</li>
+<li>Natural benchmarks 自然基准</li>
+</ul>
+<h5 id="synthetic-benchmarks">Synthetic benchmarks</h5>
+<p>综合基准测试Synthetic benchmarks是小程序small programs，易于移植easily portable，通常可以参数化parametrize以根据实际工作负载调整生成的工作负载real workload。</p>
+<p>大多数synthetic benchmark是在高速缓存 cache memory和优化编译器optimizing compiler尚未经常使用的时候设计的，因此它们无法准确估计现代计算机系统上现代工作负载的生产力。例如，许多synthetic benchmark小到可以永久reside在现代计算机的cache中。</p>
+<h6 id="whetstone-benchmark">Whetstone benchmark</h6>
+<p>最流行的synthetic benchmark是 Whetstone benchmark，它在 70 年代设计用于代表典型的scientific计算工作负载。 它在几乎所有编程语言中都可用，尽管它不再代表当代工作负载，但它仍被广泛使用并在性能比较中被引用。一些计算机制造商甚至设计了专门为执行磨刀石基准测试Whetstone benchmark而优化的工作站。</p>
+<ul>
+<li>Very small size （+/- 2000 bytes）</li>
+<li>Very high code locality</li>
+<li>Use heavily a few global variables, almost no local variables</li>
+<li>+/- 50% of time spent in library functions</li>
+</ul>
+<h5 id="natural-benchmarks">Natural benchmarks</h5>
+<p>为了避免与综合基准相关的所有方法论错误，越来越多的基于真实应用程序的自然基准被用于生产力测试。 然而，它们需要相当大的努力才能安装在各种各样的机器上。</p>
+<p>Based on real application programs.</p>
+<h5 id="linpack-benchmarks">Linpack benchmarks</h5>
+<p>一个<strong>介于合成和自然基准之间</strong>的基准是 Linpack 基准，它反复对矩阵求逆inverse a matrix。 矩阵的大小是可以选择的，并且只受被测计算机内存大小的限制。 由于矩阵求逆matrix inversion在科学计算中发挥着重要作用，因此该基准可以很好地衡量计算机在科学应用中的生产力。</p>
+<ul>
+<li>Natural benchmark for floating point calculations</li>
+<li>Available in Fortran and C</li>
+<li>Small code size ( + / -4500 bytes )</li>
+<li>but large , user definable , data size</li>
+<li>Performance expressed in MFLOPS , all other instructions being considered as infinitely fast .</li>
+<li>Performance very sensitive to compiler optimizations and quality of floating point library</li>
+</ul>
+<p>该基准测试的作者 （Jack Dongara）过去每三个月发布一次在他可以访问的所有计算机上运行基准测试时获得的结果。</p>
+<h5 id="spec-benchmarkssystems-performance-evaluation-cooperative-effort-1989">SPEC benchmarks（Systems Performance Evaluation Cooperative effort , 1989 ）</h5>
+<p>为了减少和分担基准测试的成本，主要计算机制造商创建了一个由这些制造商资助的非盈利组织，以设计和运行自然基准测试并使这些比较的结果广泛可用。</p>
+<ul>
+<li>为性能比较目标选择的一组大型自然基准</li>
+<li>来自各种应用领域（主要是科学应用领域）的超大型程序（ +/-15 Klines/program ）</li>
+<li>结果 = 使用不同基准程序获得的结果的几何平均值geometric mean</li>
+<li>Results available for a fee</li>
+</ul>
+<h3 id="pc-benchmarks">PC benchmarks</h3>
+<p>对于个人电脑，一些杂志（现在几乎都是在线的）发布了基于真实基准的比较。</p>
+<p>有些很糟糕：Byte Magazine 使用 Erathostenes 的筛子来比较 PC 的生产力，但是购买 PC 来计算前 1000 个素数的人并不能真正代表 PC 市场。 Ziv-Davies（PC 杂志）确实开发了一个 PC 基准测试（称为 Winstone），由前一年最畅销的 8 个 Windows PC 软件包组成，该基准测试系列现在由 Lionbridge Technologies 的 VeriTest 部门进一步开发。</p>
+<p>由于这些基准测试的价格合理，如果需要测试 PC 性能，可以使用它们。</p>
+<p>考虑到这样做所需的努力，运行 PC 基准测试仅对大量购买数千台 PC 有意义。</p>
+<h2 id="responsiveness">Responsiveness</h2>
+<p>有时，生产力productivity和响应能力responsiveness之间的区别并不明确。 在需要大量处理的事务的情况下，良好的productivity是良好responsiveness的必要条件necessary condition，但不是充分条件sufficient condition，处理事务的进程也必须具有足够的priority以确保良好的responsiveness，而不是productivity。</p>
+<p>此外，responsiveness通常是通过访问网络体验到的，这可能会显着增加事务的总持续时间。</p>
+<h3 id="interactive-response-time">Interactive response time</h3>
+<p>明确定义<strong>交互式响应时间interactive response time</strong>需要仔细分析命令command的结构和相应的答案。</p>
+<p>Responsiveness is experienced by accessing network that can increase significant delays to the total time of transaction.</p>
+<p><img src="/images/OP/625442.png" /></p>
+<p>例如，如果要测量 Web 服务器的响应时间，则需要区分在服务器测量的响应或在客户端测量的响应，因为在第二种情况下，不仅要测试服务器 ，也是服务器和客户端之间的整个通信链接。</p>
+<h2 id="utilization">Utilization</h2>
+<h3 id="utilisation-indices">Utilisation Indices</h3>
+<p>这对于检测瓶颈bottleneck或估计用户满意度user satisfaction非常有用。</p>
+<ul>
+<li>% total time CPU busy</li>
+<li>% total time IO channel busy</li>
+<li>% CPU time in system mode</li>
+<li>% Total time printer busy</li>
+<li>% total time user waiting</li>
+</ul>
+<h2 id="performance-indices-1">Performance indices</h2>
+<p>可以使用各种技术来评估性能指标。</p>
+<p>By means of Measurements</p>
+<ul>
+<li>On real systems
+<ul>
+<li>with a real workload</li>
+<li>with a simulated workload</li>
+</ul></li>
+<li>On simulated systems
+<ul>
+<li>By means of Analytical Modelling</li>
+</ul></li>
+</ul>
+<p>首先，可以对具有real workload的real systems进行测量。 这种技术非常适合测量批量生产率。</p>
+<p>在交互式环境interactive environments中，创建真实的、可重现的工作负载相当困难。 因此，交互性能interactive performance通常通过<strong>模拟工作负载</strong>来评估，其中使用计算机来模拟用户。</p>
+<p>在许多情况下，需要评估性能的实际计算机不可用，可以用<strong>模拟器simulator</strong>代替，模拟器运行测试程序并提供有关执行它们所需的时间和资源的指示。</p>
+<p>最后，对于一些更多的理论研究，马尔可夫链模型Markov chain models可用于建立计算机系统行为的分析模型。</p>
+<p>Detecting bottlenecks and estimating user satisfaction.</p>
+<ul>
+<li>Measurements on real systems with real workload for measuring batch productivity;</li>
+<li>Evaluating interactive performance with a simulated workload;</li>
+<li>For theoretical studies, Using Markov chain model to establish analytical models for behavior of a computer system;</li>
+</ul>
+<h3 id="interactive-responsiveness">Interactive Responsiveness</h3>
+<p>这里将简要描述交互式多用户系统的responsiveness and/or the productivity 的测量。</p>
+<p><img src="/images/OP/625443.png" /></p>
+<h4 id="workload-definition">Workload definition</h4>
+<ul>
+<li>Define a script for each terminal
+<ul>
+<li>What should be typed</li>
+<li>When it should be typed</li>
+</ul></li>
+<li>Unexpected answers are possible
+<ul>
+<li>Tree structured script</li>
+<li>Number of branches should remain small</li>
+</ul></li>
+</ul>
+<p>首先，应该建立一个精确的脚本script，描述用户和计算机之间的所有交互。</p>
+<p>在编写这样的脚本时，作者不要忘记计算机可能会给出意想不到的答案，例如“<strong>除以 0 division by 0</strong>”或“<strong>堆栈溢出“stack overflow</strong>”。</p>
+<p>脚本应识别出意料之外的答案，并以不危及测试的继续进行的方式对其做出反应。 还应避免构建具有许多分支的过于复杂的脚本。 例如，可以指定对于任何意外答案，用户应该注销并重新开始他/她的会话。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>脚本示例显示了如何描述 UNIX 登录过程。 Begintransaction 和 Endtransaction 声明允许标记事务并指示需要时间戳的位置。</p>
+<p>Timeout 声明指定在没有任何预期答案的 12 秒后脚本应停止并由名为 crashproc 的脚本替换。</p>
+<h4 id="workload-generation">Workload generation</h4>
+<ul>
+<li>Real Users
+<ul>
+<li>Unpractical if large number</li>
+<li>Poor timing and script errors</li>
+</ul></li>
+<li>Simulated Users
+<ul>
+<li>Terminals and users simulated by program that interprets script.</li>
+<li>Severe requirements for performance of users simulator.</li>
+</ul></li>
+</ul>
+<p>这样的脚本可以由操作员在工作站前执行，但这会产生大量计时问题和脚本错误。</p>
+<p><img src="/images/OP/625444.png" /></p>
+<p>为了防止人工操作员遇到困难，他们通常被解释脚本的计算机程序所取代。 该程序可以在被测计算机上运行，但最好使用单独的计算机，因为这样可以最大限度地减少实时用户模拟器和被测系统之间的干扰。</p>
+<p>Establishing a precise script to describe all interactions between users and computers.</p>
+<p>The script should recognize unexpected answers and react to them.</p>
+<p>And avoid to build too complex scripts with many branches.</p>
+<h4 id="timing-of-rt-user-emulator">Timing of RT user emulator</h4>
+<p><img src="/images/OP/625445.png" /></p>
+<p>执行脚本的计算机必须足够强大，这一点很重要，因为它的响应时间将被添加到被测系统的测量响应时间和脚本中指定的思考时间。 相对于被测系统的响应时间和指定的思考时间而言不可忽略的用户仿真器的响应时间可能完全破坏测量结果。</p>
+<p>The computer that executing the scripts must be powerful enough. Because its response time will be added to the response time of system and think time in the script, and it will influence the measurement results.</p>
+<h3 id="modelling-a-time-sharing-system">Modelling a time-sharing system</h3>
+<p>作为用于计算机性能预测的分析模型的示例，下图介绍的简单分时系统很有用。</p>
+<p><img src="/images/OP/625446.png" /></p>
+<p>我们考虑在随机时刻向处理器提交请求的 n 个交互式用户。 处理器处理这些请求并将答复发回给用户。 平均而言，处理器需要 1/μ 秒来处理请求，并且在收到答复后，用户在发送新请求之前平均需要 1/λ 秒的思考时间。</p>
+<h3 id="queuing-model">Queuing Model</h3>
+<ul>
+<li><p>Time-shared server , no swapping overhead</p></li>
+<li><p>n independent users , Poisson distribution</p>
+<ul>
+<li>Mean think time = 1/λ</li>
+<li>Probability that thinking user makes request during time-interval dt = λ.dt</li>
+<li>Mean service time = 1/μ</li>
+<li>Probability that the active job is completed during time-interval dt = μ.dt</li>
+</ul></li>
+<li><p>State = total number of users waiting</p>
+<ul>
+<li><p>System is in state j when j users are waiting</p></li>
+<li><p>p<sub>j</sub> = Steady-state probability that the system is in state j during time interval dt</p>
+<ul>
+<li>p<sub>0</sub> : Probability nobody is waiting （the processor is idle）</li>
+<li>p<sub>n</sub> : Probability everybody is waiting</li>
+</ul></li>
+<li><p><span class="math display">\[
+\sum p_j=1
+\]</span></p></li>
+</ul></li>
+</ul>
+<p>我们引入了一个状态变量 j 来计算等待用户的数量，我们想计算系统在给定时刻处于状态 j 的概率 P<sub>j</sub>。</p>
+<p>During time-interval dt , when system is in state j</p>
+<ul>
+<li><p>Probability that the system evolves towards state j + l : = p<sub>j</sub> ( n-j )λdt</p></li>
+<li><p>Probability that the system evolves towards state j-1 : = p<sub>j</sub>μdt</p></li>
+<li><p>Probability that the system remains in state j :</p>
+<p>= p<sub>j</sub> 1- ( ( n-j ) λ + μ ) dt</p>
+<p>p<sub>0</sub> = p<sub>0</sub> ( I-n λdt ) + p<sub>1</sub>μdt</p>
+<p>...</p>
+<p>p<sub>j</sub> = p<sub>j-1</sub> ( n-j+1 ) λdt + p <sub>j</sub>( 1-( n-j ) λ + μ ) dt + p<sub>j+1</sub>μdt</p>
+<p>...</p>
+<p>P<sub>a</sub> = p<sub>n-1</sub>λdt + p<sub>n</sub>( 1-μdt )</p></li>
+</ul>
+<p>假设系统处于状态 j，我们可以计算系统向</p>
+<ul>
+<li><p>状态 j+1，因为 n-j 个思考者中的一个停止思考并产生一个新的请求</p></li>
+<li><p>状态 j-1，因为处理器完成了它正在执行的任务。</p></li>
+</ul>
+<p>这意味着我们可以建立一组 n+1 个齐次线性方程homogeneous linear equations，给出所有 P<sub>j</sub> 作为 λ 和 μ 的函数， <span class="math display">\[
+P_j=\frac{n!}{(n-j)!}(\frac{\lambda}{\mu})^{j}p_0\\
+p_0+p_1+p_2+...+p_n=1\\
+p_0 =[\sum^{n}_{J=0}\frac{n!}{(n-j)!}(\frac{\lambda}{\mu})^{j}]^{-1}
+\]</span> 求解该系统允许我们用 n、λ、μ 和 P<sub>0</sub> 的函数来表达 P<sub>j</sub> 并且记住，由于系统总是具有 n 个状态之一，所有 P<sub>j</sub>的总和必须为 1，我们可以找到一个表达式 P<sub>0</sub> 作为 n、λ 和 µ 的函数。</p>
+<p>A state variable j that counts the number of users waiting;</p>
+<p>The probability P<sub>j</sub> is the probability that system in j state for a given time.</p>
+<p>When the system in state j, we can compute the probabilities that the system will evolve to state j+1 or j-1;</p>
+<p>That means we should build a set of n+1 homogeneous linear equations giving all P<sub>j</sub> as a function of <img src="https://www.zhihu.com/equation?tex=%5Clambda" alt="[公式]" /> and <img src="https://www.zhihu.com/equation?tex=%5Cmu" alt="[公式]" /> .</p>
+<figure>
+<img src="https://pic1.zhimg.com/80/v2-1c798add74826e7b03d9032177f5ff44_720w.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="time-sharing-system">Time-sharing System</h3>
+<p><img src="/images/OP/625447.png" /></p>
+<p>为了在这个模型中引入响应时间 R 的概念，我们应该计算请求进入和离开处理器的流量。</p>
+<p>进入处理器后，没有等待答案的那部分用户每秒将产生 λ 个请求。 该分数是平均思考时间除以思考时间和响应时间 R 的总和。</p>
+<p>当处理器不处于空闲状态并且我们知道处于空闲状态的概率为 P<sub>0</sub>时，处理器将每秒生成 µ 个应答。</p>
+<p>通过声明系统处于稳定状态，进入处理器的请求流和离开处理器的响应流必须相等，这导致我们可以将 R 计算为 n、λ 和 μ 的函数的表达式 .</p>
+<p>Getting response time <strong>R</strong> by computing the flow of request entering and leaving from the processor.</p>
+<p>Fraction of Users will generate λ requests per seconds to enter the processor, the fraction is <span class="math display">\[
+\frac{average\ think\ time}{tink \ time + reponse\ time\ R}
+\]</span> The processor generate <img src="https://www.zhihu.com/equation?tex=%5Cmu" alt="[公式]" /> answers per second.</p>
+<p>In a steady state, requests and answers are equal. We can get an function R of n, λ and μ.</p>
+<h4 id="time-sharing-response-time">Time-sharing response time</h4>
+<p>由于对于大量用户而言，处理器空闲的概率非常小，P<sub>0j</sub> 将接近于 0，可以观察到响应时间将随 n 线性增长，斜率为 1/μ。</p>
+<p>如果只有一个或几个用户，响应时间将接近 1/µ，因为这是处理器需要为单个用户服务的时间。</p>
+<p><img src="/images/OP/625448.png" /></p>
+<p>大值 n 的渐近线asymptote与 n 轴相交于 µ/λ。 这称为饱和点saturation point，响应时间开始随着用户数量的增加而快速增长。</p>
+<p>这个模型表明，即使过载overloaded，分时系统time sharing systems也不会崩溃，它们只会变得越来越慢。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/02/05/2021-02-05-Computer-Performance-Evaluation/">https://yintelligence.tech/2021/02/05/2021-02-05-Computer-Performance-Evaluation/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Computer-Systems/">
+                                    <span class="chip bg-color">Computer Systems</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/02/06/2021-02-06-VUB-4019862ANR-Web-Technologies/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="VUB 4019862ANR Web Technologies">
+                        
+                        <span class="card-title">VUB 4019862ANR Web Technologies</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Network/" class="post-category">
+                                    Network
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web-Technologies/">
+                        <span class="chip bg-color">Web Technologies</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/04/2021-02-04-VUB-4015676ENR-Technology-and-Applications-of-Micro-Electronics-and-Photonics/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics">
+                        
+                        <span class="card-title">VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Photonics
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Electronics/" class="post-category">
+                                    Electronics
+                                </a>
+                            
+                            <a href="/categories/Photonics/" class="post-category">
+                                    Photonics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Technology-and-Applications-of-Electronics-and-Photonics/">
+                        <span class="chip bg-color">Technology and Applications of Electronics and Photonics</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
