@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-08-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    781
+                    578
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    3 Min
                 </div>
                 
 
@@ -501,70 +501,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="tuples-sets-and-dictionaries">Tuples, sets and dictionaries</h1>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Course%20slides?preview=589298">Slide</a> + Exercise</p>
-<h2 id="code-example-1">Code example 1</h2>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fahrenheitToCelsius</span><span class="token punctuation">(</span>fahrenheit<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    celsius <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">/</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>fahrenheit <span class="token operator">-</span> <span class="token number">32</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>celsius<span class="token punctuation">)</span>
-    
-<span class="token keyword">def</span> <span class="token function">isFreezing</span><span class="token punctuation">(</span>fahrenheit<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>fahrenheitToCelsius<span class="token punctuation">(</span>fahrenheit<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> true
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> false
-    
-<span class="token keyword">print</span><span class="token punctuation">(</span>isFreezing<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#100°F</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>isFreezing<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#0°F</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Corrected:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fahrenheitToCelsius</span><span class="token punctuation">(</span>fahrenheit<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    celsius <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">/</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>fahrenheit <span class="token operator">-</span> <span class="token number">32</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> celsius
-
-<span class="token keyword">def</span> <span class="token function">isFreezing</span><span class="token punctuation">(</span>fahrenheit<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>fahrenheitToCelsius<span class="token punctuation">(</span>fahrenheit<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
-    
-<span class="token keyword">print</span><span class="token punctuation">(</span>isFreezing<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#100°F</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>isFreezing<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#0°F</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="code-example-2">Code example 2</h2>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">,</span> element<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> element<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> i
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token string">'Element not found in list'</span>
-        
-<span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>find<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Corrected:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">findElement</span><span class="token punctuation">(</span>mylist<span class="token punctuation">,</span> element<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>mylist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> element<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> i
-        <span class="token keyword">return</span> <span class="token string">'Element not found in list'</span>
-    
-L <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>findElement<span class="token punctuation">(</span>L<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="code-example-3">Code example 3</h2>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">reverseList</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token builtin">reversed</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token builtin">reversed</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">reversed</span>
-    <span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
-    
-<span class="token keyword">print</span><span class="token punctuation">(</span>reverseList<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Corrected:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>mylist<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token builtin">reversed</span> <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>mylist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token builtin">reversed</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>mylist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">reversed</span>
-    
-L <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>reverseList<span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a href="https://yintelligence.tech/2021/01/02/2021-01-02-VUB-4013765EER-Scripting-Languages/">VUB 4013765EER Scripting Languages</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Course%20slides?preview=589298">Slide</a></p>
 <h2 id="tuples">Tuples</h2>
 <p>A tuple is an <strong>ordered</strong> sequence of <strong>immutable</strong> objects. Tuples use parentheses.</p>
 <p>Example:</p>

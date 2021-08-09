@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-04
+                    2021-08-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    261
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    10 Min
                 </div>
                 
 
@@ -501,19 +501,124 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="python-exercises-series-5">Python Exercises – Series 5</h1>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%205?preview=601729">Question</a></p>
+<p><a href="https://yintelligence.tech/2021/01/02/2021-01-02-VUB-4013765EER-Scripting-Languages/">VUB 4013765EER Scripting Languages</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%205?preview=601729">Question</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%205?preview=601743">File</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Solutions?preview=611643">Solution</a></p>
 <h2 id="signal-and-image-processing">Signal and Image processing</h2>
-<p>In this series we will introduce and explore some simple applications in signal-and image processing. In the first exercises we will work on a one-dimensional signal, essentially a list of numbers. Then,we will move on to grayscale images, represented by a matrix of numbers (in Python,a nested list). In the last exercise we will work on colour images, which are also matrices but where each pixel is represented by 3 numbers (in Python this means we will have a list of 3 numbers in a list in a list).</p>
-<p>All files that are needed for this exercise session can be found in the series5_data.zip file.</p>
-<h3 id="question1-remove-noise-from-a-one-dimensional-signal">Question1: Remove noise from a one-dimensional signal</h3>
-<p>At the top of your program, write the following lineo f code:</p>
-<pre class="line-numbers language-none"><code class="language-none">from pylab import figure,title,subplot,plot,show<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>Read the values in the filesig1.txt and store them as a list sig1 of floats. Plot the signal by using the following code:</p>
-<pre class="line-numbers language-none"><code class="language-none">figure()
-plot(sig1)
-show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>In this series we will introduce and explore some simple applications in signal-and image processing. In the first exercises we will work on a one-dimensional signal, essentially a list of numbers. Then,we will move on to grayscale images, represented by a matrix of numbers （in Python,a nested list）. In the last exercise we will work on colour images, which are also matrices but where each pixel is represented by 3 numbers （in Python this means we will have a list of 3 numbers in a list in a list）.</p>
+<p>All files that are needed for this exercise session can be found in the <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%205?preview=601743">series5_data.zip</a> file.</p>
+<h3 id="question-1-remove-noise-from-a-one-dimensional-signal">Question 1: Remove noise from a one-dimensional signal</h3>
+<p>At the top of your program, write the following line of code:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pylab <span class="token keyword">import</span> figure<span class="token punctuation">,</span>title<span class="token punctuation">,</span>subplot<span class="token punctuation">,</span>plot<span class="token punctuation">,</span>show<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol type="1">
+<li><p>Read the values in the file <em>sig1.txt</em> and store them as a list <em>sig1</em> of floats. Plot the signal by using the following code:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">figure<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>sig1<span class="token punctuation">)</span>
+show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>As you can see, this signal is noisy and we will try to remove the noise by filtering the signal. Formally we can write this filtering operation as: <span class="math display">\[
+y[n]=\sum^{h-1}_{i=0}x[n-i]*f[i]
+\]</span> In this equation y[n] is the n<sup>th</sup> sample in the filtered signal, x[n-i] the （n-i）<sup>th</sup> sample of the signal and f[i] is the i<sup>th</sup> value in the filter we apply. For this exercise we choose a filter with size h（e.g. h=7） and set f[i] = 1/h. If h=4, then f will look as follows: f = [0.25, 0.25, 0.25, 0.25].</p>
+<p>When the filter is applied, the n<sup>th</sup> sample of the filtered signal will be equal to the average of the non-filtered signal on location n and the （h-1） non filtered values in front of it. Implement this filter, plot the filtered signal and test your code with different values of h.</p></li>
+<li><p>Read the information in the <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%205?preview=601743">file</a> sig2.txt into a list <em>sig2</em> of floats and plot the signal. As you can see, also here we are dealing with a noisy signal, but the noise is of a different type this time.</p>
+<p>Execute the code from question 1a and store the result in the variable <em>filt1</em>. Write a second filter that uses the median instead of the average and create a filtered signal <em>filt2</em>.</p>
+<p>Compare the results of filt1and <em>filt2</em> for h=7 by using the following code and the noise-free signal noiseless in noiseless.txt.</p>
+<p>Note: the <code>median()</code> function is provided in the numpy library.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">figure<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>sig2<span class="token punctuation">)</span>
+title<span class="token punctuation">(</span><span class="token string">'Noisy signal'</span><span class="token punctuation">)</span>
+figure<span class="token punctuation">(</span><span class="token punctuation">)</span>
+subplot<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>filt1<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>noiseless<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+title<span class="token punctuation">(</span><span class="token string">'Filter with averaging'</span><span class="token punctuation">)</span>
+subplot<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>filt2<span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>noiseless<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+title<span class="token punctuation">(</span><span class="token string">'Filterwith median'</span><span class="token punctuation">)</span>
+show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="question-2-derivatives">Question 2: Derivatives</h3></li>
+</ol>
+<p>In signal processing and mostly in image processing we often approximate the derivative of a signal by taking the difference between 2 subsequent samples/pixels. Recall that the derivative of a function is defined as: <span class="math display">\[
+\frac{df(t)}{dt}=\lim_{h→0}\frac{f(t)-f(t-h)}{h}
+\]</span> The following code generates 5 seconds of a sinus signal sin(2𝜋𝑓∗𝑡) and at the same time the derivative of that signal 2𝜋𝑓∗cos(2𝜋𝑓∗𝑡) with a frequency of 𝑓=2𝐻𝑧. Both signals are continuous, but are sampled at 𝑓𝑠 samples per second. The larger the sample frequency, the more “accurate” we can plot the signal.</p>
+<p><strong>Warning</strong>: make sure to increment t appropriately otherwise you will end up in an endless loop!!</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> math <span class="token keyword">import</span> sin<span class="token punctuation">,</span>pi<span class="token punctuation">,</span>cos
+<span class="token keyword">from</span> pylab <span class="token keyword">import</span> figure<span class="token punctuation">,</span>subplot<span class="token punctuation">,</span>plot<span class="token punctuation">,</span>show<span class="token punctuation">,</span>legend
+
+t_end <span class="token operator">=</span> <span class="token number">5</span>
+fs <span class="token operator">=</span> <span class="token number">100</span>
+f <span class="token operator">=</span> <span class="token number">2</span>
+sig <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+dsig <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+t_sig <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+t <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> t <span class="token operator">&lt;=</span> t_end<span class="token punctuation">:</span>
+    x <span class="token operator">=</span> sin<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>pi<span class="token operator">*</span>f<span class="token operator">*</span>t<span class="token punctuation">)</span>
+    dx <span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>pi<span class="token operator">*</span>f<span class="token operator">*</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>pi<span class="token operator">*</span>f<span class="token operator">*</span>t<span class="token punctuation">)</span>
+    sig<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    dsig<span class="token punctuation">.</span>append<span class="token punctuation">(</span>dx<span class="token punctuation">)</span>
+    t_sig<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Calculate the derivative of the signal by filtering the signal with the filter d = [+1,-1] in the same way as in the previous exercise. The filtered sample at location n is equal to the original sample at index n minus the original sample at index （n-1）.This part will be the numerator of the formula for the derivative. The h in the denominator is the time between two consecutive samples and is equal to 1/𝑓𝑠.</p>
+<p>Plot the result by using the following code and observe how the value of fs affects the “precision” of the result:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">figure<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>t_sig<span class="token punctuation">,</span>sig<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">"f(t)"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>t_sig<span class="token punctuation">,</span>dsig<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'g'</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">"f'(t)"</span><span class="token punctuation">)</span>
+plot<span class="token punctuation">(</span>t_sig<span class="token punctuation">,</span>filt<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">"filtered"</span><span class="token punctuation">)</span>
+legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="question-3-grayscale-images">Question 3: Grayscale images</h3>
+<p>Put the following imports on the top of your code:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pylab <span class="token keyword">import</span> figure<span class="token punctuation">,</span>imread<span class="token punctuation">,</span>imshow<span class="token punctuation">,</span>show<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Read the coins.png image using the <code>imread</code> function:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">I <span class="token operator">=</span> imread<span class="token punctuation">(</span>‘coins<span class="token punctuation">.</span>png’<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>This image has dimensions 300×246 pixels and contains only gray values （so no colour!）. These gray values are normally stored by means of 8 bits and can assume values between 0 and 255. However,for png images these 8 bit values are re-scaled to float and will accept values between 0 and 1. These pixels are stored in a row-like fashion in a nested list.</p>
+<ul>
+<li><code>len(I)</code> should return 246 as our image contains 246 rows.</li>
+<li><code>len(I[0])</code> should return 300 as each row in the image contains 300 pixels.</li>
+<li><code>I[0][0]</code> is the pixel in the top left of the image.</li>
+</ul>
+<p>The image can be shown with the <code>imshow</code> function, by mentioning that the image has to be rendered with grayscale values:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">imshow<span class="token punctuation">(</span>I<span class="token punctuation">,</span> cmap<span class="token operator">=</span>’gray’<span class="token punctuation">)</span>
+show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>We will write an “edge detector”. An edge can be defined as the locations in an image where the grayscale values suddenly change significantly. That change can be characterized by using the concept of derivatives. For a two-dimensional function <code>f(x,y)</code>, like our image, the derivative is the equivalent of the gradient: <span class="math display">\[
+\vec{\nabla}f = (\frac{\partial f}{\partial x},\frac{\partial f}{\partial y})
+\]</span> In the previous exercise we saw how to calculate the derivative of one-dimensional signals.</p>
+<p>Write a program that can recognize the edges in an image by executing the following steps:</p>
+<blockquote>
+<p>Hint: To quickly create a matrix of zeros with h rows and w columns you can use the following piece of code:</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">zeros<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol type="1">
+<li><p>Calculate the derivative in the x-direction by calculating the derivative for each row and store this in a new image Ix.</p></li>
+<li><p>Now do the same for each column to produce Iy （the derivative in the y-direction）.</p></li>
+<li><p>You should now have two images Ix and Iy. The gradient for a pixel with coordinated <code>(i,j)</code> is now the vector: <span class="math display">\[
+\vec{\nabla}f =(I_x,I_y)
+\]</span> Calculate for all pixels: <span class="math display">\[
+|\vec{\nabla}f|^2=I_{x}^{2}+I_{y}^{2}
+\]</span> and store the result in a new image I_grad.</p></li>
+<li><p>Make a new image I_edges that contains a 0 for each pixel for which I_grad is smaller than a certain threshold of 0.05 and 1 for pixels that have a value higher than 0.05.</p></li>
+</ol>
 <h2 id="rgb-images">RGB Images</h2>
 <p>An RGB colour image can be interpreted as a matrix in three dimensions. The first two dimensions are the height and the width of the image. The third dimension is the one that determines the colour of the image: each pixel in the image has a value between 0-255 for RED, a value between 0 and 255 for GREEN and a value between 0 and 255 for BLUE. Each pixel can thus have more than 16.000.000 （256×256×256） different colours.</p>
+<p><img src="/images/CS61A/Screenshot2021-08-09010146.png" /></p>
+<h3 id="question-4-overlay-mask">Question 4: Overlay &amp; Mask</h3>
+<p>Open the imageI1 = python.png and I2 = bugs.png. Now create a new image I_out where we will superimpose those two images:</p>
+<p>We choose a“blending factor” alpha = 0.5 and we create I_out by taking the weighted average of the two input images:</p>
+<pre class="line-numbers language-none"><code class="language-none">I_out[i][j] &#x3D; alpha * I1[i][j] + (1-alpha) * I2[i][j]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Now show the result that you obtain by choosing different values of alpha.</p>
+<p>It would actually be better to cut out only the rabbit from‘bugs.png’ and superimpose it on the other image. This can be done by means of a mask. Use the mask in the image ‘bugs_masker.png’. Now copy pixels fromI2toI1but only if the corresponding pixel in mask has a black colour.</p>
+<h3 id="question-5-the-magic-wand-from-photoshop">Question 5: The ‘Magic Wand’ from Photoshop</h3>
+<p>We will write a program that counts how many pixels in an image are of a certain colour. This usually works as follows:</p>
+<ol type="1">
+<li><p>Open the image and read its pixels.</p></li>
+<li><p>Open one of the images with homogenous colour and read its pixels. By using this image,you can define the colour to be found （= the pixel value on location <code>(0,0)</code>）.</p></li>
+<li><p>Define a threshold value that will control how much a pixel in the original image can deviate from a target colour in order to be selected.</p></li>
+<li><p>Create a new image in which is shown how much each pixel deviates from the target colour. To achieve this, open a new grayscale image of the same size as the original image:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">newim<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>In order to calculate the pixel values of that new image we use the following rule: the closer the R, G and B values of the original pixel are to the target value, the lighter the colour will be in the corresponding pixel in the new image. A white pixel would mean that there is a perfect match with the target colour.</p></li>
+<li><p>Now we are going to threshold the values in our newly obtained grayscale image to obtain only white and black pixels. White pixels mean that there was little difference between the R, G and B values in the original and the target value. Otherwise the pixels are black.</p>
+<p>Test your code by using the image ‘mario.png’ and target colours ‘color.png’ and ‘color2.png’. Change the values of the threshold and compare the results.</p></li>
+</ol>
+<p><img src="/images/CS61A/Screenshot2021-08-09010239.png" /></p>
 
                 
             </div>
@@ -627,35 +732,31 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/02/04/2021-02-04-VUB-4015676ENR-Technology-and-Applications-of-Micro-Electronics-and-Photonics/">
+                <a href="/2021/02/03/2021-02-03-Python-exercises-%E2%80%93-series-6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python exercises – series 6">
                         
-                        <span class="card-title">VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics</span>
+                        <span class="card-title">Python exercises – series 6</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Photonics
+                            Exercise 6
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Electronics/" class="post-category">
-                                    Electronics
-                                </a>
-                            
-                            <a href="/categories/Photonics/" class="post-category">
-                                    Photonics
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                    Programming Language
                                 </a>
                             
                             
@@ -665,8 +766,8 @@ show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Technology-and-Applications-of-Electronics-and-Photonics/">
-                        <span class="chip bg-color">Technology and Applications of Electronics and Photonics</span>
+                    <a href="/tags/Python-Basic/">
+                        <span class="chip bg-color">Python Basic</span>
                     </a>
                     
                 </div>

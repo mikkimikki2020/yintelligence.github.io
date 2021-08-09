@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Sorting Algorithms, Chaoqun Yin">
+    <meta name="keywords" content="Introduction to omics and sequencing, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Sorting Algorithms | Chaoqun Yin</title>
+    <title>Introduction to omics and sequencing | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Sorting Algorithms</h1>
+                    <h1 class="description center-align post-title">Introduction to omics and sequencing</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python-Basic/">
-                                <span class="chip bg-color">Python Basic</span>
+                            <a href="/tags/Algorithms-in-Computational-biology-and-bioinformatics/">
+                                <span class="chip bg-color">Algorithms in Computational biology and bioinformatics</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Programming-Language/" class="post-category">
-                                Programming Language
+                            <a href="/categories/Bioinformatics/" class="post-category">
+                                Bioinformatics
                             </a>
                         
                     </div>
@@ -456,28 +456,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-01-21
+                    2021-05-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-04
+                    2021-08-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    772
+                    191
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    1 Min
                 </div>
                 
 
@@ -500,160 +500,51 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="sorting-algorithms">Sorting Algorithms</h1>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Course%20slides?preview=591761">Slide</a> + Exercise</p>
-<h2 id="bubble-sort">Bubble Sort</h2>
-<h3 id="algorithm">Algorithm</h3>
-<p><strong>Step 1</strong>: Compare the first pair of elements in the unsorted list and swap if the first element is larger than the second.</p>
-<p><strong>Step 2</strong>: Compare the subsequent pairs of elements and swap if necessary, ensuring that the largest element is at the end of the list.</p>
-<p><strong>Step 3</strong>: Keep repeating Step 1and Step2 for one fewer elements each time until there are no more pairs to compare.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">bubblesort</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> alist<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                temp <span class="token operator">=</span> alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> alist<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
-                alist<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> temp
-        <span class="token keyword">return</span> alist
-            
-L <span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">34</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
-L_sorted<span class="token operator">=</span> bubblesort<span class="token punctuation">(</span>L<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>L_sorted<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">bubblesort</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> alist<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> alist<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> alist<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> 
-        <span class="token keyword">return</span> alist
-            
-L <span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">34</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>L_sorted<span class="token operator">=</span> bubblesort<span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>L_sorted<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="properties">Properties</h3>
+                <h1 id="introduction-to-omics-and-sequencing">Introduction to omics and sequencing</h1>
+<p><a href="https://yintelligence.tech/2021/02/11/2021-02-18-Course-Introduction/">VUB 4018221FNR Algorithms in Computational biology and bioinformatics</a></p>
+<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/wim_vranken_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvd2ltX3ZyYW5rZW5fdnViX2JlL0VnNzMxZWdaRFhwQ3QwYmZYZS1ESnEwQjhNWVZRbTg4VlQtX2RFeWRyVllVSkE%5FcnRpbWU9MHlNTE41NWEyVWc&amp;id=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2Fteaching%2FalgorithmsBioinfoVUB%2FINFO%2DF%2D439%2F2021%2FpublicFolder%2F210318%5FIntroductionToOmics%2Epdf&amp;parent=%2Fpersonal%2Fwim%5Fvranken%5Fvub%5Fbe%2FDocuments%2Fteaching%2FalgorithmsBioinfoVUB%2FINFO%2DF%2D439%2F2021%2FpublicFolder">Slide</a></p>
+<h2 id="what-are-omics">What are Omics</h2>
 <ul>
-<li>Is Bubble sort in-place or out-of-place?
-<ul>
-<li>in-place</li>
-</ul></li>
-<li>Is Bubble sort stable or not-stable?
-<ul>
-<li>stable</li>
-</ul></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Genome">Genomics</a>: study of genome(s)</li>
+<li><a target="_blank" rel="noopener" href="https://www.nature.com/subjects/transcriptomics#:~:text=Transcriptomics%20is%20the%20study%20of,methods%2C%20such%20as%20microarray%20analysis.">Transcriptomics</a>: study of transcriptome(s)</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Epigenomics">Epigenomics</a>: study of epigenome(s)</li>
 </ul>
-<h2 id="selection-sort">Selection Sort</h2>
-<h3 id="algorithm-1">Algorithm</h3>
-<p><strong>Idea</strong>: Divide the unsorted list into a sorted part (initially empty) at the front and an unsorted part at the end.</p>
-<p><strong>Step 1</strong>: Find the smallest element in the unsorted list:</p>
+<h2 id="genome">Genome</h2>
+<p><img src="/images/ADVMB/2140450.png" /></p>
+<h3 id="genome-size">Genome size</h3>
+<p><img src="/images/ADVMB/2140451.png" /></p>
 <ul>
-<li>Select the first element of the unsorted list as initial candidate.</li>
-<li>Compare the candidate to each element of the unsorted list, replacing the candidate with the current element if the current element is smaller.</li>
-<li>Once the end of the unsorted list is reached, the candidate is the smallest element.</li>
+<li>A DNA sample is collected</li>
+<li>Many copies of the DNA are made</li>
+<li>The copies are broken into many pieces</li>
+<li>Sequences are arranged in the correct order</li>
+<li>The complete genome is assembled</li>
 </ul>
-<p><strong>Step 2</strong>: Swap the smallest element found in the previous step with the first element in the unsorted list, thus extending the sorted list by one element.</p>
-<p><strong>Step 3</strong>: Repeat steps 2 and 3 above until only one element remains in the unsorted list.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">selectionsort</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> lower <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        candidate <span class="token operator">=</span> alist<span class="token punctuation">[</span>lower<span class="token punctuation">]</span>
-        candidate_ind<span class="token operator">=</span> lower
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>lower<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> candidate<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                candidate <span class="token operator">=</span> alist<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                candidate_ind<span class="token operator">=</span> i
-        alist<span class="token punctuation">[</span>candidate_ind<span class="token punctuation">]</span> <span class="token operator">=</span> alist<span class="token punctuation">[</span>lower<span class="token punctuation">]</span>
-        alist<span class="token punctuation">[</span>lower<span class="token punctuation">]</span> <span class="token operator">=</span> candidate
-     <span class="token keyword">return</span> alist<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="properties-1">Properties</h3>
+<h3 id="reading-the-genome">Reading the genome?</h3>
+<p><img src="/images/ADVMB/2140452.png" /></p>
+<h2 id="sequencing-technologies">Sequencing technologies</h2>
+<p><img src="/images/ADVMB/2140453.png" /></p>
+<h3 id="illumina">Illumina</h3>
 <ul>
-<li>Is Selection sort in-place or out-of-place?
-<ul>
-<li>in-place</li>
-</ul></li>
-<li>Is Selection sort stable or not-stable?
-<ul>
-<li>not-stable</li>
-</ul></li>
+<li>Short reads</li>
+<li>Massively parallel sequencing</li>
+<li>Widely used technology</li>
 </ul>
-<h2 id="merge-sort">Merge sort</h2>
-<h3 id="algorithm-2">Algorithm</h3>
-<p><strong>Step 1</strong>:Divide the unsorted list into n sub-lists, each containing 1 element (a list of 1 element is considered sorted).</p>
-<p><strong>Step 2</strong>: Repeatedly merge sub-lists to produce new sorted sub-lists until there is only 1 sub-list remaining. This will be the sorted list.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">merge</span><span class="token punctuation">(</span>l1<span class="token punctuation">,</span>l2<span class="token punctuation">)</span><span class="token punctuation">:</span>              <span class="token comment">#将每两个list合并</span>
-    newl <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    i1 <span class="token operator">=</span> <span class="token number">0</span>
-    i2 <span class="token operator">=</span> <span class="token number">0</span>
-
-    <span class="token keyword">while</span> i1 <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span> <span class="token keyword">and</span> i2 <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> l1<span class="token punctuation">[</span>i1<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> l2<span class="token punctuation">[</span>i2<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            newl<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l1<span class="token punctuation">[</span>i1<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            i1 <span class="token operator">+=</span> <span class="token number">1</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            newl<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l2<span class="token punctuation">[</span>i2<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            i2 <span class="token operator">+=</span> <span class="token number">1</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>newl<span class="token punctuation">)</span>
-
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i1<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>l1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        newl<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i2<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>l2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        newl<span class="token punctuation">.</span>append<span class="token punctuation">(</span>l2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">return</span> newl
-
-<span class="token keyword">def</span> <span class="token function">mergesort</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    lsorted <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        lsorted<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>l<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>            <span class="token comment">#将list分为单个的list</span>
-        
-    i <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>lsorted<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
-        l1 <span class="token operator">=</span> lsorted<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        l2 <span class="token operator">=</span> lsorted<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
-        lsorted<span class="token punctuation">.</span>append<span class="token punctuation">(</span>merge<span class="token punctuation">(</span>l1<span class="token punctuation">,</span>l2<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        i <span class="token operator">+=</span> <span class="token number">2</span>
-
-    <span class="token keyword">return</span> lsorted<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>mergesort<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">17</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">19</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="quicksort">Quicksort</h2>
-<p>Quicksort follows a divide and conquer strategy:</p>
-<p><strong>Step 1</strong>: Pick an element, called a pivot, from the list.</p>
-<p><strong>Step 2</strong> (Partitioning step): reorder the list so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position.</p>
-<p><strong>Step 3</strong>: Recursively apply the above steps to the sub-list of elements with smaller values and separately to the sub-list of elements with greater values.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">partition</span><span class="token punctuation">(</span>mylist<span class="token punctuation">,</span>start<span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    pivot <span class="token operator">=</span> mylist<span class="token punctuation">[</span>start<span class="token punctuation">]</span>
-    left <span class="token operator">=</span> start <span class="token operator">+</span> <span class="token number">1</span>
-    right <span class="token operator">=</span> end
-    done <span class="token operator">=</span> <span class="token boolean">False</span>
-    <span class="token keyword">while</span> <span class="token keyword">not</span> done<span class="token punctuation">:</span>
-        <span class="token keyword">while</span> mylist<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> pivot <span class="token keyword">and</span> left <span class="token operator">&lt;=</span> right<span class="token punctuation">:</span>
-            left <span class="token operator">+=</span> <span class="token number">1</span>
-        <span class="token keyword">while</span> mylist<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">>=</span> pivot <span class="token keyword">and</span> right <span class="token operator">>=</span> left<span class="token punctuation">:</span>
-            right <span class="token operator">-=</span> <span class="token number">1</span>
-        <span class="token keyword">if</span> right <span class="token operator">&lt;</span> left<span class="token punctuation">:</span>
-            done <span class="token operator">=</span> <span class="token boolean">True</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            temp <span class="token operator">=</span> mylist<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
-            mylist<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">=</span> mylist<span class="token punctuation">[</span>right<span class="token punctuation">]</span>
-            mylist<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> temp
-    temp <span class="token operator">=</span> mylist<span class="token punctuation">[</span>start<span class="token punctuation">]</span>
-    mylist<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> mylist<span class="token punctuation">[</span>right<span class="token punctuation">]</span>
-    mylist<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> temp
-    <span class="token keyword">return</span> right<span class="token punctuation">,</span> mylist
-
-<span class="token keyword">def</span> <span class="token function">quicksort</span><span class="token punctuation">(</span>mylist<span class="token punctuation">,</span>start<span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> start <span class="token operator">&lt;</span> end<span class="token punctuation">:</span>
-        split <span class="token operator">=</span> partition<span class="token punctuation">(</span>mylist<span class="token punctuation">,</span>start<span class="token punctuation">,</span>end<span class="token punctuation">)</span>
-        quicksort<span class="token punctuation">(</span>mylist<span class="token punctuation">,</span>start<span class="token punctuation">,</span>split<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-        quicksort<span class="token punctuation">(</span>mylist<span class="token punctuation">,</span>split<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>end<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> myli<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="properties-2">Properties</h3>
+<h4 id="illumina-sequencing"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=fCd6B5HRaZ8">Illumina sequencing</a></h4>
+<p><img src="/images/ADVMB/2140454.png" /></p>
+<h3 id="pacbio-and-oxford-nanopre"><a target="_blank" rel="noopener" href="https://www.pacb.com/videos/video-introduction-to-smrt-sequencing/">Pacbio</a> and Oxford <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=E9-Rm5AoZGw">Nanopre</a></h3>
 <ul>
-<li>Is Quicksort in-place or out-of-place?
-<ul>
-<li>typically done in-place</li>
-</ul></li>
-<li>Is Quicksort stable or not-stable?
-<ul>
-<li>not-stable (however stable versions do exist)</li>
-</ul></li>
+<li>Long reads</li>
+<li>Single molecule sequencing</li>
+<li>High error rate</li>
 </ul>
+<p><img src="/images/ADVMB/2140455.png" /></p>
+<h4 id="oxford-nanopore-vs-smrt">Oxford nanopore vs SMRT</h4>
+<p><img src="/images/ADVMB/2140456.png" /></p>
+<blockquote>
+<p>“原始 PacBio 数据的错误率为 13-15%，因为来自单个 DNA 分子的信噪比不高3。为了提高准确性，PacBio 平台使用环状 DNA 模板，将发夹接头连接到两端 靶向双链 DNA。随着聚合酶反复遍历和复制环状分子，DNA 模板被多次测序以产生连续长读长 (CLR)"</p>
+</blockquote>
+<p><img src="/images/ADVMB/2140457.png" /></p>
 
                 
             </div>
@@ -680,7 +571,7 @@ L <span class="token operator">=</span><span class="token punctuation">[</span><
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/01/21/2021-01-21-Sorting/">https://yintelligence.tech/2021/01/21/2021-01-21-Sorting/</a>
+                    <a href="https://yintelligence.tech/2021/05/22/2021-05-22-Introduction-to-omics-and-sequencing/">https://yintelligence.tech/2021/05/22/2021-05-22-Introduction-to-omics-and-sequencing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -718,8 +609,8 @@ L <span class="token operator">=</span><span class="token punctuation">[</span><
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python-Basic/">
-                                    <span class="chip bg-color">Python Basic</span>
+                                <a href="/tags/Algorithms-in-Computational-biology-and-bioinformatics/">
+                                    <span class="chip bg-color">Algorithms in Computational biology and bioinformatics</span>
                                 </a>
                             
                         </div>
@@ -767,31 +658,31 @@ L <span class="token operator">=</span><span class="token punctuation">[</span><
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">
+                <a href="/2021/05/23/2021-05-23-Proving-with-Predicates-&-Language-Models/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="VUB 4013759ENR Algorithms and Data Structures">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Proving with Predicates &amp; Language Models">
                         
-                        <span class="card-title">VUB 4013759ENR Algorithms and Data Structures</span>
+                        <span class="card-title">Proving with Predicates &amp; Language Models</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Exercise 5
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Data-model/" class="post-category">
-                                    Data model
+                            <a href="/categories/Math/" class="post-category">
+                                    Math
                                 </a>
                             
                             
@@ -801,8 +692,8 @@ L <span class="token operator">=</span><span class="token punctuation">[</span><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithms-and-Data-Structures/">
-                        <span class="chip bg-color">Algorithms and Data Structures</span>
+                    <a href="/tags/Fundamentals-of-Computer-Science/">
+                        <span class="chip bg-color">Fundamentals of Computer Science</span>
                     </a>
                     
                 </div>
@@ -816,13 +707,13 @@ L <span class="token operator">=</span><span class="token punctuation">[</span><
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/20/2021-01-20-Priority-Queue/">
+                <a href="/2021/05/21/2021-05-21-Genome-Assembly/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Priority Queue">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Genome Assembly">
                         
-                        <span class="card-title">Priority Queue</span>
+                        <span class="card-title">Genome Assembly</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,14 +724,14 @@ L <span class="token operator">=</span><span class="token punctuation">[</span><
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Data-model/" class="post-category">
-                                    Data model
+                            <a href="/categories/Bioinformatics/" class="post-category">
+                                    Bioinformatics
                                 </a>
                             
                             
@@ -850,8 +741,8 @@ L <span class="token operator">=</span><span class="token punctuation">[</span><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithms-and-Data-Structures/">
-                        <span class="chip bg-color">Algorithms and Data Structures</span>
+                    <a href="/tags/Algorithms-in-Computational-biology-and-bioinformatics/">
+                        <span class="chip bg-color">Algorithms in Computational biology and bioinformatics</span>
                     </a>
                     
                 </div>

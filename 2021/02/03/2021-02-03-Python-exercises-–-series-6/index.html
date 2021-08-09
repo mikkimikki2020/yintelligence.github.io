@@ -1,0 +1,1263 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python exercises – series 6, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Python exercises – series 6 | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Python exercises – series 6</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python-Basic/">
+                                <span class="chip bg-color">Python Basic</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                Programming Language
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-02-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-08-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    16 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="python-exercises-series-6">Python exercises – series 6</h1>
+<p><a href="https://yintelligence.tech/2021/01/02/2021-01-02-VUB-4013765EER-Scripting-Languages/">VUB 4013765EER Scripting Languages</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%206?preview=611637">Question</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%206?preview=611640">File</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Solutions?preview=611647">Solution</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Solutions?preview=659067">Video</a></p>
+<h2 id="function">Function</h2>
+<ol type="1">
+<li><p>Write a function that has x and y as parameters. The function should return the solution of the following equation: <span class="math display">\[
+\left\{
+\begin{aligned}
+(x*y)-x &amp; &amp; if \ x≥y\\
+(x*y)-y &amp;&amp; if  \ x≤y
+\end{aligned}
+\right.
+\]</span></p></li>
+<li><p>Write a function that has the variable a as a parameter. This function will call the function from question 1 for all combinations of （i,a） where the parameter i ranges between 𝟏≤𝒊≤𝟐𝒂. The result should be printed every time.</p></li>
+<li><p>Execute the function from question 2 for the value <strong>a = 5</strong>.</p></li>
+</ol>
+<p><strong>Example</strong>: if you execute the function from question 2 with a = 3 you should get the following values:</p>
+<pre class="line-numbers language-none"><code class="language-none">0 3 6 8 10 12<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="matrices">Matrices</h2>
+<ol type="1">
+<li><p>Write the necessary code to read the values from the file ‘data.txt’ and store them in a nested list.</p>
+<p><strong>Beware</strong>: your code should keep working in case the dimensions of the matrix in ‘<a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%206?preview=611639">data.txt</a>’ change!</p></li>
+<li><p>Make a new nested list that represents a matrix with the same dimensions as the matrix from question 1. The values from this new matrix are calculated by multiplying each row from the matrix in question 1 with its row number. The first row has row number 1.</p>
+<p><strong><em>Example</em></strong>:</p>
+<p>If the matrix from question 1 equals to <span class="math display">\[
+\left[
+ \begin{matrix}
+   1 &amp; 2 \\
+   3 &amp; 4 \\
+   5 &amp; 6
+  \end{matrix}
+  \right]
+\]</span> then the new variable computed in question 2 should be equal to <span class="math display">\[
+\left[
+ \begin{matrix}
+   1 &amp; 2 \\
+   6 &amp; 8 \\
+   15 &amp; 18
+  \end{matrix}
+  \right]
+\]</span></p></li>
+<li><p>Write a new function that has a matrix （i.e. a nested list） as a parameter. The function returns a list that contains the averages of each row of the matrix.</p></li>
+<li><p>Test the function, written in question 3, with the matrices from question 1 and 2. Print the obtained results.</p></li>
+</ol>
+<h2 id="circuit-simulation">Circuit simulation</h2>
+<p>We will use Python to simulate the charging of a capacitor. Firstly, you will write the proper function to do this, then,you will use this function to calculate a concrete example.</p>
+<p>You are given the following circuit with source V<sub>0</sub>, resistance R and capacitor C. We want to simulate the voltage over the capacitor （V<sub>c</sub>） and the current in the circuit （I）.</p>
+<p><img src="/images/CS61A/Screenshot2021-08-09014214.png" /></p>
+<p>The necessary equations to do so are: <span class="math display">\[
+V_{c} = V_{0} * (1-e^{\frac{-t}{RC}})\\
+I=\frac{V_0}{R}*e^{\frac{-t}{RC}}
+\]</span></p>
+<ol type="1">
+<li><p>Write a function that calculates the evolution of the voltage and current in this circuit. The function has 5 parameters: V<sub>0</sub>, R, C, a stopping criterion and a time step for the simulation. The simulation will stop when V<sub>c</sub> becomes bigger than a certain fraction of V<sub>0</sub> （this fraction, provided as a parameter to the function,will be the stopping criterion）. For each time step the simulation stores t, I and V<sub>c</sub> in a nested list. This nested list is returned by your function.</p>
+<p>Tip: to compute an exponential power you can use the function <code>exp</code> from the math library. Import that library on the top of your code and use <code>math.exp(a)</code> to compute 𝑒<sup>α</sup>.</p></li>
+<li><p>Use the function from question 1 to simulate V<sub>c</sub> and I with the following parameters: <strong>V<sub>0</sub>=12V</strong>, <strong>R=1kΩ</strong> and <strong>C=100μF</strong>. The simulation stops when the capacitor is 90% charged. The time step should be <strong>1ms</strong> or smaller.</p></li>
+<li><p>To be able to plot the simulation results from question 2, save out your nested list in a csv file. In this file, each line contains the information of the simulation at moment in time, separated by a semicolon “;”.</p></li>
+</ol>
+<blockquote>
+<p>Hint: you can quickly check your <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19789/files/folder/Exercises/Session%206?preview=611640">csv file</a> by importing it in Excel and make a scatterplot （see below） or plotting it in Python.</p>
+</blockquote>
+<p><img src="/images/CS61A/Screenshot2021-08-09014337.png" /></p>
+<h2 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h2>
+<p>We will program the Sieve of Eratosthenes, a method for finding all prime numbers until a certain value. The algorithm works as follows:</p>
+<ol type="1">
+<li>Create a list of numbers,starting with 2 and until a chosen maximum</li>
+<li>Choose the smallest, not yet eliminated,number from the list</li>
+<li>Eliminate all multiples of the chosen number （besides the number itself）. Start with eliminating the square of the chosen number.</li>
+<li>Repeat steps 2 and 3 until the square of the chosen number is larger than the maximum. The numbers that remain are the prime numbers smaller than the maximum.</li>
+</ol>
+<p>You will write a function <code>find_primes(a)</code> that returns out all prime numbers between 2 and a given number a. This function has the following functionality:</p>
+<ol type="1">
+<li><p>Make two lists: the first list contains all number from 2 until a. The other list has the same length as the first list and contains only ones. This second list is used to keep track of the corresponding numbers in the first list, marked as prime numbers. A one in the second list means that the corresponding element in the first list is a prime number, a zero means it is not.</p></li>
+<li><p>Write the necessary steps 2 and 3 from the algorithm described above. Let the program stop automatically when the square of the chosen number becomes larger than a.</p>
+<p><strong>Note</strong>: eliminating a number is performed by changing the corresponding element in the second list to 0.</p></li>
+<li><p>Print out all non-crossed-out numbers （i.e. all numbers that have a corresponding 1 in the second list）.</p>
+<blockquote>
+<p>Test your function by printing all prime numbers smaller or equal to <strong>41</strong>!</p>
+</blockquote></li>
+</ol>
+<h2 id="loan-repayment">Loan repayment</h2>
+<ol type="1">
+<li><p>We will write a function that simulates paying off a loan. Assume we want to take a loan of <strong>TOT</strong> euro. The interest rate is <strong>r%</strong> and we can only pay back <strong>MAX</strong> euro per year. Every year we will have to pay interest （<strong>IN</strong>）, i.e. <strong>r%</strong> of the amount left to pay.</p>
+<p>For the first year,the interest <strong>IN</strong> will be <strong>r%</strong> of <strong>TOT</strong>. Given that we can only payback <strong>MAX</strong> euro per year, we can still pay a capital of （<strong>MAX-IN</strong>）. After the first year,we will still owe the bank an amount of <strong>TOT</strong>-（<strong>MAX-IN</strong>） euros. On this remaining amount,we will have to pay interest again the year after. Since the amount we have to pay back diminishes every year, the interest will become smaller as well.</p>
+<blockquote>
+<p>For example: you want to take a loan of an amount of 100000 euros. You can pay off a maximum amount of 7000 per year. The current interest rate is 3%.</p>
+<p>The first year we pay 100000 × 0.03 = 3000 euro of interest. Hence we can still pay 7000 - 3000 = 4000 euro of capital and in total we will still need to pay off 100000 - 4000 = 96000 euro.</p>
+<p>*The second year we pay 96000 × 0.03 = 2880 euro of interest, 7000 - 2880 = 4120 euro of capital and we will be left with 96000 - 4210 = 91880 euro to pay off.</p>
+</blockquote></li>
+<li><p>Define the necessary variables in which you can store the amount of the loan, the interest rate and the total amount of money you can pay back per year.</p></li>
+<li><p>Create a function that calculates an interest and a maximum yearly pay-off, based on the loan. Basically ,your function will calculate a pay-off plan. This pay-off plan is a nested list, where each sub-list contains information of one year:</p>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">[interest,capital,remaining]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Each sub-list contains the interest and the capital that were paid that year, as well as the remaining amount left to pay after that year.</p></li>
+<li><p>Make a function to which you can provide a pay-off plan and that prints out the information as follows, e.g.:</p>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">Amount loan: 100000
+Current interest: 0.03
+Year1 | 4000.00 | 3000.00 | 96000.00
+Year2 | 4120.00 | 2880.00 | 91880.00...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The lines above can be printed with a specific formatting expression:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Year&#123;0:2d&#125; | &#123;1:7.2f&#125; | &#123;2:7.2f&#125; | &#123;3:8.2f&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span> year<span class="token punctuation">,</span> capital<span class="token punctuation">,</span>interest<span class="token punctuation">,</span>remainder<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Beware! The underlined part can simply be copy-pasted. The parameters of the format function will change depending on the year.</p></li>
+<li><p>Call the function from question 2 for with parameters TOT=100000, r=3%, MAX=7000 and store the pay-off plan in a new variable. Print the variable by using the function of question 3.</p></li>
+<li><p>What happens if you only had 3000 euro per year to pay off your loan? Print a message in case the situation occurs and return an empty pay off list.</p></li>
+</ol>
+<h1 id="attachment">Attachment</h1>
+<pre class="line-numbers language-data.txt" data-language="data.txt"><code class="language-data.txt">100 200 300 400
+10 20 30 40
+15 25 35 45
+1. 2 3 4
+5 6 7 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-simulation.csv" data-language="simulation.csv"><code class="language-simulation.csv">0.001;0.011880598004990018;0.119401995009982720.002;0.011762384079681063;0.237615920318936970.003;0.011645346402582099;0.354653597417902140.004;0.011529473269827879;0.47052673017212190.005;0.011414753094008568;0.58524690599143180.006;0.011301174403010985;0.69882559698901540.007;0.011188725838871379;0.81127416112862070.008;0.01107739615663963;0.92260384336037090.009000000000000001;0.010967174223254739;1.03282577674526180.010000000000000002;0.010858049016431514;1.14195098356848580.011000000000000003;0.010750009623558338;1.24999037644166130.012000000000000004;0.01064304524060589;1.35695475939411030.013000000000000005;0.010537145171046735;1.46285482895326440.014000000000000005;0.01043229882478567;1.5677011752143310.015000000000000006;0.010328495717100693;1.67150428289930760.016000000000000007;0.010225725467594536;1.77427453240546520.017000000000000008;0.010123977799156603;1.87602220084339690.01800000000000001;0.010023242536935264;1.97675746306473730.01900000000000001;0.009923509607320346;2.0764903926796540.02000000000000001;0.009824769036935781;2.17523096306421950.02100000000000001;0.009727010951642244;2.27298904835775640.022000000000000013;0.00963022557554974;2.36977442445025940.023000000000000013;0.009534403230040008;2.46559676995999280.024000000000000014;0.009439534332798639;2.5604656672013610.025000000000000015;0.009345609396856858;2.6543906031431430.026000000000000016;0.009252619029642794;2.74738097035720630.027000000000000017;0.009160553932042237;2.83944606795776360.028000000000000018;0.009069404897468705;2.93059510253129570.02900000000000002;0.00897916281094278;3.02083718905721940.03000000000000002;0.008889818648180614;3.1101813518193870.03100000000000002;0.00880136347469147;3.19863652530853050.03200000000000002;0.00871378844488429;3.28621155511571140.03300000000000002;0.008627084801183111;3.37291519881688860.03400000000000002;0.008541243873151314;3.45875612684868550.035000000000000024;0.00845625707662456;3.54374292337544140.036000000000000025;0.008372115912852371;3.6278840871476290.037000000000000026;0.008288811967648253;3.71118803235174650.03800000000000003;0.008206336910548269;3.79366308945173140.03900000000000003;0.008124682493977974;3.87531750602202550.04000000000000003;0.00804384055242767;3.95615944757233070.04100000000000003;0.00796380300163583;4.036196998364170.04200000000000003;0.007884561837780678;4.1154381622193220.04300000000000003;0.007806109136679795;4.1938908633202040.04400000000000003;0.007728437052997694;4.2715629470023050.04500000000000003;0.007651537819461277;4.3484621805387230.046000000000000034;0.007575403746083109;4.4245962539168910.047000000000000035;0.007500027219392407;4.4999727806075930.048000000000000036;0.0074254007016736874;4.5745992983263120.04900000000000004;0.0073515167302129905;4.6484832697870090.05000000000000004;0.0072783679165515985;4.7216320834484020.05100000000000004;0.007205946945747188;4.7940530542528120.05200000000000004;0.007134246575642328;4.8657534243576710.05300000000000004;0.00706325963614026;4.9367403638597410.05400000000000004;0.006992979028487873;5.00702097151212660.05500000000000004;0.006923397724565837;5.0766022754341630.05600000000000004;0.006854508766185776;5.1454912338142250.057000000000000044;0.006786305264394442;5.2136947356055570.058000000000000045;0.006718780398784821;5.2812196012151790.059000000000000045;0.006651927416814082;5.3480725831859190.060000000000000046;0.006585739633128314;5.41426036687168550.06100000000000005;0.0065202104288939935;5.4797895711060060.06200000000000005;0.00645533325113609;5.5446667488639110.06300000000000004;0.0063911016120827635;5.6088983879172360.06400000000000004;0.00632750908851658;5.672490911483420.06500000000000004;0.00626454932113219;5.735450678867810.06600000000000004;0.006202216013900388;5.79778398609961250.06700000000000005;0.006140502933438507;5.8594970665614930.06800000000000005;0.006079403908387072;5.92059609161292850.06900000000000005;0.0060189128287926625;5.9810871712073370.07000000000000005;0.005959023645496911;6.040976354503090.07100000000000005;0.005899730369531578;6.1002696304684210.07200000000000005;0.005841027071519657;6.1589729284803440.07300000000000005;0.005782907881082426;6.2170921189175740.07400000000000005;0.0057253669862524096;6.2746330137475910.07500000000000005;0.005668398632892173;6.3316013671078260.07600000000000005;0.0056119971241189075;6.3880028758810930.07700000000000005;0.005556156819734734;6.4438431802652670.07800000000000006;0.005500872135662679;6.49912786433732050.07900000000000006;0.005446137543388267;6.5538624566117340.08000000000000006;0.005391947569406657;6.6080524305933440.08100000000000006;0.005338296794675291;6.6617032053247090.08200000000000006;0.005285179854071988;6.7148201459280120.08300000000000006;0.005232591435858424;6.7674085641415770.08400000000000006;0.005180526281148953;6.8194737188510470.08500000000000006;0.005128979183384717;6.87102081661528350.08600000000000006;0.0050779449878129825;6.9220550121870180.08700000000000006;0.0050274185909716645;6.9725814090283350.08800000000000006;0.004977394940178973;7.0226050598210270.08900000000000007;0.004927869033028143;7.0721309669718570.09000000000000007;0.004878835916887186;7.1211640831128150.09100000000000007;0.0048302906884036285;7.1697093115963710.09200000000000007;0.004782228493014167;7.2177715069858340.09300000000000007;0.00473464452445921;7.265355475540790.09400000000000007;0.00468753402430225;7.312465975697750.09500000000000007;0.004640892281454011;7.3591077185459890.09600000000000007;0.004594714631701341;7.4052853682986590.09700000000000007;0.004548996457240783;7.4510035427592180.09800000000000007;0.004503733186216791;7.4962668137832090.09900000000000007;0.004458920292264545;7.5410797077354560.10000000000000007;0.004414553294057304;7.58544670594269550.10100000000000008;0.004370627754858276;7.6293722451417250.10200000000000008;0.004327139282076935;7.6728607179230650.10300000000000008;0.004284083526829765;7.7159164731702350.10400000000000008;0.004241456183505358;7.7585438164946420.10500000000000008;0.004199252989333861;7.8007470106661390.10600000000000008;0.004157469723960685;7.8425302760393140.10700000000000008;0.0041161022090244765;7.8838977909755240.10800000000000008;0.004075146307739266;7.9248536922607350.10900000000000008;0.004034597924480797;7.9654020755192040.11000000000000008;0.00399445300437695;8.005546995623050.11100000000000008;0.003954707532902265;8.0452924670977350.11200000000000009;0.00391535753547647;8.084642464523530.11300000000000009;0.0038763990770670316;8.1236009229329690.11400000000000009;0.0038378282617956426;8.1621717382043570.11500000000000009;0.0037996412325486347;8.2003587674513660.11600000000000009;0.00376183417059126;8.238165829408740.11700000000000009;0.0037244032951858166;8.2755967048141840.11800000000000009;0.003687344863213571;8.3126551367864290.11900000000000009;0.003650655168800445;8.3493448311995560.12000000000000009;0.003614330542946421;8.3856694570535790.1210000000000001;0.0035783673531586445;8.4216326468413560.1220000000000001;0.0035427620030881665;8.4572379969118340.1230000000000001;0.003507510932170309;8.4924890678296910.1240000000000001;0.003472610615268604;8.5273893847313960.12500000000000008;0.0034380575623222786;8.5619424376777220.12600000000000008;0.0034038483179972415;8.5961516820027590.12700000000000009;0.0033699794613405542;8.6300205386594460.12800000000000009;0.0033364476054383264;8.6635523945616730.1290000000000001;0.0033032493970770248;8.6967506029229750.1300000000000001;0.0032703815164081486;8.7296184835918530.1310000000000001;0.0032378406766162392;8.762159323383760.1320000000000001;0.0032056236235902015;8.7943763764097990.1330000000000001;0.0031737271355978844;8.8262728644021170.1340000000000001;0.0031421480229639094;8.8578519770360910.1350000000000001;0.0031108831277506946;8.8891168722493050.1360000000000001;0.003079929323442667;8.9200706765573340.1370000000000001;0.0030492835146336008;8.95071648536640.1380000000000001;0.003018942636717075;8.9810573632829250.1390000000000001;0.0029889036555800154;9.0110963444199840.1400000000000001;0.0029591635672992747;9.0408364327007260.1410000000000001;0.002929719397841242;9.0702806021587590.1420000000000001;0.0029005682027644347;9.0994317972355660.1430000000000001;0.0028717070669250513;9.1282929330749490.1440000000000001;0.0028431331041854583;9.1568668958145420.1450000000000001;0.0028148434571255688;9.185156542874430.1460000000000001;0.002786835296757103;9.2131647032428960.1470000000000001;0.002759105822240683;9.2408941777593160.1480000000000001;0.00273165226060575;9.2683477393942510.1490000000000001;0.0027044718664732616;9.2955281335267390.1500000000000001;0.002677561921781155;9.3224380782188450.1510000000000001;0.0026509197355125353;9.3490802644874660.1520000000000001;0.0026245426434265743;9.3754573565734260.1530000000000001;0.002598428007792082;9.4015719922079180.1540000000000001;0.0025725732171237325;9.4274267828762670.1550000000000001;0.0025469756859209138;9.4530243140790850.1560000000000001;0.002521632854409174;9.4783671455908270.1570000000000001;0.002496542188284243;9.5034578117157590.1580000000000001;0.002471701178458599;9.5282988215414020.1590000000000001;0.0024471073408105586;9.5528926591894430.16000000000000011;0.002422758215935862;9.5772417840641390.16100000000000012;0.002398651368901731;9.6013486310982690.16200000000000012;0.0023747843890033734;9.6252156109966260.16300000000000012;0.0023511548895229096;9.648845110477090.16400000000000012;0.0023277605074907;9.6722394925092980.16500000000000012;0.0023045989034490466;9.6954010965509530.16600000000000012;0.002281667761218243;9.7183322387817550.16700000000000012;0.0022589647876649585;9.7410352123350420.16800000000000012;0.0022364877124729167;9.7635122875270830.16900000000000012;0.0022142342879158685;9.7857657120841320.17000000000000012;0.002192202288632813;9.8077977113671860.17100000000000012;0.0021703895114054622;9.8296104885945380.17200000000000013;0.002148793774937916;9.8512062250620840.17300000000000013;0.002127412919638531;9.872587080361470.17400000000000013;0.00210624480740396;9.8937551925960410.17500000000000013;0.002085287321405339;9.9147126785946610.17600000000000013;0.0020645383658766036;9.9354616341233960.17700000000000013;0.0020439958659049105;9.9560041340950890.17800000000000013;0.0020236577672231434;9.9763422327768560.17900000000000013;0.0020035220360044856;9.9964779639955150.18000000000000013;0.0019835866586590356;10.0164133413409640.18100000000000013;0.001963849641632446;10.0361503583675540.18200000000000013;0.0019443090112065667;10.0556909887934330.18300000000000013;0.0019249628133020706;10.075037186697930.18400000000000014;0.0019058091132830458;10.0941908867169530.18500000000000014;0.0018868459957635288;10.113154004236470.18600000000000014;0.0018680715644159651;10.1319284355840350.18700000000000014;0.0018494839417815745;10.1505160582184250.18800000000000014;0.0018310812690826037;10.1689187309173960.18900000000000014;0.0018128617060364474;10.1871382939635530.19000000000000014;0.0017948234306716182;10.2051765693283820.19100000000000014;0.001776964639145547;10.2230353608544530.19200000000000014;0.0017592835455641992;10.24071645443580.19300000000000014;0.001741778381803482;10.2582216181965190.19400000000000014;0.0017244473973324324;10.2755526026675670.19500000000000015;0.0017072888590381604;10.2927111409618380.19600000000000015;0.0016903010510525374;10.3096989489474620.19700000000000015;0.0016734822745806087;10.3265177254193930.19800000000000015;0.0016568308477307113;10.3431691522692880.19900000000000015;0.0016403451053462839;10.3596548946537150.20000000000000015;0.0016240233988393494;10.375976601160650.20100000000000015;0.0016078640960256571;10.3921359039743420.20200000000000015;0.001591865580961458;10.4081344190385430.20300000000000015;0.0015760262537819144;10.4239737462180850.20400000000000015;0.0015603445305411082;10.4396554694588910.20500000000000015;0.0015448188430536483;10.4551811569463520.20600000000000016;0.0015294476387378462;10.4705523612621540.20700000000000016;0.0015142293804604626;10.4857706195395370.20800000000000016;0.0014991625463829862;10.5008374536170130.20900000000000016;0.0014842456298094554;10.5157543701905440.21000000000000016;0.0014694771390357801;10.530522860964220.21100000000000016;0.0014548555972005777;10.5451444027994230.21200000000000016;0.001440379542137478;10.5596204578625220.21300000000000016;0.0014260475262289135;10.5739524737710870.21400000000000016;0.0014118581162613478;10.5881418837386520.21500000000000016;0.001397809893281961;10.6021901067180390.21600000000000016;0.0013839014524567477;10.6160985475432530.21700000000000016;0.0013701314029300356;10.6298685970699650.21800000000000017;0.0013564983676853956;10.6435016323146050.21900000000000017;0.0013430009834079443;10.6569990165920570.22000000000000017;0.0013296379003480039;10.6703620996519960.22100000000000017;0.0013164077821861346;10.6835922178138660.22200000000000017;0.0013033093058994931;10.6966906941005070.22300000000000017;0.0012903411616295372;10.7096588383704640.22400000000000017;0.0012775020525510313;10.7224979474489680.22500000000000017;0.0012647906947423698;10.735209305257630.22600000000000017;0.0012522058170571777;10.7477941829428230.22700000000000017;0.0012397461609972003;10.76025383900280.22800000000000017;0.0012274104805864471;10.7725895194135520.22900000000000018;0.0012151975422465986;10.78480245775340.23000000000000018;0.0012031061246736423;10.7968938753263580.23100000000000018;0.0011911350187157458;10.808864981284254<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/02/03/2021-02-03-Python-exercises-%E2%80%93-series-6/">https://yintelligence.tech/2021/02/03/2021-02-03-Python-exercises-%E2%80%93-series-6/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Python-Basic/">
+                                    <span class="chip bg-color">Python Basic</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/02/04/2021-02-04-VUB-4015676ENR-Technology-and-Applications-of-Micro-Electronics-and-Photonics/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics">
+                        
+                        <span class="card-title">VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Photonics
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Electronics/" class="post-category">
+                                    Electronics
+                                </a>
+                            
+                            <a href="/categories/Photonics/" class="post-category">
+                                    Photonics
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Technology-and-Applications-of-Electronics-and-Photonics/">
+                        <span class="chip bg-color">Technology and Applications of Electronics and Photonics</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/02/2021-02-02-Python-Exercises-%E2%80%93Series-5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python Exercises –Series 5">
+                        
+                        <span class="card-title">Python Exercises –Series 5</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Exercises 5
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                    Programming Language
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python-Basic/">
+                        <span class="chip bg-color">Python Basic</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
