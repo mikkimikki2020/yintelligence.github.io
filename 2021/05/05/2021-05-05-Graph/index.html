@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-05
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.9k
+                    7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    24 Min
+                    34 Min
                 </div>
                 
 
@@ -501,30 +501,47 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="graph">Graph</h1>
-<p><a href="file:///C:/Users/heart/Desktop/Algorithms%20and%20Data%20Structures/Algo_Data_Slideset%20(1).pdf">Slide 188 ~ 227</a></p>
-<p>Graph由一组node和node之间的连接组成，如图所示。</p>
+<p><a href="https://yintelligence.tech/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">VUB 4013759ENR Algorithms and Data Structures</a> <a href="file:///C:/Users/heart/Desktop/Algorithms%20and%20Data%20Structures/Algo_Data_Slideset%20(1).pdf">Slide 188 ~ 227</a></p>
+<p><a target="_blank" rel="noopener" href="https://zq99299.github.io/dsalg-tutorial/dsalg-java-hsp/13/">数据结构与算法 - 图</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qibofang/article/details/51594673">图的四种最短路径算法</a></p>
+<h2 id="terminology">Terminology</h2>
+<p>Graph由一组node和node之间的连接组成，如图所示：</p>
 <figure>
 <img src="/images/CS61B/0938080.png" alt="" /><figcaption>A directed acyclic weighted graph</figcaption>
 </figure>
 <p>例如，graph可用于表示地图：每个城市都是一个node，连接城市的道路是edge。</p>
-<p>使用graph术语，node被称为<strong>顶点vertices</strong>（单个是vertex）。</p>
-<p><strong>Vertices</strong>之间的连接称为<strong>边edge</strong>。 <strong>Edge</strong>可以有一个<strong><em>权重weight</em></strong>，例如表示图中城市之间的距离，或其他一些概念。 带weight的图是<strong>加权图weighted graph</strong>，其他图是未加权的图<strong>unweighted graphs</strong>。</p>
+<p>Node被称为<strong>顶点vertices</strong>（单个是vertex），<strong>vertices</strong>之间的连接称为<strong>边edge</strong>。 <strong>Edge</strong>可以有一个<strong><em>权重weight</em></strong>，例如表示图中城市之间的距离，或其他一些概念。 带weight的图是<strong>加权图weighted graph</strong>，其他图是未加权的图<strong>unweighted graphs</strong>。</p>
 <p>因此，graph <code>G = (V, E)</code> 完全由vertices集 V 和edges集 E 定义。 对于加权图，还有一个权重函数 w : E → R，所以 <code>w(u, v)</code> 是边 <code>(u, v) ∈ E</code> 的权重。</p>
 <p>在上图中，每条edge都有一个箭头，即边有一个方向。 所有边都有一个方向的图称为<strong>有向图directed graph</strong>，没有方向的图是<strong>无向图undirected graph</strong>。</p>
-<p>例如，在大多数地图中，A 和 B 之间的距离与 B 和 A 之间的<u>距离相同</u>。而不是用两条边（从 A 到 B 和从 B 到 A）来表示，而是使用单个undirected edge。</p>
+<p>例如，在大多数地图中，A 和 B 之间的距离与 B 和 A 之间的<u>距离相同</u>。而不是用两条边（从 A 到 B 和从 B 到 A）来表示，而是使用单个<strong>undirected edge</strong>。</p>
+<p><img src="/images/CS61B/webp.png" /></p>
 <p>两个vertices i 和 j 相邻，如果它们通过edge <code>(i, j)</code> 连接并且edge <code>(i, j)</code> 被称为入射在vertices i 和 j 上。</p>
-<p>例如，在图中，顶点 A 和 C 相邻，而 A 和 D 不相邻。Undirected graph中顶点的<strong>度数degree</strong>是入射在其上的edge数。 在directed graph中，out-degree是离开它的edge数，in-degree是进入它的边数。 因此，directed graph中顶点vertex的degree是其in-degree和out-degree之和。</p>
-<p><strong>Path</strong>是一系列相邻的顶点vertices。 例如，在图中，从 A 到 D 有几条path（例如 ABD、ACD 和 ABCD），但没有从 D 到 A 的path。如果从每个vertex到每个其他vertex都有一条path，则graph已连接。</p>
+<p>例如，在图中，顶点 New York 和 Moscow 相邻，而 New York 和 London 不相邻。</p>
+<ul>
+<li>Undirected graph中顶点的<u><strong>度数degree</strong>是入射在其上的edge数</u>。</li>
+<li>Directed graph中:
+<ul>
+<li>out-degree是离开它的edge数</li>
+<li>in-degree是进入它的edge数</li>
+<li>因此，directed graph中顶点vertex的degree是其in-degree和out-degree之和。</li>
+</ul></li>
+</ul>
+<p><strong>Path</strong>是一系列相邻的顶点vertices。 例如，在图中，从 New York 到 Paris 有两条path（New York - Moscow - London - Paris 和 New York - San Francisico - Paris），但没有从 Paris 到 New York 的path。</p>
+<p><strong>如果从每个vertex到每个其他vertex都有一条path，则graph已连接。</strong></p>
 <figure>
 <img src="/images/CS61B/0938081.png" alt="" /><figcaption>A directed cyclic weighted graph</figcaption>
 </figure>
 <p>任何从给定node开始并终止于同一node的path称为<strong>循环cycle</strong>。 至少有一个cycle的graph是cyclic的，而所有其他graph都是acyclic的。 图中所示的图是一个cyclic graph，因为有一条路径 ABCA。</p>
 <p><strong>没有循环的有向图通常称为有向无环图directed acyclic graphs或 DAG。</strong></p>
-<p>Graph的子集称为<strong>子图subgraph</strong>。 如果 V‘ ⊆ V 且 E’ ⊆ E，则图 <code>G‘ = (V’, E‘)</code> 是 <code>G = (V, E)</code> 的子图。 例如，图中的graph是图中的graph的子图。</p>
+<p><img src="/images/CS61B/webpj.png" /></p>
+<blockquote>
+<p>就像树一样，这个图没有任何圈（无论你从哪一个节点出发，你都无法回到最初的节点），但是这个图有有向边（通过一个箭头表示，这里的箭头不表示继承关系）。</p>
+</blockquote>
+<p>Graph的子集称为<strong>子图subgraph</strong>。 如果 V‘ ⊆ V 且 E’ ⊆ E，则图 <code>G‘ = (V’, E‘)</code> 是 <code>G = (V, E)</code> 的子图。 例如，下图是上图中的graph的子图subgraph。</p>
 <figure>
 <img src="/images/CS61B/0938082.png" alt="" /><figcaption>A subgraph of a directed acyclic weighted graph is again a directed acyclic weighted graph</figcaption>
 </figure>
-<h2 id="terminology">Terminology</h2>
+<h3 id="summary">Summary</h3>
 <ul>
 <li>Vertex （vertices） : node</li>
 <li>Edge: connection between two vertices.</li>
@@ -542,10 +559,17 @@
 <li>Directed graphs without cycles are often referred to as directed acyclic graphs or DAG.</li>
 <li>A subset of a graph is called a subgraph. The graph <code>G′= (V′,E′)</code> is a subgraph of <code>G= (V,E)</code> if <code>V′⊆V</code> and <code>E′⊆E</code>.</li>
 </ul>
-<h2 id="the-adjacency-matrix-representation">The adjacency matrix representation</h2>
+<h2 id="representation">Representation</h2>
+<h3 id="adjacency-matrix">Adjacency matrix</h3>
+<p>邻接矩阵是表示图形中 <strong>顶点之间相邻关系</strong> 的矩阵，对于 n 个顶点的图而言，矩阵的 row 和 col 表示的是 <code>1....n</code> 个点。</p>
 <p><strong>邻接矩阵adjacency matrix</strong>是表示graph的一种非常简单的方式。 在这里的解释中，我们将专注于表示有向加权图directed weighted graphs，但该表示可以很容易地适应undirected or unweighted graphs。</p>
 <p>这个想法很简单：如果一个graph有 N 个节点，那么我们用一个 N × N 方阵square matrix来表示它。 我们决定graph的一些编号。</p>
-<p>例如，在第一张图中，我们决定将节点 A 标记为 0，B 标记为 1，... 这样，我们可以存储节点 A 和节点 B 之间的边的权重（即 6），把它存储在第 0 行（因为节点 A 位于位置 0）和第 1 列（因为节点 B 位于位置 1）的matrix中。 <strong>边edge的起点是行row位置，终点是列column位置</strong>。</p>
+<blockquote>
+<p>往这个图中添加顶点的成本非常昂贵，因为新的矩阵结果必须重新按照新的行/列创建，然后将已有的数据复制到新的矩阵中。</p>
+</blockquote>
+<ul>
+<li>例如，在第一张图中，我们决定将节点 A 标记为 0，B 标记为 1，... 这样，我们可以存储节点 A 和节点 B 之间的边的权重（即 6），把它存储在第 0 行（因为节点 A 位于位置 0）和第 1 列（因为节点 B 位于位置 1）的matrix中。 <strong>边edge的起点是行row位置，终点是列column位置</strong>。</li>
+</ul>
 <p>因此，如果某些graph <code>G = (V, E)</code> 的顶点以某种方式编号为 1, 2, ..., |V|，则邻接 matrix表示是大小为 |V| 的矩阵 A = （a<sub>ij</sub>） 由 |V|，此处： <span class="math display">\[
 a_{ij}=\left\{
 \begin{aligned}
@@ -555,120 +579,187 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
 \right.
 \]</span> <img src="/images/CS61B/0938084.png" /></p>
 <p><strong>当没有边连接节点 i 和 j 时，我们实际上应该在矩阵中的位置a<sub>ij</sub>中放入什么数字？</strong></p>
-<p>这在一定程度上取决于应用程序：如果图中的权重表示概念之间的关联强度，那么假设关联强度为零是合乎逻辑的，对应于没有关联的事实。 因此，在这种情况下，权重为零是合适的，以表示不存在边缘。</p>
-<p>但是，如果权重表示地图中的距离，则权重为零实际上意味着两个节点之间的距离为零。 所以，为了表示两个节点之间没有连接，在这种情况下最好使用一个非常大的数字。 在我们在这里开发的矩阵表示中，我们将使用<strong>零权重weight of zero</strong>来表示两个节点没有连接的事实，如第一张图所示。</p>
+<ul>
+<li>这在一定程度上取决于应用程序：如果图中的权重表示概念之间的关联强度，那么假设关联强度为0是合乎逻辑的，对应于没有关联的事实。 因此，在这种情况下，权重为0是合适的，以表示不存在边缘。</li>
+<li>但是，如果权重表示地图中的距离，则权重为0实际上意味着两个节点之间的距离为0。 所以，为了表示两个节点之间没有连接，在这种情况下最好使用一个非常大的数字。</li>
+</ul>
+<blockquote>
+<p>在我们在这里开发的矩阵表示中，我们将使用<strong>零权重weight of zero</strong>来表示两个节点没有连接的事实，如第一张图所示。</p>
+</blockquote>
 <figure>
 <img src="/images/CS61B/0938083.png" alt="" /><figcaption>Any graph can easily be represented by a matrix</figcaption>
 </figure>
-<h3 id="the-matrix-class">The matrix class</h3>
+<h4 id="the-matrix-class">The matrix class</h4>
 <p><strong>Matrix</strong>类简单地表示一个 N × N 方阵。 它支持构造函数constructor（将所有元素初始化为0）、在矩阵中的特定（行、列）处设置值的方法和在指定（行、列）处检索值的 get 方法。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Matrix</span>
 <span class="token punctuation">&#123;</span>
     <span class="token comment">// some appropriate private members .</span>
+    <span class="token keyword">private</span> <span class="token class-name">Comparable</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> matrix<span class="token punctuation">;</span>
+	<span class="token keyword">private</span> <span class="token keyword">int</span> size<span class="token punctuation">;</span>
+    
     <span class="token keyword">public</span> <span class="token class-name">Matrix</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> nrNodes <span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        <span class="token comment">// allocate an N-by -N matrix where N = nrNodes</span>
+        <span class="token comment">// allocate an N- by -N matrix where N = nrNodes</span>
+        <span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>nrNodes<span class="token punctuation">;</span>
+        matrix <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Comparable</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token comment">// all elements are initially 0</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				matrix<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>	
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
     
     <span class="token keyword">public</span> <span class="token keyword">void</span> set <span class="token punctuation">(</span> <span class="token keyword">int</span> row<span class="token punctuation">,</span> <span class="token keyword">int</span> col<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> weight<span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
         <span class="token comment">// store the weight at the given row and column .</span>
+        matrix<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">=</span> weight<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
+    
     <span class="token keyword">public</span> <span class="token class-name">Comparable</span> get <span class="token punctuation">(</span> <span class="token keyword">int</span> row<span class="token punctuation">,</span> <span class="token keyword">int</span> col <span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
         <span class="token comment">// return the weight at the given row and column .</span>
+        <span class="token keyword">return</span> matrix<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="the-graph-class">The graph class</h3>
+    
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> size<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="the-graph-class">The graph class</h4>
 <p>如果定义的<strong>Matrix</strong>类可用，那么基于minimalistic adjacency matrix的graph类很容易实现：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MatrixGraph</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">Matrix</span> data<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">LinkedList</span> nodes<span class="token punctuation">;</span>
     
     <span class="token keyword">public</span> <span class="token class-name">MatrixGraph</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> nrNodes <span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
         data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Matrix</span> <span class="token punctuation">(</span> nrNodes <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        nodes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
-    <span class="token keyword">public</span> <span class="token keyword">void</span> addEdge <span class="token punctuation">(</span> <span class="token keyword">int</span> from<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token keyword">to</span><span class="token punctuation">,</span> <span class="token keyword">double</span> w <span class="token punctuation">)</span>
+    <span class="token comment">// add an edge between "from' node to "to" node</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> addEdge <span class="token punctuation">(</span> <span class="token class-name">Object</span> fromNode<span class="token punctuation">,</span> <span class="token class-name">Object</span> toNode<span class="token punctuation">,</span> <span class="token keyword">double</span> weight <span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        data<span class="token punctuation">.</span>set <span class="token punctuation">(</span> from<span class="token punctuation">,</span> <span class="token keyword">to</span><span class="token punctuation">,</span> w <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> from <span class="token operator">=</span> nodes<span class="token punctuation">.</span><span class="token function">getIndex</span><span class="token punctuation">(</span>fromNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> <span class="token keyword">to</span> <span class="token operator">=</span> nodes<span class="token punctuation">.</span><span class="token function">getIndex</span><span class="token punctuation">(</span>toNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		data<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>from<span class="token punctuation">,</span> <span class="token keyword">to</span><span class="token punctuation">,</span> weight<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
     <span class="token keyword">public</span> <span class="token keyword">double</span> getEdge <span class="token punctuation">(</span> <span class="token keyword">int</span> from<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token keyword">to</span> <span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">Double</span><span class="token punctuation">)</span> data<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span> from<span class="token punctuation">,</span> <span class="token keyword">to</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="the-adjacency-list-representation">The adjacency list representation</h2>
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addNode</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> <span class="token class-name">Node</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">&#123;</span>
+		nodes<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">getNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token class-name">Index</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> nodes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Index</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getWeight</span><span class="token punctuation">(</span><span class="token keyword">int</span> from<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token keyword">to</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>data<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>from<span class="token punctuation">,</span> <span class="token keyword">to</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">LinkedList</span> <span class="token function">getPath</span><span class="token punctuation">(</span><span class="token class-name">Object</span> fromNode<span class="token punctuation">,</span><span class="token class-name">Object</span> toNode<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> nodes<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="adjacency-list">Adjacency list</h3>
+<p>由于邻接矩阵有一个缺点：它需要为每个顶点都分配 n 个边的空间，其实有很多边都是不存在的（比如上面的 0,0 不链接，也需要表示出来），这 <strong>会造成空间的一定损失</strong>。</p>
+<p>而 <strong>邻接表</strong> 的实现只关心 <strong>存在的边</strong>，因此没有空间浪费，由 <strong>数组 + 链表组成</strong>。</p>
+<p><img src="/images/CS61B/webp55.png" /></p>
 <p>Adjacency list表示基于这样一种思想，即所有节点都应明确存储在某些数据结构中，以允许轻松遍历所有节点。</p>
-<p>在我们将在这里开发的初始表示中，节点将存储在向量中，但存在许多其他可能性。</p>
 <p>在第二张图中，左侧部分显示了节点集，包含节点 A、B、C 和 D。现在对于每个节点，保留一个单独的结构（邻接列表adjacency list或边列表edge list），它存储从当前节点开始的所有边。 因此，节点 A 的邻接表包含边 AB、AC、AD。 在第二张图中，adjacency list中只显示了节点的目的地。</p>
 <p><img src="/images/CS61B/0938085.png" /></p>
-<h3 id="the-graph-class-1">The graph class</h3>
-<p>在 JAVA 代码中表示这个结构需要更多的努力：</p>
+<h4 id="the-graph-class-1">The graph class</h4>
+<p>在我们将在这里开发的初始表示中，node将存储在Vector中，但存在许多其他可能性。 在 JAVA 代码中表示这个结构需要更多的努力：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Comparable</span> info <span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Vector</span> edges <span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> label<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        info <span class="token operator">=</span> label <span class="token punctuation">;</span>
+        edges <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> addEdge <span class="token punctuation">(</span> <span class="token class-name">Edge</span> e <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        edges<span class="token punctuation">.</span>addLast <span class="token punctuation">(</span> e <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+        
+    <span class="token keyword">public</span> <span class="token keyword">int</span> compareTo <span class="token punctuation">(</span> <span class="token class-name">Object</span> o <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token comment">// two nodes are equal if they have the same label</span>
+        <span class="token class-name">Node</span> n <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token class-name">Node</span> <span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> n<span class="token punctuation">.</span>info<span class="token punctuation">.</span>compareTo <span class="token punctuation">(</span> info <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Comparable</span> getLabel <span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> info <span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+        
+    <span class="token keyword">public</span> <span class="token class-name">Vector</span> <span class="token function">getEdge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>edges<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">Edge</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Node</span> toNode <span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">double</span> weight<span class="token punctuation">;</span>
+        
+    <span class="token keyword">public</span> <span class="token class-name">Edge</span><span class="token punctuation">(</span><span class="token class-name">Node</span> <span class="token keyword">to</span><span class="token punctuation">,</span> <span class="token keyword">double</span> weight<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>toNode <span class="token operator">=</span> <span class="token keyword">to</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setWeight</span><span class="token punctuation">(</span>weight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setWeight</span><span class="token punctuation">(</span><span class="token keyword">double</span> weight<span class="token punctuation">)</span> 
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>weight <span class="token operator">=</span> weight<span class="token punctuation">;</span>	
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getWeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> weight<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> compareTo <span class="token punctuation">(</span> <span class="token class-name">Object</span> o <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token comment">// two edges are equal if they point to the same node .</span>
+        <span class="token comment">// this assumes that the edges are starting from the same node !!!</span>
+            <span class="token class-name">Edge</span> n <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token class-name">Edge</span> <span class="token punctuation">)</span> o <span class="token punctuation">;</span>
+            <span class="token keyword">return</span> n<span class="token punctuation">.</span>toNode<span class="token punctuation">.</span>compareTo <span class="token punctuation">(</span> toNode <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Graph</span>
 <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">private</span> <span class="token class-name">Comparable</span> info <span class="token punctuation">;</span>
-        <span class="token keyword">private</span> <span class="token class-name">Vector</span> edges <span class="token punctuation">;</span>
-
-        <span class="token keyword">public</span> <span class="token class-name">Node</span> <span class="token punctuation">(</span> <span class="token class-name">Comparable</span> label <span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            info <span class="token operator">=</span> label <span class="token punctuation">;</span>
-            edges <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-
-        <span class="token keyword">public</span> <span class="token keyword">void</span> addEdge <span class="token punctuation">(</span> <span class="token class-name">Edge</span> e <span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            edges<span class="token punctuation">.</span>addLast <span class="token punctuation">(</span> e <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        
-        <span class="token keyword">public</span> <span class="token keyword">int</span> compareTo <span class="token punctuation">(</span> <span class="token class-name">Object</span> o <span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token comment">// two nodes are equal if they have the same label</span>
-            <span class="token class-name">Node</span> n <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token class-name">Node</span> <span class="token punctuation">)</span> o <span class="token punctuation">;</span>
-            <span class="token keyword">return</span> n<span class="token punctuation">.</span>info<span class="token punctuation">.</span>compareTo <span class="token punctuation">(</span> info <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-
-        <span class="token keyword">public</span> <span class="token class-name">Comparable</span> getLabel <span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> info <span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">Edge</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">private</span> <span class="token class-name">Node</span> toNode <span class="token punctuation">;</span>
-        
-        <span class="token keyword">public</span> <span class="token class-name">Edge</span> <span class="token punctuation">(</span> <span class="token class-name">Node</span> <span class="token keyword">to</span> <span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            toNode <span class="token operator">=</span> <span class="token keyword">to</span> <span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-
-        <span class="token keyword">public</span> <span class="token keyword">int</span> compareTo <span class="token punctuation">(</span> <span class="token class-name">Object</span> o <span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token comment">// two edges are equal if they point</span>
-            <span class="token comment">// to the same node .</span>
-            <span class="token comment">// this assumes that the edges are</span>
-            <span class="token comment">// starting from the same node !!!</span>
-            <span class="token class-name">Edge</span> n <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token class-name">Edge</span> <span class="token punctuation">)</span> o <span class="token punctuation">;</span>
-            <span class="token keyword">return</span> n <span class="token punctuation">.</span> toNode <span class="token punctuation">.</span> compareTo <span class="token punctuation">(</span> toNode <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    
     <span class="token keyword">private</span> <span class="token class-name">Vector</span> nodes <span class="token punctuation">;</span>
     
-    <span class="token keyword">public</span> <span class="token class-name">Graph</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Graph</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        nodes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        nodes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> addNode <span class="token punctuation">(</span> <span class="token class-name">Comparable</span> label <span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addNode</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> label<span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        nodes<span class="token punctuation">.</span>addLast <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Node</span> <span class="token punctuation">(</span> label <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        nodes<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>label<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Vector</span> <span class="token function">getNodes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">return</span> nodes<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
     <span class="token keyword">private</span> <span class="token class-name">Node</span> findNode <span class="token punctuation">(</span> <span class="token class-name">Comparable</span> nodeLabel <span class="token punctuation">)</span>
@@ -676,8 +767,8 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
         <span class="token class-name">Node</span> res <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nodes<span class="token punctuation">.</span>size <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span>
         <span class="token punctuation">&#123;</span>
-            <span class="token class-name">Node</span> n <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token class-name">Node</span> <span class="token punctuation">)</span> nodes<span class="token punctuation">.</span>get <span class="token punctuation">(</span> i <span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span> n<span class="token punctuation">.</span>getLabel <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> nodeLabel <span class="token punctuation">)</span>
+            <span class="token class-name">Node</span> n <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">)</span> nodes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span> n<span class="token punctuation">.</span><span class="token function">getLabel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> nodeLabel <span class="token punctuation">)</span>
             <span class="token punctuation">&#123;</span>
                 res <span class="token operator">=</span> n <span class="token punctuation">;</span>
                 <span class="token keyword">break</span> <span class="token punctuation">;</span>
@@ -686,26 +777,76 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
         <span class="token keyword">return</span> res <span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> addEdge <span class="token punctuation">(</span> <span class="token class-name">Comparable</span> nodeLabel1<span class="token punctuation">,</span>
-<span class="token class-name">Comparable</span> nodeLabel2 <span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> nodeLabel1<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> nodeLabel2<span class="token punctuation">,</span> <span class="token keyword">double</span> weight<span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Node</span> n1 <span class="token operator">=</span> findNode <span class="token punctuation">(</span> nodeLabel1 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Node</span> n2 <span class="token operator">=</span> findNode <span class="token punctuation">(</span> nodeLabel2 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        n1<span class="token punctuation">.</span>addEdge <span class="token punctuation">(</span> <span class="token keyword">new</span> <span class="token class-name">Edge</span> <span class="token punctuation">(</span> n2 <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Node</span> n1 <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>nodeLabel1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Node</span> n2 <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>nodeLabel2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        n1<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Edge</span><span class="token punctuation">(</span>n2<span class="token punctuation">,</span> weight<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
-    <span class="token comment">// Remember</span>
-    <span class="token keyword">public</span> <span class="token keyword">boolean</span> contains <span class="token punctuation">(</span> <span class="token keyword">int</span>  obj <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span> data<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> obj <span class="token punctuation">)</span>
-                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">findPath</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> nodeLabel1<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> nodeLabel2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Node</span> startState <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>nodeLabel1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token class-name">Node</span> endState <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>nodeLabel2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	
+        <span class="token keyword">if</span><span class="token punctuation">(</span>startState <span class="token operator">==</span> endState<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    	<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> startState<span class="token punctuation">.</span>edges<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    			<span class="token class-name">Edge</span> e <span class="token operator">=</span><span class="token punctuation">(</span><span class="token class-name">Edge</span><span class="token punctuation">)</span> startState<span class="token punctuation">.</span>edges<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    			<span class="token punctuation">&#125;</span>	
+    		<span class="token punctuation">&#125;</span>
+    	<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="comparasion">Comparasion</h3>
+<p>假设 <em>V</em> 表示图中顶点的个数，<em>E</em> 表示边的个数。</p>
+<table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>邻接列表</th>
+<th>邻接矩阵</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>存储空间</td>
+<td>O（V + E）</td>
+<td>O（V<sup>2</sup>）</td>
+</tr>
+<tr class="even">
+<td>添加顶点</td>
+<td>O（1）</td>
+<td>O（V<sup>2</sup>）</td>
+</tr>
+<tr class="odd">
+<td>添加边</td>
+<td>O（1）</td>
+<td>O（1）</td>
+</tr>
+<tr class="even">
+<td>检查相邻性</td>
+<td>O（V）</td>
+<td>O（1）</td>
+</tr>
+</tbody>
+</table>
+<p>“检查相邻性” 是指对于给定的顶点，尝试确定它是否是另一个顶点的邻居。</p>
+<p>在邻接列表中检查相邻性的时间复杂度是<strong>O(V)</strong>，因为最坏的情况是一个顶点与<strong>每一个</strong>顶点都相连。</p>
+<p>在 <strong>稀疏图</strong>的情况下，每一个顶点都只会和少数几个顶点相连，这种情况下相邻列表是最佳选择。</p>
+<p>如果这个图比较<strong>密集</strong>，每一个顶点都和大多数其他顶点相连，那么相邻矩阵更合适。</p>
 <h2 id="graph-algorithms">Graph Algorithms</h2>
-<h3 id="breadth-first-traversal-of-a-directed-acyclic-graph">Breadth first traversal of a directed acyclic graph</h3>
+<h3 id="breadth-first-graph"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2#:~:text=%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%EF%BC%88%E8%8B%B1%E8%AF%AD,%E4%B8%80%E8%88%AC%E9%87%87%E7%94%A8open%2Dclosed%E8%A1%A8%E3%80%82">Breadth first graph</a></h3>
+<p>图的广度优先搜索，类似于一个 分层搜索的过程，广度优先遍历需要使用一个Queue以<strong>保持访问过的节点的顺序</strong>，以便按这个顺序来访问这些节点的邻接节点。</p>
+<h4 id="算法步骤">算法步骤</h4>
+<ol type="1">
+<li>首先将根节点放入队列中。</li>
+<li>从队列中取出第一个节点，并检验它是否为目标。如果找到目标，则结束搜寻并回传结果。否则将它所有尚未检验过的直接子节点加入队列中。</li>
+<li>若队列为空，表示整张图都检查过了——亦即图中没有欲搜寻的目标。结束搜寻并回传“找不到目标”。</li>
+<li>重复步骤2。</li>
+</ol>
+<p>如下图，其广度优先算法的遍历顺序为：1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;6-&gt;7-&gt;8</p>
+<p><img src="/images/CS61B/webpss.png" /></p>
 <h4 id="finding-a-path">Finding a path</h4>
 <p>这里使用简单的<strong>深度优先搜索breadth first search</strong>/<strong>广度优先搜索depth first search</strong>来验证path是否存在。 这种方法假设我们有一个有向无环图directed acyclic graph； 在这种情况下，可以调整遍历树的代码：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> findPath <span class="token punctuation">(</span> <span class="token class-name">Comparable</span> nodeLabel1 <span class="token punctuation">,</span>
@@ -731,8 +872,41 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token boolean">false</span> <span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="cycle-checking">Cycle checking</h4>
+<ul>
+<li><p>In an acyclic graph with n vertices, there can be at most n edges.</p>
+<p>在具有 n 个顶点的无环图中，最多可以有 n 个边。</p></li>
+<li><p>In an acyclic graph with n vertices, the longest path can contain at most n - 1 edges.</p>
+<p>在具有 n 个顶点的无环图中，最长路径最多可以包含 n - 1 条边。</p></li>
+<li><p>Let A be the adjacency representation of G.</p>
+<p>设 A 为 G 的邻接表示。</p>
+<ul>
+<li><p>If trace（A） &gt; 0, then there is at least one self loop. （i.e. a cycle of length 1）</p>
+<p>如果trace（A）&gt; 0，则至少有一个自循环。 （l例如： 一个周期长度为 1）</p></li>
+<li><p>If trace（A*A）&gt; 0, then there is at least one cycle of length 2.</p>
+<p>如果trace（A*A）&gt;0，则至少有一个长度为2的循环。</p></li>
+<li><p>If trace（A<sup>n</sup>）&gt;0, then there is at least one cycle of length n.</p>
+<p>如果trace（A<sup>n</sup>）&gt;0，则至少有一个长度为n的循环。</p></li>
+</ul></li>
+<li><p>Consequently, a graph with n nodes has no cycles if for all k smaller than n, trace（A<sup>k</sup>） = 0.</p>
+<p>因此，如果对于所有小于 n 的 k，trace（A<sup>k</sup>） = 0，则具有 n 个节点的图没有环。</p></li>
+</ul>
+<p>Why is that?</p>
+<ul>
+<li><p>Consider C = A × B, then <span class="math display">\[
+c_{ij}=\sum^{n}_{k=1}a_{ij}b_{kj}
+\]</span></p></li>
+<li><p>So in A<sup>2</sup> <span class="math display">\[
+a_{ij}=\sum^{n}_{k=1}a_{ik}a_{kj}
+\]</span></p></li>
+<li><p>a<sub>ij</sub>0 in A<sup>2</sup> if there is a node k such that there is an edge <code>(i,k)</code> and an edge <code>(k,j)</code></p></li>
+<li><p>（which is a path of length 2）.</p></li>
+<li><p>So, in A<sup>2</sup>, an element on the diagonal is larger than zero if there is an element with a path of length two to itself.</p></li>
+</ul>
 <h3 id="depth-first-graph">Depth First Graph</h3>
-<h4 id="depth-first-search">Depth first search</h4>
+<p>深度优先搜索算法（Depth-First-Search），是搜索算法的一种。它沿着树的深度遍历树的节点，尽可能深的搜索树的分支。</p>
+<p>当节点v的所有边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。</p>
+<p>如果还存在未被发 现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。</p>
 <ul>
 <li><p>The DFS does not have a visited list.</p>
 <p>DFS 没有访问列表。</p></li>
@@ -742,6 +916,9 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
 <p>在每个节点中保留一个布尔值来标记它之前是否被访问过。</p></li>
 <li><p>Recursive version 递归版本</p></li>
 </ul>
+<p>DFS 在访问图中某一起始顶点 v 后，由 v 出发，访问它的任一邻接顶点 w1；再从 w1 出发，访问与 w1邻 接但还没有访问过的顶点 w2；然后再从 w2 出发，进行类似的访问，… 如此进行下去，直至到达所有的邻接顶点都被访问过的顶点 u 为止。 接着，退回一步，退到前一次刚访问过的顶点，看是否还有其它没有被访问的邻接顶点。如果有，则访问此顶点，之后再从此顶点出发，进行与前述类似的访问；如果没有，就再退回一步进行搜索。重复上述过程，直到连通图中所有顶点都被访问过为止。</p>
+<p>例如下图，其深度优先遍历顺序为 1-&gt;2-&gt;4-&gt;8-&gt;5-&gt;3-&gt;6-&gt;7</p>
+<p><img src="/images/CS61B/webpss.png" /></p>
 <h4 id="depth-first-graph-traversal">Depth First Graph Traversal</h4>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">DFS</span><span class="token punctuation">(</span> <span class="token class-name">Node</span>  current <span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     current<span class="token punctuation">.</span>visited <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -774,7 +951,7 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
 <p>对于邻接表中的每条边，如果还没有访问过，则访问该边的目的地。</p></li>
 </ul></li>
 <li><p>So, the number of DFS calls is the sum of all nr of nodes in the adjacency lists of all the nodes.</p>
-<p>因此，DFS 调用的次数是所有节点的邻接列表中所有节点的总和。</p></li>
+<p>因此，DFS 调用的次数是<strong>所有节点的邻接列表中所有节点的总和</strong>。</p></li>
 <li><p><span class="math display">\[
 \sum_{v∈V}|adj(v)|=O(|E|)
 \]</span></p></li>
@@ -783,9 +960,8 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
 <h4 id="topological-sorting">Topological Sorting</h4>
 <p>A topological sort 拓扑排序 of a dag <code>G=(V,E)</code> is a linear ordering of all its vertices such that if G contains an edge <code>(u,v)</code>, then u appears before v in the ordering.</p>
 <p>dag <code>G=(V,E)</code> 的拓扑排序是其所有顶点的线性排序，这样如果 G 包含边 <code>(u,v)</code>，则 u 在排序中出现在 v 之前。</p>
-<p>DFS exactly gives this ordering （see how they are printed）!</p>
-<p>DFS 正是给出了这个顺序（看看它们是如何打印的）！</p>
-<h4 id="cycle-checking">Cycle checking</h4>
+<p>DFS exactly gives this <strong>ordering</strong> （see how they are printed）!</p>
+<h4 id="cycle-checking-1">Cycle checking</h4>
 <ul>
 <li><p>If there is a cycle, there does not exist a topological sorting.</p>
 <p>如果有环，则不存在拓扑排序。</p></li>
@@ -794,38 +970,12 @@ w(i,j) &amp; &amp; if\ (i,j)\ ∈ E \\
 </ul>
 <p>Back edges are those edges <code>(u,v)</code> connecting a vertex u to an ancestor v in a depth-first tree. We consider self-loops, which may occur in directed graphs, to be back edges.</p>
 <p>Back edges是那些在深度优先树中将顶点 u 连接到祖先 v 的边 <code>(u,v)</code>。 我们认为可能出现在directed graph中的自环是back edge。</p>
-<h4 id="towards-cycle-checking-in-adjacency-matrix-notation">Towards cycle checking in adjacency matrix notation</h4>
+<h3 id="深度优先-vs-广度优先">深度优先 VS 广度优先</h3>
 <ul>
-<li><p>In an acyclic graph with n vertices, there can be at most n edges.</p>
-<p>在具有 n 个顶点的无环图中，最多可以有 n 个边。</p></li>
-<li><p>In an acyclic graph with n vertices, the longest path can contain at most n - 1 edges.</p>
-<p>在具有 n 个顶点的无环图中，最长路径最多可以包含 n - 1 条边。</p></li>
-<li><p>Let A be the adjacency representation of G.</p>
-<p>设 A 为 G 的邻接表示。</p>
-<ul>
-<li><p>If trace（A） &gt; 0, then there is at least one self loop. （i.e. a cycle of length 1）</p>
-<p>如果trace（A）&gt;0，则至少有一个自循环。 （l例如： 一个周期长度为 1）</p></li>
-<li><p>If trace（A*A）&gt;0, then there is at least one cycle of length 2.</p>
-<p>如果trace（A*A）&gt;0，则至少有一个长度为2的循环。</p></li>
-<li><p>If trace（A<sup>n</sup>）&gt;0, then there is at least one cycle of length n.</p>
-<p>如果trace（A<sup>n</sup>）&gt;0，则至少有一个长度为n的循环。</p></li>
-</ul></li>
-<li><p>Consequently, a graph with n nodes has no cycles if for all k smaller than n, trace（A<sup>k</sup>） = 0.</p>
-<p>因此，如果对于所有小于 n 的 k，trace（A<sup>k</sup>） = 0，则具有 n 个节点的图没有环。</p></li>
+<li>广度优先：找到第一个邻接节点，访问之后，会继续寻找这个节点的下一个邻接节点（非第一个）</li>
+<li>深度优先：每次只找第一个邻接节点，然后以找到的节点作为基础找它的第一个邻接节点，如果找不到才回溯到上一层，寻找找它的下一个邻接节点（非第一个）</li>
 </ul>
-<p>Why is that?</p>
-<ul>
-<li><p>Consider C = A × B, then <span class="math display">\[
-c_{ij}=\sum^{n}_{k=1}a_{ij}b_{kj}
-\]</span></p></li>
-<li><p>So in A<sup>2</sup> <span class="math display">\[
-a_{ij}=\sum^{n}_{k=1}a_{ik}a_{kj}
-\]</span></p></li>
-<li><p>a<sub>ij</sub>0 in A<sup>2</sup> if there is a node k such that there is an edge <code>(i,k)</code> and an edge <code>(k,j)</code></p></li>
-<li><p>（which is a path of length 2）.</p></li>
-<li><p>So, in A<sup>2</sup>, an element on the diagonal is larger than zero if there is an element with a path of length two to itself.</p></li>
-</ul>
-<h3 id="shortest-path-algorithms">Shortest path algorithms</h3>
+<h2 id="shortest-path-algorithms">Shortest path algorithms</h2>
 <ul>
 <li><p>We are looking for the path with the smallest total weight.</p>
 <p>我们正在寻找总weight最小的路径。</p></li>
@@ -838,18 +988,23 @@ a_{ij}=\sum^{n}_{k=1}a_{ik}a_{kj}
 <p>Let p = v<sub>0</sub>...v<sub>k</sub> be the shortest path from v<sub>0</sub> to v<sub>k</sub> and let p<sub>ij</sub> = v<sub>i</sub>...v<sub>j</sub> with 0≤i≤j≤k be the subpath from v<sub>i</sub> to v<sub>j</sub>, then p<sub>ij</sub> is the shortest path from v<sub>i</sub> to v<sub>j</sub>.</p>
 <p><strong>A shortest path cannot have cycles.</strong></p>
 <h3 id="relaxation-based-algorithms">Relaxation Based Algorithms</h3>
-<p>Many shortest path algorithms are based on a relaxation principle:</p>
+<p>Many shortest path algorithms are based on a <strong>relaxation principle</strong>:</p>
 <ul>
 <li><p>To each vertex v∈V a number v.d is associated, representing the current estimated distance from the source vertex s to the current vertex v.</p>
-<p>每个顶点 v∈V 一个数字 v.d 相关联，表示从源顶点 s 到当前顶点 v 的当前估计距离。</p></li>
-<li><p>For all nodes v∈V, v.d=∞, except for s.d= 0.</p>
+<p>每个顶点 v ∈ V 一个数字 <code>v.d</code> 相关联，表示<u>从源顶点 s 到当前顶点 v 的当前估计距离</u>。</p></li>
+<li><p>For all nodes v∈V, <strong>v.d=∞</strong>, except for s.d= 0.</p>
 <p>对于所有节点 v∈V，v.d=∞，除了 s.d=0。</p></li>
 <li><p>The process of relaxing an edge <code>(u,v)</code> consists of testing whether we can improve the shortest path to v found so far by going through u and, if so, updating v.d.</p>
 <p>放松边<code>(u,v)</code>的过程包括测试我们是否可以通过经过u来改进目前找到的到v的最短路径，如果可以，则更新v.d。</p></li>
 </ul>
 <p><img src="/images/CS61B/0938086.png" /></p>
-<h3 id="the-bellman-ford-algorithm">The Bellman-Ford Algorithm</h3>
-<pre class="line-numbers language-none"><code class="language-none">BELLMAN-FORD(G, w, s)
+<h4 id="the-bellman-ford-algorithm"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B4%9D%E5%B0%94%E6%9B%BC-%E7%A6%8F%E7%89%B9%E7%AE%97%E6%B3%95">The Bellman-Ford Algorithm</a></h4>
+<p>主要思想：对所有的边进行n-1轮松弛操作，因为在一个含有n个顶点的图中，任意两点之间的最短路径最多包含n-1边。</p>
+<p>换句话说，第1轮在对所有的边进行松弛后，得到的是从1号顶点只能经过一条边到达其余各定点的最短路径长度。第2轮在对所有的边进行松弛后，得到的是从1号顶点只能经过两条边到达其余各定点的最短路径长度，......</p>
+<p>以下是图示：</p>
+<p><img src="/images/CS61B/Center1.png" /></p>
+<p>时间复杂度O（nm）,空间复杂度O（m）</p>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">BELLMAN-FORD(G, w, s)
 	INITIALIZE-SINGLE-SOURCE(G, s)
 	for i&#x3D;1 to |G:V| - 1
 		for each edge (u,v) ∈ G.E
@@ -889,21 +1044,111 @@ a_{ij}=\sum^{n}_{k=1}a_{ik}a_{kj}
 <h1 id="exercises">Exercises</h1>
 <p>1. Give a proof for the so-called handshaking lemma: If <code>G = (V, E)</code> is an undirected graph, then <span class="math display">\[
 \sum_{v∈V}degree(v)=2|E|
-\]</span> 2. （adjacency matrix representation） Complete the implementation of the matrix class defined in section 12.1.1. The methods get and set should run in constant time. Use data structures developed in this course as a starting point.</p>
+\]</span> 2. （adjacency matrix representation） Complete the implementation of the matrix clas. The methods get and set should run in constant time. Use data structures developed in this course as a starting point.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> set <span class="token punctuation">(</span> <span class="token keyword">int</span> row<span class="token punctuation">,</span> <span class="token keyword">int</span> col<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> weight<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">// store the weight at the given row and column .</span>
+    matrix<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">=</span> weight<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+    
+<span class="token keyword">public</span> <span class="token class-name">Comparable</span> get <span class="token punctuation">(</span> <span class="token keyword">int</span> row<span class="token punctuation">,</span> <span class="token keyword">int</span> col <span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">// return the weight at the given row and column .</span>
+    <span class="token keyword">return</span> matrix<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3. （adjacency matrix representation）Add a <code>toString</code> method and a print method to the graph which outputs all the nodes and all edges.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>4. （adjacency list representation） Add a <code>toString</code> method and a print method to the graph which outputs all the nodes and all edges.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">public String toString<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    String s<span class="token operator">=</span><span class="token string">"Nodes: "</span><span class="token punctuation">;</span>
+    <span class="token builtin">int</span> size <span class="token operator">=</span> nodes<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>size<span class="token punctuation">;</span>i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        s <span class="token operator">+=</span> nodes<span class="token punctuation">.</span>get<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span>toString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>5. （adjacency list representation） In the current implementation, edges do not contain any information. Extend the edge class such that you can specify a weight with every edge. Change the <code>addEdge</code> method to add this weight. Change print methods to print the weight as well.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> nodeLabel1<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> nodeLabel2<span class="token punctuation">,</span> <span class="token keyword">double</span> weight<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+        <span class="token class-name">Node</span> n1 <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>nodeLabel1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Node</span> n2 <span class="token operator">=</span> <span class="token function">findNode</span><span class="token punctuation">(</span>nodeLabel2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        n1<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Edge</span><span class="token punctuation">(</span>n2<span class="token punctuation">,</span> weight<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>6. （adjacency list representation）The method verifies whether a path between two given nodes exists. Extend this method to return the actual path, represented as a list of nodes.</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>7. （adjacency list representation）Also test the <code>findPath</code> method on a graph that contains cycles. Why does it not work?</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>8. （adjacency list representation）One strategy to avoid problems with cycles in the <code>findPath</code> method is to keep a list of visited nodes in the <code>findPath</code> method: whenever a node is popped from the to-do list, it is added to the visited list. Whenever a node is already visited （is in the visited list）, it is not added to the to-do list anymore. Implement this strategy.</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>9. （adjacency list representation）The approach developed in the previous question to avoid problems with cycles is rather slow due to the search time in the linked list. A method which is often faster is the following: in the nodes of the graph, add an extra variable named “visited” (a boolean) in which we store whether this particular node was visited before yes or no. Before we can start searching for a path, we first set this boolean in all nodes to false. During the search for a path, we check whether the node was already visited before simply by checking this boolean. Change the node class such that we can check whether a given node was already visited or not. Also add a method to change the visited status of the node to a given value. Add a method to the graph class which sets the visited status of each node to false. Change the <code>findPath</code> method of the graph class such that it does not get stuck in cycles anymore, by checking whether each node was visited before.</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>10.（adjacency list representation）The <code>findNode</code> method is rather long code as it needs a for loop and some logic to loop over all nodes and check them. Better would be that the <code>findNode</code> method on the graph, calls the find method on the underlying data structure, in this case the vector. Change the <code>findNode</code> on the graph to simply call the find method of the vector.</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>11.（adjacency list representation）The adjacency list representation developed so far uses vectors to store nodes and edges. Replace the type of both variables to Linked List. Does everything still works? if not, correct and/or complete the implementation of the linked list.</p>
 <p>12.（adjacency list representation）The adjacency list representation developed so far uses vectors to store the nodes. As a result the <code>findNode</code> method has time complexity O(n). This is an important drawback, as this method is called very often. For instance, the <code>addEdge</code> method does two calls to the <code>findNode</code> method. Change the implementation of the Graph class, such that the time complexity of the <code>findNode</code> method is reduced to <code>O(logN)</code>.</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>13. （general） Any binary tree can be represented by a graph. Extend the graph class with a method which traverses the entire tree and adds all connections in the tree to a graph.</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>14. （general） Can the graph constructed in question 13 be cyclic? Why （not）?</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>15. （general）Explain how the edge-list representation can be adapted to represent undirected graphs. Explain how the matrix representation can be adapted to represent undirected graphs.</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>16. （general） Explain the differences in memory usage for representing directed graphs in the matrix representation and the edge-list representation.</p>
+<h1 id="exam">Exam</h1>
+<p>2013-2014 September:</p>
+<ol type="1">
+<li><p>For each of the statements below, indicate whether they are correct or not. No motivation required.</p>
+<ol type="1">
+<li><p>In a graph G=（V,E） if a vertex v in V is visited during level k of a breadth first search from source vertex s in V, then every path from s to v has a length of at most k.</p></li>
+<li><p>DFS will take O（V<sup>2</sup>） time on a graph G=（V,E） represented as an adjacency matrix.</p></li>
+<li><p>Checking whether an edge between two given nodes exists in a directed acyclic graph cannot be done more efficient than O（n<sup>2</sup>）.</p></li>
+</ol></li>
+<li><p>If A = （V1,E1） and B = （V2,E2） are two unweighted DAG’s and they have both the same set of vertices: V1=V2, implement A union B in the matrix representation.</p></li>
+</ol>
+<p>2013-2014 January:</p>
+<p>The intersection between two directed acyclic graphs G1= （V1,E1） and G2 =（V2,E2） can be defined very intuitively as G=G1∩G2= （V E）= （V1∩V2, E1∩E2）.</p>
+<ol type="1">
+<li>Make a method that takes two graphs as arguments and returns a third graph which is the intersection of both graphs. Assume that we are working with the adjacency list representation.</li>
+<li>In the implementation you have given, what is the time complexity of finding V=V1∩V2?</li>
+<li>Can the graph G=G1∩G2 as defined above （where both G1 and G2 are acyclic） have cycles? Explainwhy （not） in max 5 lines.</li>
+</ol>
+<p>2012-2013 January: A loop is a cycle of length 1, i.e. an edge from a node to itself.</p>
+<ol type="1">
+<li>Write a method that removes all loops from a directed graph in the adjacency matrix representation.</li>
+<li>What is the time complexity of this operation?</li>
+<li>Write a method that removes all loops from a directed graph in the adjacency list representation. Don’t forget to provide implementations of missing methods of underlying data structures.</li>
+<li>What is the time complexity of this operation?</li>
+</ol>
+<p>2011-2012 September:</p>
+<ol type="1">
+<li>Add a method to the Graph class that returns a new graph where all edges are reversed. For example, an edge a→b in the input graph becomes b→a in the output graph.</li>
+<li>Add another method that changes the directions of the edges of a graph in place, i.e. without creating a new graph.</li>
+<li>What is the time complexity of both methods? Motivate your answers.</li>
+</ol>
+<p>2011-2012 January: Consider the given adjacency list representation of a graph. You may assume the underlying linked list implements the remove method you wrote in question 1.</p>
+<ol type="1">
+<li><p>Write a method that removes a node from a graph.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Graph.Node</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeEdge</span><span class="token punctuation">(</span><span class="token class-name">Edge</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    edges<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Graph</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeNode</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> label<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Node</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    nodes<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>nodes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">Node</span> aNode <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">)</span> nodes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Not optimal</span>
+        aNode<span class="token punctuation">.</span><span class="token function">removeEdge</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Edge</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>What is the time complexity of this method? Explain why.</p>
+<ul>
+<li>For every node we have to remove the given node from the edge list O（n）, therefore, the time complexity for this method is O（n<sup>2</sup>）.</li>
+</ul></li>
+</ol>
 
                 
             </div>
@@ -1269,6 +1514,13 @@ a_{ij}=\sum^{n}_{k=1}a_{ik}a_{kj}
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

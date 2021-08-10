@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-04
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.7k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    12 Min
+                    19 Min
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="binary-search-tree">Binary Search Tree</h1>
+<p><a href="https://yintelligence.tech/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">VUB 4013759ENR Algorithms and Data Structures</a></p>
 <p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/modules/items/124212">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/files?preview=624608">Slide 124~ 168</a></p>
 <p>树是一种分层数据结构，存储具有父子关系的数据。 数据存储在<strong>节点node</strong>中，而节点之间的关系由<strong>边edge</strong>表示。 由于每个节点都有一个父节点（除了最上面的节点称为<strong>根节点root</strong>）并且每个节点可以有多个子节点，因此这种结构类似于倒置树。</p>
 <p><img src="/images/CS61B/1603530.png" /></p>
@@ -752,6 +753,132 @@
 <li>Give a method which calculates the average.</li>
 <li>Give the time complexity of each of three above operators.</li>
 </ol>
+<h1 id="exam">Exam</h1>
+<p>2011-2012 January: Tree Sort</p>
+<p>The tree sort algorithm is a simple method for sorting a linked list. In this question, we will develop a straightforward implementation for it. The tree sort algorithm consists of two steps:</p>
+<ul>
+<li>You traverse all elements of your linked list and insert them into a binary search tree.</li>
+<li>You create a new empty linked list and you traverse the binary search tree in the correct order to have the elements from small to big and you put each element you traverse in the new linked list.</li>
+</ul>
+<ol type="1">
+<li><p>What is the time complexity of this tree sort? Explain why.</p>
+<ul>
+<li>The time complexity of tree sort is O(n log n). That is because of step1. In that step, you need to traverse the linked list O(n) and for each element, add it to a binary search tree O(log n) for each of the n elements, so step 1 takes O(n log n). Step 2 requires you to traverse the entire tree O(n) and add each element in the list O(1).</li>
+</ul></li>
+<li><p>Implement step 1 of the above tree sort algorithm.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Tree</span> <span class="token function">list2Tree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Tree</span> sortTree <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ListElement</span> d <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>d<span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        sortTree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>el1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        d <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">cdr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       
+    <span class="token punctuation">&#125;</span><span class="token keyword">return</span> sortTree<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Before you can implement the second step of the tree sort algorithm, you need to add a new traverse method to your binary search tree class, which can traverse a binary search tree, such that the elements are visited from the small to big. Call this method "traverseInOrder". This traverse method HAS to be a recursive one in this assignment. Do not use a stack or a queue for this !!!</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">traverseNode</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> n<span class="token punctuation">,</span><span class="token class-name">TreeAction</span> action<span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token function">traverseNode</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    action<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>                  
+        <span class="token function">traverseNode</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>action<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span>
+                                                      <span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">traverseInOrder</span><span class="token punctuation">(</span><span class="token class-name">TreeAction</span> action<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">traverseNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>action<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Is it possible to implement this traverse with a stack or queue rather than using a recursive method? Explain why (not).</p>
+<ul>
+<li>No, this is actually not possible. The in order traversal requires that you process the left child, then do the action and then process the right child of any node. With a stack or a queue, it is possible to first process both left and right child and then perform the action, or to first perform the action and only then to process the children.</li>
+</ul></li>
+<li><p>Use the traverseInOrder method of your tree to access every node from smallest to biggest and to add them into a new LinkedList.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">LinkedList</span> <span class="token function">treeSort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    
+    <span class="token class-name">Tree</span> sortTree <span class="token operator">=</span> <span class="token function">list2Tree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">final</span> <span class="token class-name">LinkedList</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sortTree<span class="token punctuation">.</span><span class="token function">traverseInOrder</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TreeAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                             <span class="token punctuation">&#123;</span>
+        publicvoid <span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">Tree<span class="token punctuation">.</span>TreeNode</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            result<span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>What we did not discuss in class is the fact that the result variable needs to be declared final in this case, because JAVA “Cannot refer to a non-final variable inside an inner class defined in another method”. Do not mind about this, if you did not declare this variable as final, it was also ok.</p>
+</blockquote></li>
+</ol>
+<p>2011-2012 September:</p>
+<ol type="1">
+<li><p>Add a method to the Tree class that checks whether it equals a second given tree.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equal</span><span class="token punctuation">(</span><span class="token class-name">Tree</span> tree1<span class="token punctuation">,</span> <span class="token class-name">Tree</span> tree2<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token class-name">TreeNode</span> n1 <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token class-name">TreeNode</span> n2 <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token class-name">Queue</span> q1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Queue</span> q2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    q1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>tree1<span class="token punctuation">.</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    q2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>tree2<span class="token punctuation">.</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>q1<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        n1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span><span class="token punctuation">)</span> q1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        n2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span><span class="token punctuation">)</span> q2<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> n2<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;</span> n2<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            q1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            q2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>n2<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;</span> n2<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;</span> n2<span class="token punctuation">.</span><span class="token function">getLeftTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;</span> n2<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            q1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            q2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>n2<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;</span> n2<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n1<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;</span> n2<span class="token punctuation">.</span><span class="token function">getRightTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>What is the time complexity of this method? What are the best and worst-case scenarios? Motivate your answers.</p></li>
+</ol>
+<p>2012-2013 January:</p>
+<p>Implement a method that returns the successor of a TreeNode in a binary search tree (BST). A successor of a node n is defined as the smallest element x in the tree such that x is bigger than the value of n (or null if that does not exist). You may assume that the BST does not contain duplicate keys.</p>
+<p>2012-2013 September:</p>
+<ol type="1">
+<li>Extend the representation of the Tree class, such that each node in the tree stores a pointer to its parent.</li>
+<li>Make a method to convert a tree without such parent pointers (assume each parent field is null) into a tree with the appropriate parent pointers, without copying/rebuilding the tree.</li>
+<li>Make a method that stores all ancestors of a given node in a linked list.</li>
+</ol>
+<p>Answer each question with true or false and motivate your answer in a few sentences.</p>
+<ul>
+<li>Summing all elements in a binary search tree can be done in O(log n).</li>
+</ul>
+<p>2013-2014 January:</p>
+<ol type="1">
+<li><p>Implement a method that returns the largest and the second largest element from a binary search tree. Whatis the time complexity of this method?</p></li>
+<li><p>The performance of the binary search tree in retrieving elements becomes suboptimal when the tree becomesunbalanced. An approach to overcome this problem could be that the entire binary search tree is copied toa new tree, once it becomes unbalanced. Describe the required steps to transfer the unbalanced tree intoa balanced one. (hint: an intermediate data structure might be very useful). Make a method that takes abinary search tree and inserts each element in the new tree, which is then guaranteed to be balanced. Whatis the time complexity of this approach?</p></li>
+</ol>
+<p>2013-2014 September:</p>
+<p><img src="/images/CS61B/16035300.png" /></p>
+<p>Consider the binary search tree given in the figure below.</p>
+<ol type="1">
+<li>Give the binary search tree with the above structure that contains the elements 2,3,5,7,11,13,17 and 19.</li>
+<li>The nodes in this tree cannot be colored into a valid Red Black Tree. Give a proof for this statement.</li>
+<li>By applying a single rotation to the tree, it can be converted into a valid Red Black Tree. Which one?</li>
+<li>Implement a method that sums all the elements in a Red Black Tree (assume that the tree only contains integers). e. What is the time complexity of such a sum method?</li>
+</ol>
+<p>For each of the statements below, indicate whether they are correct or not. No motivation required.</p>
+<ul>
+<li>In the worst case, the time complexity of finding an element in a binary search tree containing N elements is O(N).</li>
+</ul>
 
                 
             </div>

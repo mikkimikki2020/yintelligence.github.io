@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-03
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.9k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    8 Min
+                    12 Min
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="linked-lists">Linked Lists</h1>
+<p><a href="https://yintelligence.tech/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">VUB 4013759ENR Algorithms and Data Structures</a></p>
 <p><a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1lZefpFdYWOlbmfxpfi-eERnVq8GozwZL">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/files?preview=624608">Slide 83 ~ 90</a></p>
 <p><a target="_blank" rel="noopener" href="https://beginnersbook.com/2013/12/linkedlist-in-java-with-example/">Linked List in Java with Example</a></p>
 <p>链表linked list是一种简单的数据结构，它以线性linear方式存储数据，类似于向量Vector。</p>
@@ -751,6 +752,57 @@
 <li><code>get</code> O(n)</li>
 <li><code>size</code> O(1)</li>
 </ul>
+<h1 id="exam">Exam</h1>
+<p>2011-2012 January:</p>
+<ol type="1">
+<li><p>Write a method that removes a given element from a LinkedList. You are NOT allowed to copy the elements into a new linked list.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">ListElement</span> current <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token class-name">ListElement</span> previous <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>current<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>head <span class="token operator">=</span> current<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                previous<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            count<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        previous <span class="token operator">=</span> current<span class="token punctuation">;</span>
+        current <span class="token operator">=</span> current<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Make a drawing that shows how pointers are updated.</p></li>
+<li><p>What is the time complexity of this method? Explain why.</p>
+<ul>
+<li>This one does a single iteration over the list, so this one is O(n).</li>
+</ul></li>
+<li><p>Is the remove method implemented on a double linked list more efficient than on a linked list? Explain why (not). You do not need to implement the remove method on double linked list.</p>
+<blockquote>
+<p>Time complexity for double linked list is identical.</p>
+</blockquote></li>
+</ol>
+<p>2012-2013 September: Answer each question with true or false and motivate your answer in a few sentences.</p>
+<ol type="1">
+<li>Appending two linked lists into a single linked list can be done in O(1).</li>
+</ol>
+<p>2013-2014 January: Some textbooks advocate that the implementation of the linked list data structure requires a different approach than the one we have taken in this course: They argue that the first ListElement in the linked listshould ALWAYS be a “dummy” element which is NEVER changed or removed. This way, the head in the linked list class never points to null; in case the list is empty it still points to the “dummy”. The advocates of this approach claim the consequence of storing this dummy is much more elegant code. In this question we will develop such a linked list class.</p>
+<ol type="1">
+<li>Create a constructor which creates an empty linked list, already having the “dummy” first element.</li>
+<li>Create a method “removeFirst” that removes the first element form a linked list, taking care that the dummy element is not removed or changed.</li>
+</ol>
+<p>2013-2014 September:</p>
+<ol type="1">
+<li><p>Recursion</p>
+<p>A number is an integer multiple of 9 if the sum of its digits is a multiple of 9. Hence, this is a recursive definition. Implement a method boolean isMultipleOf9(int number) to test for this.You can use the following method that converts an integer number into a LinkedList of its digits: LinkedList integerToDigits(int number). For example, integerToDigits(128) returns a linked list [1, 2, 8].</p>
+<p>Your method can only return true or false if it gets a single digit number (or single element list) as input, otherwise it <strong>should make a recursive call</strong>. You can write multiple helper methods.</p></li>
+<li><p>Since the elements of a linked list can be of any type, the elements can be Linked Lists as well. Consider for instance L1 = ((1,2),(3,4),(5,6)) to be a Linked List of 3 elements where the first element is a Linked List containing two elements: 1 and 2.</p>
+<ol type="1">
+<li>Write the code to create the Linked List L1.</li>
+<li>Make a drawing showing the internal structure of the list.</li>
+<li>Consider L1 as defined above and let L2 =((a,b),(c,d),(e,f)). The result of “merging” L1 with L2, is that L1 is now the list ((1,2,a,b),(3,4,c,d),(5,6,e,f)). Give the implementation of this “merging” function, it cannot create a new Linked List, but only change pointers in the existing lists. You can assume that both L1 and L2 have the same length. BUT: the elements in L1 and L2 can be lists when an arbitrary length.</li>
+<li>What is the time complexity of the above method?</li>
+</ol></li>
+</ol>
 
                 
             </div>

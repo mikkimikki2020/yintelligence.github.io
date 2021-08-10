@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-07-30
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.2k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    9 Min
+                    14 Min
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="vector">Vector</h1>
+<p><a href="https://yintelligence.tech/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">VUB 4013759ENR Algorithms and Data Structures</a></p>
 <p><a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1N-btpkj-sTg0hjsEwK3PEa5Nud1ViTPd">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/files?preview=624608">Slide 35 ~ 45</a></p>
 <p>Vector是最简单的数据结构之一。 在最简单的形式中，它只不过是一个array。 但是，在本章中，我们将使用各种有用的方法扩展array的functionality，从而生成vector。</p>
 <p>Vector将支持向其<strong>添加</strong>元素、<strong>访问</strong>元素、<strong>删除所有</strong>元素、<strong>删除特定</strong>元素、<strong>检查check</strong>向量<strong>是否为空</strong>、<strong>检索retrieve</strong>其中元素的<strong>数量</strong>、<strong>验证verify</strong>特定元素是否是vector的一部分等功能。 所以，显然不仅仅是简单的array。 为了实现所有这些方法，我们将从array开始并为其添加功能。</p>
@@ -708,6 +709,65 @@
     data<span class="token operator">=</span>data2<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
+<h1 id="exam">Exam</h1>
+<p>2011-2012 January: Implement the <code>addSorted</code> method, which adds an element at the correct position in an already sorted vector.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">addSorted</span><span class="token punctuation">(</span> <span class="token class-name">Comparable</span> o<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>isEmpty<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> o<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> count <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">>=</span> <span class="token number">0</span>  <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">comparaTo</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            data<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            i<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        data<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> o<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2011-2012 September:</p>
+<p>Gnome Sort is an algorithm based on a technique used by gnomes to sort flowers by their height. Assume a row of n flowers where each flower has a position between 0 and n-1. A gnome at position i can see the flower at his current position, the previous flower (i-1) and the next flower (i+1).</p>
+<p>Step by step, the gnome will move from position 0 to position n-1. At each step the gnome looks at the current flower and the next flower. If both flowers are in the right order, he moves on to the next flower. In case the flowers are not in the right order, he will switch both flowers and move back to the previous flower.</p>
+<p>There are two exceptions: when the gnome cannot move to the previous flower, because he is in the beginning of the row, he will move on to the next position; if he cannot move to a next flower, because he is at the end of the row, his job is finalized.</p>
+<ol type="1">
+<li>Implement a method gnomeSort that sorts a Vector according to the given methodology.</li>
+<li>Implement a method gnomeSort that sorts a Double Linked List according to the given methodology.</li>
+<li>What is the time complexity of both methods? Motivate your answer.</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">gnomeSort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        temp <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> count<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> data<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            temp <span class="token operator">=</span> data<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            data<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            data<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+            i<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2012-2013 January:</p>
+<p>Develop and efficient in-place method <code>void partitionEvenOdd()</code> on the Vector class that partitions the vector in even and odd numbers. The algorithm must terminate with the original vector containing all its even elements proceeding by all its odd elements. For the vector [7 1 7 74 21 7 9 26 10] the result might for instance be [74 10 26 17 7 21 9 7] (other solutions possible).</p>
+<p>The method must be an in-place algorithm, which means that you may only use a constant memory space in addition to the vector. In practice, this means that you may not use another temporary vector.</p>
+<p>2012-2013 September: A mathematical puzzle</p>
+<p>A well-known mathematical puzzle is the following one: suppose you have a row of 1000 coins. All coins are the same, they have two sides: up and down. Let us number the coins from 1 to 1000 to identify them. All coins are facing up. Now, you first flip every second coin, so this is coin 2,4,6, ..., 1000. In a second step, you flip every third coin, so this is coin 3, 6, 9, ... This way, you continue flipping coins, until in the very last step, only the last coin is flipped. The challenge in this puzzle is then to tell what coins are facing up after this procedure.</p>
+<p>In this question, you will make a computer program that executes all steps form the puzzle. We will store coins in a Vector. Each coin is simply represented by a Boolean.</p>
+<ol type="1">
+<li>Make a method “initialize” that takes no arguments and returns a vector of 1000 coins, all facing up.</li>
+<li>Make a method “solve” that takes the initialized vector as an argument, and solves the puzzle by simulating all steps of the puzzle.</li>
+<li>(extra credit) Which coins are facing up at the end?</li>
+</ol>
+<p>2013-2014 January: Consider a vector where all elements can only take any of two values (say 0 and 1). This vector can besorted very efficiently. Implement a sorting algorithm that will sort the vector in linear time and in placeunder these conditions.</p>
 
                 
             </div>

@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-03
+                    2021-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    7 Min
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="circular-vectors">Circular Vectors</h1>
+<p><a href="https://yintelligence.tech/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">VUB 4013759ENR Algorithms and Data Structures</a></p>
 <p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/files?preview=624608">Slide 108 ~ 116</a></p>
 <p>Circular Vector是对常规 Vector 的一种调整，它避免了<code>addFirst</code>和<code>RemoveFirst</code>方法中所有元素的移位，使得Circular Vector中的两个操作的时间复杂度都是 O(1) 而不是 O(n) 就像常规的向量。 为了获得这种性能增益，需要更复杂的实现。</p>
 <p>Circular Vector中的想法是，Circular Vector的第一个元素（即元素<code>getFirst</code>将返回）并不总是存储在底层Vector中的位置 0。相反，索引“start”被存储并表示第一个元素的位置。</p>
@@ -686,6 +687,37 @@
 </figure>
 <p>分几步画出当在列表的开头添加新元素 555 时如何修改上面显示的列表。 给出这个<code>addFirst(Object element)</code>方法的实现，假设在<code>CircularList</code>类中有一个 head 和 tail 变量可用。</p>
 <p>提示：这并不难，只需很少的代码即可完成，但请注意您也可以处理向空列表添加元素的情况。 您的<code>addFirst</code>方法的时间复杂度是多少？ <code>addLast</code>方法在循环列表上的时间复杂度是多少？ 不需要实现这个方法。</p></li>
+</ol>
+<h1 id="exam">Exam</h1>
+<p>2011-2012 January:</p>
+<ol type="1">
+<li><p>Implement the reverse method on a circular list. HINT: make sure that your method does not loop forever.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> 
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> 
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> 
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">ListElement</span> prev <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">ListElement</span> current <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token class-name">ListElement</span> next <span class="token operator">=</span> head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>prev <span class="token operator">!=</span> tail<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            current<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>prev<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            prev <span class="token operator">=</span> current<span class="token punctuation">;</span>
+            current <span class="token operator">=</span> next<span class="token punctuation">;</span>
+            next <span class="token operator">=</span> current<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        tail <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        head <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+        tail<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Make a drawing that shows how pointers are updated.</p></li>
+<li><p>What is the time complexity of this method? Explain why.</p>
+<ul>
+<li>This one does a single iteration over the list, so this one is O(n).</li>
+</ul></li>
 </ol>
 
                 
