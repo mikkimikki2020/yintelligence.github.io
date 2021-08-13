@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-08-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.4k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    21 Min
+                    30 Min
                 </div>
                 
 
@@ -502,15 +502,18 @@
             <div id="articleContent">
                 <h1 id="problem-solving-and-search">Problem Solving and Search</h1>
 <p><a href="https://yintelligence.tech/2021/01/29/2021-01-29-VUB-4004728DNR-Techniques-of-Artificial-Intelligence/">VUB 4004728DNR Techniques of Artificial Intelligence</a></p>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ad1fa799-7a58-45af-b2b0-ab8100fcc929#">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ad1fa799-7a58-45af-b2b0-ab8100fcc929#">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/776529?module_item_id=79386">Slide</a></p>
 <h2 id="what-is-problem-solving">What is problem solving?</h2>
 <p>An agent can act by</p>
 <ul>
-<li>establishing <em>goals</em> that result in solving a <em>problem</em></li>
-<li>considering <em>sequences</em> of actions that might achieve those goals</li>
+<li><p>establishing <strong><em>goals</em></strong> that result in solving a <strong><em>problem</em></strong></p>
+<p>建立导致解决*问题的**目标*</p></li>
+<li><p>considering <strong><em>sequences</em></strong> of actions that might achieve those goals</p>
+<p>考虑可能实现这些目标的一<strong>系列行动</strong></p></li>
 </ul>
-<p>To automate this, we need to <em>formulate the problem</em></p>
-<p>The process of considering action sequences within a problem formulation is called <em>search</em></p>
+<p>To automate this, we need to <em><strong>formulate</strong> the problem</em> 为了自动化这个，我们需要<u>制定问题</u></p>
+<p>The process of <u>considering action sequences within a problem formulation</u> is called <strong><em>search</em></strong></p>
+<p>在制定问题中考虑<u>动作<strong>序列</strong></u>的过程称为<strong>搜索</strong></p>
 <p>This part of the module is about</p>
 <ul>
 <li>problem-solving agents</li>
@@ -522,9 +525,10 @@
 <h2 id="an-agent-on-holiday">An Agent on Holiday</h2>
 <p>Example</p>
 <ul>
-<li><em>An agent is in Arad, Romania, at the end of a touring holiday. It has a ticket to fly out of Bucharest the following day. The ticket is non-refundable, the agent’s visa is about to expire and there are no seats available on flights for six weeks.</em></li>
+<li><p><em>An agent is in Arad, Romania, at the end of a touring holiday. It has a ticket to fly out of Bucharest the following day. The ticket is non-refundable, the agent’s visa is about to expire and there are no seats available on flights for six weeks.</em></p>
+<p><em>一位探员在罗马尼亚的阿拉德旅游假期结束时。它有一张第二天飞离布加勒斯特的机票。机票不可退款，代理人签证即将到期，六周内航班无空位。</em></p></li>
 </ul>
-<p>The agent’s performance measure includes</p>
+<p>The agent’s <strong>performance measure</strong> includes</p>
 <ul>
 <li>cost of ticket</li>
 <li>avoidance of arrest and/or deportation</li>
@@ -533,24 +537,30 @@
 </ul>
 <p>Lots of actions are possible to score highly on the performance measure, but the seriousness of the agent’s situation means that the agent should adopt the goal of getting to Bucharest</p>
 <ul>
-<li>Agent can reject any actions that fail to meet this goal</li>
+<li><p>Agent can reject any actions that fail to meet this goal</p>
+<p>Agent可以拒绝任何未能达到此目标的操作</p></li>
 </ul>
 <h3 id="a-problem-solving-agent">A problem-solving agent</h3>
-<p>Goals help to organise behaviour</p>
+<p><strong>Goal</strong>s help to <u>organise behaviour</u> 目标有助于组织行为</p>
 <ul>
-<li><em>goal formulation</em> is the first step to <em>problem solving</em></li>
-<li>a goal is a desired state of (part of) the world
+<li><p><strong><em>goal formulation</em></strong> is the first step to <em>problem solving</em> 制定目标是解决问题的第一步</p></li>
+<li><p>a goal is a <strong>desired state</strong> of (part of) the world 目标是世界（部分）的<strong>理想状态</strong></p>
 <ul>
-<li>though it does not usually specify the state of the whole world</li>
-<li>alternatively, a goal can be thought of as the set of world states in which it is satisfied</li>
+<li><p>though it does not usually specify the state of the whole world</p>
+<p>虽然它通常不指定整个世界的状态</p></li>
+<li><p>alternatively, a goal can be thought of as the set of world states in which it is satisfied</p>
+<p>或者，一个目标可以被认为是满足它的一组世界状态</p></li>
 </ul></li>
 </ul>
-<p>Actions cause transitions between <em>world states</em></p>
+<p>Actions cause transitions between <strong><em>world states</em></strong> 动作导致<strong>世界状态</strong>之间的转换</p>
 <ul>
-<li>The agent has to work out which action(s) will get it to the goal state</li>
+<li><p>The agent has to work out which action(s) will get it to the goal state</p>
+<p>代理必须确定哪个动作将使其达到目标状态</p></li>
 </ul>
-<p><em>Problem formulation</em> is exhaustive analysis of possible actions and states</p>
+<p><strong><em>Problem formulation</em></strong> is exhaustive analysis of possible actions and states</p>
+<p><strong>问题表述</strong>是对可能的行动和状态的详尽分析</p>
 <p>The agent needs to consider possible actions and the resulting states</p>
+<p>代理需要考虑可能的动作和结果状态</p>
 <ul>
 <li>put left foot forward 18 inches??</li>
 <li>get cab to next town??</li>
@@ -590,23 +600,24 @@
 <li>assessing different possible sequences of actions that lead to states of known <em>utility</em> (goal states)</li>
 <li>choosing the best one</li>
 </ul>
-<h2 id="design-process">Design Process</h2>
+<h3 id="design-process">Design Process</h3>
 <p>To design a problem-solving program</p>
 <ul>
-<li>FORMULATE: Formulate problem, goal and starting conditions</li>
-<li>SEARCH: Use search algorithm to find action sequence that realises goal from starting conditions</li>
-<li>EXECUTE: Use solution to guide actions</li>
+<li><code>FORMULATE</code>: Formulate problem, goal and starting conditions</li>
+<li><code>SEARCH</code>: Use search algorithm to find action sequence that realises goal from starting conditions</li>
+<li><code>EXECUTE</code>: Use solution to guide actions</li>
 </ul>
 <p>To design a problem-solving agent</p>
 <ul>
 <li>Do the above in the context of a changing world</li>
 </ul>
 <p><strong>THE ART OF AI PROBLEM SOLVING IS DECIDING WHAT GOES INTO THE DESCRIPTION OF THE OPERATORS AND STATES, AND WHAT IS LEFT OUT</strong></p>
-<h2 id="search-algorithms">Search Algorithms</h2>
-<p>A search algorithm takes a <em>problem</em> as input, <em>formulated</em> as</p>
+<p><strong>人工智能问题解决的艺术是决定什么进入运营商和状态的描述，什么被遗漏</strong></p>
+<h3 id="search-algorithms">Search Algorithms</h3>
+<p>A search algorithm takes a <strong><em>problem</em></strong> as input, <em>formulated</em> as</p>
 <ul>
-<li>a set of <em>goals</em> to be achieved</li>
-<li>a set of possible <em>actions</em> to be applied</li>
+<li>a set of <strong><em>goals</em></strong> to be achieved</li>
+<li>a set of <u>possible <strong><em>actions</em></strong> to be applied</u></li>
 </ul>
 <p>It returns a solution in the form of an <em>action sequence</em> or <em>plan</em></p>
 <p>Once a solution is found, the chosen actions can be carried out</p>
@@ -617,45 +628,49 @@
 <ul>
 <li>so we consider the search on its own first</li>
 </ul>
-<h2 id="well-defined-problems">Well-defined problems</h2>
+<h3 id="well-defined-problems">Well-defined problems</h3>
 <p>Basic problem elements are states and actions</p>
 <p>Formally, we need</p>
 <ul>
-<li><em>initial state</em>: the world the agent starts in</li>
-<li><em>operators</em>: describe actions in terms of states reached by applying them</li>
-<li><em>goal state</em>: the world that the agent is trying to be in</li>
+<li><strong><em>initial state</em></strong>: the world the agent starts in</li>
+<li><strong><em>operators</em></strong>: describe actions in terms of states reached by applying them</li>
+<li><strong><em>goal state</em></strong>: the world that the agent is trying to be in</li>
 </ul>
-<p>The initial state and operators define the <em>state space</em> of the problem</p>
+<p>The initial state and operators define the <strong><em>state space</em></strong> of the problem</p>
 <ul>
 <li>the set of all states reachable from the initial state and any sequence of actions</li>
 </ul>
 <p>To determine when the goal state is reached, we need</p>
 <ul>
-<li><em>goal test</em>: a boolean function over states, true if input is the goal state</li>
+<li><strong><em>goal test</em></strong>: a boolean function over states, true if input is the goal state</li>
 </ul>
-<h2 id="searching-for-solutions">Searching for solutions</h2>
-<p>A solution is a sequence of operators leading from start to goal state</p>
+<h3 id="searching-for-solutions">Searching for solutions</h3>
+<p>A solution is <strong>a sequence of operators</strong> leading from start to goal state</p>
 <p>Given a problem formulation, we have to map out the state space</p>
 <ul>
-<li>while we are searching the state space it’s sometimes called the <em>search space</em></li>
+<li>while we are searching the state space it’s sometimes called the <strong><em>search space</em></strong></li>
 </ul>
-<p>Generate action sequences, using an <em>agenda</em>:</p>
+<p>Generate action sequences, using an <strong><em>agenda</em></strong>:</p>
 <ul>
-<li>start at initial state</li>
-<li>check whether in goal state
+<li><p>start at initial state 从初始状态开始</p></li>
+<li><p>check whether in goal state 检查是否处于目标状态</p>
 <ul>
 <li>if yes, we’re done</li>
 </ul></li>
-<li>otherwise, consider other states by applying the operators to the present state to generate a new set of states
+<li><p>otherwise, consider other states by applying the operators to the present state to generate a new set of states</p>
+<p>否则，通过将运算符应用于当前状态以生成一组新状态来考虑其他状态</p>
 <ul>
-<li>This is called <em>expanding</em> the state</li>
+<li><p>This is called <strong><em>expanding</em></strong> the state</p>
+<p>这称为<strong>扩展</strong>状态</p></li>
 </ul></li>
 </ul>
 <h3 id="search-trees">Search Trees</h3>
 <p>It’s helpful to think of the state space as structured into a <em>tree</em></p>
 <ul>
-<li>actions correspond with <em>arcs</em></li>
-<li>states correspond with <em>nodes</em></li>
+<li><p>actions correspond with <em>arcs</em></p>
+<p>动作对应<em>弧线</em></p></li>
+<li><p>states correspond with <em>nodes</em></p>
+<p>状态对应于<em>节点</em></p></li>
 </ul>
 <p><img src="/images/AI/1039130.png" /></p>
 <p>Searching this way takes us to Bucharest in 3 steps</p>
@@ -663,31 +678,42 @@
 <li>but only because of the order we picked the cities in</li>
 </ul>
 <p><img src="/images/AI/1039131.png" /></p>
-<h2 id="clear-thinking-state-node">Clear thinking: state ≠ node!</h2>
+<h4 id="clear-thinking-state-node">Clear thinking: state ≠ node!</h4>
 <p>States of the world and nodes in the search tree are not the same thing</p>
+<p>世界状态和搜索树中的节点不是一回事</p>
 <ul>
-<li>A state is a (representation of) a problem configuration</li>
-<li>A node is a data structure used by a search algorithm
+<li><p>A state is a (representation of) a problem configuration</p>
+<p>状态是问题配置的表示</p></li>
+<li><p>A node is a data structure used by a search algorithm</p>
+<p>节点是搜索算法使用的数据结构</p>
 <ul>
-<li>constitutes part of a search tree</li>
-<li>includes parent, action, children, depth (for IDS), path cost (for UCS)</li>
+<li><p>constitutes part of a search tree 构成搜索树的一部分</p></li>
+<li><p>includes parent, action, children, depth (for IDS), path cost (for UCS)</p>
+<p>包括父级、动作、子级、深度（对于 IDS）、路径成本（对于 UCS）</p></li>
 </ul></li>
-<li>States do not formally have parents, actions, children, depth, or path cost!</li>
+<li><p>States do not formally have parents, actions, children, depth, or path cost!</p>
+<p>状态没有正式的父级、动作、子级、深度或路径成本！</p></li>
 </ul>
 <p>The Expand function creates new nodes, filling in the various fields and using the operators of the problem formulation to approximate the corresponding <em>states</em></p>
+<p>Expand 函数创建新节点，填充各个字段并使用问题公式的运算符来近似对应的<strong><em>状态</em></strong></p>
 <h2 id="search-algorithm-framework">Search Algorithm Framework</h2>
 <pre class="line-numbers language-none"><code class="language-none">function AgendaSearch( start-state, actions, goal-test )
-                                        returns action-sequence or failure
+
+	returns action-sequence or failure
+	
     static: seq, an action sequence, initially empty
     agenda, a state sequence, initially contains start-state
 loop do
+
        if Empty(agenda) then return failure
        if goal-test(First(agenda)) then return seq
+       
        agenda ← Queuing-Fn(Rest(agenda),Expand(First(agenda), actions))
+       
        seq ← Append( seq, Action(First(agenda)))
-end loop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+end loop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Alternatively, in Prolog:</p>
-<pre class="line-numbers language-none"><code class="language-none">agendaSearch( [First|_], [First] ) :-
+<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">agendaSearch( [First|_], [First] ) :-
     goalTest( First ).
 agendaSearch( [First|Rest], [First|Answer] ) :-
     expand( First, MidAgenda ),
@@ -702,42 +728,64 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <li>but only because of the order we picked the cities in</li>
 </ul>
 <p><img src="/images/AI/1039132.png" /></p>
+<h4 id="depth-first-search">Depth-First Search</h4>
 <p>This is an example of Depth-First Search (DFS)</p>
 <ul>
-<li>we construct the search tree by going <em>down</em> it, only going <em>across</em> it when going down fails</li>
-<li>depth-first search can fail when the tree is infinitely deep
+<li><p>we construct the search tree by going <em>down</em> it, only going <em>across</em> it when going down fails</p>
+<p>我们通过向下构建搜索树，只有在向下失败时才通过它</p></li>
+<li><p>depth-first search can fail when the tree is infinitely deep</p>
+<p>当树无限深时，深度优先搜索可能会失败</p>
 <ul>
-<li>the space contains cycles or is generated from continuous values</li>
+<li><p>the space contains cycles or is generated from continuous values</p>
+<p>空间包含循环或由连续值生成</p></li>
 </ul></li>
-<li>depth-first search depends (crucially) on the order in which operators are applied/nodes are expanded
+<li><p>depth-first search depends (crucially) on <u>the order in which operators are applied/nodes are expanded</u></p>
+<p><strong>深度优先搜索取决于应用运算符/扩展节点的顺序</strong></p>
 <ul>
-<li>it may not find things that are present</li>
-<li>it may find long action sequences before short ones (usually, that’s unhelpful)</li>
+<li><p>it may not find things that are present</p>
+<p>它可能找不到存在的东西</p></li>
+<li><p>it may find long action sequences before short ones (usually, that’s unhelpful)</p>
+<p>它可能会在短动作序列之前找到长动作序列（通常，这无济于事）</p></li>
 </ul></li>
 </ul>
 <p>In terms of agendas, we implement DFS with a Queuing-Fn that</p>
 <ul>
-<li>removes the current node from the agenda</li>
-<li>appends its children to the <em>front</em> of the agenda</li>
-<li>note that the agenda is <em>rotating</em> all the time, always dealing with its <em>first</em> item</li>
+<li><p>removes the current node from the agenda</p>
+<p>从议程中删除当前节点</p></li>
+<li><p>appends its children to the <em>front</em> of the agenda</p>
+<p>将其子项附加到议程的<em>前面</em></p>
+<blockquote>
+<p>note that the agenda is <strong><em>rotating</em></strong> all the time, always dealing with its <strong><em>first</em></strong> item</p>
+<p>请注意，议程一直在轮换，总是处理它的<strong>第一项</strong></p>
+</blockquote></li>
 </ul>
+<h4 id="breadth-first-search">Breadth-first search</h4>
 <p>An alternative is Breadth-First Search (BFS)</p>
 <ul>
-<li>we construct the search tree by going <em>across</em> it,repeatedly,replacing each node with its children</li>
-<li>breadth-first search guarantees to find the solution if there is one</li>
-<li>breadth-first search guarantees to find the shortest action sequence</li>
-<li>but it causes a combinatorial explosion of nodes in the agenda, and so is unsuitable for very large search spaces
+<li><p>we construct the search tree by going <em>across</em> it,repeatedly,replacing each node with its children</p>
+<p>我们通过去构建搜索树<em>跨越</em>它，反反复复，与其子代替每个节点</p></li>
+<li><p>breadth-first search guarantees to find the solution if there is one</p>
+<p>广度优先搜索保证找到解决方案（如果有）</p></li>
+<li><p>breadth-first search guarantees to find the shortest action sequence</p>
+<p>广度优先搜索保证找到最短的动作序列</p></li>
+<li><p>but it causes a combinatorial explosion of nodes in the agenda, and so is unsuitable for very large search spaces</p>
+<p>但它会导致议程中节点的组合爆炸，因此不适用于非常大的搜索空间</p>
 <ul>
-<li>most real AI problems have very large search spaces</li>
+<li><p>most real AI problems have very large search spaces</p>
+<p>大多数真正的人工智能问题都有非常大的搜索空间</p></li>
 </ul></li>
 </ul>
 <p>In terms of agendas, we implement BFS with a Queuing-Fn that</p>
 <ul>
-<li>removes the current node from the agenda</li>
-<li>appends its children to the <em>back</em> of the agenda</li>
-<li>note that the agenda is <em>rotating</em> all the time, always dealing with its <em>first</em> item</li>
+<li><p>removes the current node from the agenda</p>
+<p>从议程中删除当前节点</p></li>
+<li><p>appends its children to the <em>back</em> of the agenda</p>
+<p>将其子项附加到议程的<em>后面</em></p>
+<blockquote>
+<p>note that the agenda is <em>rotating</em> all the time, always dealing with its <em>first</em> item</p>
+<p>请注意，议程一直在轮换，总是处理它的<strong>第一项</strong></p>
+</blockquote></li>
 </ul>
-<h4 id="breadth-first-search-in-romania">Breadth-first search in Romania</h4>
 <p>Here the different depths are given different colours</p>
 <ul>
 <li>we can see the different layers of the tree as the search proceeds</li>
@@ -747,7 +795,7 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <h4 id="measuring-search-effectiveness">Measuring search effectiveness</h4>
 <p>To determine the utility of a particular path, we need</p>
 <ul>
-<li>cost: a function that assigns a cost to a path (to differentiate between solutions)</li>
+<li><strong>cost</strong>: a function that assigns a cost to a path (to differentiate between solutions)</li>
 </ul>
 <p>To evaluate a search strategy or algorithm, need to ask</p>
 <ul>
@@ -756,7 +804,7 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <li>is it the best solution (optimal)?</li>
 <li>how much time and memory are required to find a solution</li>
 </ul>
-<p>Effectiveness of search depends on the objectives. Compare</p>
+<p><strong>Effectiveness</strong> of search depends on the objectives. Compare</p>
 <ul>
 <li>searching for a route to Bucharest (many routes may be satisfactory)</li>
 <li>searching for the next prime number (must be a true prime, and there’s only 1)</li>
@@ -770,27 +818,37 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <p>We can compute the utility of a route by a function which implements the performance measure, in terms of the problem formulation</p>
 <p>here, we might use distance for each road</p>
 <p><img src="/images/AI/1039134.png" /></p>
+<h4 id="uniform-cost-search">Uniform-Cost Search</h4>
 <p>We can implement this using Uniform-Cost Search (UCS)</p>
-<p>Also called Best-First Search</p>
+<p>Also called Best-First Search 也称为最佳优先搜索</p>
 <ul>
-<li>we construct the search tree by picking the <em>best</em> node in the agenda after each expansion, according to the utility function, expanding it, and so on</li>
-<li>best-first search guarantees to find the solution if there is one</li>
-<li>best-first search guarantees to find the best action sequence in terms of <em>utility</em></li>
-<li>but it cannot guarantee to use less memory than BFS
+<li><p>we construct the search tree by picking the <em>best</em> node in the agenda after each expansion, according to the utility function, expanding it, and so on</p>
+<p>我们通过在每次扩展后选择议程中的<em>最佳</em>节点来构建搜索树，根据效用函数，扩展它，依此类推</p></li>
+<li><p>best-first search guarantees to find the solution if there is one<br />
+</p>
+<p>最佳优先搜索保证找到解决方案（如果有）</p></li>
+<li><p>best-first search guarantees to find the best action sequence in terms of <em>utility</em></p>
+<p>最佳优先搜索保证在<em>效用</em>方面找到最佳动作序列</p></li>
+<li><p>but it cannot guarantee to use less memory than BFS</p>
+<p>但不能保证比 BFS 使用更少的内存</p>
 <ul>
 <li>most real AI problems have very large search spaces</li>
 </ul></li>
 </ul>
 <p>In terms of agendas, implement UCS/BestFS with a Queuing-Fn that</p>
 <ul>
-<li>removes the current node from the agenda</li>
-<li>appends its children to the agenda and then sorts the <em>whole</em> <em>agenda</em> by the utility function
+<li><p>removes the current node from the agenda</p>
+<p>从议程中删除当前节点</p></li>
+<li><p>appends its children to the agenda and then sorts the <em>whole</em> <em>agenda</em> by the utility function</p>
+<p>将其子项附加到议程中，然后通过效用函数对<em>整个</em> <em>议程</em>进行 排序</p>
 <ul>
-<li>and stores the cost-so-far at each node in the agenda, to avoid recalculation</li>
-</ul></li>
-<li>note that the agenda is <em>rotating</em> all the time, always dealing with its <em>first</em> item</li>
+<li><p>and stores the cost-so-far at each node in the agenda, to avoid recalculation</p>
+<p>并将成本到目前为止存储在议程中的每个节点，以避免重新计算</p></li>
 </ul>
-<h4 id="best-first-search-ucs-in-romania">Best-first search (UCS) in Romania</h4>
+<blockquote>
+<p>note that the agenda is <em>rotating</em> all the time, always dealing with its <em>first</em> item</p>
+</blockquote></li>
+</ul>
 <p>Using UCS to consider real distances</p>
 <ul>
 <li>Here BFS would get us a <em>wrong answer</em></li>
@@ -830,18 +888,23 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 </ul>
 <h2 id="analysing-search-spaces">Analysing search spaces</h2>
 <p>A strategy is defined by its order of node expansion</p>
+<p>策略由其节点扩展的顺序定义</p>
 <p><em>Uninformed</em> strategies use <em>only information</em> in the <em>problem formulation</em></p>
+<p><em>不知情的</em>策略使用<em>唯一信息</em>的<em>问题制定</em></p>
 <ul>
-<li>Sometimes called <em>blind</em> search or <em>brute-force</em> search
+<li><p>Sometimes called <strong><em>blind</em></strong> search or <strong><em>brute-force</em></strong> search</p>
+<p>有时称为<em>盲</em>搜索或<em>蛮力</em>搜索</p>
 <ul>
 <li>Breadth-first search</li>
 <li>Depth-first search</li>
 <li>Best-first search/Uniform-cost search (this “feels” informed, but isn’t, by this definition)</li>
 </ul></li>
 </ul>
-<p><em>Informed</em> or <em>heuristic</em> search strategies a quality measure not strictly in the problem formulation to guide the order in which nodes are expanded</p>
+<p><strong><em>Informed</em></strong> or <strong><em>heuristic</em></strong> search strategies a quality measure not strictly in the problem formulation to guide the order in which nodes are expanded</p>
+<p><strong>知情</strong>或<strong>启发式</strong>搜索策略 一种在问题表述中不严格的质量度量，用于指导节点扩展的顺序</p>
 <ul>
-<li>e.g., An informed agent might notice that the goal state, Bucharest, is southeast of Arad, and that only Sibiu is in that direction,so it is likely to be the best choice
+<li><p>e.g., An informed agent might notice that the goal state, Bucharest, is southeast of Arad, and that only Sibiu is in that direction,so it is likely to be the best choice</p>
+<p>例如，一个知情的代理可能会注意到目标州布加勒斯特在阿拉德的东南部，只有锡比乌在那个方向，所以它可能是最好的选择</p>
 <ul>
 <li>Algorithm A and Algorithm A*</li>
 </ul></li>
@@ -849,18 +912,22 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <h3 id="analysing-search-spaces-for-cost">Analysing search spaces for cost</h3>
 <p>A strategy is evaluated along the following dimensions</p>
 <ul>
-<li><em>completeness</em>: does it always find a solution if one exists?</li>
-<li><em>time complexity</em>: number of nodes generated</li>
-<li><em>space complexity</em>: maximum number of nodes in memory at once</li>
-<li><em>optimality</em>: does it always find a least-cost solution?</li>
+<li><strong><em>completeness</em></strong>: does it always find a solution if one exists?</li>
+<li><strong><em>time complexity</em></strong>: number of nodes generated</li>
+<li><strong><em>space complexity</em></strong>: maximum number of nodes in memory at once</li>
+<li><strong><em>optimality</em></strong>: does it always find a least-cost solution?</li>
 </ul>
 <p>Time and space complexity are measured in terms of the search tree</p>
 <ul>
-<li><em>b</em> maximum branching factor of the search tree (“bushiness” of tree)</li>
-<li><em>d</em> depth of the least-cost solution</li>
-<li><em>m</em> maximum depth of the state space (may be ∞)</li>
+<li><p><em>b</em> maximum branching factor of the search tree (“bushiness” of tree)</p>
+<p>搜索树的最大分支因子（树的“丛林度”）</p></li>
+<li><p><em>d</em> depth of the least-cost solution</p>
+<p>成本最低的解决方案的<em>d</em>深度</p></li>
+<li><p><em>m</em> maximum depth of the state space (may be ∞)</p>
+<p><em>m</em> 状态空间的最大深度（可能是∞）</p></li>
 </ul>
 <p>Even the best strategies need to avoid repeated nodes</p>
+<p>即使是最好的策略也需要避免重复节点</p>
 <ul>
 <li>trade-off between time and space (see Russell and Norvig)</li>
 </ul>
@@ -868,23 +935,28 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <ul>
 <li>now, the theory</li>
 </ul>
-<p>Depth first search (DFS)</p>
+<h3 id="uninformed-search"><a target="_blank" rel="noopener" href="https://blog.csdn.net/daijin888888/article/details/76609895?utm_source=app&amp;app_version=4.13.0">Uninformed Search</a></h3>
+<h4 id="depth-first-search-dfs">Depth first search (DFS)</h4>
 <ul>
-<li>Complete? No, DFS fails in infinite depth search spaces and spaces with loops</li>
-<li>Time? O(b<sup>m</sup>): terrible if m is much larger than d, but if search tree is “bushy ” , may be much faster than breadth first</li>
-<li>Space? O(bm), i.e.,space linear in length of action sequence! Need only store a single path from the root to the leaf node, along with remaining unexpanded sibling nodes for each node on path</li>
-<li>Optimal? No</li>
-<li>Pros: For problems with many solutions, DFS may be faster than BFS because it has a good chance of finding a solution after exploring only a small portion of the whole space</li>
-<li>Cons: can get stuck down wrong search path</li>
+<li><p>Complete? <strong>No</strong>, DFS fails in infinite depth search spaces and spaces with loops</p></li>
+<li><p>Time? O(b<sup>m</sup>): terrible if m is much larger than d, but if search tree is “bushy ” , may be much faster than breadth first</p></li>
+<li><p>Space? O(bm), i.e.,space linear in length of action sequence! Need only store a single path from the root to the leaf node, along with remaining unexpanded sibling nodes for each node on path</p>
+<p>空间与动作序列的长度成线性！ 只需要存储从根到叶节点的单个路径，以及路径上每个节点的剩余未扩展兄弟节点</p></li>
+<li><p>Optimal? No</p></li>
+<li><p>Pros: For problems with many solutions, DFS may be faster than BFS because it has a good chance of finding a solution after exploring only a small portion of the whole space</p>
+<p>优点：对于有很多解的问题，DFS 可能比 BFS 更快，因为它在探索整个空间的一小部分后很有可能找到解决方案</p></li>
+<li><p>Cons: can get stuck down wrong search path</p>
+<p>缺点：可能会陷入错误的搜索路径</p></li>
 </ul>
-<p>Breadth first search</p>
+<h4 id="breadth-first-search-1">Breadth first search</h4>
 <ul>
-<li>Complete? Yes, all nodes are examined if b is finite</li>
+<li>Complete? <strong>Yes</strong>, all nodes are examined if b is finite</li>
 <li>Time? 1 + b + b<sup>2</sup> + b<sup>3</sup> + . . . + b<sup>d</sup> = O(b<sup>d</sup>), i.e., exponential in b</li>
 <li>Space? O(b<sup>d</sup>) – keeps every node in memory</li>
 <li>Optimal? Only if cost = 1 per step, not in general
 <ul>
-<li>If there are several solutions it will find the <em>shallowest</em> goal first</li>
+<li><p>If there are several solutions it will find the <em>shallowest</em> goal first</p>
+<p>如果有多个解决方案，它会先找到最<em>浅的</em>目标</p></li>
 </ul></li>
 <li>Drawbacks: Memory requirement to store nodes is a big problem
 <ul>
@@ -951,17 +1023,24 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 </tr>
 </tbody>
 </table>
-<p>Uniform-cost (Best first) search</p>
+<h4 id="uniform-cost-best-first-search"><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28781071/article/details/51548104?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162885033716780255294744%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=162885033716780255294744&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-51548104.first_rank_v2_pc_rank_v29&amp;utm_term=%E6%9C%80%E4%BD%B3%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2&amp;spm=1018.2226.3001.4187">Uniform-cost (Best first) search</a></h4>
 <ul>
-<li>Shares dynamic properties of DFS and BFS</li>
-<li>Requires step cost information in problem formation and path cost in agenda</li>
-<li>Time? Number of nodes with path cost less than optimal solution</li>
-<li>Space? Number of nodes with path cost less than optimal solution</li>
-<li>Optimal? Yes – finds the cheapest solution as long as step cost &gt; 0</li>
-<li>First solution reported (but not necessarily encountered) is always the cheapest
+<li><p>Shares dynamic properties of DFS and BFS</p>
+<p>共享 DFS 和 BFS 的动态属性</p></li>
+<li><p>Requires step cost information in problem formation and path cost in agenda</p>
+<p>需要问题形成中的步骤成本信息和议程中的路径成本</p></li>
+<li><p>Time? Number of nodes with path cost less than optimal solution</p>
+<p>时间？路径成本小于最优解的节点数</p></li>
+<li><p>Space? Number of nodes with path cost less than optimal solution</p>
+<p>空间？路径成本小于最优解的节点数</p></li>
+<li><p>Optimal? Yes – finds the cheapest solution as long as step cost &gt; 0</p>
+<p>最佳？是 - 只要步骤成本 &gt; 0 就找到最便宜的解决方案</p></li>
+<li><p>First solution reported (but not necessarily encountered) is always the cheapest</p>
 <ul>
-<li>does not explore the whole tree and avoids looping</li>
-<li>but can explore the same path multiple times if there is more than one route through a node</li>
+<li><p>does not explore the whole tree and avoids looping</p>
+<p>不探索整棵树并避免循环</p></li>
+<li><p>but can explore the same path multiple times if there is more than one route through a node</p>
+<p>但如果通过一个节点的路径不止一条，则可以多次探索同一条路径</p></li>
 </ul></li>
 </ul>
 <p><strong>Exercise: IDS on holiday</strong></p>
@@ -983,54 +1062,75 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <li>Although this appears wasteful, the overhead is actually quite small for most cases</li>
 </ul></li>
 </ul>
-<h2 id="informed-search">Informed Search</h2>
+<h3 id="informed-search">Informed Search</h3>
 <p><em>Informed</em> <em>search methods</em> use problem specific information about the state space to generate solutions more effectively</p>
+<p><em>知情</em> <em>搜索方法</em>使用有关状态空间的问题特定信息来更有效地生成解决方案</p>
 <ul>
-<li>Sometimes called Best First Search</li>
+<li><p>Sometimes called Best First Search</p>
+<p>有时称为最佳优先搜索</p></li>
 </ul>
 <p>Extra knowledge is provided by a <em>heuristic</em> which returns a number describing the desirability of expanding a given node</p>
+<p>额外的知识由<em>启发式</em>提供，它返回一个描述扩展给定节点的可取性的数字</p>
 <ul>
-<li>an approximation since we usually don’t know best node to expand</li>
-<li>nodes expanded in order of desirability (like UCS)</li>
-<li>most desirable processed first</li>
+<li><p>an approximation since we usually don’t know best node to expand</p>
+<p>一个近似值，因为我们通常不知道要扩展的最佳节点</p></li>
+<li><p>nodes expanded in order of desirability (like UCS)</p>
+<p>节点按需求顺序扩展（如 UCS）</p></li>
+<li><p>most desirable processed first</p>
+<p>最理想的先处理</p></li>
 </ul>
 <p>The aim is to find <em>low</em> cost solutions</p>
+<p>其目的是要找到<em>低</em>成本的解决方案</p>
 <ul>
-<li>typically evaluate estimated cost of solution and try to minimise it</li>
-<li>measure incorporates estimate of cost from a state to the closest goal state
+<li><p>typically evaluate estimated cost of solution and try to minimise it</p>
+<p>通常评估解决方案的估计成本并尝试将其最小化</p></li>
+<li><p>measure incorporates estimate of cost from a state to the closest goal state</p>
+<p>度量包含从一个状态到最近的目标状态的成本估计</p>
 <ul>
-<li>try to expand the node closest to the goal</li>
-<li>try to expand the node on the least cost solution path</li>
+<li><p>try to expand the node closest to the goal</p>
+<p>尝试展开最接近目标的节点</p></li>
+<li><p>try to expand the node on the least cost solution path</p>
+<p>尝试在成本最低的解决方案路径上扩展节点</p></li>
 </ul></li>
 </ul>
-<h2 id="greedy-or-hill-climbing-search">Greedy, or hill-climbing, search</h2>
+<h4 id="greedy-or-hill-climbing-search">Greedy, or hill-climbing, search</h4>
 <p>The simplest kind of informed search estimates the cost from the current node to the solution and uses that to sort its agenda</p>
-<ul>
-<li>note the difference with UCS, where we use the actual cost so far</li>
-</ul>
+<p>最简单的知情搜索估计<u>从当前节点到解决方案的成本</u>，并使用该成本对其议程进行排序</p>
+<blockquote>
+<p>note the difference with UCS, where we use the actual cost so far</p>
+<p>注意与 UCS 的区别，我们使用到目前为止的实际成本</p>
+</blockquote>
 <p><img src="/images/AI/1039151.png" /></p>
 <p>Most greedy search has an agenda of length 1</p>
+<p>大多数贪婪搜索的议程长度为 1</p>
 <ul>
-<li>all but the best node is thrown away, at every cycle</li>
-<li>but it can be implemented with an agenda of any length</li>
-<li>the shorter the agenda, the more likely the search is to get caught in local minima, where there is a temporary dip in the solution quality
+<li><p>all but the best node is thrown away, at every cycle</p>
+<p>在每个循环中，除了最好的节点之外的所有节点都被丢弃</p></li>
+<li><p>but it can be implemented with an agenda of any length</p>
+<p>但它可以通过任何长度的议程来实施</p></li>
+<li><p>the shorter the agenda, the more likely the search is to get caught in local minima, where there is a temporary dip in the solution quality</p>
+<p>议程越短，搜索就越有可能陷入局部最小值，在那里解决方案的质量会暂时下降</p>
 <ul>
-<li>throwing away solutions means you can’t recover if you go astray</li>
+<li><p>throwing away solutions means you can’t recover if you go astray</p>
+<p>扔掉解决方案意味着如果你误入歧途就无法恢复</p></li>
 </ul></li>
 </ul>
-<p>In the route-finding problem, a good heuristic is the straight-line distance to the goal</p>
+<p>In the route-finding problem, a good heuristic is the <strong>straight-line distance</strong> to the goal</p>
+<p>在寻路问题中，一个好的启发式是到目标的直线距离</p>
 <ul>
-<li>“as the crow flies”</li>
-<li>this idea, that a geometrical distance estimates a distance along a graph, is the basis of many heuristics</li>
+<li><p>“as the crow flies”</p></li>
+<li><p>this idea, that a geometrical distance estimates a distance along a graph, is the basis of many heuristics</p>
+<p>这个想法，即几何距离估计沿图的距离，是许多启发式方法的基础</p></li>
 </ul>
 <p>But because it doesn’t account for cost so far, it can lead us astray</p>
-<h2 id="algorithm-a">Algorithm A</h2>
+<p>但是因为到目前为止它没有考虑成本，它可能会让我们误入歧途</p>
+<h4 id="algorithm-a">Algorithm A</h4>
 <p>Algorithm A combines the best of UCS and Greedy search</p>
 <ul>
 <li>UCS had “cost so far”</li>
 <li>Greedy had “estimated cost remaining” or heuristic</li>
 </ul>
-<p>Algorithm A has “cost so far” + “estimated cost remaining ”</p>
+<p>Algorithm A has <strong>“cost so far” + “estimated cost remaining ”</strong></p>
 <p>This is usually notated as f(n) = g(n) + h(n)</p>
 <ul>
 <li><em>f</em> is the overall cost/evaluation/utility function</li>
@@ -1042,28 +1142,32 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <li>is complete</li>
 <li>but can be sub-optimal in node expansion</li>
 </ul>
-<h2 id="algorithm-a-1">Algorithm A*</h2>
+<h4 id="algorithm-a-1"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bv411y79P">Algorithm A*</a></h4>
 <p>Algorithm A* uses a heuristic which is admissible</p>
 <ul>
-<li>this means that it never over-estimates the distance to the closest solution</li>
-<li>in any graph representation of space, geometric distance has this property</li>
+<li><p>this means that it never over-estimates the distance to the closest solution</p>
+<p>这意味着它永远不会高估到最近解的距离</p></li>
+<li><p>in any graph representation of space, geometric distance has this property</p>
+<p>在空间的任何图形表示中，几何距离具有此属性</p></li>
 </ul>
 <p>A* is optimal</p>
 <ul>
-<li>in the sense that we are guaranteed a solution if there is one</li>
-<li>in the sense that the fewest possible nodes will be expanded, given this problem formulation
+<li><p>in the sense that we are guaranteed a solution if there is one</p>
+<p>从某种意义上说，如果有一个解决方案，我们就可以保证</p></li>
+<li><p>in the sense that the fewest possible nodes will be expanded, given this problem formulation</p>
+<p>鉴于此问题公式，在某种意义上，将扩展尽可能少的节点</p>
 <ul>
 <li>NB re-formulating may produce better search</li>
 </ul></li>
 </ul>
 <p>Exercise</p>
 <ul>
-<li>Using the data on the earlier slide, apply A* to the Arad-Bucharest route problem
+<li>Using the data, apply A* to the Arad-Bucharest route problem
 <ul>
 <li>in what order are the nodes expanded?</li>
 </ul></li>
 </ul>
-<h3 id="analysing-search-algorithms-for-cost">Analysing search algorithms for cost</h3>
+<h4 id="analysing-search-algorithms-for-cost">Analysing search algorithms for cost</h4>
 <p>Proving optimality of A*</p>
 <ul>
 <li>Suppose there is a suboptimal goal G<sub>2</sub> in the agenda
@@ -1076,7 +1180,7 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 </ul></li>
 <li>g(G<sub>2</sub>) &gt; g(G)
 <ul>
-<li>because G2 is sub-optimal</li>
+<li>because G<sub>2</sub> is sub-optimal</li>
 </ul></li>
 <li>g(G) ≥ f(n)
 <ul>
@@ -1104,7 +1208,7 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <ul>
 <li>This can be used for empirical evaluation of a heuristic’s usefulness</li>
 </ul>
-<h3 id="exercise-the-8s-puzzle">Exercise: The 8s-Puzzle</h3>
+<h2 id="exercise-the-8s-puzzle">Exercise: The 8s-Puzzle</h2>
 <p>Choosing a heuristic function for a more abstract problem</p>
 <ul>
 <li>the 8s-puzzle
@@ -1127,13 +1231,66 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 <li>Always use a heuristic with higher values,so long as it doesn’t overestimate</li>
 </ul>
 <h2 id="further-reading">Further Reading</h2>
-<p>In Chapters 3 &amp; 4 of the textbook you can read more about search including</p>
+<p>In Chapters <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/507050?module_item_id=79452">3</a> &amp; <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/507054?module_item_id=79453">4</a> of the textbook you can read more about search including</p>
 <ul>
 <li>Bidirectional search</li>
 <li>Searching with partial information</li>
 <li>Hill-climbing search and simulated annealing</li>
 <li>Genetic algorithms</li>
 <li>Online search agents</li>
+</ul>
+<h1 id="questions">Questions</h1>
+<p>1. List the five common uninformed and informed search strategies, using Russell and Norvig’s terminology and analysis. Indicated which is uninformed and which is in-formed.</p>
+<ul>
+<li>Depth first search (DFS; uninformed)</li>
+<li>Breadth first search (BFS; uninformed)</li>
+<li>Uniform-cost search (UCS; uninformed)</li>
+<li>Greedy search (informed)</li>
+<li>Algorithm A or Algorithm A* (informed)</li>
+</ul>
+<p>2. Compare and contrast the strategies’ search behaviours, in terms of agenda-based search and search tree expansion order. Include in your answer the roles of cost</p>
+<ul>
+<li>DFS:
+<ul>
+<li>expand the first node on the agenda, add its children to the front of the agenda.</li>
+<li>expands the search tree first down and then across, the across order being defined by the order of operator application.</li>
+</ul></li>
+<li>BFS:
+<ul>
+<li>expand the first node on the agenda, add its children to the back of the agenda.</li>
+<li>expands the search tree first across and then down, the across order being defined by the order of operator application.</li>
+</ul></li>
+<li>UCS:
+<ul>
+<li>expand the first node on the agenda, compute costs of all children with the cost function, and sort them into the agenda, lowest cost first.<br />
+</li>
+<li>expands the tree cheapest node first.</li>
+</ul></li>
+<li>Greedy search:
+<ul>
+<li>expand the first node on the agenda, estimate cost of getting to so-lution from each child with the heuristic function</li>
+<li>and sort them into the agenda,lowest estimated cost first.<br />
+</li>
+<li>Expands the cheapest estimated remaining cost first and discards the others.</li>
+</ul></li>
+<li>Algorithm A/A*:
+<ul>
+<li>expand the first note on the agenda, estimates cost so far of each child and add to it the estimated cost to a solution, then sort children into the agenda,lowest combined value first.<br />
+</li>
+<li>Expands the tree in order of the cheapest estimated path from start to solution.</li>
+</ul></li>
+</ul>
+<p>3. Define the special heuristic property that makes the best strategy optimal in terms of the number of nodes expanded.</p>
+<ul>
+<li>Algorithm A becomes Algorithm A* if and only if its heuristic is admissible, which means that it always underestimates the distance to the solution.</li>
+</ul>
+<p>4. Prove that Algorithm A* is optimal in route cost.</p>
+<ul>
+<li>Suppose some suboptimal goal G<sub>2</sub> has been generated and is in the agenda/queue.</li>
+<li>Let n be an unexpanded node on a shortest path to an optimal goal G<sub>1</sub>.</li>
+<li>The evaluation function f(n) = g(n) + h(n) as usual.</li>
+<li>Since h(G<sub>2</sub>)=0 (it’s a goal), f(G<sub>2</sub>) = g(G<sub>2</sub>) &gt; g(G<sub>1</sub>) ≥ f(n).</li>
+<li>Since f(G<sub>2</sub>) &gt; f(n), A* will never select G<sub>2</sub> for expansion.</li>
 </ul>
 
                 
@@ -1500,13 +1657,6 @@ agendaSearch( [First|Rest], [First|Answer] ) :-
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
