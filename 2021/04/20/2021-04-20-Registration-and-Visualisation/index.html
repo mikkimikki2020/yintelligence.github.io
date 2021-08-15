@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.7k
+                    7.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    23 Min
+                    34 Min
                 </div>
                 
 
@@ -502,7 +502,7 @@
             <div id="articleContent">
                 <h1 id="registration-and-visualisation">Registration and Visualisation</h1>
 <p><a href="https://yintelligence.tech/2021/01/06/2021-01-06-VUB-4019776DNR-Biomedical-Signals-and-Images/">VUB 4019776DNR Biomedical Signals and Images</a></p>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18933/files/634835?module_item_id=117308">Slide</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a0de334e-9dd5-41fe-b444-ac7100d5cfd0">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18933/files/634835?module_item_id=117308">Slide</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a0de334e-9dd5-41fe-b444-ac7100d5cfd0">Video</a> + <a href="https://yintelligence.tech/2021/06/14/2021-06-14-Biomedical-Image-Processing/">Exercise</a></p>
 <h2 id="medical-image-registration">Medical Image Registration</h2>
 <h3 id="introduction">Introduction</h3>
 <p>Two images of the same patient</p>
@@ -513,141 +513,46 @@
 <p>Use <strong>registration</strong> to bring the objects in the same reference system</p>
 <h4 id="why-registration">Why registration?</h4>
 <ul>
-<li>Comparing different images of the same patient
+<li>Comparing different images of the same patient 比较同一患者的不同图像
 <ul>
-<li>Images acquired at a <strong>different time</strong>, or using a <strong>different modality</strong></li>
+<li><p>Images acquired at a <strong>different time</strong>, or using a <strong>different modality</strong></p>
+<p>在<strong>不同时间</strong>或使用<strong>不同方式</strong>获取的图像</p></li>
 </ul></li>
-<li>Compare different images
+<li>Compare different images 比较不同的图像
 <ul>
-<li>Follow-up: compare images of the <strong>same patient over time</strong></li>
-<li>Inspect the progress of his state or disease</li>
+<li><p>Follow-up: compare images of the <strong>same patient over time</strong></p>
+<p>随访：比较<strong>同一患者随时间变化的</strong>图像</p></li>
+<li><p>Inspect the progress of his state or disease</p>
+<p>随访：比较<strong>同一患者随时间变化的</strong>图像</p></li>
 </ul></li>
-<li>Estimating motion
+<li>Estimating motion 估计运动
 <ul>
-<li>Motion across a <strong>dynamic</strong> （2D+T or 3D+T） sequence</li>
-<li>Motion or deformations between two <strong>static acquisitions</strong></li>
+<li><p>Motion across a <strong>dynamic</strong> （2D+T or 3D+T） sequence</p>
+<p>跨越<strong>动态</strong>（2D+T 或 3D+T）序列的运动</p></li>
+<li><p>Motion or deformations between two <strong>static acquisitions</strong></p>
+<p>两次<strong>静态采集</strong>之间的运动或变形</p></li>
 </ul></li>
-<li>Image-guided interventions
+<li>Image-guided interventions 图像引导干预
 <ul>
-<li>Image-guided <strong>radiotherapy</strong>
+<li>Image-guided <strong>radiotherapy</strong> 影像引导<strong>放疗</strong>
 <ul>
-<li>Registration of planning CT with in-room imaging</li>
+<li><p>Registration of planning CT with in-room imaging</p>
+<p>规划 CT 与室内成像的配准</p></li>
 </ul></li>
-<li>Image-guided <strong>surgery</strong>
+<li>Image-guided <strong>surgery</strong> 影像引导<strong>手术</strong>
 <ul>
-<li>Alignment of pre- and per-surgery imaging for establishing position of tracked instruments</li>
-</ul></li>
-</ul></li>
-</ul>
-<h3 id="the-registration-process">The registration process</h3>
-<h4 id="registration-in-physical-space">Registration in physical space</h4>
-<h5 id="images-as-a-measurement-in-physical-space">Images as a measurement in physical space</h5>
-<p>Medical images are usually “calibrated”</p>
-<ul>
-<li>Dimensions of a pixel known with great certainty</li>
-<li>Position of image known with respect to room</li>
-</ul>
-<p>Images are used for treatment planning and guidance</p>
-<ul>
-<li>Image guided radiotherapy</li>
-<li>Interventional radiology</li>
-<li>Image-guided surgery</li>
-</ul>
-<h5 id="coordinate-systems">Coordinate systems</h5>
-<p>A digital Image is a sampling of a continuous field using a discrete grid</p>
-<h6 id="the-image-or-pixel-coordinate-system">The image or <u>pixel coordinate</u> system</h6>
-<ul>
-<li>Simply <strong>count the pixels</strong> along each dimension （indices）</li>
-<li>Convention about the order of dimensions</li>
-<li>Pixels fall on <strong>integer positions</strong> of the coordinate system</li>
-<li>[0,0] falls on an edge of the image</li>
-<li><strong>The unit is in pixels</strong></li>
-</ul>
-<p><img src="/images/HMS/1937300.png" /></p>
-<h6 id="the-physical-coordinate-system">The <u>physical coordinate</u> system</h6>
-<ul>
-<li>The coordinate <code>(x,y)</code> of all points according to an
-<ul>
-<li>Origin</li>
-<li>Coordinate axes (usually aligned with the image）</li>
-<li>Spatial dimensions along each axis</li>
-</ul></li>
-<li><strong>The unit is in millimetre</strong></li>
-</ul>
-<p><img src="/images/HMS/1937301.png" /></p>
-<h5 id="spatial-information">Spatial information</h5>
-<ul>
-<li>Stored in the medical image header</li>
-<li>Referencing the image wrt the room or imaging device
-<ul>
-<li><strong>Origin （of an image &lt;-&gt; of a coordinate system）</strong>
-<ul>
-<li>The physical coordinate of the first pixel</li>
-<li>Not necessarily （0,0）</li>
-</ul></li>
-<li><strong>Spacing</strong>
-<ul>
-<li>The physical space between pixels in each dimension</li>
+<li><p>Alignment of pre- and per-surgery imaging for establishing position of tracked instruments</p>
+<p>对齐术前和术前成像以建立跟踪器械的位置</p></li>
 </ul></li>
 </ul></li>
 </ul>
-<p><img src="/images/HMS/1937302.png" /></p>
-<h4 id="goal">Goal</h4>
-<p>The goal of registration is to find the <strong>spatial transformation</strong> T, which aligns anatomical structures in the considered images</p>
+<h3 id="goal">Goal</h3>
+<p>The goal of registration is to find the <strong>spatial transformation</strong> T, which aligns anatomical structures in the considered images 配准的目标是找到<strong>空间变换</strong>T，它将所考虑图像中的解剖结构对齐</p>
 <ul>
 <li>Maps points p onto homologous/corresponding points q</li>
 </ul>
 <p><img src="/images/HMS/1937303.png" /></p>
-<p><strong>Registration takes place in the physical space</strong></p>
-<p><img src="/images/HMS/1937304.png" /></p>
-<h5 id="why-physical-space">Why physical space?</h5>
-<p>Performing operations in pixel space</p>
-<ul>
-<li>Will not respect the <strong>spacing along each dimension of images</strong>
-<ul>
-<li>Which could be different from one image to another</li>
-</ul></li>
-<li>Will not work if <strong>images change size</strong>
-<ul>
-<li>A cropped image in pixel space results in different indices for pixels</li>
-<li>A cropped image in physical space retains the same coordinates for pixels</li>
-</ul></li>
-<li>Will not lead to a transformation <strong>valid for the physical space</strong>
-<ul>
-<li>Were are sometimes not interested in aligning the images</li>
-<li>We may want to know <strong>how to align the patient in the treatment room</strong>!</li>
-</ul></li>
-</ul>
-<h4 id="mathematical-formulation">Mathematical formulation</h4>
-<p>Find the <strong>transform</strong> which <strong>optimizes</strong> the alignment of the <strong>fixed</strong> and transformed <strong>moving</strong> image, with respect to a given <strong>cost function</strong> or <strong>metric</strong> <span class="math display">\[
-\hat\mu = \arg\min_{\mu}C_{x ∈\Omega}(f(x),g(T_{\mu}(x)))
-\]</span></p>
-<ul>
-<li>Spatial coordinate x
-<ul>
-<li>Overlap region Ω</li>
-</ul></li>
-<li>Transform parameters μ</li>
-<li>Input images
-<ul>
-<li>Fixed or reference images f （x）</li>
-<li>Moving or target image g （x）</li>
-</ul></li>
-<li>Transformation T
-<ul>
-<li>Rigid transformation</li>
-<li>Affine transformation</li>
-<li>Deformable transformation</li>
-<li>…</li>
-</ul></li>
-<li>Metric C
-<ul>
-<li>feature-based metric</li>
-<li>Intensity-based metric</li>
-<li>Regularizer or penalties</li>
-</ul></li>
-</ul>
-<h4 id="overview-of-components-of-registration">Overview of components of registration</h4>
+<h3 id="overview-of-components-of-registration">Overview of components of registration</h3>
 <p><img src="/images/HMS/1937305.png" /></p>
 <ul>
 <li>Input images
@@ -659,7 +564,8 @@
 <ul>
 <li>feature-based metric</li>
 <li>Intensity-based metric</li>
-<li>Regularizer or penalties – …</li>
+<li>Regularizer or penalties</li>
+<li>…</li>
 </ul></li>
 <li>Optimizer
 <ul>
@@ -680,39 +586,162 @@
 <li>…</li>
 </ul></li>
 </ul>
-<h3 id="interpolators">Interpolators</h3>
+<h3 id="the-registration-process">The registration process</h3>
+<p><strong>Registration takes place in the physical space</strong></p>
+<p><img src="/images/HMS/1937304.png" /></p>
+<h4 id="registration-in-physical-space">Registration in physical space</h4>
+<p>Images as a measurement in <strong>physical space</strong> 图像作为<strong>物理空间</strong>中的度量</p>
+<p>Medical images are usually “calibrated” 医学图像通常经过“<strong>校准</strong>”</p>
+<ul>
+<li><p>Dimensions of a pixel known with great certainty</p>
+<p>非常<strong>确定</strong>地<strong>已知</strong>像素的<strong>尺寸</strong></p></li>
+<li><p>Position of image known with respect to room</p>
+<p><u>相对于房间</u>已知的图像位置</p></li>
+</ul>
+<p>Images are used for treatment planning and guidance 图像用于治疗计划和指导</p>
+<ul>
+<li>Image guided radiotherapy 影像引导放疗</li>
+<li>Interventional radiology 介入放射学</li>
+<li>Image-guided surgery 影像引导手术</li>
+</ul>
+<h4 id="why-physical-space">Why physical space?</h4>
+<p>Performing operations in pixel space</p>
+<ul>
+<li>Will not respect the <strong>spacing along each dimension of images</strong>
+<ul>
+<li>Which could be different from one image to another</li>
+</ul></li>
+<li>Will not work if <strong>images change size</strong>
+<ul>
+<li>A cropped image in pixel space results in different indices for pixels</li>
+<li>A cropped image in physical space retains the same coordinates for pixels</li>
+</ul></li>
+<li>Will not lead to a transformation <strong>valid for the physical space</strong>
+<ul>
+<li>Were are sometimes not interested in aligning the images</li>
+<li>We may want to know <strong>how to align the patient in the treatment room</strong>!</li>
+</ul></li>
+</ul>
+<h3 id="coordinate-systems">Coordinate systems</h3>
+<p>A digital Image is a sampling of a <strong>continuous field</strong> using a <strong>discrete grid</strong></p>
+<p>数字图像是使用离散网格对连续场进行的采样</p>
+<p>The image or <u>pixel coordinate</u> system 图像或像素坐标系</p>
+<ul>
+<li><p>Simply <strong>count the pixels</strong> along each dimension （indices）</p>
+<p>简单地<strong>计算</strong>沿每个维度<strong>的像素</strong>（索引）</p></li>
+<li><p>Convention about the order of dimensions</p>
+<p>关于维度顺序的约定</p></li>
+<li><p>Pixels fall on <strong>integer positions</strong> of the coordinate system</p></li>
+<li><p>像素落在坐标系的<strong>整数位置</strong></p></li>
+<li><p>[0,0] falls on an edge of the image</p>
+<p>[0,0] 落在图像的边缘</p></li>
+<li><p><strong>The unit is in pixels</strong></p>
+<p><strong>单位是像素</strong></p></li>
+</ul>
+<p><img src="/images/HMS/1937300.png" /></p>
+<p>The <u>physical coordinate</u> system</p>
+<ul>
+<li>The coordinate <code>(x,y)</code> of all points according to an
+<ul>
+<li><p>Origin</p></li>
+<li><p>Coordinate axes (usually aligned with the image）</p>
+<p>坐标轴（通常与图像对齐）</p></li>
+<li><p>Spatial dimensions along each axis 沿每个轴的空间尺寸</p></li>
+</ul></li>
+<li><strong>The unit is in millimetre</strong></li>
+</ul>
+<p><img src="/images/HMS/1937301.png" /></p>
+<h4 id="spatial-information">Spatial information</h4>
+<ul>
+<li><p>Stored in the medical image header 存储在医学图像头中</p></li>
+<li><p>Referencing the image wrt the room or imaging device</p>
+<p>参考房间或成像设备的图像</p>
+<ul>
+<li><p><strong>Origin （of an image &lt;-&gt; of a coordinate system）</strong></p>
+<ul>
+<li><p>The physical coordinate of the first pixel</p>
+<p>第一个像素的物理坐标</p></li>
+<li><p>Not necessarily （0,0）</p></li>
+</ul></li>
+<li><p><strong>Spacing 间距</strong></p>
+<ul>
+<li><p>The physical space between pixels in each dimension</p>
+<p>每个维度中像素之间的物理空间</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="/images/HMS/1937302.png" /></p>
+<h3 id="mathematical-formulation">Mathematical formulation</h3>
+<p>Find the <strong>transform</strong> which <strong>optimizes</strong> the alignment of the <strong>fixed</strong> and transformed <strong>moving</strong> image, with respect to a given <strong>cost function</strong> or <strong>metric</strong></p>
+<p>找到<strong>变换</strong>其<strong>优化</strong>了的取向<strong>固定</strong>，并转化<strong>移动</strong>图像，相对于给定的<strong>成本函数</strong>或<strong>量度</strong> <span class="math display">\[
+\hat\mu = \arg\min_{\mu}C_{x ∈\Omega}(f(x),g(T_{\mu}(x)))
+\]</span></p>
+<ul>
+<li>Spatial coordinate 空间坐标 x
+<ul>
+<li>Overlap region Ω</li>
+</ul></li>
+<li>Transform parameters 变换参数 μ</li>
+<li>Input images 输入图像
+<ul>
+<li>Fixed or reference images f （x）</li>
+<li>Moving or target image g （x）</li>
+</ul></li>
+<li>Transformation T
+<ul>
+<li>Rigid transformation 刚性转换</li>
+<li>Affine transformation 仿射变换</li>
+<li>Deformable transformation 可变形变换</li>
+<li>…</li>
+</ul></li>
+<li>Metric C
+<ul>
+<li>feature-based metric 基于特征的度量</li>
+<li>Intensity-based metric 基于强度的指标</li>
+<li>Regularizer or penalties 正则化或惩罚</li>
+</ul></li>
+</ul>
+<h3 id="interpolators-插值器">Interpolators 插值器</h3>
 <p>When transforming an image, the pixels of the transformed image do no longer overlap with pixels / grid positions of the reference image x</p>
+<p>变换图像时，变换图像的像素不再与参考图像x的像素/网格位置重叠</p>
 <p><strong>So how do we compute?</strong></p>
 <p><img src="/images/HMS/1937306.png" /></p>
 <ul>
-<li>How do we obtain image values between the sample points?</li>
-<li>How do we recover a function that is at least C<sub>0</sub> continuous?</li>
+<li><p>How do we obtain image values between the sample points?</p>
+<p>我们如何获得样本点之间的图像值？</p></li>
+<li><p>How do we recover a function that is at least C<sub>0</sub> continuous?</p>
+<p>我们如何恢复至少C<sub>0</sub>连续的函数？</p></li>
 </ul>
 <p><img src="/images/HMS/1937307.png" /></p>
-<p>Based on the （image) samples, reconstruct a continuous function</p>
+<p>Based on the （image） samples, <strong>reconstruct a continuous function</strong></p>
+<p>基于（图像）样本，<strong>重构一个连续函数</strong></p>
 <ul>
-<li>Typically making assumptions / modelling the signal
+<li><p>Typically making assumptions / modelling the signal</p>
+<p>通常对信号进行假设/建模</p>
 <ul>
 <li>Continuous （C<sub>0</sub>）</li>
 <li>Continuous and smooth （C<sub>1</sub>）</li>
 <li>Derivative <strong>continuous</strong> and smooth （C<sub>2</sub>）</li>
 <li>…</li>
 </ul></li>
-<li>Balance between quality and computational cost</li>
+<li><p>Balance between quality and computational cost</p>
+<p>质量和计算成本之间的平衡</p></li>
 </ul>
 <p><img src="/images/HMS/1937308.png" /></p>
 <h4 id="d-and-2d-view">1D and 2D view</h4>
 <p><img src="/images/HMS/1937309.png" /></p>
 <ul>
-<li>In black
+<li><p>In black</p>
 <ul>
-<li>The position where I want to know the intensity</li>
+<li><p>The position where I want to know the intensity</p>
+<p>想知道强度的位置</p></li>
 </ul></li>
-<li>In colour
+<li><p>In colour</p>
 <ul>
-<li>The existing pixels of the image</li>
+<li><p>The existing pixels of the image</p>
+<p>图像的现有像素</p></li>
 </ul></li>
-<li>Increasing complexity
+<li><p>Increasing complexity</p>
 <ul>
 <li>Nearest neighbour</li>
 <li>Linear</li>
@@ -721,19 +750,40 @@
 </ul>
 <h4 id="in-practice">In practice</h4>
 <ul>
-<li>Find a compromise between
+<li><p>Find a compromise between 我想知道强度的位置</p>
 <ul>
-<li>Accuracy</li>
-<li>Complexity （computation time）</li>
+<li>Accuracy 准确性</li>
+<li>Complexity 复杂度 （computation time）</li>
 </ul></li>
-<li>Methods can be combined
+<li><p>Methods can be combined 方法可以组合</p>
 <ul>
-<li>Initially use fast nearest neighbour</li>
-<li>Refine using linear interpolator</li>
-<li>In the end, resample the image using high-quality B-spline interpolation</li>
+<li><p>Initially use fast nearest neighbour</p>
+<p>最初使用快速最近邻</p></li>
+<li><p>Refine using linear interpolator</p>
+<p>使用线性插值器优化</p></li>
+<li><p>In the end, resample the image using high-quality B-spline interpolation</p>
+<p>最后，使用高质量的B-spline插值对图像进行重新采样</p></li>
 </ul></li>
 </ul>
 <h3 id="transformations">Transformations</h3>
+<ul>
+<li><strong>Type of structure</strong> we are aligning 我们正在调整 <strong>的结构类型</strong>
+<ul>
+<li>Rigid bones or deformable tissue
+<ul>
+<li>E.g within the skull, little to no deformation occurs. Registration of two brain images of the same patient can be done rigidly</li>
+</ul></li>
+</ul></li>
+<li><strong>Type of motion</strong> we are expecting 我们期待 <strong>的运动类型</strong>
+<ul>
+<li>Intra and interpatient registration 患者内和患者间登记</li>
+<li>Breathing motion, patient motion, tumour motion, etc</li>
+</ul></li>
+<li>The <strong>image formation</strong> 所述<strong>图像形成</strong>
+<ul>
+<li>Projective or not geometrically accurate （distortion）</li>
+</ul></li>
+</ul>
 <p>The most common types of transformations:</p>
 <ul>
 <li>Rigid</li>
@@ -743,12 +793,37 @@
 <figure>
 <img src="/images/HMS/1937310.png" alt="" /><figcaption>Parametrization in 2D</figcaption>
 </figure>
-<h4 id="rigid-transformation">Rigid transformation</h4>
+<h4 id="hierarchical-approach-分层方法">Hierarchical approach 分层方法</h4>
+<ul>
+<li><p>Increasing amount of parameters 增加参数量</p>
+<ul>
+<li><p>Only translations 只有翻译</p></li>
+<li><p>Rigid: translations and rotations</p>
+<p>刚性：平移和旋转</p></li>
+<li><p>Affine: rigid, scaling and shear</p>
+<p>仿射：刚性、缩放和剪切</p></li>
+<li><p>Coarse B-spline: low amount of B-spline control points</p>
+<p>粗 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/B%E6%A0%B7%E6%9D%A1#:~:text=%E5%9C%A8%E6%95%B0%E5%AD%A6%E7%9A%84%E5%AD%90%E5%AD%A6%E7%A7%91,B%E6%A0%B7%E6%9D%A1%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%82">B 样条</a>：少量 B 样条控制点</p></li>
+<li><p>Fine B-spline: high amount of control points</p>
+<p>精细 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/B%E6%A0%B7%E6%9D%A1#:~:text=%E5%9C%A8%E6%95%B0%E5%AD%A6%E7%9A%84%E5%AD%90%E5%AD%A6%E7%A7%91,B%E6%A0%B7%E6%9D%A1%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%82">B 样条</a>：大量控制点</p></li>
+</ul></li>
+<li><p><strong>More parameters</strong> → <strong>more complexity</strong> in transformation</p>
+<ul>
+<li>But also: more degrees of freedom → <strong>more difficult to optimize</strong></li>
+</ul></li>
+<li><p>Complex transformations are usually optimized using an hierarchical approach</p>
+<p>复杂的转换通常使用分层方法进行优化</p>
+<ul>
+<li><strong>Use simple transformations first 首先使用简单的转换</strong></li>
+<li><strong>Initialize</strong> the next step using the result of the previous step</li>
+</ul></li>
+</ul>
+<h5 id="rigid-transformation-刚性转换">Rigid transformation 刚性转换</h5>
 <ul>
 <li>Transformation of rigid bodies
 <ul>
-<li><strong>Translation</strong> along all dimensions</li>
-<li><strong>Rotation</strong> w.r.t. all axes</li>
+<li><strong>Translation</strong> along all dimensions 沿所有维度<strong>平移</strong></li>
+<li><strong>Rotation</strong> w.r.t. all axes 所有轴的<strong>旋转</strong></li>
 </ul></li>
 <li>In three dimensions
 <ul>
@@ -760,8 +835,8 @@
 </ul></li>
 <li>Because medical images are ”calibrated”
 <ul>
-<li>Voxel dimensions are known</li>
-<li>Often <strong>no scaling needed</strong></li>
+<li>Voxel dimensions are known 体素尺寸已知</li>
+<li>Often <strong>no scaling needed</strong> 通常<strong>不需要缩放</strong></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/1937311.png" /> <span class="math display">\[
@@ -778,16 +853,17 @@ x = (x_1,x_2,x_3,x_4)
 \]</span></li>
 </ul></li>
 </ul>
-<h4 id="affine-transformation">Affine transformation</h4>
+<h5 id="affine-transformation-仿射变换">Affine transformation 仿射变换</h5>
 <ul>
 <li>Non-rigid transformation
 <ul>
-<li><strong>Not possible for rigid bodies</strong> unless non- elastically deformed</li>
+<li><p><strong>Not possible for rigid bodies</strong> unless non- elastically deformed</p>
+<p>除非非弹性变形，否则<strong>不可能用于刚体</strong></p></li>
 </ul></li>
-<li>Rigid transformation expanded with
+<li>Rigid transformation expanded with 刚性变换扩展为
 <ul>
-<li>Differential <strong>scaling</strong></li>
-<li>Skew or <strong>shear</strong></li>
+<li>Differential <strong>scaling</strong> 微分<strong>缩放</strong></li>
+<li>Skew or <strong>shear</strong> 歪斜或<strong>剪切</strong></li>
 </ul></li>
 <li>In three dimensions
 <ul>
@@ -804,40 +880,43 @@ T (x) = M.x
 <ul>
 <li><strong>In 3D</strong> M is the 4 × 4 augmented matrix x is a 4 × 1 coordinate vector</li>
 </ul>
-<h5 id="non-rigid-transformation">Non-rigid transformation</h5>
+<h5 id="non-rigid-transformation-非刚性变换">Non-rigid transformation 非刚性变换</h5>
 <ul>
-<li>Some tissue types can deform
+<li>Some tissue types can deform 某些组织类型会变形
 <ul>
-<li>Soft tissue, cavities filled with liquid</li>
-<li>Not possible for rigid bodies unless non-elastically deformed （e.g. broken bones）</li>
-<li>Estimate <strong>elastic deformation</strong> of tissues</li>
+<li>Soft tissue, cavities filled with liquid 软组织，充满液体的空腔</li>
+<li>Not possible for rigid bodies unless non-elastically deformed （e.g. broken bones） 除非非弹性变形（例如骨折），否则不能用于刚体</li>
+<li>Estimate <strong>elastic deformation</strong> of tissues 估计组织的<strong>弹性变形</strong></li>
 </ul></li>
-<li>A global transformation can not model this
+<li>A global transformation can not model this 全局转换无法对此进行建模
 <ul>
-<li>Global: transformation （equation） is same for the whole image</li>
-<li>Local: T<sub>μ</sub>（x）, the transform becomes dependent on the spatial coordinate x</li>
+<li><p>Global: transformation （equation） is same for the whole image</p>
+<p>全局：整个图像的变换（方程）相同</p></li>
+<li><p>Local: T<sub>μ</sub>（x）, the transform becomes dependent on the spatial coordinate x</p>
+<p>局部：T<sub>μ</sub>（x），变换依赖于空间坐标x</p></li>
 </ul></li>
 </ul>
-<h4 id="deformable-transformation">Deformable transformation</h4>
+<h5 id="deformable-transformation-可变形变换">Deformable transformation 可变形变换</h5>
 <ul>
 <li><p>Non-parametric approaches</p>
 <ul>
-<li>Optimize a vector per voxel （or a subset）</li>
-<li>Regularizers to ensure the deformation remains plausible</li>
+<li>Optimize a vector per voxel （or a subset） 每个体素（或子集）优化一个向量</li>
+<li>Regularizers to ensure the deformation remains plausible 确保变形保持合理的正则化器</li>
 </ul>
 <p><img src="/images/HMS/1937313.png" /></p>
 <blockquote>
-<p>Deformation vector fields</p>
+<p>Deformation vector fields 变形矢量场</p>
 <ul>
-<li>Each component of a vector is a parameter</li>
+<li><p>Each component of a vector is a parameter</p>
+<p>向量的每个分量都是一个参数</p></li>
 </ul>
 </blockquote></li>
-<li><p>Parametric approaches</p>
+<li><p>Parametric approaches 参数化方法</p>
 <ul>
-<li>Use a parametric representation</li>
+<li>Use a parametric representation 使用参数化表示</li>
 <li>Limit the amount of parameters
 <ul>
-<li>Thin plate splines</li>
+<li>Thin plate splines 限制参数数量</li>
 <li>B-splines</li>
 </ul></li>
 </ul>
@@ -845,19 +924,22 @@ T (x) = M.x
 <blockquote>
 <p>B-spline control point grid</p>
 <ul>
-<li>Control points are placed ever 5-10-20 voxels</li>
+<li><p>Control points are placed ever 5-10-20 voxels</p>
+<p>控制点放置在 5-10-20 体素</p></li>
 </ul>
 </blockquote></li>
 </ul>
-<h5 id="using-b-spline-free-form-transform">Using B-spline free-form transform</h5>
+<h5 id="using-b-spline-free-form-transform-使用-b-样条自由形式变换">Using B-spline free-form transform 使用 B 样条自由形式变换</h5>
 <ul>
-<li><p>Transformation expressed as deformation with respect to current location <span class="math display">\[
+<li><p>Transformation expressed as deformation with respect to current location</p>
+<p>表示为相对于当前位置的变形的变换 <span class="math display">\[
 T_{\mu}(x)=x+D_{\mu}(x)
 \]</span></p></li>
-<li><p>Number of degrees of freedom</p>
+<li><p>Number of degrees of freedom 自由度数</p>
 <ul>
-<li>Depends on the how fine of deformations are considered</li>
-<li>10<sup>3</sup> – 10<sup>6</sup> DOF are not uncommon</li>
+<li><p>Depends on the how fine of deformations are considered</p>
+<p>取决于变形的精细程度</p></li>
+<li><p>10<sup>3</sup> – 10<sup>6</sup> DOF are not uncommon 自由度并不少见</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/1937315.png" /> <span class="math display">\[
@@ -870,113 +952,87 @@ T_{\mu}(x)=x+\sum_{i}\sum_{j}\sum_{k}p_{ijk}\beta_{i}^{x}\beta_{j}^{y}\beta_{z}^
 <li>β are B-spline kernels</li>
 <li>k<sub>i</sub>, β<sub>j</sub>, β<sub>p</sub> are the locations of the control points</li>
 </ul>
-<h4 id="transformation">Transformation</h4>
-<p>Choice depends on</p>
-<ul>
-<li><strong>Type of structure</strong> we are aligning
-<ul>
-<li>Rigid bones or deformable tissue
-<ul>
-<li>E.g within the skull, little to no deformation occurs. Registration of two brain images of the same patient can be done rigidly</li>
-</ul></li>
-</ul></li>
-<li><strong>Type of motion</strong> we are expecting
-<ul>
-<li>Intra and interpatient registration</li>
-<li>Breathing motion, patient motion, tumour motion, etc</li>
-</ul></li>
-<li>The <strong>image formation</strong>
-<ul>
-<li>Projective or not geometrically accurate （distortion）</li>
-</ul></li>
-</ul>
-<h4 id="hierarchical-approach">Hierarchical approach</h4>
-<ul>
-<li>Increasing amount of parameters
-<ul>
-<li>Only translations</li>
-<li>Rigid: translations and rotations</li>
-<li>Affine: rigid, scaling and shear</li>
-<li>Coarse B-spline: low amount of B-spline control points</li>
-<li>Fine B-spline: high amount of control points</li>
-</ul></li>
-<li>More parameters → more complexity in transformation
-<ul>
-<li>But also: more degrees of freedom → <strong>more difficult to optimize</strong></li>
-</ul></li>
-<li>Complex transformations are usually optimized using an hierarchical approach
-<ul>
-<li><strong>Use simple transformations first</strong></li>
-<li><strong>Initialize</strong> the next step using the result of the previous step</li>
-</ul></li>
-</ul>
-<h3 id="similarity-metrics">Similarity Metrics</h3>
+<h3 id="similarity-metrics-相似度指标">Similarity Metrics 相似度指标</h3>
 <h4 id="types">Types</h4>
 <p>The <strong>metric or cost function</strong> is evaluating how good the current transformation is, and （based on its gradient） in which direction the transformation can improve</p>
+<p>所述<strong>度量或成本函数</strong>是评估当前变换有多好，和（基于它的梯度），在该方向上的转换可以提高</p>
 <ul>
-<li>Feature-based
+<li>Feature-based 基于特征
 <ul>
-<li><strong>Manually</strong> identified points or landmarks</li>
-<li><strong>Automatically</strong> extracted landmarks / feature points</li>
+<li><p><strong>Manually</strong> identified points or landmarks</p>
+<p><strong>手动</strong>识别的点或地标</p></li>
+<li><p><strong>Automatically</strong> extracted landmarks / feature points</p>
+<p><strong>自动</strong>提取地标/特征点</p></li>
 </ul></li>
-<li>Intensity–based
+<li>Intensity–based 基于强度
 <ul>
-<li>Directly based on the <strong>intensity distributions</strong> of the images</li>
-<li>Different types exist, relying on different <strong>assumptions for the images</strong></li>
+<li><p>Directly based on the <strong>intensity distributions</strong> of the images</p>
+<p>直接基于图像的<strong>强度分布</strong></p></li>
+<li><p>Different types exist, relying on different <strong>assumptions for the images</strong></p>
+<p>存在不同的类型，依赖于<strong>对图像的</strong>不同<strong>假设</strong></p></li>
 </ul></li>
 </ul>
-<h5 id="landmark-based-registration">Landmark-based registration</h5>
-<h6 id="principal">Principal</h6>
-<p>Identify <strong>corresponding points</strong> in the images and infer the image transformation by minimizing the （<strong>mean squared</strong>） <u>distance over the set of points</u></p>
-<h6 id="types-of-landmarks">Types of landmarks</h6>
+<h4 id="landmark-based-registration">Landmark-based registration</h4>
+<h5 id="principal">Principal</h5>
+<p>Identify <strong>corresponding points</strong> in the images and infer the image transformation by minimizing the （<strong>mean squared</strong>） <u>distance over the <strong>set of points</strong></u></p>
+<p>识别图像中的<strong>对应点</strong>并通过最小化<strong>点集</strong>上的（<strong>均方</strong>）距离来推断图像变换</p>
+<h5 id="types-of-landmarks">Types of landmarks</h5>
 <ul>
 <li>Extrinsic
 <ul>
-<li>Artificial objects attached to the patient</li>
+<li><p>Artificial objects attached to the patient</p>
+<p>附着在患者身上的人造物体</p></li>
 </ul></li>
 <li>Intrinsic
 <ul>
-<li>Internal anatomical structures</li>
+<li><p>Internal anatomical structures</p>
+<p>内部解剖结构</p></li>
 </ul></li>
 </ul>
-<h6 id="practical-considerations">Practical considerations</h6>
+<h5 id="practical-considerations">Practical considerations</h5>
 <ul>
-<li>Manual identification is <strong>time-consuming</strong> and <strong>error prone</strong></li>
-<li>Non-rigid registration requires large set of points</li>
-<li>Extrinsic landmarks often used for <strong>neuro-surgery</strong> （rigid）, because of accuracy and robustness</li>
+<li><p>Manual identification is <strong>time-consuming</strong> and <strong>error prone</strong> 人工识别<strong>耗时</strong>且<strong>容易出错</strong></p></li>
+<li><p>Non-rigid registration requires large set of points 非刚性配准需要大量点</p></li>
+<li><p>Extrinsic landmarks often used for <strong>neuro-surgery</strong> （rigid）, because of accuracy and robustness</p>
+<p>由于准确性和鲁棒性，通常用于<strong>神经外科手术</strong>（刚性）的外在地标</p></li>
 </ul>
 <p><img src="/images/HMS/1937316.png" /></p>
-<h5 id="feature-based-registration">Feature-based registration</h5>
-<h6 id="principal-1">Principal</h6>
-<p>Automatically identify <strong>feature point pairs</strong> and infer the image transformation by minimizing the （mean squared） distance over the set of features</p>
-<h6 id="types-of-features">Types of features</h6>
+<h4 id="feature-based-registration">Feature-based registration</h4>
+<h5 id="principal-1">Principal</h5>
+<p>Automatically identify <strong>feature point pairs</strong> and infer the image transformation by minimizing the （mean squared） <u>distance over the <strong>set of features</strong></u></p>
+<p>自动识别<strong>特征点对</strong>并通过最小化<strong>特征集</strong>上的（均方）距离来推断图像变换</p>
+<h5 id="types-of-features">Types of features</h5>
 <ul>
-<li>Recognizable points in 3D</li>
-<li>Edges, lines, shapes</li>
-<li>Surfaces in the images</li>
+<li><p>Recognizable points in 3D</p>
+<p>3D 中可识别的点</p></li>
+<li><p>Edges, lines, shapes</p></li>
+<li><p>Surfaces in the images 图像中的表面</p></li>
 </ul>
-<p>Practical considerations</p>
+<h5 id="practical-considerations-1">Practical considerations</h5>
 <ul>
-<li>Non-rigid registration requires large set of points</li>
-<li>Extraction of the features is highly <u>dependent on the image content and contrast</u></li>
+<li><p>Non-rigid registration requires large set of points 非刚性配准需要大量点</p></li>
+<li><p>Extraction of the features is highly <u>dependent on the image content and contrast</u></p>
+<p>特征的提取高度依赖于<strong>图像内容</strong>和<strong>对比度</strong></p></li>
 </ul>
 <p><img src="/images/HMS/1937317.png" /></p>
-<h5 id="intensity-based-registration">Intensity-based registration</h5>
-<h6 id="principal-2">Principal</h6>
+<h4 id="intensity-based-registration">Intensity-based registration</h4>
+<h5 id="principal-2">Principal</h5>
 <ul>
-<li>Assume a <strong>relation</strong> or <strong>dependency</strong> between the intensity distribution of the input images, alignment is optimized by finding the transformation the maximizes the relationship</li>
+<li><p>Assume a <strong>relation</strong> or <strong>dependency</strong> between the intensity distribution of the input images, alignment is optimized by finding the transformation the maximizes the relationship</p>
+<p>假设输入图像的强度分布之间存在<strong>关系</strong>或<strong>依赖</strong>关系，通过找到最大化关系的变换来优化对齐</p></li>
 </ul>
-<h6 id="types-of-relationships">Types of relationships</h6>
+<h5 id="types-of-relationships">Types of relationships</h5>
 <ul>
-<li>One-to-one relation</li>
-<li>Linear correlation</li>
-<li>Statistical dependency</li>
+<li>One-to-one relation 一对一关系</li>
+<li>Linear correlation 线性相关</li>
+<li>Statistical dependency 统计依赖</li>
 <li>….</li>
 </ul>
-<h6 id="practical-considerations-1">Practical considerations</h6>
+<h5 id="practical-considerations-实际考虑">Practical considerations 实际考虑</h5>
 <ul>
-<li>No need for <strong>pre-processing</strong>, fully automated</li>
-<li>The used metric （relation） is dependent on the nature of the images, the modality</li>
+<li><p>No need for <strong>pre-processing</strong>, fully automated 无需<strong>预处理</strong>，全自动</p></li>
+<li><p>The used metric （relation） is dependent on the nature of the images, the modality</p>
+<p>使用的度量（关系）取决于图像的性质、模态</p></li>
 </ul>
 <p><img src="/images/HMS/1937318.png" /></p>
 <p>Joint histogram: 2D or 3D plot of the intensity pairs of the images, at the current alignment</p>
@@ -985,43 +1041,53 @@ T_{\mu}(x)=x+\sum_{i}\sum_{j}\sum_{k}p_{ijk}\beta_{i}^{x}\beta_{j}^{y}\beta_{z}^
 <li>Y: Intensity in Image 2</li>
 <li>Z or colour: Amount of pixels in this bin</li>
 </ul>
-<h4 id="mean-squared-differences">Mean squared differences</h4>
-<h5 id="assumption">Assumption</h5>
+<h4 id="mean-squared-differences-均方差">Mean squared differences 均方差</h4>
+<p>Assumption</p>
 <ul>
-<li>There is a <u>one-to-one relationship</u> between the intensity distributions <span class="math display">\[
+<li><p>There is a <u>one-to-one relationship</u> between the intensity distributions</p>
+<p>有一个一对一的关系的强度分布之间的 <span class="math display">\[
 D_{MSD}(f(x),g(T_{\mu}(x)))=\sum_{x∈\Omega}\frac{(f(x)-g(T_{\mu}(x)))^2}{N_{\Omega}}
-\]</span></li>
+\]</span></p></li>
 </ul>
-<h5 id="use">Use</h5>
+<p>Use</p>
 <ul>
-<li><strong>Mono-modal</strong> registration, of quantitative modalities</li>
-<li>Images of the same patient at a different time, or motion estimation in 4D imaging</li>
+<li><p><strong>Mono-modal</strong> registration, of quantitative modalities</p>
+<p><strong>单模态</strong>注册，定量模态</p></li>
+<li><p>Images of the same patient at a different time, or motion estimation in 4D imaging</p>
+<p>有一个一对一的关系的强度分布之间的</p></li>
 </ul>
 <h5 id="drawbacks-and-advantages">Drawbacks and advantages</h5>
 <ul>
-<li><strong>Fast</strong> and <strong>simple</strong> relationship</li>
-<li>Assumption may quickly become invalid because of artifacts, noise, changes in imaging settings</li>
+<li><p><strong>Fast</strong> and <strong>simple</strong> relationship</p>
+<p><strong>快速</strong>和<strong>简单的</strong>关系</p></li>
+<li><p>Assumption may quickly become invalid because of artifacts, noise, changes in imaging settings</p>
+<p>由于伪影、噪声、成像设置的变化，假设可能很快变得无效</p></li>
 </ul>
-<h4 id="normalized-correlation-coefficient">Normalized correlation coefficient</h4>
-<h5 id="assumption-1">Assumption</h5>
+<h4 id="normalized-correlation-coefficient-归一化相关系数">Normalized correlation coefficient 归一化相关系数</h4>
+<h5 id="assumption">Assumption</h5>
 <ul>
-<li>There is a <strong>linear relationship</strong> between the intensity distributions <span class="math display">\[
+<li><p>There is a <strong>linear relationship</strong> between the intensity distributions</p>
+<p>强度分布之间存在<strong>线性关系</strong> <span class="math display">\[
 D_{NCC}(f(x),g(T_{\mu}(x)))=\sum_{x∈\Omega}\frac{(f(x)-m_f)(g(T_{\mu}(x))-m_g}{\sigma_f\sigma_{g}}
-\]</span></li>
+\]</span></p></li>
 </ul>
-<h5 id="use-1">Use</h5>
+<p>Use</p>
 <ul>
-<li>Maximize</li>
-<li>Registration of mono-modal or closely related modalities</li>
-<li>Images taking with <u>different acquisition settings</u></li>
+<li><p>Maximize 最大化</p></li>
+<li><p>Registration of mono-modal or closely related modalities</p>
+<p>单一模式或密切相关模式的Registration</p></li>
+<li><p>Images taking with <u>different acquisition settings</u></p>
+<p>使用不同采集设置拍摄的图像</p></li>
 </ul>
 <h6 id="drawbacks-and-advantages-1">Drawbacks and advantages</h6>
 <ul>
-<li>Fast and simple relationship</li>
-<li>More robust to changes in imaging settings</li>
+<li><p>Fast and simple relationship</p>
+<p>快速简单的关系</p></li>
+<li><p>More robust to changes in imaging settings</p>
+<p>对成像设置的变化更稳健</p></li>
 </ul>
 <p><img src="/images/HMS/1937319.png" /></p>
-<h4 id="mutual-information">Mutual information</h4>
+<h4 id="mutual-information-相互信息">Mutual information 相互信息</h4>
 <p>One to one or linear relationship?</p>
 <p><img src="/images/HMS/1937320.png" /></p>
 <figure>
@@ -1032,30 +1098,36 @@ D_{NCC}(f(x),g(T_{\mu}(x)))=\sum_{x∈\Omega}\frac{(f(x)-m_f)(g(T_{\mu}(x))-m_g}
 </figure>
 <p><img src="/images/HMS/1937323.png" /></p>
 <ul>
-<li>If a structure
+<li><p>If a structure</p>
 <ul>
 <li>has intensity i in image A</li>
 <li>and has intensity j in image B</li>
 </ul></li>
-<li>In case of good alignment of A &amp; B
+<li><p>In case of good alignment of A &amp; B</p>
+<p>如果 A 和 B 对齐良好</p>
 <ul>
-<li>We should get a peak at <strong><code>(i,j)</code></strong> in the joint histogram</li>
+<li><p>We should get a peak at <strong><code>(i,j)</code></strong> in the joint histogram</p>
+<p>我们应该<strong><code>(i,j)</code></strong>在联合直方图中得到一个峰值</p></li>
 </ul></li>
-<li>Considering many structures
+<li><p>Considering many structures</p>
 <ul>
-<li>We should get <strong>many peaks</strong></li>
-<li>Instead of an <strong>evenly spread joint histogram</strong></li>
+<li><p>We should get <strong>many peaks</strong></p>
+<p>我们应该得到<strong>很多峰</strong></p></li>
+<li><p>Instead of an <strong>evenly spread joint histogram</strong></p>
+<p>而不是<strong>均匀分布的联合直方图</strong></p></li>
 </ul></li>
 </ul>
-<h5 id="entropy">Entropy</h5>
+<h5 id="entropy-熵">Entropy 熵</h5>
 <h6 id="definition">Definition</h6>
 <ul>
-<li>An important measure in information theory
+<li><p>An important measure in information theory</p>
 <ul>
 <li>Claude Shannon, 1948, Bell Labs</li>
 </ul></li>
-<li>Measures the <strong>uncertainty</strong>, or unpredictability of the state –</li>
-<li>Equivalently, represents its average information content, the amount of <u>uncertainty taken away</u> by knowing the variable</li>
+<li><p>Measures the <strong>uncertainty</strong>, or unpredictability of the state</p>
+<p>测量状态的<strong>不确定性</strong>或不可预测性</p></li>
+<li><p>Equivalently, represents its average information content, the amount of <u>uncertainty taken away</u> by knowing the variable</p>
+<p>等价地，代表它的平均信息量，知道变量带走的不确定性的量</p></li>
 </ul>
 <p>Consider a discrete stochastic variable X, with n possible values</p>
 <ul>
@@ -1075,56 +1147,63 @@ H(X|Y)=-\sum_{i}p(x_i)H(Y|X=x_i)
 <li>Entropy is maximal if p= 0.5</li>
 <li>Quickly decreases for other values</li>
 </ul>
-<h6 id="intuition">Intuition</h6>
-<p>Has to do with the complexity of an image</p>
+<p>Has to do with the complexity of an image 与图像的复杂性有关</p>
 <ul>
 <li><p>The chance of having an intensity i in image f is p（i<sub>f</sub>） <span class="math display">\[
 H(f)= - \sum_{i}p(i_f)\log p(i_f)
 \]</span></p>
 <ul>
-<li>Simple images lead to low entropy</li>
-<li>Images with a lot of content will have higher entropy</li>
+<li><p>Simple images lead to low entropy 简单的图像导致低熵</p></li>
+<li><p>Images with a lot of content will have higher entropy</p>
+<p>包含大量内容的图像将具有更高的熵</p></li>
 </ul></li>
 </ul>
-<p>What is the entropy of an image ?</p>
+<h6 id="what-is-the-entropy-of-an-image-什么是图像的熵">What is the entropy of an image ? 什么是图像的熵？</h6>
 <ul>
 <li>With all white voxel values?</li>
 <li>With all black voxel values?</li>
 <li>With all intensity values equally used?</li>
 </ul>
-<h6 id="joint-entropy-intuition">Joint entropy: intuition</h6>
-<p>Has to do with the match between two images <span class="math display">\[
+<h5 id="joint-entropy">Joint entropy</h5>
+<p>Has to do with the match between two images 什么是图像的熵？ <span class="math display">\[
 H(f,g)= - \sum_{i,j}p(i_f,j_g)\log p(i_f,j_g)
 \]</span></p>
 <ul>
-<li>Few peaks with high probability leads to low H</li>
-<li>Many scattered, low peaks correspond to high H</li>
+<li><p>Few peaks with high probability leads to low H</p>
+<p>少数高概率峰导致低H</p></li>
+<li><p>Many scattered, low peaks correspond to high H</p>
+<p>许多分散的低峰对应于高 H</p></li>
 </ul>
-<p>What is the joint entropy ?</p>
+<p>What is the joint entropy ? 什么是联合熵？</p>
 <ul>
-<li>If f and g only have 1 intensity which overlaps?</li>
-<li>If all voxel values in f match 1 intensity in g, for example the background?</li>
-<li>If all voxel values in f match many intensities in g?</li>
+<li><p>If f and g only have 1 intensity which overlaps?</p>
+<p>如果 f 和 g 只有 1 个重叠的强度？</p></li>
+<li><p>If all voxel values in f match 1 intensity in g, for example the background?</p>
+<p>如果 f 中的所有体素值都匹配 g 中的 1 个强度，例如背景？</p></li>
+<li><p>If all voxel values in f match many intensities in g?</p>
+<p>如果 f 中的所有体素值都匹配 g 中的许多强度？</p></li>
 </ul>
-<h4 id="mutual-information-1">Mutual information</h4>
-<p>A statistical relation between two images A &amp; B, maximizes the mutual information <span class="math display">\[
+<p>A <strong>statistical relation</strong> between two images A &amp; B, maximizes the mutual information</p>
+<p>两个图像 A 和 B 之间的<strong>统计关系</strong>，最大化互信息 <span class="math display">\[
 D_{MI}(f,g)=H(f)+H(g)-H(f,g)
 \]</span></p>
 <blockquote>
 <p>With the computation of all entropies H over the overlapping region Ω</p>
 </blockquote>
 <ul>
-<li>Good match between A&amp;B
+<li><p>Good match between A&amp;B '</p>
+<p>A&amp;B之间的好搭配</p>
 <ul>
-<li>Low joint entropy</li>
+<li>Low joint entropy 低联合熵</li>
 </ul></li>
-<li>Map onto complex parts of the images
+<li><p>Map onto complex parts of the images 映射到图像的复杂部分</p>
 <ul>
-<li>High marginal entropy</li>
-<li>Avoid solutions with no overlap or overlap with background</li>
+<li><p>High marginal entropy 高边际熵</p></li>
+<li><p>Avoid solutions with no overlap or overlap with background</p>
+<p>避免没有重叠或与背景重叠的解决方案</p></li>
 </ul></li>
 </ul>
-<h6 id="assumption-2">Assumption</h6>
+<h6 id="assumption-1">Assumption</h6>
 <p>There is a <strong>statistical relationship</strong> between the intensity distributions <span class="math display">\[
 D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 \]</span></p>
@@ -1133,28 +1212,31 @@ D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 <li><code>H(f,g)</code> is the joint entropy</li>
 <li>All measures are computed over the overlapping region Ω</li>
 </ul>
-<h6 id="use-2">Use</h6>
+<h6 id="use">Use</h6>
 <p>Registration of <strong>multi-modal</strong> or interpatient data</p>
 <h6 id="drawbacks-and-advantages-2">Drawbacks and advantages</h6>
 <ul>
-<li>Computationally intensive</li>
-<li>Allows to capture very general relationships</li>
+<li><p>Computationally intensive</p>
+<p>计算密集型</p></li>
+<li><p>Allows to capture very general relationships</p>
+<p>允许捕捉非常普遍的关系</p></li>
 </ul>
-<h3 id="optimizers">Optimizers</h3>
-<h4 id="how-to-find-the-optimal-transformation">How to find the optimal transformation?</h4>
+<h3 id="optimizers-优化器">Optimizers 优化器</h3>
+<h4 id="how-to-find-the-optimal-transformation-如何找到最优转换">How to find the optimal transformation 如何找到最优转换?</h4>
 <p>The formulation <code>arg</code> <code>min</code> <span class="math display">\[
 \hat\mu = \arg\min_{\mu}C_{x ∈\Omega}(f(x),g(T_{\mu}(x)))
 \]</span></p>
 <ul>
-<li>Implies an <strong>optimization problem</strong></li>
+<li><p>Implies an <strong>optimization problem</strong></p>
+<p>隐含<strong>优化问题</strong></p></li>
 </ul>
-<p>Optimizers need to be used that allow to</p>
+<p>Optimizers need to be used that allow to 需要使用优化器来允许</p>
 <ul>
 <li>Find the best solution of T over its parameters <strong>μ</strong></li>
-<li>Given a cost function （objective or fitness function） C</li>
-<li><strong>μ</strong> may have 10<sup>5</sup>sup&gt;-10<sup>7</sup> amount of parameters in case of deformable registration</li>
+<li>Given a cost <strong>function</strong> （objective or fitness function） C</li>
+<li><strong>μ</strong> may have 10<sup>5</sup>sup&gt;-10<sup>7</sup> amount of parameters in case of <strong>deformable registration</strong></li>
 </ul>
-<h4 id="finding-a-minimum-or-maximum">Finding a minimum （or maximum）?</h4>
+<h4 id="finding-a-minimum-or-maximum寻找最值">Finding a minimum （or maximum）寻找最值?</h4>
 <ul>
 <li><p>How to find these optimal parameters? <span class="math display">\[
 \hat\mu = \arg\min_{\mu}C_{x ∈\Omega}(f(x),g(T_{\mu}(x)))
@@ -1166,12 +1248,15 @@ D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 </ul></li>
 <li><p>In practice, not feasible</p>
 <ul>
-<li>Parameters often have floating point representation, infinite possibilities</li>
-<li>Defining a grid search would not work either in high-dimensional search spaces</li>
+<li><p>Parameters often have floating point representation, infinite possibilities</p>
+<p>参数往往有浮点表示，无限可能</p></li>
+<li><p>Defining a grid search would not work either in high-dimensional search spaces</p>
+<p>定义网格搜索在高维搜索空间中也不起作用</p></li>
 </ul></li>
 </ul>
 <h5 id="direct-search-methods">Direct search methods</h5>
 <p>No gradient information? <strong>Direct search methods</strong></p>
+<p>没有梯度信息？<strong>直接搜索方法</strong></p>
 <ul>
 <li>Try several values of μ</li>
 <li>Keep those for which C is lowest</li>
@@ -1193,7 +1278,7 @@ D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 <li>Evaluate N+1 solutions, and update worst, using</li>
 </ul>
 <p><img src="/images/HMS/1937325.png" /></p>
-<h5 id="gradient-descent-methods">Gradient-descent methods</h5>
+<h5 id="gradient-descent-methods-梯度下降法">Gradient-descent methods 梯度下降法</h5>
 <p>Gradient information? <strong>Gradient-descent methods</strong></p>
 <ul>
 <li><p>Find the values μ for which</p>
@@ -1207,8 +1292,10 @@ D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 </ul></li>
 <li><p>Two options</p>
 <ul>
-<li>Either you can solve that equation <strong>analytically</strong> （usually not the case for registration）</li>
-<li>Or you have to <strong>iteratively approximate</strong> the optimal value</li>
+<li><p>Either you can solve that equation <strong>analytically</strong> （usually not the case for registration）</p>
+<p>要么你可以<strong>解析</strong>解这个方程（通常不是注册的情况）</p></li>
+<li><p>Or you have to <strong>iteratively approximate</strong> the optimal value</p>
+<p>或者你必须<strong>迭代地逼近</strong>最优值</p></li>
 </ul></li>
 </ul>
 <p>Many variants exist, but basic principle is:</p>
@@ -1221,57 +1308,54 @@ D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 <li>Take a step in the direction of the negative gradient （minimisation μ<sub>i+1</sub> = μ<sub>i</sub> − η<sub>i</sub>∇<sub>μ<sub>i</sub></sub>C</li>
 <li>Stop when converge criteria have been reached - Amount of steps / iterations, C does not improve anymore, ||∇<sub>μ</sub>C（μ<sub>i</sub>）|| becomes small, etc.</li>
 </ul>
-<h4 id="principle-of-an-iterative-gradient-descent-optimizer">Principle of an （iterative） gradient-descent optimizer</h4>
+<h6 id="principle-of-an-iterative-gradient-descent-optimizer">Principle of an （iterative） gradient-descent optimizer</h6>
 <p><img src="/images/HMS/1937326.png" /></p>
 <h3 id="case-studies">Case studies</h3>
 <h4 id="applications">Applications</h4>
 <ul>
-<li>Visualization
+<li>Visualization 可视化
 <ul>
-<li>Facilitate <strong>visual comparison</strong> of two or more datasets</li>
+<li><p>Facilitate <strong>visual comparison</strong> of two or more datasets</p>
+<p>促进两个或多个数据集的<strong>视觉比较</strong></p></li>
 </ul></li>
-<li>Diagnosis
+<li>Diagnosis 可视化
 <ul>
-<li><strong>Combining information</strong> from multiple imaging modalities</li>
+<li><p><strong>Combining information</strong> from multiple imaging modalities</p>
+<p><strong>结合</strong>来自多种成像模式的信息</p></li>
 </ul></li>
-<li>Disease progression
+<li>Disease progression 疾病进展
 <ul>
-<li><strong>Monitoring changes</strong> in size, shape, position or image intensity over time</li>
+<li><p><strong>Monitoring changes</strong> in size, shape, position or image intensity over time</p>
+<p><strong>监测</strong>大小、形状、位置或图像强度随时间的变化</p></li>
 </ul></li>
-<li>Image-guided interventions
+<li>Image-guided interventions 图像引导干预
 <ul>
-<li><u>Relating pre-operative images or treatment plans</u> to the physical reality of the patient in his current position</li>
+<li><p><u>Relating pre-operative images or treatment plans</u> to the physical reality of the patient in his current position</p>
+<p>将术前图像或治疗计划与患者当前位置的物理现实相关联</p></li>
 </ul></li>
 </ul>
-<h4 id="examples">Examples</h4>
+<h4 id="examples-mr-vs-ct">Examples MR vs CT</h4>
 <p>MR and CT images of the head of the same patient, taken at approximately the same time</p>
+<p>同一患者头部的 MR 和 CT 图像，大约在同一时间拍摄</p>
 <p><img src="/images/HMS/1937327.png" /></p>
 <ul>
 <li>Transform?
 <ul>
-<li>Rigid registration should suffice</li>
-<li>No deformations in the skull</li>
+<li><p>Rigid registration should suffice</p>
+<p>Rigid registration就足够了</p></li>
+<li><p>No deformations in the skull</p>
+<p>头骨无变形</p></li>
+<li><p>Good initialization based on prior knowledge of US acquisition</p>
+<p>基于US收购的先验知识的良好初始化</p></li>
 </ul></li>
 <li>Metric?
 <ul>
-<li>Very different modalities.</li>
-<li>Multi-modal metric such as MI</li>
+<li><p>Very different modalities. 非常不同的模式</p></li>
+<li><p>Multi-modal metric such as MI</p>
+<p>多模态度量，例如 MI</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/1937330.png" /></p>
-<ul>
-<li>Transform?
-<ul>
-<li>Good initialization based on prior knowledge of US acquisition</li>
-<li>Rigid registration</li>
-</ul></li>
-<li>Metric?
-<ul>
-<li>Very different modalities.</li>
-<li>Multi-modal metric such as MI</li>
-<li>Better metrics needed</li>
-</ul></li>
-</ul>
 <h5 id="mr-ct-registration">MR-CT Registration</h5>
 <p><img src="/images/HMS/1937328.png" /></p>
 <h5 id="pet-ct-registration">PET-CT registration</h5>
@@ -1279,9 +1363,10 @@ D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 <ul>
 <li>Transform?
 <ul>
-<li>Rigid registration</li>
-<li>（optional） Affine</li>
-<li>Deformable registration</li>
+<li><p>Rigid registration</p></li>
+<li><p>（optional） Affine</p>
+<p>（可选）仿射</p></li>
+<li><p>Deformable registration</p></li>
 </ul></li>
 <li>Metric?
 <ul>
@@ -1295,269 +1380,356 @@ D_{MI}(f(x),g(T_{\mu}(x)))=H(f)+H(T_{\mu}(g))-H(f,T_{\mu}(g))|_\Omega
 <p><img src="/images/HMS/1937332.png" /></p>
 <h4 id="how-to-get-the-final-segmentation">How to get the final segmentation?</h4>
 <p>The value of each voxel in the probability map corresponds to the number of atlas for which that voxel belongs to the segmentation, normalized by the total number of atlases used.</p>
-<p>Probability map and majority voting</p>
-<p><img src="/images/HMS/1937333.png" /></p>
+<p>概率图中每个体素的值对应于该体素属于分割的图集数量，由使用的图集总数归一化。</p>
+<figure>
+<img src="/images/HMS/1937333.png" alt="" /><figcaption>Probability map and majority voting</figcaption>
+</figure>
 <h2 id="medical-image-visualization">Medical Image Visualization</h2>
-<h3 id="introduction-1">Introduction</h3>
-<h4 id="goal-of-visualization">Goal of visualization</h4>
+<h3 id="goal-of-visualization">Goal of visualization</h3>
 <ul>
-<li>Medical image data is often 3D
+<li><p>Medical image data is often 3D</p>
 <ul>
-<li>Requires inspecting <strong>multiple slices</strong></li>
+<li><p>Requires inspecting <strong>multiple slices</strong></p>
+<p>需要检查<strong>多个切片</strong></p></li>
 </ul></li>
-<li>Anatomical structures or pathologies are 3D
+<li><p>Anatomical structures or pathologies are 3D</p>
+<p>解剖结构或病理是 3D</p>
 <ul>
 <li>Need for inspecting images in <strong>different orthogonal planes</strong></li>
 </ul></li>
-<li>Tomographic visualisation can hamper the correct interpretation of the 3D scene
+<li><p>Tomographic visualisation can hamper the correct interpretation of the 3D scene</p>
+<p>断层图像可视化可能会妨碍对 3D 场景的正确解释</p>
 <ul>
-<li>Need for 3D <strong>volume or surface rendering</strong></li>
+<li><p>Need for 3D <strong>volume or surface rendering</strong></p>
+<p>需要 3D<strong>体积或表面渲染</strong></p></li>
 </ul></li>
-<li><u>Visualisation techniques are designed to <strong>aid the visual assessment</strong> of the medical image data</u></li>
+<li><p><u>Visualisation techniques are designed to <strong>aid the visual assessment</strong> of the medical image data</u></p>
+<p>可视化技术旨在<strong>帮助</strong>对医学图像数据进行<strong>视觉评估</strong></p></li>
 </ul>
-<h4 id="orthogonal-planes">Orthogonal planes</h4>
-<p>Standard <strong>reference planes in anatomy</strong></p>
+<h3 id="orthogonal-planes-正交平面">Orthogonal planes 正交平面</h3>
+<p>Standard <strong>reference planes in anatomy</strong> <strong>解剖学中的</strong>标准<strong>参考平面</strong></p>
 <ul>
-<li>The sagittal plane</li>
-<li>The coronal plane</li>
-<li>The transverse or axial plane</li>
+<li><p>The sagittal plane</p>
+<p>矢状面</p></li>
+<li><p>The coronal plane</p>
+<p>冠状面</p></li>
+<li><p>The transverse or axial plane</p>
+<p>横向或轴向平面</p></li>
 </ul>
 <p><img src="/images/HMS/1937334.png" /></p>
 <h3 id="visualization-of-3d-images">Visualization of 3D images</h3>
 <h4 id="d-orthogonal-visualization-using-mpr">3D orthogonal visualization using MPR</h4>
 <ul>
-<li>Using MPR
+<li><p>Using MPR</p>
 <ul>
-<li>Multi-planar reconstruction</li>
+<li><p>Multi-planar reconstruction</p>
+<p>多平面重建</p></li>
 </ul></li>
-<li>All body planes can be visualized
+<li><p>All body planes can be visualized</p>
+<p>所有身体平面都可以可视化</p>
 <ul>
-<li><strong>Simultaneous inspection</strong> of different planes</li>
+<li><p><strong>Simultaneous inspection</strong> of different planes</p>
+<p>不同平面<strong>同时检测</strong></p></li>
 </ul></li>
-<li><strong>Synchronised</strong> views
+<li><p><strong>Synchronised</strong> views <strong>同步</strong>视图</p>
 <ul>
-<li>Cursor / cross hair indicates same point in space</li>
-</ul></li>
-</ul>
-<h4 id="maximum-intensity-projections">Maximum Intensity projections</h4>
-<ul>
-<li>2D representation of 3D image data
-<ul>
-<li>Take maximum along a certain （projection） direction</li>
-<li>Only display maximum value</li>
-</ul></li>
-<li>Variants
-<ul>
-<li>Can be taken from rotating views</li>
-<li>Can be taken over time （e.g. 4D CT）</li>
-</ul></li>
-<li>Applications
-<ul>
-<li>Visualisation of contrast</li>
-<li>Modalities with strong contrasting properties</li>
-<li>Overview of a dataset</li>
+<li><p>Cursor / cross hair indicates same point in space</p>
+<p>光标/十字线表示空间中的同一点</p></li>
 </ul></li>
 </ul>
-<h4 id="volume-rendering">Volume rendering</h4>
+<h4 id="maximum-intensity-projections-最大强度预测">Maximum Intensity projections 最大强度预测</h4>
 <ul>
-<li>Visualization and graphics technique
+<li><p>2D representation of 3D image data</p>
+<p>3D 图像数据的 2D 表示</p>
 <ul>
-<li>Directly renders data using a reasonable approximation to a <strong>physical light transport model</strong></li>
+<li><p>Take maximum along a certain （projection） direction</p>
+<p>沿某个（投影）方向取最大值</p></li>
+<li><p>Only display maximum value</p>
+<p>只显示最大值</p></li>
 </ul></li>
-<li>Assign <strong>optical</strong> and <strong>material</strong> properties to data
+<li><p>Variants 变体</p>
+<ul>
+<li><p>Can be taken from rotating views</p>
+<p>可以从旋转视图中获取</p></li>
+<li><p>Can be taken over time （e.g. 4D CT）</p>
+<p>可随时间拍摄（如4D CT）</p></li>
+</ul></li>
+<li><p>Applications 应用</p>
+<ul>
+<li><p>Visualisation of contrast</p>
+<p>对比度的可视化</p></li>
+<li><p>Modalities with strong contrasting properties</p>
+<p>具有强烈对比特性的模态</p></li>
+<li><p>Overview of a dataset</p>
+<p>数据集概述</p></li>
+</ul></li>
+</ul>
+<h4 id="volume-rendering-体积渲染">Volume rendering 体积渲染</h4>
+<ul>
+<li><p>Visualization and graphics technique 可视化和图形技术</p>
+<ul>
+<li><p>Directly renders data using a reasonable approximation to a <strong>physical light transport model</strong></p>
+<p>使用<strong>物理光传输模型</strong>的合理近似直接渲染数据</p></li>
+</ul></li>
+<li><p>Assign <strong>optical</strong> and <strong>material</strong> properties to data</p>
+<p>为数据分配<strong>光学</strong>和<strong>材料</strong>属性</p>
 <ul>
 <li>Colour, opacity, texture</li>
 <li>Add a light source</li>
 <li>Compute shading, reflection</li>
 </ul></li>
-<li>Perform <strong>ray-tracing</strong> to construct 2D image
+<li><p>Perform <strong>ray-tracing</strong> to construct 2D image</p>
+<p>执行<strong>光线追踪</strong>以构建 2D 图像</p>
 <ul>
 <li>Realistic representation of the outer appearance of 3D structures</li>
 </ul></li>
 </ul>
 <h5 id="ray-tracing">Ray tracing</h5>
-<p>Image generation technique</p>
+<p>Image generation technique 图像生成技术</p>
 <ul>
-<li>Trace the path of light through pixels of the image plane
+<li><p>Trace the path of light through pixels of the image plane</p>
+<p>通过图像平面的像素跟踪光的路径</p>
 <ul>
-<li>View rays for each pixel of the 2D object to the scene</li>
+<li><p>View rays for each pixel of the 2D object to the scene</p>
+<p>查看 2D 对象每个像素到场景的光线</p></li>
 </ul></li>
-<li>Simulate the effect of texture and lightning on the virtual objects
+<li><p>Simulate the effect of texture and lightning on the virtual objects</p>
+<p>模拟纹理和闪电对虚拟物体的影响</p>
 <ul>
-<li>Texture will determine the appearance of the surface （specular or diffuse reflection）</li>
-<li>Shadow rays allow to determine whether the we should visualize shadow or reflection</li>
+<li><p>Texture will determine the appearance of the surface （specular or diffuse reflection）</p>
+<p>纹理将决定表面的外观（镜面反射或漫反射</p></li>
+<li><p>Shadow rays allow to determine whether the we should visualize shadow or reflection</p>
+<p>阴影光线允许确定我们是否应该可视化阴影或反射</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/1937335.png" /></p>
-<h3 id="image-fusion">Image fusion</h3>
+<h3 id="image-fusion-图像融合">Image fusion 图像融合</h3>
 <ul>
-<li>Combining relevant information from two or more images into a single image or reference frame</li>
-<li>Types of fusion
+<li><p>Combining relevant information from two or more images into a single image or reference frame</p>
+<p>将来自两个或多个图像的相关信息组合成单个图像或参考帧</p></li>
+<li><p>Types of fusion</p>
 <ul>
-<li>Colour overlay</li>
-<li>Synced views</li>
-<li>Colour fusion</li>
+<li>Colour overlay 颜色叠加</li>
+<li>Synced views 同步视图</li>
+<li>Colour fusion 色彩融合</li>
 </ul></li>
-<li>Accurate fusion may require prior registration of the images</li>
+<li><p>Accurate fusion may require prior registration of the images</p>
+<p>准确的融合可能需要预先配准图像</p></li>
 </ul>
-<h4 id="colour-overlay">Colour overlay</h4>
+<h4 id="colour-overlay-颜色叠加">Colour overlay 颜色叠加</h4>
 <ul>
-<li>Overlay <strong>different modalities</strong> using different look-up tables
+<li><p>Overlay <strong>different modalities</strong> using different look-up tables</p>
+<p>使用不同的查找表 覆盖<strong>不同的模态</strong></p>
 <ul>
 <li>Gray-level LUT</li>
 <li>Full colour or single tone LUT</li>
 </ul></li>
-<li>Suitable transparency and threshold
+<li><p>Suitable transparency and threshold</p>
+<p>合适的透明度和阈值</p>
 <ul>
-<li>Adapt visibility of the overlaying modality</li>
+<li><p>Adapt visibility of the overlaying modality</p>
+<p>调整叠加模式的可见性</p></li>
 </ul></li>
-<li>Systematically used for <strong>hybrid imaging</strong>
+<li><p>Systematically used for <strong>hybrid imaging</strong></p>
+<p>系统地用于<strong>混合成像</strong></p>
 <ul>
-<li>PET-MRI, PET-CT</li>
-<li>Anatomical imaging provided in gray-level</li>
-<li>Functional imaging provided in colour overlay</li>
-</ul></li>
-</ul>
-<h4 id="synchronized-visualisation">Synchronized visualisation</h4>
-<ul>
-<li>Visualize <strong>spatially aligned images</strong> side-by side, and synchronize navigation
-<ul>
-<li>Cursor / cross hair indicates same point in space</li>
-<li>Multiple body planes can be shown simultaneously</li>
-</ul></li>
-<li>Fusion of information in clinicians head
-<ul>
-<li>Both images optimally visible</li>
-</ul></li>
-<li>Systematically used for <strong>follow-up imaging</strong>
-<ul>
-<li>PET-CT, contrast-enhanced-CT, MRI,…</li>
-<li>Multiple exams taken over time to monitor disease progression</li>
+<li><p>PET-MRI, PET-CT</p></li>
+<li><p>Anatomical imaging provided in gray-level</p>
+<p>以灰度级提供解剖成像</p></li>
+<li><p>Functional imaging provided in colour overlay</p>
+<p>彩色叠加中提供的功能成像</p></li>
 </ul></li>
 </ul>
-<h4 id="colour-fusion">Colour fusion</h4>
+<h4 id="synchronized-visualisation-同步视图">Synchronized visualisation 同步视图</h4>
+<ul>
+<li><p>Visualize <strong>spatially aligned images</strong> side-by side, and synchronize navigation</p>
+<p>并排显示<strong>空间对齐的图像</strong>，并同步导航</p>
+<ul>
+<li><p>Cursor / cross hair indicates same point in space</p>
+<p>光标/十字线表示空间中的同一点</p></li>
+<li><p>Multiple body planes can be shown simultaneously</p>
+<p>可以同时显示多个身体平面</p></li>
+</ul></li>
+<li><p>Fusion of information in clinicians head 临床医生头部信息融合</p>
+<ul>
+<li><p>Both images optimally visible</p>
+<p>两个图像都最佳可见</p></li>
+</ul></li>
+<li><p>Systematically used for <strong>follow-up imaging</strong></p>
+<p>系统地用于<strong>后续成像</strong></p>
+<ul>
+<li><p>PET-CT, contrast-enhanced-CT, MRI,…</p></li>
+<li><p>Multiple exams taken over time to monitor disease progression</p>
+<p>随着时间的推移进行多次检查以监测疾病进展</p></li>
+</ul></li>
+</ul>
+<h4 id="colour-fusion-色彩融合">Colour fusion 色彩融合</h4>
 <p>Overlay <u>different images of the same modality</u> using complementary additive colours</p>
+<p>使用互补色叠加相同模态的不同图像</p>
 <ul>
 <li>Blue - Yellow</li>
 <li>Red - Cyan</li>
 <li>Green- Magenta</li>
 </ul>
-<p>Suitable transparency and threshold</p>
+<p>Suitable transparency and threshold 合适的透明度和阈值</p>
 <ul>
-<li>Adapt visibility of the overlaying modality</li>
+<li><p>Adapt visibility of the overlaying modality</p>
+<p>调整叠加模式的可见性</p></li>
 </ul>
-<p><strong>Highlight differences</strong> between similar images</p>
+<p><strong>Highlight differences</strong> between similar images <strong>突出</strong>相似图像之间的<strong>差异</strong></p>
 <ul>
-<li>Highlight motion in frames of 4D imaging</li>
-<li>Highlight misalignment / error after registration</li>
+<li><p>Highlight motion in frames of 4D imaging</p>
+<p>突出显示 4D 成像帧中的运动</p></li>
+<li><p>Highlight misalignment / error after registration</p>
+<p>配准后突出显示未对齐/错误</p></li>
 </ul>
 <h1 id="summary">Summary</h1>
-<h2 id="image-registration">Image registration</h2>
+<h2 id="image-registration-图像配准">Image registration 图像配准</h2>
 <ul>
-<li><p>Aligning two images</p>
+<li><p>Aligning two images 对齐两个图像</p>
 <ul>
-<li>So that <strong>corresponding coordinate points</strong> in the two images correspond to the <strong>same physical region</strong> of the scene being imaged</li>
+<li><p>So that <strong>corresponding coordinate points</strong> in the two images correspond to the <strong>same physical region</strong> of the scene being imaged</p>
+<p>使两幅图像中<strong>对应的坐标点</strong>对应被成像场景的<strong>同一物理区域</strong></p></li>
 </ul></li>
-<li><p>Registration is the task of spatially aligning images, and fusion consists of （simultaneously） visualizing images</p></li>
-<li><p>Sometimes also referred to as</p>
+<li><p>Registration is the task of spatially aligning images, and fusion consists of （simultaneously） visualizing images</p>
+<p>配准是空间对齐图像的任务，融合包括（同时）可视化图像</p></li>
+<li><p>Sometimes also referred to as 有时也称为</p>
 <ul>
-<li>Image fusion, superimposition, matching or merging</li>
+<li><p>Image fusion, superimposition, matching or merging</p>
+<p>图像融合、叠加、匹配或合并</p></li>
 </ul></li>
-<li><p>To avoid confusion, we define</p>
+<li><p>To avoid confusion, we define 为了避免混淆，我们定义</p>
 <ul>
-<li><strong>Registration</strong>: the task of spatially aligning images</li>
-<li><strong>Fusion</strong>: the task of （simultaneously） visualizing images</li>
+<li><strong>Registration</strong>: the task of spatially aligning images 空间对齐图像的任务</li>
+<li><strong>Fusion</strong>: the task of （simultaneously） visualizing images（同时）可视化图像的任务</li>
 </ul></li>
 <li><p>Registration has many applications, including</p>
 <ul>
-<li>Facilitate visual comparison of two or more datasets</li>
-<li>Visually combining information from multiple imaging modalities</li>
-<li>Monitoring changes in size, shape, position or image intensity over time</li>
-<li>Image-guided interventions</li>
+<li><p>Facilitate visual comparison of two or more datasets</p>
+<p>促进两个或多个数据集的视觉比较</p></li>
+<li><p>Visually combining information from multiple imaging modalities</p>
+<p>视觉结合来自多种成像模式的信息</p></li>
+<li><p>Monitoring changes in size, shape, position or image intensity over time</p>
+<p>监测大小、形状、位置或图像强度随时间的变化</p></li>
+<li><p>Image-guided interventions</p>
+<p>图像引导干预</p></li>
 </ul></li>
-<li><p>Find the spatial coordinate transformation T, under which anatomical structures become aligned</p></li>
-<li><p>Mathematically. Registration comes down to solving the equation <span class="math display">\[
+<li><p>Find the spatial coordinate transformation T, under which anatomical structures become aligned</p>
+<p>找到空间坐标变换 T，在该变换下解剖结构变得对齐</p></li>
+<li><p>Mathematically. Registration comes down to solving the equation</p>
+<p>数学上。注册归结为求解方程 <span class="math display">\[
 \hat\mu = \arg\min_{\mu}C_{x ∈\Omega}(f(x),g(T_{\mu}(x)))
 \]</span></p>
 <ul>
-<li>Find the transformation parameters μ for which the cost function C , computed over the overlapping coordinate positions x of the fixed and moving image, becomes minimal</li>
-<li>Typically, an iterative optimization problem （usually using a gradient descent）</li>
+<li><p>Find the transformation parameters μ for which the cost function C , computed over the overlapping coordinate positions x of the fixed and moving image, becomes minimal</p>
+<p>找到变换参数 μ，在固定和运动图像的重叠坐标位置 x 上计算的成本函数 C 变得最小</p></li>
+<li><p>Typically, an iterative optimization problem （usually using a gradient descent）</p>
+<p>通常，一个迭代优化问题（通常使用梯度下降）</p></li>
 </ul></li>
 <li><p>Configuring a registration comes down to selecting the correct components, and their parameters</p>
+<p>配置注册归结为选择正确的组件及其参数</p>
 <ul>
-<li>Interpolation, computing intensities of the moving image at transformed positions</li>
-<li>Cost function / metric, evaluating the goodness of current solution</li>
-<li>Optimizer, proposing new transformation parameters</li>
-<li>Transform, defining the nature of the mapping, and the parameters to be optimized</li>
+<li><p>Interpolation, computing intensities of the moving image at transformed positions</p>
+<p>插值，计算变换位置处运动图像的强度</p></li>
+<li><p>Cost function / metric, evaluating the goodness of current solution</p>
+<p>成本函数/指标，评估当前解决方案的优劣</p></li>
+<li><p>Optimizer, proposing new transformation parameters</p>
+<p>优化器，提出新的转换参数</p></li>
+<li><p>Transform, defining the nature of the mapping, and the parameters to be optimized</p>
+<p>变换，定义映射的性质，以及要优化的参数</p></li>
 </ul></li>
 </ul>
-<h2 id="image-interpolation">Image Interpolation</h2>
+<h2 id="image-interpolation-图像插值">Image Interpolation 图像插值</h2>
 <ul>
-<li>Computing intensities of the moving image at transformed positions
+<li><p>Computing intensities of the moving image at transformed positions</p>
+<p>计算变换位置处运动图像的强度</p>
 <ul>
-<li>Reconstruct an intensity value for all image positions</li>
+<li><p>Reconstruct an intensity value for all image positions</p>
+<p>重建所有图像位置的强度值</p></li>
 </ul></li>
-<li>Different possibilities exist
+<li><p>Different possibilities exist</p>
+<p>存在不同的可能性</p>
 <ul>
-<li>Employ more elaborate models, yield different quality, and have a different associated computational cost</li>
+<li><p>Employ more elaborate models, yield different quality, and have a different associated computational cost</p>
+<p>采用更精细的模型，产生不同的质量，并具有不同的相关计算成本</p></li>
 </ul></li>
-<li>Nearest neighbour interpolation
+<li><p>Nearest neighbour interpolation</p>
+<p>最近邻插值</p>
 <ul>
-<li>Just look for the nearest pixel, and use that intensity</li>
+<li><p>Just look for the nearest pixel, and use that intensity</p>
+<p>只需寻找最近的像素，并使用该强度</p></li>
 </ul></li>
-<li>Linear interpolation （continuous）
+<li><p>Linear interpolation （continuous）</p>
+<p>线性插补（连续）</p>
 <ul>
-<li>Linearly interpolate the intensity between the nearest 2 （1D）, 4 （2D） or 8 （3D） voxels</li>
+<li><p>Linearly interpolate the intensity between the nearest 2 （1D）, 4 （2D） or 8 （3D） voxels</p>
+<p>在最近的 2（1D）、4（2D）或 8（3D）个体素之间线性插值强度</p></li>
 </ul></li>
-<li>B-spline interpolation （continuous and smooth）
+<li><p>B-spline interpolation （continuous and smooth）</p>
+<p>B样条插值（连续平滑）</p>
 <ul>
-<li>Interpolate the intensity by including also values from further pixels, to allow smoothness to a certain degree</li>
+<li><p>Interpolate the intensity by including also values from further pixels, to allow smoothness to a certain degree</p>
+<p>通过还包括来自其他像素的值来插入强度，以在一定程度上实现平滑</p></li>
 </ul></li>
 </ul>
 <h2 id="image-transformation">Image Transformation</h2>
 <ul>
-<li>A spatial coordinate transformation applied to the moving image, such that it matches the fixed image</li>
-<li>The parameters of the transformation are the ones being optimized during registration
+<li><p>A spatial coordinate transformation applied to the moving image, such that it matches the fixed image</p>
+<p>应用于运动图像的空间坐标变换，使其与固定图像匹配</p></li>
+<li><p>The parameters of the transformation are the ones being optimized during registration</p>
+<p>转换的参数是在注册过程中被优化的参数</p>
 <ul>
-<li>The optimal transformation is the result of the registration</li>
+<li><p>The optimal transformation is the result of the registration</p>
+<p>最优变换是配准的结果</p></li>
 </ul></li>
-<li>Rigid transformation
+<li><p>Rigid transformation 刚性转换</p>
 <ul>
 <li>Rotations and translations</li>
 <li>6 degrees of freedom in 3D</li>
 </ul></li>
-<li>Affine transformation
+<li><p>Affine transformation 仿射变换</p>
 <ul>
 <li>Rotations, translations, differential scaling and shear</li>
 <li>12 degrees of freedom in 3D</li>
 </ul></li>
-<li>Deformable transformation
+<li><p>Deformable transformation 可变形变换</p>
 <ul>
-<li>Often parametrized using B-splines to obtain continuous and smooth transformations</li>
-<li>Many parameters （depends on the choice of the grid of control points）</li>
+<li><p>Often parametrized using B-splines to obtain continuous and smooth transformations</p>
+<p>通常使用 B 样条参数化以获得连续和平滑的变换</p></li>
+<li><p>Many parameters （depends on the choice of the grid of control points）</p>
+<p>参数多（取决于控制点网格的选择）</p></li>
 </ul></li>
 </ul>
-<h2 id="similarity-metrics-1">Similarity metrics</h2>
+<h2 id="similarity-metrics-相似度指标-1">Similarity metrics 相似度指标</h2>
 <ul>
-<li>A measure computed to assess the similarity of the images, based on the current overlap</li>
-<li>Drives the registration, as it determines how good the transformation is
+<li><p>A measure computed to assess the similarity of the images, based on the current overlap</p>
+<p>基于当前重叠计算的用于评估图像相似性的度量</p></li>
+<li><p>Drives the registration, as it determines how good the transformation is</p>
+<p>驱动注册，因为它决定了转换的好坏</p>
 <ul>
-<li>And in which direction it may improve</li>
+<li><p>And in which direction it may improve</p>
+<p>以及它可能朝哪个方向改</p></li>
 </ul></li>
-<li>Mean squared differences
+<li><p>Mean squared differences</p>
 <ul>
-<li>Assumes a one-to-one relation between intensity distribution of the images</li>
-<li>Mainly used for monomodal, intra-patient registration</li>
+<li><p>Assumes a one-to-one relation between intensity distribution of the images</p>
+<p>假设图像的强度分布之间存在一对一的关系</p></li>
+<li><p>Mainly used for monomodal, intra-patient registration</p>
+<p>主要用于单模态、患者内配准</p></li>
 </ul></li>
-<li>Normalised correlation coefficient
+<li><p>Normalised correlation coefficient</p>
 <ul>
-<li>Assumes a linear relation between intensity distribution of the images</li>
-<li>Mainly used for registration of related modalities or inter-patient registration</li>
+<li><p>Assumes a linear relation between intensity distribution of the images</p>
+<p>假设图像的强度分布之间存在线性关系</p></li>
+<li><p>Mainly used for registration of related modalities or inter-patient registration</p>
+<p>主要用于相关模式的注册或患者间的注册</p></li>
 </ul></li>
-<li>Mutual information
+<li><p>Mutual information</p>
 <ul>
-<li>Assumes a statistical relation between intensity distribution of the images</li>
-<li>Allows to capture very general relations: multi-modal registration</li>
+<li><p>Assumes a statistical relation between intensity distribution of the images</p>
+<p>假设图像强度分布之间存在统计关系</p></li>
+<li><p>Allows to capture very general relations: multi-modal registration</p>
+<p>允许捕捉非常普遍的关系：多模态注册</p></li>
 </ul></li>
 </ul>
 

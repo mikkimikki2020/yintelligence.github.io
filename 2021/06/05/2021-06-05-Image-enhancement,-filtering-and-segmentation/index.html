@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    8.7k
+                    10.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    40 Min
+                    48 Min
                 </div>
                 
 
@@ -502,7 +502,7 @@
             <div id="articleContent">
                 <h1 id="image-enhancement-filtering-and-segmentation">Image enhancement, filtering and segmentation</h1>
 <p><a href="https://yintelligence.tech/2021/01/06/2021-01-06-VUB-4019776DNR-Biomedical-Signals-and-Images/">VUB 4019776DNR Biomedical Signals and Images</a></p>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e7b303f0-1fd9-4cea-a84e-ac77005fc603">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18933/files/648186?module_item_id=119760">Slide</a></p>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e7b303f0-1fd9-4cea-a84e-ac77005fc603">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18933/files/648186?module_item_id=119760">Slide</a> + <a href="https://yintelligence.tech/2021/06/13/2021-06-13-Biomedical-Image-Processing/">Exercise</a></p>
 <p>Image enhancement and filtering: Post-processing operations to enhance or suppress certain properties before <strong>reviewing</strong> or further <strong>processing</strong></p>
 <p>图像增强和过滤：在<strong>审查</strong>或进一步<strong>处理</strong>之前进行后处理操作以增强或抑制某些属性</p>
 <p><img src="/images/HMS/2249370.png" /></p>
@@ -525,7 +525,7 @@
 <li><p>Focus on histogram based techniques 专注于基于直方图的技术</p>
 <ul>
 <li><p>Modify the grey value / intensity of pixels without considering neighbourhood</p>
-<p>在不考虑邻域的情况下修改像素的灰度值/强度</p>
+<p>在<strong>不考虑邻域</strong>的情况下修改<strong>像素的灰度值/强度</strong></p>
 <blockquote>
 <p>Methods that do consider neighbourhood are discussed later （filters）</p>
 <p>稍后讨论考虑邻域的方法（过滤器）</p>
@@ -535,10 +535,11 @@
 <h3 id="the-image-histogram">The image histogram</h3>
 <p>A representation of the distribution of the intensities 强度分布的表示</p>
 <ul>
+<li><p>Allows to inspect the spread of the intensities 允许检查强度的分布</p></li>
 <li><p>For all intensities （X-axis）, count the pixels （Y-axis）</p>
 <p>对于所有强度（X 轴），计算像素（Y 轴）</p></li>
-<li><p>In practice, group pixels into intensity bins</p>
-<p>在实践中，将像素分组到强度箱中</p>
+<li><p>In practice, group pixels into <strong>intensity bins</strong></p>
+<p>在实践中，将像素分组到<strong>强度箱</strong>中</p>
 <ul>
 <li><p>Intensity between [I<sub>lower</sub>,I<sub>upper</sub>] in one bin, to limit amount of bins and increase pixel count</p>
 <p>一个 bin 中[I<sub>lower</sub>,I<sub>upper</sub>]之间的强度，以限制 bin 数量并增加像素数</p></li>
@@ -546,6 +547,7 @@
 </ul>
 <p><img src="/images/HMS/2249371.png" /></p>
 <h4 id="examples-of-histograms">Examples of histograms</h4>
+<p><img src="/images/HMS/2249372.png" /></p>
 <ul>
 <li><p>Intensities concentrated in one end of the scale 强度集中在天平的一端</p>
 <ul>
@@ -556,24 +558,23 @@
 <ul>
 <li>Low contrast 低对比度</li>
 </ul></li>
-</ul>
-<p><img src="/images/HMS/2249372.png" /></p>
-<p>Low contrast reduces the <strong>visual separation</strong> between structures 低对比度减少了结构之间的<strong>视觉分离</strong></p>
-<ul>
+<li><p><strong>Low contrast</strong> reduces the <strong>visual separation</strong> between structures 低对比度减少了结构之间的<strong>视觉分离</strong></p></li>
 <li><p>May reduce sensitivity for detecting changes or abnormalities</p>
-<p>可能会降低检测变化或异常的灵敏度</p></li>
+<p>可能会<strong>降低</strong>检测变化或异常的<strong>灵敏度</strong></p></li>
 </ul>
 <h3 id="global-histogram-operations-全局直方图操作">Global histogram operations 全局直方图操作</h3>
-<h4 id="linear-contrast-mapping-线性对比映射">Linear contrast mapping 线性对比映射</h4>
+<p>Modify the intensity of pixels without considering neighbourhood</p>
+<p>在不考虑邻域的情况下修改像素的强度</p>
+<h4 id="linear-contrast-mapping-线性对比映射-直方图拉伸">Linear contrast mapping 线性对比映射 （直方图拉伸）</h4>
 <p><strong>Objective</strong>: Find a <u>linear intensity transformation T</u>, that maps the intensities i such that they cover <u>the full intensity range</u>.</p>
 <p><strong>目标</strong>：找到<u>线性强度变换T</u>，映射强度i，使其覆盖<u>整个强度范围</u>。 <span class="math display">\[
 j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\ (j_{min}= 0 \and j_{max}= 255) → j = 255\frac{i- i_{min}}{i_{max}-i_{min}}
 \]</span></p>
 <ul>
-<li>Also termed histogram stretching 也称为直方图拉伸</li>
-<li>Operation is reversible 操作是可逆的
+<li>Also termed <strong>histogram stretching</strong> 也称为<strong>直方图拉伸</strong></li>
+<li>Operation is <strong>reversible</strong> 操作是可逆的
 <ul>
-<li>Except for rounding errors in the intensity transformation</li>
+<li>Except for <strong>rounding errors</strong> in the intensity transformation</li>
 <li>强度变换中的舍入误差除外</li>
 </ul></li>
 </ul>
@@ -588,7 +589,7 @@ j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\
 </ul></li>
 <li><p>Resulting image</p>
 <ul>
-<li><p>Shows higher intensity range, more contrast between neighbouring structures</p>
+<li><p>Shows higher intensity range, more <strong>contrast</strong> between neighbouring structures</p>
 <p>显示更高的强度范围，相邻结构之间的对比度更高</p></li>
 </ul></li>
 </ul>
@@ -599,15 +600,15 @@ j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\
 <li><p>Often performed <strong>interactively</strong> while reviewing the image</p>
 <p>经常在查看图像时以<strong>交互方式</strong>执行</p>
 <ul>
-<li><p>In that case, only affects the displayed image, image on disk remains unaltered</p>
-<p>在这种情况下，只影响显示的图像，磁盘上的图像保持不变</p></li>
+<li><p>In that case, <strong>only affects the displayed image</strong>, image on disk remains unaltered</p>
+<p>在这种情况下，<strong>只影响显示的图像</strong>，磁盘上的图像保持不变</p></li>
 <li><p>Comes down to changing the <strong>look-up table</strong> used for displaying the image</p>
 <p>归结为更改用于显示图像的<strong>查找表</strong></p></li>
 </ul></li>
 <li><p>Specify a <strong>window</strong> （width） and <strong>level</strong></p>
 <p>指定 <strong>window</strong>（宽度）和 <strong>level</strong></p></li>
-<li><p>Values outside are mapped to black and white （clipped or saturated）</p>
-<p>外面的值被映射到黑色和白色（剪切或饱和）</p></li>
+<li><p>Values outside are mapped to <strong>black and white</strong> （clipped or saturated）</p>
+<p>外面的值被映射到<strong>黑色和白色</strong>（剪切或饱和）</p></li>
 </ul>
 <p><img src="/images/HMS/2249375.png" /></p>
 <h5 id="ct-images">CT images</h5>
@@ -623,13 +624,13 @@ j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\
 <li>Bones</li>
 </ul></li>
 </ul>
-<h3 id="histogram-equalisation-直方图均衡">Histogram equalisation 直方图均衡</h3>
+<h4 id="histogram-equalisation-直方图均衡">Histogram equalisation 直方图均衡</h4>
 <ul>
 <li><p>Objective</p>
 <ul>
-<li><p>Find a non-linear intensity transformation T, that maps the intensities i such that the histogram becomes uniform</p>
-<p>找到一个非线性强度变换 T，它映射强度 i 使得直方图变得均匀</p></li>
-<li><p>Comes down to a non -linear stretching</p>
+<li><p>Find a <strong>non-linea</strong>r intensity transformation T, that maps the intensities i such that the histogram becomes uniform</p>
+<p>找到一个<strong>非线性</strong>强度变换 T，它映射强度 i 使得直方图变得<strong>均匀</strong></p></li>
+<li><p>Comes down to a <strong>non-linear stretching</strong></p>
 <p>归结为非线性拉伸</p></li>
 </ul></li>
 <li><p>Sought transform is the cumulative histogram</p>
@@ -637,14 +638,14 @@ j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\
 <li><p>In practice, the result is approximate 在实践中，结果是近似的</p>
 <ul>
 <li><p>Discrete nature of images and histograms does not allow to obtain a perfect homogeneous distribution</p>
-<p>图像和直方图的离散特性不允许获得完美的均匀分布</p></li>
+<p>图像和直方图的<strong>离散特性不允许获得完美的均匀分布</strong></p></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249377.png" /></p>
 <figure>
 <img src="/images/HMS/2249378.png" alt="" /><figcaption>说明</figcaption>
 </figure>
-<h4 id="applied-on-the-whole-image-region-应用于整个图像区域">Applied on the whole image region 应用于整个图像区域</h4>
+<h5 id="applied-on-the-whole-image-region-应用于整个图像区域">Applied on the whole image region 应用于整个图像区域</h5>
 <ul>
 <li><p>The background may take up large region 背景可能会占据很大的区域</p>
 <ul>
@@ -658,31 +659,41 @@ j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249379.png" /></p>
-<h4 id="applied-on-a-part-of-the-image-region-应用于局部图像区域">Applied on a part of the image region 应用于局部图像区域</h4>
+<h5 id="applied-on-a-part-of-the-image-region-应用于局部图像区域">Applied on a part of the image region 应用于局部图像区域</h5>
 <ul>
 <li>Only image structures present, no background 仅存在图像结构，无背景</li>
 <li>Locally optimizing the contrast 局部优化对比度</li>
 </ul>
 <p><img src="/images/HMS/2249380.png" /></p>
 <h2 id="image-filtering-图像过滤">Image filtering 图像过滤</h2>
-<p>Filters are used in medical imaging to enhance or suppress certain features of images 过滤器在医学成像中用于增强或抑制图像的某些特征</p>
+<p>Filters are used in medical imaging to <strong>enhance</strong> or <strong>suppress</strong> certain features of images 过滤器在医学成像中用于增强或抑制图像的某些特征</p>
 <ul>
 <li><p>Before <strong>reviewing</strong> them 在<strong>审查</strong>他们之前</p></li>
 <li><p>As a <strong>pre-processing</strong> step for further processing</p>
 <p>作为进一步处理的<strong>预处理</strong>步骤</p></li>
 </ul>
-<p>Histogram operations do not take into account the <strong>spatial distribution</strong> of intensities 直方图操作不考虑强度的<strong>空间分布</strong></p>
+<p>Histogram operations do not take into account the <strong>spatial distribution</strong> of intensities</p>
+<p>Filters adapt intensities of image by taking into account the neighbourhood</p>
+<p>直方图操作不考虑强度的<strong>空间分布</strong></p>
+<p>过滤器通过考虑<strong>邻域</strong>来适应图像的<strong>强度</strong></p>
 <h3 id="image-filters-图像过滤器">Image filters 图像过滤器</h3>
 <ul>
-<li>Will alter the grey values of a pixel, typically by looking at the pixel and a certain <strong>neighbourhood</strong> 将改变像素的灰度值，通常通过查看像素和某个<strong>邻域</strong></li>
-<li>The region considered for each pixel can often be represented using a <strong>mask</strong> 为每个像素考虑的区域通常可以使用 <strong>mask</strong> 表示</li>
+<li><p>Will alter the grey values of a pixel, typically by looking at the pixel and a certain <strong>neighbourhood</strong></p>
+<p>通常通过查看像素和某个<strong>邻域</strong>改变像素的灰度值</p></li>
+<li><p>The region considered for each pixel can often be represented using a <strong>mask</strong></p>
+<p>为每个像素考虑的区域通常可以使用 <strong>mask</strong> 表示</p></li>
 </ul>
 <p><img src="/images/HMS/2249381.png" /></p>
-<h3 id="spatial-filter-masks-空间过滤掩码">Spatial filter masks 空间过滤掩码</h3>
-<h4 id="image-filtering-using-a-spatial-filter-mask-使用空间过滤器掩码进行图像过滤">Image filtering using a spatial filter mask 使用空间过滤器掩码进行图像过滤</h4>
+<h3 id="spatial-filter-masks-空间过滤蒙版">Spatial filter masks 空间过滤蒙版</h3>
+<p>The <strong>size</strong> of the mask will determine the amount of pixels taken into account while filtering</p>
+<p>蒙版的<strong>大小</strong>将决定过滤时考虑的像素数量</p>
+<ul>
+<li>Will have impact on computational cost 会影响计算成本</li>
+</ul>
+<h4 id="image-filtering-using-a-spatial-filter-mask-进行图像过滤">Image filtering using a spatial filter mask 进行图像过滤</h4>
 <ul>
 <li><p>Spatial filter mask is placed over a pixel</p>
-<p>空间过滤器蒙版放置在一个像素上</p>
+<p>空间过滤器mask 放置在一个像素上</p>
 <ul>
 <li><p>All elements of the mask are visited</p>
 <p>访问掩码的所有元素</p></li>
@@ -694,22 +705,30 @@ j = T(i) → j =\frac{i- i_{min}}{i_{max}-i_{min}}(j_{max}-j_{min})+j_{min}\\if\
 <li>Median</li>
 <li>Weighted</li>
 </ul></li>
-<li><p>In case the mask contains weights to linearly combine the underlying pixels 如果蒙版包含权重以线性组合底层像素</p>
+<li><p>In case the mask contains weights to linearly combine the underlying pixels</p>
+<p>如果mask 包含<strong>权重</strong>以<strong>线性</strong>组合底层像素</p>
 <ul>
 <li><p><strong>Linear convolution</strong> of mask and image</p>
 <p><strong>面具和图像的线性卷积</strong></p>
 <ul>
 <li><p>The values of the mask also make an image</p>
-<p>蒙版的值也使图像</p></li>
+<p>mask的值成图像</p></li>
 <li><p>Mask also called a kernel</p>
-<p>蒙版也称为内核</p></li>
+<p>mask 也称为内核</p></li>
 </ul></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249382.png" /> <span class="math display">\[
 f(x,y)*g(x,y)=\sum^{K-|\frac{K}{2}|-1}_{k=-|\frac{K}{2}|}\sum^{L-|\frac{L}{2}|-1}_{l=-|\frac{L}{2}|}f(k,l)g(x-k,y-l)
 \]</span></p>
-<h4 id="linear-filtering-using-a-spatial-filter-mask-使用空间过滤器掩码的线性过滤">Linear filtering using a spatial filter mask 使用空间过滤器掩码的线性过滤</h4>
+<h4 id="linear-filtering-using-a-spatial-filter-mask-线性过滤">Linear filtering using a spatial filter mask 线性过滤</h4>
+<p>Linear filters involve a linear operation on the pixels of the neighbourhood 线性滤波器涉及对邻域像素的线性运算</p>
+<ul>
+<li><p>E.g. linear combination or weighted average of the pixels</p>
+<p>例如 像素的线性组合或加权平均</p></li>
+<li><p>The <strong>filtering</strong> can be represented as the <strong>convolution</strong> of the image with the mask containing the weights</p>
+<p>过滤可以表示为图像与包含权重的mask的卷积</p></li>
+</ul>
 <p><img src="/images/HMS/2249383.png" /></p>
 <p>For <strong>linear</strong> spatial filtering, the result, R, at a point （x,y） is <span class="math display">\[
 R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
@@ -729,7 +748,7 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 <li><p>Linear low-pass filtering 线性低通滤波</p>
 <ul>
 <li><p><strong>Linear filtering</strong> using convolution with a mask in spatial domain</p>
-<p><strong>线性过滤</strong>在空间域中使用带有掩码的卷积</p></li>
+<p><strong>线性过滤</strong>在空间域中使用带有mask的卷积</p></li>
 </ul></li>
 <li><p>Non-linear noise suppression or <u><strong>edge preserving smoothing</strong></u></p>
 <p>非线性噪声抑制或<u><strong>边缘保持平滑</strong></u></p>
@@ -743,10 +762,11 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 \frac{1}{2\pi\sigma^2}^{\frac{x^2+y^2}{2\sigma^2}}
 \]</span></p>
 <ul>
-<li><p>Often used for linear low-pass filtering 常用于线性低通滤波</p></li>
-<li><p>The typical bell-shape 典型的钟形</p>
+<li><p>Often used for <strong>linear low-pass filtering</strong> 常用于线性低通滤波</p></li>
+<li><p>The typical <strong>bell-shape</strong> 典型的钟形</p>
 <ul>
-<li>Gradually less contribution of more distant pixels to the central one 更远的像素对中心像素的贡献逐渐减少</li>
+<li><p>Gradually less contribution of more distant pixels to the central one</p>
+<p><strong>更远的像素对中心像素的贡献逐渐减少</strong></p></li>
 </ul></li>
 <li><p>The integral is equal to one 积分等于一</p>
 <ul>
@@ -760,7 +780,9 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 </ul></li>
 </ul>
 <h4 id="linear-low-pass-filtering-线性低通滤波">Linear low pass filtering 线性低通滤波</h4>
-<p>Small kernels are often used for efficiency 小内核通常用于提高效率</p>
+<p><strong>Linear filtering</strong> using convolution with a mask in spatial domain</p>
+<p><strong>线性过滤</strong>在空间域中使用带有mask的卷积</p>
+<p><strong>Small kernels</strong> are often used for <strong>efficiency</strong> 小内核通常用于提高效率</p>
 <ul>
 <li><p>Coarsely <strong>sampled Gaussian functions</strong> 粗<strong>采样高斯函数</strong></p>
 <ul>
@@ -777,13 +799,14 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249385.png" /></p>
-<p>Repeated application leads to progressively more smoothing, blurring the image 重复应用会逐渐变得更加平滑，使图像变得模糊</p>
-<h4 id="mean-filtering-均值过滤">Mean filtering 均值过滤</h4>
+<p>Repeated application leads to progressively more smoothing, blurring the image</p>
+<p>重复应用会逐渐变得更加平滑，使图像变得模糊</p>
+<h5 id="mean-filtering-均值过滤">Mean filtering 均值过滤</h5>
 <ul>
 <li><p>3×3 mean or moving average filter 3×3 均值或移动平均滤波器</p>
 <ul>
 <li><p>Each pixel becomes the average of its surrounding</p>
-<p>每个像素成为其周围的平均值</p></li>
+<p>每个像素<strong>成为其周围的平均值</strong></p></li>
 </ul></li>
 <li><p>Mask corresponds to a rectangular pulse Mask对应一个矩形脉冲</p>
 <ul>
@@ -794,10 +817,10 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249386.png" /></p>
-<h5 id="illustration-of-the-process-过程图示">Illustration of the process 过程图示</h5>
+<p><strong>Illustration of the process 过程图示</strong></p>
 <ul>
 <li>Filter kernel /mask is placed over red numbers 过滤内核/掩码放在红色数字上</li>
-<li>Pixels are multiplied with mask weights 像素乘以蒙版权重
+<li>Pixels are multiplied with mask weights 像素乘以mask权重
 <ul>
 <li>mean of the 9 values 9 个值的平均值</li>
 </ul></li>
@@ -806,10 +829,11 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 <p><img src="/images/HMS/2249387.png" /></p>
 <p><img src="/images/HMS/2249389.png" /></p>
 <h4 id="non-linear-filters-for-noise-suppression-用于噪声抑制的非线性滤波器">Non-linear filters for noise suppression 用于噪声抑制的非线性滤波器</h4>
+<h5 id="median-filter-中值过滤">Median filter 中值过滤</h5>
 <ul>
 <li><p>Linear low-pass filtering 线性低通滤波</p>
 <ul>
-<li><p>Reduces the noise, at the cost of also deforming the useful signal 降低噪声，代价是也使有用信号变形</p></li>
+<li><p>Reduces the noise, at the cost of also <strong>deforming the useful signal</strong> 降低噪声，代价是也使<strong>有用信号变形</strong></p></li>
 <li><p>Blurring the edges of an image, often undesirable</p>
 <p>模糊图像的边缘，通常是不受欢迎的</p></li>
 <li><p>Some non-linear filter tend to preserve the edges</p>
@@ -819,12 +843,12 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 <p>中值过滤包括取值的中值</p>
 <ul>
 <li><strong>非线性</strong>过滤方法 <strong>Non-linear filtering</strong> approach</li>
-<li>对异常值更稳健，即高度不同的像素 More robust to outliers, i.e. highly different pixels</li>
+<li>对<strong>异常值</strong>更稳健，即高度不同的像素 More robust to outliers, i.e. highly different pixels</li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249389.png" /></p>
-<p>For uneven amount of elements, the median is the middle value of the sorted sequence 对于不均匀数量的元素，中位数是排序序列的中间值</p>
-<h4 id="symmetric-nearest-neighbour-filtering-对称最近邻过滤">Symmetric nearest neighbour filtering 对称最近邻过滤</h4>
+<p>For <strong>uneven amount</strong> of elements, the median is the middle value of the sorted sequence 对于<strong>不均匀数量</strong>的元素，中位数是排序序列的中间值</p>
+<h5 id="symmetric-nearest-neighbour-filtering-对称最近邻过滤">Symmetric nearest neighbour filtering 对称最近邻过滤</h5>
 <ul>
 <li>Non-linear, edge-preserving filter 非线性、边缘保留滤波器</li>
 <li>Aims at making piece-wise uniform images 旨在制作分段均匀的图像</li>
@@ -845,7 +869,7 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249391.png" /></p>
-<h4 id="dual-symmetric-nearest-neighbour-filter-双对称最近邻滤波器">Dual symmetric nearest neighbour filter 双对称最近邻滤波器</h4>
+<h5 id="dual-symmetric-nearest-neighbour-filter-双对称最近邻滤波器">Dual symmetric nearest neighbour filter 双对称最近邻滤波器</h5>
 <ul>
 <li>Non-linear, edge-preserving filter 非线性、边缘保留滤波器</li>
 <li>Compares four symmetric values 比较四个对称值</li>
@@ -867,7 +891,7 @@ R=w(-1,-1)f(x-1,y-1)+w(0,-1)f(x,y-1)+...+w(0,0)f(x,y)+...+w(1,1)f(x+1,y+1)
 <li>Used to replace the central value 用于替换中心值</li>
 </ul></li>
 </ul>
-<h4 id="bilateral-filtering">Bilateral filtering</h4>
+<h5 id="bilateral-filtering">Bilateral filtering</h5>
 <p><span class="math display">\[
 J_s=\frac{1}{k(s)}\sum_{p∈\Omega}f(p-s)g(I_p-I_s)I_P\\
 k(s)=\sum_{p∈\Omega}f(p-s)g(I_p-I_s)
@@ -881,22 +905,23 @@ k(s)=\sum_{p∈\Omega}f(p-s)g(I_p-I_s)
 <p>距离和强度差异的高斯函数很常见，但计算 k 的成本很高</p></li>
 </ul>
 <p><img src="/images/HMS/2249393.png" /></p>
-<h5 id="bilateral-filtering-rationale-双边过滤基本原理">Bilateral filtering: rationale 双边过滤：基本原理</h5>
+<h6 id="bilateral-filtering-rationale-双边过滤基本原理">Bilateral filtering: rationale 双边过滤：基本原理</h6>
 <ul>
 <li><p>Gaussian filtering 高斯滤波</p>
 <ul>
 <li><p>Only takes into account the spatial vicinity of the pixels</p>
 <p>只考虑像素的空间邻近性</p></li>
-<li><p>Will blur across edges by combining pixels with very different intensity 通过组合具有非常不同强度的像素来模糊边缘</p></li>
+<li><p>Will blur across edges by combining pixels with very different intensity</p>
+<p>通过组合具有非常不同强度的像素来模糊边缘</p></li>
 </ul></li>
 <li><p>Symmetric filtering （with mean operator） 对称过滤（使用均值算子）</p>
 <ul>
 <li><p>Considers the similarity of the intensities 考虑强度的相似性</p></li>
 <li><p>Assigns a weight of 0 （=not-selected） and 1 （=selected） for all pixels within the mask</p>
-<p>为蒙版内的所有像素分配 0（=未选中）和 1（=选中）的权重</p></li>
+<p>为mask内的所有像素分配 0（=未选中）和 1（=选中）的权重</p></li>
 </ul></li>
 </ul>
-<h3 id="filters-for-edge-enhancement-detection-用于边缘增强和检测的过滤器">Filters for edge enhancement &amp; detection 用于边缘增强和检测的过滤器</h3>
+<h2 id="filters-for-edge-enhancement-detection-用于边缘增强和检测的过滤器">Filters for edge enhancement &amp; detection 用于边缘增强和检测的过滤器</h2>
 <ul>
 <li><p>To enhance the <strong>edge contrast</strong> of an image 增强图像的<strong>边缘对比度</strong></p>
 <ul>
@@ -915,19 +940,28 @@ k(s)=\sum_{p∈\Omega}f(p-s)g(I_p-I_s)
 <li><p>Edges are typically represented with <strong>high frequencies</strong></p>
 <p>边缘通常用<strong>高频</strong>表示</p>
 <ul>
-<li><p>Most approaches rely on high-pass filtering or boosting</p>
-<p>大多数方法依赖于高通滤波或增强</p></li>
+<li><p>Most approaches rely on <strong>high-pass</strong> filtering or boosting</p>
+<p>大多数方法依赖于<strong>高通</strong>滤波或增强</p></li>
 </ul></li>
+</ul>
+<p><strong>Gradient magnitude</strong> is non-zero near an edge 边缘附近的<strong>梯度幅度</strong>不为零</p>
+<ul>
+<li><p>Apply differential operators along each dimension, and compute magnitude</p>
+<p>沿每个维度应用微分算子，并计算幅度</p></li>
+<li><p>Can be approximated using compact Prewitt or Sobel masks</p>
+<p>可以使用紧凑型 Prewitt 或 Sobel 蒙版近似</p></li>
+<li><p>High-pass filters will always have a sum of weights = 0</p>
+<p>高通滤波器的权重总和 = 0</p></li>
 </ul>
 <p>Differential operators along the spatial directions x, y 沿空间方向 x, y 的微分算子</p>
 <ul>
-<li><p>The gradient magnitude image provides a measure for the rate of intensity transitions → <strong>edges</strong></p>
-<p>梯度幅值图像提供了强度转换率的衡量标准 → <strong>edges</strong></p></li>
+<li><p>The <strong>gradient magnitude image</strong> provides a measure for the rate of intensity transitions → <strong>edges</strong></p>
+<p><strong>梯度幅值图像</strong>提供了强度转换率的衡量标准 → <strong>edges</strong></p></li>
 </ul>
 <p><img src="/images/HMS/2249394.png" /></p>
-<h4 id="rotation-invariance-of-the-gradient-magnitude-梯度幅值的旋转不变性">Rotation invariance of the gradient magnitude 梯度幅值的旋转不变性</h4>
-<p>Important for the reproducibility of the measure and resulting edge map</p>
-<p>对于测量的可重复性和生成的边缘图很重要 <span class="math display">\[
+<h3 id="rotation-invariance-of-the-gradient-magnitude-梯度幅值的旋转不变性">Rotation invariance of the gradient magnitude 梯度幅值的旋转不变性</h3>
+<p>Important for the <strong>reproducibility</strong> of the measure and resulting edge map</p>
+<p>对于测量的<strong>可重复性</strong>和生成的边缘图很重要 <span class="math display">\[
 Rotation\ transform =\left\{
 \begin{aligned}
 x  = &amp; x&#39;\cos\theta-y&#39;\sin\theta \\
@@ -943,14 +977,18 @@ z  = &amp; x&#39;\sin\theta+y&#39;\cos\theta
 <p>The gradient magnitude is <strong>rotation invariant （approximately for discrete masks）</strong>, the partial derivatives are not</p>
 <p>梯度幅度是<strong>旋转不变的（近似于离散mask）</strong>，偏导数不是</p>
 </blockquote>
-<h4 id="filters-for-edge-detection-边缘检测过滤器">Filters for edge detection 边缘检测过滤器</h4>
+<h3 id="filters-for-edge-detection-边缘检测过滤器">Filters for edge detection 边缘检测过滤器</h3>
 <ul>
-<li><p>Compact masks 紧凑型mask</p>
+<li><p><strong>The horizontal and vertical edge maps need to be combined.</strong> This can be done by computing the gradient magnitude （the square root of the sum of the squared horizontal and vertical maps）.</p>
+<p><strong>水平和垂直边缘图需要合并。</strong> 这可以通过计算梯度幅度（水平和垂直图平方和的平方根）来完成。</p></li>
+<li><p>This is sometimes approximated using the sum of absolute values after <strong>Prewitt or Sobel filtering</strong></p>
+<p>有时使用 <strong>Prewitt 或 Sobel 过滤后的绝对值之和来近似计算</strong></p>
+<ul>
+<li><p>Compact masks 紧凑型 mask</p>
 <ul>
 <li><p>Fast computations 快速计算</p></li>
-<li><p>Discrete approximation of gradient components through <strong>linear filtering</strong></p>
-<p>通过<strong>线性过滤</strong>梯度分量的离散逼近</p></li>
-</ul></li>
+<li><p>Discrete approximation of gradient components through <strong>linear filtering</strong></p></li>
+<li><p>通过<strong>线性过滤</strong>梯度分量的离散逼近</p></li>
 <li><p>Sum of coefficients of the linear mask = 0 线性mask的系数总和 = 0</p>
 <ul>
 <li><p>The <strong>DC component</strong> （local average） is removed</p>
@@ -958,13 +996,49 @@ z  = &amp; x&#39;\sin\theta+y&#39;\cos\theta
 <li><p>Result is variations （+/-） around zero</p>
 <p>结果是零附近的变化 （+/-）</p></li>
 </ul></li>
+</ul></li>
+</ul></li>
+<li><p>The image above should be thresholded to obtain an <strong>edge map</strong></p>
+<p>对上面的图像进行阈值处理以获得<strong>边缘图</strong></p>
+<ul>
+<li><p>Binary image with location of edges</p>
+<p>带有边缘位置的二值图像</p></li>
+</ul></li>
+<li><p>Difficult to select an adequate threshold</p>
+<p>难以选择合适的阈值</p>
+<ul>
+<li><p>Edges are often more than one pixel thick</p>
+<p>边缘通常不止一个像素厚</p></li>
+<li><p>Uncertainty on localisation of edge</p>
+<p>边缘定位的不确定性</p></li>
+</ul></li>
 </ul>
 <p><img src="/images/HMS/2249395.png" /></p>
-<h5 id="prewitt-mask">Prewitt mask</h5>
-<p>Sum of absolute values sometimes used as an approximation of gradient magnitude 绝对值的总和有时用作梯度幅度的近似值</p>
+<h4 id="prewitt-mask">Prewitt mask</h4>
+<ul>
+<li><p>Fast computations 快速计算</p></li>
+<li><p>Discrete approximation of gradient components through <strong>linear filtering</strong></p>
+<p>通过<strong>线性过滤</strong>梯度分量的离散逼近</p></li>
+</ul>
 <p><img src="/images/HMS/2249396.png" /></p>
-<h5 id="edge-detection">Edge detection</h5>
-<p>Thresholding the gradient magnitude, or sum of absolute values after Prewitt or Sobel filtering 阈值梯度幅度或 Prewitt 或 Sobel 过滤后的绝对值总和</p>
+<ul>
+<li><p>When the central element of the mask is in a homogeneous intensity region, the output will be near zero.</p>
+<p>当面罩的中心元素处于均匀强度区域时，输出将接近于零。</p></li>
+<li><p>When the central element of the mask is placed near an edge, the top value (covered by the top row) and the bottom values (covered by the bottom row) can be strongly different, leading to a large (positive or negative) value different from zero.</p>
+<p>当蒙版的中心元素靠近边缘放置时，顶部值（由顶行覆盖）和底部值（由底行覆盖）可能有很大不同，导致较大（正或负）值 不同于零。</p></li>
+</ul>
+<p>Sum of absolute values sometimes used as an approximation of gradient magnitude 绝对值的总和有时用作梯度幅度的近似值</p>
+<p>In simple terms, the operator calculates the <em><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Image_gradient">gradient</a></em> of the image intensity at each point, giving the direction of the largest possible increase from light to dark and the rate of change in that direction.</p>
+<p>简单来说，算子计算每个点图像强度的<em><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Image_gradient">gradient</a></em>，给出从亮到暗的最大可能增加的方向和那个方向的变化率。</p>
+<p>The result therefore shows how "abruptly" or "smoothly" the image changes at that point, and therefore how likely it is that part of the image represents an <em>edge</em>, as well as how that edge is likely to be oriented. In practice, the magnitude (likelihood of an edge) calculation is more reliable and easier to interpret than the direction calculation.</p>
+<p>因此，结果显示了图像在该点变化的“突然”或“平滑”程度，因此图像的该部分代表<strong>边缘</strong>的可能性有多大，以及该边缘可能如何定向。在实践中，幅度（边缘的可能性）计算比方向计算更可靠且更容易解释。</p>
+<p>Mathematically, the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gradient">gradient</a> of a two-variable function (here the image intensity function) is at each image point a 2D <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Vector_(geometric)">vector</a> with the components given by the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Derivative">derivatives</a> in the horizontal and vertical directions.</p>
+<p>在数学上，二变量函数（此处为图像强度函数）的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gradient">梯度</a> 在每个图像点处是一个 2D <a href="https://en%20.wikipedia.org/wiki/Vector_(geometric)">向量</a> 与 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Derivative">derivatives</a> 在水平和垂直方向上给出的分量。</p>
+<p>At each image point, the gradient vector points in the direction of largest possible intensity increase, and the length of the gradient vector corresponds to the rate of change in that direction. This implies that the result of the Prewitt operator at an image point which is in a region of constant image intensity is a zero vector and at a point on an edge is a vector which points across the edge, from darker to brighter values.</p>
+<p>在每个图像点，<strong>梯度向量</strong>指向<strong>强度最大可能增加的方向</strong>，梯度向量的长度对应于该方向的变化率。这意味着 Prewitt 算子在恒定图像强度区域中的图像点处的结果是零向量，而在边缘上的点处是指向边缘的向量，从较暗到较亮的值。</p>
+<h4 id="edge-detection">Edge detection</h4>
+<p>Thresholding the gradient magnitude, or sum of absolute values after Prewitt or Sobel filtering</p>
+<p>阈值梯度幅度或 Prewitt 或 Sobel 过滤后的绝对值总和</p>
 <ul>
 <li><p>Provides an <strong>edge map</strong> 提供<strong>边缘图</strong></p>
 <ul>
@@ -979,36 +1053,40 @@ z  = &amp; x&#39;\sin\theta+y&#39;\cos\theta
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249397.png" /></p>
-<h5 id="edge-detection-via-second-order-derivatives-通过二阶导数进行边缘检测">Edge detection via second order derivatives 通过二阶导数进行边缘检测</h5>
+<h4 id="edge-detection-via-second-order-derivatives-通过二阶导数进行边缘检测">Edge detection via second order derivatives 通过二阶导数进行边缘检测</h4>
 <ul>
-<li>Gradient magnitude 梯度幅度
+<li><strong>Gradient magnitude 梯度幅度</strong>
 <ul>
 <li>Can lead to wide edges and interruptions 可能导致宽边和中断</li>
 <li>Uncertainty on the detection of the edge 边缘检测的不确定性</li>
 </ul></li>
-<li>Second order derivatives 二阶导数
+<li><strong>Second order derivatives 二阶导数</strong>
 <ul>
 <li>Will rise and fall near edges 将在边缘附近上升和下降</li>
 <li><strong>Zero-crossing</strong> in between <strong>中间过零</strong></li>
 </ul></li>
-<li>Zero-crossing of the 2nd order derivatives 二阶导数的过零
+<li><strong>Zero-crossing of the 2nd order derivatives 二阶导数的过零</strong>
 <ul>
 <li>Popular method for edge detection 边缘检测的流行方法</li>
 <li><strong>Laplacian operator</strong> <strong>拉普拉斯算子</strong></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249398.png" /></p>
-<h6 id="the-laplace-operator-a-high-pass-filter-拉普拉斯算子高通滤波器">The Laplace operator, a high-pass filter 拉普拉斯算子，高通滤波器</h6>
+<h5 id="the-laplace-operator-a-high-pass-filter-拉普拉斯算子高通滤波器">The Laplace operator, a high-pass filter <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%AE%97%E5%AD%90">拉普拉斯算子</a>，高通滤波器</h5>
+<blockquote>
+<p>在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/數學">数学</a>以及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/物理">物理</a>中，<strong>拉普拉斯算子Laplace operator</strong>）是由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/欧几里得空间">欧几里得空间</a>中的一个函数的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/梯度">梯度</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/散度">散度</a>给出的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/微分算子">微分算子</a></p>
+</blockquote>
 <p>The Laplace operator <span class="math display">\[
 \Delta f=\nabla^2f=\nabla.\nabla f=(\frac{\partial^2 f}{\partial x^2})+(\frac{\partial^2 f}{\partial y^2})
-\]</span> Compact （3×3） masks that approximate the Laplacian output 近似拉普拉斯输出的紧凑 （3×3） 掩码 <span class="math display">\[
+\]</span> <strong>Compact （3×3） masks</strong> that approximate the Laplacian output 近似拉普拉斯输出的紧凑 （3×3） 掩码 <span class="math display">\[
 f(i + 1, j) + f(i-1, j) + f(i, j + 1) + f(i, j-1)  4f(i, j)
 = f(i, j) + f(i + 1, j) + f(i-1, j) + f(i, j + 1) + f(i, j-1)  5f(i, j)
 \]</span></p>
 <ul>
 <li><p>Proportional to the difference of the average gray level in a neighbourhood and the central pixel （i,j）</p>
-<p>与邻域和中心像素的平均灰度级差成正比 （i,j）</p></li>
-<li><p>Sum of coefficients of the linear mask = 0 线性掩码的系数总和 = 0</p>
+<p><strong>与邻域和中心像素的平均灰度级差成正比</strong> （i,j）</p></li>
+<li><p>Sum of coefficients of the linear mask = 0</p>
+<p>线性掩码的系数总和 = 0</p>
 <ul>
 <li><p>The DC component （the local average） is removed</p>
 <p>去除了直流分量（局部平均值）</p></li>
@@ -1023,8 +1101,12 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 <ul>
 <li><p>Second order derivatives 二阶衍生品</p>
 <ul>
-<li><strong>Amplify the image noise</strong> tremendously <strong>极大地放大图像噪声</strong></li>
-<li>Amplification of high frequencies 高频放大</li>
+<li><p><strong>Amplify the image noise</strong> tremendously <strong>极大地放大图像噪声</strong></p>
+<blockquote>
+<p>noise is best supressed beforehand</p>
+<p>最好事先抑制噪音</p>
+</blockquote></li>
+<li><p>Amplification of high frequencies 高频放大</p></li>
 </ul></li>
 <li><p>Laplacian is often combined with smoothing 拉普拉斯算子通常与平滑结合使用</p></li>
 <li><p><strong>Laplace of a Gaussian</strong> <strong>高斯拉普拉斯</strong></p>
@@ -1035,42 +1117,46 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 <p>使用一个内核/过滤器操作</p></li>
 </ul></li>
 </ul>
-<h6 id="zero-crossing-algorithm-过零算法">Zero-crossing: algorithm 过零：算法</h6>
+<h5 id="zero-crossing-algorithm-过零算法">Zero-crossing: algorithm 过零：算法</h5>
 <p>After filtering with the Laplacian of Gaussian 用高斯拉普拉斯算子滤波后</p>
 <ul>
 <li><p>Each pixel of the filtered image is compared with its <strong>4 direct neighbours</strong> 过滤图像的每个像素与其<strong>4个直接邻居</strong>进行比较</p></li>
 <li><p>If a sign change is detected, <u>a zero-crossing is marked</u> on the pixel with the smallest, hence negative, value.</p>
-<p>如果检测到符号变化，则<u>在具有最小（因此为负）值的像素上标记过零</u>。</p></li>
-<li><p>In this way, contours of only <strong>one -pixel wide</strong> are obtained</p>
+<p>如果检测到符号变化，则<u>在具有<strong>最小</strong>（因此为负）值的像素上标记过<strong>零</strong></u>。</p></li>
+<li><p>In this way, contours of only <strong>one-pixel wide</strong> are obtained</p>
 <p>这样，只得到了<strong>一个像素宽</strong>的轮廓</p></li>
 </ul>
-<p>The edges obtained by zero-crossing detection have the advantage to directly form closed contours 过零检测得到的边缘具有直接形成闭合轮廓的优点</p>
+<p>The edges obtained by zero-crossing detection have the advantage to <strong>directly form closed contours</strong></p>
+<p><strong>过零检测</strong>得到的边缘具有<strong>直接形成闭合轮廓</strong>的优点</p>
 <ul>
-<li><p>A problem is that this method does not take into account the strength of the edge 一个问题是这个方法没有考虑边缘的强度</p></li>
+<li><p>A problem is that this method does not take into account the strength of the edge</p>
+<p>一个问题是这个方法<u>没有考虑边缘的强度</u></p></li>
 <li><p>Zero-crossings can be produced by slight variations in the intensity</p>
-<p>强度的轻微变化可以产生过零</p></li>
+<p><u>强度的轻微变化可以产生过零</u></p></li>
 <li><p>These kind of unwanted edges are commonly called spurious edges.</p>
-<p>这种不需要的边缘通常称为虚假边缘。</p></li>
-<li><p>They can be eliminated by choosing a larger σ for the Gaussian filter</p>
+<p>这种不需要的边缘通常称为虚假边缘。</p>
+<p>They can be eliminated by choosing a larger σ for the Gaussian filter</p>
 <p>可以通过为高斯滤波器选择更大的 σ 来消除它们</p></li>
 </ul>
 <p><img src="/images/HMS/2249400.png" /></p>
-<p>Edge detection by means of the Zero-Crossings of the Laplacian of a Gaussian通过高斯拉普拉斯算子的过零进行边缘检测</p>
+<p>Edge detection by means of the Zero-Crossings of the Laplacian of a Gaussian</p>
+<p>通过高斯拉普拉斯算子的过零进行边缘检测</p>
 <p><img src="/images/HMS/2249401.png" /></p>
 <p>Edge map obtained for increasing values of sigma / smoothing</p>
-<h4 id="filters-for-edge-enhancement-边缘增强过滤器">Filters for edge enhancement 边缘增强过滤器</h4>
+<h3 id="filters-for-edge-enhancement-边缘增强过滤器">Filters for edge enhancement 边缘增强过滤器</h3>
 <ul>
 <li><p>Unsharp masking 不锐化遮罩</p>
 <ul>
 <li><p>Related to <strong>high-pass filtering or boosting</strong></p>
 <p>与<strong>高通滤波或增强</strong>相关</p></li>
-<li><p>Emphasize the high-frequency components</p>
-<p>强调高频成分</p></li>
+<li><p>Emphasize the <strong>high-frequency</strong> components</p>
+<p>强调<strong>高频</strong>成分</p></li>
 </ul></li>
 <li><p>Many implementations exist, following same principal</p>
 <p>存在许多实现，遵循相同的原则</p>
 <ul>
-<li><p>Add a scaled （factor 0.2-0.7） high-pass version of the image to the original 将图像的缩放（因子 0.2-0.7）高通版本添加到原始图像</p>
+<li><p>Add a scaled （factor 0.2-0.7） high-pass version of the image to the original</p>
+<p>将图像的缩放（因子 0.2-0.7）高通版本添加到原始图像</p>
 <ul>
 <li><p>The high-pass can be obtained by subtracting a low-pass, unsharp version from the original</p>
 <p>高通可以通过从原始版本中减去一个低通、不清晰的版本来获得</p></li>
@@ -1082,7 +1168,16 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249402.png" /></p>
-<h5 id="unsharp-mask-filtering-using-compact-masks-使用紧凑蒙版进行锐化蒙版过滤">Unsharp mask filtering using compact masks 使用紧凑蒙版进行锐化蒙版过滤</h5>
+<h4 id="unsharp-mask-filtering-using-compact-masks-使用紧凑蒙版进行锐化蒙版过滤">Unsharp mask filtering using compact masks 使用紧凑蒙版进行锐化蒙版过滤</h4>
+<blockquote>
+<p><strong>反</strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Image_sharpening">锐化</a><strong>遮罩</strong>( <strong>USM</strong> ) 是一种<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Image_sharpening">图像锐化</a>技术，通常在<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Digital_image_processing">数字图像处理</a>软件中可用。它的名字源于这样一个事实，即该技术使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gaussian_blur">模糊</a>或“不清晰”的负像来创建原始图像的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mask_(computing)">蒙版</a>。</p>
+<p>将锐化蒙版与原始正图像组合，创建一个比原始图像更模糊的图像。</p>
+<p>The unsharp mask is then combined with the original positive image, creating an image that is less blurry than the original.</p>
+<p>生成的图像虽然更清晰，但可能不是图像主题的准确表示。</p>
+<p>The resulting image, although clearer, may be a less accurate representation of the image's subject.</p>
+<p>在<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Signal_processing">信号处理</a>的上下文中，非锐化掩模通常是<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linear_filter">线性</a>或<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nonlinear_filter">非线性的。</a> 放大信号的高频分量的滤波器。</p>
+<p>In the context of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Signal_processing">signal processing</a>, an unsharp mask is generally a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linear_filter">linear</a> or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nonlinear_filter">nonlinear</a> filter that amplifies the high-frequency components of a signal.</p>
+</blockquote>
 <p>Masks that can be used for linear unsharp mask filtering 可用于线性非锐化蒙版过滤的蒙版</p>
 <ul>
 <li>Sum of all elements =1 所有元素的总和 =1
@@ -1096,12 +1191,12 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 <li>Can be combined with smoothing 可以结合平滑
 <ul>
 <li>Avoid amplifying noise 避免放大噪音</li>
-<li>Laplacian of a Gaussian高斯拉普拉斯算子</li>
+<li>Laplacian of a Gaussian 高斯拉普拉斯算子</li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249403.png" /></p>
-<p>Unsharp mask filter only feasible on high-quality, low noise images. Or should be combined with noise suppression.</p>
-<p>Unsharp mask filter 只适用于高质量、低噪声的图像。 或者应该结合噪声抑制。</p>
+<p>Unsharp mask filter only feasible on <strong>high-quality, low noise</strong> images. Or should be combined with <strong>noise suppression.</strong></p>
+<p>Unsharp mask filter 只适用于<strong>高质量、低噪声</strong>的图像。 或者应该结合噪声抑制。</p>
 <p><img src="/images/HMS/2249404.png" /></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WeNpd_YEF6I">Intuitive explanation of unsharp masking</a></p>
 <h2 id="image-segmentation-图像分割">Image segmentation 图像分割</h2>
@@ -1143,9 +1238,9 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 </ul>
 <h4 id="region-based-基于区域">Region-based 基于区域</h4>
 <ul>
-<li><p>The object can be identified based on its intensity （e.g. CT）</p>
+<li><p>The object can be identified based on its <strong>intensity</strong> （e.g. CT）</p>
 <p>可以根据物体的强度（例如 CT）识别物体</p></li>
-<li><p>It differs from its surrounding based on the intensity</p>
+<li><p>It differs from its surrounding based on the <strong>intensity</strong></p>
 <p>根据强度与周围环境不同</p>
 <ul>
 <li><p>It is not connected to other regions with similar intensity?</p>
@@ -1153,9 +1248,9 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 </ul></li>
 <li><p>We use the region to identify the object</p>
 <p>我们使用区域来识别对象</p></li>
-<li><p>The area or volume is the goal, 面积或体积是目标，</p>
+<li><p>The <strong>area</strong> or <strong>volume</strong> is the goal, 面积或体积是目标，</p>
 <ul>
-<li>e.g. for volume measurements 例如用于体积测量</li>
+<li>e.g. for <strong>volume measurements</strong> 例如用于体积测量</li>
 <li>Surface is less important 表面不那么重要</li>
 </ul></li>
 </ul>
@@ -1219,19 +1314,21 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 </ul></li>
 </ul>
 <p><img src="/images/HMS/2249407.png" /></p>
-<p>Otsu thresholding 大津阈值</p>
+<h4 id="otsu-thresholding-大津阈值">Otsu thresholding 大津阈值</h4>
 <ul>
 <li>Minimize the inner class variance 最小化内部类方差</li>
 <li>Maximize the between class variance 最大化类间方差</li>
 <li>Extendable to multiple labels 可扩展到多个标签</li>
 </ul>
 <h3 id="region-growing-区域增长">Region growing 区域增长</h3>
+<blockquote>
 <p>With an intensity based criterion, closely related to thresholding 使用基于强度的标准，与阈值密切相关</p>
+</blockquote>
 <ul>
 <li><p>Region-based, incorporating the notion of <strong>spatial connectivity</strong></p>
 <p>基于区域，结合<strong>空间连通性</strong>的概念</p></li>
-<li><p><u>Allows to limit the segmentation to spatially connected regions</u></p>
-<p><u>允许将分割限制为空间连接区域</u></p></li>
+<li><p><u>Allows to limit the segmentation to <strong>spatially connected regions</strong></u></p>
+<p><u>允许将分割限制为<strong>空间连接区域</strong></u></p></li>
 </ul>
 <p><img src="/images/HMS/2249408.png" /></p>
 <p>Grow a region starting from a <strong>seed point</strong> 从<strong>种子点</strong>开始种植区域</p>
@@ -1261,13 +1358,14 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 4. repeat 2-3 while new B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Algorithms vary in inclusion and stopping criterion 算法在包含和停止标准方面有所不同</p>
 <ul>
-<li><p>Average neighbourhood before applying criterion</p>
-<p>应用标准前的平均邻域</p>
+<li><p><strong>Average neighbourhood</strong> before applying criterion</p>
+<p>应用标准前的<strong>平均化邻域</strong></p>
 <ul>
 <li><p>Improve <strong>robustness</strong> to noise</p>
 <p>提高<strong>鲁棒性</strong>噪声</p></li>
 </ul></li>
-<li><p>Apply criterion to all pixels in neighbourhood before including central pixel 在包括中心像素之前，将标准应用于邻域中的所有像素</p>
+<li><p>Apply criterion to all pixels in neighbourhood before including central pixel</p>
+<p>在包括中心像素之前，将标准应用于<strong>邻域中的所有像素</strong></p>
 <ul>
 <li><p>Prevent <strong>leaking</strong> through thin structures</p>
 <p>通过薄结构防止<strong>泄漏</strong></p></li>
@@ -1284,8 +1382,10 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 <li><p>Flexible contours （2D） or surfaces （3D） with controllable properties</p>
 <p>具有可控属性的柔性轮廓 （2D） 或表面 （3D）</p>
 <ul>
-<li>Evolve initial shape until it matches the outer contour of an object 进化初始形状，直到它与对象的外轮廓相匹配</li>
-<li>Driven by <strong>virtual forces</strong> derived from the image, edge-based method 由来自图像的<strong>虚拟力</strong>驱动，基于边缘的方法</li>
+<li><p>Evolve initial shape until it matches the outer contour of an object</p>
+<p>进化初始形状，直到它与对象的外轮廓相匹配</p></li>
+<li><p>Driven by <strong>virtual forces</strong> derived from the image, edge-based method</p>
+<p>由来自图像的<strong>虚拟力</strong>驱动，基于边缘的方法</p></li>
 </ul></li>
 <li><p>Also termed <strong>active contours</strong> 也称为<strong>活动轮廓</strong></p></li>
 </ul>
@@ -1296,7 +1396,7 @@ LoG(x,y)=\Delta e^{-\frac{x^2+y^2}{2\sigma^2}}=\frac{1}{2\pi \sigma^2}(\frac{x^2
 <li>Smoothness, curvature 平滑度、曲率</li>
 <li>Expansion, contraction 扩张、收缩</li>
 </ul>
-<h4 id="snakes-a-simple-active-contour">Snakes, a simple active contour</h4>
+<h4 id="snakes-蛇-a-simple-active-contour">Snakes 蛇 , a simple active contour</h4>
 <h5 id="mathematical-formulation">Mathematical formulation</h5>
 <ul>
 <li><p>A deformable contour parameterized by a single parameter s</p>
@@ -1339,9 +1439,9 @@ E_{ext}^{(1)}f(x,y)|=-|\vec{\nabla}f(x,y)| \or E_{ext}^{(2)}f(x,y)|=-|\vec{\nabl
 <p>Success also depends on suitable <strong>pre-processing</strong> 成功还取决于合适的<strong>预处理</strong></p>
 <ul>
 <li><p>Filtering to eliminate the noise and enhance the edges,</p>
-<p>过滤以消除噪声并增强边缘，</p></li>
+<p>过滤以<strong>消除噪声</strong>并<strong>增强边缘</strong>，</p></li>
 <li><p>Proper edge detector to obtain a suitable force field map</p>
-<p>适当的边缘检测器以获得合适的力场图</p></li>
+<p>适当的<strong>边缘检测器</strong>以获得合适的力场图</p></li>
 </ul>
 <p>Success also depends on suitable <strong>initialization</strong> 成功还取决于合适的<strong>初始化</strong></p>
 <ul>
@@ -1378,7 +1478,7 @@ E_{ext}^{(1)}f(x,y)|=-|\vec{\nabla}f(x,y)| \or E_{ext}^{(2)}f(x,y)|=-|\vec{\nabl
 </ul>
 <h4 id="definitions">Definitions</h4>
 <ul>
-<li><p>We represent a binary image using mathematical sets I and I<sub>c</sub> <span class="math display">\[
+<li><p>We represent a <strong>binary image</strong> using mathematical sets I and I<sub>c</sub> <span class="math display">\[
 I = \{r|f(r)=1\}\\
 I^c= \{r|f(r)=0\}
 \]</span></p></li>
@@ -1389,7 +1489,7 @@ T_r(B) = \{b|b - r ∈ B\}= \{b + r|b ∈ B\}
 \]</span></p></li>
 </ul>
 <h4 id="erosion-侵蚀">Erosion 侵蚀</h4>
-<p>Binary dilation through union of translations 通过翻译联合进行二元膨胀 <span class="math display">\[
+<p><strong>Binary dilation</strong> through union of translations 通过翻译联合进行二元膨胀 <span class="math display">\[
 I⊖B = \{r|r + b ∈ I , ∀b ∈ B\}=∩_{b ∈ B}T_{-b}(I)
 \]</span></p>
 <ul>
@@ -1448,45 +1548,47 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>For visual inspection or further processing</p>
 <p>用于目视检查或进一步处理</p></li>
 </ul></li>
-<li><p>Histogram: graphical representation of image intensities</p>
+<li><p><strong>Histogram</strong>: graphical representation of image <strong>intensities</strong></p>
 <p>直方图：图像强度的图形表示</p>
 <ul>
 <li><p>Allows to inspect the spread of the intensities</p>
 <p>允许检查强度的分布</p></li>
 </ul></li>
-<li><p>Histogram-based techniques 基于直方图的技术</p>
+<li><p><strong>Histogram-based techniques</strong> 基于直方图的技术</p>
 <ul>
-<li><p>Modify the intensity of pixels without considering neighbourhood</p>
+<li><p>Modify the intensity of pixels <strong>without considering neighbourhood</strong></p>
 <p>在不考虑邻域的情况下修改像素的强度</p></li>
 </ul></li>
-<li><p>Linear contrast mapping 线性对比映射</p>
+<li><p>Linear contrast mapping <strong>线性</strong>对比映射</p>
 <ul>
 <li><p>Transform the intensities linearly such that entire range is used</p>
-<p>线性变换强度，以便使用整个范围</p></li>
+<p>线性变换强度，<strong>以便使用整个范围</strong></p></li>
 </ul></li>
 <li><p>Intensity windowing 强度窗口</p>
 <ul>
-<li><p>Select a window level and width, and map the intensities inside the window to black and white</p>
+<li><p>Select a window level and width, asnd map the intensities inside the window to black and white</p>
 <p>选择一个窗口级别和宽度，并将窗口内的强度映射到黑白</p></li>
 </ul></li>
-<li><p>Non-linear contrast mapping or equalisation 非线性对比度映射或均衡</p>
+<li><p>Non-linear contrast mapping or equalisation <strong>非线性</strong>对比度映射或均衡</p>
 <ul>
 <li><p>Transform the intensities non-linearly such that the histogram becomes approximately homogeneous</p>
-<p>非线性变换强度，使直方图变得近似均匀</p></li>
+<p>非线性变换强度，使直方图变得近似<strong>均匀</strong></p></li>
 </ul></li>
 </ul>
 <h2 id="image-filtering-图像过滤-1">Image filtering 图像过滤</h2>
 <ul>
-<li><p>Filters adapt intensities of image by taking into account the neighbourhood 过滤器通过考虑邻域来适应图像的强度</p>
+<li><p>Filters adapt intensities of image by taking into account the neighbourhood 过滤器通过考虑<strong>邻域</strong>来适应图像的强度</p>
 <ul>
-<li><p>The neighbourhood can be defined by a spatial filter mask</p>
-<p>邻域可以由空间滤波器掩码定义</p></li>
+<li><p>The neighbourhood can be defined by a <strong>spatial filter mask</strong></p>
+<p>邻域可以由<strong>空间滤波器掩码</strong>定义</p></li>
 </ul></li>
-<li><p>The size of the mask will determine the amount of pixels taken into account while filtering 蒙版的大小将决定过滤时考虑的像素数量</p>
+<li><p>The size of the mask will determine the amount of pixels taken into account while filtering</p>
+<p>蒙版的大小将决定过滤时考虑的像素数量</p>
 <ul>
 <li>Will have impact on computational cost 会影响计算成本</li>
 </ul></li>
-<li><p>Linear filters involve a linear operation on the pixels of the neighbourhood 线性滤波器涉及对邻域像素的线性运算</p>
+<li><p>Linear filters involve a linear operation on the pixels of the neighbourhood</p>
+<p>线性滤波器涉及对邻域像素的线性运算</p>
 <ul>
 <li><p>E.g. linear combination or weighted average of the pixels</p>
 <p>例如 像素的线性组合或加权平均</p></li>
@@ -1496,13 +1598,13 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>Non-linear filters involve a non-linear operation on the pixels of the neighbourhood</p>
 <p>非线性滤波器涉及对邻域像素的非线性操作</p>
 <ul>
-<li><p>Cannot be represented using a convolution</p>
+<li><p>Cannot be represented using a <strong>convolution</strong></p>
 <p>不能用卷积表示</p></li>
 </ul></li>
 </ul>
 <h2 id="filters-for-noise-suppression-噪声抑制过滤器">Filters for noise suppression 噪声抑制过滤器</h2>
 <ul>
-<li><p>Noise is often high-frequency 噪音通常是高频的</p>
+<li><p>Noise is often high-frequency 噪音通常是<strong>高频</strong>的</p>
 <ul>
 <li><p>Filters often exploit this to suppress the noise</p>
 <p>滤波器经常利用这一点来抑制噪声</p></li>
@@ -1510,11 +1612,11 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>Linear low-pass filtering: average filtering, gaussian filtering, …</p>
 <p>线性低通滤波：平均滤波、高斯滤波……</p>
 <ul>
-<li><p>Can be approximated using compact （3×3, 5×5, ..） masks</p>
+<li><p>Can be approximated using <strong>compact （3×3, 5×5, ..） masks</strong></p>
 <p>可以使用紧凑型 （3×3, 5×5, ...） 蒙版近似</p></li>
 <li><p>The sum of the weights in the mask is always 1</p>
 <p>掩码中的权重总和始终为 1</p></li>
-<li><p>Can suppress noise at the cost of also blurring the edges</p>
+<li><p>Can suppress noise at the cost of also <strong>blurring the edges</strong></p>
 <p>可以以模糊边缘为代价来抑制噪声</p></li>
 <li><p>Comes down to averaging pixels （with a certain weight） within the mask region</p>
 <p>归结为平均蒙版区域内的像素（具有一定的权重）</p></li>
@@ -1522,39 +1624,39 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>Non-linear filters for noise suppression 用于噪声抑制的非线性滤波器</p>
 <ul>
 <li><p>Aim at reducing the noise, without impacting the edges</p>
-<p>旨在降低噪音，不影响边缘</p></li>
+<p><strong>旨在降低噪音，不影响边缘</strong></p></li>
 </ul></li>
 <li><p>Median filtering 中值过滤</p>
 <ul>
 <li><p>Median is less sensitive to outliers than the average</p>
-<p>中位数对异常值的敏感度低于平均值</p></li>
-<li><p>Will blur edges less, good for Salt&amp;Pepper noise</p>
+<p>中位数<u>对异常值的敏感度低于平均值</u></p></li>
+<li><p>Will blur edges less, good for Salt &amp; Pepper noise</p>
 <p>边缘模糊较少，有利于椒盐噪声</p></li>
 </ul></li>
 <li><p>（Dual） symmetric filters for noise suppression</p>
 <p>用于噪声抑制的（双）对称滤波器</p>
 <ul>
-<li><p>Aim at preserving straight edges （and angles）</p>
-<p>旨在保留直边（和角度）</p></li>
+<li><p>Aim at preserving <strong>straight edges （and angles）</strong></p>
+<p>旨在保留<strong>直边（和角度）</strong></p></li>
 <li><p>A selection of similar pixels is performed to avoid edge blurring</p>
 <p>执行相似像素的选择以避免边缘模糊</p></li>
 </ul></li>
 <li><p>Bilateral filtering for noise suppression 用于噪声抑制的双边滤波</p>
 <ul>
 <li><p>Aims at noise suppression while preserving edges</p>
-<p>旨在在保留边缘的同时抑制噪声</p></li>
+<p>旨在在<u>保留边缘的同时<strong>抑制噪声</strong></u></p></li>
 <li><p>By considering weights for the spatial neighbourhood and for the pixel similarity</p>
 <p>通过考虑空间邻域和像素相似性的权重</p></li>
 </ul></li>
 </ul>
 <h2 id="filters-for-edge-enhancement-and-detection-用于边缘增强和检测的过滤器">Filters for edge enhancement and detection 用于边缘增强和检测的过滤器</h2>
 <ul>
-<li><p>Edges are typically high-frequencies 边缘通常是高频</p>
+<li><p>Edges are typically high-frequencies 边缘通常是<strong>高频</strong></p>
 <ul>
 <li><p>Filters often exploit this to boost or detect the edges</p>
 <p>过滤器经常利用这一点来增强或检测边缘</p></li>
 </ul></li>
-<li><p>Gradient magnitude is non-zero near an edge 边缘附近的梯度幅度不为零</p>
+<li><p>Gradient magnitude is non-zero near an edge 边缘<strong>附近的梯度幅度不为零</strong></p>
 <ul>
 <li><p>Apply differential operators along each dimension, and compute magnitude</p>
 <p>沿每个维度应用微分算子，并计算幅度</p></li>
@@ -1563,8 +1665,8 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>High-pass filters will always have a sum of weights = 0</p>
 <p>高通滤波器的权重总和 = 0</p></li>
 </ul></li>
-<li><p>Edge detection requires making a binary selection: edge or not</p>
-<p>边缘检测需要进行二元选择：边缘与否</p>
+<li><p>Edge detection requires making a binary selection: <strong>edge or not</strong></p>
+<p>边缘检测需要进行二元选择：<strong>边缘与否</strong></p>
 <ul>
 <li><p>Apply a certain threshold on the gradient magnitude image</p>
 <p>在梯度幅值图像上应用一定的阈值</p></li>
@@ -1572,7 +1674,8 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>Second order derivatives allow to detect edges at the zero-crossing</p>
 <p>二阶导数允许检测零交叉处的边缘</p>
 <ul>
-<li><p>Laplacian operator can also be approximated with compact masks 拉普拉斯算子也可以用紧凑的掩码来近似</p></li>
+<li><p>Laplacian operator can also be approximated with compact masks</p>
+<p>拉普拉斯算子也可以用紧凑的掩码来近似</p></li>
 <li><p>As this amplifies noise, noise is best supressed beforehand</p>
 <p>因为这会放大噪音，所以最好事先抑制噪音</p></li>
 </ul></li>
@@ -1585,7 +1688,7 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 </ul>
 <h2 id="region-based-segmentation-methods-基于区域的分割方法">Region-based segmentation methods 基于区域的分割方法</h2>
 <ul>
-<li><p>Thresholding is a global operation based in the pixel intensity</p>
+<li><p><strong>Thresholding</strong> is a global operation based in the pixel intensity</p>
 <p>阈值是基于像素强度的全局操作</p>
 <ul>
 <li><p>In the histogram, select range which is mapped to 1, rest to 0</p>
@@ -1597,7 +1700,7 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>Otsu: minimise inner-class variance</p>
 <p>Otsu：最小化内部类方差</p></li>
 </ul></li>
-<li><p>Region-growing allows to use the spatial connectivity</p>
+<li><p><strong>Region-growing</strong> allows to use the <strong>spatial connectivity</strong></p>
 <p>区域增长允许使用空间连接</p>
 <ul>
 <li>From a seed point, grow into all connected pixels based on a certain criterion 从一个种子点，根据一定的标准成长为所有连接的像素</li>
@@ -1618,7 +1721,8 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>Starting from a beginning position, manipulate the contour till it conforms to the （edges of） the image</p>
 <p>从开始位置开始，操纵轮廓直到它符合图像（边缘）</p></li>
 </ul></li>
-<li><p>Deformable models will typically minimise an internal and external energy 可变形模型通常会最小化内部和外部能量</p>
+<li><p>Deformable models will typically <strong>minimise an internal and external energy</strong></p>
+<p>可变形模型通常会<strong>最小化内部和外部能量</strong></p>
 <ul>
 <li><p>Internal: based on the contour itself</p>
 <p>内部：基于轮廓本身</p></li>
@@ -1637,6 +1741,33 @@ G_B(I)=\frac{(I⊕B)}{I⊖B}
 <li><p>Proper segmentation will require tuning the relative weights</p>
 <p>适当的分割将需要调整相对权重</p></li>
 </ul>
+<h2 id="question">Question</h2>
+<p>Explain the principle of edge enhancement and detection using first order differential operators.</p>
+<ol type="1">
+<li><p>Illustrate the principle using a figure in which the variation is shown of the intensity and its derivative across an image edge.</p>
+<p><img src="/images/HMS/22493960.png" /></p></li>
+<li><p>Give example of a 3 × 3 spatial filter mask that can be used for horizontal and vertical edge enhancement. Explain the behaviour of a horizontal mask by explaining its behaviour in a homogeneous region and near an image edge.</p>
+<p><strong>Examples are Prewitt and Sobel masks</strong></p>
+<ul>
+<li>When the central element of the mask is in a homogeneous intensity region, the output will be near zero.</li>
+<li>When the central element of the mask is placed near an edge, the top value （covered by the top row） and the bottom values （covered by the bottom row） can be strongly different, leading to a large （positive or negative） value different from zero.</li>
+</ul></li>
+<li><p>Explain how you could perform edge detection, that is: obtain a black and white map localizing the absence or presence of an edge. What difficulties may arise?</p>
+<ul>
+<li><strong>The horizontal and vertical edge maps need to be combined.</strong> This can be done by computing the gradient magnitude （the square root of the sum of the squared horizontal and vertical maps）.</li>
+<li>This is sometimes approximated using the sum of absolute values after <strong>Prewitt or Sobel filtering</strong></li>
+<li>The image above should be thresholded to obtain an <strong>edge map</strong>
+<ul>
+<li>Binary image with location of edges</li>
+</ul></li>
+<li>Difficult to select an adequate threshold
+<ul>
+<li>Edges are often more than one pixel thick</li>
+<li>Uncertainty on localisation of edge</li>
+</ul></li>
+</ul></li>
+</ol>
+<p><img src="/images/HMS/2249396.png" /></p>
 
                 
             </div>

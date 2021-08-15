@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.8k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    23 Min
+                    28 Min
                 </div>
                 
 
@@ -502,7 +502,7 @@
             <div id="articleContent">
                 <h1 id="introduction-to-signal-and-images">Introduction to Signal and Images</h1>
 <p><a href="https://yintelligence.tech/2021/01/06/2021-01-06-VUB-4019776DNR-Biomedical-Signals-and-Images/">VUB 4019776DNR Biomedical Signals and Images</a></p>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18933/files?preview=620801">Slide</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b88ca463-617f-4291-9e65-ac680074a9c6">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18933/files?preview=620801">Slide</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b88ca463-617f-4291-9e65-ac680074a9c6">Video</a> + <a href="https://yintelligence.tech/2021/06/10/2021-06-10-Biomedical-Signal/">Exercise</a></p>
 <h2 id="introduction-to-signals">Introduction to signals</h2>
 <h3 id="definition">Definition</h3>
 <p>The <strong>variation of phenomena</strong> as a function of one or multiple variables, often time</p>
@@ -549,7 +549,7 @@ s : N → R : s [t] = { i ∈ N : s (i) ∈ R }
 \]</span> Or （limited set of values） <span class="math display">\[
 s_i = s[i] = s(t_i)\ where\ i = 1,...,N
 \]</span></p>
-<h4 id="discretization-or-sampling">Discretization or sampling</h4>
+<h5 id="discretization-or-sampling">Discretization or sampling</h5>
 <p>Transform a continuous signal into a set of values at discrete time points</p>
 <p>Occurs on the <strong>independent variable</strong>, t in our case <span class="math display">\[
 s : R → R : s (t) = { t ∈ R : s (t) ∈ R }\\s_i = s[i] = s(t_i)\ where\ i = 1,...,N
@@ -563,7 +563,7 @@ s : R → R : s (t) = { t ∈ R : s (t) ∈ R }\\s_i = s[i] = s(t_i)\ where\ i =
 <ul>
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%87%87%E6%A0%B7%E5%AE%9A%E7%90%86"><strong>Sampling theorem of Shannon / Nyquist</strong></a></li>
 </ul>
-<h4 id="quantization">Quantization</h4>
+<h5 id="quantization">Quantization</h5>
 <p>Transforms the amplitude of a signal, to a limited number of values</p>
 <ul>
 <li>Values are quantified using a <strong>finite accuracy</strong></li>
@@ -667,7 +667,7 @@ s(t) = Ae^{i(k\omega t + \phi)}
 u(t)=\left\{\begin{aligned}0 &amp; , &amp; t ＜ 0 \\\frac{1}{2}&amp; ,  &amp; t = 0 \\1 &amp; ,  &amp; t ＞ 0\end{aligned}\right.\ or\ u[n]=\left\{ \begin{aligned}0 &amp; , &amp; n\ ＜\ 0 \\1 &amp; ,  &amp; n \geq 0\end{aligned}\right.
 \]</span></p>
 <p><img src="/images/HMS/13025181.png" /></p>
-<h4 id="the-dirac-or-kronecker-discrete-delta">The Dirac or Kronecker （discrete） delta</h4>
+<h5 id="the-dirac-or-kronecker-discrete-delta">The Dirac or Kronecker （discrete） delta</h5>
 $$ (t)={
 <span class="math display">\[\begin{aligned}
 ∞ &amp;,  &amp; n = 0 \\
@@ -709,7 +709,7 @@ u(t) = \int^{t}_{-∞}\delta(\tau)d\tau
 <blockquote>
 <p><strong>Sift out the value at n<sub>0</sub></strong></p>
 </blockquote>
-<h5 id="signals-as-linear-combination-of-impulses">Signals as linear combination of impulses</h5>
+<h4 id="signals-as-linear-combination-of-impulses">Signals as linear combination of impulses</h4>
 <p>We can write a signal x[n] as</p>
 <ul>
 <li><strong>Superposition of shifted and scaled impulses</strong></li>
@@ -759,17 +759,17 @@ sinc[t]=\left\{
 <p><img src="/images/HMS/13025183.png" /></p>
 <h3 id="basic-operations-on-signals">Basic Operations on Signals</h3>
 <ul>
-<li><p>Time shifting</p>
+<li><p>Time shifting 时移</p>
 <ul>
 <li>A time shifted version of the signal</li>
 <li>x [n] → x [n-n<sub>0</sub>]</li>
 </ul></li>
-<li><p>Time reversal</p>
+<li><p>Time reversal 时间倒转</p>
 <ul>
 <li>Reverses the time axis</li>
 <li>x [n] → x [-n]</li>
 </ul></li>
-<li><p>Sum and scaling of signals</p>
+<li><p>Sum and scaling of signals 信号的总和和缩放</p>
 <ul>
 <li>Sum / scale of corresponding values</li>
 </ul></li>
@@ -777,17 +777,21 @@ sinc[t]=\left\{
 R_{xx}(\tau) = \int^{+∞}_{-∞}x^{*}(t)x(t+\tau)dt
 \]</span></p>
 <ul>
-<li><strong>New signal</strong> as a function of delay</li>
-<li>Measures <strong>correspondence</strong> with previous values</li>
-<li>An <strong>energy function</strong> R<sub>xx</sub>（0）= E<sub>s</sub></li>
+<li><p><strong>New signal</strong> as a function of delay</p>
+<p>作为延迟函数的<strong>新信号</strong></p></li>
+<li><p>Measures <strong>correspondence</strong> with previous values</p>
+<p>测量与先前值的<strong>对应</strong>关系</p></li>
+<li><p>An <strong>能量函数energy function</strong> R<sub>xx</sub>（0）= E<sub>s</sub></p></li>
 </ul></li>
-<li><p><strong>Convolution</strong></p>
+<li><p><strong>Convolution 卷积</strong></p>
 <ul>
-<li><p>Mathematical operation between two signals, gives <strong>new signal</strong> <span class="math display">\[
+<li><p>Mathematical operation between two signals, gives <strong>new signal</strong></p>
+<p>两个信号之间的数学运算，给出<strong>新信号</strong> <span class="math display">\[
 (f*g)(\tau) =\int^{+∞}_{-∞} f(t)g(\tau-t)dt,\\
 (f*g)(\tau) =\sum^{+∞}_{m=-∞} f[m]g(\tau-n)
 \]</span> <img src="/images/HMS/13025184.png" /></p></li>
-<li><p>Running integral of a time reversed signal with another signal</p></li>
+<li><p>Running <strong>integral</strong> of a <strong>time reversed signal</strong> with another signal</p>
+<p>运行时间<strong>反转信号</strong>与<strong>另一个信号</strong>的<strong>积分</strong></p></li>
 <li><p>Convolution is <strong>associative</strong>, <strong>commutative</strong> and <strong>distributive</strong></p></li>
 </ul></li>
 </ul>
@@ -804,59 +808,66 @@ R_{xx}(\tau) = \int^{+∞}_{-∞}x^{*}(t)x(t+\tau)dt
 <p><img src="/images/HMS/13025185.png" /></p>
 <p>Transformation between x（t） and y（t） given by:</p>
 <ul>
-<li>Differential equation （continuous system）</li>
-<li>A difference equation （discrete system）</li>
+<li><strong>Differential equation （continuous system）</strong></li>
+<li><strong>A difference equation （discrete system）</strong></li>
 </ul>
 <p><img src="/images/HMS/13025186.png" /></p>
 <h4 id="some-properties-of-systems">Some properties of systems</h4>
-<h5 id="invertible-systems">Invertible systems</h5>
-<p>A system is said to invertible if there exists a system such that <span class="math display">\[
+<h5 id="invertible-systems-可逆系统">Invertible systems 可逆系统</h5>
+<p>A system is said to invertible if there exists a system such that</p>
+<p>如果存在一个系统使得该系统是可逆的，则称该系统是可逆的 <span class="math display">\[
 w[n] = Wy[n] = Wℒx[n] = x[n]
 \]</span></p>
-<h5 id="a-memory-less-system">A memory-less system</h5>
+<h5 id="a-memory-less-system-无记忆系统">A memory-less system 无记忆系统</h5>
 <p>If the output at any time is <strong>only dependent</strong> on the input at that <strong>same</strong> time</p>
-<h5 id="stable-system">Stable system</h5>
+<p>如果在任何时候输出<strong>仅依赖</strong>于该输入</p>
+<h5 id="stable-system-稳定的系统">Stable system 稳定的系统</h5>
 <p>If a <strong>finite input</strong> signal always generates a <strong>finite output</strong> signal</p>
+<p>如果一个<strong>有限的输入</strong>信号总是产生一个<strong>有限的输出</strong>信号</p>
 <h5 id="examples">Examples</h5>
 <ul>
 <li><p>An amplifier</p>
 <blockquote>
-<p>Invertible? Memory-less? Stable? <span class="math display">\[
+<p><strong>Invertible</strong>? <strong>Memory-less</strong>? <strong>Stable</strong>? <span class="math display">\[
 y[n]=3x[n]
 \]</span></p>
 </blockquote></li>
 <li><p>A moving average</p>
 <blockquote>
-<p>Invertible? Memory-less? Stable? <span class="math display">\[
+<p><del>Invertible? Memory-less? Stable?</del> <span class="math display">\[
 y[n]=\frac{1}{2}(x[n]+x[n-1])
 \]</span></p>
 </blockquote></li>
 </ul>
 <h4 id="linear-vs-non-linear-systems">Linear vs non-linear systems</h4>
 <ul>
-<li><p>Additivity</p>
+<li><p>Additivity 可加性</p>
 <ul>
-<li>The response of the <strong>superposition</strong> of two input signals is the superposition of the responses <span class="math display">\[
+<li><p>The response of the <strong>superposition</strong> of two input signals is the superposition of the responses</p>
+<p>所述的响应<strong>叠加</strong>两个输入信号的是响应的叠加 <span class="math display">\[
 ℒ(x_1[n] + x_2[n]) = ℒx_1[n] + ℒx_2[n] = y_1[n] + y_2[n]
-\]</span></li>
+\]</span></p></li>
 </ul></li>
-<li><p>Homogeneity</p>
+<li><p>Homogeneity 同质性</p>
 <ul>
-<li>The response of a <strong>scaled version</strong> of the input signal is scaling of response <span class="math display">\[
+<li><p>The response of a <strong>scaled version</strong> of the input signal is scaling of response</p>
+<p>输入信号的<strong>缩放版本</strong>的响应是响应的缩放 <span class="math display">\[
 ℒ(ax[n]) = aℒx[n] = ay[n]
-\]</span></li>
+\]</span></p></li>
 </ul></li>
-<li><p>Linearity</p>
+<li><p>Linearity 线性度</p>
 <ul>
-<li>A system is linear if a <strong>linear combination</strong> of the input signals is transformed into a linear combination of the separate responses （<strong>= additivity + homogeneity</strong>） <span class="math display">\[
+<li><p>A system is linear if a <strong>linear combination</strong> of the input signals is transformed into a linear combination of the separate responses （<strong>= additivity + homogeneity</strong>）</p>
+<p>一个<strong>线性组合</strong>的输入信号的被变换成单独的响应的线性组合（<strong>=相加+同质性</strong>） <span class="math display">\[
 ℒ(ax_1[n] + bx_2[n]) = aℒx_1[n] + bℒx_2[n] = ay_1[n] + by_2[n]
-\]</span></li>
+\]</span></p></li>
 </ul></li>
 </ul>
 <h4 id="time-variant-vs-time-invariant-systems">Time-variant vs time-invariant systems</h4>
 <p>Time-invariant or Time-shift-invariant</p>
 <ul>
-<li><p>If a shift of the input signal causes the <strong>same</strong> shift in the output signal <span class="math display">\[
+<li><p>If a shift of the input signal causes the <strong>same</strong> shift in the output signal</p>
+<p>如果输入信号的偏移导致输出信号的<strong>相同</strong>偏移 <span class="math display">\[
 ℒx[n-n_0] = y[n-n_0]
 \]</span></p></li>
 <li><p>Examples <span class="math display">\[
@@ -866,30 +877,35 @@ y[n] = \sin(x[n])
 </ul>
 <p>Time-varying</p>
 <ul>
-<li><p>The output value cannot be determined without knowing the current time</p></li>
-<li><p>A <strong>shift of the input</strong> signal <u>will <strong>not</strong> cause the same shift in the output signal</u> <span class="math display">\[
+<li><p>The output value cannot be determined without knowing the current time</p>
+<p>在不知道当前时间的情况下无法确定输出值</p></li>
+<li><p>A <strong>shift of the input</strong> signal <u>will <strong>not</strong> cause the same shift in the output signal</u></p>
+<p>甲<strong>输入的移位</strong>信号将<strong>不会</strong>引起输出信号相同的移 <span class="math display">\[
 y[n] = nx[n]
 \]</span></p></li>
 </ul>
 <h4 id="causal-vs-non-causal-systems">Causal vs Non-causal systems</h4>
-<p>Causal system</p>
+<p>Causal system 因果系统</p>
 <ul>
 <li><p>When the output at a certain moment <strong>only</strong> depends on inputs from that and earlier moments</p>
+<p>当某个时刻的输出<strong>仅</strong>依赖于<u>那个时刻和更早时刻</u>的输入时</p>
 <ul>
-<li>Not on input at later moments</li>
-<li><strong>All physical systems are causal</strong></li>
+<li><p>Not on input at later moments</p>
+<p>稍后不输入</p></li>
+<li><p><strong>All physical systems are causal</strong></p>
+<p><strong>所有物理系统都是因果关系</strong></p></li>
 </ul></li>
 <li><p>Example <span class="math display">\[
 y[n] = x[n] - 2x[n-1] + x[n-2],
 \]</span></p></li>
 </ul>
-<p>Non-causal systems</p>
+<p>Non-causal systems 非因果系统</p>
 <ul>
-<li>Output depends on inputs at a later time, <strong>future inputs</strong> <span class="math display">\[
+<li>Output depends on inputs at a <strong>later</strong> time, <strong>future inputs</strong> <span class="math display">\[
 y[n] = x[n + 1]
 \]</span></li>
 </ul>
-<h4 id="systems-that-are-linear-and-time-invariant">Systems that are linear and time-invariant</h4>
+<h4 id="linear-time-invariant-lti-systems">Linear Time Invariant （LTI） Systems</h4>
 <p>Remember: we can write a signal x[n] as <strong><u>Linear combination of weighted, shifted impulses</u></strong> <span class="math display">\[
 x[n] = \sum^{+∞}_{k=-∞} x[k]\delta [n-k]\
 with\ \left\{
@@ -899,6 +915,7 @@ with\ \left\{
 \end{aligned}
 \right.
 \]</span> So if we know the response to an impulse…. <strong>We can predict the response to any input</strong></p>
+<p>所以如果我们知道脉冲的反应...... <strong>我们可以预测对任何输入的响应</strong></p>
 <blockquote>
 <p>Only valid for linear, time-invariant systems</p>
 </blockquote>
@@ -906,20 +923,23 @@ with\ \left\{
 h[n] = ℒ[n]\\
 y[n] = ℒx[n]=\sum^{+∞}_{k=-∞} x[k]h[n-k]
 \]</span></p>
-<h4 id="linear-time-invariant-lti-systems">Linear Time Invariant （LTI） Systems</h4>
+<h5 id="property-of-discrete-lti--systems">Property of discrete LTI- systems</h5>
 <p>The powerful property of discrete LTI- systems</p>
 <ul>
 <li><p>Consider a discrete, causal LTI system ℒ.</p>
 <p><strong>The response to an impulse</strong> is <strong>h（n）</strong> <span class="math display">\[
 h[n] = ℒ\delta[n]
 \]</span></p></li>
-<li><p>Any input can be represented as a linear combination of basic signals （e.g. impulses） <span class="math display">\[
+<li><p>Any input can be represented as a linear combination of basic signals （e.g. impulses）</p>
+<p>任何输入都可以表示为基本信号（例如脉冲）的线性组合 <span class="math display">\[
 x[n] = \sum^{+∞}_{k=-∞}x[k]\delta [n - k]
 \]</span></p></li>
-<li><p>The response of an LTI system is the superposition of responses to the basic signals <span class="math display">\[
+<li><p>The response of an LTI system is the superposition of responses to the basic signals</p>
+<p>LTI 系统的响应是对基本信号的响应的叠加 <span class="math display">\[
 y[n] = ℒx[n]
 \]</span></p></li>
-<li><p><strong>A discrete LTI system is fully characterized through the response to an impulse</strong> <span class="math display">\[
+<li><p><strong>A discrete LTI system is fully characterized through the response to an impulse</strong></p>
+<p><strong>离散 LTI 系统通过对脉冲的响应来完全表征</strong> <span class="math display">\[
 ℒ\sum^{+∞}_{k=-∞}x[k]\delta [n - k] =\sum^{+∞}_{k=-∞}x[k]h[n - k]
 \]</span></p></li>
 </ul>
@@ -940,7 +960,7 @@ h[n] = 3 (-0.4)^n u[n]\\
 <figure>
 <img src="/images/HMS/130251861.png" alt="" /><figcaption>Impulse responses of systems</figcaption>
 </figure>
-<h4 id="system-response-as-a-convolution">System response as a convolution</h4>
+<h5 id="system-response-as-a-convolution">System response as a convolution</h5>
 <ul>
 <li><p>A discrete LTI system <span class="math display">\[
 y[n] = ℒx[n]\ with\ h[n] = ℒδ[n],\ ℒδ[n-k] = h[n-k]
@@ -984,22 +1004,29 @@ y[n] = x[n]* h[n]
 </ul></li>
 <li><p>Advantages</p>
 <ul>
-<li>Some <strong>mathematical techniques</strong> are easier in frequency domain
+<li><p>Some <strong>mathematical techniques</strong> are easier in frequency domain</p>
 <ul>
-<li>Convolution → product</li>
-<li>Differential equation → algebraic equation</li>
+<li><p>Convolution → product</p>
+<p>卷积 → 乘积</p></li>
+<li><p>Differential equation → algebraic equation</p>
+<p>微分方程 → 代数方程</p></li>
 </ul></li>
-<li>Some applications are more easily described or characterized in frequency domain</li>
-<li>Measurement tools exist to measure frequency response</li>
+<li><p>Some applications are more easily described or characterized in frequency domain</p>
+<p>某些应用在频域中更容易描述或表征</p></li>
+<li><p>Measurement tools exist to measure frequency response</p>
+<p>存在测量工具来测量频率响应</p></li>
 </ul></li>
 </ul>
 <h4 id="fourier-series">Fourier series</h4>
-<p>Periodic signals can be decomposed</p>
+<p>Periodic signals can be decomposed 可以分解周期信号</p>
 <ul>
-<li>As a sum of sinusoidals, i.e. Fourier series,</li>
-<li>In different frequencies</li>
+<li><p>As a sum of sinusoidals, i.e. Fourier series,</p>
+<p>作为正弦曲线的总和，即傅立叶级数</p></li>
+<li><p>In different frequencies</p>
+<p>在不同的频率</p></li>
 </ul>
 <p>Every periodic function x（t） with period T can （exactly） be represented as a weighted sum of sinusoidals given that the following conditions are correct （<strong>Dirichlet conditions</strong>）</p>
+<p>给定以下条件是正确的（<strong>狄利克雷条件</strong>），每个周期为 T 的周期函数 x（t）都可以（精确地）表示为正弦的加权和</p>
 <ul>
 <li>x（t） must be absolutely integrable in the interval [0, T]</li>
 <li>x（t）has a finite number of maxima and minima in the interval [0, T]</li>
@@ -1017,12 +1044,15 @@ a_n =\frac{1}{T}\int^{T}_{0}x(t)e^{-jn\omega_0tdt}
 <h4 id="fourier-transform">Fourier Transform</h4>
 <p>Fourier Series</p>
 <ul>
-<li>Each periodic signal can be represented as a sum of sinoids</li>
+<li><p>Each periodic signal can be represented as a sum of sinoids</p>
+<p>每个周期信号可以表示为正弦曲线的总和</p></li>
 </ul>
 <p>Fourier Transform</p>
 <ul>
-<li>Extension to aperiodic signals</li>
-<li>Aperiodic signals are periodic, with infinite period</li>
+<li><p>Extension to aperiodic signals</p>
+<p>非周期信号的扩展</p></li>
+<li><p>Aperiodic signals are periodic, with infinite period</p>
+<p>非周期性信号是周期性的，具有无限周期</p></li>
 </ul>
 <p>Also a Discrete Fourier transform</p>
 <ul>
@@ -1035,15 +1065,18 @@ H_n=\sum^{N-1}_{k=0}h_ke^{\frac{2\pi ikn}{N}}\\
 h_k=\frac{1}{N}\sum^{N-1}_{k=0}H_ne^{\frac{-2\pi ikn}{N}}
 \]</span></p>
 <h5 id="discrete-fourier-transform-dft">Discrete Fourier Transform （DFT）</h5>
-<p>The DFT provides uniformly spaced samples of the Discrete-Time Fourier Transform （DTFT） <span class="math display">\[
+<p>The DFT provides uniformly spaced samples of the Discrete-Time Fourier Transform （DTFT）</p>
+<p>DFT 提供离散时间傅立叶变换（DTFT）的均匀间隔样本 <span class="math display">\[
 X[k] = \sum^{N-1}_{n=0}X[n]e^{-\frac{2\pi jkn}{N}}\\
 X[n] = \frac{1}{N}\sum^{N-1}_{k=0}X[k]e^{\frac{2\pi jkn}{N}}
 \]</span> Requires N<sup>2</sup> complex multiplications and N（N-1） complex additions</p>
+<p>需要 N<sup>2</sup> 次复数乘法和 N（N-1）次复数加法</p>
 <ul>
 <li>Computationally expensive</li>
 </ul>
 <h5 id="faster-dft-computation-fft">Faster DFT computation? FFT</h5>
-<p>Take advantage of the symmetry and periodicity of the complex exponential</p>
+<p>Take advantage of the <strong>symmetry</strong> and <strong>periodicity</strong> of the <strong>complex exponential</strong></p>
+<p>利用复指数的对称性和周期性</p>
 <p>let <span class="math display">\[
 W_N=e^{\frac{-j2p}{N}}
 \]</span></p>
@@ -1054,7 +1087,8 @@ W^{k[N-n]}_{N}=W^{-kn}_{N}=(W^{kn}_{N})^{*}
 <li><p>periodicity <span class="math display">\[
 W^{kn}_{N}=W^{k[n+N]}_{N}=W^{[k+N]n}_{N}
 \]</span></p></li>
-<li><p>Note that two length N/2 DFTs take less computation than one length N DFT: <span class="math display">\[
+<li><p>Note that two length N/2 DFTs take less computation than one length N DFT:</p>
+<p>请注意，两个长度的 N/2 DFT 比一个长度的 N DFT 需要更少的计算 <span class="math display">\[
 2（\frac{N}{2}）^2 ＜N^2
 \]</span></p></li>
 <li><p>Algorithms that exploit computational savings are collectively called Fast Fourier Transforms</p></li>
@@ -1071,10 +1105,13 @@ x[n] = e^{j\omega t_n}
 <ul>
 <li>Functions of this type are eigenfunctions of the LTI system</li>
 </ul></li>
-<li><p><strong>The system response can be written as a convolution</strong></p></li>
-<li><p>The output is a complex exponential weighted by a complex gain factor H（⍵）</p>
+<li><p><strong>The system response can be written as a convolution</strong></p>
+<p><strong>系统响应可以写成卷积</strong></p></li>
+<li><p>The output is a <u>complex exponential weighted by a complex gain factor H（⍵）</u></p>
+<p>输出是由复数增益因子 H（⍵）加权的复数指数</p>
 <ul>
-<li>H（⍵） is an eigenvalue and is dependent on frequency of the input signal x[n]</li>
+<li><p>H（⍵） is an <strong>eigenvalue</strong> and is dependent on frequency of the input signal x[n]</p>
+<p>H（⍵）是一个<strong>特征值</strong>，取决于输入信号 x[n] 的频率</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/130251867.png" /></p>
@@ -1095,6 +1132,7 @@ y[n]=\sum_kc_kH(\omega_k)e^{j\omega_kt_n}
 </ul></li>
 </ul></li>
 </ul>
+<h5 id="bode-diagram">Bode diagram</h5>
 <p>Bode diagram for characterizing an LTI-system</p>
 <ul>
 <li><p>Compute or measure H（⍵） for all frequencies</p></li>
@@ -1105,7 +1143,7 @@ y[n]=\sum_kc_kH(\omega_k)e^{j\omega_kt_n}
 <ul>
 <li><strong>Amplitude</strong>-Bode diagram
 <ul>
-<li>Amplification|H（⍵）| expressed in dB （logarithmic）</li>
+<li>Amplification |H（⍵）| expressed in dB （logarithmic）</li>
 </ul></li>
 <li><strong>Phase</strong>-Bode diagram
 <ul>
@@ -1118,43 +1156,52 @@ y[n]=\sum_kc_kH(\omega_k)e^{j\omega_kt_n}
 ∠(H(\omega))=arctan\frac{R(H(\omega))}{T(H(\omega))}
 \]</span></p>
 <p><img src="/images/HMS/130251868.png" /></p>
-<h4 id="filters">Filters</h4>
+<h3 id="filters-过滤器">Filters 过滤器</h3>
 <ul>
-<li>Every sinusoidal component is modified
+<li><p>Every sinusoidal component is modified 每个正弦分量都被修改</p>
 <ul>
-<li>Amplitude and phase multiplied with the corresponding value of H（f）</li>
+<li><p>Amplitude and phase multiplied with the corresponding value of H（f）</p>
+<p>幅度和相位乘以对应的H（f）值</p></li>
 </ul></li>
-<li>When we eliminate or supress frequencies, the LTI-system is called a frequency-band filter
+<li><p>When we eliminate or supress frequencies, the LTI-system is called a <strong>frequency-band filter</strong></p>
+<p>当我们<strong>消除或抑制频率</strong>时，LTI 系统称为频带滤波器</p>
 <ul>
 <li>Named by how it changes the frequency spectrum</li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/130251869.png" /></p>
-<h5 id="filtering-in-frequency-domain">Filtering in frequency domain</h5>
+<h4 id="filtering-in-frequency-domain">Filtering in frequency domain</h4>
 <p>Principle</p>
 <ul>
-<li>Input signal in <strong>time domain</strong>
+<li><p>Input signal in <strong>time domain</strong></p>
+<p><strong>时域</strong>输入信号</p>
 <ul>
-<li>The original time-series</li>
+<li><p>The original time-series</p>
+<p>原始时间序列</p></li>
 </ul></li>
-<li>Convert signal to <strong>frequency domain</strong>
+<li><p>Convert signal to <strong>frequency domain</strong></p>
+<p>将信号转换为<strong>频域</strong></p>
 <ul>
 <li>Fourier transform</li>
 </ul></li>
-<li>Filter / select <u>the frequencies you want to keep</u>
+<li><p>Filter / select <u>the frequencies you want to keep</u></p>
+<p>过滤/选择要保留的频率</p>
 <ul>
-<li>Multiply with a rectangular pulse</li>
+<li><p>Multiply with a rectangular pulse</p>
+<p>与矩形脉冲相乘</p></li>
 </ul></li>
-<li>Transform <strong>back to time domain</strong>
+<li><p>Transform <strong>back to time domain</strong></p>
+<p>转换<strong>回时域</strong></p>
 <ul>
 <li>Inverse Fourier transform</li>
 </ul></li>
-<li>The output is a low / band / high-pass filtered signal</li>
+<li><p>The output is a low / band / high-pass filtered signal</p>
+<p>输出是低/带/高通滤波信号</p></li>
 </ul>
 <figure>
 <img src="/images/HMS/1302518690.png" alt="" /><figcaption>Example for an image</figcaption>
 </figure>
-<h5 id="implementation-of-digital-filters-in-the-temporal-domain">Implementation of digital filters in the temporal domain</h5>
+<h4 id="implementation-of-digital-filters-in-the-temporal-domain">Implementation of digital filters in the temporal domain</h4>
 <ul>
 <li><p>Finite impulse response filters （FIR）</p>
 <ul>
@@ -1170,12 +1217,15 @@ y[n]=\sum^{M}_{k=-N}b_kx[n-k]
 </ul>
 <h3 id="sampling-theorem">Sampling Theorem</h3>
 <p>When we sample a continuous signal information can get lost, for certain conditions it is possible to <u>reconstruct the exact continuous signal</u> back from the discrete sampled values</p>
+<p>当我们对连续信号进行采样时，信息可能会丢失，在某些情况下，可以从离散采样值重建准确的连续信号</p>
 <h4 id="sampling-or-nyquist-theorem">Sampling or Nyquist theorem</h4>
 <ol type="1">
-<li><p>x（t） has to be bandlimited <span class="math display">\[
+<li><p>x（t） has to be <strong>bandlimited</strong></p>
+<p>x（t）必须是<strong>带限</strong>的 <span class="math display">\[
 X(f)=0\ for\ all\ |f| ＞ B
 \]</span></p></li>
-<li><p>The sampling frequency has to be larger than twice the highest frequency in the signal</p></li>
+<li><p>The sampling frequency has to be larger than twice the highest frequency in the signal</p>
+<p>采样频率必须大于信号中最高频率的两倍</p></li>
 </ol>
 <p><strong>If Nyquist is not fulfilled: Aliasing</strong></p>
 <p><img src="/images/HMS/1301510.png" /></p>
@@ -1184,12 +1234,14 @@ X(f)=0\ for\ all\ |f| ＞ B
 <h4 id="sampling-theorem-reconstruction">Sampling theorem: Reconstruction</h4>
 <p>Apply an ideal low-pass filter</p>
 <p><strong>Limit signal to original frequency content</strong></p>
+<p><strong>将信号限制为原始频率内容</strong></p>
 <p><img src="/images/HMS/13015110.png" /></p>
 <h4 id="sampling-theorem-aliasing">Sampling theorem: Aliasing</h4>
 <p>When Nyquist is not full-filled</p>
 <p><strong>Aliasing or frequency confusion</strong></p>
+<p><strong>混叠或频率混淆</strong></p>
 <p><img src="/images/HMS/13015111.png" /></p>
-<h4 id="example-fft-of-an-attenuated-sine-wave">Example: FFT of an attenuated sine wave</h4>
+<p>Example: FFT of an attenuated sine wave</p>
 <p><img src="/images/HMS/130151110.png" /></p>
 <p><img src="/images/HMS/130151111.png" /></p>
 <p><img src="/images/HMS/130151112.png" /></p>
@@ -1198,41 +1250,54 @@ X(f)=0\ for\ all\ |f| ＞ B
 <h2 id="summary">Summary</h2>
 <h3 id="signals">Signals</h3>
 <ul>
-<li>Variation of a physical measure as function of a variable
+<li><p>Variation of a physical measure as function of a variable</p>
+<p>作为变量的函数的物理量度的变化</p>
 <ul>
-<li>Often as a function of time</li>
+<li><p>Often as a function of time</p>
+<p>通常作为时间的函数</p></li>
 </ul></li>
-<li>Digital signals obtained through discretisation and quantization
+<li><p>Digital signals obtained through discretisation and quantization</p>
+<p>通过离散化和量化获得的数字信号</p>
 <ul>
 <li>Sampled at certain time points, represented with finite accuracy</li>
+<li>在特定时间点采样，以有限精度表示</li>
 </ul></li>
-<li>Important signals
+<li><p>Important signals</p>
 <ul>
 <li>Sinusoids, step, delta, pulse and sinc function</li>
 </ul></li>
-<li>Important functions
+<li><p>Important functions</p>
+<p>重要功能</p>
 <ul>
-<li>Time shifting and reversal, autocorrelation, <strong>convolution</strong></li>
+<li><p>Time shifting and reversal, autocorrelation, <strong>convolution</strong></p>
+<p>时移和反转、自相关、<strong>卷积</strong></p></li>
 </ul></li>
 </ul>
 <h3 id="systems">Systems</h3>
 <ul>
-<li>Mathematical description or approximation of a process
+<li><p>Mathematical description or approximation of a process</p>
+<p>过程的数学描述或近似</p>
 <ul>
 <li>Gives an output given an input</li>
 </ul></li>
-<li>Linear time-invariant systems （LTI）
+<li><p>Linear time-invariant systems （LTI）</p>
 <ul>
-<li>Linear systems that don’t change over time</li>
+<li><p>Linear systems that don’t change over time</p>
+<p>不随时间变化的线性系统</p></li>
 </ul></li>
-<li>Impulse response to characterize an LTI system
+<li><p>Impulse response to characterize an LTI system</p>
+<p>表征 LTI 系统的脉冲响应</p>
 <ul>
-<li>A signal is the sum of scaled shifted impulses</li>
-<li>The output is the sum of scaled, shifted impulse responses</li>
+<li><p>A signal is the sum of scaled shifted impulses</p>
+<p>信号是缩放移位脉冲的总和</p></li>
+<li><p>The output is the sum of scaled, shifted impulse responses</p>
+<p>输出是缩放的、移位的脉冲响应的总和</p></li>
 </ul></li>
-<li>System response of a system
+<li><p>System response of a system</p>
+<p>系统的系统响应</p>
 <ul>
-<li>Convolution of the input with the impulse response</li>
+<li><p>Convolution of the input with the impulse response</p>
+<p>输入与脉冲响应的卷积</p></li>
 </ul></li>
 </ul>
 <h3 id="frequencies-and-fourier-analysis">Frequencies and Fourier analysis</h3>
@@ -1272,19 +1337,21 @@ X(f)=0\ for\ all\ |f| ＞ B
 </ul></li>
 </ul>
 <h4 id="discrete-images">Discrete Images</h4>
-<p>Mathematically, images can be seen as N-Dimensional <strong>intensity functions</strong> of the spatial coordinates <span class="math display">\[
+<p>Mathematically, images can be seen as N-Dimensional <strong>intensity functions</strong> of the spatial coordinates</p>
+<p>在数学上，图像可以看作是空间坐标的N 维<strong>强度函数</strong> <span class="math display">\[
 f(x, y) = i
 \]</span> In practice, we use discrete images</p>
 <ol type="1">
-<li><p>Discretization <span class="math display">\[
+<li><p>Discretization 离散化 <span class="math display">\[
 f(m, n)\ with\ m = 0, 1, 2,...,M-1; n = 0, 1,...,N  1
 \]</span></p></li>
-<li><p>Quantization</p>
+<li><p>Quantization 量化</p>
 <ul>
-<li>Integer or floating point representation using 8, 12 or 16-bit representation</li>
+<li><p>Integer or floating point representation using 8, 12 or 16-bit representation</p>
+<p>使用 8、12 或 16 位表示的整数或浮点表示</p></li>
 </ul></li>
 </ol>
-<h4 id="grey-scale-and-color-images">Grey scale and color images</h4>
+<h4 id="grey-scale-and-colour-images">Grey scale and colour images</h4>
 <p>Images need to be visualized</p>
 <ul>
 <li>This requires a relation between
@@ -1293,26 +1360,30 @@ f(m, n)\ with\ m = 0, 1, 2,...,M-1; n = 0, 1,...,N  1
 <ul>
 <li>A physical measurement</li>
 </ul></li>
-<li>The displayed color or grey scale</li>
+<li>The displayed colour or grey scale</li>
 </ul></li>
-<li>Using a look-up table
+<li>Using a look-up table 使用查找表
 <ul>
-<li>The table does not affect the image （stored on disk）</li>
-<li>Determines visualisation （shown on screen）</li>
+<li><p>The table does not affect the image （stored on disk）</p>
+<p>该表不影响图像（存储在磁盘上）</p></li>
+<li><p>Determines visualisation （shown on screen）</p>
+<p>确定可视化（显示在屏幕上）</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/HMS/130151116.png" /></p>
-<p>Color map</p>
+<p>Colour map</p>
 <ul>
 <li>grey scale</li>
-<li>full color Lookup table （LUT）</li>
+<li>full colour Lookup table （LUT）</li>
 </ul>
-<h3 id="images-as-a-measurement-in-physical-space">Images as a measurement in physical space</h3>
+<p><strong>Images as a measurement in physical space</strong></p>
 <ul>
-<li><p>Medical images are usually “calibrated”</p>
+<li><p>Medical images are usually “<strong>calibrated</strong>” 医学图像通常经过“校准”</p>
 <ul>
-<li><strong>Dimensions of a pixel</strong> known with great certainty</li>
-<li><strong>Position of image</strong> known with respect to room</li>
+<li><p><strong>Dimensions of a pixel</strong> known with great certainty</p>
+<p>非常确定地已知<strong>像素的尺寸</strong></p></li>
+<li><p><strong>Position of image</strong> known with respect to room</p>
+<p>相对于房间已知<strong>的图像位置</strong></p></li>
 </ul>
 <p><img src="/images/HMS/130151117.png" /></p></li>
 <li><p>Images are used for treatment planning and guidance</p>
@@ -1356,9 +1427,11 @@ f(m, n)\ with\ m = 0, 1, 2,...,M-1; n = 0, 1,...,N  1
 <h3 id="common-operations-on-images">Common operations on images</h3>
 <h4 id="image-resampling">Image resampling</h4>
 <p>Change size, spacing, origin, orientation of an image</p>
+<p>更改图像的大小、间距、原点、方向</p>
 <p><img src="/images/HMS/13015112.png" /></p>
 <h4 id="downsampling">Downsampling</h4>
 <p>Reducing the spatial resolution of an image</p>
+<p>降低图像的空间分辨率</p>
 <p><img src="/images/HMS/13015113.png" /></p>
 <ol type="1">
 <li>280 x 280</li>
@@ -1366,19 +1439,21 @@ f(m, n)\ with\ m = 0, 1, 2,...,M-1; n = 0, 1,...,N  1
 <li>70 x 70</li>
 <li>35 x 35</li>
 </ol>
-<h4 id="reducing-the-quantization-accuracy">Reducing the quantization accuracy</h4>
+<h4 id="reducing-the-quantization-accuracy-降低量化精度">Reducing the quantization accuracy 降低量化精度</h4>
 <p>Reducing the bits stored per pixel, limiting the number of possible gray levels</p>
+<p>减少每个像素存储的位数，限制可能的灰度级数</p>
 <p><img src="/images/HMS/13015114.png" /></p>
 <h3 id="fourier-transform-1">Fourier Transform</h3>
 <h4 id="d-fourier-transform">2D Fourier Transform</h4>
 <ul>
-<li><p>Extension to 2D of Fourier transform</p>
+<li><p>Extension to 2D of Fourier transform 傅立叶变换的二维扩展</p>
 <ul>
-<li>Horizontal frequency u, vertical frequency v <span class="math display">\[
+<li><p>Horizontal frequency u, vertical frequency v</p>
+<p>水平频率u，垂直频率v <span class="math display">\[
 T(u, v)=\int^{+∞}_{-∞}\int^{+∞}_{-∞}f(x,y)e^{-j2\pi(ux+vy)}dxdy
-\]</span></li>
+\]</span></p></li>
 </ul></li>
-<li><p>Inverse Fourier transform <span class="math display">\[
+<li><p>Inverse Fourier transform 逆傅里叶变换 <span class="math display">\[
 f(x,y)=\int^{+∞}_{-∞}\int^{+∞}_{-∞}T(u, v)e^{j2\pi(xu+yv)}dudv
 \]</span></p></li>
 </ul>
@@ -1398,30 +1473,38 @@ f(m,n)=\sum^{M-1}_{m=0}\sum^{N-1}_{n=0}F(k,l)e^{j2\pi (\frac{km}{M}+\frac{nl}{N}
 <p><img src="/images/HMS/13015115.png" /></p>
 <ol type="1">
 <li>Image</li>
-<li>Fourier transform of a）</li>
+<li>Fourier transform of （a）</li>
 <li>Masked / truncated Fourier transform</li>
 <li>Inverse Fourier （c）</li>
 </ol>
 <h4 id="properties-of-2d-discrete-fourier-transform">Properties of 2D （Discrete） Fourier Transform</h4>
 <ul>
-<li><p>Energy-conserving （Parseval’s theorem） <span class="math display">\[
+<li><p>Energy-conserving （Parseval’s theorem）</p>
+<p>节能（<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B8%95%E5%A1%9E%E7%93%A6%E5%B0%94%E5%AE%9A%E7%90%86">帕塞瓦尔定理</a>）</p>
+<blockquote>
+<p>函数平方的和（或积分）等于其傅里叶转换式平方之和（或者积分）。</p>
+</blockquote>
+<p><span class="math display">\[
 \int^{+∞}_{x=-∞}\int^{+∞}_{x=-∞}|f(x,y)|^2dxdy=\int^{+∞}_{u=-∞}\int^{+∞}_{u=-∞}|F(u,v)|^2dudv
 \]</span></p></li>
-<li><p>Linear transformation <span class="math display">\[
+<li><p>Linear transformation 线性变换 <span class="math display">\[
 h(x, y) = \alpha f(x, y) + \beta g(x, y) ⇔ H(u, v) = \alpha F(u, v) +\beta G(u, v)
 \]</span></p></li>
-<li><p>Periodic signal <span class="math display">\[
+<li><p>Periodic signal 周期信号 <span class="math display">\[
 F(k,l) = F(k ± \alpha M,l ± \beta N)\ where\ \alpha,\beta\ are\ integers
 \]</span></p></li>
-<li><p>Conjugate symmetric for real images <span class="math display">\[
+<li><p>Conjugate symmetric for real images 真实图像的共轭对称 <span class="math display">\[
 F(-k, -l) = F^{*}(k,l) → |F(-k, -l)| = |F^{*}(k,l)|\ and\ ∠F(k, l) = -∠F(k,l)
 \]</span></p></li>
 </ul>
-<p>A spatial shift or translation leads to an additional linear phase component: <span class="math display">\[
+<p>A spatial shift or translation leads to an additional linear phase component:</p>
+<p>空间位移或平移会导致额外的线性相位分量 <span class="math display">\[
 f(m-m_0, n-n_0) ⇔ F(k,l)\exp(-j2\pi(\frac{km0}{M} +\frac{\ln0}{N}))
 \]</span> Rotation of an image leads to a rotation of the Fourier Transform</p>
+<p>图像的旋转导致傅立叶变换的旋转</p>
 <p><img src="/images/HMS/13015116.png" /></p>
-<p>Scaling an image leads to an inverse scaling of its Fourier transform <span class="math display">\[
+<p>Scaling an image leads to an inverse scaling of its Fourier transform</p>
+<p>缩放图像会导致其傅立叶变换的逆缩放 <span class="math display">\[
 f(am,bm)⇔ \frac{1}{|ab|}F(\frac{k}{a},\frac{l}{b})
 \]</span></p>
 <h4 id="d-convolution">2D Convolution</h4>
@@ -1439,11 +1522,13 @@ h(x,y).f(x,y) ⇔ H(u,v)*F(u,v)
 <ul>
 <li><p>Illustration of filtering in the frequency domain</p></li>
 <li><p>Multiplication with mask in spectral domain</p>
+<p>与频谱域中的掩码相乘</p>
 <p><img src="/images/HMS/130151155.png" /></p></li>
 <li><p>Convolution in spatial domain with IDFT of the same mask</p></li>
 </ul>
 <h3 id="sampling-theorem-1">Sampling Theorem</h3>
-<p>Aliasing in images: Moiré pattern</p>
+<p>Aliasing in images: <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%8E%AB%E5%88%97%E6%B3%A2%E7%B4%8B">Moiré pattern</a></p>
+<p>摩尔条纹是一种在栅栏状条纹重叠下所产生的干涉影像。摩尔条纹的周期和两个光栅的夹角和光栅的周期相关。</p>
 <p><img src="/images/HMS/130151130.png" /></p>
 
                 

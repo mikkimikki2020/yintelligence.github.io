@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-11
+                    2021-08-15
                 </div>
                 
 
@@ -502,7 +502,7 @@
             <div id="articleContent">
                 <h1 id="biomedical-image-processing">Biomedical Image Processing</h1>
 <p><a href="https://yintelligence.tech/2021/01/06/2021-01-06-VUB-4019776DNR-Biomedical-Signals-and-Images/">VUB 4019776DNR Biomedical Signals and Images</a></p>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4dac135d-943d-41a6-99c7-acae010a511c">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/04/20/2021-04-20-Registration-and-Visualisation/">Background</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4dac135d-943d-41a6-99c7-acae010a511c">Video</a></p>
 <h2 id="purpose">Purpose</h2>
 <p>The purpose of this exercise session is to obtain insight into feature extraction techniques applied on medical image processing as well as processing of the extracted features. For more information on these concepts see the related material on the course slides.</p>
 <h2 id="required-libraries">Required libraries</h2>
@@ -526,10 +526,10 @@ drive<span class="token punctuation">.</span>mount<span class="token punctuation
 path_of_image<span class="token operator">=</span><span class="token string">'/content/drive/My Drive/folder/'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><h3 id="load-the-images">Load the images</h3>
-<p>\1. Download the folder LUNG from canvas that contains the DICOM images and upload it in Google Drive.</p>
-<p>\2. Use SimpleITK functions <code>SimpleITK.ImageSeriesReader()</code> with <code>GetGDCMSeriesFileNames()</code> to read the DICOM series by providing the whole path where the Dicom series are located in <a target="_blank" rel="noopener" href="https://simpleitk.readthedocs.io/en/master/Examples/DicomSeriesReader/Documentation.html">google drive</a>.</p>
-<p>\3. Use function <code>SimpleITK.ReadImage()</code> to obtain the itk images by providing the obtained dicom series.</p>
-<p>\4. Use function <code>SimpleITK.GetArrayFromImage()</code> to convert the itk image of the previous step into a numpy array.</p></li>
+<p>1. Download the folder LUNG from canvas that contains the DICOM images and upload it in Google Drive.</p>
+<p>2. Use SimpleITK functions <code>SimpleITK.ImageSeriesReader()</code> with <code>GetGDCMSeriesFileNames()</code> to read the DICOM series by providing the whole path where the Dicom series are located in <a target="_blank" rel="noopener" href="https://simpleitk.readthedocs.io/en/master/Examples/DicomSeriesReader/Documentation.html">google drive</a>.</p>
+<p>3. Use function <code>SimpleITK.ReadImage()</code> to obtain the itk images by providing the obtained dicom series.</p>
+<p>4. Use function <code>SimpleITK.GetArrayFromImage()</code> to convert the itk image of the previous step into a numpy array.</p></li>
 </ul>
 <p>To see the documentation of a simpleITK function you can type <code>help(the name of a function)</code>.</p>
 <p>For example:</p>
@@ -538,11 +538,10 @@ path_of_image<span class="token operator">=</span><span class="token string">'/c
 <pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li><h3 id="now-load-the-mask">Now load the mask</h3>
-<p>\5. Download the mask from canvas （both the raw and the mhd files） and upload them in google drive</p>
-<p>\6. Use SimpleITK function <code>sitk.ReadImage()</code> to read the mask by giving as input the whole path where the mask is stored.</p>
-<p>\7. Convert the itk mask to a numpy array with function <code>SimpleITK.GetArrayFromImage()</code>.</p></li>
+<p>5. Download the mask from canvas （both the raw and the mhd files） and upload them in google drive</p>
+<p>6. Use SimpleITK function <code>sitk.ReadImage()</code> to read the mask by giving as input the whole path where the mask is stored.</p>
+<p>7. Convert the itk mask to a numpy array with function <code>SimpleITK.GetArrayFromImage()</code>.</p></li>
 </ul>
-<p>In [ ]:</p>
 <pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>Note: You can find some examples of SimpleITK's functions <a target="_blank" rel="noopener" href="http://simpleitk.github.io/SimpleITK-Notebooks/01_Image_Basics.html">here</a>. Also, on that page it is mentioned that:</p>
 <h3 id="the-order-of-index-and-dimensions-need-careful-attention-during-conversion">The order of index and dimensions need careful attention during conversion</h3>
@@ -562,7 +561,6 @@ path_of_image<span class="token operator">=</span><span class="token string">'/c
 <li><h3 id="overlay-with-the-masks">Overlay with the masks</h3>
 Overlay the above slices with the masks. When plotting the masks, define a value for the parameter 'alpha' of function <code>imshow()</code> and use a different colormap.</li>
 </ul>
-<p>In [ ]:</p>
 <pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li><h3 id="feature-extraction-first-order-statistics">Feature Extraction: First Order Statistics</h3>
