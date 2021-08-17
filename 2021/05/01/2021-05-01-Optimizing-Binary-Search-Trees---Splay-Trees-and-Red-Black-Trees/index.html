@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    62
+                    945
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    5 Min
                 </div>
                 
 
@@ -502,7 +502,224 @@
             <div id="articleContent">
                 <h1 id="optimizing-binary-search-trees-splay-trees-and-red-black-trees">Optimizing Binary Search Trees: Splay Trees and Red-Black Trees</h1>
 <p><a href="https://yintelligence.tech/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">VUB 4013759ENR Algorithms and Data Structures</a></p>
-<p>Video + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/files?preview=624608">Slide 124~ 168</a></p>
+<p><a href="https://yintelligence.tech/2021/04/08/2021-04-08-Red-Black-Trees/">CS61B Red Black Trees</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/files?preview=624608">Slide 124~ 168</a></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/* This is an implementation of a RedBlackTree based on the Tree class.
+ * The balancing of this class has been partially built on the strategy used on the following webpage: https://www.geeksforgeeks.org/red-black-tree-set-2-insert/
+ * The RedBlackTree balances a Tree which makes searching the structure much more efficient.
+ * However the structuring is not entirely perfect (see AVLTree) but this fairly well structured Tree is
+ * easy to obtain and especially maintain. It is ideal for dynamic Trees which are updated frequently.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedBlackTree</span> <span class="token keyword">extends</span> <span class="token class-name">Tree</span><span class="token punctuation">&#123;</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedBlackTreeNode</span> <span class="token keyword">extends</span> <span class="token class-name">Tree<span class="token punctuation">.</span>TreeNode</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">private</span> <span class="token class-name">RedBlackTreeNode</span> parentNode<span class="token punctuation">;</span>
+		<span class="token keyword">private</span> <span class="token keyword">boolean</span> colour<span class="token punctuation">;</span>							<span class="token comment">// This is the colour of the node. red = false, black = true.</span>
+		
+		<span class="token keyword">public</span> <span class="token class-name">RedBlackTreeNode</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> v<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">super</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			colour <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+			parentNode <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token keyword">public</span> <span class="token class-name">RedBlackTreeNode</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> v<span class="token punctuation">,</span> <span class="token class-name">RedBlackTreeNode</span> left<span class="token punctuation">,</span> <span class="token class-name">RedBlackTreeNode</span> right<span class="token punctuation">,</span> <span class="token class-name">RedBlackTreeNode</span> parent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">super</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			parentNode <span class="token operator">=</span> parent<span class="token punctuation">;</span>
+			colour <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token keyword">public</span> <span class="token class-name">RedBlackTreeNode</span> <span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span><span class="token punctuation">)</span> leftNode<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setLeftNode</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			leftNode <span class="token operator">=</span> n<span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				n<span class="token punctuation">.</span><span class="token function">setParentNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+		
+		<span class="token keyword">public</span> <span class="token class-name">RedBlackTreeNode</span> <span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span><span class="token punctuation">)</span> rightNode<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setRightNode</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			rightNode <span class="token operator">=</span> n<span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				n<span class="token punctuation">.</span><span class="token function">setParentNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token keyword">public</span> <span class="token class-name">RedBlackTreeNode</span> <span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">return</span> parentNode<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setParentNode</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> parentNode<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>parentNode <span class="token operator">=</span> parentNode<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		
+		<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">return</span> colour<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>colour <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setColourRed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>colour <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+		<span class="token annotation punctuation">@Override</span>
+		<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// O(1)</span>
+			<span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span><span class="token punctuation">)</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> element<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// O(log(n))</span>
+		<span class="token function">insertAtNode</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span><span class="token punctuation">)</span> root<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">insertAtNode</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> element<span class="token punctuation">,</span> <span class="token class-name">RedBlackTreeNode</span> current<span class="token punctuation">,</span> <span class="token class-name">RedBlackTreeNode</span> parent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 	<span class="token comment">// O(log(n))</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>current <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 															<span class="token comment">// if the node we check is empty</span>
+			<span class="token class-name">RedBlackTreeNode</span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedBlackTreeNode</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>parent <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 														<span class="token comment">// the current node is empty, but we have a parent</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 								<span class="token comment">// do we add it to the left?</span>
+					parent<span class="token punctuation">.</span><span class="token function">setLeftNode</span><span class="token punctuation">(</span>newNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span> 
+				<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+					parent<span class="token punctuation">.</span><span class="token function">setRightNode</span><span class="token punctuation">(</span>newNode<span class="token punctuation">)</span><span class="token punctuation">;</span> 										<span class="token comment">// or do we add it to the right?</span>
+				<span class="token punctuation">&#125;</span>
+				<span class="token function">balance</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span> 
+			<span class="token keyword">else</span> <span class="token punctuation">&#123;</span> 																		<span class="token comment">// the current node is empty and it has no parent, we actually have an empty tree</span>
+				root <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			count <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Element is already in tree."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 							<span class="token comment">// if the element is already in the tree, what to do?</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 								<span class="token comment">// if the element is smaller than current, go left</span>
+			<span class="token function">insertAtNode</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> current<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> 																			<span class="token comment">// if the element is bigger than current, go right</span>
+			<span class="token function">insertAtNode</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> current<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">splayLeft</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// O(1)</span>
+		<span class="token comment">/*		  p							   p
+				 /							  /
+			 	n							 r
+			   / \           -->            / \
+		     l	  r					       n   rr
+			  	 / \					  /	\
+				rl  rr					l	 rl
+		*/</span>
+		<span class="token class-name">RedBlackTreeNode</span> rightTree <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
+		<span class="token class-name">RedBlackTreeNode</span> parent <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// The original leftTree of the rightTree of n becomes the new rightTree of n	</span>
+		n<span class="token punctuation">.</span><span class="token function">setRightNode</span><span class="token punctuation">(</span>rightTree<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// n becomes the leftTree of r (its rightTree)	</span>
+		rightTree<span class="token punctuation">.</span><span class="token function">setLeftNode</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>		
+		<span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token keyword">super</span><span class="token punctuation">.</span>root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">super</span><span class="token punctuation">.</span>root <span class="token operator">=</span> rightTree<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token comment">// The rightTree now comes at the place where n used to be</span>
+		<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	
+				parent<span class="token punctuation">.</span><span class="token function">setLeftNode</span><span class="token punctuation">(</span>rightTree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>									
+				parent<span class="token punctuation">.</span><span class="token function">setRightNode</span><span class="token punctuation">(</span>rightTree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">splayRight</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// Similar to splayLeft but mirrored</span>
+	<span class="token comment">/*		  p							   p
+			 /							  /
+		 	n							 l
+		   / \           -->            / \
+	      l	  r					       ll  n
+	   	 / \							  /	\
+		ll  lr							 lr	 r
+	*/</span>
+		<span class="token class-name">RedBlackTreeNode</span> leftTree <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		
+		<span class="token class-name">RedBlackTreeNode</span> parent <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		
+		n<span class="token punctuation">.</span><span class="token function">setLeftNode</span><span class="token punctuation">(</span>leftTree<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
+		leftTree<span class="token punctuation">.</span><span class="token function">setRightNode</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>							  							   				
+		<span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>								
+			root <span class="token operator">=</span> leftTree<span class="token punctuation">;</span>						
+		<span class="token punctuation">&#125;</span>											
+		<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>										
+			<span class="token keyword">if</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>		
+				parent<span class="token punctuation">.</span><span class="token function">setRightNode</span><span class="token punctuation">(</span>leftTree<span class="token punctuation">)</span><span class="token punctuation">;</span>		
+			<span class="token punctuation">&#125;</span>										
+			<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>	
+				parent<span class="token punctuation">.</span><span class="token function">setLeftNode</span><span class="token punctuation">(</span>leftTree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	
+	<span class="token comment">/* This part was based on the webpage mentioned in the beginning of the document.
+	   However it has been written to function with pointers to the parentNode as I found this resulted
+	   in more understandable/readable code. */</span>
+	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">balance</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span>root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			n<span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>			<span class="token comment">// Father is red</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>		<span class="token comment">// Uncle is a leaf</span>
+				<span class="token function">blackUncleBalance</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	<span class="token comment">// Uncle is red as well</span>
+				<span class="token function">redUncleBalance</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>										<span class="token comment">// Uncle is black</span>
+				<span class="token function">blackUncleBalance</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>	
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">redUncleBalance</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">RedBlackTreeNode</span> parent <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">RedBlackTreeNode</span> grandparent <span class="token operator">=</span> parent<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> parent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>					<span class="token comment">// if parent is leftNode then uncle must be the RightNode of n's grandparent</span>
+			grandparent<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment">// Colour the uncle of n black</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+			grandparent<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment">// Colour the uncle of n black</span>
+		<span class="token punctuation">&#125;</span>
+		parent<span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>						<span class="token comment">// Colour the father of n black</span>
+		grandparent<span class="token punctuation">.</span><span class="token function">setColourRed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">// n must have a grandparent since his parent was red, we color the grandparent red</span>
+		<span class="token function">balance</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">)</span><span class="token punctuation">;</span>					<span class="token comment">// Balance the grandparent of n</span>
+	<span class="token punctuation">&#125;</span>	
+	
+	<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">blackUncleBalance</span><span class="token punctuation">(</span><span class="token class-name">RedBlackTreeNode</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">RedBlackTreeNode</span> parent <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">RedBlackTreeNode</span> grandparent <span class="token operator">=</span> parent<span class="token punctuation">.</span><span class="token function">getParentNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> parent <span class="token operator">&amp;&amp;</span> parent<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token function">splayRight</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			parent<span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> parent <span class="token operator">&amp;&amp;</span> parent<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token function">splayLeft</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">splayRight</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			n<span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> parent <span class="token operator">&amp;&amp;</span> parent<span class="token punctuation">.</span><span class="token function">getLeftNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token function">splayRight</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">splayLeft</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			n<span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> parent <span class="token operator">&amp;&amp;</span> parent<span class="token punctuation">.</span><span class="token function">getRightNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token function">splayLeft</span><span class="token punctuation">(</span>grandparent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			parent<span class="token punctuation">.</span><span class="token function">setColourBlack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		grandparent<span class="token punctuation">.</span><span class="token function">setColourRed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
+	<span class="token punctuation">&#125;</span>
+	
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="exam">Exam</h1>
 <p>2013-2014 September:</p>
 <p>For each of the statements below, indicate whether they are correct or not. No motivation required.</p>

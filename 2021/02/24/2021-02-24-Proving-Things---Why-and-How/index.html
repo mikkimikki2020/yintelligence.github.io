@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-07-30
+                    2021-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    7 Min
                 </div>
                 
 
@@ -501,6 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="proving-things-why-and-how">Proving Things: Why and How</h1>
+<p><a href="https://yintelligence.tech/2021/02/22/2021-02-22-Course-Information/">VUB 4005196EER Fundamentals of Computer Science</a></p>
 <h2 id="why">Why?</h2>
 <ul>
 <li><strong>Reasoning</strong> allows us to <strong>expand our knowledge and beliefs</strong></li>
@@ -518,32 +519,40 @@
 <li>A proved statement is called a <strong>theorem</strong></li>
 <li>Similar to ordinary reasoning, but <strong>symbols</strong> are used for <strong>precision</strong></li>
 </ul>
-<h2 id="propositional-logic">Propositional logic</h2>
+<h2 id="propositional-logic-命题逻辑">Propositional logic 命题逻辑</h2>
 <p><strong>Propositional logic</strong> (PL) is used for <strong>all aspects</strong> of the proof:</p>
 <ul>
-<li>Axioms and theorems are propositions</li>
-<li>Rules of inference are based on PL</li>
+<li><p>Axioms and theorems are propositions</p>
+<p>公理和定理是命题</p></li>
+<li><p>Rules of inference are based on PL</p>
+<p>推理规则基于 PL</p></li>
 </ul>
 <h3 id="three-kinds-of-proofs">Three kinds of proofs</h3>
-<p>Proof by <strong>Truth Table</strong></p>
+<p>Proof by <strong>Truth Table</strong> <strong>真值表</strong>证明</p>
 <ul>
-<li>justified by definitions of operators</li>
-<li>justified by exhaustive case analysis</li>
+<li><p>justified by definitions of operators</p>
+<p>由运算符的定义证明</p></li>
+<li><p>justified by exhaustive case analysis</p>
+<p>通过详尽的案例分析证明是合理的</p></li>
 </ul>
-<p>Proof by <strong>Substitution</strong></p>
+<p>Proof by <strong>Substitution</strong> <strong>替换</strong>证明</p>
 <ul>
-<li>justified by equivalence</li>
-<li>also called ‘algebraic proof’</li>
+<li><p>justified by equivalence</p>
+<p>等价证明</p></li>
+<li><p>also called ‘algebraic proof’</p>
+<p>也称为“代数证明”</p></li>
 </ul>
-<p>Proof by <strong>Inference Rules</strong></p>
+<p>Proof by <strong>Inference Rules</strong> <strong>推理规则</strong>证明</p>
 <ul>
-<li>justified by rules proved within logic</li>
-<li>often mixed with substitution</li>
+<li><p>justified by rules proved within logic</p>
+<p>由逻辑中证明的规则证明</p></li>
+<li><p>often mixed with substitution</p>
+<p>经常与替代混合使用</p></li>
 </ul>
 <h2 id="rules-of-inference">Rules of inference</h2>
 <p><img src="/images/FOCS/6417380.png" /></p>
 <h3 id="general-idea">General idea</h3>
-<p>Need to proof <em>premises</em> → conclusion</p>
+<p>Need to proof <u><em>premises</em> → conclusion</u></p>
 <p>α<sub>1</sub> ∧ α<sub>2</sub> ∧ ... ∧ α<sub>n</sub> → β</p>
 <p>Recall implication truth table:</p>
 <ul>
@@ -551,7 +560,8 @@
 <li>If α = <em>TRUE</em> when β = <em>FALSE</em>, we do not have α → β</li>
 </ul>
 <p>Importantly, each rule of inference is <strong>equivalent to a PL expression</strong> and can be <strong>evaluated using truth tables</strong>.</p>
-<h3 id="example-contradiction-inference-rule">Example: contradiction inference rule</h3>
+<p>重要的是，每条推理规则都<strong>相当于一个 PL 表达式</strong>，可以<strong>使用真值表</strong>进行<strong>评估</strong>。</p>
+<h3 id="example-contradiction-inference-rule-矛盾推理规则">Example: contradiction inference rule 矛盾推理规则</h3>
 <ul>
 <li>Need to prove: p ∧ ¬p → FALSE</li>
 </ul>
@@ -787,13 +797,17 @@
 <h3 id="without-assumptions">Without assumptions</h3>
 <p>Checking a <strong>proof</strong></p>
 <ul>
-<li>Proof = list of assertions</li>
-<li>Each assertion needs to be checked</li>
+<li><p>Proof = list of assertions</p>
+<p>证明 = 断言列表</p></li>
+<li><p>Each assertion needs to be checked</p>
+<p>每个断言都需要检查</p></li>
 </ul>
 <p>Checking an <strong>assertion</strong></p>
 <ul>
-<li>Find an inference rule that matches the conclusion being considered</li>
-<li>Find earlier assertions that match the premises of the inference rule</li>
+<li><p>Find an inference rule that matches the conclusion being considered</p>
+<p>找到与所考虑的结论相匹配的推理规则</p></li>
+<li><p>Find earlier assertions that match the premises of the inference rule</p>
+<p>查找与推理规则的前提匹配的较早断言</p></li>
 </ul>
 <h4 id="example-1">Example 1</h4>
 <p>Prove that given (p ∨ q) ∧ ¬p is <em>TRUE</em> that q is <em>TRUE</em> as well</p>
@@ -807,7 +821,7 @@
 </ol>
 <h5 id="alternative-elimination">Alternative elimination</h5>
 <p>We proved the validity of the following inference rule:</p>
-<p>(p ∨ q) ∧ ¬p → q</p>
+<p><strong>(p ∨ q) ∧ ¬p → q</strong></p>
 <p>Once a theorem has been proved, it can be <strong>used in other proofs</strong></p>
 <h4 id="example-2">Example 2</h4>
 <p>Prove that given p ∧ ¬p is TRUE that q is TRUE as well</p>
@@ -823,8 +837,11 @@
 <h3 id="assumptions">Assumptions</h3>
 <h4 id="principle">Principle</h4>
 <p>In proofs, <strong>assumptions</strong> can be introduced tentatively, to test their consequences</p>
+<p><strong>假设</strong>可以试探性地推出，以测试他们的后果</p>
 <p>When introduced, we do not know whether an assumption is TRUE</p>
+<p>引入时，我们不知道假设是否为真</p>
 <p>Assumptions are written between [ ]</p>
+<p>假设写在 [ ] 之间</p>
 <h4 id="absurdity-and-implication">Absurdity and implication</h4>
 <ul>
 <li>Reduction to absurdity
@@ -836,6 +853,9 @@
 <li>[p] ∧ q → (p → q)</li>
 </ul></li>
 </ul>
+<h4 id="nested-assumptions">Nested assumptions</h4>
+<p>Prove: ((p → q) ∧ (q → r)) → (p → r)</p>
+<p><img src="/images/FOCS/6417384.png" /></p>
 <h4 id="example-3">Example 3</h4>
 <p><img src="/images/FOCS/6417381.png" /></p>
 <h4 id="exercise">Exercise</h4>
@@ -843,9 +863,6 @@
 <figure>
 <img src="/images/FOCS/6417383.png" alt="" /><figcaption>Solution</figcaption>
 </figure>
-<h4 id="nested-assumptions">Nested assumptions</h4>
-<p>Prove: ((p → q) ∧ (q → r)) → (p → r)</p>
-<p><img src="/images/FOCS/6417384.png" /></p>
 <h3 id="transitivity-of-implication">Transitivity of implication</h3>
 <ul>
 <li><p>Previous proof establishes a theorem in the form of</p>

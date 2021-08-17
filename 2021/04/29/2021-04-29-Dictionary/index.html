@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    615
+                    812
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -549,59 +549,76 @@
 <p>Your DictionaryPair class should have a constructor that can make a pair given a key and a value and which has methods for <code>getKey()</code>, <code>getValue()</code>, <code>setKey()</code>, <code>setValue()</code>. Use the Pair class from session two to store the key and the value.</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DictionaryPair</span>
 <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> key <span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> value <span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Comparable</span> key<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Comparable</span> value<span class="token punctuation">;</span>
     
-    <span class="token keyword">public</span> <span class="token class-name">DictionaryPair</span> <span class="token punctuation">(</span> <span class="token class-name">Object</span> someKey <span class="token punctuation">,</span>
-<span class="token class-name">Object</span> someValue <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        
+    <span class="token keyword">public</span> <span class="token class-name">DictionaryPair</span> <span class="token punctuation">(</span><span class="token class-name">Comparable</span> someKey<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> someValue<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>key <span class="token operator">=</span> someKey<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> someValue<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Object</span> getKey <span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        
+		
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">Object</span> comp<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">DictionaryPair</span><span class="token punctuation">)</span>comp<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Object</span> getValue <span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        
+		
+    <span class="token keyword">public</span> <span class="token class-name">Comparable</span> <span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        <span class="token keyword">return</span> key<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
-    <span class="token keyword">public</span> <span class="token keyword">void</span> setKey <span class="token punctuation">(</span> <span class="token class-name">Object</span> newKey <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        
+    <span class="token keyword">public</span> <span class="token class-name">Comparable</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
-    <span class="token keyword">public</span> <span class="token keyword">void</span> setValue <span class="token punctuation">(</span> <span class="token class-name">Object</span> newValue <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setKey</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> newKey<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	<span class="token comment">//O(1)</span>
+        key <span class="token operator">=</span> newKey<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> newValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        value <span class="token operator">=</span> newValue<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Now we will implement a dictionary class, which is storing all key,value pairs as instances of the “Pair” class in a Vector.</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dictionary</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/* This class represents a dictionary: a data structure used for storing values associated with a key.
+ * It stores objects of the class DictionaryPair (which contains two elements, key and value) in a vector.
+ * One can search based on the key.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Dictionary</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">Vector</span> data <span class="token punctuation">;</span>
+    
     <span class="token keyword">public</span> <span class="token class-name">Dictionary</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        
+        data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
-    <span class="token keyword">public</span> <span class="token keyword">void</span> add <span class="token punctuation">(</span> <span class="token class-name">Object</span> key <span class="token punctuation">,</span> <span class="token class-name">Object</span> value <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        
+    <span class="token comment">// Adds a key and value to the Dictionary</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> add <span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token class-name">Comparable</span> key<span class="token punctuation">,</span><span class="token class-name">Comparable</span> value <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">findPosition</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DictionaryPair</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> data<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DictionaryPair</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">else</span> data<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">DictionaryPair</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
     <span class="token punctuation">&#125;</span>
     
+	<span class="token comment">// Returns the position of the key in the Vector</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> findPosition <span class="token punctuation">(</span> <span class="token class-name">Object</span> key <span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        
+        <span class="token class-name">DictionaryPair</span> test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DictionaryPair</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>data<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	
+     <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">DictionaryPair</span><span class="token punctuation">)</span>data<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>test<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token keyword">return</span> i<span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
-    <span class="token keyword">public</span> <span class="token class-name">Object</span> find <span class="token punctuation">(</span> <span class="token class-name">Object</span> key <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<span class="token comment">// Search for a certain key and if it is present in the Dictionary then return the value, otherwise return null</span>
+	<span class="token keyword">public</span> <span class="token class-name">Comparable</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">findPosition</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DictionaryPair</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">DictionaryPair</span><span class="token punctuation">)</span>data<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>	
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Write a constructor for making an empty Dictionary. Add a method called “add(key,value)” which will create a new Pair for the given key and value and store this pair in the Vector using the addLast method of your Vector. Add a method findPosition(key) to your Dictionary which will check whether a pair with the given key is in the Dictionary. If the given key is in the Dictionary, it will return the index of the given Pair. If the key is not in the Dictionary, it will return -1. Given this findPosition method, you can implement a “find(key)” method. If the given key is in the Dictionary, this method will return the corresponding value. If the key is not in the Dictionary, return null.</p></li>
 <li><p>Modify the add method, such that it first verifies whether the given key is already in the Dictionary using the <code>findPosition</code> method. If the key is already in the Dictionary, then the add method should overwrite the existing value in stead of adding a new pair with the key and value.</p></li>
 </ol>

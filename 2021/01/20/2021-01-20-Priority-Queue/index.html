@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
@@ -570,6 +570,12 @@
 <p>为了使用 Sorted Linked List 作为 Priority Queue 的基础，我们需要创建一个小的辅助helper类 Pair，它将数据和要添加的元素的优先级分组，因为 Linked List 能够存储一个，每个元素只有一个值。 该对只存储两个值，并实现了比较第二个值的 compareTo 方法。 因此，第二个要素必须是优先事项。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java</span> <span class="token punctuation">.</span> <span class="token class-name"><span class="token namespace">util <span class="token punctuation">.</span></span> Comparator</span> <span class="token punctuation">;</span>
 
+<span class="token comment">/* This class is a sorted LinkedList. It stores the data in a specialised structure i.e., Pair.
+ * This Pair contains two things: the priority of the object (an integer) and the object itself.
+ * When inserting a new element in the PriorityQueue the LinkedList is traversed.
+ * When an element is found with a lower priority then the new object is stored in front of it.
+ */</span>
+
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PriorityQueue</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PriorityPair</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span>
@@ -584,7 +590,7 @@
         <span class="token punctuation">&#125;</span>
         
         <span class="token keyword">public</span> <span class="token keyword">int</span> compareTo <span class="token punctuation">(</span> <span class="token class-name">Object</span> o <span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
+        <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
             <span class="token class-name">PriorityPair</span> p2 <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token class-name">PriorityPair</span> <span class="token punctuation">)</span> o <span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span> <span class="token class-name">Comparable</span> <span class="token punctuation">)</span> priority <span class="token punctuation">)</span><span class="token punctuation">.</span> compareTo <span class="token punctuation">(</span> p2 <span class="token punctuation">.</span> priority <span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
@@ -597,22 +603,29 @@
     data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
+    <span class="token comment">// Add a new element with a certain priority to the PriorityQueue</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> push <span class="token punctuation">(</span> <span class="token class-name">Object</span> o <span class="token punctuation">,</span> <span class="token keyword">int</span> priority <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
         <span class="token comment">// make a pair of o and priority</span>
+        <span class="token class-name">Pair</span> newPair <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Pair</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> priority<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">// add this pair to the sorted linked list .</span>
+        data<span class="token punctuation">.</span><span class="token function">addSorted</span><span class="token punctuation">(</span>newPair<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
+    <span class="token comment">// Remove the element with the highest priority and return it</span>
     <span class="token keyword">public</span> <span class="token class-name">Object</span> pop <span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token comment">// add your code here</span>
+    <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        <span class="token class-name">Object</span> storage <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		data<span class="token punctuation">.</span><span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> storage<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     
+    <span class="token comment">// Show the element with the highest priority</span>
     <span class="token keyword">public</span> <span class="token class-name">Object</span> top <span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-    <span class="token comment">// add your code here</span>
+    <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        <span class="token keyword">return</span> data<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="exercises">Exercises</h2>
 <ol type="1">
 <li><p>完成基于Sorted Linked List的Priority Queue类的实现。</p>

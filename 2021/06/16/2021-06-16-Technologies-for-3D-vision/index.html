@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-15
+                    2021-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    13
+                    8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    28 Min
                 </div>
                 
 
@@ -503,6 +503,300 @@
                 <h1 id="technologies-for-3d-vision">Technologies for 3D vision</h1>
 <p><a href="https://yintelligence.tech/2021/02/04/2021-02-04-VUB-4015676ENR-Technology-and-Applications-of-Micro-Electronics-and-Photonics/">Technology and Applications of Electronics and Photonics</a></p>
 <p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19120/files/folder/Presentation%20sessions?preview=851051">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19120/files/folder/Presentation%20sessions?preview=851218">report</a></p>
+<h2 id="enhanced-computer-vision-with-microsoft-kinect-sensor">Enhanced Computer Vision With Microsoft Kinect Sensor</h2>
+<p>旨在<strong>消除</strong>用户和用户之间的任何<strong>补充设备</strong>，例如控制器</p>
+<ul>
+<li><strong>Low-cost</strong>, accessible depth sensing technology</li>
+<li>Gaming gadget</li>
+</ul>
+<p>Kinect for Windows 2 于 2014 年发布，但由于与 Xbox One 的功能几乎相同，2013 年发布前一年，微软停止了 Kinect for Windows 项目的努力，并鼓励用户使用带有 USB 适配器的 Kinect for Xbox One相反，2013 年发布的 Xbox One 版 Kinect 是 Kinect 的升级版，但本质上是微软方面的营销失败。它是高度针对游戏的，但由于强制包含在 Xbox One 捆绑包中并且缺乏受支持的游戏，它的用户群减少了，最终从控制器的自然交互替代品中淡出。</p>
+<p>即便如此，对内部设备的兴趣计算机视觉社区保持高度活跃，在 Kinect 技术首次出现近十年后，微软于 2019 年发布了 Azure Kinect，主要为<strong>企业软件</strong>和<strong>人工智能</strong>使用而设计。</p>
+<h3 id="原理">原理</h3>
+<p>用于 Xbox 360 设备的原始 Kinect 包含一个深度传感器、一个彩色摄像头和一个四麦克风阵列，可提供全身 3D 动作捕捉、面部识别和语音识别功能。它还包括一个用于自动校准的电动倾斜底座。</p>
+<p>原始 Kinect 设备中的深度传感技术基于<strong>结构光传感structured light sensing</strong>，<u>其中红外 (IR) 光向环境发射散斑，由红外摄像头捕获，红外摄像头是单色互补金属氧化物半导体 (CMOS) 传感器。这可以在<strong>任何环境光</strong>条件下运行。</u></p>
+<p>V1 <strong>结构光传感structured light sensing</strong></p>
+<ul>
+<li>红外 (IR) 光会向环境发射dot speckle</li>
+<li>红外摄像头（CMOS 传感器）捕获它</li>
+<li>光发射器和接收器之间的几何关系以及相机固有的和投射的光图案是已知的
+<ul>
+<li>点的深度可以通过<strong>点阵图形dot pattern</strong>的变形来推断</li>
+</ul></li>
+<li>可以在<strong>任何环境</strong>光线条件下工作</li>
+</ul>
+<p>光发射器和接收器之间的几何关系以及相机内在参数和投射的光图案是已知的。由于投影点的每个局部图案都是唯一的，因此图像中观察到的局部点图案与校准的投影仪点图案之间的匹配是可行的。<strong>一个点的深度可以通过点阵图形的变形来推断</strong>。<u>与使用多个结构光传感器的其他可用结构光传感器相比，Kinect 仅使用一种光模式，以实现每秒 30 帧的高速率深度感应。</u></p>
+<p>当时，这种深度传感技术为现有的基于<strong>飞行时间 (ToF)</strong> 的深度传感器提供了一种廉价且相对准确的替代方案。该软件技术可实现高级手势识别、面部识别和语音识别。根据提供给零售商的信息，Kinect 能够同时跟踪多达 6 个人，其中包括两个活跃的玩家进行动作分析，每个玩家可以提取 20 个关节的特征。</p>
+<p>但是，PrimeSense 表示设备可以“看到”（但不能作为玩家处理）的人数<strong>仅受相机视野范围内有多少人的限制</strong>。 第一个发布后 3 年Kinect 是第二代 Kinect 设备，即 Kinect for Xbox one，采用广角 ToF 摄像头，从结构光技术切换，提供<strong>更高的精度和三倍于前代产品的保真度</strong>。这也使该设备能够<strong>在黑暗中进行深度感应</strong>。 Kinect 上的红外投影仪发出调制的红外光，然后被传感器捕获。它使用相位检测来测量光从光源传播到物体并返回传感器所需的时间，并根据结果计算距离[ 5]。与较远的物体相比，从较近的物体反射的红外光的飞行时间更短，因此红外传感器会逐个像素地捕获调制模式在飞行时间中的变形程度。<strong>飞行时间深度测量可以更准确，计算时间更短，允许检测到更多的每秒帧数。</strong></p>
+<p>V2 <strong>Time of flight</strong></p>
+<ul>
+<li><p>IR projector sends out modulated IR light</p></li>
+<li><p>Sensor captures signal</p></li>
+<li><p>Measure the time it takes light to travel from the light source to the object and back to the sensor: <strong>phase detection</strong></p>
+<p>逐个像素地计算与结果的距离距离较远的物体反射的红外光比较远的物体具有更短的飞行时间</p></li>
+<li><p>Time of flight measurements of depth测量可以<strong>更准确，计算时间更短</strong>more frames-per-second can be detected</p></li>
+<li><p>Capable of depth sensing in the <strong>dark</strong>.</p></li>
+</ul>
+<p>除了游戏，Kinect 在教育、医疗、零售、交通、安全等领域的众多应用中也占有一席之地。从 Kinect 技术对它们的影响的角度来看，我们通常可以讨论 3 类主要的计算机视觉应用程序：</p>
+<ul>
+<li>对象跟踪和识别 Object tracking and recognition
+<ul>
+<li>本质上是两个不同的任务</li>
+<li>跟踪关注对象在空间中的位置一个<strong>时间间隔</strong>，而识别将语义附加到识别的结构上</li>
+<li>仅使用 RGB 数据和深度学习</li>
+<li>光照条件和变化的背景<strong>噪声</strong>仍然影响这两个程序</li>
+</ul></li>
+<li>人类活动分析 Human activity analysis
+<ul>
+<li>提供了商业上可行的骨骼跟踪，每个关节由其 3D 坐标表示</li>
+<li><strong>逐像素</strong>身体部位识别</li>
+<li>基于提取的骨架、深度数据或两者的融合</li>
+<li>早期方法采用动态时间扭曲或隐马尔可夫模型</li>
+<li>后期方法使用机器学习网络，在某些基准上的准确率高达 98%</li>
+</ul></li>
+<li>3D 扫描 3D scanning
+<ul>
+<li>通过多次扫描重建对象或地点的 3D 图像。</li>
+<li>扫描的<strong>点云</strong>需要在<strong>空间</strong>上<strong>对齐</strong>。</li>
+<li>Kinect Fusion算法使用高效的并行化实现，可以通过使用粗到细迭代最近点 (ICP) 算法执行快速密集的帧到帧深度跟踪。</li>
+<li>由于其特征提取能力，深度学习在该领域也被证明是有效的</li>
+</ul></li>
+</ul>
+<p>我们可以为每个类别声明深度信息的可用性大大提高了应用程序目标结果的准确性和鲁棒性，但在某些情况下使用 <strong>RGB-D 可能会带来不必要的性能缺陷</strong>。 Kinect 也对所有这些领域产生了巨大的影响，因为它的可用性让位于广泛的特定于应用程序的 RGB-D 数据集被捕获。</p>
+<h3 id="前景">前景</h3>
+<ul>
+<li>对于小型项目和概念验证，Kinect 传感器仍然是<strong>深度感测depth sensing</strong>的首选技术，因为它提供了对计算机视觉任务（如身体跟踪）的可用软件支持。</li>
+<li>该系列的继任者 Azure Kinect 虽然面向研究社区，但它监督了一个事实，即 Kinect 具有吸引力的主要属性之一是相对便宜的价格。 Azure Kinect 的零售价为 400 美元，比其前辈高出许多倍，这可能归功于它与 Microsoft Azure cloud 的连接性。</li>
+<li>自 2010 年 Kinect 技术首次出现以来，市场上已经发布了许多替代深度传感器，在当前的技术状态下可以提供更好的选择。还需要注意的是，Azure Kinect 仍然存在一些主要的技术缺陷。目前它存在物体反射率问题，并且在户外环境中似乎几乎无法使用。</li>
+<li>基于深度的应用程序的未来分为两个可能的路线图。努力使深度传感器更普遍地包含在日常设备中，并通过寻找替代解决方案来消除深度感测的需要。目前这两种方法都很流行。在需要最大精度的医疗领域，第一种选择似乎更有可能，但对于细节不重要的应用，可以借助快速出现的先进和准确的深度学习模型来排除深度信息。</li>
+</ul>
+<h3 id="市场">市场</h3>
+<p>为 Kinect 提供并继续提供比较技术的主要外设系列是英特尔实感。已经发布了多个系列的设备，它们支持多种深度和跟踪技术，包括 Coded Light Depth、StereoDepth 和 Positional Tracking。传感器的深度重建因设备而异，包括<strong>立体深度传感</strong>、<strong>激光雷达</strong>和<strong>结构光</strong>。</p>
+<p>IntelRealSense 提供的主要好处是跨平台 SDK。早在 2011 年，华硕就与 PrimeSense 合作，发布了一款名为 WAVI Xtion 的 PC 独占设备，其底层技术与 Kinect 相同，但提供了一种可能PC 游戏的自然用户界面。目前华硕仍然是基于 PrimeSense 技术的传感器的唯一供应商。</p>
+<p>总的来说，在所有这些和其他较小的竞争对手中，底层的深度传感技术只是一小部分可能方法的子集，即飞行时间 (ToF)、立体重建、LiDAR 或结构光，最受欢迎的选择是 ToF。深度传感技术的改进专门针对这些现有方法进行，但对计算机视觉问题的改进各不相同。</p>
+<p>基于 Kinect 的商业深度学习解决方案存在于众多应用中，例如<strong>实时手语翻译</strong>。这个例子展示了集成到设备中的改进的身体跟踪技术如何有益于日常场景，并且在医疗、娱乐或运动领域也存在类似的应用。</p>
+<h2 id="motion-capture">Motion Capture</h2>
+<p>Motion Capture，也称为Motion Tracking或mocap，用于记录物体的运动，然后将其模拟成数字模型。近年来，随着计算机数据采集和传感器技术的飞速发展，动作捕捉技术在游戏、娱乐、体育、军事、运动分析、舞蹈采集、虚拟现实等技术中的应用越来越深入。</p>
+<p>简单动作捕捉概念的先行者一般归功于1915年由波兰裔美国人Max Fleischer发明的Rotoscope技术。在该技术中，将实际拍摄的运动图像作为动画描绘的背景。基于此，动画师可以逐帧绘制所需的运动。</p>
+<p>1970年代，基于动作捕捉仪器技术在动画制作领域的应用，美国迪斯尼公司试图捕捉演员的动作来改进动画（图2），纽约计算机图形实验室设计了一种光学装置，采用了类似Rotoscope技术原理的表演者姿势投影屏幕，为后续动画制作提供了有益的参考。</p>
+<p>1980年代，基于计算机的人体动作捕捉研究开始出现。美国生物力学实验室、麻省理工学院等大学都进行了这方面的研究。此后，动作捕捉技术逐渐被越来越多的研究人员和开发者所接受，并逐渐从试验研究走向现实。</p>
+<p>20世纪90年代，随着计算机软硬件技术的发展和人们对动画制作要求的提高，动作捕捉进入实用阶段。多家厂商推出了多种商用动作捕捉设备，如动作分析、世嘉互动、Polhemus、Filmbox、MAC等，其应用已经远远超出演示领域，成功应用于考古、医学研究、虚拟现实、人体工程学研究、模拟训练、游戏等诸多方面。</p>
+<p>动作捕捉技术本身是一项非常复杂的技术，涉及到测量、物理定位、空间定位等计算方法，以及数据和计算机的交互和处理。一般来说，技术本身就是在运动物体的关键部位<strong>设置跟踪器</strong>，运动捕捉系统<strong>捕捉到跟踪器的位置</strong>。经计算机处理后，即可得到<strong>3D空间坐标数据</strong>。</p>
+<p>当数据被计算机识别后，可用于动画制作、步态分析、生物力学、人体工程学等领域。 人体动作捕捉的目标是通过传感器（它可以是RGB摄像头、深度摄像头或光学标记、3D扫描仪），然后实现3D角色建模。</p>
+<h3 id="原理-1">原理</h3>
+<h4 id="概念">概念</h4>
+<p>通过在时域中跟踪多个关键点的运动，然后将其转换为可用的数学表示并合成单个3D运动来记录生物运动的过程。</p>
+<p>从技术的角度来看，动作捕捉的本质是测量并记录物体在三维空间中的运动轨迹。在动作捕捉技术应用最为广泛的电影动画领域，使用动作捕捉的过程如下：</p>
+<ul>
+<li>实时检测并记录表演者身体在三维空间中的运动轨迹</li>
+<li>捕捉表演者的动作（包括方向信息）</li>
+<li>将信息转化为数字化的“抽象运动abstract movement””</li>
+<li>动画软件将数字化的“抽象动作abstract movement”转化为模型，使模型可以做出与表演者相同的动作，并生成最终动画序列。</li>
+</ul>
+<p>事实上，动作捕捉的对象不仅是表演者的运动，还有其他物体的运动、表演者的表情，还有摄像机和灯光的运动等等。 此外，动作捕捉技术在虚拟现实、三维游戏、人体生物工程等诸多方面都有重要应用。</p>
+<h4 id="设备">设备</h4>
+<p>动作捕捉技术主要是通过物体在三维空间中的运动来记录，通过其<strong>速度</strong>、<strong>位置</strong>等参数来获取相关的物理信息，进而模拟出运动的轨迹。 不同公司的动作捕捉设备配置相对不同，但一套典型的动作捕捉设备主要由以下四个部分组成：</p>
+<ul>
+<li>传感器
+<ul>
+<li>不同的动作捕捉任务需要不同数量的传感器。以人物捕捉为例，捕捉一个人的整体运动轨迹需要较少的传感器，而<strong>捕捉人体局部信息</strong>，如面部和手部，则<strong>需要较多的传感器</strong>，<strong>因为关节和细节较多.</strong></li>
+</ul></li>
+<li>信号捕捉设备
+<ul>
+<li>由于现在广泛使用光学运动捕捉系统，<strong>高分辨率红外摄像机</strong>常用于信号捕捉和采集。对于以前的机械动作捕捉系统，它是通过从电路板上采集电信号来完成的。</li>
+</ul></li>
+<li>数据传输设备
+<ul>
+<li>数据传输设备主要负责将采集到的动作捕捉信息实时传输到计算机中，然后进行分析和处理。</li>
+</ul></li>
+<li>数据处理设备
+<ul>
+<li>动作捕捉设备捕捉到的数据需要结合三维模型进行修改处理，借助高速运算能力进行数据处理电脑完成相应的工作。这就需要我们借助数据处理软件或硬件来完成工作。</li>
+</ul></li>
+</ul>
+<h4 id="人体树状结构">人体树状结构</h4>
+<p>人体树状结构提出了一种分层运动描述方法，将人体关节视为一棵树。通过将关节视为点，将关节之间的骨骼视为链，四肢可以与运动相关联。以腰关节为根节点。对于相邻的两个关节，以腰关节为父节点，以父节点下连接的关节为子节点。</p>
+<p>当父节点移动时，孩子必须随之移动。但是当子节点移动时，父节点不一定移动。为了表达人体模型的层次结构，可以使用树结构来描述它。</p>
+<h4 id="皮肤线性模型smpl-模型">皮肤线性模型（SMPL 模型）</h4>
+<p>Skinned multi-person linear model(SMPL model) 可以表示任何姿势的任何体型，现在已经成为构建人体模型的最流行的模型。 它在不同领域有着广泛的应用，例如3D重建、姿态估计等。</p>
+<ul>
+<li>Skinned'意味着不同于基于骨骼的模型，该模型的蒙皮由3D 网格表示。 网格是指在三维空间中代表一个面的三个点，可以看作是对真实几何体的采样。 我们采样的点越多，3D网格越密集，模型的精度就越高。</li>
+<li>“多人”意味着模型可以代表不同的人，这对所有人体都是通用的。</li>
+<li>“线性”代表不同的姿势或一个人体的形状可以由一个线性系统控制，这个系统是可以解释的。</li>
+</ul>
+<p>SMPL 是一种由参数控制的人体模型。 可以控制的参数有POSE和SHAPE。 有24个姿态控制节点（图7）和10个形状控制参数：</p>
+<ul>
+<li>形状Shape参数（β）：10 个标量值的形状向量，每个值都可以解释为人类主体沿某个方向（例如更高或更矮）的膨胀/收缩量。</li>
+<li>姿势Pose参数（θ）： 24 × 3 标量值，保持关节相对于其参数的相对旋转。 每个旋转都被编码为轴角旋转表示中的任意 3D vector。</li>
+</ul>
+<p>从 SMPL 模型合成新人体实例的过程包括 3 个阶段</p>
+<ul>
+<li>Shape Blend Shapes
+<ul>
+<li>添加了顶点位移的模板网格，表示主体形状与平均值的距离形状。</li>
+</ul></li>
+<li>Pose Blend Shapes
+<ul>
+<li>在静止姿势中构建身份网格后，进一步添加顶点位移，以解释由特定姿势引起的变形校正。</li>
+</ul></li>
+<li>Skinning
+<ul>
+<li>上一步中的每个网格顶点都通过关节的加权组合进行变换。</li>
+<li>关节越靠近顶点，关节旋转/变换顶点的强度就越大。</li>
+</ul></li>
+</ul>
+<h5 id="与现有模型的比较">与现有模型的比较</h5>
+<p>由于人体是一个灵活复杂的非刚性物体，具有运动学结构、体型、表面纹理、身体部位或身体关节位置等许多特殊特性，直接调整人体的姿势是一项非常困难的任务。 扫描人体。为了克服非标准扫描姿势带来的影响，有学者提出构建逼真的虚拟人体模型，通过对人体模型姿势进行标准化，从人体模型中获取所需信息。 .成熟的人体模型只需要满足构建和描述人体姿势的特定任务要求，通过调整相应参数即可实现姿势的标准化</p>
+<p>通常使用三种类型的人体模型：基于骨架的、基于轮廓的和基于体积的。</p>
+<ul>
+<li><p><strong>skeleton-based</strong>: Linear Blending Skinning(<strong>LBS</strong>)</p>
+<ul>
+<li>具有呈现<strong>简单灵活</strong>的明显优点</li>
+<li>但也存在<strong>缺乏纹理信息</strong>的缺点，表明身体没有宽度和轮廓信息。</li>
+</ul></li>
+<li><p><strong>contour-based</strong></p>
+<ul>
+<li><p>approximated by a rectangle or a human contour boundary</p>
+<p>在早期方法中被广泛使用，其中包括<strong>粗略</strong>的宽度四肢和躯干的轮廓<strong>信息</strong></p></li>
+</ul></li>
+<li><p><strong>volume-based</strong></p>
+<ul>
+<li>Replacing the Shape Completion and Animation of People</li>
+</ul></li>
+</ul>
+<p>SMPL 比 SCAPE 更快，因为 SMPL 建立在标准蒙皮之上，它与现有的 3D 兼容动画软件。 SMPL 生成的模板可以以 Autodesk 的 Filmbox (FBX) 文件格式导出，可在 Maya、Unity 和 Blender 中使用。</p>
+<h3 id="前景-1">前景</h3>
+<p>未来，动作捕捉技术将朝着专业化、人性化、低成本的方向发展。</p>
+<ul>
+<li><strong>电影和游戏行业</strong>将需要大规模的动作捕捉系统。 未来的技术发展将为他们提供更可靠、更准确、限制更少的动作捕捉设备。 同时，依托优化的算法设计和智能化的硬件设备，系统可以对海量数据进行智能化处理，减少后期制作的工作量，更加人性化。</li>
+<li><strong>运动和医疗领域</strong>，动作捕捉技术的发展可以帮助其实现<strong>低能耗</strong>、<strong>高实时性</strong>，实现设备的小型化、小型化，便于携带和架设。 设备的<strong>低成本</strong>将有助于大规模应用。</li>
+<li><strong>体感游戏和人机交互领域</strong>，动作捕捉系统需要简化、易于操作和提供高精度。 尤其是在当前流行的手势识别技术中，高精度尤为重要。 操作的简单性会影响用户的人机交互体验依靠技术进步和优化的软硬件配置降低价格将有助于动作捕捉技术进入普通用户的生活 并促进社会进步。</li>
+</ul>
+<h3 id="市场-1">市场</h3>
+<p>将动作捕捉技术应用到计算机动画制作中，可以大大提高动画制作水平。大大提高了动画制作效率，降低了成本，使动画制作过程更加直观，效果更加生动。目前，动作捕捉技术不仅可以用于<strong>计算机动画制作</strong>，在其他领域也有着非常广泛的应用前景。</p>
+<ul>
+<li><strong>人机交互动作捕捉技术</strong>已经完成了将表情和动作数字化的工作，提供了一种新的方法人机交互，比传统的键盘鼠标更直接、更方便。它不仅可以实现“3D鼠标”和“手势识别”，还可以让操作者以自然的动作和表情直接控制电脑。它还为能够理解人类表情和动作的计算机系统和机器人提供了技术基础。</li>
+<li><strong>虚拟现实</strong>为了实现人与虚拟环境和系统之间的交互，需要确定参与者的头部、手部和身体的位置和方向，准确跟踪和测量参与者的动作，并实时检测这些动作。因此，这些数据可以反馈到显示和控制系统。这项工作对于虚拟现实系统是必不可少的，它是动作捕捉的研究内容。</li>
+<li><strong>机器人远程控制</strong>机器人将危险环境的信息传输给控制器，控制器根据信息做出各种动作。动作捕捉技术捕捉动作并实时传输给机器人，并控制它完成相同的动作。与传统的遥控方式相比，该系统可以实现更加直观、细致、复杂、灵活、快速的运动控制，大大提高了机器人应对复杂情况的能力。</li>
+<li><strong>体能训练动作捕捉</strong>可捕捉运动员的动作此外，在人体工程学研究、模拟训练、生物力学研究等领域，动作捕捉技术也有很好的影响。可以预见，随着技术本身的发展和相关应用领域技术水平的提高，动作捕捉将得到越来越广泛的应用。</li>
+</ul>
+<h2 id="d-face-recognition">3D Face Recognition</h2>
+<p>人脸识别是一种基于人脸的生物特征识别技术人识别方法分为三类：</p>
+<ul>
+<li>特色物品Characteristic item：身份证、学生证、护照等；</li>
+<li>特殊知识Special knowledge：密码、密码等；</li>
+<li>人体生物特征：人脸、指纹、语音等。</li>
+</ul>
+<p>前两种特征识别方式属于传统识别前两种方法属于传统识别技术，方便快捷。但致命缺点是安全性差，容易伪造和窃取。相比之下，人类的生物特征已成为最理想的识别特征，因为他们的稳定性和独特性。</p>
+<p>第一阶段是起源于1970年代的半机械识别方法；第二阶段基于人机交互识别方法，使用几何特征参数来表示人脸的高层次特征；第三阶段是我们现在所处的阶段，机器可以自动执行人脸识别和判断，在这个阶段，<strong>人工神经网络（ANN）</strong>得到了广泛的应用，在人脸识别方面发展了许多新的方法。。</p>
+<h3 id="advantages-of-3d-face-recognition-over-2d"><strong>Advantage</strong>s of 3D Face Recognition over 2D</h3>
+<ul>
+<li><strong>good robustness</strong> to the change of external conditions. (the changes of light and view, or makeup)</li>
+<li>more <strong>abundant informatio</strong>n than 2D images. (2D image is only the projection of 3D objects in 2D space)</li>
+<li>higher security</li>
+</ul>
+<h3 id="原理-2">原理</h3>
+<p>3D成像设备主要包括<strong>高精度3D扫描仪和低精度RGB-D相机</strong>。</p>
+<ul>
+<li>High-precision 3D scanner：
+<ul>
+<li>主要有Mega capturer</li>
+<li>可以获得高质量的3D人脸数据</li>
+<li>设备成本高</li>
+<li>采集时间长</li>
+</ul></li>
+<li>Low-precision <strong>RGB-D</strong> camera：
+<ul>
+<li>主要有<strong>Kinect</strong>等深度相机该设备
+<ul>
+<li>有成本低</li>
+<li>采集速度快</li>
+<li>易于大规模使用</li>
+<li>但采集的深度图质量低，噪声大，通常需要和彩图一起用于人脸识别，以获得更好的人脸识别准确率</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="colour-image-reconstructed">Colour Image reconstructed</h4>
+<p>Method Based on <strong>Colour Image reconstructed</strong>，目前不是很活跃，<u>因为 2D face 图像丢失深度信息。</u></p>
+<ul>
+<li>Advantage:
+<ul>
+<li>reduce the influence of <strong>gesture</strong>s, <strong>expression</strong>s and other <strong>factors</strong> on recognition</li>
+</ul></li>
+<li>Disadvantage:
+<ul>
+<li>relatively <strong>time-consuming</strong></li>
+<li>the <strong>accuracy</strong> of modelling will affect the recognition results</li>
+<li>the <strong>model</strong> of <strong>different</strong> images from the same person may be different</li>
+</ul></li>
+</ul>
+<h4 id="high-precision-3d-scanner">High-precision 3D scanner</h4>
+<p>不能大面积应用因设备成本、采集方式等因素在真实场景中的规模</p>
+<ul>
+<li>Global feature-based method
+<ul>
+<li>首先定位鼻尖点 然后通过鼻尖每隔一定角度分割面</li>
+<li>曲线选择-人脸识别</li>
+</ul></li>
+<li>Local feature-based method
+<ul>
+<li><strong>鲁棒性</strong>高LBP 找到一个三角形补丁作为中心补丁 找到相邻的三个补丁的边缘 在中心补丁周围找到一圈补丁 将人脸分成一组区域 计算每个区域的LBP直方图</li>
+</ul></li>
+<li>Deep feature-based method
+<ul>
+<li><strong>深度学习</strong>定位眼的三个关键点和眼尖3D 点云上的鼻子-根据3键进行姿势矫正 然后将3D点云转换成深度图-深度学习（Resnet）</li>
+</ul></li>
+</ul>
+<h4 id="low-quality-rgb-d-image-kinect">Low-Quality RGB-D Image (Kinect)</h4>
+<ul>
+<li>从颜色图中提取和融合特征，并通过两个神经网络模型的深度图, 使用颜色图训练神经网络, 在小尺度深度图上进行迁移学习数据transfer learning</li>
+<li><strong>如果不用这个只用colour image，会丢失20%的准确性</strong></li>
+</ul>
+<blockquote>
+<p>什么是ICP（迭代最近点）？ICP是一种点云匹配算法，可以将不同坐标下的点云数据合并到同一个坐标系中。</p>
+<p>ICP is a point cloud matching algorithm that can merge point cloud data under different coordinates into the same coordinate system</p>
+</blockquote>
+<h3 id="problem">Problem</h3>
+<ul>
+<li>large-scale 3D <strong>database</strong>s are still <strong>lacking</strong>.</li>
+<li>2D和3D<strong>数据融合</strong>的问题，目前还不清楚哪种融合fusion方法最好</li>
+<li>表情<strong>facial expressions</strong>变化影响的问题</li>
+</ul>
+<h2 id="application-of-depth-camera-to-surgery">Application of depth camera to surgery</h2>
+<p>深度，对于三维物体感知至关重要。目前，科学家们正试图以数字方式重建这种深度感知。多种技术，例如基于飞行时间或结构光的 RGB-D（红色、绿色、蓝色 - 深度）相机，都是为了实现深度可视化。此外，由于推出了低成本可用的 RGB-D 相机，例如 Microsoft Kinect，应用程序激增。今天，医疗领域有着广泛的应用。</p>
+<h3 id="原理-3">原理</h3>
+<p>大多数常见的深度摄像头系统都基于相同的技术。例如，Kinect 设备基于<strong>红外投影仪</strong>和<strong>接收器</strong>以及 <strong>RGB（红、绿、蓝）摄像头</strong>。红外投影仪和接收器是测量深度视角所必需的。彩色图像需要RGB camera。</p>
+<p>最初，系统的深度测量是基于<strong>结构光</strong>的。这意味着红外光投射到物体上。投射的辐射由已知模式组成。<u>当它与物体表面接触时，这种图案会扭曲。</u>因此，红外摄像机检测从其接收深度信息的光束图案的变形。这种技术称为<strong>主动立体视觉active stereovision</strong>。</p>
+<p>另一方面，较新版本的 Kinect 相机使用了飞行时间 (ToF) 技术。通常，该技术测量光束从发射器传播到物体并返回传感器所需的时间。</p>
+<h4 id="基于非接触式手势的计算机交互">基于非接触式手势的计算机交互</h4>
+<p>现代手术是使用大量成像技术进行的。 计算机断层扫描 (CT) 和磁共振成像 (MRI) 等成熟技术经常用作术中信息。 这些允许外科医生在开始实际切口之前绘制感兴趣的区域并分析该区域。</p>
+<p>手势检测通过几个步骤来执行。在外科手术应用和游戏等原始应用中使用这种 Kinect 的最明显区别是对手势的识别。因此，需要详细检测手和手指的运动。</p>
+<ol type="1">
+<li>在深度图像上检测离相机最近的物体。</li>
+<li>识别对象的轮廓。</li>
+<li>检测物体的指尖。</li>
+<li>对每个手指的角度进行面积分析。</li>
+</ol>
+<p>最后，这会变成一个信号，随着时间的推移记录下来并与预编程的信号进行比较，以识别手势。</p>
+<p><strong>深度图像</strong>是由<strong>结构光</strong>的发射产生的。 Kinect 设备使用斑点图案呈现特定区域。这可以比作一个阵列，它赋予每条光束其唯一性。根据光束的变形，可以测量深度。与较远的物体相比，靠近相机的物体在灰度上的强度更高。基于此深度图，制作一个直方图，表示所有像素的灰度强度。</p>
+<p>接下来，<strong>山谷</strong>表示<u>灰度强度之间的区别</u>，<strong>代表不同的对象</strong>。该谷将作为图像上对象分割的阈值强度。</p>
+<p>通过阈值化和二值化接收最接近相机的对象的分割。阈值意味着创建一个二进制表示，其中每个像素都变成两个类别之一。这些类别被视为dark or light。基于所有灰度的直方图，在两个峰值之间选择阈值。如果选择了阈值，则所有灰度高于阈值的像素都将用 1 表示。这代表黑色，表示该区域为前景对象。具有较低灰度级的其他像素将被指示为 0，并将被称为背景。执行阈值处理时，某些对象将作为对象出现在前景中。这些被称为<strong>斑点blobs</strong>。</p>
+<p>Blob检测方法。这种特定方法将<strong>特定距离</strong>和<strong>灰度范围内的斑点</strong>相互连接，并将其分类为一个对象。这使得识别手成为可能。</p>
+<p>接下来，将从对象中提取手的轮廓。这是必需的，因为不同的手指表情具有不同的含义。计算凸包，它代表手的最大内表面。基于这个凸包，凸包外的顶点表示为指尖。然而，顶点的角度被计算和对齐。然后将创建的曲线与参考曲线进行比较以对表示的手势进行分类。</p>
+<h3 id="前景-2">前景</h3>
+<p>目前，正在对新 KinectV4 的使用进行新的研究。这种深度传感器允许以比第一个 Kinect 更高的精度检测手势。</p>
+<ul>
+<li>由于所提出的深度传感器使用结构光，因此该应用程序<strong>仅在内部</strong>可行。</li>
+<li>阳光会干扰相机的红外线。这使得在<strong>室外</strong>进行深度测量几乎是<strong>不可能</strong>的。</li>
+<li>在外科手术等医疗应用中，这个缺点不太重要。</li>
+</ul>
+<p><strong>手术机器人</strong>的兴起，有可能成为外科医生和机器人之间的主要交互系统。这将使该技术在手术室中的重要性增加。</p>
+<p>此外，<strong>5G网络</strong>的兴起也有影响。远程手术可以通过外科医生的动作进行，通过深度相机记录，而不是像现在这样使用手柄。手势动作对人类来说是直觉的。</p>
+<h3 id="市场-2">市场</h3>
+<p>深度相机市场的特点是几家公司。 工业深度相机由 Norbo 和 Famos 等公司制造/更多的货架相机由微软、英特尔或 Stereolabs 等公司制造。</p>
+<p>随着 Kinect 的推出，微软开创了廉价、更方便的深度感应相机市场。 与花费数千欧元的早期技术相比，这些设备更容易获得。</p>
+<p>这种市场变化导致对这些设备可用性的研究激增。一项简短的市场研究表明，GestSure 是目前唯一一家为手术室提供基于手势的界面系统的公司。 GestSure 是一家美国公司，该系统已在多伦多的医院安装了三年多。 最近，该系统已推广到美国和加拿大的几家医院。</p>
+<h2 id="lidar-for-autonomous-driving">LiDAR for Autonomous Driving</h2>
+<h2 id="d-mapping-of-cities">3D Mapping of Cities</h2>
 
                 
             </div>
@@ -616,31 +910,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/07/11/2021-07-11-Routing-Protocol-for-Low-Power-and-Lossy-Networks-(RPL)/">
+                <a href="/2021/06/17/2021-06-17-Turing-Machines/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Routing Protocol for Low Power and Lossy Networks (RPL)">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Turing Machines">
                         
-                        <span class="card-title">Routing Protocol for Low Power and Lossy Networks (RPL)</span>
+                        <span class="card-title">Turing Machines</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Exercise 8
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Network/" class="post-category">
-                                    Network
+                            <a href="/categories/Math/" class="post-category">
+                                    Math
                                 </a>
                             
                             
@@ -650,8 +944,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Advanced-IT-Networks/">
-                        <span class="chip bg-color">Advanced IT Networks</span>
+                    <a href="/tags/Fundamentals-of-Computer-Science/">
+                        <span class="chip bg-color">Fundamentals of Computer Science</span>
                     </a>
                     
                 </div>

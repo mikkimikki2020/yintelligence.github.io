@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-10
+                    2021-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.5k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    12 Min
+                    18 Min
                 </div>
                 
 
@@ -504,8 +504,9 @@
 <p><a href="https://yintelligence.tech/2021/01/22/2021-01-22-VUB-4013759ENR-Algorithms-and-Data-Structures/">VUB 4013759ENR Algorithms and Data Structures</a></p>
 <p><a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1lZefpFdYWOlbmfxpfi-eERnVq8GozwZL">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19784/files?preview=624608">Slide 83 ~ 90</a></p>
 <p><a target="_blank" rel="noopener" href="https://beginnersbook.com/2013/12/linkedlist-in-java-with-example/">Linked List in Java with Example</a></p>
+<p><a href="https://yintelligence.tech/2021/03/05/2021-03-05-Linked-Lists-&amp;-Arrays/">CS61B Discussion 3: Linked Lists &amp; Arrays</a></p>
 <p>链表linked list是一种简单的数据结构，它以线性linear方式存储数据，类似于向量Vector。</p>
-<p>然而，虽然Vector具有固定长度fixed length，但linked list可以动态dynamically增长grow和收缩shrink。</p>
+<p>然而，虽然Vector具有<strong>固定长度fixed length</strong>，但linked list可以动态<strong>dynamically</strong>增长<strong>grow</strong>和收缩<strong>shrink</strong>。</p>
 <p>这样做的结果是实现稍微复杂一些。动态长度是通过在元素链中存储数据来获得的。<strong>每个元素都连接到下一个元素</strong>。通过连接更多元素，链条可以增长。这允许进一步的<strong>灵活性</strong>：可以从链的中间删除一个元素（<strong>不复制数据</strong>），或者在链的中间添加一个新元素。</p>
 <p><img src="/images/CS61B/1601530.png" /></p>
 <ul>
@@ -519,8 +520,18 @@
 <p>为了实现链表，构建了一个链表元素链train/chain of list elements。 列表元素由它自己的类class表示，只是一对两个元素，其中第一个元素存储数据，第二个元素包含指向下一个列表元素的指针。 因此，列表元素类的功能非常有限。</p>
 <p>有一个构造函数可以生成一对给定的数据元素和一个给定的下一个指针，并且有一些方法可以获取和设置该对的第一部分和第二部分。</p>
 <p>给定列表元素类，链表类用于存储指向第一个列表元素的pointer。 该pointer将存储在变量“head”中。 在列表类的构造函数中，列表元素“head”被初始化为 null，因为列表中还不包含任何元素。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LinkedList</span> <span class="token punctuation">&#123;</span>
-	
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">	<span class="token comment">// This method returns whether the LinkedList is empty</span>
+	<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 							<span class="token comment">//O(1)</span>
+		<span class="token keyword">return</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span><span class="token comment">/* This class represents a list where each element has a pointer to the next.
+ * Each element of the list is an instance of ListElement which contains two things.
+ * el1, the data of itself and el2, a pointer to the next element of the list. 
+ * There is one root 'head' and a counter 'count' for keeping track of the length.
+ * Adding to or removing from the front (addFirst and removeFirst) operate in O(1)
+ * while adding to and removing from the back (addLast and removeLast) operate in O(n).
+ */</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LinkedList</span> <span class="token punctuation">&#123;</span>
 	<span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">ListElement</span> <span class="token punctuation">&#123;</span>
 		<span class="token keyword">private</span> <span class="token class-name">Object</span> el1<span class="token punctuation">;</span> <span class="token comment">//type</span>
 		<span class="token keyword">private</span> <span class="token class-name">ListElement</span> el2<span class="token punctuation">;</span>
@@ -552,20 +563,150 @@
 	<span class="token punctuation">&#125;</span>
     
 	<span class="token keyword">private</span> <span class="token class-name">ListElement</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> count<span class="token punctuation">;</span>
     
 	<span class="token keyword">public</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 		head <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
-
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+    <span class="token comment">// This method returns the current size of the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	<span class="token comment">//O(1)</span>
+		<span class="token keyword">return</span> count<span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
-
-	<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    
+	<span class="token comment">// This method returns whether the LinkedList is empty</span>
+	<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+		<span class="token keyword">return</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>    
+    
+	<span class="token comment">// This method adds an element to the front of the LinkedList</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addFirst</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+        head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		count<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+	<span class="token comment">// This method removes the first element of the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
+		head <span class="token operator">=</span> head<span class="token punctuation">.</span>el2<span class="token punctuation">;</span>
+		count<span class="token operator">--</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>    
+    
+    <span class="token comment">// This method returns the first element of the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(1)</span>
 		<span class="token keyword">return</span> head<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 
-	<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">// This method adds an element to the back of the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addLast</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+        <span class="token class-name">ListElement</span> last <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			temp<span class="token punctuation">.</span>el2 <span class="token operator">=</span> last<span class="token punctuation">;</span>
+			count<span class="token operator">++</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span> 
+		<span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// If the LinkedList is empty temp.el2 will be non-existent</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addFirst</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span> 
+    
+	<span class="token comment">// This method can be used to insert a certain element at a certain position in the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+			<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">&lt;</span> index<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				index<span class="token operator">--</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token class-name">ListElement</span> newElement <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			temp<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>newElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+    
+	<span class="token comment">// This method removes the last element of the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//O(n)</span>
+		<span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token class-name">ListElement</span> previous <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				head<span class="token punctuation">.</span>el1 <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span> 
+			<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+					previous <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+					temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+				previous<span class="token punctuation">.</span>el2 <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			count<span class="token operator">--</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span> 
+		<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"The list was already empty"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+    
+    
+    <span class="token comment">// This method sets the nth element to a certain object</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token class-name">Comparable</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">&lt;=</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+					temp<span class="token punctuation">.</span>el1 <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+					<span class="token keyword">return</span><span class="token punctuation">;</span>
+				<span class="token punctuation">&#125;</span>
+				temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				n<span class="token operator">--</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NullPointerException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"The list has less than n elements"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// This method returns the last element in the LinkedList</span>
+    <span class="token keyword">public</span> <span class="token class-name">Comparable</span> <span class="token function">getLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+        <span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">return</span> temp<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> 
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token string">"The list is empty"</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// This method checks whether an object is in the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">contains</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+	<span class="token comment">// This method checks whether an object is in the LinkedList and returns it or null if it is not present</span>
+	<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">return</span> temp<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>   
+    
+	<span class="token comment">// This method returns the last element of the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
 		<span class="token class-name">ListElement</span> d <span class="token operator">=</span> head<span class="token punctuation">;</span>
 		<span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 			d <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -574,18 +715,80 @@
 		<span class="token keyword">return</span> d<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 	
-	<span class="token keyword">public</span> <span class="token keyword">void</span> print <span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"("</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">ListElement</span> d <span class="token operator">=</span> head <span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>d <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            d <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token comment">// This method prints the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NullPointerException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"The list is empty."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+    
+   	<span class="token comment">// This method returns a String representing the elements in the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+		<span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			result <span class="token operator">+=</span> temp<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+			temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		result <span class="token operator">+=</span> temp<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> result<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span> 
+    
+    <span class="token comment">// This method reverses the LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	<span class="token comment">//O(n)</span>
+		<span class="token class-name">ListElement</span> prev <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token class-name">ListElement</span> current <span class="token operator">=</span> head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">ListElement</span> next <span class="token operator">=</span> head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			current <span class="token operator">=</span> current<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			next<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>prev<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			prev <span class="token operator">=</span> next<span class="token punctuation">;</span>
+			next <span class="token operator">=</span> current<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		head<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		head <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// This method interleaves two LinkedLists, it takes an element from the first LinkedLists, then the second, then the first, ...</span>
+	<span class="token keyword">public</span> <span class="token class-name">LinkedList</span> <span class="token function">interleave</span><span class="token punctuation">(</span><span class="token class-name">LinkedList</span> secondList<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token class-name">LinkedList</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">ListElement</span> first <span class="token operator">=</span> head<span class="token punctuation">;</span>
+		<span class="token class-name">ListElement</span> second <span class="token operator">=</span> secondList<span class="token punctuation">.</span>head<span class="token punctuation">;</span>
+		<span class="token keyword">while</span> <span class="token punctuation">(</span>first <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;</span> second <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>first <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				result<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span>first<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				first <span class="token operator">=</span> first<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>second <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				result<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span>second<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				second <span class="token operator">=</span> second<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">return</span> result<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">// This method creates a sorted LinkedList</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addSorted</span><span class="token punctuation">(</span><span class="token class-name">Comparable</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token comment">// an empty list , add element in front</span>
+            head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// we have to add the element in front</span>
+            head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// we have to find the first element which is bigger</span>
+            <span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+			<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token class-name">ListElement</span> next <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			temp<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ListElement</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		count<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="adding-an-element-to-the-front-of-the-list">Adding an element to the front of the list</h3>
 <p>为了在已经存在的列表的开头添加一个元素，需要进行几个操作：</p>
 <ol type="1">
@@ -728,18 +931,81 @@
         d<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>el1 <span class="token operator">=</span> x<span class="token punctuation">;</span>
         d <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// This method fropples a LinkedList. This means swapping the first and second element, the third and fourth, etc.</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fropple2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>	<span class="token comment">//O(n)</span>
+    <span class="token class-name">ListElement</span> odd <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token class-name">ListElement</span> even <span class="token operator">=</span> head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ListElement</span> storage <span class="token operator">=</span> head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    even <span class="token operator">=</span> even<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    head <span class="token operator">=</span> head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 			
+    <span class="token comment">// Start with the second element</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>even <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            storage<span class="token punctuation">.</span>el2 <span class="token operator">=</span> odd<span class="token punctuation">;</span>
+            <span class="token comment">// Link even index to the previous index</span>
+            storage <span class="token operator">=</span> even<span class="token punctuation">;</span>
+            even <span class="token operator">=</span> even<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            odd<span class="token punctuation">.</span>el2 <span class="token operator">=</span> even<span class="token punctuation">;</span> 		
+            <span class="token comment">// Link odd index to index + 3</span>
+            odd <span class="token operator">=</span> storage<span class="token punctuation">;</span>
+            storage <span class="token operator">=</span> even<span class="token punctuation">;</span>
+            even <span class="token operator">=</span> even<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            storage<span class="token punctuation">.</span>el2 <span class="token operator">=</span> odd<span class="token punctuation">;</span> 		
+            <span class="token comment">// Link even index to the previous index (necessary to include the very last element)</span>
+			<span class="token punctuation">&#125;</span>
+        odd<span class="token punctuation">.</span>el2 <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// Unlink the now last element from the original last element</span>
+    <span class="token punctuation">&#125;</span> 
+    <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NullPointerException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">fropple2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>count <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token class-name">ListElement</span> small <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token class-name">ListElement</span> big <span class="token operator">=</span> small<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">ListElement</span> next <span class="token operator">=</span> small<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    head <span class="token operator">=</span> head<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        next <span class="token operator">=</span> next<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        big<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>small<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>next<span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span>  next<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            small<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        big <span class="token operator">=</span> next<span class="token punctuation">;</span>
+        next <span class="token operator">=</span> next<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        small<span class="token punctuation">.</span><span class="token function">setRest</span><span class="token punctuation">(</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        small <span class="token operator">=</span> big<span class="token punctuation">;</span>
+        big <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>实现方法<code>void append(LinkedList list2)</code>，它连接两个列表。 假设您有一个名为 list1 的链表，其中包含元素 (1 2 3)，另一个名为 list2 的链表包含元素 (4 5 6)。</p>
 <p><code>list1.append(list2)</code>的结果应该是 list1 包含元素 (1 2 3 4 5 6) 而 list2 保持不变。 绘制链表list1和list2。 在第二张图中，绘制 <code>list1.append(list2)</code>的结果。</p>
 <p>实现这一点的一种可能性是使用链表的<code>addLast</code>方法逐个元素遍历 list2 并将 list2 的每个元素添加到 list1 的末尾。提供采用这种方法的<code>append</code>方法的实现。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">append</span><span class="token punctuation">(</span><span class="token class-name">LinkedList</span> list2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// This method appends the elements of a LinkedList to another LinekdList</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">append</span><span class="token punctuation">(</span><span class="token class-name">LinkedList</span> list2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
     <span class="token class-name">ListElement</span> f <span class="token operator">=</span> list2<span class="token punctuation">.</span>head<span class="token punctuation">;</span>
     
     <span class="token keyword">while</span> <span class="token punctuation">(</span>f <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token function">addLast</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         f <span class="token operator">=</span> f<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">append</span><span class="token punctuation">(</span><span class="token class-name">LinkedList</span> list2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//O(n)</span>
+    <span class="token class-name">ListElement</span> temp <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        temp <span class="token operator">=</span> temp<span class="token punctuation">.</span><span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    temp<span class="token punctuation">.</span>el2 <span class="token operator">=</span> list2<span class="token punctuation">.</span>head<span class="token punctuation">;</span>
+    count <span class="token operator">+=</span> list2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>制作一个表格，比较链表和向量支持的所有操作的时间复杂度：<code>getFirst</code>, <code>getLast</code>,<code>addFirst</code>, <code>addLast</code>, <code>removeFirst</code>, <code>removeLast</code>, <code>get</code>, <code>set</code>, <code>find</code>.</p></li>
 </ol>
 <ul>
