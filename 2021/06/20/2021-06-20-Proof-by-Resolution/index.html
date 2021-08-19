@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    902
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    7 Min
                 </div>
                 
 
@@ -503,7 +503,9 @@
                 <h1 id="proof-by-resolution">Proof by Resolution</h1>
 <p><a href="https://yintelligence.tech/2021/01/29/2021-01-29-VUB-4004728DNR-Techniques-of-Artificial-Intelligence/">VUB 4004728DNR Techniques of Artificial Intelligence</a></p>
 <p><a href="https://yintelligence.tech/2021/02/20/2021-02-20-Proof-by-Resolution/">Background</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/769773?module_item_id=138035">Question</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/790548?module_item_id=141462">Solution</a> + Video <a target="_blank" rel="noopener" href="https://www.dropbox.com/s/nsj1z72bnhy0l1e/WPO%20TAI%2020210301.mp4?dl=0">1</a>, <a target="_blank" rel="noopener" href="https://www.dropbox.com/s/o1msem6fp9pu1s0/WPO%20TAI%2020210308.mp4?dl=0">2</a></p>
-<h2 id="prove-the-following-using-resolution.-negate-the-conclusion-convert-all-formulas-to-cnf-and-then-try-to-prove-a-contradiction.">1. Prove the following using resolution. (Negate the conclusion, convert all formulas to CNF and then try to prove a contradiction.)</h2>
+<h2 id="resolution">1. Resolution</h2>
+<p>Prove the following using resolution. (Negate the conclusion, convert all formulas to CNF and then try to prove a contradiction.)</p>
+<p>用分辨率证明以下。（否定结论，将所有公式转换为 CNF，然后尝试证明一个矛盾。）</p>
 <ol type="1">
 <li>Given KB ={ P∧Q }, proof that KB |= P∨Q.</li>
 <li>Given KB ={ P∨Q, Q⇒(R∧S), (P∨R)⇒U }, proof that KB |= U.</li>
@@ -526,30 +528,36 @@
 <ol type="1">
 <li><p>Express the following sentences in first order logic and put them in CNF:</p>
 <ul>
-<li>Peter has a season ticket for Ipswich Town Football Club.
+<li><p>Peter has a season ticket for Ipswich Town Football Club.</p>
+<p>彼得有一张伊普斯维奇城足球俱乐部的季票。</p>
 <ul>
 <li>Ticket(Peter)</li>
 </ul></li>
-<li>Every Ipswich Town season ticket holder is a loyal supporter.
+<li><p>Every Ipswich Town season ticket holder is a loyal supporter.</p>
+<p>每个伊普斯维奇镇季票持有者都是忠实的支持者。</p>
 <ul>
 <li>∀x, Ticket(x) ⇒ Loyal(x)</li>
 <li>¬Ticket(x)∨Loyal(x)</li>
 </ul></li>
-<li>At a fiercely contested match two seasons ago, seats were thrown on to the pitch at the end of the match.
+<li><p>At a fiercely contested match two seasons ago, seats were thrown on to the pitch at the end of the match.</p>
+<p>在两个赛季前一场激烈的比赛中，比赛结束时座位被扔到了球场上。</p>
 <ul>
 <li>∃x, Throw(x)</li>
 <li>Throw(x<sub>0</sub>)</li>
 </ul></li>
-<li>Loyal supporters do not throw items on to the pitch.
+<li><p>Loyal supporters do not throw items on to the pitch.</p>
+<p>忠诚的支持者不会将物品扔到球场上。</p>
 <ul>
 <li>∀x, Loyal(x) ⇒ ¬Throw(x)</li>
 <li>¬Loyal(x) ∨ ¬Throw(x)</li>
 </ul></li>
 </ul></li>
 <li><p>Prove that Peter did not throw a seat onto the pitch using resolution.</p>
+<p>证明彼得没有使用决议将座位扔到球场上。</p>
 <p>Draw the proof tree, clearly identifying the substitutions you make at each step of the proof.</p>
 <ul>
-<li>We want to prove ¬Throw(Peter). We take the negation Throw(Peter), then the proof goes:
+<li><p>We want to prove ¬Throw(Peter).</p>
+<p>We take the negation Throw(Peter), then the proof goes:</p>
 <ul>
 <li>Ticket(Peter),¬Ticket(x)∨Loyal(x): Loyal(Peter)(Peter/x)</li>
 <li>Loyal(Peter),¬Loyal(x)∨¬Throw(x): ¬Throw(Peter)(Peter/x)</li>
@@ -559,23 +567,27 @@
 </ol>
 <h2 id="problem-knights-and-knaves">3. Problem: Knights and knaves</h2>
 <p>On the island of Knights and Knaves, everything a Knight says is true and everything a Knave says is false. You meet two people, Alice and Bob:</p>
+<p>在Knights and Knaves岛上，骑士说的都是真的，而无赖说的都是假的。你遇到了两个人，爱丽丝和鲍勃：</p>
 <ul>
-<li>Alice says “Neither Bob nor I am Knaves.”</li>
-<li>Bob says “Alice is a Knave.”</li>
+<li>Alice 说：“Bob 和我都不是 Knaves。”</li>
+<li>Bob说：“Alice是个knaves”。</li>
 </ul>
 <p>Using the proposition A to represent “Alice is a Knight” (so¬A means “Alice is a Knave”) and B to represent “Bob is a Knight”:</p>
 <ol type="1">
-<li>Formulate what Alice and Bob said
+<li><p>Formulate what Alice and Bob said</p>
+<p>表述 Alice 和 Bob 所说的话</p>
 <ul>
 <li>Alice: A∧B</li>
 <li>Bob: ¬A</li>
 </ul></li>
-<li>Formulate that what they said is true if and only if they are knights
+<li><p>Formulate that what they said is true if and only if they are knights</p>
+<p>表述他们所说的是真的当且仅当他们是骑士</p>
 <ul>
 <li>Alice: A⇔A∧B</li>
 <li>Bob: B⇔¬A</li>
 </ul></li>
-<li>Put those into CNF form
+<li><p>Put those into CNF form</p>
+<p>把它们变成 CNF 形式</p>
 <ul>
 <li>A⇔A∧B</li>
 <li>A⇒A∧B, A∧B⇒A</li>
@@ -585,7 +597,8 @@
 <li>B⇒¬A,¬A⇒B</li>
 <li>¬B∨¬A, A∨B</li>
 </ul></li>
-<li>Use resolution to prove who is what.
+<li><p>Use resolution to prove who is what.</p>
+<p>用分辨率来证明谁是什么</p>
 <ul>
 <li>¬A∨B, A∨B:B (proof that Bob is a Knight)</li>
 <li>B,¬B∨¬A:¬A (proof that Alice is a Knave)</li>
@@ -596,6 +609,7 @@
 </blockquote>
 <h2 id="problem-unification">4. Problem: Unification</h2>
 <p>For each of the following pairs of atomic sentences, give the most general unifier, if it exists.</p>
+<p>对于以下每对原子句子，请给出最一般的统一词（如果存在）。</p>
 <ol type="1">
 <li>P(A, B, B), P(x, y, z)</li>
 <li>Q(y, G(A, B)), Q(G(x, x), y)</li>
@@ -603,15 +617,21 @@
 <li>Knows(Father(y), y), Knows(x, x)</li>
 </ol>
 <h2 id="problem-genealogy">5. Problem: Genealogy</h2>
-<p>A popular children’s riddle is “Brothers and sisters I have none, but that man’s father is my father’s son. What is his link to me?” To solve this problem we will use a language containing a binary predicate Brother, a binary predicate Son, a unary function Father and the constant Me.</p>
+<p>A popular children’s riddle is “Brothers and sisters I have none, but that man’s father is my father’s son. What is his link to me?”</p>
+<p>一个流行的儿童谜语是“兄弟姐妹我没有，但那个男人的父亲是我父亲的儿子。他跟我有什么联系？”</p>
+<p>To solve this problem we will use a language containing a binary predicate Brother, a binary predicate Son, a unary function Father and the constant Me.</p>
+<p>为了解决这个问题，我们将使用一种包含二元谓词 Brother、二元谓词 Son、一元函数 Father 和常量 Me 的语言。</p>
 <ol type="1">
 <li><p>Formulate the quoted sentences in first order logic.</p>
+<p>以一阶逻辑制定引用的句子。</p>
 <p>What is the goal of the problem?</p>
+<p>问题的目标是什么？</p>
 <ul>
 <li>∀x,¬Brother(x, M e)</li>
 <li>Son(Father(X<sub>0</sub>), Father(M e))</li>
 </ul></li>
 <li><p>To be able to solve the problem you also need to formulate how the different family links interact</p>
+<p>为了能够解决问题，您还需要制定不同的家庭链接如何相互作用</p>
 <ul>
 <li><p>Brother is irreflexive (no one is his own brother) and symmetric(if x is the brother of y, then y is the brother of x)</p>
 <ul>
@@ -631,7 +651,10 @@
 <li>∀Father(x) =Father(y)⇒Brother(x, y) ∨ x=y</li>
 </ul></li>
 </ul></li>
-<li><p>You will also need the = binary predicate. The equality is a reflexive, symmetric transitive relation with the following property: if two terms are equal, then any function or predicate applied to both of them gives the same value. Formulate these properties for the genealogy language .</p>
+<li><p>You will also need the = binary predicate.</p>
+<p>您还需要 = 二元谓词。</p>
+<p>The equality is a reflexive, symmetric transitive relation with the following property: if two terms are equal, then any function or predicate applied to both of them gives the same value. Formulate these properties for the genealogy language .</p>
+<p>等式是具有以下性质的自反对称传递关系：如果两个项相等，则应用于它们的任何函数或谓词都给出相同的值。为系谱语言制定这些属性。</p>
 <ul>
 <li>∀x, x=x</li>
 <li>∀x, y, x=y⇒y=x</li>
@@ -643,6 +666,7 @@
 <li>∀x, y, z, x=y⇒Son(z, x)⇒Son(z, y)</li>
 </ul></li>
 <li><p>Put those sentences into CNF and solve the problem by resolution</p>
+<p>把这些句子放到CNF中，通过解析解决问题</p>
 <ul>
 <li>One can prove that X<sub>0</sub> is my son.</li>
 </ul></li>
