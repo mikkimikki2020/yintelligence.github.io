@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-08-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.5k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    15 Min
+                    26 Min
                 </div>
                 
 
@@ -502,153 +502,210 @@
             <div id="articleContent">
                 <h1 id="artificial-neural-networks">Artificial Neural Networks</h1>
 <p><a href="https://yintelligence.tech/2021/01/29/2021-01-29-VUB-4004728DNR-Techniques-of-Artificial-Intelligence/">VUB 4004728DNR Techniques of Artificial Intelligence</a></p>
+<p><a href="https://yintelligence.tech/2021/04/05/2021-04-05-Neural-Networks---Representation/">Machine learning @ Coursera by Andrew Ng: Neural Networks Representation</a></p>
+<p><a href="https://yintelligence.tech/2021/04/06/2021-04-06-Neural-Networks-Learning-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AD%A6%E4%B9%A0/">Machine learning @ Coursera by Andrew Ng: Neural Networks Learning</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5A9bmW1qTpk&amp;list=PLOrDt87s8A3pUSBVvY0g1vhuMk9RM0Ptv&amp;index=3">机器能像人一样思考吗？人工智能（一）机器学习和神经网络</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AFlIM0jSI9I&amp;list=PLOrDt87s8A3pUSBVvY0g1vhuMk9RM0Ptv&amp;index=2">人脸识别啥原理？人工智能（二）卷积神经网络</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/776528?module_item_id=79404">Slide</a> + <a target="_blank" rel="noopener" href="https://www.dropbox.com/s/z3qtu1os1xy26du/Techniques%20of%20Artificial%20Intelligence%202021%20Topic%206.mov?dl=0">Video</a> + Exercise</p>
 <h2 id="outline">Outline</h2>
 <ul>
 <li>Motivation for neural processing</li>
 <li>Neural basis</li>
-<li>Perceptrons</li>
+<li>Perceptron</li>
 <li>Training</li>
 <li>Testing</li>
 </ul>
 <h2 id="motivation">Motivation</h2>
+<p>Computers are not like brains/bodies - they are better than brains at some things - symbolic calculations</p>
+<pre><code>符号计算</code></pre>
 <ul>
-<li>Computers are not like brains/bodies
+<li><p>reliably doing what they are told</p>
+<p>可靠地做他们被告知的事情</p></li>
+<li><p>they are (much) <strong>worse</strong> than brains/bodies at others</p>
 <ul>
-<li>they are better than brains at some things
-<ul>
-<li>symbolic calculations</li>
-<li>reliably doing what they are told</li>
+<li><p>understanding human language</p>
+<p>理解人类语言</p></li>
+<li><p>learning</p>
+<p>学习</p></li>
+<li><p>perceiving (ie seeing, hearing)</p>
+<p>感知（即视觉、听觉）</p></li>
 </ul></li>
-<li>they are (much) worse than brains/bodies at others
-<ul>
-<li>understanding human language</li>
-<li>learning</li>
-<li>perceiving (ie seeing, hearing)</li>
-</ul></li>
-</ul></li>
-<li>Question
+</ul>
+<p><strong>Question</strong></p>
 <ul>
 <li>Can we build computers and/or programs that are (more) like brains?</li>
 <li>If so, is it useful?</li>
-</ul></li>
 </ul>
-<h2 id="von-neumann-architecture">von Neumann architecture</h2>
-<p><img src="/images/AI/185218.png" /></p>
-<h2 id="neural-architecture">Neural architecture</h2>
+<h2 id="neural-architecture-神经架构">Neural architecture 神经架构</h2>
+<figure>
+<img src="/images/AI/185218.png" alt="" /><figcaption>von Neumann architecture</figcaption>
+</figure>
 <ul>
-<li>The brain doesn’t seem to have a CPU
+<li><p>The brain doesn’t seem to have a CPU</p>
+<p>大脑似乎没有 CPU</p>
 <ul>
-<li>Instead, it has many simple, parallel, asynchronous units, called neurons</li>
+<li><p>Instead, it has many simple, parallel, asynchronous units, called <strong>neuron</strong>s</p>
+<p>相反，它有许多简单的、并行的、异步的单元，称为<strong>神经元</strong></p></li>
 </ul></li>
-<li>Each neuron is a single cell, with
+<li><p>Each neuron is a single cell, with</p>
+<p>每个神经元都是一个细胞，具有</p>
 <ul>
-<li>some relatively short fibres, called dendrites</li>
-<li>one long fibre, called an axon</li>
+<li><p>some relatively short fibres, called <strong>dendrite</strong>s</p>
+<p>一些相对较短的纤维，称为树突</p></li>
+<li><p>one long fibre, called an <strong>axon</strong></p>
+<p>一根长纤维，称为轴突</p></li>
 </ul></li>
-<li>The end of the axon branches out into more short fibres</li>
-<li>Each fibre “connects” to the dendrites and cell bodies of other neurons
+<li><p>The end of the axon branches out into more short fibres</p>
+<p>轴突的末端分支成更多的短纤维</p></li>
+<li><p>Each fibre “connects” to the dendrites and cell bodies of other neurons</p>
+<p>每根纤维都“连接”到其他神经元的树突和细胞体</p>
 <ul>
-<li>The “connection” is actually a tiny gap, called a synapse</li>
+<li><p>The “connection” is actually a tiny gap, called a <strong>synapse</strong></p>
+<p>“连接”实际上是一个微小的间隙，称为<strong>突触</strong></p></li>
 </ul></li>
-<li>Axons are transmitters, dendrites are receivers</li>
+<li><p>Axons are transmitters, dendrites are receivers</p>
+<p>轴突是发射器，树突是接收器</p></li>
 </ul>
-<h3 id="neural-architecture-neuron">Neural architecture: neuron</h3>
+<h3 id="neuron-神经元">Neuron 神经元</h3>
 <p><img src="/images/AI/1852180.png" /></p>
 <ul>
-<li>The fibres of surrounding neurons emit chemicals (neurotransmitters) that move across the synapse and change the electrical potential applied to the cell body
+<li><p>The fibres of surrounding neurons emit chemicals (<strong>neurotransmitters</strong>) that move across the synapse and change the electrical potential applied to the cell body</p>
+<p>周围神经元的纤维发出化学物质（<strong>神经递质</strong>），这些化学物质穿过突触并改变施加到细胞体上的电势</p>
 <ul>
-<li>Sometimes the transmission across the synapse increases the potential, and sometimes decreases it</li>
+<li><p>Sometimes the transmission across the synapse increases the potential, and sometimes decreases it</p>
+<p>有时跨突触的传输会增加电位，有时会降低电位</p></li>
 </ul></li>
-<li>When the potential reaches a certain threshold, an electrical pulse, or action potential, travels down the axon, eventually reaching all the branches, causing them to release their neurotransmitters
+<li><p>When the potential reaches a certain threshold, an electrical pulse, or action potential, travels down the axon, eventually reaching all the branches, causing them to release their neurotransmitters</p>
+<p>当电位达到某个阈值时，电脉冲或动作电位沿轴突向下传播，最终到达所有分支，使它们释放神经递质</p>
 <ul>
 <li>And so on through the network</li>
 </ul></li>
 </ul>
-<h3 id="neural-architecture-neuroplasticity">Neural architecture: neuroplasticity</h3>
+<h3 id="neuroplasticity-神经可塑性">Neuroplasticity 神经可塑性</h3>
 <ul>
-<li>Neuroplasticity or brain plasticity is the brain’s ability to change during life</li>
-<li>The brain can reorganise itself
+<li><p>Neuroplasticity or brain plasticity is the brain’s ability to change during life</p>
+<p>神经可塑性或大脑可塑性是大脑在一生中改变的能力</p></li>
+<li><p>The brain can reorganise itself</p>
+<p>大脑可以自我重组</p>
 <ul>
-<li>by forming new connections between brain cells (neurons)</li>
+<li><p>by forming new connections between brain cells (neurons)</p>
+<p>通过在脑细胞（神经元）之间形成新的连接</p></li>
 </ul></li>
-<li>Neuroplasticity occurs in the brain
+<li><p>Neuroplasticity occurs in the brain</p>
+<p>神经可塑性发生在大脑中</p>
 <ul>
-<li>At the beginning of life: when the immature brain organizes itself</li>
-<li>After brain injury: to compensate for lost functions or maximize remaining ones</li>
-<li>Throughout life: whenever something new is learned and memorised</li>
+<li><p>At the beginning of life: when the immature brain organizes itself</p>
+<p>在生命的开始：当未成熟的大脑组织起来时</p></li>
+<li><p>After brain injury: to compensate for lost functions or maximize remaining ones</p>
+<p>脑损伤后：弥补失去的功能或最大限度地提高剩余功能</p></li>
+<li><p>Throughout life: whenever something new is learned and memorised</p>
+<p>贯穿一生：每当学习和记住新事物时</p></li>
 </ul></li>
-<li>For a long time, it was believed that as we age, the connections in the brain become fixed
+<li><p>For a long time, it was believed that as we age, the connections in the brain become fixed</p>
+<p>长期以来，人们认为随着年龄的增长，大脑中的连接变得固定</p>
 <ul>
-<li>Research has now shown that, during life, the brain never stops changing through learning</li>
+<li><p>Research has now shown that, during life, the brain never stops changing through learning</p>
+<p>现在的研究表明，在生活中，大脑永远不会通过学习而改变</p></li>
 </ul></li>
-<li>When you become an expert in a specific kind of knowledge, the areas in your brain that deal with this type of skill will grow
+<li><p>When you become an expert in a specific kind of knowledge, the areas in your brain that deal with this type of skill will grow</p>
+<p>当你成为某种特定知识的专家时，你大脑中处理这种技能的区域就会增长</p>
 <ul>
-<li>For instance, London taxi drivers have a larger posterior hippocampus than London bus drivers</li>
-<li>It is because this region of the hippocampus is specialised in acquiring and using complex spatial information in order to navigate efficiently</li>
-<li>Taxi drivers have to navigate around London, using The Knowledge, whereas bus drivers follow a limited set of routes</li>
+<li><p>For instance, London taxi drivers have a larger posterior hippocampus than London bus drivers</p>
+<p>例如，伦敦出租车司机的后海马体比伦敦公交车司机大</p></li>
+<li><p>It is because this region of the hippocampus is specialised in acquiring and using complex spatial information in order to navigate efficiently</p>
+<p>这是因为海马体的这个区域专门用于获取和使用复杂的空间信息，以便有效地导航</p></li>
+<li><p>Taxi drivers have to navigate around London, using The Knowledge, whereas bus drivers follow a limited set of routes</p>
+<p>出租车司机必须使用 The Knowledge 在伦敦周围导航，而公交车司机遵循有限的路线</p></li>
 </ul></li>
-<li>There are changes to neurons that seem to reflect or enable learning
+<li><p>There are changes to neurons that seem to reflect or enable learning</p>
+<p>神经元的变化似乎反映或促进了学习</p>
 <ul>
-<li>The synaptic connections exhibit plasticity
+<li><p>The synaptic connections exhibit plasticity</p>
+<p>突触连接表现出可塑性</p>
 <ul>
-<li>The degree to which a neuron will react to a stimulus across a particular synapse is subject to change over time (long-term potentiation)</li>
+<li><p>The degree to which a neuron will react to a stimulus across a particular synapse is subject to change over time (long-term potentiation)</p>
+<p>神经元对特定突触刺激的反应程度随时间而变化（长时程增强）</p></li>
 </ul></li>
-<li>Neurons create new connections to other neurons</li>
-<li>Other changes in structure also seem to occur, some less well understood than others</li>
+<li><p>Neurons create new connections to other neurons</p>
+<p>神经元与其他神经元建立新的连接</p></li>
+<li><p>Other changes in structure also seem to occur, some less well understood than others</p>
+<p>结构上的其他变化似乎也发生了，有些不如其他的好理解</p></li>
 </ul></li>
 </ul>
-<h2 id="the-neuron-as-a-device">The Neuron as a device</h2>
+<h3 id="the-neuron-as-a-device">The Neuron as a device</h3>
 <ul>
-<li>There are around neurons 10<sup>12</sup> in the human brain
+<li><p>There are around neurons 10<sup>12</sup> in the human brain</p>
 <ul>
 <li>with, perhaps, 10<sup>14</sup> or so synapses</li>
 </ul></li>
-<li>Neurons are slow devices
+<li><p>Neurons are <strong>slow</strong> devices</p>
+<p>神经元是<strong>缓慢</strong>的设备</p>
 <ul>
-<li>Tens of milliseconds to do something</li>
-<li>Jerome Feldman translates this into the “100 step program constraint’’
+<li><p>Tens of milliseconds to do something</p>
+<p>做某事需要几十毫秒</p></li>
+<li><p>Jerome Feldman translates this into the “100 step program constraint’’</p>
 <ul>
-<li>Most of the AI tasks we want to do take people less than a second</li>
-<li>So any brain “program” can’t be longer than 100 neural “instructions”</li>
+<li><p>Most of the AI tasks we want to do take people less than a second</p>
+<p>我们想做的大部分 AI 任务都需要不到一秒钟的时间</p></li>
+<li><p>So any brain “program” can’t be longer than 100 neural “instructions”</p>
+<p>所以任何大脑“程序”都不能超过 100 条神经“指令”</p></li>
 </ul></li>
 </ul></li>
-<li>No particular unit seems to be more important than any other
+<li><p>No particular unit seems to be more important than any other</p>
+<p>似乎没有哪个单位比任何其他单位更重要</p>
 <ul>
-<li>Destroying any one brain cell has little effect on overall processing</li>
-</ul></li>
-</ul>
-<h2 id="how-do-neurons-do-it">How do neurons do it?</h2>
-<ul>
-<li>All the billions of neurons in the brain are active at once ‣ So this is truly massive parallelism</li>
-<li>But it’s probably not the kind of parallelism that we are used to in conventional Computer Science
-<ul>
-<li>Sending messages (i.e., complex patterns that encode information) is probably too slow to work</li>
-<li>So information is probably encoded some other way
-<ul>
-<li>e.g., by the connections themselves</li>
-</ul></li>
-</ul></li>
-<li>Maybe we can explain cognition by densely connected networks transmitting simple signals
-<ul>
-<li>Connectionist computing (Feldman)</li>
-<li>Parallel Distributed Processing (PDP; Rumelhart, McClelland, Hinton)</li>
-<li>(Artificial) Neural Networks</li>
+<li><p>Destroying any one brain cell has little effect on overall processing</p>
+<p>摧毁任何一个脑细胞对整体处理几乎没有影响</p></li>
 </ul></li>
 </ul>
-<h2 id="perceptrons">Perceptrons</h2>
+<h3 id="how-do-neurons-do-it">How do neurons do it?</h3>
 <ul>
-<li>Many connectionists use the same simple model of a neural system</li>
-<li>There is a collection of units, each of which has
+<li><p>All the billions of neurons in the brain are active at once ‣ So this is truly massive <strong>parallelism</strong></p>
+<p>大脑中的所有数十亿个神经元同时处于活动状态 ‣ 这就是真正的大规模<strong>并行</strong></p></li>
+<li><p>But it’s probably not the kind of parallelism that we are used to in conventional Computer Science</p>
+<p>但这可能不是我们在传统计算机科学中习惯的那种并行性</p>
 <ul>
-<li>some weighted inputs from other units
+<li><p>Sending messages (i.e., complex patterns that encode information) is probably too slow to work</p>
+<p>发送消息（即编码信息的复杂模式）可能太慢而无法工作</p></li>
+<li><p>So information is probably encoded some other way</p>
+<p>所以信息可能以其他方式编码</p>
 <ul>
-<li>inputs represent the degree to which other units are active (firing)</li>
-<li>weights represent how much the unit is affected by the activity of the other units</li>
+<li><p>e.g., by the connections themselves</p>
+<p>例如，通过连接本身</p></li>
 </ul></li>
-<li>a threshold that the sum of the weighted inputs must exceed to cause firing</li>
-<li>a single output that connects to (an)other unit(s)
+</ul></li>
+<li><p>Maybe we can explain cognition by densely connected networks transmitting simple signals</p>
+<p>也许我们可以通过传输简单信号的密集连接网络来<strong>解释认知</strong></p>
 <ul>
-<li>if the unit fires, the resulting action potential goes this way</li>
+<li><p>Connectionist computing (Feldman)</p>
+<p>联结计算（费尔德曼）</p></li>
+<li><p>Parallel Distributed Processing (PDP; Rumelhart, McClelland, Hinton)</p>
+<p>并行分布式处理（PDP；Rumelhart、McClelland、Hinton）</p></li>
+<li><p>(Artificial) Neural Networks</p></li>
+</ul></li>
+</ul>
+<h2 id="perceptron">Perceptron</h2>
+<ul>
+<li><p>Many connectionists use the same simple model of a neural system</p>
+<p>许多联结主义者使用相同的简单神经系统模型</p></li>
+<li><p>There is a collection of units, each of which has</p>
+<p>有一组单元，每个单元都有</p>
+<ul>
+<li><p>some weighted inputs from other units</p>
+<p>来自其他单位的一些加权输入</p>
+<ul>
+<li><p>inputs represent the degree to which other units are active (firing)</p>
+<p>输入代表其他单位<strong>活跃</strong>（firing）的程度</p></li>
+<li><p>weights represent how much the unit is affected by the activity of the other units</p>
+<p>权重表示该单位受其他单位活动影响的程度</p></li>
+</ul></li>
+<li><p>a threshold that the sum of the weighted inputs must exceed to cause firing</p>
+<p>加权输入的总和必须超过导致触发的阈值</p></li>
+<li><p>a single output that connects to (an)other unit(s)</p>
+<p>连接到（一个）其他单元的单个输出</p>
+<ul>
+<li><p>if the unit fires, the resulting action potential goes this way</p>
+<p>如果单位触发，由此产生的动作电位会这样</p></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -656,58 +713,68 @@
 <img src="/images/AI/1852181.png" alt="" /><figcaption>A perceptron unit</figcaption>
 </figure>
 <ul>
-<li>x<sub>i</sub> are inputs, reals between 0 and 1 (standard net) or -1 and 1 (bipolar net)</li>
+<li>x<sub>i</sub> are inputs, reals between 0 and 1 (standard net 标准网络) or -1 and 1 (bipolar net 双极网络)</li>
 <li>w<sub>i</sub> are weights, reals</li>
 <li>w<sub>n</sub> is usually set at the threshold with x<sub>n</sub> = 1(bias)</li>
 <li>y is the weighted sum of inputs including the threshold (activation level)</li>
 <li>o is the output</li>
 </ul>
 <p>The output is computed using a function that determines how far the perceptron’s activation level is below or above 0</p>
+<p>使用一个函数计算输出，该函数确定感知器的激活级别低于或高于 0 的程度</p>
+<blockquote>
+<p>Note that this is a loose approximation to what happens in biology</p>
+<p>请注意，这是对生物学中发生的情况的粗略近似</p>
+</blockquote>
 <ul>
-<li>Note that this is a loose approximation to what happens in biology
+<li><p>Perceptron transmit information via real-valued numbers as inputs arrive</p>
+<p>当输入到达时，感知器通过实数值传输信息</p>
 <ul>
-<li>Perceptrons transmit information via real-valued numbers as inputs arrive
-<ul>
-<li>real neurons fire all the time, changing their firing rate, from a few pulses per second to a few hundred pulses per second</li>
-<li>spiking neural networks simulate this directly—beyond scope of current module</li>
+<li><p>real neurons fire all the time, changing their firing rate, from a few pulses per second to a few hundred pulses per second</p>
+<p>真正的神经元一直在激发，<strong>改变</strong>它们的<strong>激发速率</strong>，从每秒几个脉冲到每秒几百个脉冲</p></li>
+<li><p><strong>spiking neural networks</strong> simulate this directly—beyond scope of current module</p>
+<p><strong>尖峰神经网络</strong>直接模拟这一点——超出当前模块的范围</p></li>
 </ul></li>
-</ul></li>
-<li>The weights in perceptrons are not fixed, and can change
+<li><p>The weights in perceptrons are not fixed, and can change</p>
+<p>感知器中的权重不是固定的，可以改变</p>
 <ul>
-<li>learning in a neural network is achieved by adjusting weights</li>
-</ul></li>
-</ul>
-<h2 id="the-big-questions-for-neural-nets">The Big Questions for Neural Nets</h2>
-<ul>
-<li>How do we wire up a network of perceptrons?
-<ul>
-<li>i.e., what “architecture” do we use?</li>
-</ul></li>
-<li>How does the network represent knowledge?
-<ul>
-<li>i.e., what do the nodes and combinations of nodes mean?</li>
-</ul></li>
-<li>How do we set the weights?
-<ul>
-<li>i.e., how does learning take place?</li>
+<li><p>learning in a neural network is achieved by <strong>adjusting weight</strong>s</p>
+<p>神经网络中的学习是通过<strong>调整权重</strong>来实现的</p></li>
 </ul></li>
 </ul>
-<h2 id="simplest-architecture-a-perceptron">Simplest architecture: a perceptron</h2>
+<h3 id="the-big-questions-for-neural-nets">The Big Questions for Neural Nets</h3>
+<ul>
+<li><p>How do we wire up a network of perceptrons?</p>
+<p>我们如何连接感知器网络？</p>
+<ul>
+<li><p>i.e., what “architecture” do we use?</p>
+<p>即，我们使用什么“架构”？</p></li>
+</ul></li>
+<li><p>How does the network represent knowledge?</p>
+<p>网络如何表示知识？</p>
+<ul>
+<li><p>i.e., what do the nodes and combinations of nodes mean?</p>
+<p>即，节点和节点组合是什么意思？</p></li>
+</ul></li>
+<li><p>How do we set the weights?</p>
+<p>我们如何设置权重？</p>
+<ul>
+<li><p>i.e., how does learning take place?</p>
+<p>即，学习是如何发生的？</p></li>
+</ul></li>
+</ul>
+<h3 id="simplest-architecture-a-perceptron">Simplest architecture: a perceptron</h3>
 <p><img src="/images/AI/1852182.png" /></p>
+<p>A basic perceptron computes <code>o = f(X.W)</code> - X . W = ∑<sub>i</sub> w<sub>i</sub> x<sub>i</sub> = w<sub>1</sub> . x<sub>1</sub> + w<sub>2</sub>. x<sub>2</sub> + ... + w<sub>n</sub> . 1 - g(x) = 1 if x ≥ 0.5 and 0 otherwise - g is the activation or transfer function</p>
+<pre><code>g 是激活或传递函数</code></pre>
 <ul>
-<li>A basic perceptron computes o = f( X . W )
-<ul>
-<li>X . W = ∑<sub>i</sub> w<sub>i</sub> x<sub>i</sub> = w<sub>1</sub> . x<sub>1</sub> + w<sub>2</sub>. x<sub>2</sub> + ... + w<sub>n</sub> . 1</li>
-<li>g( x ) = 1 if x ≥ 0.5 and 0 otherwise
-<ul>
-<li>g is the activation or transfer function</li>
-<li>more complex, continuous functions (esp. sigmoid) can be used, but they all have the same basic purpose: to push the output values towards the extremes</li>
-<li>without this non-linearity, the network can only learn simple linear functions</li>
-<li>sigmoid function is differentiable, whereas sharp threshold is not</li>
-</ul></li>
-</ul></li>
+<li><p>more complex, continuous functions (esp. sigmoid) can be used, but they all have the same basic purpose: to push the output values towards the extremes</p>
+<p>可以使用更复杂的连续函数（特别是 sigmoid），但它们都有相同的基本目的：<strong>将输出值推向极端</strong></p></li>
+<li><p>without this <strong>non-linearity</strong>, the network can only learn simple linear functions</p>
+<p>没有这种非线性，网络只能学习简单的线性函数</p></li>
+<li><p><strong>sigmoid function</strong> is differentiable, whereas sharp threshold is not</p>
+<p>sigmoid 函数是可微的，而尖锐的阈值不是</p></li>
 </ul>
-<h2 id="logical-function-and">Logical function AND</h2>
+<h4 id="logical-function-and">Logical function AND</h4>
 <p><img src="/images/AI/1852183.png" /></p>
 <ul>
 <li>Perceptrons can simulate basic logic gates, such as AND</li>
@@ -748,7 +815,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="logical-function-or">Logical function OR</h2>
+<h4 id="logical-function-or">Logical function OR</h4>
 <p><img src="/images/AI/1852184.png" /></p>
 <table>
 <thead>
@@ -786,36 +853,45 @@
 </tr>
 </tbody>
 </table>
-<h2 id="training-perceptrons">Training perceptrons</h2>
+<h3 id="training-perceptrons-训练感知器">Training perceptrons 训练感知器</h3>
+<p>Pereceptrons can be trained to compute a specific function</p>
+<p>可以训练感知器来计算特定的函数</p>
+<p><strong>Basic training procedure</strong></p>
+<p><strong>基本训练程序</strong></p>
 <ul>
-<li>Pereceptrons can be trained to compute a specific function</li>
-<li>Basic training procedure
-<ul>
-<li>Start with a perceptron with any values for the weights (usually random)</li>
-<li>Apply the input, let the perceptron compute the answer</li>
-<li>If the answer is right
+<li><p>Start with a perceptron with any values for the weights (usually random)</p>
+<p>从具有任何权重值的感知器开始（通常是随机的）</p></li>
+<li><p>Apply the input, let the perceptron compute the answer</p>
+<p>应用输入，让感知器计算答案</p></li>
+<li><p>If the answer is right</p>
 <ul>
 <li>do nothing</li>
 </ul></li>
-<li>If the answer is wrong
+<li><p>If the answer is wrong</p>
 <ul>
-<li>modify the weights by adding or subtracting the input vector (perhaps scaled smaller)</li>
+<li><p>modify the weights by adding or subtracting the input vector (perhaps scaled smaller)</p>
+<p>通过添加或减去输入向量来修改权重（可能缩放得更小）</p></li>
 </ul></li>
-<li>Iterate over all the input vectors, repeating as necessary, until the perceptron learns what we want, to within a predefined degree of error</li>
-</ul></li>
-<li>The intuition behind the basic training algorithm this is
+<li><p>Iterate over all the input vectors, repeating as necessary, until the perceptron learns what we want, to within a predefined degree of error</p>
+<p>迭代所有输入向量，根据需要重复，直到感知器学习到我们想要的东西，在预定义的误差范围内</p></li>
+</ul>
+<p>The intuition behind the <strong>basic training algorithm</strong> this is</p>
+<p>基本训练算法背后的直觉是</p>
 <ul>
-<li>If the unit should have gone on, but didn’t, increase the influence of the inputs that are on
+<li><p>If the unit should have gone on, but didn’t, increase the influence of the inputs that are on</p>
+<p>如果单位应该继续，但没有，增加输入的影响</p>
 <ul>
-<li>adding the input (or a fraction thereof) to the weights will move in the right direction</li>
+<li><p>adding the input (or a fraction thereof) to the weights will move in the right direction</p>
+<p>将输入（或其一部分）添加到权重将朝着正确的方向移动</p></li>
 </ul></li>
-<li>If the unit should have been off, but was on, decrease the influence of the units that were on
+<li><p>If the unit should have been off, but was on, decrease the influence of the units that were on</p>
+<p>如果本应关闭但已打开，请减少打开的设备的影响</p>
 <ul>
-<li>subtracting the input (of a fraction thereof) from the weights moves in the right direction</li>
-</ul></li>
+<li><p>subtracting the input (of a fraction thereof) from the weights moves in the right direction</p>
+<p>从权重中减去输入（其中的一小部分）向正确的方向移动</p></li>
 </ul></li>
 </ul>
-<h2 id="training-the-logical-or-function">Training the logical OR function</h2>
+<h4 id="training-the-logical-or-function">Training the logical OR function</h4>
 <table>
 <thead>
 <tr class="header">
@@ -860,7 +936,7 @@
 <li>Now we cycle through the inputs and change the weights as necessary</li>
 </ul>
 <p><img src="/images/AI/1852185.png" /></p>
-<h2 id="training-the-logical-and-function">Training the logical AND function</h2>
+<h4 id="training-the-logical-and-function">Training the logical AND function</h4>
 <table>
 <thead>
 <tr class="header">
@@ -898,12 +974,13 @@
 </tbody>
 </table>
 <ul>
-<li>Initially the weights are all 0
+<li><p>Initially the weights are all 0</p>
 <ul>
 <li>the weight vector, W = (0 0 0)</li>
 </ul></li>
-<li>Now we cycle through the inputs and change the weights as necessary</li>
-<li>Make your own table:
+<li><p>Now we cycle through the inputs and change the weights as necessary</p>
+<p>现在我们循环输入并根据需要更改权重</p></li>
+<li><p>Make your own table:</p>
 <ul>
 <li><strong>Input Weights Result Action</strong></li>
 </ul></li>
@@ -911,51 +988,69 @@
 <p><img src="/images/AI/1852186.png" /></p>
 <p>And now, with α = 0.2</p>
 <p><img src="/images/AI/1852187.png" /></p>
-<h2 id="generalised-training-procedure">Generalised training procedure</h2>
+<h2 id="generalised-training-procedure-通用训练程序">Generalised training procedure 通用训练程序</h2>
 <ul>
-<li>Start with a perceptron with any values for the weights (0 or random)
+<li><p>Start with a perceptron with any values for the weights (0 or random)</p>
+<p>从具有任何权重值（0 或随机）的感知器开始</p>
 <ul>
-<li>Feed the input, let the perceptron compute the answer</li>
+<li><p>Feed the input, let the perceptron compute the answer</p>
+<p>输入 input，让感知器计算答案</p>
+<ul>
 <li>If the answer is right
 <ul>
 <li>do nothing</li>
 </ul></li>
 <li>If the answer is wrong
 <ul>
-<li>add this factor to each weight: Δ wi = α ( y – h ) inputi</li>
+<li>add this factor to each weight: Δw<sub>i</sub> = α ( y – h ) input<sub>i</sub></li>
 </ul></li>
 </ul></li>
-<li>Iterate over all the input vectors, repeating as necessary, until (i.e., the weight vector converges, or |ΔW| ≤ a given constant)
+</ul></li>
+<li><p>Iterate over all the input vectors, repeating as necessary, until (i.e., the weight vector converges, or |ΔW| ≤ a given constant)</p>
+<p>迭代所有输入向量，根据需要重复，直到（即权重向量收敛，或 |ΔW| ≤ 给定常数）</p>
 <ul>
-<li>each cycle through the input data is called an epoch</li>
+<li><p>each cycle through the input data is called an <strong>epoch</strong></p>
+<p>通过输入数据的每个循环称为一个<strong>时期</strong></p></li>
 </ul></li>
-<li>Values:
+<li><p>Values:</p>
 <ul>
-<li>α is the learning rate, 0 &lt; α ≤ 1; it prevents the values from jumping around wildly</li>
-<li>y is the desired output</li>
-<li>h is the actual output</li>
+<li><p>α is the learning rate, 0 &lt; α ≤ 1; it prevents the values from jumping around wildly</p>
+<p>α 为学习率，0 &lt; α ≤ 1；它可以防止值疯狂跳跃</p></li>
+<li><p>y is the desired output</p>
+<p>y 是所需的输出</p></li>
+<li><p>h is the actual output</p>
+<p>h 是实际输出</p></li>
 </ul></li>
 </ul>
-<h2 id="single-layer-perceptron-networks">Single-layer perceptron networks</h2>
+<h2 id="single-layer-perceptron-networks-单层感知器网络">Single-layer perceptron networks 单层感知器网络</h2>
 <ul>
-<li>In a single layer perceptron network there are
+<li><p>In a single layer perceptron network there are</p>
+<p>在单层感知器网络中，有</p>
 <ul>
 <li>input units</li>
 <li>output units</li>
 </ul></li>
-<li>There are as many perceptrons as output units
+<li><p>There are as many perceptrons as output units</p>
+<p>感知器和输出单元一样多</p>
 <ul>
-<li>each input unit is connected to every output unit ‣ each connection has a weight</li>
-<li>each output has a soft thresholding function, e.g. sigmoid (more later)</li>
+<li><p>each input unit is connected to every output unit</p>
+<p>每个输入单元都连接到每个输出单元</p></li>
+<li><p>each connection has a <strong>weight</strong></p>
+<p>每个连接都有一个<strong>权重</strong></p></li>
+<li><p>each output has a <strong>soft thresholding function</strong>, e.g. sigmoid (more later)</p>
+<p>每个输出都有一个软阈值函数，例如 sigmoid</p></li>
 </ul></li>
-<li>It is possible to learn multiple functions with one training sequence
+<li><p>It is possible to learn multiple functions with one training sequence</p>
+<p>可以通过一个训练序列学习多个函数</p>
 <ul>
-<li>outputs are now vectors (as inputs always were)</li>
+<li><p>outputs are now vectors (as inputs always were)</p>
+<p>输出现在是向量（就像输入一样）</p></li>
 </ul></li>
 </ul>
-<h2 id="classifying-using-a-perceptron">Classifying using a perceptron</h2>
+<h3 id="classifying-using-a-perceptron-使用感知器分类">Classifying using a perceptron 使用感知器分类</h3>
 <ul>
-<li>A (bipolar) perceptron can learn to classify data, into 2 categories
+<li><p>A (bipolar) perceptron can learn to classify data, into 2 categories</p>
+<p>（双极）感知器可以学习将数据分类为 2 类</p>
 <ul>
 <li>Convergence after ~500 iterations
 <ul>
@@ -1025,151 +1120,209 @@
 </tr>
 </tbody>
 </table>
-<h2 id="single-layer-perceptron-networks-1">Single-layer perceptron networks</h2>
+<h3 id="single-layer-perceptron-networks">Single-layer perceptron networks</h3>
+<p>We can generalise the weight updating algorithm for each perceptron in the net, given a differentiable activation function, g:</p>
+<p>我们可以概括网络中每个感知器的权重更新算法，给定一个可微的激活函数 g：</p>
 <ul>
-<li>We can generalise the weight updating algorithm for each perceptron in the net, given a differentiable activation function, g:
+<li><p>Δw<sub>i,j</sub> = α . x<sub>i</sub> . ( y<sub>j</sub> – h<sub>j</sub> ) . g′( Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub> )</p>
 <ul>
-<li>Δw<sub>i,j</sub> = α . x<sub>i</sub> . ( y<sub>j</sub> – h<sub>j</sub> ) . g′( Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub> )
+<li><p>α is the <strong>learning rate</strong>, which controls the amount of adjustment at each step</p>
+<p>α是<strong>学习率</strong>，它控制每一步的调整量</p></li>
+<li><p>y<sub>i</sub> , h<sub>i</sub> are the desired and actual node outputs, respectively</p>
+<p>y<sub>i</sub> , h<sub>i</sub>分别是期望的和实际的节点输出</p></li>
+<li><p>( y<sub>j</sub> – h<sub>j</sub> ) is the error in the current node output, compared with the example</p>
+<p>与示例相比，( y<sub>j</sub> – h<sub>j</sub> ) 是当前节点输出中的误差</p></li>
+<li><p>g′ is the derivative of the activation function;</p>
+<p>g'是激活函数的导数；</p>
 <ul>
-<li>α is the learning rate, which controls the amount of adjustment at each step</li>
-<li>y<sub>i</sub> , h<sub>i</sub> are the desired and actual node outputs, respectively</li>
-<li>( y<sub>j</sub> – h<sub>j</sub> ) is the error in the current node output, compared with the example</li>
-<li>g′ is the derivative of the activation function; for sigmoid, g′ = g( 1 – g )</li>
-<li>Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub> is the value before activation at the current node ๏ ( y<sub>j</sub> – h<sub>j</sub> ) . g′(Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub>) is called the Δ value (see Russell and Norvig)</li>
+<li>for sigmoid, g′ = g( 1 – g )</li>
 </ul></li>
-<li>the g′ term adjusts the amount of error correction depending on the slope of the activation function</li>
-</ul></li>
-<li>A stopping criterion for training is based on the overall error, E
+<li><p>Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub> is the value before activation at the current node ๏ ( y<sub>j</sub> – h<sub>j</sub> ) .</p>
 <ul>
-<li>E = 0.5 . Σ<sub>i</sub> ( y<sub>j</sub> – h<sub>j</sub> )<sup>2</sup></li>
-<li>This can be forced to 0, or to some allowable level of approximation</li>
+<li>g′(Σ<sub>k</sub>w<sub>k,j</sub>. x<sub>k</sub>) is called the Δ value (see Russell and Norvig)</li>
+</ul></li>
+</ul></li>
+<li><p>the g′ term adjusts the <strong>amount of error correction</strong> depending on the <u>slope of the activation function</u></p>
+<p>g' 项根据<u>激活函数的斜率</u>调整<strong>误差修正量</strong></p></li>
+<li><p>A stopping criterion for training is based on the <strong>overall error</strong>, E</p>
+<p>训练的停止标准基于<strong>总体误差</strong> E</p>
+<ul>
+<li><p>E = 0.5 . Σ<sub>i</sub> ( y<sub>j</sub> – h<sub>j</sub> )<sup>2</sup></p></li>
+<li><p>This can be forced to 0, or to some allowable level of approximation</p>
+<p>这可以强制为 0，或某个允许的近似水</p></li>
 </ul></li>
 </ul>
-<h2 id="the-bad-news-the-x-or-problem">The bad news: the X-OR problem</h2>
+<h3 id="the-bad-news-the-x-or-problem">The bad news: the X-OR problem</h3>
 <ul>
-<li>As we can see from the graph, the classifier is computing a straight line between two linearly separable sets of points, dividing the space in two
+<li><p>As we can see from the graph, the classifier is computing a straight line between two linearly separable sets of points, dividing the space in two</p>
+<p>从图中我们可以看到，分类器正在计算两个线性可分的点集之间的直线，将空间一分为二</p>
 <ul>
-<li>with more inputs, it would be a plane or hyper-plane</li>
+<li><p>with more inputs, it would be a plane or hyper-plane</p>
+<p>输入更多，它将是一个平面或超平面</p></li>
 </ul></li>
-<li>If there is no straight line that partitions the set, a single perceptron cannot learn the classification
+<li><p>If there is no straight line that partitions the set, a single perceptron cannot learn the classification</p>
+<p>如果<strong>没有直线</strong>划分集合，则单个感知器<strong>无法学习分类</strong></p>
 <ul>
-<li>Exclusive OR is one such case</li>
+<li><p>Exclusive OR is one such case</p>
+<p>异或就是这样的一种情况</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/AI/1852188.png" /></p>
-<h2 id="the-solution-multi-layered-nns">The solution: multi-layered NNs</h2>
+<h2 id="multi-layered-nns">Multi-layered NNs</h2>
+<p>The solution to this problem is to build neural networks from layers of perceptrons</p>
+<p>上个问题的解决方案是从感知器层构建神经网络</p>
 <ul>
-<li>The solution to this problem is to build neural networks from layers of perceptrons</li>
-<li>Confusing terminology
+<li><p>Confusing terminology</p>
 <ul>
-<li>We have so far talked about the perceptron as though it were a single thing</li>
-<li>It is in fact two layers of values, one input and one output
+<li><p>We have so far talked about the perceptron as though it were a single thing</p>
+<p>这个问题的解决方案是从感知器层构建神经网络</p></li>
+<li><p>It is in fact two layers of values, one input and one output</p>
+<p>其实就是两层值，一层输入一层输出</p>
 <ul>
-<li>with weighted connections connecting them</li>
+<li><p>with weighted connections connecting them</p>
+<p>用加权连接将它们连接起来</p></li>
 </ul></li>
-<li>When we talk about multiple layers, we use the number of layers of values to say how many there are</li>
+<li><p>When we talk about multiple layers, we use the number of <strong>layers</strong> of values to say how many there are</p>
+<p>当我们谈论多层时，我们用值的<strong>层数</strong>来表示有多少</p></li>
 </ul></li>
-<li>It is mathematically proven that a network of three layers (of values) with a linear outputs layer is enough to approximate any function
+<li><p>It is mathematically proven that a network of three layers (of values) with a linear outputs layer is enough to approximate any function</p>
+<p>数学证明，具有线性输出层的三层（值）网络足以近似任何函数</p>
 <ul>
-<li>there is, then, 1 hidden layer of perceptrons</li>
-<li>Cybenko’s theorem, 1989, for sigmoid activation; Hornik, 1991, generalised</li>
+<li><p>there is, then, 1 hidden layer of perceptrons</p>
+<p>数学证明，具有线性输出层的三层（值）网络足以近似任何函数</p></li>
+<li><p>Cybenko’s theorem, 1989, for sigmoid activation; Hornik, 1991, generalised</p></li>
 </ul></li>
 </ul>
-<h2 id="a-tiny-multilayer-feed-forward-neural-network">A (tiny) multilayer feed-forward neural network</h2>
+<h3 id="a-tiny-multilayer-feed-forward-neural-network">A (tiny) multilayer feed-forward neural network</h3>
 <p><img src="/images/AI/1852189.png" /></p>
+<p>Now there are two sets of weights, one for each layer</p>
+<p>现在有两组权重，每一层一个</p>
 <ul>
-<li>Now there are two sets of weights, one for each layer
-<ul>
-<li>How do we train the network? The simple perceptron algorithm won’t work here</li>
-</ul></li>
+<li><p>How do we train the network? The simple perceptron algorithm won’t work here</p>
+<p>我们如何训练网络？简单的感知器算法在这里不起作用</p></li>
 </ul>
 <h2 id="network-training-in-general">Network training in general</h2>
 <p><img src="/images/AI/1852190.png" /></p>
+<p>In general, there could be as many input units, as many hidden units and as many output units as you like</p>
+<p>一般来说，可以有任意多的输入单元、任意多的隐藏单元和任意多的输出单元</p>
 <ul>
-<li>In general, there could be as many input units, as many hidden units and as many output units as you like
+<li><p>each unit is connected to every unit in the next layer, and only to the next layer</p>
+<p>每个单元都连接到下一层的每个单元，并且只连接到下一层</p></li>
+<li><p>each connection has a weight</p>
+<p>每个连接都有一个权重</p></li>
+<li><p>each unit in the hidden layer has an output modifier function, usually sigmoid</p>
+<p>隐藏层中的每个单元都有一个输出修饰函数，通常是sigmoid</p></li>
+<li><p>Too many units leads to long training times and <strong>overfitting</strong> to data (more on that later)</p>
+<p>太多的单元会导致训练<strong>时间过长</strong>和数据<strong>过拟合</strong></p></li>
+<li><p>Too few units leads to inability to learn</p>
+<p>单元太少导致无法学习</p></li>
+<li><p>There is no known procedure to compute the required number</p>
+<p>没有已知的程序来计算所需的数字</p>
 <ul>
-<li>each unit is connected to every unit in the next layer, and only to the next layer</li>
-<li>each connection has a weight</li>
-<li>each unit in the hidden layer has an output modifier function, usually sigmoid</li>
-</ul></li>
-<li>Too many units leads to long training times and overfitting to data (more on that later)</li>
-<li>Too few units leads to inability to learn</li>
-<li>There is no known procedure to compute the required number
-<ul>
-<li>so skill and judgement is required!</li>
-</ul></li>
-</ul>
-<h2 id="back-propagation-training">Back-propagation training</h2>
-<ul>
-<li>It turns out that we can reuse the training algorithm
-<ul>
-<li>apply it once per perceptron layer (so twice, in a net with 1 hidden layer)</li>
-<li>start at the output layer</li>
-</ul></li>
-<li>Because this is working in the opposite direction from the data flow
-<ul>
-<li>(in a feed-forward network)</li>
-<li>it is called back-propagation</li>
-</ul></li>
-<li>Key Idea
-<ul>
-<li>a hidden node j causes part of the error identified between the inputs and a given output node i, in proportion to its connection weight to i</li>
-<li>so we compute the hidden layer error values by dividing the output layer error values in proportion to the connections from the hidden layer to the output layer</li>
+<li><p>so skill and judgement is required!</p>
+<p>所以需要技巧和判断力！</p></li>
 </ul></li>
 </ul>
-<h2 id="back-propagation-algorithm">Back-propagation algorithm</h2>
+<h2 id="back-propagation-training-反向传播训练">Back-propagation training 反向传播训练</h2>
+<p>It turns out that we can reuse the training algorithm</p>
+<p>事实证明，我们可以重用训练算法</p>
 <ul>
-<li>Compute Δ values for output units, using observed error</li>
-<li>Starting with output layer, and working towards input layer
+<li><p>apply it once per perceptron layer (so twice, in a net with 1 hidden layer)</p>
+<p>每个感知器层应用一次（所以两次，在具有 1 个隐藏层的网络中）</p></li>
+<li><p>start at the output layer</p>
+<p>从输出层开始</p></li>
+</ul>
+<p>Because this is working in the opposite direction from the data flow</p>
+<p>因为这与数据流的方向相反</p>
 <ul>
-<li>propagate Δ values back from layer L to layer L – 1
+<li><p>(in a feed-forward network)</p>
+<p>（在前馈网络中）</p></li>
+<li><p>it is called <strong>back-propagation</strong></p>
+<p>它被称为<strong>反向传播</strong></p></li>
+</ul>
+<p><strong>Key Idea</strong></p>
+<ul>
+<li><p>a hidden node j causes part of the error identified between the inputs and a given output node i, in proportion to its connection weight to i</p>
+<p>隐藏节点 j 导致输入和给定输出节点 i 之间识别的部分错误，与它与 i 的连接权重成正比</p></li>
+<li><p>so we compute the hidden layer error values by dividing the output layer error values in proportion to the connections from the hidden layer to the output layer</p>
+<p>所以我们通过将输出层误差值与从隐藏层到输出层的连接成比例地除以计算隐藏层误差值</p></li>
+</ul>
+<h3 id="back-propagation-algorithm-反向传播算法">Back-propagation algorithm 反向传播算法</h3>
+<ul>
+<li><p>Compute Δ values for output units, using observed error</p>
+<p>使用观察误差计算输出单位的 Δ 值</p></li>
+<li><p>Starting with output layer, and working towards input layer</p>
+<p>从输出层开始，向输入层迈进</p>
+<ul>
+<li><p>propagate Δ values back from layer L to layer L – 1</p>
+<p>将 Δ 值从 L 层传播回 L – 1层</p>
 <ul>
 <li>for each node j in layer ( L – 1 ): Δ<sub>j</sub> = g′( Σ<sub>k</sub>w<sub>j,k</sub>. Δ k )</li>
 </ul></li>
-<li>update weights between layer L – 1 and layer L</li>
+<li><p>update weights between layer L – 1 and layer L</p>
+<p>更新层 L – 1 和层 L 之间的权重</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/AI/1852191.png" /></p>
 <h2 id="testing-the-trained-network">Testing the trained network</h2>
+<p>We can train a network to model a dataset in as much detail as we like</p>
+<p>我们可以训练一个网络来尽可能详细地对数据集进行建模</p>
 <ul>
-<li>We can train a network to model a dataset in as much detail as we like</li>
-<li>However, we quite often want a network to generalise
+<li><p>However, we quite often want a network to generalise</p></li>
+<li><p>然而，我们经常希望网络能够概括</p>
 <ul>
 <li>ie, not just learn the values we told it (we know them already) but estimate the (assumed continuous) functions that gave rise to them</li>
+<li>即，不仅要学习我们告诉它的值（我们已经知道它们），还要估计产生它们的（假设是连续的）函数</li>
 </ul></li>
-<li>If we train perfectly, we may over-fit, and miss that generality</li>
-<li>To overcome this problem, divide the data into training sets and test sets, and perform cross-validation
+<li><p>If we train perfectly, we may over-fit, and miss that <strong>generality</strong></p>
+<p>如果我们训练得很好，我们可能会过度拟合，而错过<strong>一般性</strong></p></li>
+<li><p>To overcome this problem, divide the data into training sets and test sets, and perform cross-validation</p>
+<p>为了克服这个问题，将数据分成训练集和测试集，并进行交叉验证</p>
 <ul>
-<li>for example, reserve 10% of the data for testing, and use 90% for training
+<li><p>for example, reserve 10% of the data for testing, and use 90% for training</p>
+<p>例如，保留10%的数据用于测试，90%用于训练</p>
 <ul>
-<li>compare the predicted 10% of values with the originals</li>
+<li><p>compare the predicted 10% of values with the originals</p>
+<p>将预测值的 10% 与原始值进行比较</p></li>
 </ul></li>
-<li>better, use 10-fold cross-validation:
+<li><p>better, use 10-fold cross-validation:</p>
+<p>更好的是，使用 10 折交叉验证</p>
 <ul>
-<li>partition the data into 10 subsets</li>
-<li>cross-validation 90% vs. 10% on each combination of the 10 subsets</li>
+<li><p>partition the data into 10 subsets</p>
+<p>将数据划分为 10 个子集</p></li>
+<li><p>cross-validation 90% vs. 10% on each combination of the 10 subsets</p>
+<p>对 10 个子集的每个组合进行 90% 与 10% 的交叉验证</p></li>
 </ul></li>
-<li>can be the stopping criterion, but it is more expensive than local error</li>
+<li><p>can be the stopping criterion, but it is more expensive than local error</p>
+<p>可以是停止标准，但它比局部错误更昂贵</p></li>
 </ul></li>
 </ul>
-<h2 id="neurally-inspired-computing">Neurally inspired computing</h2>
+<h2 id="neutrally-inspired-computing-神经启发计算">Neutrally inspired computing 神经启发计算</h2>
+<p>Much neural network research makes biologically implausible assumptions about how neurons work</p>
+<p>许多神经网络研究对神经元如何工作做出了生物学上难以置信的假设</p>
 <ul>
-<li>Much neural network research makes biologically implausible assumptions about how neurons work
+<li><p>backpropagation is biologically implausible</p>
+<p>反向传播在生物学上是不可信的</p></li>
+<li><p>this is “neurally inspired computing” rather than “brain science”</p>
+<p>这是“神经启发计算”而不是“脑科学”</p></li>
+</ul>
+<p>None of the neural network models distinguish humans from dogs from dolphins from flatworms</p>
+<p>没有任何神经网络模型将人类与狗、海豚与扁虫区分开来</p>
 <ul>
-<li>backpropagation is biologically implausible</li>
-<li>this is “neurally inspired computing” rather than “brain science”</li>
-</ul></li>
-<li>None of the neural network models distinguish humans from dogs from dolphins from flatworms
+<li><p>Whatever distinguishes “higher” cognitive capacities (language, reasoning) may not be apparent at this low level of analysis</p>
+<p>在这种低水平的分析中，区分“更高”认知能力（语言、推理）的任何东西可能并不明显</p></li>
+</ul>
+<p>Relation between NN and “symbolic AI”?</p>
+<p>NN与“symbolic AI”的关系？</p>
 <ul>
-<li>Whatever distinguishes “higher” cognitive capacities (language, reasoning) may not be apparent at this low level of analysis</li>
-</ul></li>
-<li>Relation between NN and “symbolic AI”?
-<ul>
-<li>Some claim NN models don’t have symbols and representations</li>
-<li>Others think of NNs as simply being an “implementation-level” theory</li>
-<li>NNs started out as a branch of statistical pattern classification</li>
-<li>Other more structured statistical methods are now tending to take over, but ANNs are still popular in many applications</li>
-</ul></li>
+<li><p>Some claim NN models don’t have symbols and representations</p>
+<p>NN与“符号AI”的关系？</p></li>
+<li><p>Others think of NNs as simply being an “implementation-level” theory</p>
+<p>其他人认为神经网络只是一种“实现级”理论</p></li>
+<li><p>NNs started out as a branch of statistical pattern classification</p>
+<p>神经网络最初是统计模式分类的一个分支</p></li>
+<li><p>Other more structured statistical methods are now tending to take over, but ANNs are still popular in many applications</p>
+<p>其他更结构化的统计方法现在倾向于接管，但人工神经网络在许多应用中仍然很受欢迎</p></li>
 </ul>
 
                 

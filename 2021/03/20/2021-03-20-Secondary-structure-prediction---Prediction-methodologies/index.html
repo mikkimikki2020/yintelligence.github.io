@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-08
+                    2021-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -598,7 +598,8 @@ Pr_R=\frac{f_R}{N}
 </ul>
 <p><img src="/images/ADVMB/2002204.png" /></p>
 <h2 id="gor-method-11122">GOR method 1:11:22</h2>
-<p>To determine the structure for a given amino acid position j, the GOR method （named for the authors Garnier, Osguthorpe, Robson） looks at a window of n amino acids before and n after the position of interest.</p>
+<p>To determine the structure for a given amino acid position j, the GOR method （named for the authors Garnier, Osguthorpe, Robson） looks at a <strong>window</strong> of n amino acids before and n after the <strong>position of interest</strong>.</p>
+<p>为了确定给定氨基酸位置 j 的<strong>结构</strong>，GOR 方法（以作者 Garnier、Osguthorpe、Robson 命名）查看<strong>感兴趣位置</strong><u>之前和之后 n 个氨基酸的窗口</u>。</p>
 <ul>
 <li><p>Evolved from GOR to GOR-V</p>
 <ul>
@@ -612,7 +613,8 @@ Pr_R=\frac{f_R}{N}
 </ul></li>
 <li><p>Clearly defined model to get to results</p></li>
 </ul>
-<p>Self-information （related to Chou-Fasman） <span class="math display">\[
+<h3 id="self-information-related-to-chou-fasman">Self-information （related to Chou-Fasman）</h3>
+<p><span class="math display">\[
 \begin{align}
 I(S;R) &amp;=\log[\frac{P(S|R)}{P(S)}] \tag{1} \\
 P(S|R) &amp;= \frac{P(S,R)}{P(R)} \tag{2}\\
@@ -633,9 +635,10 @@ I(\Delta S;R) &amp;= \log(\frac{f_{S,R}}{f_R}) + \log(\frac{f_{n-S}}{f_S})\tag{2
 \end{align}
 \]</span></p>
 <blockquote>
-<p>Calculated for the three conformations, the highest value of Eq. （2） for one of the conformations S will be the predicted conformation and will be the propensity for that residue to be in that conformation, usually expressed in centonate units when natural logarithms are used.</p>
+<p>Calculated for the three <strong>conformation</strong>s, the highest value of Eq. （2） for one of the conformations S will be the predicted conformation and will be the propensity for that residue to be in that conformation, usually expressed in centonate units when <strong>natural logarithms</strong> are used.</p>
+<p>对三种<strong>构象</strong>进行计算，其中一种构象 S 的方程式 2 的最高值将是预测的构象，并将是该残基处于该构象的倾向，通常在使用<strong>自然对数</strong>时以厘数单位表示。</p>
 </blockquote>
-<p>Include local sequence information</p>
+<p>Include local sequence information 包括本地序列信息</p>
 <ul>
 <li>How often do you see a residue in relation to a secondary structure element at position j?</li>
 </ul>
@@ -652,8 +655,10 @@ I(ΔS_j;R_1,..., R_n ) = \log[\frac{P(S_j
 <li>26 proteins, ~4500 residues （1978, GOR I）</li>
 </ul></li>
 <li><p>Uses windows of 17 residues</p>
+<p>使用 17 个残基的窗口</p>
 <ul>
 <li><p>For residue at position j, consider j-8 to j+8</p>
+<p>对于位置 j 的残基，考虑 j-8 到 j+8</p>
 <p><img src="/images/ADVMB/2002205.png" /></p></li>
 </ul></li>
 </ul>
@@ -665,7 +670,7 @@ I(ΔS_j;R_1,..., R_n ) = \log[\frac{P(S_j
 I(\Delta{S_j};R_j)=\log(\frac{f_{S_j,R_j}}{f_{n-S_j,R_j}})+\log(\frac{f_{n-S}}{f_S})
 \]</span></p>
 <h4 id="gor-i-and-ii-approximation">GOR I and II approximation</h4>
-<p>Asparagine N at position j:</p>
+<p>天冬酰胺 Asparagine N at position j:</p>
 <table>
 <thead>
 <tr class="header">
@@ -707,10 +712,10 @@ I(\Delta{S_j};R_j)=\log(\frac{f_{S_j,R_j}}{f_{n-S_j,R_j}})+\log(\frac{f_{n-S}}{f
 <blockquote>
 <p>1000 <code>Asn (N)</code> 24000 total</p>
 </blockquote>
-<p><strong>Directional information:</strong></p>
+<h3 id="directional-information">Directional information</h3>
 <p><img src="/images/ADVMB/2002208.png" /> <span class="math display">\[
 I(\Delta{S_j};R_{j+m})=\log(\frac{f_{S_j,R_{j+m}}}{f_{n-S_j,R_{j+m}}})+\log(\frac{f_{n-S}}{f_S})
-\]</span> ThreonineT at position j-8, any residue at position j in conformation S:</p>
+\]</span> Threonine T at position j-8, any residue at position j in conformation S:</p>
 <table>
 <thead>
 <tr class="header">
@@ -817,7 +822,7 @@ I(\Delta{S_j};R_{j+m})=\log(\frac{f_{S_j,R_{j+m}}}{f_{n-S_j,R_{j+m}}})+\log(\fra
 <h4 id="gor-i-result">GOR I result</h4>
 <ul>
 <li>Has Q<sub>3</sub> around 49%, but includes turns</li>
-<li>Bad at β sheet, tweaks get higher Q<sub>3</sub> （up to 60%）</li>
+<li><strong>Bad</strong> at β sheet, <strong>tweaks</strong> get higher Q<sub>3</sub> （up to 60%）</li>
 </ul>
 <p><img src="/images/ADVMB/2002211.png" /></p>
 <h3 id="gor-iii-13505">GOR III 1:35:05</h3>

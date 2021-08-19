@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-08-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    538
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    16 Min
                 </div>
                 
 
@@ -500,62 +500,470 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="naive-bayes-introduction">Naive Bayes introduction</h1>
+                <h1 id="naïve-bayes-introduction">Naïve Bayes introduction</h1>
 <p><a href="https://yintelligence.tech/2021/01/29/2021-01-29-VUB-4004728DNR-Techniques-of-Artificial-Intelligence/">VUB 4004728DNR Techniques of Artificial Intelligence</a></p>
-<p>Video + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/507045?module_item_id=79414">Slide</a></p>
-<h2 id="bayesian-modelling">Bayesian modelling</h2>
-<p>The <strong>one-rule classifier</strong> uses a single attribute to make its prediction…but can we expand this? <strong>单规则分类器</strong>使用单个属性进行预测……但是我们可以扩展它吗？</p>
-<p>We could consider the contribution of all attributes</p>
-<p>我们可以考虑所有属性的贡献</p>
+<p><a href="https://yintelligence.tech/2021/04/01/2021-04-01-Stochastic-methods-in-AI/#toc-heading-26">Stochastic methods in AI</a></p>
+<p>Slide <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/507045?module_item_id=79414">1</a>, <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/507045?module_item_id=79414">2</a> +Exercise</p>
+<h2 id="bayesian-classification">Bayesian Classification</h2>
+<p>We can use Bayes’ Rule to build a so-called <strong>Naïve Classifier</strong></p>
+<p>我们可以使用贝叶斯规则来构建一个所谓的<strong>朴素分类器</strong></p>
+<ul>
+<li><p>“Naïve” because it assumes that all its inputs are <strong>independent</strong></p>
+<p>“朴素”，因为它假设所有输入都是<strong>独立</strong>的</p></li>
+<li><p>Nevertheless it works pretty well</p>
+<p>尽管如此，它运作良好</p></li>
+</ul>
+<p>Recall the example from our <a href="https://yintelligence.tech/2021/03/06/2021-03-06-Algorithm-for-learning-classification/">ID3 lecture</a>:</p>
+<ul>
+<li>The morning problem
+<ul>
+<li>Should I attend class?</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Note, now, that we are not building a classifier that is based only on <strong>feature values</strong></p>
+<p>请注意，现在我们不是在构建仅基于<strong>特征值</strong>的分类器</p>
+<p>Instead, we include <strong>likelihoods</strong></p>
+<p>相反，我们包括可能性</p>
+</blockquote>
+<p><img src="/images/AI/2127296.png" /></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Outlook</th>
+<th style="text-align: center;">Temperature</th>
+<th style="text-align: center;">Windy</th>
+<th style="text-align: center;">Attend?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">overcast</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">rain</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">overcast</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sunny</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+</tr>
+</tbody>
+</table>
+<p>Given this data, we can calculate a rule that tells us what the likelihood of attending is, given a particular state of affairs</p>
+<p>给定这些数据，我们可以计算出一个规则，告诉我们在给定特定事态的情况下参加的可能性是多少</p>
+<ul>
+<li>We begin with three input variables:
+<ul>
+<li>Outlook, Temperature, Windy</li>
+</ul></li>
+</ul>
+<p>We want to compute the class variable <code>Attend</code>?</p>
+<ul>
+<li>First, we calculate the <strong>distributions of the variables</strong>:
+<ul>
+<li>Outlook: P（Sunny）= 3/8; P（Overcast）= 2/8; P（Rain）= 3/8</li>
+<li>Temperature: P( &lt;20）= 2/8; P（&gt;=20 ∧ &lt;25） = 3/8; P（&gt;=25） = 3/8</li>
+<li>Windy: P（Windy）= 4/8; P（¬Windy）= 4/8</li>
+<li>Class variable: P（Attend）= 4/8; P（¬Attend）= 4/8</li>
+</ul></li>
+<li>We calculate the <strong>conditional probabilities</strong> given each class value:
+<ul>
+<li>Outlook
+<ul>
+<li>P（Sunny | Attend）= 1/4;</li>
+<li>P（Sunny | ¬ Attend）= 2/4;</li>
+<li>P（Overcast | Attend）= 2/4;</li>
+<li>P（ Overcast | ¬Attend）= 0/4;</li>
+<li>P（Rain | Attend）= 1/4;</li>
+<li>P（Rain | ¬Attend）= 2/4</li>
+</ul></li>
+<li>Temperature
+<ul>
+<li>P（&lt;20 | Attend ) = 0/4;</li>
+<li>P（&lt;20 | ¬Attend ) = 2/4;</li>
+<li>P（&gt;=20 ∧ &lt;25 | Attend ) = 3/4;</li>
+<li>P（&gt;=20 ∧ &lt;25 | ¬Attend ) = 1/4;</li>
+<li>P（&gt;=25 | Attend ) = 1/4;</li>
+<li>P（&gt;=25 | ¬Attend ) = 1/4</li>
+</ul></li>
+<li>Windy
+<ul>
+<li>P（Windy | Attend）= 1/4;</li>
+<li>P（Windy | ¬Attend）= 3/4;</li>
+<li>P（¬Windy | Attend）= 3/4;</li>
+<li>P（¬Windy | ¬Attend）= 1/4</li>
+</ul></li>
+</ul></li>
+<li>Now we are ready to make predictions</li>
+</ul>
+<p><strong>Remember that</strong> <span class="math display">\[
+P( A ∧ B | C ) = P( A | C ) × P( B | C )
+\]</span></p>
+<h3 id="making-predictions">Making Predictions</h3>
+<ul>
+<li>Case from the data: Rain ∧ &lt;20 ∧ Windy
+<ul>
+<li>P（Attend | Rain ∧ &lt;20 ∧ Windy）= P（Rain ∧ &lt;20 ∧ Windy | Attend）× P（Attend） ÷ P（Rain ∧ &lt;20 ∧ Windy）= P（Rain | Attend）× P（&lt;20 | Attend）× P（Windy | Attend）× P（Attend ）÷ P（Rain ∧ &lt;20 ∧ Windy）</li>
+<li>Similarly P（¬Attend | Rain ∧ &lt;20 ∧ Windy）</li>
+<li>P（Rain ∧ &lt;20 ∧ Windy）= P（Rain）× P（&lt;20）× P（Windy）= 3/8 × 2/8 × 4/8 = 3/64</li>
+</ul></li>
+<li>Case from the data: Rain ∧ &lt;20 ∧ Windy
+<ul>
+<li>P（Attend | Rain ∧ &lt;20 ∧ Windy） =</li>
+<li>Calculate P（Attend）= P（Rain | Attend）× P（&lt;20 | Attend）× P（Windy | Attend）× P（Attend）÷ P（Rain ∧ &lt;20 ∧ Windy）= （1/4 × 0/4 x 1/4 x 1/2）÷ 3/64 = 0</li>
+<li>Calculate P（¬Attend）= P（Rain | ¬Attend）× P（&lt;20 | ¬Attend）× P（Windy | ¬Attend）× P（¬Attend）÷ P（Rain ∧ &lt;20 ∧ Windy）=（2/4 × 2/4 × 3/4 × 1/2） ÷ 3/64 = 64/64 = 1</li>
+</ul></li>
+<li>The larger probability tells us which is the correct class: <strong>¬Attend</strong></li>
+</ul>
+<p><img src="/images/AI/2121298.png" /></p>
+<h2 id="probabilistic-vs.-subjective-view-of-probability">Probabilistic vs. Subjective View of Probability</h2>
+<p>There is nothing about Bayes’ Rule that tells you how to interpret the probabilities</p>
+<p>贝叶斯法则<u>没有告诉你如何解释概率</u></p>
+<ul>
+<li><p>Nevertheless, Bayes’ Rule is often used with <strong>semi-subjective probabilities</strong></p>
+<p>然而，贝叶斯规则经常与半主观概率一起使用</p></li>
+</ul>
+<h3 id="subjective-probabilities-主观概率-degree-of-belief">Subjective Probabilities 主观概率 （<strong>degree of belief</strong>）</h3>
+<ul>
+<li><p>Statistical estimates （frequentist interpretation） for probabilities are fine if the experiment under consideration can be repeated a number of times under similar circumstances.</p>
+<p>如果所考虑的实验可以在类似情况下<strong>重复多次</strong>，则概率的统计估计（频率论解释）是可以的。</p>
+<p>But suppose you want to assign the probability that one political party will beat another. You can determine your own personal probability by seeing what kind of bet you’d be willing to make.</p>
+<p>但是假设您要分配一个政党击败另一个政党的概率。 您可以通过查看您愿意下的赌注来确定您自己的个人概率。</p></li>
+<li><p>A doctor might assign a probability of 0.8 to the statement that a particular patient has a meningitis, given that she （the patient!） has a stiff neck.</p>
+<p>考虑到她（患者！）颈部僵硬，医生可能会为特定患者患有脑膜炎的陈述分配 0.8 的概率。</p>
+<p>We may not have statistical data on that one patient for meningitis and stiff necks; however, we might be basing our subjective assignment of probability on our experiences with patients with a similar medical history.</p>
+<p>我们可能没有关于那一名脑膜炎和颈部僵硬患者的统计数据； 然而，我们可能会根据我们对具有相似病史的患者的经验对概率进行主观分配。</p></li>
+</ul>
+<h2 id="reasoning-with-probabilities-概率推理">Reasoning with Probabilities 概率推理</h2>
+<ul>
+<li><p>Scenario 设想</p>
+<ul>
+<li><p>Jane goes to the doctor’s for a routine check-up and takes some tests</p>
+<p>Jane去医生那里做例行检查并做了一些检查</p></li>
+<li><p>One test for a rare genetic disease comes back positive</p>
+<p>一项罕见遗传病检测呈阳性</p></li>
+<li><p>The disease is potentially fatal</p>
+<p>这种疾病可能是致命的</p></li>
+</ul></li>
+<li><p>Jane looks it up on Wikipedia and learns that</p>
+<p>Jane在维基百科上查找并了解到</p>
+<ul>
+<li>“<strong>rare</strong>” means P（Disease） = P（D） = 1/10,000 = 0.0001</li>
+<li>the test is 99% accurate:
+<ul>
+<li>a very small occurrence of false positives P（Test = + | ¬ D）= 0.01</li>
+<li>no false negatives P（Test = – | D）= 0</li>
+</ul></li>
+</ul></li>
+<li><p>Jane would like to compute the probability that she has the disease and take appropriate action</p>
+<p>Jane 想计算她患病的概率并采取适当的措施</p></li>
+</ul>
+<h3 id="formulating-the-situation-制定情况">Formulating the situation 制定情况</h3>
+<p>The scenario in probabilities 概率场景</p>
+<ul>
+<li><p>The disease is rare: P（D） = 0.0001</p></li>
+<li><p>Reliability of test: P（Test = - | ¬ D） = 0.99</p>
+<blockquote>
+<p>P（D | Test = +）</p>
+<p>= P（D ∧ Test = +）/ P（Test = +）</p>
+<p>= 1 / （1 + 99.99）</p>
+<p>= 0.0099（not 0.99!!!）</p>
+</blockquote></li>
+<li><p>Chance of false positive: P（Test = + | ¬ D） = 0.01</p></li>
+<li><p>No chance of false negative: P（Test = – | D） = 0</p>
+<p>∴ Chance of true positive: P（Test = + | D） = 1</p></li>
+</ul>
+<p><img src="/images/AI/21212990.png" /></p>
+<h3 id="formalising-the-reasoning">Formalising the reasoning</h3>
+<p><span class="math display">\[
+P(B|A) =\frac{P(A|B)P(B)}{P(A}
+\]</span></p>
+<p><strong>Derivation</strong></p>
+<ul>
+<li><p>Bayes’ rule</p>
+<ul>
+<li><p>P（D | Test = +）= P（Test = + | D）P（D）/ P（Test= +）= 1 × 0.0001 / P（Test = +）= 0.0001 / P（Test = +）</p></li>
+<li><p>P（¬ D | Test = +）= P（Test = + | ¬ D）P（¬ D) / P（Test = +）= 0.01 × 0.9999 / P（Test = +）= 0.009999 / P（Test = +）</p></li>
+</ul></li>
+<li><p>Excluded middle and arithmetic</p>
+<ul>
+<li><p>P（D | Test = +）+ P（¬D | Test = +）= 0.0001 / P（Test = +）+ 0.009999 / P（Test = +）=（0.0001 + 0.009999）/ P（Test = +）= 1</p>
+<p>∴ 0.0001 + 0.009999 = 1 × P（Test = +）= 0.010099</p></li>
+</ul></li>
+<li><p>Bayes’ Rule</p>
+<ul>
+<li>P（D | Test = +）= 1 × 0.0001 / 0.010099 = 0.0099</li>
+</ul></li>
+</ul>
+<h3 id="another-similar-example">Another similar example</h3>
+<ul>
+<li><p>Let S be the proposition that a patient has a stiff neck, and M the proposition that the patient has meningitis</p>
+<p>设 S 为患者颈部僵硬的命题，M 为患者患有脑膜炎的命题</p></li>
+<li><p>Suppose a doctor wants to know P（M | S）</p>
+<ul>
+<li>Probabilities from a medical database
+<ul>
+<li>P（S | M）= 0.5</li>
+<li>P（M）= 1 / 50000 = 0.00002</li>
+<li>P（S）= 1 / 20 = 0.05</li>
+</ul></li>
+<li>Using Bayes’ Rule
+<ul>
+<li>P（M | S）= P（S | M）P（M）/ P（S）= 0.5 × 0.00002 / 0.05 = 0.0002</li>
+</ul></li>
+</ul></li>
+<li><p>If the doctor knows this probability, and sees a patient with a stiff neck, he/she can know how strongly/weakly to lean toward a diagnosis of meningitis</p>
+<p>如果医生知道这个概率，并且看到一个颈部僵硬的患者，他/她就可以知道倾向于诊断脑膜炎的强度/弱度</p></li>
+</ul>
+<h2 id="how-practical-is-bayes-rule">How practical is Bayes’ rule?</h2>
+<p>How reasonable is the supposition that you know P（S | M） but need to calculate P（M | S）?</p>
+<p><strong>Why not estimate P（M | S） directly by sampling?</strong></p>
+<p><img src="/images/AI/21212991.png" /></p>
+<ul>
+<li><p><code>P(M|S)</code></p>
+<ul>
+<li><p>This is affected by both the presence/absence of an epidemic and the way meningitis works – complicated.</p>
+<p>这受到流行病的存在/不存在和脑膜炎的作用方式的影响——复杂。</p></li>
+</ul></li>
+<li><p><code>P(S|M)</code></p>
+<ul>
+<li><p>Reflects the way meningitis works.</p>
+<p>反映脑膜炎的工作方式。</p></li>
+<li><p>Unaffected by epidemic.</p>
+<p>不受流行病影响。</p></li>
+</ul></li>
+<li><p><code>P(M)</code></p>
+<ul>
+<li><p>Increases when there is an epidemic.</p>
+<p>发生流行病时会增加。</p></li>
+<li><p>Unrelated information to <code>P(M)</code></p></li>
+</ul></li>
+</ul>
+<p>在通过抽样估计<code>P(M|S)</code>时，您无法将这两个不相关的因素分开</p>
+<p><strong>Normalisation</strong> is one way to make Bayes’ rule more practically applicable, but there’s another</p>
+<p><strong>规范化</strong>是使贝叶斯规则更实用的一种方法，但还有另一种方法</p>
+<ul>
+<li><p>The issue is that Bayes’ rule requires us to estimate too many probabilities before we can apply it</p>
+<p>问题是贝叶斯规则要求我们在应用它之前估计太多的概率</p></li>
+<li><p>We want to estimate one conditional probability; we need to know</p>
+<p>我们想估计一个条件概率；我们需要知道</p>
+<ul>
+<li><p>another conditional probability</p>
+<p>另一个条件概率</p></li>
+<li><p>two prior probabilities</p>
+<p>两个先验概率</p></li>
+</ul></li>
+<li><p>Why are we willing to make this effort?</p>
+<p>为什么我们愿意做出这样的努力?</p>
+<ul>
+<li><p>Because the other probabilities are typically easier to obtain by observation</p>
+<p>因为其他概率通常更容易通过观察获得</p></li>
+</ul></li>
+</ul>
+<p>Can we reduce the number of probabilities needed to apply Bayes’ Rule</p>
+<p>我们可以减少应用贝叶斯规则所需的概率数量吗？</p>
+<ul>
+<li><p>There is a particular technique for doing this when there are multiple sources of evidence and we can use the idea of conditional independence</p>
+<p>当有多个证据来源并且我们可以使用条件独立的想法时，有一种特殊的技术可以做到这一点</p></li>
+</ul>
+<h3 id="normalization">Normalization</h3>
+<p>We can avoid direct assessment of priors of evidence, such as P（S） here, by considering an exhaustive set of hypotheses</p>
+<p>通过考虑一组详尽的假设，我们可以<strong>避免直接评估证据的先验</strong>，例如这里的 P（S） <span class="math display">\[
+P( M | S ) = \frac{P( S | M ) P( M )}{ P( S )}\  by\ Bayes’\ rule
+\]</span></p>
+<p><span class="math display">\[
+P(¬M | S ) = \frac{P( S |¬M ) P(¬M )}{ P( S )}\  by\ Bayes’\ rule
+\]</span></p>
+<p><span class="math display">\[
+P( M | S ) + P( ¬M | S ) = 1\ by\ excluded\ middle
+\]</span></p>
+<p><span class="math display">\[
+P( S | M ) P( M ) + P( S | ¬M ) P( ¬M ) = P( S )\\ substitute\ RHSs\ and\ multiply\ by\ P( S )
+\]</span></p>
+<p><span class="math display">\[
+P( M | S ) = \frac{P( S | M ) P( M )} {P( S | M ) P( M ) + P( S | ¬M ) P( ¬M )}\\ substitute\ for\ P( S )\ in\ original\ rule
+\]</span></p>
+<p><strong>By assessing P（S | ¬M）, we avoid assessing P（S）</strong></p>
+<ul>
+<li><p>We can generalise <strong>normalisation</strong> beyond the P ∨ ¬P case</p>
+<p>我们可以将<strong>归一化</strong>推广到 P ∨ ¬P 情况之外</p>
+<ul>
+<li><p>use a distribution over multiple, mutually exclusive values of a variable</p>
+<p>在变量的多个互斥值上使用分布</p></li>
+</ul></li>
+<li><p>Suppose we wish to compute a posterior distribution over A given B = b, and suppose A has disjoint domain a<sub>1</sub>, ..., a<sub>m</sub></p>
+<p>假设我们希望在给定 B = b 的情况下计算 A 上的后验分布，并且假设 A 具有不相交的域a<sub>1</sub>, ..., a<sub>m</sub></p></li>
+<li><p>Apply Bayes’ rule for each value of A</p>
+<ul>
+<li>P（A = a<sub>1</sub> | B = b）= P（B = b | A = a<sub>1</sub>）P（A = a<sub>1</sub>）/ P（B = b）... P（A = a<sub>m</sub> | B = b）= P（B = b | A = a<sub>m</sub>）P（A = a<sub>m</sub>）/ P（B = b）</li>
+</ul></li>
+<li><p>Adding these up, and noting that ∑<sub>i</sub>P（A = a<sub>i </sub>| B = b）= 1</p>
+<ul>
+<li><p>1 / P（B = b） = 1 / ∑<sub>i</sub> P（B = b | A = a<sub>i</sub>）P（A = a<sub>i</sub>）= α</p></li>
+<li><p>This quantity is known as the <strong>normalisation factor</strong>, denoted by α</p>
+<p>这个量被称为<strong>归一化因子</strong>，用α表示</p></li>
+</ul></li>
+</ul>
+<h2 id="independence-revisited">Independence revisited</h2>
+<ul>
+<li><p>Unconditional independence 无条件独立</p>
+<ul>
+<li>P（A | B）= P（A）</li>
+<li>P（B | A）= P（B）</li>
+<li>P（A ∧ B）= P（A）P（B）</li>
+</ul></li>
+<li><p>Conditional independence 条件独</p>
+<ul>
+<li><p>independence holds, given a common cause</p>
+<p>考虑到一个共同的原因，独立性成立</p></li>
+<li><p>A and B are independent given C iff</p>
+<ul>
+<li>P（A | B ∧ C）= P（A | C）</li>
+</ul></li>
+<li><p>it follows that</p>
+<ul>
+<li><strong>P（A ∧ B | C）= P（A | C）P（B | C）</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="bayesian-modelling-贝叶斯建模">Bayesian modelling 贝叶斯建模</h2>
+<p>The <strong>one-rule classifier</strong> uses a single attribute to make its prediction…but can we expand this?</p>
+<p><strong>单规则分类器</strong>使用单个属性进行预测……但是我们可以扩展它吗？</p>
+<p>We could consider the <strong>contribution</strong> of all attributes</p>
+<p>我们可以考虑所有属性的<strong>贡献</strong></p>
 <ul>
 <li><strong>Assumption #1</strong>. attributes are equally important 属性同样重要</li>
 <li><strong>Assumption #2</strong>. attributes are independent each other 属性相互独立</li>
 </ul>
-<p><strong>Remark</strong>. Independence assumption is almost never correct! And they do not have the same importance 独立假设几乎永远不会正确！ 他们没有同样的重要性。</p>
-<h2 id="bayesian-reasoning">Bayesian reasoning</h2>
+<p><strong>Remark</strong>. Independence assumption is almost never correct! And they do not have the same importance</p>
+<p>独立假设几乎永远不会正确！ 他们<u>没有同样的重要性</u>。</p>
+<h2 id="bayesian-reasoning-贝叶斯推理">Bayesian reasoning 贝叶斯推理</h2>
 <p>Probability of event H given the evidence E？</p>
-<p><img src="/images/AI/08-01214149.png" /></p>
+<p><img src="/images/AI/08-01214149.png" /> <span class="math display">\[
+P(H|E)=\frac{P(H)*P(E|H)}{P(E)}
+\]</span></p>
+<ul>
+<li><p><code>P(H|E)</code></p>
+<ul>
+<li><p>Posterior Probability of "H" given the evidence</p>
+<p>给定证据的“H”的后验概率</p></li>
+</ul></li>
+<li><p><code>P(E|H)</code></p>
+<ul>
+<li><p>Likelihood of evidence "E" if the Hypothesis "H" is true</p>
+<p>如果假设“H”为真，则证据“E”的可能性</p></li>
+</ul></li>
+<li><p><code>P(H)</code></p>
+<ul>
+<li>Prior Probability 先验概率</li>
+</ul></li>
+<li><p><code>P(E)</code></p>
+<ul>
+<li><p>Prior Probability that the evidence itself is true</p>
+<p>证据本身为真的先验概率</p></li>
+</ul></li>
+</ul>
 <h2 id="naïve-bayes-for-classification">Naïve Bayes for classification</h2>
 <p><strong>Learning scheme</strong>: what’s the probability of some decision class given a new instance?</p>
+<p><strong>学习方案</strong>：给定一个新实例，某个决策类的概率是多少？</p>
 <ul>
 <li>Instance = evidence 𝐸, and Decision = event H</li>
 </ul>
 <p><span class="math display">\[
 Pr[H|E]\frac{Pr[E_1|H]Pr[E_2|H]...Pr[E_n|H]Pr[H]}{Pr[E]}
 \]</span></p>
-<p><strong>Naïve assumption</strong>: evidence splits into attributes that are <em>independent</em> 证据分为<em>独立</em>的属性。</p>
-<h2 id="example---weather-dataset">Example - Weather dataset</h2>
+<p><strong>Naïve assumption</strong>: evidence splits into attributes that are <strong><em>independent</em></strong> 证据分为<strong>独立</strong>的属性。</p>
+<h3 id="example---weather-dataset">Example - Weather dataset</h3>
 <p><img src="/images/AI/08-01214141.png" /></p>
 <p><img src="/images/AI/08-01214142.png" /></p>
 <ul>
-<li>Likelihood of the two classes
+<li><p>Likelihood of the two classes 两个类的可能性</p>
 <ul>
 <li>For “yes” = 2/9 × 3/9 × 3/9 × 3/9 × 9/14 = 0.0053</li>
 <li>For “no” = 3/5 × 1/5 × 4/5 × 3/5 × 5/14 = 0.0206</li>
 </ul></li>
-<li>Conversion into a probability by normalization
+<li><p>Conversion into a probability by normalization</p>
+<p>通过归一化转换为概率</p>
 <ul>
 <li>P（“yes”）= 0.0053 / （0.0053 + 0.0206） = 0.205</li>
 <li>P（“no”） = 0.0206 / （0.0053 + 0.0206） = 0.795</li>
 </ul></li>
 </ul>
 <p><strong>The class “no” is four times more likely than “yes” for this instance.</strong></p>
-<h2 id="the-zero-frequency-problem">The “zero-frequency problem”</h2>
+<p><strong>对于此实例，“否”类的可能性是“是”类的四倍。</strong></p>
+<h2 id="the-zero-frequency-problem-零频问题">The “zero-frequency problem” 零频问题</h2>
 <p>What if a specific attribute value does not occur with every class value? Probabilities will be zero!!</p>
 <p>如果每个类值都没有出现特定的属性值怎么办？ 概率为零！！</p>
 <ul>
 <li><p><strong>Solution</strong>. Add one to the counter for every attribute value-class combination （Laplace estimator）.</p>
 <p>为每个属性值类组合（Laplace estimator）在计数器上加一个。</p></li>
 </ul>
-<p>In some problem domains, adding a constant different from one might be more appropriate! 在某些问题域中，添加一个与一个不同的常量可能更合适！</p>
+<p>In some problem domains, adding a constant different from one might be more appropriate!</p>
+<p>在某些问题域中，添加一个与一个不同的常量可能更合适！</p>
 <ul>
 <li><strong>Result</strong>: probabilities will never be zero 概率永远不会为零</li>
 </ul>
 <h2 id="how-to-deal-with-missing-values">How to deal with missing values?</h2>
 <ul>
-<li>A nice feature of the <strong>Bayesian formulation</strong> is that missing values are not a problem at all. 贝叶斯公式的一个很好的特点是缺失值根本不是问题。</li>
-<li><strong>Training</strong>: the instance is not included into the frequency counter, the probability ratios are based on the observed values rather than the observed instances. 实例不包括在频率计数器中，概率比基于观察值而不是观察实例。</li>
-<li><strong>Classification</strong>: the attribute containing the missing value will be omitted from calculation. 计算中将省略包含缺失值的属性。</li>
+<li><p>A nice feature of the <strong>Bayesian formulation</strong> is that missing values are not a problem at all.</p>
+<p>贝叶斯公式的一个很好的特点是<strong>缺失值根本不是问题</strong>。</p></li>
+<li><p><strong>Training</strong>: the instance is not included into the frequency counter, the probability ratios are based on the observed values rather than the observed instances.</p>
+<p>实例不包括在频率计数器中，概率比<strong>基于观察值</strong>而不是观察实例。</p></li>
+<li><p><strong>Classification</strong>: the attribute containing the missing value will be omitted from calculation.</p>
+<p>计算中将省略包含缺失值的属性。</p></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><p>Probability theory enables the use of varying degrees of likelihood to represent uncertainty</p>
+<p>概率论允许使用不同程度的可能性来表示<strong>不确定性</strong></p></li>
+<li><p>A （joint） probability distribution completely describes a （set of）random variable（s）</p>
+<p>一个（联合）概率分布完全描述了一个（集合）随机变量</p></li>
+<li><p>Conditional probabilities let us calculate probabilities relative to priors that we know</p>
+<p>条件概率让我们计算相对于我们知道的<strong>先验的概率</strong></p></li>
+<li><p>Bayes’ rule is helpful in relating conditional probabilities and priors</p>
+<p>贝叶斯规则有助于<strong>关联条件概率和先验</strong></p></li>
+<li><p>Independence assumptions let us make intractable problems tractable</p>
+<p>独立性假设让我们把棘手的问题变得容易处理</p></li>
+<li><p><strong>Bayesian Belief Networks</strong> （BBNs） are now the standard technology for expert systems</p>
+<p><strong>贝叶斯信念网络</strong>（BBNs）现在是专家系统的标准技术</p></li>
 </ul>
 
                 

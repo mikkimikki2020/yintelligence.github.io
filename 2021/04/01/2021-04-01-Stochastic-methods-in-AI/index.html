@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-08-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.6k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    22 Min
+                    17 Min
                 </div>
                 
 
@@ -502,190 +502,222 @@
             <div id="articleContent">
                 <h1 id="stochastic-methods-in-ai">Stochastic methods in AI</h1>
 <p><a href="https://yintelligence.tech/2021/01/29/2021-01-29-VUB-4004728DNR-Techniques-of-Artificial-Intelligence/">VUB 4004728DNR Techniques of Artificial Intelligence</a></p>
-<h2 id="probability-likelihood-and-truth">Probability, Likelihood and Truth</h2>
+<p><a href="https://yintelligence.tech/2021/04/21/2021-04-21-Naive-Bayes-introduction/">Naïve Bayes introduction</a></p>
+<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20566/files/776531?module_item_id=79412">Slide</a> + <a target="_blank" rel="noopener" href="https://www.dropbox.com/s/hn3vdooloj7r9u8/Techniques%20of%20Artificial%20Intelligence%202021%20Topic%207.mov?dl=0">Video</a></p>
+<h2 id="probability-likelihood-and-truth-概率可能性和真相">Probability, Likelihood and Truth 概率、可能性和真相</h2>
 <p>In PC and FOPC, we were able to</p>
+<p>在 PC 和 FOPC 中，我们能够</p>
 <ul>
-<li>write down things that were true</li>
-<li>write down rules of inference that were known to hold</li>
-<li>make explicit truths which were previously implicit
+<li><p>write down things that were true</p>
+<p>写下真实的事情</p></li>
+<li><p>write down rules of inference that were known to hold</p>
+<p>写下已知的推理规则</p></li>
+<li><p>make explicit truths which were previously implicit</p>
+<p>使先前隐含的明确真理</p>
 <ul>
-<li>by applying rules of inference</li>
+<li><p>by applying rules of inference</p>
+<p>通过应用推理规则</p></li>
 </ul></li>
 </ul>
-<p>We showed how a proof could be constructed, to show that a given truth (a goal, or conclusion) followed from a set of facts</p>
-<p>In all of this, however, everything is true or false, there’s no way of saying “perhaps” or “maybe”</p>
+<p>我们展示了如何构造一个证明，以表明一个给定的真理（一个目标或结论）来自一组事实，然而，在这一切中，一切都是真的或假的，没有办法说“perhaps”或“maybe”</p>
 <ul>
-<li><p>We can refine all this by viewing truth values as extreme probabilities<br />
-</p>
+<li><p>We can refine all this by viewing truth values as extreme probabilities</p>
+<p>我们可以通过将真值视为极端概率来改进所有这些</p>
 <ul>
 <li><p>0 replaces false, 1 replaces true, but now we have all the values in between</p>
+<p>0 替换 false，1 替换 true，但现在我们拥有了介于两者之间的所有值</p>
 <blockquote>
-<p>(But note that there are limits to this analogy - it’s not completely strict)</p>
+<p>But note that there are limits to this analogy</p>
+<ul>
+<li>it’s not completely strict</li>
+</ul>
 </blockquote></li>
 </ul></li>
-<li><p>Conjunction is exactly like multiplication</p>
+<li><p><strong>Conjunction</strong> is exactly like multiplication</p>
+<p>连词与乘法完全一样</p>
 <ul>
-<li>F ∧ F = 0 x 0 = 0 = F</li>
-<li>F ∧ T = 0 x 1 = 0 = F</li>
-<li>T ∧ T = 1 x 1 = 1 = T</li>
+<li>F ∧ F = 0 × 0 = 0 = F</li>
+<li>F ∧ T = 0 × 1 = 0 = F</li>
+<li>T ∧ T = 1 × 1 = 1 = T</li>
 </ul></li>
-<li><p>Disjunction is somewhat like addition, but with a maximum value of 1</p>
+<li><p><strong>Disjunction</strong> is somewhat like addition, but with a maximum value of 1</p>
+<p>析取有点像加法，但最大值为 1</p>
 <ul>
-<li><p>F ∨ F = min( 0 + 0, 1 ) = 0 = F</p></li>
-<li><p>F ∨ T = min( 0 + 1, I ) = 1 = T</p></li>
-<li><p>T ∨ T = min( 1 + 1, 1 ) = 1 = T</p>
+<li><p>F ∨ F = min（ 0 + 0, 1 ） = 0 = F</p></li>
+<li><p>F ∨ T = min（ 0 + 1, I ） = 1 = T</p></li>
+<li><p>T ∨ T = min（ 1 + 1, 1 ） = 1 = T</p>
 <blockquote>
-<p>however, NB, this is not a complete, proper definition – we’ll give one later</p>
+<p>however, NB, this is not a complete, proper definition</p>
+<p>we’ll give one later</p>
 </blockquote></li>
 </ul></li>
 </ul>
 <p>This idea corresponds precisely with the idea of probability</p>
+<p>这个想法正好符合概率的想法</p>
 <ul>
-<li>Something which is certain (T) has probability 1</li>
-<li>Something which is certainly not (F) has probability 0</li>
+<li>Something which is certain （T） has probability 1</li>
+<li>Something which is certainly not （F） has probability 0</li>
 </ul>
 <h2 id="using-probability-for-logic">Using probability for logic</h2>
-<p>We write P(A) to mean “the probability of A”</p>
+<p>We write <code>P(A)</code> to mean “the probability of A”</p>
 <blockquote>
 <p>NB, not Predicate P applied to Object A!</p>
 </blockquote>
-<p>But what does P(A) mean?</p>
+<p>But what does <code>P(A)</code> mean?</p>
 <ul>
-<li>P(I will draw ace of hearts)</li>
-<li>P(the coin will come up heads)</li>
-<li>P(it will snow tomorrow)</li>
-<li>P(the sun will rise tomorrow)</li>
-<li>P(the problem is in the third cylinder)</li>
-<li>P(the patient has measles)</li>
+<li>P（I will draw ace of hearts）</li>
+<li>P（the coin will come up heads）</li>
+<li>P（it will snow tomorrow）</li>
+<li>P（the sun will rise tomorrow）</li>
+<li>P（the problem is in the third cylinder）</li>
+<li>P（the patient has measles）</li>
 </ul>
-<h2 id="frequentist-interpretation">Frequentist interpretation</h2>
+<h3 id="frequentist-interpretation">Frequentist interpretation</h3>
 <ul>
-<li>We can interpret frequencies of events as their probability
+<li><p>We can interpret frequencies of events as their probability</p>
+<p>我们可以将事件的频率解释为它们的概率</p>
 <ul>
 <li>Draw a card from a normal deck
 <ul>
 <li>h = 13 hearts, s = 13 spades, d = 13 diamonds, c = 13 clubs</li>
-<li>Total number of cards, n = 13 x 4 = 52</li>
+<li>Total number of cards, n = 13 × 4 = 52</li>
 </ul></li>
 <li>The probability that the proposition A = “the card is a heart” is true corresponds to the relative frequency with which we expect to draw a heart
 <ul>
 <li>note that, here, each card is equally likely to be drawn</li>
 </ul></li>
-<li>P(A) = h / n = 13 / 52 = 0.25</li>
+<li>P（A） = h / n = 13 / 52 = 0.25</li>
 </ul></li>
-<li>Definition: the <em>probability</em> of an event A is the number of possible occurrences where A holds divided by the all the possible occurrences
+<li><p>Definition: the <em>probability</em> of an event A is the number of possible occurrences where A holds divided by the all the possible occurrences</p>
 <ul>
-<li>thus, if A always holds, P(A) = n / n = 1 = T in PC/FOPC, conversely for F</li>
+<li>thus, if A always holds, P（A） = n / n = 1 = T in PC/FOPC, conversely for F</li>
 </ul></li>
 </ul>
-<h2 id="simple-exercises">Simple exercises</h2>
+<p><strong>Simple exercises</strong></p>
 <p>Compute:</p>
 <ul>
-<li>P (I will draw ace of hearts)</li>
-<li>P (I will draw a spade)</li>
-<li>P (I will draw a heart or a spade)</li>
-<li>P (I will draw a heart and a spade)</li>
+<li>P （I will draw ace of hearts）</li>
+<li>P （I will draw a spade）</li>
+<li>P （I will draw a heart or a spade）</li>
+<li>P （I will draw a heart and a spade）</li>
 </ul>
-<h2 id="definitions">Definitions</h2>
+<h3 id="definitions">Definitions</h3>
 <ul>
-<li>An <em>elementary</em> or <em>atomic</em> event is an occurrence that cannot be made up of other events
-<ul>
-<li>cf. Proposition/Sentence in PC, Literal/Atomic Sentence in FOPC</li>
-</ul></li>
-<li>An <em>event</em> is a set of atomic events</li>
-<li>The set of all possible outcomes of an event E is the <em>sample space</em> or <em>universe</em> for that event</li>
-<li>The probability of an event E in a sample space S is the ratio of the number of elements in E to the total number of possible outcomes of the sample space S of E
-<ul>
-<li>P(E) = |E| / |S|</li>
-</ul></li>
+<li><p>An <em>elementary</em> or <em>atomic</em> event is an occurrence that cannot be made up of other events</p>
+<blockquote>
+<p>cf. Proposition/Sentence in PC, Literal/Atomic Sentence in FOPC</p>
+<p>参见 PC 中的命题/句子，FOPC 中的文字/原子句</p>
+</blockquote></li>
+<li><p>An <em>event</em> is a set of atomic events</p>
+<p>一个<strong>event</strong>是一组原子事件</p></li>
+<li><p>The set of all possible outcomes of an event E is the <strong><em>sample space</em></strong> or <strong><em>universe</em></strong> for that event</p></li>
+<li><p>The probability of an event E in a sample space S is the ratio of the number of elements in E to the total number of possible outcomes of the sample space S of E</p>
+<p>样本空间 S 中事件 E 的概率是 E 中元素的数量与 E 的样本空间 S 的可能结果总数之比 <span class="math display">\[
+P(E) = \frac{|E|}{|S|}
+\]</span></p></li>
 </ul>
-<h2 id="subjective-interpretations">Subjective interpretations</h2>
+<h3 id="subjective-interpretations-主观解释">Subjective interpretations 主观解释</h3>
 <p>There are many situations in which there is no objective frequency interpretation</p>
+<p>没有客观频率解释的情况很多</p>
 <ul>
-<li>Just before hang-gliding from the top of Ben Nevis, I say “there is probability 0.2 that I am going to have a broken neck”</li>
+<li>Just before hang-gliding from the top of <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E6%9C%AC%E5%B0%BC%E7%BB%B4%E6%96%AF%E5%B1%B1">Ben Nevis</a>, I say “there is probability 0.2 that I am going to have a broken neck”</li>
 <li>You are working hard on your AI practical and you believe that the probability that you will get 90% is 0.9</li>
 </ul>
-<p>The probability that proposition A is true corresponds to the degree of <em>subjective belief</em></p>
+<p>The probability that proposition A is true corresponds to the degree of <strong><em>subjective belief</em></strong></p>
+<p>命题A为真的概率对应于<strong>主观信念</strong>的程度</p>
 <ul>
-<li>It’s better to use probabilities based on evidence!</li>
-<li>but subjective belief can get us a very long way, sometimes</li>
+<li><p>It’s better to use probabilities based on evidence!</p>
+<p>最好使用基于证据的概率</p></li>
+<li><p>but subjective belief can get us a very long way, sometimes</p>
+<p>但是主观信念有时可以让我们走得很远</p></li>
 </ul>
-<h2 id="axioms-of-probability">Axioms of probability</h2>
+<h3 id="axioms-of-probability-概率公理">Axioms of probability 概率公理</h3>
 <ul>
-<li>There is a debate about which interpretation to adopt
+<li><p>There is a debate about which interpretation to adopt</p>
+<p>关于采用哪种解释存在争论</p>
 <ul>
 <li>frequentist</li>
 <li>probabilistic</li>
 <li>both are useful</li>
 <li>but there is agreement about the underlying maths</li>
 </ul></li>
-<li>Three basic requirements of probability values:
+<li><p>Three basic requirements of probability values:</p>
+<p>概率值的<strong>三个基本要求</strong>：</p>
 <ul>
-<li>0 ≤ P(A) ≤ 1</li>
-<li>P( A ∨ B ) = P( A ) + P( B ) iff A and B are mutually exclusive
+<li>0 ≤ P（A） ≤ 1</li>
+<li>P（ A ∨ B ） = P（A） + P（B） iff A and B are mutually exclusive 互斥
 <ul>
-<li>that means “iff A and B cannot be true at the same time”</li>
+<li><p>that means “iff A and B cannot be true at the same time”</p>
+<p>这意味着“如果 A 和 B 不能同时为真</p></li>
 </ul></li>
-<li>P( True ) = 1</li>
+<li>P（ True ） = 1</li>
 </ul></li>
 </ul>
-<h2 id="three-axioms-is-enough">Three axioms is enough</h2>
-<p>These three axioms are all we need to define probabilities, as all other rules can be derived from them</p>
+<p><strong>Three axioms is enough</strong> 这三个公理是我们定义概率所需的全部，因为所有其他规则都可以从它们导出</p>
 <p>For example we can show that</p>
 <ul>
-<li>P( ¬A ) = 1 – P( A ) because
+<li>P（ ¬A ） = 1 – P（A） because
 <ul>
-<li>P( A ∨ ¬A ) = P ( True ) by law of excluded middle</li>
-<li>P( A ∨ ¬A ) = P( A ) + P( ¬A ) by axiom 2</li>
-<li>P( True ) = 1 by axiom 3</li>
-<li>P( A ) + P( ¬A ) = 1 transitivity of =</li>
+<li>P（ A ∨ ¬A ） = P（ True ） by law of excluded middle</li>
+<li>P（ A ∨ ¬A ）= P（ A ) + P（¬A） by axiom 2</li>
+<li>P（ True ） = 1 by axiom 3</li>
+<li>P（A） + P（ ¬A ） = 1 transitivity of =</li>
 </ul></li>
-<li>P(false) = 0 because
+<li>P（false） = 0 because
 <ul>
 <li>False = ¬ True by definition</li>
-<li>P( False ) = 1 – P( True ) by the derived rule above</li>
+<li>P（ False ） = 1 – P（ True ） by the derived rule above</li>
 </ul></li>
 </ul>
-<h2 id="another-way-to-look-at-probability">Another way to look at probability</h2>
+<h3 id="another-way-to-look-at-probability">Another way to look at probability</h3>
 <p><img src="/images/AI/2121290.png" /></p>
 <ul>
-<li><p>The entire rectangle is the Universe</p>
+<li><p>The entire rectangle is the <strong>Universe</strong></p>
+<p>整个矩形就是<strong>宇宙</strong></p>
 <ul>
-<li>it contains every possible outcome of every atomic event</li>
+<li><p>it contains every possible outcome of every atomic event</p>
+<p>它包含每个原子事件的所有可能结果</p></li>
 </ul></li>
 <li><p>A and B are events</p>
 <ul>
-<li>the sets in this Venn diagram contain the conditions when they are true</li>
+<li><p>the sets in this Venn diagram contain the conditions when they are true</p>
+<p>此维恩图中的集合包含它们为真时的条件</p></li>
 </ul></li>
-<li><p>Here, they are mutually exclusive</p>
+<li><p>Here, they are <strong>mutually exclusive</strong></p>
+<p>在这里，它们是<strong>相互排斥</strong>的</p>
 <ul>
-<li>they do not overlap, so they cannot both occur at the same time</li>
+<li><p>they do not overlap, so they cannot both occur at the same time</p>
+<p>它们不重叠，所以它们不能同时发生</p></li>
 </ul></li>
-<li><p>Probability is represented by the area relative to the universal (which has probability 1)</p></li>
+<li><p>Probability is represented by the <strong>area</strong> relative to the universal （which has probability 1）</p></li>
 <li><p>The axioms:</p>
 <ul>
-<li>0 ≤ P(A) ≤ 1
+<li>0 ≤ P（A）≤ 1
 <ul>
-<li>a set cannot have a negative area; it cannot be bigger than the Universal Set</li>
-<li>nothing can have less than no chance of happening</li>
-<li>nothing can have more than absolute certainty of happening</li>
+<li><p>a set cannot have a <strong>negative area</strong>; it cannot be bigger than the <strong>Universal Set</strong></p>
+<p>集合不能有<strong>负面积</strong>；它不能大于<strong>通用集</strong></p></li>
+<li><p>nothing can have less than no chance of happening</p>
+<p>没有什么不可能发生</p></li>
+<li><p>nothing can have more than <strong>absolute certainty</strong> of happening</p>
+<p>没有什么比发生的<strong>绝对确定性</strong>更重要</p></li>
 </ul></li>
-<li>P( A ∨ B ) = P( A ) + P( B ) iff A and B are mutually exclusive
+<li>P（A ∨ B） = P（A） + P（B） iff A and B are mutually exclusive
 <ul>
-<li>compute the respective probabilities by measuring areas and adding</li>
+<li><p>compute the respective probabilities by measuring areas and adding</p>
+<p>通过测量面积和相加来计算各自的概率</p></li>
 </ul></li>
-<li>P( True ) = 1
+<li>P（True） = 1
 <ul>
-<li>the Universal Set is the set of all things that are true</li>
+<li><strong>the Universal Set</strong> is the set of all things that are true</li>
 <li>the area of the Universal Set is that of the Universal Set; n / n = 1</li>
 </ul></li>
-<li>P( ¬B ) = 1 – P( B )
+<li>P（¬B） = 1 – P（B）
 <ul>
 <li>B is the green part</li>
 <li>¬B is the rest</li>
-<li>P( B ) + P( ¬B ) = P( U ) = 1</li>
+<li>P（B） + P（¬B） = P（U） = 1</li>
 </ul></li>
-<li>P( A ∨ B ) = P( A ) + P( B ) - P( A ∧ B )
+<li>P（A ∨ B） = P（A）+ P（B）- P（A ∧ B）
 <ul>
 <li>because the intersection area would be included twice, otherwise</li>
 </ul></li>
@@ -693,522 +725,254 @@
 <li><p>Note, here, the similarity between the connectives and set operators</p>
 <ul>
 <li><p>∧ corresponds with ∩</p></li>
-<li><p>∨ corresponds with ∪</p>
-<blockquote>
-<p>this is not a coincidence</p>
-</blockquote></li>
+<li><p>∨ corresponds with ∪</p></li>
 </ul></li>
 </ul>
-<h2 id="random-variables">Random variables</h2>
-<p>Atomic propositions in PC were assigned from { T, F } by an interpretation</p>
+<h2 id="random-variables-随机变量">Random variables 随机变量</h2>
+<p>Atomic propositions in PC were assigned from <code>&#123;T, F&#125;</code> by an interpretation</p>
+<p>PC 中的原子命题是通过解释从 <code>&#123;T, F&#125;</code> 分配的</p>
 <p>Here we think of atomic events as being associated with random variables ranging over a domain of values which are</p>
+<p>在这里，我们认为原子事件与范围内的值的随机变量相关联，这些值是</p>
 <ul>
-<li>mutually exclusive
+<li><p><strong>mutually exclusive 互斥的</strong></p>
 <ul>
-<li>so a variable can only have one value at a time, or only one possibility can be true at a time</li>
+<li><p>so a variable can only have one value at a time, or only one possibility can be true at a time</p>
+<p>所以一个变量一次只能有一个值，或者一次只能有一种可能性为真</p></li>
 </ul></li>
-<li>exhaustive
+<li><p><strong>exhaustive 详尽无遗</strong></p>
 <ul>
-<li>all possible values are known</li>
+<li><p>all possible values are known</p>
+<p>所有可能的值都是已知的</p></li>
 </ul></li>
-<li>Each possible outcome has an associated probability</li>
+<li><p>Each possible outcome has an associated probability</p>
+<p>每个可能的结果都有一个相关的概率</p></li>
 </ul>
-<p>Examples</p>
+<p><strong>Examples</strong></p>
 <ul>
 <li>coin toss: { heads, tails }</li>
 <li>die roll: { 1, 2, 3, 4, 5, 6 }</li>
 <li>has measles: { true, false }</li>
 </ul>
-<h2 id="probability-distribution-of-random-variable">Probability distribution of random variable</h2>
+<h3 id="probability-distribution-of-random-variable">Probability distribution of random variable</h3>
 <p>A probability distribution of a random variable is the set of the probabilities covering every possible value the variable might take</p>
+<p>随机变量的概率分布是覆盖变量可能取的每个可能值的概率集</p>
 <p><img src="/images/AI/2121291.png" /></p>
-<h2 id="joint-probability-distributions">Joint probability distributions</h2>
+<h2 id="joint-probability-distributions-联合概率">Joint probability distributions 联合概率</h2>
 <ul>
-<li>A <em>joint probability distribution</em> for some random variables is an enumeration of the probabilities for all possible combinations of the joint outcomes of the random variables
+<li><p>A <strong><em>joint probability distribution</em></strong> for some random variables is an enumeration of the probabilities for all possible combinations of the joint outcomes of the random variables</p>
+<p>一些随机变量的<strong>联合概率分布</strong>是随机变量联合结果的所有可能组合的概率的枚举</p>
 <ul>
-<li>compute the joint outcomes by taking the cross product of the variables’ domains</li>
+<li><p>compute the joint outcomes by taking the <strong>cross product</strong> of the variables’ domains</p>
+<p>通过取变量域的<strong>叉积</strong>来计算联合结果</p></li>
 </ul></li>
-<li>NB. These probabilities are about co-occurrence, not about cause!!</li>
+<li><p>NB. These probabilities are about <strong>co-occurrence</strong>, not about cause!!</p>
+<p>注意。这些概率是关于<strong>共现</strong>的，而不是关于原因的！！</p></li>
+<li><p>Joint probabilities are useful because they allow us to study the interaction between the component events</p>
+<p>联合概率很有用，因为它们允许我们研究组件事件之间的相互作用</p></li>
 </ul>
 <p><img src="/images/AI/2121292.png" /></p>
 <ul>
-<li>Alternative representation as multi-dimensional table</li>
+<li><p>Alternative representation as <strong>multi-dimensional table</strong></p>
+<p>作为<strong>多维表</strong>的替代表示</p></li>
 </ul>
 <p><img src="/images/AI/2121293.png" /></p>
+<h3 id="notation-符号">Notation 符号</h3>
 <ul>
-<li>Notation
+<li><p>All these statements are equivalent</p>
+<p>所有这些陈述都是等价的</p>
 <ul>
-<li>All these statements are equivalent
-<ul>
-<li>P( Cavity = true, Insulated = false ) = 0.08</li>
-<li>P( Cavity, ¬Insulated ) = 0.08</li>
-<li>P( Cavity ∧ ¬Insulated ) = 0.08</li>
+<li>P（Cavity = true, Insulated = false）= 0.08</li>
+<li>P（Cavity, ¬Insulated） = 0.08</li>
+<li>P（Cavity ∧ ¬Insulated）= 0.08</li>
 </ul></li>
-<li>so we can use , (comma) as “and”, and mix’n’match PC propositions with variables
+<li><p>so we can use , （comma） as “and”, and mix n match PC propositions with variables</p>
 <ul>
 <li>you will see these and other notations used</li>
 <li>the important thing is to be consistent in your own usage</li>
 </ul></li>
-</ul></li>
-<li>Joint probabilities are useful because they allow us to study the interaction between the component events</li>
 </ul>
-<h2 id="marginal-probabilities">Marginal probabilities</h2>
+<h2 id="marginal-probabilities-边际概率">Marginal probabilities 边际概率</h2>
 <p><img src="/images/AI/2121294.png" /></p>
-<p>P( Bad Traffic ) = P( Bad Traffic ∧ Road repairs ) + P ( Bad Traffic ∧ ¬ Road repairs ) = 0.3 + 0.1 = 0.4</p>
+<p>P（Bad Traffic） = P（Bad Traffic ∧ Road repairs） + P（Bad Traffic ∧ ¬ Road repairs） = 0.3 + 0.1 = 0.4</p>
 <ul>
-<li>NB: the table must be consistent with the axioms of probability
+<li><p>NB: the table must be consistent with the axioms of probability</p>
+<p>注意：表格必须与概率公理一致</p>
 <ul>
-<li>0 ≤ each value in the table ≤ 1</li>
-<li>the values in the whole table should add up to 1</li>
-<li>the different outcomes must be mutually exclusive</li>
+<li><p>0 ≤ each value in the table ≤ 1</p></li>
+<li><p>the values in the whole table should add up to 1</p></li>
+<li><p>the different outcomes must be <strong>mutually exclusive</strong></p>
+<p>不同的结果<strong>必须</strong>是<strong>相互排斥</strong>的</p></li>
 </ul></li>
 </ul>
-<h2 id="probabilistic-inference">Probabilistic inference</h2>
+<h3 id="probabilistic-inference">Probabilistic inference</h3>
 <p><img src="/images/AI/2121294.png" /></p>
 <p>Now we can compute more subtle inferences</p>
+<p>现在我们可以计算更微妙的推论</p>
 <ul>
-<li>P( Bad traffic ∨ Repairs ) = 0.3 + 0.1 + 0.2 = 0.6</li>
-<li>P( Repairs → Bad traffic ) = P( ¬ Repairs ∨ Bad Traffic ) = 0.1 + 0.4 + 0.3 = 0.8</li>
+<li>P（Bad traffic ∨ Repairs） = 0.3 + 0.1 + 0.2 = 0.6</li>
+<li>P（Repairs → Bad traffic） = P（¬ Repairs ∨ Bad Traffic） = 0.1 + 0.4 + 0.3 = 0.8</li>
 </ul>
-<h2 id="prior-probability">Prior probability</h2>
-<p>The <em>prior probability</em>, or <em>unconditional probability</em>, of an event is the probability assigned to an event in the absence of knowledge supporting its occurrence and absence, that is, the probability of the event prior to any evidence.</p>
-<p>Example</p>
+<h2 id="prior-probability-先验概率">Prior probability 先验概率</h2>
+<p>The <strong><em>prior probability</em></strong>, or <strong><em>unconditional probability</em></strong>, of an event is the probability assigned to an event in the absence of knowledge supporting its occurrence and absence, that is, the probability of the event prior to any evidence.</p>
+<p>事件的<strong>先验概率</strong>或<strong>无条件概率</strong>是在缺乏支持其发生和不存在的知识的情况下分配给该事件的概率，即该事件在<u>任何证据之前的概率</u>。</p>
+<p><strong>Example</strong></p>
 <ul>
-<li>P( Toothache = true ) = 0.1</li>
+<li>P（Toothache = true） = 0.1</li>
 <li>the unconditional or prior probability that someone has toothache is 0.1
 <ul>
 <li>In the absence of other information, there is 10% chance someone has toothache</li>
 </ul></li>
 </ul>
 <p>This is the kind of probability we have been dealing with so far, where we view the world as unchanging</p>
-<ul>
-<li>but what happens if it can change?</li>
-</ul>
-<h2 id="conditional-or-posterior-probability">Conditional or posterior probability</h2>
+<p>这是迄今为止我们一直在处理的那种概率，我们认为世界是不变的</p>
+<blockquote>
+<p>but what happens if it can change?</p>
+</blockquote>
+<h2 id="conditional-or-posterior-probability-条件或后验概率">Conditional or posterior probability 条件或后验概率</h2>
 <p><span class="math display">\[
 P( A | B ) =\frac{P( A ∧ B )}{P( B )}\ where\ P(B) &gt; 0
 \]</span></p>
-<p>P( A | B ) denotes the conditional (or posterior) probability of A, given that we know B and B is all we know</p>
+<p>P<code>(A|B)</code> denotes the conditional （or posterior） probability of A, <u>given that we know B and B is all we know</u></p>
 <ul>
-<li>If we receive evidence concerning a proposition, prior probabilities are no longer applicable</li>
-<li>We need to assess the conditional probability of that proposition given the available evidence</li>
-<li>Note that for this to be different from P( A ), A and B are no longer independent</li>
+<li><p>If we receive evidence concerning a proposition, prior probabilities are no longer applicable</p>
+<p>如果我们收到有关命题的证据，则先验概率不再适用</p></li>
+<li><p>We need to assess the conditional probability of that proposition given the available evidence</p>
+<p>给定可用证据，我们需要评估该命题的条件概率</p></li>
+<li><p>Note that for this to be different from P（A）, <u>A and B are no longer independent</u></p></li>
 </ul>
 <p><img src="/images/AI/2121295.png" /></p>
 <ul>
-<li>Here, P( A ) = 0.25, P( B ) = 0.5</li>
-<li>A is contained in B, so P( A ∧ B ) = 0.25</li>
-<li>Therefore, P( A | B ) = 0.25 / 0.5 = 0.5</li>
+<li>Here, P（A） = 0.25, P（B） = 0.5</li>
+<li>A is contained in B, so P（A ∧ B）= 0.25</li>
+<li>Therefore, P（A | B） = 0.25 / 0.5 = 0.5</li>
 </ul>
-<h3 id="something-to-try">Something to try</h3>
+<p><strong>Something to try</strong></p>
 <p>What are the values for the following</p>
 <ul>
-<li>P( Heads | Heads )</li>
-<li>P( Ace of hearts | Ace of spades )</li>
-<li>P( Bad traffic | Road repairs )</li>
-<li>P( Road repairs | Bad traffic)</li>
+<li>P（Heads | Heads）</li>
+<li>P（Ace of hearts | Ace of spades）</li>
+<li>P（Bad traffic | Road repairs）</li>
+<li>P（Road repairs | Bad traffic）</li>
 </ul>
-<h3 id="another-example">Another example</h3>
+<p><strong>Another example</strong></p>
 <p>Suppose we are interested in the probability that the stock price of company C will increase, given that we know about the FTSE index from the BBC news</p>
+<p>假设我们对 C 公司股价上涨的概率感兴趣，因为我们从 BBC 新闻中了解了富时指数</p>
 <p>Once we know that the FTSE is up, we can rule out everything outside the green area</p>
+<p>一旦我们知道富时指数上涨，我们就可以排除绿区之外的一切</p>
 <ul>
 <li>we “focus our attention” on the FTSE area</li>
 </ul>
-<p><img src="/images/AI/2121299.png" /></p>
-<h2 id="total-probability-of-an-event">Total probability of an event</h2>
+<h3 id="total-probability-of-an-event"><strong>Total probability of an event</strong></h3>
 <p>A convenient way to calculate P(A) is with the following formula</p>
 <ul>
 <li>produced using the conditional probability rule</li>
-<li>P( A ) = P( A ∧ B ) + P( A ∧ ¬B) = P( A | B )P( B ) + P( A | ¬ B )P( ¬B )</li>
+<li>P（A） = P（A ∧ B） + P（A ∧ ¬B） = P（A | B）P（B） + P（A | ¬ B）P（ ¬B ）</li>
 </ul>
-<p><img src="/images/AI/2121297.png" /></p>
+<p><img src="/images/AI/2127299.png" /></p>
 <p>Event A is composed of those occasions when</p>
 <ul>
 <li><p>A and B co-occur</p></li>
 <li><p>A and ¬B co-occur</p>
 <blockquote>
 <p>Because compound events “A and B” and “A and ¬B” are mutually exclusive, the probability of A must be the sum of these two probabilities</p>
+<p>因为复合事件“A和B”和“A和¬B”是互斥的，所以A的概率一定是这两个概率之和</p>
 </blockquote></li>
 </ul>
-<h3 id="another-example-1">Another example</h3>
+<p><strong>Another example</strong></p>
 <ul>
-<li>P( Cavity | Toothache ) = 0.8 is a conditional probability</li>
+<li>P（Cavity | Toothache） = 0.8 is a conditional probability</li>
 <li>Maybe we have other evidence
 <ul>
-<li>P( Cavity | Toothache, Earthquake ) = P( Cavity | Toothache )
+<li>P（Cavity | Toothache, Earthquake）= P（Cavity | Toothache）
 <ul>
 <li>because the Earthquake information is not relevant</li>
 </ul></li>
 </ul></li>
-<li>P( Cavity | Toothache, Cavity ) = 1
+<li>P（Cavity | Toothache, Cavity） = 1
 <ul>
 <li>because the non-conditional probability overrides</li>
 </ul></li>
 </ul>
-<h2 id="rules-of-conditional-probability">Rules of conditional probability</h2>
+<h2 id="rules-of-conditional-probability-条件概率规则">Rules of conditional probability 条件概率规则</h2>
+<h3 id="product-rule">Product rule</h3>
+<p>An alternative definition of conditional probability</p>
+<p>条件概率的另一种定义 <span class="math display">\[
+P(A ∧ B)= P(A | B)P(B) = P(B | A)P(A)
+\]</span></p>
+<h3 id="chain-rule">Chain rule</h3>
+<p>successive application of product rule 乘积规则的连续应用 <span class="math display">\[
+P(X_{n}| X_{1}∧ ... ∧ X_{n-1})\prod^{n}_{i=2}P(X_{i}∧ ... ∧ X_{i-1})
+\]</span></p>
+<h4 id="proof">Proof</h4>
 <ul>
-<li>Product rule</li>
-<li>P( A ∧ B ) = P( A | B ) P( B ) = P( B | A) P( A )
-<ul>
-<li>An alternative definition of conditional probability</li>
-</ul></li>
-<li>Chain rule (successive application of product rule)
-<ul>
-<li>P( X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) = P( X<sub>I</sub> ) ∏ <sup>n</sup><sub>i=2</sub>P( X<sub>i</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>i-1</sub>)</li>
-<li>Proof
-<ul>
-<li>P( X<sub>1</sub> ∧ ... ∧ X<sub>n</sub>) = P( X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) P( X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) = P( X<sub>1</sub> ∧ ... ∧ X<sub>n-2</sub> ) P( X<sub>n-1</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-2</sub> ) P( X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub> ) etc.</li>
-</ul></li>
-<li>Example
-<ul>
-<li>P( X<sub>1</sub> ∧ X<sub>2</sub> ∧ X<sub>3</sub> ) = P( X<sub>1</sub> ) P( X<sub>2</sub> | X<sub>1</sub> ) P( X<sub>3</sub> | X<sub>1</sub> ∧ X<sub>2</sub> )</li>
-</ul></li>
-</ul></li>
-<li>NB. P( A → B ) is not necessarily the same as P( B | A )</li>
-<li>Conditioning Rule
-<ul>
-<li>If we know an exhaustive set of conditional probabilities for an event, we can compute its prior probability
-<ul>
-<li>like the marginal probability calculation from the table earlier</li>
-<li>P( Y ) = ∑<sub>z</sub>P( Y | Z ) P( Z )</li>
-<li>This sums all the outcomes of all the variables that condition Y</li>
-</ul></li>
-</ul></li>
-<li>Conditionalised Product Rule
-<ul>
-<li>P( A ∧ B | E ) = P( A | B ∧ E ) P( B | E ) = P ( B | A ∧ E ) P( A | E )</li>
-<li>P( A | B ∧ E ) P ( B | E ) = P( A ∧ B | E )</li>
-</ul></li>
+<li>P（X<sub>1</sub> ∧ ... ∧ X<sub>n</sub>）= P（X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub>）P（X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub>）= P（X<sub>1</sub> ∧ ... ∧ X<sub>n-2</sub>）P（X<sub>n-1</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-2</sub>）P（X<sub>n</sub> | X<sub>1</sub> ∧ ... ∧ X<sub>n-1</sub>）etc.</li>
 </ul>
-<h2 id="bayes-rule">Bayes’ Rule</h2>
+<h4 id="example">Example</h4>
+<ul>
+<li>P（X<sub>1</sub> ∧ X<sub>2</sub> ∧ X<sub>3</sub>） = P（X<sub>1</sub>）P（X<sub>2</sub> | X<sub>1</sub>）P（X<sub>3</sub> | X<sub>1</sub> ∧ X<sub>2</sub>）</li>
+<li>NB. <u>P（A → B） is not necessarily the same as P（B | A）</u></li>
+</ul>
+<h3 id="conditioning-rule">Conditioning Rule</h3>
+<p>If we know an exhaustive set of conditional probabilities for an event, we can compute its prior probability</p>
+<p>如果我们知道一个事件的一组详尽的条件概率，我们可以计算它的先验概率</p>
+<blockquote>
+<p>like the marginal probability calculation from the table earlier</p>
+<p>就像前面表格中的边际概率计算</p>
+</blockquote>
+<p><span class="math display">\[
+P(Y) = \sum_{z}P(Y|Z)P(Z)
+\]</span></p>
+<p>This sums all the outcomes of all the variables that condition Y</p>
+<p>这总结了所有条件 Y 的变量的所有结果</p>
+<h3 id="conditionalized-product-rule">Conditionalized Product Rule</h3>
+<p><span class="math display">\[
+P(A∧B|E)= P(A|B∧E)P(B|E)=P(B|A∧E)P(A|E)
+\]</span></p>
+<h4 id="proof-1">Proof</h4>
+<p><span class="math display">\[
+P(A|B∧E)P(B|E) = \frac{P(A∧B∧E)}{P(B∧E)}\frac{P(B∧E)}{P(E)}
+=\frac{P(A∧B∧E)}{P(E)} 
+=P(A∧B|E)
+\]</span></p>
+<h3 id="bayes-rule">Bayes’ Rule</h3>
 <p><span class="math display">\[
 P( B | A ) = \frac{P( A | B ) P( B ) }{P( A )}
 \]</span></p>
+<h4 id="derivation">Derivation</h4>
 <ul>
-<li>Derivation
+<li>Product rule
 <ul>
-<li>Product rul
-<ul>
-<li>P ( A ∧ B ) = P( A | B ) P( B )</li>
+<li>P（A ∧ B） = P（A | B） P（B）</li>
 </ul></li>
 <li>Commutativity of ∧
 <ul>
-<li>P( A ∧ B ) = P( B | A ) P( A )</li>
+<li>P（A ∧ B ) = P（B | A ) P（A）</li>
 </ul></li>
 <li>Transitivity of =
 <ul>
-<li>P( B | A ) P ( A ) = P( A | B ) P( B )</li>
+<li>P（B | A） P（A） = P（A | B） P（B）</li>
 </ul></li>
-<li>Divide both sides by P( A ) to get the rule</li>
-</ul></li>
-<li>Bayes’ rule
-<ul>
-<li>allows us to reverse a conditional probability, if we know the probabilities of its components
-<ul>
-<li>P( Cause | Effect ) = P( Effect | Cause )P( Cause ) / P( Effect )</li>
-</ul></li>
-</ul></li>
+<li>Divide both sides by P（A） to get the rule</li>
 </ul>
-<h2 id="bayesian-classification">Bayesian Classification</h2>
+<p>allows us to reverse a conditional probability, if we know the probabilities of its components</p>
+<p>如果我们知道其组件的概率，允许我们反转条件概率</p>
 <ul>
-<li>We can use Bayes’ Rule to build a so-called Naive Classifier
-<ul>
-<li>“Naive” because it assumes that all its inputs are independent</li>
-<li>Nevertheless it works pretty well</li>
-</ul></li>
-<li>Recall the example from our ID3 lecture:
-<ul>
-<li>The morning problem
-<ul>
-<li>Should I attend class?</li>
-</ul></li>
-</ul></li>
-<li>Note, now, that we are not building a classifier that is based only on feature values
-<ul>
-<li>Instead, we include likelihoods</li>
-</ul></li>
-</ul>
-<p><img src="/images/AI/2121296.png" /></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Outlook</th>
-<th style="text-align: center;">Temperature</th>
-<th style="text-align: center;">Windy</th>
-<th style="text-align: center;">Attend?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">sunny</td>
-<td style="text-align: center;">29</td>
-<td style="text-align: center;">No</td>
-<td style="text-align: center;">Yes</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">sunny</td>
-<td style="text-align: center;">27</td>
-<td style="text-align: center;">Yes</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">overcast</td>
-<td style="text-align: center;">28</td>
-<td style="text-align: center;">No</td>
-<td style="text-align: center;">Yes</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">rain</td>
-<td style="text-align: center;">21</td>
-<td style="text-align: center;">Yes</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">rain</td>
-<td style="text-align: center;">20</td>
-<td style="text-align: center;">No</td>
-<td style="text-align: center;">Yes</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">rain</td>
-<td style="text-align: center;">18</td>
-<td style="text-align: center;">Yes</td>
-<td style="text-align: center;">No</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">overcast</td>
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">Yes</td>
-<td style="text-align: center;">Yes</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">sunny</td>
-<td style="text-align: center;">22</td>
-<td style="text-align: center;">No</td>
-<td style="text-align: center;">No</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Given this data, we can calculate a rule that tells us what the likelihood of attending is, given a particular state of affairs</li>
-<li>We begin with three input variables:
-<ul>
-<li>Outlook, Temperature, Windy</li>
-</ul></li>
-<li>We want to compute the class variable Attend?</li>
-<li>First, we calculate the distributions of the variables:
-<ul>
-<li>Outlook: P( Sunny ) = 3/8; P( Overcast ) = 2/8; P( Rain ) = 3/8</li>
-<li>Temperature: P( &lt;20 ) = 2/8; P( &gt;=20 ∧ &lt;25 ) = 3/8; P( &gt;=25 ) = 3/8</li>
-<li>Windy: P( Windy ) = 4/8; P( ¬Windy ) = 4/8</li>
-<li>Class variable: P( Attend ) = 4/8; P( ¬Attend ) = 4/8</li>
-</ul></li>
-<li>We calculate the conditional probabilities given each class value:
-<ul>
-<li>Outlook
-<ul>
-<li>P( Sunny | Attend ) = 1/4; P( Sunny | ¬ Attend ) = 2/4; P( Overcast | Attend ) = 2/4; P( Overcast | ¬Attend ) = 0/4; P( Rain | Attend ) = 1/4; P( Rain | ¬Attend ) = 2/4</li>
-</ul></li>
-<li>Temperature
-<ul>
-<li>P( &lt;20 | Attend ) = 0/4; P( &lt;20 | ¬Attend ) = 2/4; P( &gt;=20 ∧ &lt;25 | Attend ) = 3/4; P( &gt;=20 ∧ &lt;25 | ¬Attend ) = 1/4; P( &gt;=25 | Attend ) = 1/4; P( &gt;=25 | ¬Attend ) = 1/4</li>
-</ul></li>
-<li>Windy
-<ul>
-<li>P( Windy | Attend ) = 1/4; P( Windy | ¬Attend ) = 3/4; P( ¬Windy | Attend ) = 3/4; P( ¬Windy | ¬Attend ) = 1/4</li>
-</ul></li>
-</ul></li>
-<li>Now we are ready to make predictions</li>
-<li>Remember that
-<ul>
-<li>P( A ∧ B | C ) = P( A | C ) × P( B | C )</li>
-</ul></li>
-</ul>
-<h3 id="making-predictions">Making Predictions</h3>
-<ul>
-<li>Case from the data: Rain ∧ &lt;20 ∧ Windy
-<ul>
-<li>P( Attend | Rain ∧ &lt;20 ∧ Windy ) = P( Rain ∧ &lt;20 ∧ Windy | Attend ) × P( Attend ) ÷ P ( Rain ∧ &lt;20 ∧ Windy ) = P( Rain | Attend ) × P( &lt;20 | Attend ) × P( Windy | Attend ) × P( Attend ) ÷ P ( Rain ∧ &lt;20 ∧ Windy )</li>
-<li>Similarly P( ¬Attend | Rain ∧ &lt;20 ∧ Windy )</li>
-<li>P( Rain ∧ &lt;20 ∧ Windy ) = P( Rain ) × P( &lt;20 ) × P( Windy ) = 3/8 × 2/8 × 4/8 = 3/8 * 1/4 * 1/2 = 3/64</li>
-</ul></li>
-<li>Case from the data: Rain ∧ &lt;20 ∧ Windy
-<ul>
-<li>P( Attend | Rain ∧ &lt;20 ∧ Windy ) =</li>
-<li>Calculate P( Attend ) = P( Rain | Attend ) × P( &lt;20 | Attend ) × P( Windy | Attend ) × P( Attend ) ÷ P( Rain ∧ &lt;20 ∧ Windy ) = ( 1/4 × 0/4 x 1/4 x 1/2 ) ÷ 3/64 = 0</li>
-<li>Calculate P ( ¬Attend ) = P ( Rain | ¬Attend ) × P ( &lt;20 | ¬Attend ) × P( Windy | ¬Attend ) × P ( ¬Attend ) ÷ P( Rain ∧ &lt;20 ∧ Windy ) = ( 2/4 × 2/4 × 3/4 x 1/2 ) ÷ 3/64 = 64/64 = 1</li>
-</ul></li>
-<li>The larger probability tells us which is the correct class: ¬Attend</li>
-</ul>
-<p><img src="/images/AI/2121298.png" /></p>
-<h2 id="probablisitc-vs.-subjective-view-of-probability">Probablisitc vs. Subjective View of Probability</h2>
-<ul>
-<li>There is nothing about Bayes’ Rule that tells you how to interpret the probabilities
-<ul>
-<li>Nevertheless, Bayes’ Rule is often used with semi-subjective probabilities</li>
-</ul></li>
-<li>Subjective Probabilities (degree of belief)
-<ul>
-<li>Statistical estimates (frequentist interpretation) for probabilities are fine if the experiment under consideration can be repeated a number of times under similar circumstances. But suppose you want to assign the probability that one political party will beat another. You can determine your own personal probability by seeing what kind of bet you’d be willing to make.</li>
-<li>A doctor might assign a probability of 0.8 to the statement that a particular patient has a meningitis, given that she (the patient!) has a stiff neck. We may not have statistical data on that one patient for meningitis and stiff necks; however, we might be basing our subjective assignment of probability on our experiences with patients with a similar medical history.</li>
-</ul></li>
-</ul>
-<h2 id="reasoning-with-probabilities">Reasoning with Probabilities</h2>
-<ul>
-<li>Scenario
-<ul>
-<li>Jane goes to the doctor’s for a routine checkup and takes some tests</li>
-<li>One test for a rare genetic disease comes back positive</li>
-<li>The disease is potentially fatal</li>
-</ul></li>
-<li>Jane looks it up on Wikipedia and learns that
-<ul>
-<li>“rare” means P( Disease ) = P( D ) = 1/10,000 = 0.0001</li>
-<li>the test is 99% accurate:
-<ul>
-<li>a very small occurrence of false positives P( Test = + | ¬ D) = 0.01</li>
-<li>no false negatives P( Test = – | D ) = 0</li>
-</ul></li>
-</ul></li>
-<li>Jane would like to compute the probability that she has the disease and take appropriate action</li>
-</ul>
-<h2 id="formulating-the-situation">Formulating the situation</h2>
-<p>The scenario in probabilities</p>
-<ul>
-<li><p>The disease is rare: P( D ) = 0.0001</p></li>
-<li><p>Reliability of test: P( Test = – | ¬ D ) = 0.99</p>
-<blockquote>
-<p>P( D | Test = + ) = P( D ∧ Test = + ) / P( Test = + ) = 1 / ( 1 + 99.99 ) = 0.0099 (not 0.99!!!)</p>
-</blockquote></li>
-<li><p>Chance of false positive: P( Test = + | ¬ D ) = 0.01</p></li>
-<li><p>No chance of false negative: P( Test = – | D ) = 0</p></li>
-<li><p>∴ Chance of true positive: P( Test = + | D ) = 1</p></li>
-</ul>
-<p><img src="/images/AI/21212990.png" /></p>
-<h2 id="formalising-the-reasoning">Formalising the reasoning</h2>
-<p>Derivation</p>
-<ul>
-<li>Bayes’ rule
-<ul>
-<li>P( D | Test = + ) = P( Test = + | D ) P( D ) / P( Test= + ) = 1 × 0.0001 / P( Test = + ) = 0.0001 / P( Test = + )</li>
-</ul></li>
-<li>Bayes’ rule
-<ul>
-<li>P(¬ D | Test = + ) = P( Test = + | ¬ D) P( ¬ D) / P( Test = + ) = 0.01 × 0.9999 / P( Test = + ) = 0.009999 / P( Test = + )</li>
-</ul></li>
-<li>Excluded middle and arithmetic
-<ul>
-<li>P( D | Test = + ) + P( ¬D | Test = + ) = 0.0001 / P( Test = + ) + 0.009999 / P( Test = + ) = ( 0.0001 + 0.009999 ) / P( Test = + )= 1 ∴ 0.0001 + 0.009999 = 1 × P( Test = + ) = 0.010099</li>
-</ul></li>
-<li>Bayes’ Rule
-<ul>
-<li>P( D | Test = + ) = 1 × 0.0001 / 0.010099 = 0.0099</li>
-</ul></li>
-</ul>
-<h2 id="another-similar-example">Another similar example</h2>
-<ul>
-<li>Let S be the proposition that a patient has a stiff neck, and M the proposition that the patient has meningitis</li>
-<li>Suppose a doctor wants to know P( M | S )
-<ul>
-<li>Probabilities from a medical database
-<ul>
-<li>P( S | M ) = 0.5 ๏ P( M ) = 1 / 50,000 = 0.00002</li>
-<li>P( S ) = 1 / 20 = 0.05</li>
-</ul></li>
-<li>Using Bayes’ Rule
-<ul>
-<li>P( M | S ) = P( S | M ) P(M) / P(S) = 0.5 x 0.00002 / 0.05 = 0.0002</li>
-</ul></li>
-</ul></li>
-<li>If the doctor knows this probability, and sees a patient with a stiff neck, he/she can know how strongly/weakly to lean toward a diagnosis of meningitis</li>
-</ul>
-<h2 id="how-practical-is-bayes-rule">How practical is Bayes’ rule?</h2>
-<p>How reasonable is the supposition that you know P( S | M ) but need to calculate P( M | S )?</p>
-<ul>
-<li><strong>Why not estimate P( M | S ) directly by sampling?</strong></li>
-</ul>
-<p><img src="/images/AI/21212991.png" /></p>
-<h2 id="normalization">Normalization</h2>
-<p>We can avoid direct assessment of priors of evidence, such as P( S ) here, by considering an exhaustive set of hypotheses <span class="math display">\[
-P( M | S ) = \frac{P( S | M ) P( M )}{ P( S )}\  by\ Bayes’\ rule
-\]</span></p>
-<p><span class="math display">\[
-P(¬M | S ) = \frac{P( S |¬M ) P(¬M )}{ P( S )}\  by\ Bayes’\ rule
-\]</span></p>
-<p><span class="math display">\[
-P( M | S ) + P( ¬M | S ) = 1\ by\ excluded\ middle
-\]</span></p>
-<p><span class="math display">\[
-P( S | M ) P( M ) + P( S | ¬M ) P( ¬M ) = P( S )\ substitute\ RHSs\ and\ multiply\ by\ P( S )
-\]</span></p>
-<p><span class="math display">\[
-( M | S ) = \frac{P( S | M ) P( M )} {P( S | M ) P( M ) + P( S | ¬M ) P( ¬M )}\ substitute\ for\ P( S )\ in\ original\ rule
-\]</span></p>
-<p><strong>By assessing P( S | ¬M ), we avoid assessing P( S )</strong></p>
-<ul>
-<li>We can generalise normalisation beyond the P ∨ ¬P case
-<ul>
-<li>use a distribution over multiple, mutually exclusive values of a variable</li>
-</ul></li>
-<li>Suppose we wish to compute a posterior distribution over A given B = b, and suppose A has disjoint domain a<sub>1</sub>, ..., a<sub>m</sub></li>
-<li>Apply Bayes’ rule for each value of A
-<ul>
-<li>P( A = a<sub>1</sub> | B = b ) = P( B = b | A = a<sub>1</sub> ) P( A = a<sub>1</sub> ) / P( B = b ) ... P( A = a<sub>m</sub> | B = b ) = P( B = b | A = a<sub>m</sub> ) P( A = a<sub>m</sub> ) / P( B = b )</li>
-</ul></li>
-<li>Adding these up, and noting that ∑<sub>i</sub>P( A = a<sub>i </sub>| B = b ) = 1
-<ul>
-<li>1 / P( B = b ) = 1 / ∑<sub>i</sub> P ( B = b | A = a<sub>i</sub> ) P( A = a<sub>i</sub> ) = α</li>
-<li>This quantity is known as the normalisation factor, denoted by α</li>
-</ul></li>
-</ul>
-<h2 id="how-practical-is-bayes-rule-1">How practical is Bayes’ rule?</h2>
-<p>Normalisation is one way to make Bayes’ rule more practically applicable, but there’s another</p>
-<ul>
-<li>The issue is that Bayes’ rule requires us to estimate too many probabilities before we can apply it</li>
-<li>We want to estimate one conditional probability; we need to know
-<ul>
-<li>another conditional probability</li>
-<li>two prior probabilities</li>
-</ul></li>
-<li>Why are we willing to make this effort?
-<ul>
-<li>Because the other probabilities are typically easier to obtain by observation</li>
-</ul></li>
-</ul>
-<p>Can we reduce the number of probabilities needed to apply Bayes’ Rule</p>
-<ul>
-<li>There is a particular technique for doing this when there are multiple sources of evidence and we can use the idea of conditional independence</li>
-</ul>
-<h2 id="independence-revisited">Independence revisited</h2>
-<ul>
-<li>Unconditional independence
-<ul>
-<li>P( A | B ) = P( A )</li>
-<li>P( B | A ) = P( B )</li>
-<li>P( A ∧ B ) = P( A ) P( B )</li>
-</ul></li>
-<li>Conditional independence
-<ul>
-<li>independence holds, given a common cause</li>
-<li>A and B are independent given C iff
-<ul>
-<li>P( A | B ∧ C ) = P( A | C )</li>
-</ul></li>
-<li>it follows that
-<ul>
-<li>P( A ∧ B | C ) = P( A | C ) P( B | C )</li>
-<li>try this derivation, using the conditional probability rule, yourself</li>
-</ul></li>
-</ul></li>
+<li>P（Cause | Effect） = P（Effect | Cause）P（Cause ） / P（Effect）</li>
 </ul>
 <h2 id="summary">Summary</h2>
 <ul>
-<li>Probability theory enables the use of varying degrees of likelihood to represent uncertainty</li>
-<li>A (joint) probability distribution completely describes a (set of) random variable(s)</li>
-<li>Conditional probabilities let us calculate probabilities relative to priors that we know</li>
-<li>Bayes’ rule is helpful in relating conditional probabilities and priors</li>
-<li>Independence assumptions let us make intractable problems tractable</li>
-<li>Bayesian Belief Networks (BBNs) are now the standard technology for expert systems</li>
+<li><p>Probability theory enables the use of varying degrees of likelihood to represent uncertainty</p>
+<p>概率论允许使用不同程度的可能性来表示<strong>不确定性</strong></p></li>
+<li><p>A （joint） probability distribution completely describes a （set of）random variable（s）</p>
+<p>一个（联合）概率分布完全描述了一个（集合）随机变量</p></li>
+<li><p>Conditional probabilities let us calculate probabilities relative to priors that we know</p>
+<p>条件概率让我们计算相对于我们知道的<strong>先验的概率</strong></p></li>
+<li><p>Bayes’ rule is helpful in relating conditional probabilities and priors</p>
+<p>贝叶斯规则有助于<strong>关联条件概率和先验</strong></p></li>
+<li><p>Independence assumptions let us make intractable problems tractable</p>
+<p>独立性假设让我们把棘手的问题变得容易处理</p></li>
+<li><p><strong>Bayesian Belief Networks</strong> （BBNs） are now the standard technology for expert systems</p>
+<p><strong>贝叶斯信念网络</strong>（BBNs）现在是专家系统的标准技术</p></li>
 </ul>
 
                 

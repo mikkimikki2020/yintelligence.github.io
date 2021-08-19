@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-17
+                    2021-08-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    8k
+                    10k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    28 Min
+                    35 Min
                 </div>
                 
 
@@ -796,7 +796,166 @@
 <p>随着 Kinect 的推出，微软开创了廉价、更方便的深度感应相机市场。 与花费数千欧元的早期技术相比，这些设备更容易获得。</p>
 <p>这种市场变化导致对这些设备可用性的研究激增。一项简短的市场研究表明，GestSure 是目前唯一一家为手术室提供基于手势的界面系统的公司。 GestSure 是一家美国公司，该系统已在多伦多的医院安装了三年多。 最近，该系统已推广到美国和加拿大的几家医院。</p>
 <h2 id="lidar-for-autonomous-driving">LiDAR for Autonomous Driving</h2>
+<h3 id="自动驾驶">自动驾驶</h3>
+<ul>
+<li>Reduce Accidents</li>
+<li>Reduce Traffic Jams</li>
+<li>Accessible to needfuls
+<ul>
+<li>People who cannot drive due to age or physical conditions can be driven around.</li>
+</ul></li>
+<li>Helpful for scientists and researchers</li>
+<li>Environmental Gains</li>
+</ul>
+<h3 id="lidar">LiDAR</h3>
+<p>一个名为 LiDAR（光检测和测距）的设备。这是一种使用光来<strong>测量可变距离variable distance</strong>和<strong>强度intensity</strong>的遥感设备。</p>
+<blockquote>
+<p>LiDAR stands for <strong>Light Detection</strong> and <strong>Ranging</strong>.</p>
+</blockquote>
+<p>遥感手段，我们不在现场测量参数。例如，如果您需要测量特定山上的植被，那么与在陆地上进行的手动扫描相比，安装在飞机上的激光雷达设备可以更快地完成这项工作。然而，哪种方法比另一种更好是一个讨论的问题。</p>
+<p>激光雷达向物体发射紫外线、可见光或近红外光，基于飞行时间原理。</p>
+<h4 id="why-lidar-and-not-camera-for-autonomous-vehicles">Why LiDAR and not Camera for autonomous vehicles?</h4>
+<p>相机可能是将实际图像以 RGB / grayscale显示到计算机的最佳技术。但是，相机仅适用于环境光： <strong>在黑暗或薄雾中，相机不是很有效</strong>。</p>
+<p>为了克服这个问题，LiDAR 被用于自动驾驶汽车，因为 <strong>LiDAR 不依赖于外部光</strong>（环境光或人造光），它在白天和黑夜的工作原理几乎相同。</p>
+<h3 id="原理-4">原理</h3>
+<p>几乎每辆自动驾驶汽车都在使用 LiDAR 技术；这意味着对道路上物体的扫描和解释都是通过这个 LiDAR 传感器完成的。 通常，该激光雷达安装在汽车顶部或前挡风玻璃上，以扫描前方驾驶员的视野。</p>
+<p>激光雷达发射的激光击中前方的物体。 当激光照射到物体上时，光会表现出三种特性：<strong>反射</strong>、<strong>折射</strong>和<strong>吸收</strong>。 部分光线会被材料吸收（由于物体的材料类型、纹理和颜色），部分光线会被折射（在类似玻璃的表面上），另一部分会向各个方向反射。 该反射光将被放置在 LiDAR 传感器旁边的接收器追踪，并记录其强度。</p>
+<p>The scanning of Lidar can be done in two ways:</p>
+<ul>
+<li><p>Flash Lidar 闪光激光雷达</p>
+<ul>
+<li><p>The <strong>entire field</strong> of view is illuminated in one flash of light.</p>
+<p><strong>整个视野</strong>被一道<strong>闪光</strong>照亮。</p></li>
+<li><p>Contains a <strong>1D-2D array scheme</strong>.</p>
+<p>包含 <strong>1D-2D 阵列方案</strong>。</p></li>
+<li><p>Good for moving objects</p></li>
+<li><p>适用于<strong>移动物体</strong></p></li>
+</ul></li>
+<li><p>Scanning Lidar</p>
+<ul>
+<li><p>Illuminate the field of view; <strong>point-by-point</strong>.</p>
+<p>照亮视野； <strong>逐点</strong>。</p></li>
+<li><p>Contains <strong>only a point senso</strong>r.</p>
+<p>包含<strong>仅一个点传感器</strong></p></li>
+<li><p>Not good for moving objects</p>
+<p>不适合移动物体</p></li>
+</ul></li>
+</ul>
+<p>在这两种技术中，<strong>深度因子</strong>都是通过激光脉冲的<strong>飞行时间</strong>来计算的。</p>
+<p>在激光雷达旁边，有一个称为 <strong>CMOS（互补金属氧化物半导体）</strong>的检测器，它检测撞击物体后反射的光。 请注意，除了反射的激光，CMOS 还会接收<strong>噪声</strong>，如环境光等。 <strong>过滤</strong>掉此类<strong>噪声</strong>的预处理也由该检测器执行。</p>
+<p>此外，返回的信号通过嵌入式算法进行处理，以在传感器的视野内生成近乎瞬时的物体和地形特征的 3-D 渲染。LiDAR 完成的 3-D 渲染称为 <strong>3-D 点云数据</strong>。点云中的每个点都代表从环境中的对象反射的光。</p>
+<h4 id="d-point-cloud-data">3-D point cloud data</h4>
+<p>借助深度学习<strong>卷积神经网络 (CNN)</strong>，我们可以对点云数据进行对象检测、分类、语义分割和实例分割。</p>
+<p>首先，自动驾驶汽车的任务是区分道路上的不同物体。 例如，它可以区分人与车辆或斑马线或交通灯或招牌等。</p>
+<ul>
+<li><p>Object Detection</p>
+<ul>
+<li>对象检测是机器学习中的一项技术，其中给出了视觉输入，该算法预测其中所需对象的大小和尺寸，并用边界框对其进行标记。</li>
+</ul></li>
+<li><p>Object Classification</p>
+<ul>
+<li>自动驾驶汽车的类别可以是汽车、卡车、公共汽车、摩托车、行人、自行车等。著名的最先进的对象检测和分类算法是 Faster RCNN。</li>
+<li><strong>Faster R-CNN</strong> 基于 RPN（区域提议网络）技术。
+<ul>
+<li>立方体（RoI）找到对象</li>
+<li>对它进行分类</li>
+</ul></li>
+<li>要获得良好的预测结果，始终需要一个robust的数据集
+<ul>
+<li>手动收集数据并对其进行标记。这意味着您使用 LiDAR 驾驶自动驾驶汽车并扫描大量场景，然后手动标记场景中的每个对象。</li>
+<li>选择是执行transfer learning方法，我们使用已经在大量数据集上训练过的模型，这需要大量的处理能力，然后我们要么在这个模型上预测我们的数据，要么在我们的数据上进一步训练这个模型通过改变神经网络的最后一层。</li>
+</ul></li>
+</ul></li>
+<li><p>Multi-object Tracking</p>
+<ul>
+<li><strong>MOT 算法</strong>通过<strong>时空一致性</strong>来关联和定位检测到的对象</li>
+<li>MOT 的任务主要分为定位多个对象、维护它们的身份以及在给定输入场景的情况下产生它们的轨迹。</li>
+</ul></li>
+<li><p>Object Intention Prediction</p>
+<ul>
+<li><p>因为世界并不像在路上启动和停止汽车那么简单。 真实场景包括变道、超车、跟车、给应急车辆空间等。</p></li>
+<li><p>汽车的每一个动作都有不同的模型，比如通过VGMMs（变分高斯混合模型）预测车辆的运动 车辆交互模型的约束、GMM（高斯混合模型）的车道变换等。</p>
+<blockquote>
+<p>由于这仍然是正在进行的研究的一部分，因此仍然没有一种整体方法可以在任何给定情况下做出完美的决策。</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h3 id="前景-3">前景</h3>
+<p>然而，激光雷达是自动驾驶汽车的最先进技术，但它仍有一些不足和未来的改进：</p>
+<ol type="1">
+<li><p>激光雷达在<strong>恶劣天气下无效</strong></p></li>
+<li><p>相当<strong>昂贵</strong></p>
+<blockquote>
+<p>它便宜但购买质量好的固态非移动部件 LiDAR 的成本约为 1000美元。</p>
+</blockquote></li>
+<li><p>在高太阳角度和反射时<strong>性能下降</strong></p>
+<blockquote>
+<p>LiDAR 技术在太阳角度大或反射大的区域或情况下效果不佳，因为激光脉冲取决于原理</p>
+</blockquote></li>
+<li><p><strong>耗时</strong></p>
+<blockquote>
+<p>由于数据的收集是通过汽车在不同街道和道路上的运动来完成的，然后预处理、标记和模型训练大多是手工工作。具有良好预测的模型的训练可能需要相当长的时间。</p>
+</blockquote></li>
+<li><p>基础设施改进</p>
+<blockquote>
+<p>自动驾驶汽车本身的技术进步是不够的，还需要良好的基础设施来运行。像正确的道路标记、改道、招牌、更新的 GPS 等。</p>
+</blockquote></li>
+</ol>
+<h3 id="市场-3">市场</h3>
+<p>自动驾驶汽车目前正在市场上流行技术。 几乎每个主要品牌都在推出其自动驾驶汽车（全部或部分）。</p>
+<p>目前业内最大的名字是 TESLA，他们于 2014 年 9 月提出了他们的自动驾驶汽车，作为一种先进的辅助驾驶程序，具有自动转向、自动泊车和交通感知巡航控制 (TACC)]等功能。</p>
+<p>除了更大的名称，市场上还有其他初创公司：Arity、WiTricity、Unity Technologies、Ouster、Cruise、Waymo、Voyage、Swift Navigation、Embark Trucks、CARMERA、Zoox、Nauto。</p>
+<p>自动驾驶不仅限于地球，但它也帮助 NASA 和其他航天机构的科学家探索其他行星或卫星，如火星和月球，他们的漫游车在地球上运行。</p>
 <h2 id="d-mapping-of-cities">3D Mapping of Cities</h2>
+<h3 id="原理-5">原理</h3>
+<p>The process consists out of four categories:</p>
+<ul>
+<li>Positioning GPS:
+<ul>
+<li>缺点是不能穿透建筑物 用laser可能更好</li>
+</ul></li>
+<li>data acquisition
+<ul>
+<li>使用 LiDAR 进行识别建筑和表面地形
+<ul>
+<li>Satellite mounted</li>
+<li>Cloud Points</li>
+<li>Level of Details (LOD)</li>
+</ul></li>
+<li>360° camera
+<ul>
+<li>Multiple lenses in all directions</li>
+<li>Assimilation of all pictures</li>
+<li>Mounted on car or other vehicle</li>
+</ul></li>
+<li>Aerial Laser Scanners (ALS)</li>
+<li>Terrestrial Laser Scanners (TLS)</li>
+<li>Aerial terrestrial digital cameras</li>
+<li>thermal cameras</li>
+<li>Radio Detection and Ranging (RADAR)</li>
+</ul></li>
+<li>data dissemination</li>
+<li>data analysis
+<ul>
+<li>More automatization</li>
+<li>New systems are Geographic Information System 地理信息系统</li>
+</ul></li>
+</ul>
+<h3 id="前景-4">前景</h3>
+<ul>
+<li>More and more <strong>urbanization</strong>: New challenges</li>
+<li>Making cities more eco-friendly and liveable</li>
+<li>Fully automated GIS: Modeler, solver and evaluator</li>
+<li>Expansion of usage of GIS to other areas outside cities</li>
+<li>Many limitations-&gt; Need for human interaction</li>
+</ul>
+<h3 id="市场-4">市场</h3>
+<ul>
+<li>Used to increase safety for buildings against natural disasters (floods, earthquakes,…)</li>
+<li>Improve safety standards across building industry</li>
+<li>Need for more computing power, use of server space</li>
+<li>Documentation of historical buildings</li>
+</ul>
 
                 
             </div>
