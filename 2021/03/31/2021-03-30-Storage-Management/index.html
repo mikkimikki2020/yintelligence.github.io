@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-08-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.5k
+                    7.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    21 Min
+                    35 Min
                 </div>
                 
 
@@ -501,378 +501,493 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="storage-management">Storage Management</h1>
-<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/2ee602b8d52bbfe0bd5c9fca0c55b62538b60e74-1617191738612/capture/">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/02/12/2021-02-12-overview/">VUB 4019814ENR Databases</a></p>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/2ee602b8d52bbfe0bd5c9fca0c55b62538b60e74-1617191738612/capture/">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17910/files/812572?module_item_id=144796">Slide</a></p>
 <figure>
 <img src="/images/DB/17001700.png" alt="" /><figcaption>Context of Today's Lecture</figcaption>
 </figure>
 <h2 id="storage-device-hierarchy">Storage Device Hierarchy</h2>
-<ul>
-<li>Storage devices vary in
-<ul>
-<li>data capacity</li>
-<li>access speed</li>
-<li>cost per byte</li>
-</ul></li>
-<li>Devices with fastest access time have highest costs and smallest capacity</li>
-</ul>
+<p>Storage devices vary in - data capacity 数据容量 - access speed 访问速度 - cost per byte 每字节成本</p>
+<blockquote>
+<p>Devices with fastest access time have highest costs and smallest capacity</p>
+<p>访问时间最快的设备成本最高，容量最小</p>
+</blockquote>
 <p><img src="/images/AI/1945590.png" /></p>
-<h2 id="cache">Cache</h2>
+<h3 id="cache-缓存">Cache 缓存</h3>
 <ul>
 <li><p>On-board caches on same chip as the microprocessor</p>
+<p>与微处理器在同一芯片上的板载缓存</p>
 <ul>
-<li><p>level 1 (L1) cache (typical size of ~64 kB )</p>
+<li><p>level 1 （L1） cache （typical size of ~64 kB）</p>
 <ul>
-<li>temporary storage of instructions and data</li>
+<li><p>temporary storage of instructions and data</p>
+<p>指令和数据的临时存储</p></li>
 </ul></li>
-<li><p>level 2 (L2) cache (~1 MB) and level 3 (L3) cache (~8 MB)</p>
+<li><p>level 2 （L2) cache （~1 MB） and level 3 （L3） cache （~8 MB）</p>
 <p><img src="/images/AI/1945591.png" /></p></li>
 </ul></li>
-<li><p>Data items in the cache are copies of values in main memory locations</p></li>
-<li><p>If data in the cache has been updated, changes must be reflected in the corresponding memory location</p></li>
+<li><p>Data items in the cache are copies of values in main memory locations</p>
+<p>缓存中的数据项是主内存位置中值的副本</p></li>
+<li><p>If data in the cache has been updated, changes must be reflected in the corresponding memory location</p>
+<p>如果缓存中的数据已更新，则更改必须反映在相应的内存位置</p></li>
 </ul>
-<h2 id="main-memory">Main Memory</h2>
+<h3 id="main-memory-主存储器">Main Memory 主存储器</h3>
 <ul>
-<li>Main memory can be several gigabytes large</li>
-<li>Normally too small and too expensive for storing the entire database
+<li><p>Main memory can be <strong>several gigabytes large</strong></p></li>
+<li><p>Normally too small and too expensive for storing the entire database</p>
+<p>通常对于存储整个数据库来说太小且太昂贵</p>
 <ul>
-<li>content is lost during power failure or crash (<strong>volatile memory</strong>)</li>
-<li><strong>in-memory databases (IMDB)</strong> primarily rely on main memory
+<li><p>content is lost during power failure or crash （<strong>volatile memory</strong>）</p>
+<p>断电或崩溃时内容丢失（<strong>易失性存储器</strong>）</p></li>
+<li><p><strong>in-memory databases （IMDB）</strong> primarily rely on main memory</p>
+<p><strong>内存数据库（IMDB）</strong>主要依赖于主内存</p>
 <ul>
-<li>note that IMDBs lack durability (D of the ACID properties)</li>
+<li><p>note that IMDBs lack durability （D of the ACID properties）</p>
+<p>IMDB <strong>缺乏持久性</strong>（ACID 属性中的 D）</p></li>
 </ul></li>
-<li>IMDB size limited by the maximal addressable memory space
+<li><p>IMDB size limited by the <strong>maximal addressable memory space</strong></p>
+<p>IMDB 大小受<strong>最大可寻址内存空间</strong>限制</p>
 <ul>
 <li>e.g. maximal 4 GB for 32-bit address space</li>
 </ul></li>
 </ul></li>
-<li>Random access memory (RAM)
+<li><p>Random access memory （RAM）</p>
 <ul>
-<li>time to access data is more or less independent of its location (different from magnetic tapes)</li>
+<li><p>time to access data is more or less independent of its location （different from magnetic tapes）</p>
+<p>访问数据的时间或多或少与其位置无关（与磁带不同）</p></li>
 </ul></li>
-<li>Typical access time of ~10 nanoseconds (10-8 seconds)</li>
+<li><p>Typical access time of ~10 nanoseconds （10<sup>-8</sup> seconds）</p></li>
 </ul>
-<h2 id="secondary-storage-hard-disk">Secondary Storage (Hard Disk)</h2>
+<h3 id="secondary-storage-辅助存储-hard-disk">Secondary Storage 辅助存储 （Hard Disk）</h3>
 <ul>
-<li>Essentially random access</li>
-<li>Files are moved between a hard disk and main memory (<strong>disk I/O</strong>) by the operating system (OS) or the DBMS
+<li><p>Essentially random access 基本上是随机访问</p></li>
+<li><p>Files are moved between a hard disk and main memory（<strong>disk I/O</strong>） by the operating system （OS） or the DBMS</p>
+<p>文件由操作系统（OS） 或 DBMS在硬盘和主内存（<strong>磁盘 I/O</strong>） 之间移动</p>
 <ul>
-<li>the transfer units are <strong>blocks</strong></li>
-<li>tendency for larger block sizes</li>
+<li><p>the transfer units are <strong>blocks</strong></p>
+<p>传输单元是<strong>块</strong></p></li>
+<li><p>tendency for larger block sizes</p></li>
 </ul></li>
-<li>Parts of the main memory are used to <strong>buffer</strong> blocks
+<li><p>Parts of the main memory are used to <strong>buffer</strong> blocks</p>
+<p>部分主存用于<strong>缓冲</strong>块</p>
 <ul>
-<li>the <strong>buffer manager</strong> of the DBMS manages the loading and unloading of blocks for specific DBMS operations</li>
+<li><p>the <strong>buffer manager</strong> of the DBMS manages the loading and unloading of blocks for specific DBMS operations</p>
+<p>DBMS的<strong>缓冲区管理器</strong>管理特定 DBMS 操作的块的加载和卸载</p></li>
 </ul></li>
-<li>Typical block I/O time (seek time) ~10 milliseconds
+<li><p>Typical block I/O time（seek time） ~10 milliseconds</p>
+<p>典型的块 I/O 时间（寻道时间）~10 毫秒</p>
 <ul>
-<li>1'000'000 times slower than main memory access</li>
+<li>1000000 times slower than main memory access</li>
 </ul></li>
-<li>Capacity of multiple terabytes and a system can use many disk units</li>
+<li><p>Capacity of multiple terabytes and a system can use many disk units</p>
+<p>数TB容量，一个系统可以使用多个磁盘单元</p></li>
 </ul>
-<h2 id="hard-disk">Hard Disk</h2>
+<h4 id="hard-disk">Hard Disk</h4>
 <ul>
-<li>A hard disk contains one or more <strong>platters</strong> and one or more heads</li>
-<li>The platters were originally addressed in terms of cylinders, heads and sectors (¹ block)
+<li><p>A hard disk contains one or more <strong>platters</strong> and one or more heads</p>
+<p>硬盘包含一个或多个<strong>盘片</strong>和一个或多个磁头</p></li>
+<li><p>The platters were originally addressed in terms of cylinders, heads and sectors（¹ block）</p>
+<p>盘片最初是根据柱面、磁头和扇区（¹ 块）来寻址的</p>
 <ul>
-<li><strong>cylinder-head-sector (CHS)</strong> scheme</li>
+<li><strong>cylinder-head-sector（CHS）</strong> scheme</li>
 <li>max of 1024 cylinders, 16 heads and 63 sectors</li>
 </ul></li>
-<li>Current hard disks offer <strong>logical block addressing (LBA)</strong>
+<li><p>Current hard disks offer <strong>logical block addressing（LBA）</strong></p>
+<p>当前的硬盘提供<strong>逻辑块寻址（LBA）</strong></p>
 <ul>
-<li>hides the physical disk geometry</li>
+<li><p>hides the physical disk geometry</p>
+<p>隐藏物理磁盘几何</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/AI/1945592.png" /></p>
-<h2 id="solid-state-drives-ssd">Solid-State Drives (SSD)</h2>
+<h4 id="solid-state-drivesssd">Solid-State Drives（SSD)</h4>
 <ul>
-<li>Storage device that uses solid-state memory (flash memory) to persistently store data</li>
-<li>Offers a hard disk interface with a storage capacity of up to a few hundred gigabytes</li>
-<li>Typical block I/O time (seek time) ~0.1 milliseconds</li>
-<li>SSDs might help to reduce the gap between primary and secondary storage in DBMS systems</li>
-<li>Currently there are still some limitations of SSDs
+<li><p>Storage device that uses solid-state memory（flash memory） to persistently store data</p>
+<p>使用固态内存（闪存）持久存储数据的存储设备</p></li>
+<li><p>Offers a hard disk interface with a storage capacity of up to a few hundred gigabytes</p>
+<p>提供存储容量高达数百 GB 的硬盘接口</p></li>
+<li><p>Typical block I/O time（seek time） ~0.1 milliseconds</p>
+<p>典型的块 I/O 时间（寻道时间）~0.1 毫秒</p></li>
+<li><p>SSDs might help to reduce the gap between primary and secondary storage in DBMS systems</p>
+<p>SD 可能有助于缩小 DBMS 系统中主存储和辅助存储之间的差距</p></li>
+<li><p>Currently there are still some limitations of SSDs</p>
+<p>目前SSD还存在一些<strong>局限性</strong></p>
 <ul>
-<li>the limited number of SSD write operations before failure can be a problem for DBs with a lot of update operations</li>
-<li>write operations are often still much slower than read operations</li>
+<li><p>the limited number of SSD write operations before failure can be a problem for DBs with a lot of update operations</p>
+<p>对于有大量更新操作的数据库来说，故障前有限数量的 SSD 写入操作可能是一个问题</p></li>
+<li><p>write operations are often still much slower than read operations</p>
+<p><strong>写操作通常仍然比读操作慢得多</strong></p></li>
 </ul></li>
 </ul>
-<h2 id="tertiary-storage">Tertiary Storage</h2>
+<h3 id="tertiary-storage-三级存储">Tertiary Storage 三级存储</h3>
 <ul>
-<li>No random access
+<li><p><strong>No random access 无随机访问</strong></p>
 <ul>
-<li>access time depends on data location</li>
+<li><p>access time depends on data <strong>location</strong></p>
+<p>访问时间取决于数据<strong>位置</strong></p></li>
 </ul></li>
-<li>Different devices
+<li><p>Different devices</p>
 <ul>
-<li>tapes</li>
-<li>optical disk jukeboxes</li>
-<li>racks of CD-ROMs (read only)</li>
-<li>tape silos
+<li><p>tapes 磁带</p></li>
+<li><p>optical disk jukeboxes</p></li>
+<li><p>racks of CD-ROMs （read only）</p></li>
+<li><p>tape silos</p>
 <ul>
-<li>room-sized devices holding racks of tapes operated by tape robots</li>
-<li>e.g. StorageTek PowderHorn with up to 28.8 petabytes</li>
+<li><p>room-sized devices holding racks of tapes operated by tape robots</p>
+<p>容纳由磁带机器人操作的磁带架的房间大小的设备</p></li>
+<li><p>e.g. StorageTek PowderHorn with up to 28.8 petabytes</p></li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="models-of-computation">Models of Computation</h2>
+<h2 id="models-of-computation-计算模型">Models of Computation 计算模型</h2>
 <ul>
-<li>RAM model of computation
+<li><p><strong>RAM model of computation</strong></p>
 <ul>
-<li>assumes that all data is held in main memory</li>
+<li><p>assumes that all data is held in main memory</p>
+<p>假设所有数据都保存在主内存中</p></li>
 </ul></li>
-<li>DBMS model of computation
+<li><p><strong>DBMS model of computation</strong></p>
 <ul>
-<li>assumes that <strong>data does not fit into main memory</strong></li>
-<li>efficient algorithms must take into account secondary and even tertiary storage</li>
-<li>best algorithms for processing large amounts of data often differ from those for the RAM model of computation</li>
-<li>minimising disk accesses plays a major role
+<li><p>assumes that <strong>data does not fit into main memory</strong></p>
+<p>假设<strong>数据不适合主内存</strong></p></li>
+<li><p>efficient algorithms must take into account secondary and even tertiary storage</p>
+<p>高效的算法必须考虑二级甚至三级存储</p></li>
+<li><p>best algorithms for processing large amounts of data often differ from those for the RAM model of computation</p>
+<p>处理大量数据的最佳算法通常与 RAM 计算模型的算法不同</p></li>
+<li><p>minimising disk accesses plays a major role</p>
+<p><u>最大限度地减少磁盘访问起着重要作用</u></p>
 <ul>
 <li><strong>I/O model of computation</strong></li>
 </ul></li>
 </ul></li>
-<li>I/O model of computation
+<li><p><strong>I/O model of computation</strong></p>
 <ul>
-<li><strong>the time to move a block between disk and memory is much higher than the time for the corresponding computation</strong></li>
+<li><p>the time to move a block between disk and memory is much higher than the time for the corresponding computation</p>
+<p><strong>在磁盘和内存之间移动块的时间远高于相应计算的时间</strong></p></li>
 </ul></li>
 </ul>
-<h2 id="accelerating-secondary-storage-access">Accelerating Secondary Storage Access</h2>
-<p>Various possible strategies to improve secondary storage access</p>
+<h2 id="accelerating-secondary-storage-access-加速二级存储访问">Accelerating Secondary Storage Access 加速二级存储访问</h2>
+<p>改善二级存储访问的各种可能策略：</p>
 <ul>
-<li>placement of blocks that are often accessed together on the same disk cylinder</li>
-<li>distribute data across multiple disks to profit from parallel disk accesses (e.g. RAID)</li>
-<li>mirroring of data</li>
-<li>use of disk scheduling algorithms in OS, DBMS or disk controller to determine order of requested block read/writes
+<li><p>placement of blocks that are often accessed together on the <strong>same disk cylinder</strong></p>
+<p>将经常一起访问的块放置在<strong>同一</strong>磁盘<strong>柱面</strong>上</p></li>
+<li><p>distribute data across multiple disks to profit from <strong>parallel disk accesses</strong> （e.g. RAID）</p>
+<p>将数据分布在多个磁盘上以从<strong>并行</strong>磁盘<strong>访问</strong>中获利（例如 RAID）</p></li>
+<li><p>mirroring of data 数据镜像</p></li>
+<li><p>use of disk scheduling algorithms in OS, DBMS or disk controller to determine order of requested block read/writes</p>
+<p>在 OS、DBMS 或磁盘控制器中使用磁盘调度算法来确定请求块读/写的顺序</p>
 <ul>
 <li>e.g. elevator algorithm</li>
 </ul></li>
-<li>prefetching of disk blocks</li>
-<li>efficient caching
+<li><p><strong>prefetch</strong>ing of disk blocks 预取磁盘块</p></li>
+<li><p>efficient caching 高效缓存</p>
 <ul>
 <li>main memory</li>
 <li>disk controllers</li>
 </ul></li>
 </ul>
-<h2 id="redundant-array-of-independent-disks">Redundant Array of Independent Disks</h2>
+<h2 id="raid-独立磁盘冗余阵列">RAID 独立磁盘冗余阵列</h2>
+<p>The <strong>redundant array of independent disks（RAID）</strong> organisation technique provides a single disk view for a number （array） of disks</p>
+<p><strong>独立磁盘冗余阵列（RAID）</strong> 组织技术<u>为多个（阵列）磁盘提供单一磁盘视图</u></p>
 <ul>
-<li>The <strong>redundant array of independent disks (RAID)</strong> organisation technique provides a single disk view for a number (array) of disks
+<li><p>divide and replicate data across multiple hard disks</p>
+<p>跨多个硬盘分割和复制数据</p></li>
+<li><p>introduced in 1987 by D.A. Patterson, G.A. Gibson and R. Katz</p></li>
+</ul>
+<h3 id="goal">Goal</h3>
+<p>The main goals of a RAID solution are</p>
 <ul>
-<li>divide and replicate data across multiple hard disks</li>
-<li>introduced in 1987 by D.A. Patterson, G.A. Gibson and R. Katz</li>
+<li><p><strong>higher capacity</strong> by grouping multiple disks</p>
+<p>通过对多个磁盘进行分组来 <strong>提高容量</strong></p>
+<ul>
+<li><p>originally a RAID was also a cheaper alternative to expensive large disks</p>
+<p>最初 RAID 也是昂贵的大磁盘的更便宜的替代品</p>
+<blockquote>
+<p>original name: Redundant Array of <strong>Inexpensive</strong> Disks</p>
+<p>原名：<strong>廉价</strong>磁盘冗余阵列</p>
+</blockquote></li>
 </ul></li>
-<li>The main goals of a RAID solution are
-<ul>
-<li><strong>higher capacity</strong> by grouping multiple disks
-<ul>
-<li>originally a RAID was also a cheaper alternative to expensive large disks
-<ul>
-<li>original name: Redundant Array of <strong>Inexpensive</strong> Disks</li>
-</ul></li>
-</ul></li>
-<li><strong>higher performance</strong> due to parallel disk access
+<li><p><strong>higher performance</strong> due to parallel disk access</p>
+<p>并行磁盘访问带来 <strong>更高的性能</strong></p>
 <ul>
 <li>multiple parallel read/write operations</li>
 </ul></li>
-<li><strong>increased reliability</strong> since data might be stored redundantly
+<li><p><strong>increased reliability</strong> since data might be stored redundantly</p>
+<p><strong>提高可靠性，</strong>因为数据可能会被冗余存储</p>
 <ul>
-<li>data can be restored if a disk fails</li>
-</ul></li>
+<li><p>data can be restored if a disk fails</p>
+<p>如果磁盘出现故障，数据可以恢复</p></li>
 </ul></li>
 </ul>
-<h2 id="raid">RAID</h2>
+<h3 id="concepts-主要概念">Concepts 主要概念</h3>
 <p>There are three main concepts in RAID systems</p>
 <ul>
-<li>identical data is written to more than one disk (<strong>mirroring</strong>)</li>
-<li>data is split accross multiple disks (<strong>striping</strong>)</li>
-<li>redundant parity data is stored on separated disks and used to detect and fix problems (<strong>error correction</strong>)</li>
+<li><p><strong>Mirroring 镜像</strong></p>
+<ul>
+<li><p>identical data is written to more than one disk</p>
+<p>相同的数据写入多个磁盘</p></li>
+</ul></li>
+<li><p><strong>Striping 条带化</strong></p>
+<ul>
+<li><p>data is split across multiple disks</p>
+<p>数据分布在多个磁盘上</p></li>
+</ul></li>
+<li><p><strong>Error correction 纠错</strong></p>
+<ul>
+<li><p>redundant parity data is stored on separated disks and used to detect and fix problems</p>
+<p>冗余奇偶校验数据存储在分离的磁盘上，用于检测和修复问题</p></li>
+</ul></li>
 </ul>
-<h2 id="raid-reliability">RAID Reliability</h2>
+<h3 id="raid-levels-级别">RAID Levels 级别</h3>
+<p>The different RAID levels offer different cost-performance trade-offs</p>
+<p>不同的 RAID 级别提供不同的性价比权衡</p>
 <ul>
-<li><p>The mean time between failures (MTBF) is the average time until a disk failure occurs</p>
+<li><p>RAID 0</p>
 <ul>
-<li>e.g. a hard disk might have a MTBF of 200'000 hours (22.8 years)
-<ul>
-<li>note that the MTBF decreases as disks get older</li>
+<li><p>block level striping without any redundancy</p>
+<p>没有任何冗余的块级条带化</p></li>
 </ul></li>
-</ul></li>
-<li><p>If a DBMS uses an array of disks, then the overall system's MTBF can be much lower</p>
+<li><p><strong>RAID 1</strong></p>
 <ul>
-<li>e.g. the MTBF for a disk array of 100 of the disks mentioned above is 200'000 hours/100 = 2'000 hours (83 days)</li>
+<li><p>mirroring without striping</p>
+<p>无条纹镜像</p></li>
 </ul></li>
-<li><p>By storing information redundantly, data can be restored in the case of a disk failure</p></li>
-<li><p>The <strong>mean time to data loss (MTTDL)</strong> depends on the MTBF and the <strong>mean time to repair (MTTR)</strong></p>
+<li><p>RAID 2</p>
 <ul>
-<li>for mirroring data on two disks the MTTDL is defined by <span class="math display">\[
+<li><p>bit level striping</p>
+<p>位级 条带化</p></li>
+<li><p>multiple parity disks</p>
+<p>多个奇偶校验磁盘</p></li>
+</ul></li>
+<li><p>RAID 3</p>
+<ul>
+<li><p>byte level striping</p>
+<p>字节级条带化</p></li>
+<li><p>one parity disk</p>
+<p>一个奇偶校验盘</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/AI/19455593.png" /></p>
+<ul>
+<li><p>RAID 4</p>
+<ul>
+<li><p>block level striping</p>
+<p>块级条带化</p></li>
+<li><p>one parity disk</p>
+<p>一个奇偶校验盘</p></li>
+<li><p>similar to RAID 3</p></li>
+</ul></li>
+<li><p><strong>RAID 5</strong></p>
+<ul>
+<li><p>block level striping with <strong>distributed parity</strong></p>
+<p>具有分布式奇偶校验的块级条带化</p></li>
+<li><p>no dedicted parity disk</p>
+<p>没有专用的奇偶校验磁盘</p></li>
+</ul></li>
+<li><p>RAID 6</p>
+<ul>
+<li><p>block level striping with <strong>dual distributed parity</strong></p>
+<p>具有双重分布式奇偶校验的块级条带化</p></li>
+<li><p>no dedicted parity</p>
+<p>没有专用的奇偶校验</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/AI/19455594.png" /></p>
+<h3 id="raid-reliability-可靠性">RAID Reliability 可靠性</h3>
+<h4 id="mtbf">MTBF</h4>
+<p>The <strong>mean time between failures</strong> （MTBF） is the average time until a disk failure occurs</p>
+<ul>
+<li>e.g. a hard disk might have a MTBF of 200'000 hours （22.8 years）</li>
+</ul>
+<p>平均故障间隔时间 (MTBF) 是磁盘发生故障之前的平均时间</p>
+<ul>
+<li><p><strong>note</strong> that the MTBF decreases as disks get older</p>
+<p>MTBF 会<u>随着磁盘老化而降低</u></p></li>
+<li><p>If a DBMS uses an <strong>array of disks</strong>, then the overall system's MTBF can be much lower</p>
+<p>如果 DBMS 使用<strong>磁盘阵列</strong>，则整个系统的 MTBF 会低得多</p>
+<ul>
+<li><p>e.g. the MTBF for a disk array of 100 of the disks mentioned above is 200'000 hours/100 = 2'000 hours （83 days）</p>
+<p>例如，上述 100 个磁盘的磁盘阵列的 MTBF 为 200'000 小时/100 = 2'000 小时（83 天）</p></li>
+</ul></li>
+<li><p>By <strong>storing information redundantly</strong>, data can be restored in the case of a disk failure</p>
+<p>通过<strong>存储冗余信息</strong>，在磁盘故障的情况下可以恢复数据</p></li>
+</ul>
+<h4 id="mttdl">MTTDL</h4>
+<p>The <strong>mean time to data loss （MTTDL)</strong> depends on the MTBF and the <strong>mean time to repair （MTTR）</strong></p>
+<p><strong>平均数据丢失时间（MTTDL）</strong>取决于MTBF和<strong>平均修复时间（MTTR）</strong></p>
+<ul>
+<li><p>for mirroring data on two disks the MTTDL is defined by</p>
+<p>对于在两个磁盘上镜像数据，MTTDL 定义为 <span class="math display">\[
 MTTDL=\frac{MTBF^2}{2*MTTR}
-\]</span></li>
-</ul></li>
-<li><p>if we mirror the information on two disks with a MTBF of 200'000 hours and a mean time to repair of 10 hours then the MTTDL is 200'0002/(2*10) hours = 228'000 years</p></li>
-<li><p>of course in reality it is more likely that an error occurs on multiple disks around the same time -</p>
-<ul>
-<li>drives have the same age
-<ul>
-<li>power failure, earthquake, fire, ...</li>
-</ul></li>
-</ul></li>
+\]</span></p></li>
 </ul>
-<h2 id="raid-levels">RAID Levels</h2>
+<blockquote>
+<p>if we mirror the information on two disks with a MTBF of 200000 hours and a mean time to repair of 10 hours then the MTTDL is 2000002/（2*10） hours = 228000 years</p>
+<p>如果我们在两个磁盘上镜像信息，MTBF 为 200000 小时，平均修复时间为 10 小时，则 MTTDL 为 2000002/（2*10）小时 = 228000 年</p>
+</blockquote>
+<p>Of course in reality it is more likely that an error occurs on multiple disks around the same time</p>
+<p>当然在现实中更有可能同时在多个磁盘上发生错误 -</p>
 <ul>
-<li>The different RAID levels offer different cost-performance trade-offs</li>
-<li>RAID 0
-<ul>
-<li>block level striping without any redundancy</li>
-</ul></li>
-<li><strong>RAID 1</strong>
-<ul>
-<li>mirroring without striping<br />
+<li>drives <strong>have the same age</strong><br />
 </li>
-</ul></li>
-<li>RAID 2
-<ul>
-<li>bit level striping</li>
-<li>multiple parity disks</li>
-</ul></li>
-<li>RAID 3
-<ul>
-<li>byte level striping</li>
-<li>one parity disk</li>
-</ul></li>
+<li>power failure, earthquake, fire, ...</li>
 </ul>
-<p><img src="/images/AI/1945593.png" /></p>
+<h2 id="data-representation-数据表示">Data Representation 数据表示</h2>
+<p>A DBMS has to define how the elements of its data model （e.g. <strong>relational mode</strong>l）are mapped to secondary storage</p>
+<p>DBMS 必须定义其数据模型（例如<strong>关系</strong>模型l）的元素如何映射到二级存储</p>
 <ul>
-<li>RAID 4
+<li><p>a <strong>field</strong> contains a fixed- or variable-length sequence of bytes and represents an <strong>attribute</strong></p>
+<p>一个<strong>字段</strong>包含一个固定或可变长度的字节序列并代表一个<strong>属性</strong></p></li>
+<li><p>a <strong>record</strong> contains a fixed- or variable-length sequence of fields and represents a <strong>tuple</strong></p>
+<p>一个<strong>记录</strong>中包含的字段的固定翼或可变长度序列和表示<strong>元组</strong></p></li>
+<li><p>records are stored in fixed-length physical <strong>block</strong> storage units representing <strong>a set of tuples</strong></p>
+<p>记录存储在表示<strong>一组元组</strong>的固定长度物理<strong>块</strong>存储单元中</p>
 <ul>
-<li>block level striping</li>
-<li>one parity disk</li>
-<li>similar to RAID 3</li>
+<li><p>the blocks also represent the units of data transfer</p>
+<p>块也代表数据传输的单位</p></li>
 </ul></li>
-<li><strong>RAID 5</strong>
-<ul>
-<li>block level striping with distributed parity</li>
-<li>no dedicted parity disk</li>
-</ul></li>
-<li>RAID 6
-<ul>
-<li>block level striping with dual distributed parity</li>
-<li>no dedicted parity</li>
-</ul></li>
+<li><p>a <strong>file</strong> contains a collection of blocks and represents a <strong>relation</strong></p>
+<p>一个<strong>文件</strong>包含一组块并表示一个<strong>关系</strong></p></li>
 </ul>
-<p><img src="/images/AI/1945594.png" /></p>
-<h2 id="data-representation">Data Representation</h2>
+<p>A <strong>database</strong> is finally mapped to a <strong>number of files</strong> managed by the underlying operating system</p>
+<p>一个<strong>数据库</strong>最终映射到由底层操作系统管理 的<strong>多个文件</strong></p>
 <ul>
-<li>A DBMS has to define how the elements of its data model (e.g. <strong>relational mode</strong>l) are mapped to secondary storage
-<ul>
-<li>a <strong>field</strong> contains a fixed- or variable-length sequence of bytes and represents an <strong>attribute</strong></li>
-<li>a <strong>record</strong> contains a fixed- or variable-length sequence of fields and represents a <strong>tuple</strong></li>
-<li>records are stored in fixed-length physical <strong>block</strong> storage units representing <strong>a set of tuples</strong>
-<ul>
-<li>the blocks also represent the units of data transfer</li>
-</ul></li>
-<li>a <strong>file</strong> contains a collection of blocks and represents a <strong>relation</strong></li>
-</ul></li>
-<li>A <strong>database</strong> is finally mapped to a <strong>number of files</strong> managed by the underlying operating system
-<ul>
-<li>index structures are stored in separate files</li>
-</ul></li>
+<li><p>index structures are stored in separate files</p>
+<p>索引结构存储在单独的文件中</p></li>
 </ul>
-<h2 id="relational-model-representation">Relational Model Representation</h2>
+<h3 id="relational-model-representation-关系模型表示">Relational Model Representation 关系模型表示</h3>
 <p>A number of issues have to be addressed when mapping the basic elements of the relational model to secondary storage</p>
+<p>将关系模型的基本元素映射到二级存储时必须解决许多问题</p>
 <ul>
-<li>how to map the <strong>SQL datatypes</strong> to fields?</li>
-<li>how to <strong>represent tuples</strong> as records?</li>
-<li>how to <strong>represent records</strong> in blocks?</li>
-<li>how to <strong>represent a relation</strong> as a collection of blocks?</li>
-<li>how to deal with <strong>record sizes</strong> that do not fit into blocks?</li>
-<li>how to deal with <strong>variable-length records</strong>?</li>
-<li>how to deal with <strong>schema updates</strong> and growing record lengths?</li>
-<li>...</li>
+<li><p>how to map the <strong>SQL datatypes</strong> to fields?</p>
+<p>如何将<strong>SQL 数据类型</strong>映射到字段？</p></li>
+<li><p>how to <strong>represent tuples</strong> as records?</p>
+<p>如何将<strong>元组表示</strong>为记录？</p></li>
+<li><p>how to <strong>represent records</strong> in blocks?</p>
+<p>如何在块中<strong>表示记录</strong>？</p></li>
+<li><p>how to <strong>represent a relation</strong> as a collection of blocks?</p>
+<p>如何将<strong>关系表示</strong>为<strong>块的集合</strong>？</p></li>
+<li><p>how to deal with <strong>record sizes</strong> that do not fit into blocks?</p>
+<p>如何处理不适合块的<strong>记录大小</strong>？</p></li>
+<li><p>how to deal with <strong>variable-length records</strong>?</p>
+<p>如何处理<strong>变长记录</strong>？</p></li>
+<li><p>how to deal with <strong>schema updates</strong> and growing record lengths?</p>
+<p>如何处理<strong>模式更新</strong>和不断增长的记录长度？</p></li>
+<li><p>...</p></li>
 </ul>
-<h2 id="representation-of-sql-datatypes">Representation of SQL Datatypes</h2>
+<h3 id="representation-of-sql-datatypes">Representation of SQL Datatypes</h3>
 <ul>
-<li>Fixed-length character string (<strong>CHAR(n)</strong>)
+<li>Fixed-length character string （<strong><code>CHAR(n)</code></strong>）
 <ul>
-<li>represented as a field which is an <strong>array of n bytes</strong></li>
-<li>strings that are shorter than n bytes are filled up with a special "pad" character</li>
+<li><p>represented as a field which is an <strong>array of n bytes</strong></p>
+<p>表示为一个字段，它是一个<strong>n 字节</strong>的<strong>数组</strong></p></li>
+<li><p>strings that are shorter than n bytes are filled up with a special "pad" character</p>
+<p>短于 n 个字节的字符串用特殊的“pad”字符填充</p></li>
 </ul></li>
-<li>Variable-length character string (<strong>VARCHAR(n)</strong>)
+<li>Variable-length character string （<strong><code>VARCHAR(n)</code></strong>）
 <ul>
-<li><strong>two common representations (non-fixed length version later)</strong></li>
+<li><strong>two common representations （non-fixed length version later）</strong></li>
 <li><strong>length plus content</strong>
 <ul>
 <li>allocate an array of n + 1 bytes</li>
-<li>the first byte represents the length of the string (8-bit integer) followed by the string content</li>
+<li>the first byte represents the length of the string （8-bit integer） followed by the string content</li>
 <li>limited to a maximal string length of 255 characters</li>
 </ul></li>
 <li><strong>null-terminated string</strong>
 <ul>
 <li>allocate an array of n + 1 bytes</li>
-<li>terminate the string with a special null character (like in C)</li>
+<li>terminate the string with a special null character （like in C）</li>
 </ul></li>
 </ul></li>
-<li>Dates (<strong>DATE</strong>)
+<li>Dates （<strong>DATE</strong>）
 <ul>
-<li>fixed-length character string</li>
+<li>fixed-length character string 定长字符串</li>
 </ul></li>
-<li>Time (<strong>TIME(n)</strong>)
+<li>Time （<strong><code>TIME(n)</code></strong>）
 <ul>
-<li>the precision n leads to strings of variable length and two possible representations</li>
-<li><strong>fixed-precision</strong>
+<li><p>the precision n leads to strings of variable length and two possible representations</p>
+<p>精度 n 导致可变长度的字符串和两种可能的表示</p></li>
+<li><p><strong>fixed-precision</strong></p>
 <ul>
-<li>limit the precision to a fixed value and store as VARCHAR(m)</li>
+<li>limit the precision to a fixed value and store as <code>VARCHAR(m)</code></li>
 </ul></li>
-<li><strong>true-variable length</strong>
+<li><p><strong>true-variable length</strong></p>
 <ul>
 <li>store the time as true variable length value</li>
 </ul></li>
 </ul></li>
-<li>Bits (<strong>BIT(n)</strong>)
+<li>Bits （<strong><code>BIT(n)</code></strong>）
 <ul>
-<li>bit values of size n can be packed into single bytes</li>
-<li>packing of multiple bit values into a single byte is not recommended
+<li><p>bit values of size n can be packed into single bytes</p>
+<p>大小为 n 的位值可以打包成单个字节</p></li>
+<li><p>packing of multiple bit values into a single byte is not recommended</p>
+<p>不建议将多个位值打包成一个字节</p>
 <ul>
-<li>makes the retrieval and updating of a value more complex and error-prone</li>
+<li><p>makes the retrieval and updating of a value more complex and error-prone</p>
+<p>使值的检索和更新更加复杂且容易出错</p></li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="storage-access">Storage Access</h2>
+<h2 id="storage-access-存储访问">Storage Access 存储访问</h2>
 <ul>
-<li>A part of the system's main memory is used as a <strong>buffer</strong> to store copies of disk blocks</li>
-<li>The <strong>buffer manager</strong> is responsible to move data from secondary disk storage into memory
+<li><p>A part of the system's main memory is used as a <strong>buffer</strong> to store copies of disk blocks</p>
+<p>系统主存的一部分用作<strong>缓冲区</strong>来存储磁盘块的副本</p></li>
+<li><p>The <strong>buffer manager</strong> is responsible to move data from secondary disk storage into memory</p>
+<p>所述<strong>缓冲区管理器</strong>负责将数据从辅助磁盘存储到存储器中移动</p>
 <ul>
-<li>the number of block transfers between disk and memory should be minimised</li>
-<li><strong>as many blocks a possible should be kept in memory</strong></li>
+<li><p>the number of block transfers between disk and memory should be minimised</p>
+<p>应尽量减少磁盘和内存之间的块传输次数</p></li>
+<li><p><strong>as many blocks a possible should be kept in memory</strong></p>
+<p><strong>尽可能多的块应该保存在内存中</strong></p></li>
 </ul></li>
-<li>The <strong>buffer manager</strong> is called by the DMBS every time a disk block has to be accessed
+<li><p>The <strong>buffer manager</strong> is called by the DMBS every time a disk block has to be accessed</p>
+<p>该<strong>缓冲区管理器</strong>是由DMBS每一个磁盘块已被访问时被调用</p>
 <ul>
-<li>the buffer manager has to check whether the block is already allocated in the <strong>buffer</strong> (main memory)</li>
+<li>the buffer manager has to check whether the block is already allocated in the <strong>buffer</strong> （main memory）</li>
+<li>缓冲区管理器必须检查该块是否已在<strong>缓冲区</strong>（主内存）中分配</li>
 </ul></li>
 </ul>
-<h2 id="buffer-manager">Buffer Manager</h2>
+<h3 id="buffer-manager-缓存管理器">Buffer Manager 缓存管理器</h3>
 <ul>
-<li>If the requested block is already in the buffer, the buffer manager returns the corresponding address</li>
-<li>If the block is not yet in the buffer, the buffer manager performs the following steps
+<li><p>If the requested block is already in the buffer, the buffer manager returns the corresponding address</p>
+<p>如果请求的块已经在缓冲区中，缓冲区管理器返回相应的地址</p></li>
+<li><p>If the block is not yet in the buffer, the buffer manager performs the following steps</p>
+<p>如果块还没有在缓冲区中，缓冲区管理器执行以下步骤</p>
 <ul>
-<li>allocate buffer space
+<li><p>allocate buffer space 分配缓冲区空间</p>
 <ul>
-<li>if no space is available, <strong>remove</strong> an <strong>existing block</strong> from the buffer (based on a <strong>buffer replacement strategy</strong>) and write it back to the disk if it has been modified since it was last fetched/written to disk</li>
+<li>if no space is available, <strong>remove</strong> an <strong>existing block</strong> from the buffer （based on a <strong>buffer replacement strategy</strong>） and write it back to the disk if it has been modified since it was last fetched/written to disk</li>
 </ul></li>
-<li>read the block from the disk, add it to the buffer and return the corresponding memory address</li>
-</ul></li>
-<li>Note the similarities to a virtual memory manager</li>
+<li><p>read the block from the disk, add it to the buffer and return the corresponding memory address</p>
+<p>从磁盘读取块，添加到缓冲区并返回对应的内存地址</p></li>
 </ul>
-<h2 id="buffer-replacement-strategies">Buffer Replacement Strategies</h2>
+<blockquote>
+<p>Note the similarities to a virtual memory manager</p>
+<p>注意与虚拟内存管理器的相似之处</p>
+</blockquote></li>
+</ul>
+<h3 id="buffer-replacement-strategies-替换策略">Buffer Replacement Strategies 替换策略</h3>
+<h4 id="least-recently-used-lru">Least recently used （LRU）</h4>
 <ul>
-<li>Most operating systems use a <strong>least recently used (LRU)</strong> strategy where the block that was least recently used is moved back from memory to disk
+<li><p>Most operating systems use a <strong>least recently used （LRU）</strong> strategy where the block that was least recently used is moved back from memory to disk</p>
+<p>大多数操作系统使用<strong>最近最少使用 (LRU)</strong>策略，其中<strong>最近最少使用</strong>的块从内存移回磁盘</p>
 <ul>
-<li>use past access pattern to predict future block access</li>
+<li><p>use past access pattern to predict future block access</p>
+<p>使用过去的访问模式来预测未来的块访问</p></li>
 </ul></li>
-<li>A DBMS is able to predict future access patterns more accurately than an operating system
+<li><p>A DBMS is able to predict future access patterns more accurately than an operating system</p>
+<p>DBMS 能够比操作系统更准确地预测未来的访问模式</p>
 <ul>
-<li>a request to the DBMS involves multiple steps and the DBMS might be able to determine which blocks will be needed by analysing the different steps of the operation</li>
-<li>note that LRU might not always be the best replacement strategy for a DBMS</li>
+<li><p>a request to the DBMS involves multiple steps and the DBMS might be able to determine which blocks will be needed by analysing the different steps of the operation</p>
+<p>对 DBMS 的请求涉及多个步骤，并且 DBMS 可能能够通过分析操作的不同步骤来确定需要哪些块</p></li>
+<li><p>note that LRU might not always be the best replacement strategy for a DBMS</p>
+<p>请注意，LRU 可能并不总是 DBMS 的最佳替代策略</p></li>
 </ul></li>
-<li>Let us have a look at the procedure to compute the following natural join query: order ⋈ customer
+</ul>
+<h4 id="most-recently-used-mru">Most recently used （MRU）</h4>
+<p>Let us have a look at the procedure to compute the following natural join query: order ⋈ customer</p>
 <ul>
 <li>note that we will see more efficient solutions for this problem when discussing query optimisation</li>
-</ul></li>
 </ul>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">for</span> each tuple o <span class="token keyword">of</span> <span class="token keyword">order</span> &#123;
 	<span class="token keyword">for</span> each tuple c <span class="token keyword">of</span> customer &#123;
@@ -887,52 +1002,79 @@ MTTDL=\frac{MTBF^2}{2*MTTR}
 		&#125;
 	&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We further assume that the two relations order and customer are stored in separate files 我们进一步假设订单和客户这两个关系存储在单独的文件中</p>
 <ul>
-<li>We further assume that the two relations order and customer are stored in separate files</li>
 <li>From the pseudocode we can see that
 <ul>
-<li>once an order tuple has been processed, it is not needed anymore
+<li><p>once an order tuple has been processed, it is not needed anymore</p>
+<p>一旦订单元组被处理，它就不再需要了</p>
 <ul>
-<li>if a whole block of order tuples has been processed, that block is no longer required in memory (but an LRU strategy might keep it)</li>
-<li>as soon as the last tuple of an order block has been processed, the buffer manager should free the memory space → <strong>toss-immediate</strong> strategy</li>
+<li><p>if a whole block of order tuples has been processed, that block is no longer required in memory （but an LRU strategy might keep it）</p>
+<p><strong>如果已经处理了整个顺序元组块，则内存中不再需要该块（但 LRU 策略可能会保留它）</strong></p></li>
+<li><p>as soon as the last tuple of an order block has been processed, the buffer manager should free the memory space → <strong>toss-immediate</strong> strategy</p>
+<p>一旦订单块的最后一个元组被处理，缓冲区管理器就应该释放内存空间 →<strong>立即折腾</strong>策略</p></li>
 </ul></li>
-<li>once a customer tuple has been processed, it is not accessed again until all the other customer tuples have been accessed
+<li><p>once a customer tuple has been processed, it is not accessed again until all the other customer tuples have been accessed</p>
+<p>一旦客户元组被处理，它就不会被再次访问，直到所有其他客户元组都被访问</p>
 <ul>
-<li>when the processing of a customer block has been finished, the least recently used customer block will be requested next</li>
-<li>we should replace the block that has been <strong>most recently used (MRU)</strong></li>
-</ul></li>
-</ul></li>
-<li>A memory block can be marked to indicate that this block is not allowed to be written back to disk (<strong>pinned block</strong>)
-<ul>
-<li>note that if we want to use an MRU strategy for the inner loop of the previous example, the block has to be pinned
-<ul>
-<li>the block has to be unpinned after the last tuple in the block has be processed</li>
-</ul></li>
-<li>the pinning of blocks provides some control to restrict the time when blocks can be written back to disk
-<ul>
-<li>important for crash recovery</li>
-<li>blocks that are currently updated should not be written to disk</li>
-</ul></li>
-</ul></li>
-<li>The <strong>prefetching</strong> of blocks might be used to further increase the performance of the overall system § e.g. for serial scans (relation scans)</li>
-<li>The buffer manager can also use <strong>statistical information</strong> about the probability that a request will reference a particular relation (and its related blocks)
-<ul>
-<li>the <strong>system catalogue (data dictionary)</strong> with its metadata is one of the most frequently accessed parts of the database
-<ul>
-<li>if possible, system catalogue blocks should always be in the buffer</li>
-</ul></li>
-<li><strong>index files</strong> might be accessed more often than the corresponding files themselves
-<ul>
-<li>do not remove index files from the buffer if not necessary</li>
-</ul></li>
-<li>the crash recovery manager can also provide constraints for the buffer manager
-<ul>
-<li>the recovery manager might demand that other blocks have to be written first (<strong>force-output</strong>) before a specific block can be written to disk</li>
+<li><p>when the processing of a customer block has been finished, the least recently used customer block will be requested next</p>
+<p>当一个客户块的处理完成后，接下来将请求最近最少使用的客户块</p></li>
+<li><p>we should replace the block that has been <strong>most recently used （MRU）</strong></p>
+<p>我们应该替换<strong>最近使用</strong>的块<strong>（MRU）</strong></p></li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="system-catalogue-data-dictionary">System Catalogue / Data Dictionary</h2>
-<p>Stores metadata about the database</p>
+<h3 id="pinned-block">Pinned block</h3>
+<p>A memory block can be marked to indicate that this block is not allowed to be written back to disk （<strong>pinned block</strong>）</p>
+<p>可以标记一个内存块来表示这个块不允许写回磁盘（<strong>pinned block</strong>）</p>
+<ul>
+<li><p>note that if we want to use an MRU strategy for the inner loop of the previous example, the block has to be pinned</p>
+<p>请注意，如果我们想对内循环使用 MRU 策略，则必须固定块</p>
+<ul>
+<li><p>the block has to be unpinned after the last tuple in the block has be processed</p>
+<p>在处理完块中的最后一个元组后，必须取消固定块</p></li>
+</ul></li>
+<li><p>the pinning of blocks provides some control to restrict the time when blocks can be written back to disk</p>
+<p>块的固定提供了一些控制来限制块可以写回磁盘的时间</p>
+<ul>
+<li><p>important for crash recovery</p>
+<p>对崩溃恢复很重要</p></li>
+<li><p>blocks that are currently updated should not be written to disk</p>
+<p>当前更新的块不应写入磁盘</p></li>
+</ul></li>
+</ul>
+<h3 id="prefetching-块预取">Prefetching 块预取</h3>
+<p>The <strong>prefetching</strong> of blocks might be used to further increase the performance of the overall system</p>
+<p>块的<strong>预取</strong>可用于进一步提高整个系统的性能</p>
+<ul>
+<li><p>e.g. for serial scans （relation scans）</p>
+<p>例如用于串行扫描（关系扫描）</p></li>
+</ul>
+<h2 id="system-catalogue-data-dictionary-系统目录数据字典">System Catalogue / Data Dictionary 系统目录/数据字典</h2>
+<p>The buffer manager can also use <strong>statistical information</strong> about the probability that a request will reference a particular relation （and its related blocks）</p>
+<p>缓冲区管理器还可以使用有关请求引用特定关系（及其相关块）的概率的 <strong>统计信息</strong></p>
+<ul>
+<li><p>the <strong>system catalogue （data dictionary）</strong> with its metadata is one of the most frequently accessed parts of the database</p>
+<p>该<strong>系统目录（数据字典）</strong>与它的元数据是该数据库的最频繁访问的部分中的一个</p>
+<ul>
+<li><p>if possible, system catalogue blocks should always be in the buffer</p>
+<p>如果可能，系统目录块应始终位于缓冲区中</p></li>
+</ul></li>
+<li><p><strong>index files</strong> might be accessed more often than the corresponding files themselves</p>
+<p><strong>索引文件</strong>可能比相应文件本身更常被访问</p>
+<ul>
+<li><p>do not remove index files from the buffer if not necessary</p>
+<p>如果没有必要，不要从缓冲区中删除索引文件</p></li>
+</ul></li>
+<li><p>the <strong>crash recovery manager</strong> can also provide constraints for the buffer manager</p>
+<p><strong>崩溃恢复管理器</strong>还可以为缓冲区管理器提供约束</p>
+<ul>
+<li><p>the recovery manager might demand that other blocks have to be written first （<strong>force-output</strong>） before a specific block can be written to disk</p>
+<p>恢复管理器可能要求必须先写入其他块（<strong>强制输出</strong>），然后才能将特定块写入磁盘</p></li>
+</ul></li>
+</ul>
+<h3 id="metadata-元数据">Metadata 元数据</h3>
+<p>Stores metadata about the database 存储有关数据库的元数据</p>
 <ul>
 <li>names of the relations</li>
 <li>names, domain and lengths of the attributes of each relation</li>
@@ -951,199 +1093,239 @@ MTTDL=\frac{MTBF^2}{2*MTTR}
 </ul></li>
 <li>...</li>
 </ul>
-<h2 id="file-organisation">File Organisation</h2>
+<h2 id="file-organisation-文件组织">File Organisation 文件组织</h2>
+<p>A file is a <strong>logically</strong> organised as a <strong>sequence of records</strong></p>
+<p>文件在<strong>逻辑上被</strong>组织为<strong>一系列记录</strong></p>
 <ul>
-<li>A file is a <strong>logically</strong> organised as a <strong>sequence of records</strong>
-<ul>
-<li>each record contains a <strong>sequence of fields</strong></li>
-<li>name, datatype and offset of record fields are defined by the schema § record types (schema) might change over time</li>
-</ul></li>
-<li>The records are mapped to disk blocks
-<ul>
-<li>the block size is fixed and defined by the physical properties of the disk and the operating system</li>
-<li>the record size might vary for different relations and even between tuples of the same relation (variable field size)</li>
-</ul></li>
-<li>There are different possible mappings of records to files
-<ul>
-<li>use multiple files and only store <strong>fixed-length records</strong> in each file<br />
-</li>
-<li>store <strong>variable-length records</strong> in a file</li>
-</ul></li>
+<li><p>each record contains a <strong>sequence of fields</strong></p>
+<p>每条记录包含<strong>一系列字段</strong></p></li>
+<li><p>name, datatype and offset of record fields are defined by the schema</p>
+<p>记录字段的名称、数据类型和偏移量由架构定义</p></li>
+<li><p>record types （schema） might change over time</p>
+<p>记录类型（架构）可能会<strong>随时间变化</strong></p></li>
 </ul>
-<h2 id="fixed-length-records">Fixed-Length Records</h2>
+<p>The records are mapped to disk blocks 记录映射到磁盘块 - the block size is fixed and defined by the physical properties of the disk and the operating system</p>
+<p>块大小是固定的，由磁盘和操作系统的物理属性定义</p>
+<ul>
+<li><p>the record size might vary for different relations and even between tuples of the same relation （variable field size）</p>
+<p>记录大小可能因不同的关系而异，甚至在同一关系的元组之间（可变字段大小）</p></li>
+</ul>
+<p>There are different possible mappings of records to files 记录到文件有多种可能的映射 - use multiple files and only store <strong>fixed-length records</strong> in each file</p>
+<p>使用多个文件，每个文件只存储<strong>固定长度的记录</strong></p>
+<ul>
+<li><p>store <strong>variable-length records</strong> in a file</p>
+<p>在文件中存储<strong>变长记录</strong></p></li>
+</ul>
+<h3 id="fixed-length-records-定长记录">Fixed-Length Records 定长记录</h3>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">type</span> customer <span class="token operator">=</span> record
     cID <span class="token keyword">int</span><span class="token punctuation">;</span>
     name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
     street <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
 <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>If we assume that an integer requires 2 bytes and characters are represented by one byte, then the customer record is 64 bytes long</p>
+<p>如果我们假设一个整数需要 2 个字节并且字符由一个字节表示，那么客户记录的长度为 64 个字节</p>
 <p><img src="/images/AI/1945595.png" /></p>
 <p><img src="/images/AI/1945596.png" /></p>
-<p>Often a record header is added to each record for managing metadata about</p>
+<p>Often a <strong>record header</strong> is added to each record for managing <strong>metadata</strong> about</p>
+<p>通常为每条记录添加一个<strong>记录头</strong>，用于管理有关的<strong>元数据</strong></p>
 <ul>
-<li>the record schema (pointer s to the DBMS schema information)</li>
+<li>the record schema （pointer s to the DBMS schema information）</li>
 <li>timestamp t about the last access or modification time</li>
 <li>the length l of the record
 <ul>
-<li>could be computed from the schema but the information is convenient if we want to quickly access the next record without having to consult the schema<br />
-</li>
+<li><p>could be computed from the schema but the information is convenient if we want to quickly access the next record without having to consult the schema</p>
+<p>可以从<strong>模式计算</strong>，但如果我们想快速访问下一条记录而无需查阅模式，则信息很方便</p></li>
 </ul></li>
 <li>...</li>
 </ul>
-<h2 id="fixed-length-records-in-blocksfiles">Fixed-Length Records in Blocks/Files</h2>
+<h3 id="fixed-length-records-in-blocksfiles-块文件中的定长记录">Fixed-Length Records in Blocks/Files 块/文件中的定长记录</h3>
 <p><img src="/images/AI/1945597.png" /></p>
+<p>Problems with this fixed length representation</p>
+<p>这种固定长度表示的问题</p>
 <ul>
-<li>Problems with this fixed length representation
+<li><p>after a record has been deleted, its space has to be filled with another record</p>
+<p>一条记录被删除后，它的空间必须用另一条记录填充</p>
 <ul>
-<li>after a record has been deleted, its space has to be filled with another record
-<ul>
-<li>could move all records after the deleted one but that is too expensive</li>
-<li>can move the last record to the deleted record's position but also that might require an additional block access</li>
+<li><p>could move all records after the deleted one but that is too expensive</p>
+<p>可以在删除后移动所有记录，但这太昂贵了</p></li>
+<li><p>can move the last record to the deleted record's position but also that might require an additional block access</p>
+<p>可以将最后一条记录移动到已删除记录的位置，但也可能需要额外的块访问</p></li>
 </ul></li>
-<li>if the block size is not a multiple of the record size, some records will <strong>cross block boundaries</strong> and we need two block accesses to read/write such a record</li>
-</ul></li>
-<li>Since insert operations tend to be more frequent that delete operations, it might be acceptable to leave the space of the deleted record open until a new record is inserted
+<li><p>if the block size is not a multiple of the record size, some records will <strong>cross block boundaries</strong> and we need two block accesses to read/write such a record</p>
+<p>如果块大小不是记录大小的倍数，一些记录将<strong>跨越块边界</strong>，我们需要两次块访问来读/写这样的记录</p></li>
+</ul>
+<p>Since insert operations tend to be more frequent that delete operations, it might be acceptable to leave the space of the deleted record open until a new record is inserted</p>
+<p>由于插入操作往往比删除操作更频繁，因此在插入新记录之前将已删除记录的空间保持打开状态可能是可以接受的</p>
 <ul>
-<li>we cannot just add an additional boolean flag ("free") to the record since it will be hard to find the free records</li>
-<li>allocate a certain amount of bytes for a <strong>file header</strong> containing metadata about the file</li>
-</ul></li>
-<li>The block/file header contains a pointer (address) to the <strong>first deleted record</strong>
+<li><p>we cannot just add an additional Boolean flag （"free"） to the record since it will be hard to find the free records</p>
+<p>我们不能只在记录中添加一个额外的布尔标志（“free”），因为很难找到空闲记录</p></li>
+<li><p>allocate a certain amount of bytes for a <strong>file header</strong> containing metadata about the file</p>
+<p>为包含<strong>文件</strong>元数据的<strong>文件头</strong>分配一定数量的字节</p></li>
+</ul>
+<p>The block/file header contains a pointer （address） to the <strong>first deleted record</strong></p>
+<p>块/文件头包含指向<strong>第一个删除记录</strong>的指针（地址）</p>
 <ul>
-<li>each deleted record contains a <strong>pointer</strong> (address) <strong>to</strong> the <strong>next deleted record</strong></li>
-<li>the linked list of deleted records is called a <strong>free list</strong></li>
-</ul></li>
+<li><p>each deleted record contains a <strong>pointer</strong> （address） <strong>to</strong> the <strong>next deleted record</strong></p>
+<p>每个删除的记录包含一个<strong>指针</strong>（地址）<strong>到</strong>所述<strong>下一个被删除的记录</strong></p></li>
+<li><p>the linked list of deleted records is called a <strong>free list</strong></p>
+<p>删除记录的链表称为<strong>空闲表</strong></p></li>
 </ul>
 <p><img src="/images/AI/1945598.png" /></p>
+<p>To insert a new record, the first free record pointed to by the header is used and the address in the header is updated to the free record that the used record was pointing to</p>
+<p>要插入新记录，使用<strong>头</strong>指向的第一个空闲记录，并将头中的地址更新为所用记录指向的空闲记录</p>
 <ul>
-<li>To insert a new record, the first free record pointed to by the header is used and the address in the header is updated to the free record that the used record was pointing to
-<ul>
-<li>to save some space, the pointers of the free list can also be stored in the unused space of deleted records (no additional field)</li>
-</ul></li>
+<li><p>to save some space, the pointers of the free list can also be stored in the unused space of deleted records （no additional field）</p>
+<p>为了节省一些空间，空闲列表的指针也可以存储在已删除记录的未使用空间中（没有额外的字段）</p></li>
 </ul>
-<h2 id="address-space">Address Space</h2>
+<h3 id="address-space-地址空间">Address Space 地址空间</h3>
+<p>There are several ways how the <strong>database address space</strong> （blocks and block offsets） can be represented</p>
+<p>有几种方法可以表示<strong>数据库地址空间</strong>（块和块偏移）</p>
 <ul>
-<li>There are several ways how the <strong>database address space</strong> (blocks and block offsets) can be represented</li>
-<li><strong>physical addresses</strong> consisting of byte strings (up to 16 bytes) that address
+<li><p><strong>physical addresses</strong> consisting of <strong>byte strings</strong> （up to 16 bytes） that address</p>
+<p>由字节串（最多 16 个字节）组成的<strong>物理</strong>地址</p>
 <ul>
 <li>host</li>
-<li>storage device identifier (e.g. hard disk ID)</li>
+<li>storage device identifier （e.g. hard disk ID）</li>
 <li>cylinder number of the disk</li>
-<li>track within the cylinder (for multi-surface disks)</li>
+<li>track within the cylinder （for multi-surface disks）</li>
 <li>block within the track</li>
 <li>potential offset of record within the block</li>
 </ul></li>
-<li><strong>logical addresses</strong> consisting of an arbitrary string of length n</li>
+<li><p><strong>logical addresses</strong> consisting of an <strong>arbitrary string</strong> of length n</p>
+<p>由长度为 n 的任意字符串组成的<strong>逻辑地址</strong></p></li>
 </ul>
-<h2 id="address-space-mapping">Address Space Mapping</h2>
+<h4 id="address-space-mapping-地址空间映射">Address Space Mapping 地址空间映射</h4>
 <p><img src="/images/AI/1945599.png" /></p>
+<p>A <strong>map table</strong> is stored at a known disk location and provides a mapping between the logical and physical address spaces</p>
+<p><strong>映射表</strong>存储在已知的磁盘位置，并提供逻辑和物理地址空间之间的映射</p>
 <ul>
-<li>A <strong>map table</strong> is stored at a known disk location and provides a mapping between the logical and physical address spaces
-<ul>
-<li>introduces some <strong>indirection</strong> since the map table has to be consulted to get the physical address</li>
-<li><strong>flexibility</strong> to <strong>rearrange records</strong> within blocks or move them to other blocks without affecting the record's logical address</li>
-<li>different combinations of logical and physical addresses are possible (<strong>structured address schemes</strong>)</li>
-</ul></li>
+<li><p>introduces some <strong>indirection</strong> since the map table has to be consulted to get the physical address</p>
+<p>引入了一些<strong>间接性，</strong>因为必须查阅映射表才能获得物理地址</p></li>
+<li><p><strong>flexibility</strong> to <strong>rearrange records</strong> within blocks or move them to other blocks without affecting the record's logical address</p>
+<p><strong>灵活</strong>地<strong>重新排列</strong>块内的<strong>记录</strong>或将它们移动到其他块而不影响记录的逻辑地址</p></li>
+<li><p>different combinations of logical and physical addresses are possible （<strong>structured address schemes</strong>）</p>
+<p>逻辑地址和物理地址的不同组合是可能的（<strong>结构化地址方案</strong>）</p></li>
 </ul>
-<h2 id="variable-length-data">Variable-Length Data</h2>
+<h3 id="variable-length-data-变长数据">Variable-Length Data 变长数据</h3>
 <ul>
-<li>Records of the same type may have different lengths</li>
-<li>We may want to represent
+<li><p>Records of the same type may have different lengths</p>
+<p>相同类型的记录可能有不同的长度</p></li>
+<li><p>We may want to represent</p>
 <ul>
-<li>record fields with varying size (e.g. VARCHAR(n))</li>
-<li>large fields (e.g. images)</li>
+<li>record fields with varying size （<code>e.g. VARCHAR(n)</code>）</li>
+<li>large fields （e.g. images）</li>
 <li>...</li>
 </ul></li>
-<li>We need an alternative data representation to deal with these requirements</li>
+<li><p>We need an alternative data representation to deal with these requirements</p>
+<p>我们需要一种替代的数据表示来处理这些需求</p></li>
 </ul>
-<h2 id="variable-length-record-fields">Variable-Length Record Fields</h2>
+<h3 id="scheme-for-records-with-variable-length-fields-具有可变长度字段的记录方案">Scheme for records with variable-length fields 具有可变长度字段的记录方案</h3>
 <p><img src="/images/AI/19455990.png" /></p>
 <ul>
-<li>Scheme for records with variable-length fields
-<ul>
-<li>put all fixed-length fields first (e.g. cID)</li>
-<li>add the <strong>length</strong> of the record to the record header</li>
-<li>add the <strong>offsets</strong> of the variable-length fields to the record header</li>
-</ul></li>
-<li>Note that if the order of the variable-length fields is always the same, we do not have to store an offset for the first variable-length field (e.g. name)</li>
+<li><p>put all fixed-length fields first （e.g. cID）</p>
+<p>将所有固定长度字段放在首位（例如 cID）</p></li>
+<li><p>add the length of the record to the record header</p>
+<p>将记录的长度添加到记录头</p></li>
+<li><p>add the offsets of the variable-length fields to the record header</p>
+<p>将可变长度字段的偏移量添加到记录头</p>
+<blockquote>
+<p>Note that if the order of the variable-length fields is always the same, we do not have to store an offset for the first variable-length field （e.g. name）</p>
+<p>请注意，如果可变长度字段的顺序总是相同的，我们不必为第一个可变长度字段（例如名称）存储偏移量</p>
+</blockquote></li>
 </ul>
-<p>Scheme for records with variable-length fields § put all fixed-length fields first (e.g. cID) § add the length of the record to the record header § add the offsets of the variable-length fields to the record header § Note that if the order of the variable-length fields is always the same, we do not have to store an offset for the first variable-length field (e.g. name)</p>
-<h2 id="variable-length-records">Variable-Length Records</h2>
+<h4 id="variable-length-records-变长记录">Variable-Length Records 变长记录</h4>
 <p><img src="/images/AI/19455991.png" /></p>
+<p>There are different reasons why we might have to use variable-length records - to store records that have at least one field with a variable length</p>
+<p>存储至少有一个可变长度字段的记录</p>
 <ul>
-<li>There are different reasons why we might have to use variable-length records
-<ul>
-<li>to store records that have at least one field with a variable length</li>
-<li>to store different record types in a single block/file</li>
-</ul></li>
-<li>Structured address scheme (<strong>slotted-page structure</strong>)
-<ul>
-<li>address of a record consists of the <strong>block address</strong> in combination with an <strong>offset table index</strong></li>
-<li>records can be moved around</li>
-</ul></li>
+<li><p>to store different record types in a single block/file</p>
+<p>在单个块/文件中存储不同的记录类型</p></li>
 </ul>
-<h2 id="large-records">Large Records</h2>
+<h4 id="structured-address-scheme-槽页结构">Structured address scheme 槽页结构</h4>
+<p>Structured address scheme （<strong>slotted-page structure</strong>）</p>
+<p>结构化地址方案（<strong>槽页结构</strong>）</p>
+<ul>
+<li><p>address of a record consists of the <strong>block address</strong> in combination with an <strong>offset table index</strong></p>
+<p>记录的地址由<strong>块地址</strong>和<strong>偏移表索引组成</strong></p></li>
+<li><p>records can be moved around</p>
+<p>记录可以四处移动</p></li>
+</ul>
+<h3 id="spanned-records-跨度记录">Spanned records 跨度记录</h3>
 <p><img src="/images/AI/19455992.png" /></p>
+<p>Sometimes we have to deal with values that do not fit into a single block （e.g. audio or movie clips）</p>
+<p>有时我们必须处理不适合单个块的值（例如音频或电影剪辑）</p>
 <ul>
-<li>Sometimes we have to deal with values that do not fit into a single block (e.g. audio or movie clips)
+<li><p>a record that is split across two or more blocks is called a <strong>spanned record</strong></p>
+<p>跨越两个或多个块的<strong>记录</strong>称为<strong>跨度记录</strong></p></li>
+<li><p>spanned records can also be used to pack blocks more efficiently</p>
+<p>跨记录也可用于更有效地打包块</p></li>
+</ul>
+<p>Extra header information 额外的头信息 - each record header carries a bit to indicate if it is a fragment</p>
+<p>每个记录头携带一个位来指示它是否是一个片段</p>
 <ul>
-<li>a record that is split across two or more blocks is called a <strong>spanned record</strong></li>
-<li>spanned records can also be used to pack blocks more efficiently</li>
+<li><p>fragments have some more bits; telling whether first or last fragment of record</p>
+<p>片段有更多位；判断记录的第一个片段还是最后一个片段</p></li>
+<li><p>potential pointers to previous and next fragment</p>
+<p>指向上一个和下一个片段的潜在指针</p></li>
+</ul>
+<h3 id="storage-of-binary-large-objects-blobs二进制大对象存储">Storage of Binary Large Objects （BLOBS）二进制大对象存储</h3>
+<ul>
+<li><p>BLOB is stored as a <strong>sequence of blocks</strong></p>
+<p>BLOB 存储为<strong>块序列</strong></p>
+<ul>
+<li><p>often blocks allocated successively on a disk cylinder</p>
+<p>通常在磁盘柱面上连续分配块</p></li>
 </ul></li>
-<li>Extra header information
+<li><p>BLOB might be striped across multiple disks for more efficient retrieval</p>
+<p>BLOB 可能会跨多个磁盘条带化以提高检索效率</p></li>
+<li><p>BLOB field might not be automatically fetched into memory</p>
+<p>BLOB 字段可能不会自动提取到内存中</p>
 <ul>
-<li>each record header carries a bit to indicate if it is a fragment
-<ul>
-<li>fragments have some more bits; telling whether first or last fragment of record</li>
-</ul></li>
-<li>potential pointers to previous and next fragment</li>
+<li><p>user has to explicitly load parts of the BLOB</p>
+<p>用户必须显式加载 BLOB 的一部分</p></li>
+<li><p>possibly index structures to retrieve parts of a BLOB</p>
+<p>可能的索引结构来检索 BLOB 的一部分</p></li>
 </ul></li>
 </ul>
-<h2 id="storage-of-binary-large-objects-blobs">Storage of Binary Large Objects (BLOBS)</h2>
-<ul>
-<li>BLOB is stored as a sequence of blocks
-<ul>
-<li>often blocks allocated successively on a disk cylinder</li>
-</ul></li>
-<li>BLOB might be striped across multiple disks for more efficient retrieval<br />
-</li>
-<li>BLOB field might not be automatically fetched into memory
-<ul>
-<li>user has to explicitly load parts of the BLOB</li>
-<li>possibly index structures to retrieve parts of a BLOB</li>
-</ul></li>
-</ul>
-<h2 id="insertion-of-records">Insertion of Records</h2>
+<h2 id="insertion-of-records-插入记录">Insertion of Records 插入记录</h2>
 <p><img src="/images/AI/19455993.png" /></p>
+<p>If the records are not kept in a particular order, we can just find a block with some empty space or create a new block if there is no such space</p>
+<p>如果记录没有按照特定的顺序保存，我们可以找到一个有一些空白空间的块，或者如果没有这样的空间就创建一个新块</p>
+<p>If the record has to be inserted in a particular order, but there is no space in the block, there are two alternatives</p>
+<p>如果必须按特定顺序插入记录，但块中没有空间，则有两种选择</p>
 <ul>
-<li>If the records are not kept in a particular order, we can just find a block with some empty space or create a new block if there is no such space</li>
-<li>If the record has to be inserted in a particular order, but there is no space in the block, there are two alternatives
+<li><p>find <strong>space in a nearby block</strong> and <strong>rearrange</strong> some <strong>records</strong></p>
+<p><strong>在附近的块中</strong>找到<strong>空间</strong>并<strong>重新排列</strong>一些<strong>记录</strong></p></li>
+<li><p>create an <strong>overflow block</strong> and link it from the header of the original block</p>
+<p>创建一个<strong>溢出块</strong>并从原始块的头部链接它</p>
 <ul>
-<li>find <strong>space in a nearby block</strong> and <strong>rearrange</strong> some <strong>records</strong></li>
-<li>create an <strong>overflow block</strong> and link it from the header of the original block
-<ul>
-<li>note that an overflow block might point to another overflow block and so on</li>
-</ul></li>
+<li><p>note that an overflow block might point to another overflow block and so on</p>
+<p>请注意，一个溢出块可能指向另一个溢出块，依此类推</p></li>
 </ul></li>
 </ul>
-<h2 id="deletion-of-records">Deletion of Records</h2>
+<h2 id="deletion-of-records-删除记录">Deletion of Records 删除记录</h2>
 <p><img src="/images/AI/19455994.png" /></p>
-<ul>
-<li>If we use an offset table, we may compact the free space in the block (slide around the records)</li>
-<li>If the records cannot be moved, we might have a free list in the header</li>
-<li>We might also be able to remove an overflow block after a delete operation</li>
-</ul>
-<h2 id="update-of-records">Update of Records</h2>
+<p>If we use an <strong>offset table</strong>, we may compact the free space in the block （slide around the records）</p>
+<p>如果我们使用偏移表，我们可能会压缩块中的空闲空间（在记录周围滑动）</p>
+<p>If the records cannot be moved, we might have a free list in the header</p>
+<p>如果记录无法移动，我们可能在标题中有一个空闲列表</p>
+<p>We might also be able to remove an overflow block after a delete operation</p>
+<p>我们也可以在删除操作后删除溢出块</p>
+<h2 id="update-of-records-更新记录">Update of Records 更新记录</h2>
 <p><img src="/images/DB/19455995.png" /></p>
+<p>If we have to update a fixed-length record there is no problem since we will still use the same space</p>
+<p>如果我们必须更新一个固定长度的记录没有问题，因为我们仍然会使用相同的空间</p>
+<p>If the updated record is larger than the original version, then we might have to create more space</p>
+<p>如果更新的记录比原始版本大，那么我们可能需要创建更多的空</p>
 <ul>
-<li>If we have to update a fixed-length record there is no problem since we will still use the same space</li>
-<li>If the updated record is larger than the original version, then we might have to create more space
+<li><p>same options as discussed for insert operation</p>
+<p>与针对插入操作讨论的相同选项</p></li>
+</ul>
+<p>If the updated record is smaller, then we may compact some free space or remove overflow blocks</p>
+<p>如果更新的记录较小，那么我们可能会压缩一些空闲空间或删除溢出块</p>
 <ul>
-<li>same options as discussed for insert operation</li>
-</ul></li>
-<li>If the updated record is smaller, then we may compact some free space or remove overflow blocks
-<ul>
-<li>similar to delete operation</li>
-</ul></li>
+<li><p>similar to delete operation</p>
+<p>类似于删除操作</p></li>
 </ul>
 
                 
@@ -1510,6 +1692,13 @@ MTTDL=\frac{MTBF^2}{2*MTTR}
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

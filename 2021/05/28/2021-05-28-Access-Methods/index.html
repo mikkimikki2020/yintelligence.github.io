@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-05-30
+                    2021-08-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.9k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    17 Min
+                    25 Min
                 </div>
                 
 
@@ -501,33 +501,43 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="access-methods">Access Methods</h1>
-<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/4077fa76ff642108cef3b7e879348c1682787a84-1619006135449/capture/">Video</a></p>
-<h2 id="basic-index-concepts">Basic Index Concepts</h2>
+<p><a href="https://yintelligence.tech/2021/02/12/2021-02-12-overview/">VUB 4019814ENR Databases</a></p>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/4077fa76ff642108cef3b7e879348c1682787a84-1619006135449/capture/">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17910/files/827520?module_item_id=146918">Slide</a></p>
+<h2 id="basic-index-concepts-基本索引概念">Basic Index Concepts 基本索引概念</h2>
 <p>An <strong>index</strong> is used to <u>efficiently access specific data</u></p>
+<p>一个<strong>索引</strong>被用于有效地访问<u>特定的数据</u></p>
 <blockquote>
 <p>e.g. index in a textbook</p>
 </blockquote>
 <p>Often database queries reference only a small number of records in a file</p>
+<p>通常数据库查询只引用文件中的少量记录</p>
 <ul>
-<li>A <strong><em>search key</em></strong> is an attribute (or set of attributes) that is used to lookup records in a file</li>
-<li>An <strong><em>index file</em></strong> consists of <strong><u>(searchKey, pointer)</u></strong> index entries
+<li><p>A <strong><em>search key</em></strong> is an attribute (or set of attributes) that is used to lookup records in a file</p>
+<p>用于查找文件中的记录的<strong>属性</strong>（或属性集）</p></li>
+<li><p>An <strong><em>index file</em></strong> consists of <strong><code>(searchKey, pointer)</code></strong> index entries</p>
 <ul>
-<li>normally much smaller than the original file</li>
-<li><strong><em>pointer</em></strong> identifies a disk block and a record offset within the block</li>
+<li><p>normally much smaller than the original file</p>
+<p>通常比原始文件<strong>小得多</strong></p></li>
+<li><p><strong><em>pointer</em></strong> identifies a disk block and a record offset within the block</p>
+<p><strong>pointer</strong>标识磁盘块和块内的<u>记录偏移量record offset</u></p></li>
 </ul></li>
 </ul>
-<p>There are two basic types of indices:</p>
+<h3 id="type-类型">Type 类型</h3>
+<p>有两种基本类型的索引indices:</p>
 <ol type="1">
-<li><strong>ordered indices</strong>
+<li><p><strong>ordered indices 有序索引</strong></p>
 <ul>
-<li>based on a <em><u>sorted ordering</u></em> of search keys</li>
+<li><p>based on a <em><u>sorted ordering</u></em> of search keys</p>
+<p>基于搜索键的<strong>排序顺序</strong></p></li>
 </ul></li>
-<li><strong>hash indices</strong>
+<li><p><strong>hash indices 哈希索引</strong></p>
 <ul>
-<li>search keys are uniformly distributed to different <u><em>buckets</em></u> based on a <em><u>hash function</u></em>.</li>
+<li><p>search keys are uniformly distributed to different <u><em>buckets</em></u> based on a <em><u>hash function</u></em>.</p>
+<p>搜索键<u>基于hash函数</u>均匀分布到不同的<strong>bucket</strong>。</p></li>
 </ul></li>
 </ol>
-<p>Indexing techniques have to be <strong>evaluated</strong> based on:</p>
+<h3 id="evaluation-评估">Evaluation 评估</h3>
+<p>索引技术必须基于以下因素进行<strong>评估</strong>：</p>
 <ul>
 <li><p>access types</p>
 <blockquote>
@@ -540,190 +550,226 @@
 </blockquote></li>
 <li><p>space overhead</p></li>
 </ul>
-<h2 id="ordered-indices">Ordered Indices</h2>
-<p>An <strong>ordered index</strong> stores the search key values in sorted order.</p>
+<h2 id="ordered-indices-有序索引">Ordered Indices 有序索引</h2>
+<p>An <strong>ordered index</strong> stores the search key values in <strong>sorted order</strong>.</p>
+<p>一个<strong>有序索引</strong>存储的<u>搜索关键字值排序顺序</u>。</p>
 <blockquote>
 <p>e.g. author catalogue in a library</p>
 </blockquote>
-<p>A <strong>primary index</strong> (clustering index) is an index whose <u>search key also defines the <strong><em>sequential order</em></strong> of the file</u></p>
+<p>A <strong>primary index</strong> (clustering index 集群索引) is an index whose <u>search key also defines the <strong><em>sequential order</em></strong> of the file</u></p>
+<p><strong>Primary index</strong>是搜索键定义了<strong>顺序</strong>的文件的索引</p>
 <ul>
-<li>the primary key is often used as a search key of a primary index</li>
-<li>files with a clustering index on the search key are called <strong>index-sequential-files</strong></li>
+<li><p>the primary key is often used as a search key of a primary index</p>
+<p>主键通常用作主索引的搜索键</p></li>
+<li><p>files with a <strong>clustering index</strong> on the search key are called <em>index-sequential-files</em></p>
+<p>在搜索键上具有clustering index的文件称为<strong>索引顺序文件</strong></p></li>
 </ul>
 <p>A <strong>secondary index</strong> (non-clustering index) is an index whose search key has a <em>different</em> order than the sequential file order</p>
-<h2 id="dense-index">Dense Index</h2>
-<p>A <strong>dense index</strong> contains an entry for each search key in the file</p>
+<p><strong>二级索引</strong>（非聚簇索引）是索引，其搜索关键具有<strong>不同</strong>顺序比所述顺序文件顺序</p>
+<h3 id="dense-index-密集索引">Dense Index 密集索引</h3>
+<p>A <strong>dense index</strong> contains an <strong>entry</strong> for each search key in the file</p>
+<p>一个<strong>密集索引</strong>包含的文件中的每个搜索键的<strong>条目</strong></p>
 <p><img src="/images/DB/0952530.png" /></p>
 <p>An index record of a <strong>dense primary index</strong> points to the first file record with the given search key</p>
+<p><strong>密集主索引</strong>的索引记录指向具有<u>给定搜索键的第一个文件记录</u></p>
 <p>An index record of a <strong>dense secondary index</strong> stores a list of pointers to the records with the same search key value</p>
-<h3 id="dense-index-insertion">Dense Index Insertion</h3>
-<pre class="line-numbers language-none"><code class="language-none">find the search key of the record to be inserted in the index
+<p><strong>密集二级索引</strong>的索引记录存储指向<u>具有相同搜索键值</u>的记录的<strong>指针列表</strong></p>
+<h4 id="dense-index-insertion">Dense Index Insertion</h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">find the search key of the record to be inserted in the index
 
-if (index contains search key) &#123;
-    if (index stores pointers to all records) &#123;
+<span class="token keyword">if</span> <span class="token punctuation">(</span>index contains search key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>index stores pointers to all records<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     	add a pointer to the new record to the index entry
-    &#125;
-    else &#123; &#x2F;&#x2F; index stores pointer to the first record only
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// index stores pointer to the first record only</span>
     	ensure that the record is inserted after the first record with the same search key
-    &#125;
-    &#125;
-else &#123; &#x2F;&#x2F; index does not contain the search key
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// index does not contain the search key</span>
     insert an index record with the search key at the appropriate position
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="dense-index-deletion">Dense Index Deletion</h3>
-<pre class="line-numbers language-none"><code class="language-none">look up the record to be deleted
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="dense-index-deletion">Dense Index Deletion</h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">look up the record to be deleted
 
-if (deleted record is the only one with the search key value) &#123;
+<span class="token keyword">if</span> <span class="token punctuation">(</span>deleted record is the only one with the search key value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	delete index record
-&#125;
-else &#123; &#x2F;&#x2F; there are other records with the same search key
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// there are other records with the same search key</span>
 
-    if (index stores pointers to all records) &#123;
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>index stores pointers to all records<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     	delete the corresponding pointer from the index record
-    &#125;
+    <span class="token punctuation">&#125;</span>
     
-    else &#123; &#x2F;&#x2F; index stores pointer to the first record only
-        if (deleted record was the first record with the search key value) &#123;
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// index stores pointer to the first record only</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>deleted record was the first record with the search key value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         	update the index record to point to the next record
-        &#125;
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>Update can be modelled as a delete followed by an insert</p>
 </blockquote>
-<h2 id="sparse-index">Sparse Index</h2>
+<h3 id="sparse-index-稀疏索引">Sparse Index 稀疏索引</h3>
 <p><img src="/images/DB/0952531.png" /></p>
-<p>Contains only some of the search key values</p>
+<p>Contains only <strong>some of</strong> the search key values</p>
+<p>仅包含<strong>部分</strong>搜索键值</p>
 <ul>
-<li>can <strong>only</strong> be used for <strong>primary indices</strong>!</li>
+<li><p>can <strong>only</strong> be used for <strong>primary indices</strong>!</p>
+<p><strong>只</strong>可用于<strong>一级索引</strong>！</p></li>
 </ul>
-<p>To search a given record in a sparse index the following steps have to be performed</p>
+<p>要在稀疏索引中搜索给定记录，必须执行以下步骤</p>
 <ol type="1">
-<li>find the <em>index record</em> <strong>r<sub>i</sub></strong> with the <u>largest search key value that is smaller or equal</u> to the search key value to be found</li>
-<li>start a linear search at record <strong>r<sub>i</sub></strong> until the record is found</li>
+<li><p>find the <em>index record</em> <strong>r<sub>i</sub></strong> with the <u>largest search key value that is smaller or equal</u> to the search key value to be found</p>
+<p>找到小于或等于要查找的搜索键值的最大搜索键值的索引记录 <strong>r<sub>i</sub></strong></p></li>
+<li><p>start a linear search at record <strong>r<sub>i</sub></strong> until the record is found</p>
+<p>在记录<strong>r<sub>i</sub></strong>处开始线性搜索，直到找到该记录</p></li>
 </ol>
-<p><strong>Advantage</strong>:</p>
-<ul>
-<li>A sparse index consumes <strong>less space</strong> and produces <strong>less maintenance overhead</strong> for insertions and deletions</li>
-</ul>
-<p><strong>Disadvantage</strong>:</p>
-<ul>
-<li>On the other hand it takes <strong>more time to locate a record</strong> based on a sparse index</li>
-</ul>
 <p>A good trade-off is a sparse index with one index record for each block</p>
+<p>一个好的权衡是<strong>每个块</strong>都有一个索引记录的<strong>稀疏索引</strong></p>
 <p><img src="/images/DB/0952532.png" /></p>
-<h3 id="sparse-index-insertion">Sparse Index Insertion</h3>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; assumption: one index entry for each block
+<h4 id="advantage">Advantage</h4>
+<p>A sparse index consumes <strong>less space</strong> and produces <strong>less maintenance overhead</strong> for insertions and deletions</p>
+<p>稀疏索引消耗<strong>更少的空间</strong>，产生<strong>更少</strong>插入和缺失的维护<strong>开销</strong>的</p>
+<h4 id="disadvantage">Disadvantage</h4>
+<p>It takes <strong>more time to locate a record</strong> based on a sparse index</p>
+<p>基于稀疏索引<strong>定位记录</strong>需要<strong>更多时间</strong></p>
+<h4 id="sparse-index-insertion">Sparse Index Insertion</h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// assumption: one index entry for each block</span>
 
-if (new block is created) &#123;
+<span class="token keyword">if</span> <span class="token punctuation">(</span>new block is created<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	insert first search key value in the new block into the index
-&#125;
+<span class="token punctuation">&#125;</span>
 
-else &#123;&#x2F;&#x2F; no new block
-	if (new record has the smallest search key value in the block) &#123;
+<span class="token keyword">else</span> <span class="token punctuation">&#123;</span><span class="token comment">// no new block</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>new record has the smallest search key value in the block<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	update the index record pointing to the block
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="sparse-index-deletion">Sparse Index Deletion</h3>
-<pre class="line-numbers language-none"><code class="language-none">if (index contains the search key value of deleted record) &#123;
-    if (deleted record is the only one with the search key value) &#123;
-        if (search key value of the next record is not in the index &#123;
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="sparse-index-deletion">Sparse Index Deletion</h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>index contains the search key value of deleted record<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>deleted record is the only one with the search key value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>search key value of the next record is not in the index <span class="token punctuation">&#123;</span>
         	update the index record to point to the next record
-        &#125;
-        else &#123; &#x2F;&#x2F; search key value of next record is already in the index
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// search key value of next record is already in the index</span>
         	delete index entry
-    &#125;
-&#125;
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-else &#123; &#x2F;&#x2F; there are other records with the same search key
-    if (deleted record was the first record with the search key value) &#123;
+<span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// there are other records with the same search key</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>deleted record was the first record with the search key value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         update the index entry to point to the next record with the same search key value
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>Update can be modelled as a delete followed by an insert</p>
 </blockquote>
-<h2 id="multilevel-index">Multilevel Index</h2>
+<h3 id="multilevel-index-多级索引">Multilevel Index 多级索引</h3>
 <p>A multilevel index can be used if the index grows too large to be kept in memory</p>
+<p>如果<strong>索引</strong>变得<strong>太大</strong>而无法保存在内存中，则可以使用多级索引</p>
 <ul>
-<li><strong>inner index</strong> forms the primary index file</li>
-<li><strong>outer index</strong> is a sparse index on the inner index</li>
+<li><p><strong>inner index</strong> forms the primary index file</p>
+<p><strong>内部索引</strong>形成主索引文件</p></li>
+<li><p><strong>outer index</strong> is a sparse index on the inner index</p>
+<p><strong>外部索引</strong>是内部索引的稀疏索引</p></li>
 </ul>
 <p><img src="/images/DB/0952533.png" /></p>
 <p>If even the outer index grows too large to be kept in memory, the process can be repeated</p>
+<p>如果即使外部索引变得太大而无法保存在内存中，则可<strong>以重复该过程</strong></p>
 <blockquote>
 <p>note that instead of this type of multilevel index it is preferred to use B<sup>+</sup>-trees</p>
+<p>请注意，最好使用 B<sup>+</sup>-trees而不是这种类型的多级索引</p>
 </blockquote>
 <p>The update of the multilevel index (on insertion and deletion) is an extension of the updates described for the single level indices</p>
-<h2 id="secondary-index">Secondary Index</h2>
+<p>多级索引的更新（在插入和删除时）是对单级索引描述的更新的扩展</p>
+<h3 id="secondary-index-二级索引">Secondary Index 二级索引</h3>
 <p><img src="/images/DB/0952534.png" /></p>
+<p>A secondary index <em><u>has to be a dense index</u></em> and must point to all the records with the same search key value</p>
+<p>二级索引必须是密集索引，并且必须指向具有相同搜索键值的所有记录</p>
 <ul>
-<li>A secondary index <em><u>has to be a dense index</u></em> and must point to all the records with the same search key value
-<ul>
-<li>e.g. indirection via <strong><em>buckets</em></strong> that contain the pointers</li>
-</ul></li>
-<li>The use of a secondary index normally requires more I/O operations than a primary index</li>
+<li><p>e.g. indirection via <strong><em>buckets</em></strong> that contain the pointers</p>
+<p>例如：间接连接通过包含指针的<strong>buckets</strong></p></li>
 </ul>
-<h2 id="index-sequential-file-problems">Index-Sequential File Problems</h2>
+<p>The use of a secondary index normally requires <strong>more I/O operations</strong> than a primary index</p>
+<p>二级索引的使用通常比主索引需要<strong>更多</strong>的 <strong>I/O 操作</strong></p>
+<h2 id="index-sequential-file-problems-索引顺序文件问题">Index-Sequential File Problems 索引顺序文件问题</h2>
 <p>Index-sequential files have a number of <strong>disadvantages</strong></p>
+<p>索引顺序文件有许多<strong>缺点</strong></p>
 <ul>
-<li><strong><em>degradation</em></strong> and <strong><em>loss of performance</em></strong> when the file grows since many overflow blocks have to be created</li>
-<li>the entire file has to be <strong><em>periodically reorganised</em></strong></li>
+<li><p><strong><em>degradation</em></strong> and <strong><em>loss of performance</em></strong> when the file grows since many <strong>overflow blocks</strong> have to be created</p>
+<p>由于必须创建许多<strong>溢出块</strong>，因此文件增长时<strong>性能下降</strong>和<strong>损失</strong></p></li>
+<li><p>the entire file has to be <strong><em>periodically reorganised</em></strong></p>
+<p>整个文件必须<strong>定期重新组织</strong></p></li>
 </ul>
 <p>Alternative index structures that do not show a loss of performance after updates can be used</p>
+<p>可以使用更新后不显示性能损失的替代索引结构</p>
 <ul>
 <li>e.g. the <strong><em>B<sup>+</sup>-trees index file</em></strong> structure is a widely used multilevel index structure that is based on a B<sup>+</sup>-trees (balanced and sorted )</li>
 </ul>
-<h2 id="b-trees">B<sup>+</sup>-trees</h2>
+<h3 id="b-trees">B<sup>+</sup>-trees</h3>
 <p>Properties of a <strong><em>balanced</em></strong> B<sup>+</sup>-tree</p>
 <ul>
-<li><p><em>every path</em> from the root to a leaf node has the <strong>same length</strong></p></li>
+<li><p><em>every path</em> from the root to a leaf node has the <strong>same length</strong></p>
+<p>从根节点到叶节点的<em>每条路径</em>都具有<strong>相同的长度</strong></p></li>
 <li><p>for a given <em>n</em>, each <em>leaf node</em> has <u>between [(n-1)/2] and n-1 values</u></p>
+<p>对于给定的<em>n</em>，每个<em>叶节点</em>具有[(n-1)/2] 和 n-1 之间的值</p>
 <blockquote>
 <p>leaf nodes must always be at least <strong>half full</strong></p>
+<p>叶节点必须始终至少为<strong>半满</strong></p>
 </blockquote></li>
-<li><p>each <em>non-leaf (and non-root) node</em> has <u>between [n/2] and n children</u> (<em>fanout</em>)</p></li>
+<li><p>each <em>non-leaf (and non-root) node</em> has <u>between [n/2] and n children</u> (<em>fanout</em>)</p>
+<p>每个非叶（和非根）节点都有[n/2] 和 n个子节点（<em>fanout</em>）</p></li>
 <li><p>typical B<sup>+</sup>-tree node</p>
 <p><img src="/images/DB/0952535.png" /></p>
 <ul>
-<li>K<sub>1</sub>,..., K<sub>m-1</sub> are the ordered search key values (K<sub>i</sub> &lt; K<sub>i+1</sub>)</li>
-<li>a non-leaf node has pointers P<sub>1</sub>,..., P<sub>m</sub> to child nodes</li>
-<li>a leaf node has pointers P<sub>1</sub>,..., P<sub>m</sub> to file records or to buckets of pointers</li>
-<li>typically the size of a disk block</li>
+<li><p>K<sub>1</sub>,..., K<sub>m-1</sub> are the <strong>ordered</strong> search key values (K<sub>i</sub> &lt; K<sub>i+1</sub>)</p></li>
+<li><p>a non-leaf node has pointers P<sub>1</sub>,..., P<sub>m</sub> to child nodes</p></li>
+<li><p>a leaf node has pointers P<sub>1</sub>,..., P<sub>m</sub> to file records or to buckets of pointers</p></li>
+<li><p>typically the <strong>size of a disk block</strong></p>
+<p>通常是<strong>磁盘块的大小</strong></p></li>
 </ul></li>
-<li><p>if the <em>root node</em> is not a leaf node it has at least 2 children; otherwise it has between 0 and n-1 values</p></li>
+<li><p>if the <em>root node</em> is not a leaf node it has at least 2 children; otherwise it has between 0 and n-1 values</p>
+<p>如果<em>根节点</em>不是叶节点，则它至少有 2 个子节点；否则它的值介于 0 和 n-1 之间</p></li>
 </ul>
-<h3 id="b-tree-leaf-nodes">B<sup>+</sup>-Tree Leaf Nodes</h3>
+<h4 id="b-tree-leaf-nodes-叶节点">B<sup>+</sup>-Tree Leaf Nodes 叶节点</h4>
 <p>Leaf node example (n=3)</p>
 <p><img src="/images/DB/0952536.png" /></p>
 <ul>
 <li>for 1 ≤ i &lt; n the pointers P<sub>i</sub> point to a file record with the search key value K<sub>i</sub> or to a bucket of pointers for search keys that are non-ordered non-candidate keys</li>
 <li>the pointer P<sub>n</sub> points to the next leaf node in search key order</li>
 </ul>
-<h3 id="b-tree-non-leaf-internal-nodes">B<sup>+</sup>-Tree Non-Leaf (Internal) Nodes</h3>
+<h4 id="b-tree-non-leaf-internal-nodes-非叶内部节点">B<sup>+</sup>-Tree Non-Leaf (Internal) Nodes 非叶（内部）节点</h4>
 <p>The non-leaf nodes form a multilevel sparse index on the leaf nodes</p>
+<p>非叶子节点在叶子节点上形成多级稀疏索引</p>
 <p>For a non-leaf node with <em>m</em> pointers the following holds</p>
 <p><img src="/images/DB/0952537.png" /></p>
 <ul>
-<li>the values of the search keys in the subtree that P<sub>1</sub> points to are all smaller than K<sub>1</sub></li>
+<li>the values of the search keys in the subtree that P<sub>1</sub> points to are all <strong>smaller than</strong> K<sub>1</sub></li>
 <li>for 2 ≤ i &lt; m the search key values in the subtree to which P<sub>i</sub> points to have values greater or equal than K<sub>i-1</sub> and smaller than K<sub>i</sub></li>
-<li>the search keys in the subtree to which P<sub>m</sub> points to have values greater than or equal to K<sub>m-1</sub></li>
+<li>the search keys in the subtree to which P<sub>m</sub> points to have values <strong>greater than or equal to</strong> K<sub>m-1</sub></li>
 </ul>
-<h3 id="b-tree-example">B<sup>+</sup>-Tree Example</h3>
+<h4 id="b-tree-example-示例">B<sup>+</sup>-Tree Example 示例</h4>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">B+-tree visualisation</a></p>
 </blockquote>
 <p>Example B+-tree for n=3</p>
 <p><img src="/images/DB/0952538.png" /></p>
 <ul>
-<li>root node must have at least two children</li>
-<li>non-leaf nodes must have between 2 and 3 children (for n=3)</li>
-<li>leaf nodes must have between 1 and 2 values (for n=3)</li>
-<li>note that the node size is normally defined by the block size and the fanout is typically in the range of 50-100 (e.g. n=100)</li>
+<li><p>root node must have at least two children</p>
+<p>根节点必须至少有两个孩子</p></li>
+<li><p>non-leaf nodes must have between 2 and 3 children (for n=3)</p>
+<p>非叶节点必须有 2 到 3 个子节点（对于 n=3）</p></li>
+<li><p>leaf nodes must have between 1 and 2 values (for n=3)</p>
+<p>叶节点必须具有 1 到 2 个值（对于 n=3）</p>
+<blockquote>
+<p>note that the node size is normally defined by the block size and the fanout is typically in the range of 50-100 (e.g. n=100)</p>
+<p>请注意，节点大小通常由块大小定义，扇出通常在 50-100 的范围内（例如 n=100）</p>
+</blockquote></li>
 </ul>
-<h3 id="b-tree-properties">B<sup>+</sup>-Tree Properties</h3>
+<h4 id="b-tree-properties-属性">B<sup>+</sup>-Tree Properties 属性</h4>
 <p>Logically close blocks do not have to be physically close since the inter-node connections are realised via pointers</p>
-<p>B+-trees generally have a small height</p>
+<p>逻辑上关闭的块不必物理上关闭，因为节点间连接是通过指针实现的</p>
+<p>B+-trees generally <strong>have a small height 高度较小</strong></p>
 <ul>
 <li><p>if there are k search key values, the B+-tree tree height is not greater than <strong>log<sub>n/2</sub>k</strong></p>
 <ul>
@@ -732,44 +778,53 @@ else &#123; &#x2F;&#x2F; there are other records with the same search key
 <p>note that the height would be 23 for a binary tree</p>
 </blockquote></li>
 </ul></li>
-<li><p>search operations can be performed efficiently (without many block accesses)</p></li>
+<li><p>search operations can be performed efficiently (without many block accesses)</p>
+<p>可以高效地执行搜索操作（无需多次块访问）</p></li>
 </ul>
-<h3 id="b-tree-lookup">B<sup>+</sup>-Tree Lookup</h3>
+<h4 id="b-tree-lookup-查找">B<sup>+</sup>-Tree Lookup 查找</h4>
 <p><img src="/images/DB/0952539.png" /></p>
 <p>Find all records for a given search key v</p>
-<pre class="line-numbers language-none"><code class="language-none">c &#x3D; root node
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">c <span class="token operator">=</span> root node
 
-while (c is not a leaf node) &#123;
-	let Ki &#x3D; smallest search key value in c greater than v
-	if (Ki exists) &#123;
-		c &#x3D; node pointed to by Pi
-	else &#123; &#x2F;&#x2F; no search key greater than v
-		c &#x3D; node pointed to by Pm &#x2F;&#x2F; where m is the number of pointers
-	&#125;
-&#125;
+<span class="token keyword">while</span> <span class="token punctuation">(</span>c is not a leaf node<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	let Ki <span class="token operator">=</span> smallest search key value in c greater than v
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>Ki exists<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		c <span class="token operator">=</span> node pointed to by Pi
+	<span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token comment">// no search key greater than v</span>
+		c <span class="token operator">=</span> node pointed to by Pm <span class="token comment">// where m is the number of pointers</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-if (a key value Ki in c with the value v exists) &#123;
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a key value Ki in c with the value v exists<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	pointer Pi leads to the desired record or bucket
-&#125;
-else &#123;
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
 	a record with the given search key value v does not exist
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>The lookup requires O(log<sub>n</sub>k) I/O operations in worst case</p>
+<p>在最坏的情况下，查找需要O(log<sub>n</sub>k)次 I/O 操</p>
 </blockquote>
-<h3 id="b-tree-insertion">B<sup>+</sup>-Tree Insertion</h3>
+<h4 id="b-tree-insertion-插入">B<sup>+</sup>-Tree Insertion 插入</h4>
 <ol type="1">
-<li><p>Find the leaf node in which the search key value would appear using the lookup algorithm presented before and add the new record to the file</p></li>
+<li><p>Find the leaf node in which the search key value would appear using the lookup algorithm presented before and add the new record to the file</p>
+<p>使用前面介绍的查找算法找到将出现搜索关键字值的叶节点，并将新记录添加到文件中</p></li>
 <li><p>If the search key is already present in the leaf node</p>
+<p>如果搜索关键字已经存在于叶节点中</p>
 <ul>
-<li>if necessary add a new pointer to the bucket</li>
+<li><p>if necessary add a new pointer to the bucket</p>
+<p>如有必要，添加一个指向存储桶的新指针</p></li>
 </ul></li>
 <li><p>If the search key value is not yet present</p>
+<p>如果搜索键值尚不存在</p>
 <ul>
-<li><p>if there is room in the leaf node then insert a new index record</p></li>
+<li><p>if there is room in the leaf node then insert a new index record</p>
+<p>如果叶节点中有空间，则插入新的索引记录</p></li>
 <li><p>if there is no room then <strong><em>split the node</em></strong></p>
+<p>如果没有空间则*<strong>拆分节点*</strong></p>
 <ul>
-<li><p>take the n index records (including the one to be inserted) in sorted order and place the first n/2 records in the original node and the rest in a new node</p></li>
+<li><p>take the n index records (including the one to be inserted) in sorted order and place the first n/2 records in the original node and the rest in a new node</p>
+<p>取n条索引记录（包括要插入的一条），将前n/2条记录放在原节点，其余放在新节点</p></li>
 <li><p>let the new node be p and the smallest value in p be k. Insert (p,k) in the parent node</p>
 <blockquote>
 <p>if there is <strong>no space</strong> in the parent node, the <strong>split is propagated upwards</strong></p>
@@ -778,26 +833,36 @@ else &#123;
 </ul></li>
 </ol>
 <p>In worst case, the root node has to be split and the height of the tree is increased by 1</p>
+<p>在最坏的情况下，必须分裂根节点，树的高度增加 1</p>
 <p>The insertion requires O(log<sub>n</sub>k) I/O operations in worst case</p>
 <figure>
 <img src="/images/DB/09525390.png" alt="" /><figcaption>B<sup>+</sup>-Tree Insertion Example</figcaption>
 </figure>
-<h3 id="b-tree-deletion">B<sup>+</sup>-Tree Deletion</h3>
+<h4 id="b-tree-deletion-删除">B<sup>+</sup>-Tree Deletion 删除</h4>
 <ol type="1">
-<li>Find the record to be deleted by using the lookup algorithm and delete it from the file</li>
-<li>Remove the search key and value from the leaf index node if there is no bucket or if the bucket is empty</li>
-<li>If the node has no longer enough entries due to the deleted index record and the entries in the node and a sibling <strong><em>fit into a single node</em></strong> then <strong><em>merge the siblings</em></strong>
+<li><p>Find the record to be deleted by using the lookup algorithm and delete it from the file</p>
+<p>使用查找算法找到要删除的记录并从文件中删除</p></li>
+<li><p>Remove the search key and value from the leaf index node if there is no bucket or if the bucket is empty</p>
+<p>如果没有桶或桶为空，则从叶索引节点中删除搜索键和值</p></li>
+<li><p>If the node has no longer enough entries due to the deleted index record and the entries in the node and a sibling <strong><em>fit into a single node</em></strong> then <strong><em>merge the siblings</em></strong></p>
+<p>如果由于删除了索引记录，节点不再有足够的条目，并且节点中的条目和同级节点<strong>适合单个节点，</strong>则<strong>合并同级节点</strong></p>
 <ul>
-<li>insert the search key values of the two nodes into the left node and delete the right node</li>
-<li><strong><em>recursively delete</em></strong> the entry for the deleted node from the parent node (propagation)</li>
+<li><p>insert the search key values of the two nodes into the left node and delete the right node</p>
+<p>将两个节点的搜索关键字值插入左节点，删除右节点</p></li>
+<li><p><strong><em>recursively delete</em></strong> the entry for the deleted node from the parent node (propagation)</p>
+<p>从父节点<strong>递归删除</strong>已删除节点的条目（传播）</p></li>
 </ul></li>
-<li>If the node has no longer enough entries due to the deleted index record but the entries in the node and a sibling <strong><em>do not fit into a single node</em></strong> then <strong><em>redistribute the pointers</em></strong>
+<li><p>If the node has no longer enough entries due to the deleted index record but the entries in the node and a sibling <strong><em>do not fit into a single node</em></strong> then <strong><em>redistribute the pointers</em></strong></p>
+<p>如果由于删除了索引记录，节点不再有足够的条目，但节点和兄弟节点中的条目<strong>不适合单个节点</strong>，则<strong>重新分配指针</strong></p>
 <ul>
-<li>redistribute the pointers between the node and a sibling such that both have more than the minimum number of entries</li>
-<li>update the search key values in the parent node</li>
+<li><p>redistribute the pointers between the node and a sibling such that both have more than the minimum number of entries</p>
+<p>在节点和兄弟节点之间重新分配指针，使得两者都具有超过最小条目数</p></li>
+<li><p>update the search key values in the parent node</p>
+<p>更新父节点中的搜索键值</p></li>
 </ul></li>
 </ol>
 <p>If the root node has only one pointer after deletion, it is deleted and its child becomes the root</p>
+<p>如果根节点删除后只有一个指针，则被删除，其子节点成为根</p>
 <p>The deletion of a previously located record requires O(log<sub>n</sub>k) I/O operations in worst case</p>
 <blockquote>
 <p>note that there are variants where leaf nodes are not merged</p>
@@ -811,24 +876,29 @@ else &#123;
 <figure>
 <img src="/images/DB/09525393.png" alt="" /><figcaption>B<sup>+</sup>-Tree Deletion Example</figcaption>
 </figure>
-<h2 id="features-of-b-tree-index-files">Features of B+-Tree Index Files</h2>
-<p><strong>Advantages</strong></p>
-<ul>
-<li>automatic reorganisation with small local changes for insertions and deletions</li>
-<li>no reorganisation of the file is required to maintain the performance (solves index-sequential file problem)</li>
-</ul>
-<p><strong>Disadvantages</strong></p>
-<ul>
-<li>insertion and deletion overhead</li>
-<li>space overhead</li>
-</ul>
+<h3 id="features-of-b-tree-index-files">Features of B+-Tree Index Files</h3>
 <p>The advantages of B<sup>+</sup>-trees outweigh the disadvantages which makes them an extensively used data structure</p>
-<h2 id="multiple-key-access">Multiple-Key Access</h2>
+<p>B<sup>+</sup>-trees的优点大于缺点，使其成为广泛使用的数据结构</p>
+<h4 id="advantages-优势">Advantages 优势</h4>
+<ul>
+<li><p>automatic reorganisation with small local changes for insertions and deletions</p>
+<p>对插入和删除进行小的本地更改的<u>自动重组</u></p></li>
+<li><p>no reorganisation of the file is required to maintain the performance (solves index-sequential file problem)</p>
+<p><u>无需重新组织文件</u>以保持性能（解决索引顺序文件问题）</p></li>
+</ul>
+<h4 id="disadvantages-缺点">Disadvantages 缺点</h4>
+<ul>
+<li>insertion and deletion overhead 插入和删除开销</li>
+<li>space overhead 空间开销</li>
+</ul>
+<h2 id="multiple-key-access-多键访问">Multiple-Key Access 多键访问</h2>
 <p>For queries that need fast search on the combination of multiple attributes we can define <strong><em>composite search keys</em></strong></p>
+<p>对于需要对多个属性的组合进行快速搜索的查询，我们可以定义<strong>复合搜索键</strong></p>
 <blockquote>
 <p>e.g. search key (name, city) for customers</p>
 </blockquote>
 <p>The ordering of composite search keys is the <strong><em>lexicographic ordering</em></strong></p>
+<p>复合搜索键的<strong>排序</strong>是<strong>字典序</strong></p>
 <ul>
 <li>e.g. (a<sub>1</sub>, a<sub>2</sub>) &lt; (b<sub>1</sub>, b<sub>2</sub>) if
 <ul>
@@ -838,124 +908,158 @@ else &#123;
 </ul>
 <p>An index with composite search keys can be used to efficiently answer queries of the form</p>
 <ul>
-<li>WHERE name = 'Max Frisch' AND city = 'Zurich'</li>
-<li>WHERE name = 'Max Frisch' AND city &lt; 'Brussels'</li>
+<li><p>```sql WHERE name = 'Max Frisch' AND city = 'Zurich' <pre class="line-numbers language-none"><code class="language-none">
+- &#96;&#96;&#96;sql
+  WHERE name &#x3D; &#39;Max Frisch&#39; AND city &lt; &#39;Brussels&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> ## Hash Index 哈希索引</p></li>
+<li><p>Hashing cannot only be used for file organisation but also for the creation of an index</p>
+<p>Hashing不仅可用于文件组织，还可用于创建索引</p></li>
+<li><p>A <strong><em>hash index</em></strong> manages the search keys with their record pointers in a hash file structure</p>
+<p><strong>哈希索引</strong>使用哈希文件结构中的<u><strong>记录指针</strong></u>管理搜索键</p></li>
 </ul>
-<h2 id="static-hashing">Static Hashing</h2>
-<p>A bucket is a storage unit containing one or more records</p>
-<blockquote>
-<p>typically a disk block</p>
-</blockquote>
-<p>In a <strong><em>hash file organisation</em></strong> we get the bucket in a file by using a <strong><em>hash function</em></strong> on the search key value</p>
-<p>A hash function <em>h</em> is a function from the set of search key values <em>K</em> to the set of buckets <em>B</em></p>
-<ul>
-<li>distribution should be <strong><em>uniform and random</em></strong></li>
-</ul>
-<p>The hash function can be used to locate, insert and delete records</p>
-<p>A bucket may contain records with different search keys</p>
-<blockquote>
-<p>bucket has to be sequentially searched</p>
-</blockquote>
-<h3 id="hash-file-organisation-example">Hash File Organisation Example</h3>
+<h3 id="hash-file-organisation-example-哈希文件组织示例">Hash File Organisation Example 哈希文件组织示例</h3>
 <p><img src="/images/DB/09525394.png" /></p>
 <blockquote>
 <p>example of a hash function: binary representation of search key modulo 6</p>
 </blockquote>
-<h3 id="bucket-overflows">Bucket Overflows</h3>
-<p>Buckets can overflow due to different reasons</p>
+<h3 id="hash-index-examples-示例">Hash Index Examples 示例</h3>
+<p><img src="/images/DB/09525395.png" /></p>
+<h3 id="static-hashing-静态哈希">Static Hashing 静态哈希</h3>
+<p>A <strong>bucket</strong> is a storage unit containing one or more records</p>
+<p><strong>桶</strong>是包含一条或多条记录的存储单元</p>
+<blockquote>
+<p>typically a disk block</p>
+</blockquote>
+<p>In a <strong><em>hash file organisation</em></strong> we get the bucket in a file by using a <strong><em>hash function</em></strong> on the search key value</p>
+<p>在<strong>哈希文件组织</strong>中，我们通过对搜索键值使用<strong>哈希函数</strong>来获取文件中的<strong>存储桶</strong></p>
+<p>A hash function <em>h</em> is a function from the set of search key values <em>K</em> to the set of buckets <em>B</em></p>
 <ul>
-<li>insufficient number of buckets</li>
-<li>a <strong><em>skew</em></strong> in the distribution of records
+<li><p>distribution should be <strong><em>uniform and random</em></strong></p>
+<p>分布应该是<strong>均匀</strong>和<strong>随机</strong>的</p></li>
+</ul>
+<p>The hash function can be used to locate, insert and delete records</p>
+<p>A bucket may contain records with different search keys</p>
+<p>一个存储桶可能包含具有不同搜索键的记录</p>
 <ul>
-<li>many records with the same search key</li>
-<li>non-uniform hash function</li>
+<li><p>bucket has to be <strong>sequentially searched</strong></p>
+<p><strong>必须顺序</strong>搜索桶</p></li>
+</ul>
+<h4 id="bucket-overflows-桶溢出">Bucket Overflows 桶溢出</h4>
+<p>由于不同的原因，存储桶bucket可能会溢出</p>
+<ul>
+<li><p>insufficient number of buckets 桶数不足</p></li>
+<li><p>a <strong><em>skew</em></strong> in the distribution of records</p>
+<p>一个<strong><em>skew</em></strong>的记录的分布</p>
+<ul>
+<li><p>many records with the same search key</p>
+<p>许多具有相同搜索键的记录</p></li>
+<li><p>non-uniform hash function</p>
+<p>非均匀散列函数</p></li>
 </ul></li>
 </ul>
 <p>The possibility for bucket overflows can be reduced but we cannot prevent overflows</p>
+<p>可以减少桶溢出的可能性，但我们<strong>无法防止溢出</strong></p>
 <ul>
-<li>bucket overflows are handled by a linked list of additional <strong>overflow buckets</strong></li>
-<li>this form of hashing with overflow buckets is called <strong>closed hashing</strong></li>
+<li><p>bucket overflows are handled by a linked list of additional <strong>overflow buckets</strong></p>
+<p>桶溢出由附加<strong>溢出桶</strong>的链表处理</p></li>
+<li><p>this form of hashing with overflow buckets is called <strong>closed hashing</strong></p>
+<p>这种带有溢出桶的散列形式称为<strong>封闭散列closed hashing</strong></p></li>
 </ul>
-<p><strong>Open hashing</strong> does not allow overflow buckets</p>
+<p><strong>Open hashing</strong> does not allow overflow buckets <strong>开放散列</strong>不允许桶溢出</p>
 <ul>
-<li>other existing buckets have to be "misused" (<em>linear probing</em>)</li>
+<li><p>other existing buckets have to be "misused" (<em>linear probing</em>)</p>
+<p>其他现有的桶必须被“misused误用”（<em>线性探测</em>）</p></li>
 </ul>
-<h3 id="hash-index">Hash Index</h3>
-<ul>
-<li>Hashing cannot only be used for file organisation but also for the creation of an index</li>
-<li>A <strong><em>hash index</em></strong> manages the search keys with their record pointers in a hash file structure</li>
-</ul>
-<h3 id="hash-index-example">Hash Index Example</h3>
-<p><img src="/images/DB/09525395.png" /></p>
-<h3 id="static-hashing-problems">Static Hashing Problems</h3>
+<h4 id="static-hashing-problems-问题">Static Hashing Problems 问题</h4>
 <p>The hash function maps the search key values to a fixed number of buckets B but the database will grow or shrink over time</p>
+<p>哈希函数将搜索键值映射到<strong>固定数量</strong>的桶 B，但<u>数据库会随着时间的推移而增长或缩小</u></p>
 <ul>
-<li>if the file grows and the initial number of buckets is too small, the performance decreases since overflow buckets are necessary</li>
-<li>if space is reallocated for future growth, some space will be wasted initially</li>
+<li><p>if the file grows and the initial number of buckets is too small, the performance decreases since overflow buckets are necessary</p>
+<p>如果文件增长并且初始桶数太小，则性能下降，因为<strong>溢出桶</strong>是必然的</p></li>
+<li><p>if space is reallocated for future growth, some space will be wasted initially</p>
+<p>如果为未来的增长重新分配空间，最初会<strong>浪费</strong>一些<strong>空间</strong></p></li>
 </ul>
 <p>A possible solution would be to reorganise the file with a new hash function from time to time</p>
+<p>一个可能的解决方案是<u>不时使用<strong>新的hashing函数</strong>重新组织文件</u></p>
 <ul>
-<li>too expensive and has to be performed exclusively</li>
+<li><p>too expensive and has to be performed exclusively</p>
+<p><strong>太昂贵</strong>，必须专门执行</p></li>
 </ul>
 <p>An alternative is to dynamically modify the number of buckets (d<strong>ynamic hashing</strong>)</p>
-<h3 id="ordered-indexing-vs.-hashing">Ordered Indexing vs. Hashing</h3>
+<p>另一种方法是动态修改桶的数量（<strong>动态哈希</strong>）</p>
+<h2 id="ordered-indexing-vs.-hashing-有序索引与哈希索引比较">Ordered Indexing vs. Hashing 有序索引与哈希索引比较</h2>
 <p>The database designer has to choose which form of index should be used based on different criteria</p>
+<p>数据库设计者必须根据不同的标准选择应该使用哪种形式的索引</p>
 <ul>
-<li>cost of periodic reorganisation of the index</li>
-<li>frequency of update operations</li>
-<li>optimised <strong><em>average</em></strong> or <strong><em>worst case access time</em></strong></li>
-<li>expected types of queries
+<li><p>cost of periodic reorganisation of the index</p>
+<p>定期重组指数的成本</p></li>
+<li><p>frequency of update operations</p>
+<p>更新操作的频率</p></li>
+<li><p>optimised <strong><em>average</em></strong> or <strong><em>worst case access time</em></strong></p></li>
+<li><p>优化的<strong>平均</strong>或<strong>最坏</strong>情况访问时间</p></li>
+<li><p>expected types of queries 预期的查询类型</p>
 <ul>
-<li>hashing is generally better for retrieving records with a specific attribute value
+<li><p>hashing is generally better for retrieving records with a specific attribute value</p>
+<p><strong>哈希</strong>通常更<strong>适合</strong>检索具有<strong>特定属性值</strong>的记录</p>
 <ul>
-<li>constant average lookup time</li>
-<li>worst case lookup time proportional to the number of attribute values!</li>
+<li><p>constant average lookup time</p>
+<p>恒定的平均查找时间</p></li>
+<li><p>worst case lookup time proportional to the number of attribute values!</p>
+<p>最坏情况下的查找时间与属性值的数量成正比！</p></li>
 </ul></li>
-<li>ordered indices are preferred for range queries where the attribute value lies within a range of values (e.g. WHERE A &gt; C1 AND A &lt; C2)</li>
+<li><p>ordered indices are preferred for range queries where the attribute value lies within a range of values (e.g. WHERE A &gt; C1 AND A &lt; C2)</p>
+<p>对于<u>属性值位于值范围内的<strong>范围</strong></u>查询（例如，WHERE A &gt; C1 AND A &lt; C2），优先使用<strong>有序索引</strong></p></li>
 </ul></li>
 </ul>
 <p>In practice</p>
 <ul>
-<li>most DBMSs support an ordered B<sup>+</sup>-tree index but not all of them support hash indices</li>
+<li><p>most DBMSs support an ordered B<sup>+</sup>-tree index but not all of them support hash indices</p>
+<p>大多数 DBMS 支持有序B<sup>+</sup>-tree索引，但并非所有DBMS都支持哈希索引</p></li>
 </ul>
-<h2 id="bitmap-index">Bitmap Index</h2>
+<h2 id="bitmap-index-位图索引">Bitmap Index 位图索引</h2>
 <p>A bitmap index can be used to efficiently query on <strong><em>multiple</em></strong> keys/attributes</p>
-<p>The following assumptions must hold</p>
+<p>位图索引可用于高效查询<strong>多个 </strong>键/属性</p>
+<p>以下假设必须成立：</p>
 <ul>
-<li>records in a relation must be numbered sequentially
+<li><p>records in a relation must be numbered sequentially</p>
+<p>关系中的记录必须按顺序编号</p>
 <ul>
 <li>e.g. starting from 0</li>
 </ul></li>
-<li>given a number i, it must be easy to find the i<sup>th</sup> record
+<li><p>given a number i, it must be easy to find the i<sup>th</sup> record</p>
+<p>给定一个数字 i，一定很容易找到第 i个记录</p>
 <ul>
-<li>easy if records have fixed size</li>
+<li><p>easy if records have fixed size</p>
+<p>如果记录具有固定大小，则很容易</p></li>
 </ul></li>
 </ul>
 <p>Bitmaps are applicable on attributes with a <strong><em>relatively small number of distinct values</em></strong></p>
+<p>位图适用于具有<strong>相对少量不同值的属性</strong></p>
 <blockquote>
 <p>e.g. gender, city, ...</p>
 </blockquote>
 <p>A bitmap is an array with as many bits as records</p>
+<p>位图是一个<strong>与记录一样多位的数组</strong></p>
 <blockquote>
 <p>the i<sup>th</sup> bit is 1 if record i has the desired attribute value</p>
 </blockquote>
 <p><img src="/images/DB/09525396.png" /></p>
-<ul>
-<li><p>Queries can be answered by using bitmap operations</p>
+<p>Queries can be answered by using bitmap operations</p>
+<p>可以使用位图操作回答查询</p>
 <ul>
 <li><strong>and</strong> (intersection), or (union) and <strong>not</strong> (complementation)
 <ul>
 <li>e.g. find all males in Zurich: 101101 AND 011010 = 001000</li>
 <li>e.g. find females not living in Paris: 010010 AND 111010 = 010010</li>
 </ul></li>
-</ul></li>
-<li><p>Retrieve records based on the resulting bit array</p>
+</ul>
+<p>Retrieve records based on the resulting bit array</p>
+<p>根据生成的位数组检索记录</p>
 <blockquote>
 <p>can also be used to count the number of records with a given condition</p>
-</blockquote></li>
-</ul>
-<h2 id="index-definition-in-sql">Index Definition in SQL</h2>
-<p>The create index command can be used to create an index on a relation</p>
+<p>也可用于计算给定条件下的记录数</p>
+</blockquote>
+<h2 id="index-definition-in-sql-索引定义">Index Definition in SQL 索引定义</h2>
+<p>The <code>create index</code> command can be used to create an index on a relation</p>
 <ul>
 <li><p>different DBMSs support different types of indices</p>
 <blockquote>
@@ -963,12 +1067,15 @@ else &#123;
 </blockquote></li>
 </ul>
 <p>Example</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE INDEX nameIndex ON Customer USING BTREE (name); <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">INDEX</span> nameIndex <span class="token keyword">ON</span> Customer <span class="token keyword">USING</span> <span class="token keyword">BTREE</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="summary">Summary</h2>
 <ul>
-<li>Different types of indices can be used to <em><u><strong>speed up the search of specific records in a file</strong></u></em></li>
-<li>The number and types of indices have to be designed carefully since each index adds <strong><em><u>additional maintenance costs on update operations</u></em></strong></li>
-<li>The structures that are used for the indices (e.g. B<sup>+</sup>-tree or hash index) can also be used to manage the records in a file and reduce data file degradation</li>
+<li><p>Different types of indices can be used to <em><u><strong>speed up the search of specific records in a file</strong></u></em></p>
+<p>可以使用不同类型的索引来<strong>加快文件中特定记录的搜索速度</strong></p></li>
+<li><p>The number and types of indices have to be designed carefully since each index adds <strong><em><u>additional maintenance costs on update operations</u></em></strong></p>
+<p>必须仔细设计索引的数量和类型，因为每个索引都会增加<strong>更新操作的额外维护成本</strong></p></li>
+<li><p>The structures that are used for the indices (e.g. B<sup>+</sup>-tree or hash index) can also be used to manage the records in a file and reduce data file degradation</p>
+<p>用于索引的结构（例如B<sup>+</sup>-tree 或Hash索引）也可用于管理文件中的记录并减少数据文件退化</p></li>
 </ul>
 
                 

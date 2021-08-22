@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-08-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    702
+                    7.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    33 Min
                 </div>
                 
 
@@ -500,18 +500,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="routing-protocol-for-low-power-and-lossy-networks-rpl">Routing Protocol for Low Power and Lossy Networks (RPL)</h1>
+                <h1 id="routing-protocol-for-low-power-and-lossy-networks-rpl">Routing Protocol for Low Power and Lossy Networks （RPL）</h1>
 <p>Slide <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=686052">1</a>,<a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=663682">2</a>,<a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=670822">3</a> + Video 1,2,3 + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=670855">Reference</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=686031">Note</a></p>
+<p>随着Low Power Lossy Networks （LLN）和Internet of Things（IoT）市场的出现，很明显需要为由严格受限的设备形成的网络标准化新协议。</p>
+<p>RPL 是由国际工程任务组（IETF）的 ROLL（低功耗和有损网络路由）工作组于 2011 年提出的。RPL 似乎是一种有前途的路由协议，可为 LLN 设备提供 IPv6 连接。</p>
 <h2 id="internet-of-things">Internet of Things</h2>
 <h3 id="definition">Definition</h3>
+<p>IoT 是连接到 Internet 的对象网络。它也可以限制为本地网络，即 Intranet。 连接到互联网的设备被赋予endowed with了处理、存储和通信能力。</p>
 <ul>
 <li>Objects connected to the Internet
 <ul>
-<li>can be restricted to a local network (Intranet)</li>
+<li>can be restricted to a local network （Intranet）</li>
 </ul></li>
 <li>Devices endowed with processing, storing and communication capabilities</li>
 </ul>
-<p>IoT 是连接到 Internet 的对象网络。它也可以限制为本地网络，即 Intranet。 连接到互联网的设备被赋予endowed with了处理、存储和通信能力。</p>
+<p>物联网可用于许多领域，从环境监测、智能家居和建筑、智能交通、医疗保健应用、智能农业到拥堵监控。</p>
 <h3 id="where">Where?</h3>
 <ul>
 <li>Environmental monitoring</li>
@@ -522,7 +525,14 @@
 <li>Congestion monitoring</li>
 </ul>
 <p>物联网可用于许多领域，从环境监测、智能家居和建筑、智能交通、医疗保健应用、智能农业到拥堵监控。</p>
-<h2 id="wireless-sensor-and-actuator-networks-wsan">Wireless Sensor and Actuator Networks (WSAN)</h2>
+<h2 id="wireless-sensor-and-actuator-networks-wsan">Wireless Sensor and Actuator Networks （WSAN）</h2>
+<p>无线网络是一种利用无线数据通信和无线电波来连接各种网络元素的计算机网络。</p>
+<p>无线传感器和执行器网络（WSAN）由配备无线功能的自主传感和执行设备组成。它们协同监测物理环境并对其进行驱动。</p>
+<p>WSAN 用于许多领域，从健康监测和护理到感测地震事件和控制交通。但 WSAN 面临挑战和限制。一些最值得注意的是能源、自我管理、无线网络、分散管理、设计约束和安全。</p>
+<p>电池是传感器和执行器的能量来源。这些电池必须在特定的时间间隔更换或充电。存在无法更换或充电电池的节点；在这些情况下，节点必须运行直到达到它们的范围。</p>
+<p>这就是为什么在设计节点时<strong>能效</strong>至关重要。<u>许多节点在恶劣或偏远的环境中运行，它们必须能够自我配置、与其他节点协作并适应环境的变化。</u></p>
+<p>由于所有这些挑战，传感器和执行器网络需要开发新的协议和解决方案来增强安全性，能源效率、通信和自我管理能力。这些协议之一是 RPL。</p>
+<h3 id="sensors-and-actuators">Sensors and actuators</h3>
 <p>为了更好地理解无线传感器和执行器网络，必须了解传感器和执行器执行的传感和执行的概念。</p>
 <ul>
 <li>Sensors:
@@ -542,8 +552,9 @@
 <li>Sensor node</li>
 <li>Actuator node</li>
 <li>Intermediate communication node</li>
-<li>Bas station or sink node (only 1)</li>
+<li>Bas station or sink node （only 1）</li>
 </ul>
+<p><img src="/images/NET/image-20210821063038279.png" /></p>
 <h3 id="operating-systems">Operating Systems</h3>
 <p>传感器和执行器是受限设备，它们需要实施轻量级操作系统。</p>
 <ul>
@@ -557,25 +568,646 @@
 <li>OpenWSN</li>
 </ul></li>
 </ul>
-<h2 id="routing-protocol-for-low-power-and-lossy-networks">Routing Protocol for Low Power and Lossy Networks</h2>
+<h2 id="low-power-lossy-networks---llns">Low Power Lossy Networks - LLNs</h2>
+<p>术语<u>低功耗和有损网络<strong>Low Power Lossy Networks</strong> （LLN）</u> 是指主机在资源和通信技术方面受到严格限制的一类有线和无线网络。</p>
 <ul>
-<li>What is a low power/lossy network?</li>
-<li>What is RPL and how does it work?</li>
-</ul>
-<h3 id="low-power-lossy-networks---llns">Low Power Lossy Networks - LLNs</h3>
+<li><p>Constrained network</p></li>
+<li><p>Composed of devices with <strong>limited power</strong>, memory, and processing resources</p>
 <ul>
-<li>Constrained network</li>
-<li>Composed of devices with limited power, memory, and processing resources</li>
-<li>Wide scope of application areas:
+<li><p>低数据速率 low data rates</p></li>
+<li><p>高度不对称的链路特性</p></li>
+<li><p>高数据丢失 high data loss</p></li>
+<li><p>数据丢失（有损链路）的高度可变性</p>
+<p>high variability of data loss （lossy links）</p></li>
+<li><p>短通信范围</p>
+<p>short communication ranges</p></li>
+</ul></li>
+<li><p>Wide scope of application areas:</p>
 <ul>
 <li>Industrial monitoring</li>
 <li>Building automation</li>
 <li>Urban sensor networks</li>
 </ul></li>
 </ul>
-<p>术语<u>低功耗和有损网络<strong>Low Power Lossy Networks</strong> (LLN)</u> 是指主机在资源和通信技术方面受到严格限制的一类有线和无线网络。</p>
 <p>虽然资源限制包括有限的功率储备和有限的处理和存储容量，但底层通信技术可能表现出低数据速率、高度不对称的链路特性、高数据丢失和数据丢失（有损链路）的高度可变性，以及短通信范围。</p>
 <p>一个典型的 LLN 可能包括从几个路由器到数千个资源受限的执行器和传感器节点的任何东西，具有一些路由功能，通过一个特殊的 <strong>LLN Border Router</strong> (LBR) 连接到外部世界（例如 Internet），该路由器本身没有这种限制。</p>
+<h2 id="rpl">RPL</h2>
+<p>RPL 协议基于 IPv6 低功耗无线个域网（6LoWPAN），通过汇聚sink节点连接到 IP 网络。</p>
+<ul>
+<li><p>Distance Vector protocol 距离矢量协议</p>
+<ul>
+<li><p>Vectors of distances to other nodes in the network</p>
+<p>操纵到网络中其他节点的距离向量</p></li>
+<li><p>Questioning its neighbours</p></li>
+<li><p>Less computational complexity and message overhead</p>
+<p>这种方法具有较低的计算复杂度和消息开销</p></li>
+<li><p>适应变化很慢，这会导致不良副作用。</p></li>
+</ul></li>
+<li><p>Source Routing protocol 源路由协议</p>
+<ul>
+<li><p>Enables a node to discover all the possible routes to a host</p>
+<p>允许数据包的发送者部分或完全指定数据包通过网络所采用的路由</p></li>
+<li><p>使节点能够发现到主机的所有可能路由</p></li>
+</ul></li>
+</ul>
+<h3 id="basic-terminology">Basic Terminology</h3>
+<ul>
+<li>RPL Instance
+<ul>
+<li>RPL Instance设置为一个或多个共享 RPLInstanceID 的 DODAG。</li>
+</ul></li>
+<li>RPLInstanceID
+<ul>
+<li>RPLInstanceID 是网络中的唯一标识符。具有相同 RPLInstanceID 的 DODAG 共享相同的目标函数 (OF)，用于计算节点在 DODAG 中的位置。</li>
+</ul></li>
+<li>DODAGID
+<ul>
+<li>是唯一标识 DODAG 根的编号； 如果 root 没有改变，这个 ID 也不会改变。</li>
+</ul></li>
+<li>DODAGVersionNumber
+<ul>
+<li>DODAGVersionNumber 是一个顺序计数器，由root递增以形成新版本。</li>
+</ul></li>
+<li>Rank
+<ul>
+<li>Rank定义了一个节点相对于根的位置； 换句话说，它显示了与根的距离。</li>
+</ul></li>
+<li>Goal
+<ul>
+<li>Goal确定了 DODAG 想要达到的目标； 这个goal是特定于应用程序的。</li>
+</ul></li>
+</ul>
+<h3 id="routing-metricsconstraints-路由度量">Routing metrics/constraints 路由度量</h3>
+<p>Routing metrics/constraints for LLNs can be split in two categories:</p>
+<p>LLN 的路由度量/约束可以分为两类：</p>
+<ol type="1">
+<li>Node metrics/constraints
+<ul>
+<li>主要与节点的能量状态有关：节点状态和属性，节点能量（电源模式，剩余寿命）； 跳数</li>
+</ul></li>
+<li>Link metrics/constraints
+<ul>
+<li>吞吐量、延迟、链路可靠性； ETX（Expected Transmission Count预期传输计数）、LQL（Link Quality Level链路质量级别）</li>
+</ul></li>
+</ol>
+<h3 id="objective-functions-目标函数">Objective Functions 目标函数</h3>
+<p>OF（目标函数）是决定如何计算rank以及度量和约束影响排名计算的程度的函数。</p>
+<p>RPL 有两个目标函数Objective Function：</p>
+<h4 id="of0目标函数零">OF0（目标函数零）</h4>
+<p>将跳数hop count视为从候选邻居中选择最佳父节点的路由度量。</p>
+<h4 id="mrhof-具有滞后目标函数的最小等级">MRHOF 具有滞后目标函数的最小等级</h4>
+<p><strong>Minimum Rank with Hysteresis Objective Function 具有滞后目标函数的最小等级</strong></p>
+<p>MRHOF（具有滞后目标函数的最小等级）是一种 OF，它可以找到具有最小路径成本的路径，同时防止网络中的过度流失churn。</p>
+<blockquote>
+<p><em>流失churn是描述网络中节点动态的术语，即节点更改首选父节点的速率。</em></p>
+</blockquote>
+<p>MRHOF 通过使用两种机制来做到这一点：</p>
+<ul>
+<li>首先，它找到具有最低rank的路径，</li>
+<li>然后，在将当前路径成本和新发现的路径成本之间的差异与给定阈值进行比较后，如果差异显着高于阈值，切换到新发现的最小等级路径。</li>
+<li>MRHOF 必须与一个附加度量additive metric一起使用。</li>
+</ul>
+<p>MRHOF 是<strong>默认</strong>目标函数，建议在 RPL 中使用 DAG 的信息，无需执行任何操作，以便用作 Contiki-NG RPL 中的 OF。它基于<strong>附加链接层度量 ETX</strong> 和<strong>节点剩余能量</strong>。</p>
+<ul>
+<li><p>Additive link layer metric 附加链路层度量</p>
+<ul>
+<li><p>ETX = Estimated number of transmissions from x to y</p>
+<p>ETX = 从 x 到 y 的估计传输次数</p></li>
+</ul></li>
+<li><p>Nodes remaining energy 节点剩余能量</p></li>
+</ul>
+<h5 id="mrhof-etx">MRHOF-ETX</h5>
+<ul>
+<li><p>ETX = Estimated number of transmissions from x to y</p>
+<p>ETX = 从 x 到 y 的估计传输次数</p></li>
+<li><p>ETX = Number of times a frame needs to be transmitted over a link before being acknowledged.</p>
+<p>ETX = 帧在被确认之前需要通过链路传输的次数。</p></li>
+</ul>
+<p>路由的 ETX 是通过计算数据包<strong>成功到达</strong>目的地的概<strong>率</strong>和<strong>收到确认</strong>包的概<strong>率</strong>来获得的。 <span class="math display">\[
+(d_{xy}*d_{yx})^{-1}=\frac{1}{d_{xy}*d_{yx}}d_{xy} = \ success\ rate \ from\ x\ to\ y
+\]</span></p>
+<ul>
+<li>每个节点每秒精确地广播一次短消息，每个接收器在 10 秒内计算它从每个邻居收到的广播数量。 <span class="math display">\[
+d_{xy} = \frac{number\ of\ frames\ received\ from\ x\ by\ y}{10}
+\]</span></li>
+</ul>
+<p>ETX 的值<strong>从1到无穷大</strong>，其中值“1”表示 100% 的吞吐量。随着数量向无穷大增加，吞吐量减少。</p>
+<blockquote>
+<p>网络吞吐量是指在给定的时间范围内可以从源传输到目的地的数据量。它衡量显示许多数据包到达他们的目的地。它是<strong>每秒成功</strong>衡量的量。</p>
+</blockquote>
+<p>当使用 ETX 度量时，可以在网络中实现最小延迟。</p>
+<p>ETX 的目标是测量数据包到达目的地所需的传输次数。然而，当节点是移动的时，这并不完全正确。 在这种情况下，当节点的子集是移动的时，路由表不会及时更新。</p>
+<p>因此，使用 ETX 度量不适合期望在移动场景中传递可靠和及时信息的网络，因为该度量并没有真正捕获移动网络所需的接收信号强度的测量值，这表明移动节点与附着点的传输范围不完整。</p>
+<h3 id="dodag">DODAG</h3>
+<p><strong>DAG</strong>（有向无环图）是无环图；这种图中的所有路径都面向一个或多个节点。</p>
+<p>DAG root是 DAG 中节点的目的地，并且没有到另一个节点的传出链接。</p>
+<p><strong>DODAG （Destination Oriented DAG）</strong>是 DAG，其中每个节点都到达一个单一的目的地。</p>
+<p><img src="/images/NET/image-20210820200413403.png" /></p>
+<h4 id="state">State</h4>
+<p>DODAG 可以处于两种状态，接地或浮动。</p>
+<ul>
+<li>Grounded DODAG
+<ul>
+<li>DODAG 在达到其目标时接地。</li>
+<li>接地的 DODAG 提供与满足应用程序目标所需的主机的连接。</li>
+</ul></li>
+<li>Floating DODAG
+<ul>
+<li>当 DODAG 仍未连接或尚未达到目标时，它处于浮动状态。</li>
+<li>浮动 DODAG 不会满足目标，它仅提供到 DODAG 内节点的路由，例如，在修复期间提供互连。</li>
+</ul></li>
+</ul>
+<p><img src="/images/NET/image-20210820202442891.png" /></p>
+<h3 id="downward-routes">Downward routes</h3>
+<ul>
+<li><p>Downward Routes for enabling the root of the DAG to reach the nodes</p>
+<p>使 DAG 的root能够到达节点的下行路由</p></li>
+<li><p>Destination Advertisement Objects （DAOs） are needed to support downward traffic</p>
+<p>需要目标广告对象（<strong>DAO</strong>）来支持下行流量</p></li>
+</ul>
+<p>Any given RPL Instance is either storing or non-storing.</p>
+<h4 id="storing-and-non-storing">Storing and Non-Storing</h4>
+<p>RPL supports two modes of Downward traffic:</p>
+<p>在第一种模式中，称为“<strong>Storing</strong>”，节点为其子 DODAG 存储向下路由表。存储网络中下行路由上的每一跳都会检查其路由表以决定下一跳。</p>
+<p>在Storing情况下，数据包可以通过源和目的地的共同点在到达 DODAG 根之前被引导到目的地。</p>
+<p>在接收到单播 DAO 时，节点必须计算如果 DAO 会改变节点自己通告的前缀集。如果是这样，节点必须生成一个新的 DAO 消息并传输它。当一个节点生成一个新的 DAO 时，它应该将它单播给它的每个 DAO 父节点。当一个节点从它的 DAO 父集合中删除一个节点时，它应该发送一个 No-Path DAO 消息到被删除的 DAO 父节点以使现有路由无效。</p>
+<p>DAO 通告节点具有路由的目的地地址和前缀。与非存储模式不同，这些 DAO 不传达有关路由本身的信息：该信息存储在网络中并且与 IPv6 源地址不同。</p>
+<p>因为这些信息存储在每个节点的路由表中，在存储模式下，DAO 直接传达给存储此信息的 DAO 父级。</p>
+<ul>
+<li><p>A <strong>storing</strong> LLN （fully stateful） keeps a downward routing table at each node</p>
+<p>一个存储 LLN 在每个节点保持一个向下的路由表</p>
+<ul>
+<li><p>traffic travels only as far as common parent</p>
+<p>交通只传播到共同的父母</p></li>
+<li><p>storing mode limited by size of routing table</p>
+<p>存储方式受路由表大小限制</p></li>
+<li><p>nodes with lower rank, have bigger tables!</p>
+<p>等级较低的节点，有更大的表！</p></li>
+<li><p>protocol fails when any table is full.</p>
+<p>当任何表已满时，协议失败。</p></li>
+</ul></li>
+</ul>
+<p>在第二种模式中，称为“<strong>Non-Storing</strong> ”，节点不存储向下路由表。 下行数据包使用由 DODAG root 填充的源路由进行路由。 在非存储情况下，数据包将在向下移动之前一直传输到DODAG root。DAO 将沿着作为父选择的一部分安装的默认路由直接发送到根。</p>
+<p>在非存储模式下，节点使用 DAO 存储端口的 DAO 父节点到 DODAG 根。通过使用来自路由中每个节点的 DAO 父集，DODAG 根可以一起向下路由到节点。 这种每跳路由计算的目的是在 DAO 父节点改变时最小化流量。 如果节点报告了完整的源路由，那么在 DAO 父更改时，整个子 DODAG 将不得不向 DODAG 根发送新的 DAO。</p>
+<p>因此，在存储模式下，节点可以发送单个 DAO。</p>
+<ul>
+<li><p>A <strong>non-storing</strong> （fully source routed） LLN sends all traffic to root. Root uses source routes to send traffic to leaf</p>
+<p>非存储 LLN 将所有流量发送到root。 Root 使用源路由将流量发送到叶子</p>
+<ul>
+<li><p>Limited by RAM of DODAG root</p>
+<p>受 DODAG 根内存限制</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/NET/image-20210820202207491.png" /></p>
+<h3 id="traffic-flows">Traffic Flows</h3>
+<p>在 LLN 中，必须支持以下流量：</p>
+<ul>
+<li>Point-to-multipoint （P2MP）</li>
+<li>Multipoint-to-point （MP2P）</li>
+<li>Point-to-point （P2P）</li>
+</ul>
+<p>RPL 提供支持所有这些类型的traffic。P2P 需要特殊的 DODAG，总是non storing。</p>
+<p><img src="/images/NET/image-20210820202305661.png" /></p>
+<h3 id="control-messages">Control messages</h3>
+<p>RPL 控制消息是ICMPv6（用于IPv6 的Internet 控制消息协议）信息消息。</p>
+<p><img src="/images/NET/image-20210820203213252.png" /></p>
+<h4 id="dis-and-dio">DIS and DIO</h4>
+<p><img src="/images/NET/image-20210820203316386.png" /></p>
+<ul>
+<li><p>DIS = DODAG Information Solicitation</p>
+<ul>
+<li><p>These messages are sent by nodes when they hear no announcements from other nodes and if they want to join a DODA</p>
+<p>这些消息是由节点在没有听到其他节点的通知并且想要加入 DODAG 时发送的</p></li>
+<li><p>through this control message, nodes enquire about the existence of any DODAG in their neighbourhood</p>
+<p>通过此控制消息，节点查询其邻域中是否存在任何 DODAG</p></li>
+<li><p>标志Flag是由发送者用零初始化并由接收者签名的 8 位字段；它是一个未使用的field。</p></li>
+<li><p>Reserved是由发送方初始化为零并被接收方忽略的 8 位字段； 这是一个未使用的field。</p></li>
+</ul></li>
+<li><p>DIO = DODAG Information Object</p>
+<ul>
+<li><p>These messages are multicasted downward. 这些消息向下多播。</p></li>
+<li><p>A given node in the DODAG may multicast this message to let other nodes know about its state: whether it is grounded or not, whether it is in storing mode or non-storing mode and the state and parameters of the DODAG he belongs to; the message is also used for maintenance and parent selection.</p>
+<p>DODAG中的一个给定节点可以多播这个消息，让其他节点知道它的状态：是否接地，是否处于存储模式或非存储模式，以及他所属的DODAG的状态和参数；该消息还用于维护和父选择。</p></li>
+<li><p>A DIO carries information that allows a node to</p>
+<ul>
+<li>discover a RPL instance 发现 RPL 实例</li>
+<li>learn its configuration parameters 学习其配置参数</li>
+<li>select a DODAG parent set 选择 DODAG 父集</li>
+<li>maintain the DODAG 维护 DODAG 的信息</li>
+</ul></li>
+<li><p>The DIO packet contains the routing metric （eg, link quality,residual energy） and an objective function used by each node to select the parents among its neighbours.</p>
+<p>DIO 数据包包含路由度量（例如，链路质量、剩余能量）和每个节点用于在其邻居中选择父节点的目标函数。</p></li>
+<li><p>RPLInstanceID 是一个 8 位字段，表示 RPL 实例是 DODAG 的一部分。</p></li>
+<li><p>VersionNumber是由 DODAG 根设置的 8 位字段。</p></li>
+<li><p>Rank 是 16 位字段，表示发送消息的节点的等级。</p></li>
+<li><p>G 是一个 1 位标志，表示 DODAG 广告是否接地。</p></li>
+<li><p>MOP 是一个 3 位字段，表示 RPL 实例的操作模式。</p></li>
+<li><p>Prf 是一个名为 DODAG Preference 的 3 位字段，表示与其他 DODAG 根相比，DODAG 的根优先的程度。</p></li>
+<li><p>DTSN 是一个 8 位字段，名为目的地广告触发序列号Destination Advertisement Trigger Sequence Number，具有维护下行路由的作用。</p></li>
+<li><p>Flags是由发送者用零初始化并由接收者分配的 8 位字段；它是一个未使用的字段。</p></li>
+<li><p>Reserved是一个 8 位字段，由发送者初始化为零，由接收者分配；它是一个未使用的字段。</p></li>
+<li><p>DODAGID 是标识 DODAG 的 128 位 IPv6 地址。</p></li>
+</ul></li>
+</ul>
+<h4 id="dao-and-dao-ack">DAO and DAO-ACK</h4>
+<p><img src="/images/NET/image-20210820204304076.png" /></p>
+<ul>
+<li><p>DAO = Destination Advertisement Object</p>
+<ul>
+<li><p>These messages contain requests sent by a node to another node that is already part of a DODAG; it is a request to allow the node to join the network.</p>
+<p>这些消息包含一个节点发送到另一个已经是 DODAG 一部分的节点的请求； 这是一个允许节点加入网络的请求。</p></li>
+<li><p>It is used to propagate destination information upward along the DODAG.</p>
+<p>它用于沿 DODAG 向上传播目的地信息。</p>
+<ul>
+<li><p>In Storing mode, the DAO message is unicast by the child to the selected parent (s).</p>
+<p>在存储模式下，DAO 消息由子节点单播到选定的父节点。</p></li>
+<li><p>In Non-Storing mode, the DAO message is unicast to the DODAG root.</p>
+<p>在非存储模式下，DAO 消息单播到 DODAG 根节点。</p></li>
+</ul></li>
+<li><p>The DAO message may optionally, upon explicit request or error, be acknowledgedby its destination with a DestinationAdvertisement Acknowledgement （DAO-ACK） message back to the sender of the DAO.</p>
+<p>DAO 消息可以可选地，在明确的请求或错误时，由其目的地用一个目的地广告确认（DAO-ACK）消息确认，返回给 DAO 的发送者。</p></li>
+<li><p>RPLInstanceID 是一个 8 位字段，表示 RPL 实例是 DODAG 的一部分。</p></li>
+<li><p>K 是1位标志；如果它设置到 1 发送方期望来自接收方的 DAO-ACK。</p></li>
+<li><p>D是1 位标志表示 DODAGI 是否显示或不显示。</p></li>
+<li><p>Flags是 6 位字段，由发送方初始化为零，由接收方签名；这是一个未使用的字段。</p></li>
+<li><p>Reserved是 8 位字段，由发送者初始化为零并由接收者签名；它是一个未使用的字段。</p></li>
+<li><p>DAOSequence 是一个 8 位的字段，每次从一个节点接收到一个唯一的 DAO 消息时递增；它在 DAO-ACK 消息中被发送回。</p></li>
+<li><p>DODAGID 是标识 DODAG 的 128 位 IPv6 地址；这是可选的。</p></li>
+</ul></li>
+<li><p>DAO-ACK</p>
+<ul>
+<li><p>This message contains the response sent by a root or parent to the child soliciting to join the network.</p>
+<p>该消息包含根或父发送给请求加入网络的子的响应。</p></li>
+<li><p>RPLInstanceID 是一个 8 位字段，表示 RPL 实例是 DODAG 的一部分。</p></li>
+<li><p>D 是一个 1 位标志，表示 DODAGI 是否显示或不存在。保留是由发送者用零初始化并由接收者指定的 7 位字段；它是一个未使用的字段。</p></li>
+<li><p>DAO Sequence是一个 8 位字段，用于在 DAO 消息和发送响应的 DAO-ACK 消息之间建立关联。</p></li>
+<li><p>Status是一个具有以下值的 8 位字段：</p>
+<ul>
+<li>0 = 不合格的接受</li>
+<li>1-127 = 发送消息的节点可以作为父节点，但节点接收者认为应该找到替代父节点</li>
+<li>127-255 = 发送 DAO-ACK 的节点拒绝作为父节点。</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="dodag-formation">DODAG Formation</h3>
+<p>DODAG 是在 RPL 控制消息的帮助下形成、维护和修复的。</p>
+<p><img src="/images/NET/image-20210820205110527.png" /></p>
+<p><img src="/images/NET/image-20210820205153900.png" /></p>
+<p><img src="/images/NET/image-20210820205217698.png" /></p>
+<p>The steps to build a DODAG:</p>
+<ol type="1">
+<li>A node is programmed as the root.</li>
+<li>The root starts to send DIOs via Link Layer broadcast.</li>
+<li>The rest of the nodes upon receiving DIOs try to join the DODAG regardless of their distances （the DIO messages contain information about the distance from the root）.</li>
+<li>The nodes that received the DIO reply with DAOs if interested to join the DODAG.</li>
+<li>The root responds with a DAO-ACK message.</li>
+<li>Another round of message exchanging begins. The nodes that are nearest to the root start sending DIOs.</li>
+<li>The rest of the node s receive the DIOs, and if they realize that the distance to the current node chosen as a parent is greater than the distance from the new node, they will send a DAO to the latter requesting to become a child of the new node,which sends a DAO-ACK in response.</li>
+</ol>
+<h3 id="dodag-joining">DODAG Joining</h3>
+<p>当一个新节点想要加入一个已经存在的 DODAG 或一个正在构建的 DODAG 时，新节点和一个来自 DODAG 的节点之间会发送几条消息</p>
+<p><img src="/images/NET/image-20210820205902285.png" /></p>
+<ul>
+<li>新节点发送一条 DIS 消息，请求有关相邻 DODAG 的信息</li>
+<li>作为响应，节点收到一条 DIO 消息，其中包含有关该图的信息</li>
+<li>作为响应，节点会收到一条 DIO 消息，其中包含有关该图的信息</li>
+<li>如果选择加入，节点发送DAO消息</li>
+<li>作为响应，收到DAO-ACK。</li>
+</ul>
+<h3 id="dodag-maintenance">DODAG Maintenance</h3>
+<p>维护 DODAG 的基本机制包括每个节点<u>向其邻居发送 DIO 消息</u>。</p>
+<p>来自其父级的 DIO 消息通知子级：</p>
+<ul>
+<li><p>Nodes leaving the DODAG （rank = ∞）</p>
+<p>关于离开 DODAG 的节点</p></li>
+<li><p>Rank and/or cost changes</p>
+<p>关于等级rank和/或成本cost变化</p></li>
+</ul>
+<p>对于拓扑的维护和升级，这些控制消息需要重复生成，消耗大量能量。为了有效地使用资源，控制消息的生成被抑制并且仅在必要时生成。这是由<strong>涓流时间算法Trickle Timer algorithm</strong>完成的。</p>
+<h4 id="trickle-timer-algorithm">Trickle Timer algorithm</h4>
+<p>Trickle 定时器算法使用一种机制来<strong>检查</strong>网络的数据包生成模式的<strong>一致性</strong>。</p>
+<ul>
+<li>= timer with variable period</li>
+<li>Whenever a change occurs the period decreases; if no changes the period increases
+<ul>
+<li>如果模式一致并且没有任何冗余或旧数据，则<strong>Trickle Timer</strong>会以指数方式降低发送 DIO 控制消息的速率。</li>
+<li>但万一网络中出现任何不一致，下一个 DIO 消息将被重新安排并以最晚的时间间隔发送。换句话说，当网络不稳定时，涓流算法确保 DIO 消息被积极地通告；当网络稳定时，涓流算法确保以较慢的速度发送 DIO 消息。</li>
+</ul></li>
+<li>Implementation in <code>/os/net/routing/rp-classic/rpl-timers.c</code></li>
+<li>Default values: <code>os/net/routing/rpl-classic/rpl-conf.h</code></li>
+</ul>
+<h5 id="parameters">Parameters</h5>
+<p>The parameters that govern the Trickle timer algorithm are:</p>
+<ul>
+<li><p>I<sub>min</sub></p>
+<ul>
+<li><p>minimum interval between two DIOs</p></li>
+<li><p><span class="math display">\[
+I_{min} = 2^{DIO-MINIMUN-INTERVAL}
+\]</span></p></li>
+</ul></li>
+<li><p>I<sub>max</sub></p>
+<ul>
+<li><p>maximum interval between two DIOs</p></li>
+<li><p><span class="math display">\[
+I_{mAX} = I_{min}× 2^{DIO-INTERVAL-DOUBLINGS}
+\]</span></p></li>
+</ul></li>
+<li><p>k</p>
+<ul>
+<li>redundancy constant</li>
+</ul></li>
+<li><p>l</p>
+<ul>
+<li>size of the current time-interval</li>
+</ul></li>
+<li><p>t</p>
+<ul>
+<li>time interval within I</li>
+</ul></li>
+<li><p>c</p>
+<ul>
+<li>counter</li>
+</ul></li>
+</ul>
+<h5 id="overview">Overview</h5>
+<ol type="1">
+<li>在第一步中，设置为范围 [I<sub>min</sub>,I<sub>max</sub>] 内的任何值。</li>
+<li>第二步，c重置为0，I重置为[I/2,I]之间的随机点</li>
+<li>为每个一致的传输增加计数器 c。</li>
+<li>仅当计数器小于冗余常量 k 时才传输 DIO 消息，否则将被抑制。</li>
+<li>当间隔 I 到期时，计时器将间隔加倍，直到达到I<sub>max</sub>。此后，新的间隔将在 Step2 中重新开始。</li>
+<li>在不一致传输的情况下，如果间隔 I 大于I<sub>min</sub>，间隔计时器将重置为 I<sub>min</sub>，并且新的间隔开始，如步骤 2 中那样。即使未达到阈值，也会这样做。</li>
+</ol>
+<p>如前所述，决定Trickle Time 操作的参数是I<sub>min</sub>、I<sub>max</sub>，其中I<sub>min</sub> 基于min 的值，I<sub>max</sub>取决于倍增因子。</p>
+<p>Example:</p>
+<p>RFC 建议将默认值 12 和 8 分别形成和加倍。此外，默认值 k为 10。</p>
+<p>I<sub>min</sub>和I<sub>max</sub>的值计算如下： <span class="math display">\[
+I_{min} = 2^{12} ms = 4096ms =4s\\
+I_{max} = I_{min} × 2^{doubling} = 4096× 2^{8} = 1048576ms = 17.5 min
+\]</span> 因此，如果 [min,double] 的值为 [12,8]，则两个 DIO 消息之间的最小可能间隔为 4 和两个 DIO 消息之间的最大可能间隔变为 17.5 分钟。</p>
+<h3 id="dodag-repair">DODAG Repair</h3>
+<p>修复机制Repair mechanisms对于路由协议非常重要，因为在这些机制的帮助下，路由决策可以动态更新，网络拓扑结构可以适应潜在的节点/链路故障。</p>
+<p>RPL 支持两种互补complementary的修复机制：</p>
+<ol type="1">
+<li><p>local repair.</p>
+<ul>
+<li>network inconsistency</li>
+<li>当节点<strong>检测到网络不一致</strong>（例如两个节点之间的链路故障或检测到本地环路）时，它<strong>会触发本地修复操作</strong>。 它包括在不尝试修复整个 DODAG 的情况下紧急寻找备份路径。 此备用恢复路径可能不是最佳路径。</li>
+</ul></li>
+<li><p>global repair</p>
+<ul>
+<li><p>Increments DODAG Version Number</p></li>
+<li><p>Fundamental reconstruction of network topology</p></li>
+<li><p>如果由于一些不一致，本地修复对于网络恢复效率不高，DODAG 根可能会触发全局修复操作，然后它会增加 DODAG 版本号并启动新的 DODAG 版本。</p>
+<p><strong>全局修复</strong>操作导致网络拓扑结构的<strong>根本重构</strong>。 新 DODAG 版本中的节点可以选择一个新位置，其等级既不受其在旧 DODAG 版本中的先前等级的约束，也不受其依赖。</p></li>
+</ul></li>
+</ol>
+<h2 id="contiki-ng"><a target="_blank" rel="noopener" href="https://github.com/contiki-ng/contiki-ng">Contiki-NG</a></h2>
+<ul>
+<li>Open-source, cross-platform operating system</li>
+<li>Designed for constraint devices in the IoT</li>
+<li>Focus on secure and reliable low power communication protocols</li>
+<li>Many integrated features</li>
+<li>Written in C</li>
+</ul>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><strong>arch</strong>:
+<ul>
+<li>CPU architecture and platform dependent code and drivers</li>
+</ul></li>
+<li><strong>examples</strong>:
+<ul>
+<li>+-ready to use example projects</li>
+</ul></li>
+<li><strong>os</strong>:
+<ul>
+<li>system primitives such as processes, timers, networking stack, libraries, services, etc.</li>
+</ul></li>
+<li><strong>tests</strong>:
+<ul>
+<li>used upstream for validation of continuous integration</li>
+</ul></li>
+<li><strong>tools</strong>:
+<ul>
+<li>not part of the Contiki firmware itself. Tools and scripts to run within your VM itself.</li>
+</ul></li>
+<li><strong>projects</strong>:
+<ul>
+<li>create this directory and store your</li>
+</ul></li>
+</ul>
+<h3 id="project-configuration">Project Configuration</h3>
+<ul>
+<li><strong>Configuration via MACROs</strong>
+<ul>
+<li>Provide parameters to certain parts of the source code at compile time</li>
+<li>Typically in header files (*.h extension)</li>
+<li>Project-conf.h</li>
+</ul></li>
+<li><strong>Set of Makefiles</strong>
+<ul>
+<li>Specify which features (which source code files), which architecture, which platform, etc. should be compiled into firmware and uploaded to a device.</li>
+</ul></li>
+<li><strong>Make</strong> tool, ARM C compiler, and Contiki communication and upload scripts are designed for Linux
+<ul>
+<li>Either run natively in Linux (or Docker), or use the provided Linux Virtual Machine</li>
+</ul></li>
+</ul>
+<h4 id="contiki-ng-network-stack-网络堆栈">Contiki-NG Network Stack 网络堆栈</h4>
+<p>Contiki-NG 网络堆栈（也称为 NETSTACK）是分层构建的。 完整的堆栈由六层组成，从应用层到无线电驱动层。</p>
+<ul>
+<li><p>Application layer （optional） of the NETSTACK</p>
+<ul>
+<li><p>provides support for protocols such as CoAP （Constrained application protocol） for building web applications.</p>
+<p>为构建 Web 应用程序提供对 CoAP（受限应用程序协议）等协议的支持。</p></li>
+<li><p>CoAP is an application layer protocol that is built on top of UDP （user datagram protocol）. Although UDP is unreliable data transfer protocol, however CoAP provides support for acknowledged messages. Therefore it can be used for the applications that demand reliability such as file transfers etc.</p>
+<p>CoAP 是一种建立在 UDP（用户数据报协议）之上的应用层协议。 虽然 UDP 是不可靠的数据传输协议，但是 CoAP 提供了对确认消息的支持。 因此它可用于需要可靠性的应用程序，例如文件传输等。</p></li>
+</ul></li>
+<li><p>Transport layer</p>
+<ul>
+<li><p>provides support for protocols such as user datagram protocol (UDP).</p>
+<p>提供对用户数据报协议（UDP） 等协议的支持。</p></li>
+<li><p>UDP is a connection-less protocol to transfer data between two network devices. It needs no prior handshake. Applications can use UDP to send data to other devices based on their IP （internet protocol） addresses.</p>
+<p>UDP 是一种无连接协议，用于在两个网络设备之间传输数据。 它不需要事先握手。 应用程序可以使用 UDP 根据其 IP（互联网协议）地址向其他设备发送数据。</p></li>
+<li><p>In Contiki-NG stack, it is built on top of Ipv6 network layer.</p>
+<p>在 Contiki-NG 堆栈中，它建立在 IPv6 网络层之上。</p></li>
+</ul></li>
+<li><p>Network layer is composed of two protocols, IPv6 （internet protocol version 6） and RPL.</p>
+<ul>
+<li><p>Ipv6 provides identification to the devices in the network, while RPL provides routing across the network of sensor nodes.</p></li>
+<li><p>IPv6（互联网协议版本 6）和 RPL。 IPv6 为网络中的设备提供标识，而 RPL 提供跨传感器节点网络的路由。</p></li>
+<li><p>NETSTACK is powered with adaptation layer that implements 6LoWPAN. Purpose of this adaptation is to compress the data from the upper layers and also perform fragmentation （if compressed data is still large） before passing to the MAC layer.</p>
+<p>NETSTACK 由实现 6LoWPAN 的适配层提供支持。 这种适配的目的是压缩来自上层的数据，并在传递到 MAC 层之前执行分片（如果压缩的数据仍然很大）。</p></li>
+<li><p>Similarly on receiving data from MAC layer, it decompresses and also combines the fragments （if needed）. This adaptation is very useful for low power lossy networks of sensor nodes since it enables them to connect to the internet and globally accessible through their IPv6 address.</p>
+<p>类似地，在从 MAC 层接收数据时，它会解压缩并合并片段（如果需要）。 这种适应对于传感器节点的低功耗网络非常有用，因为它使它们能够连接到互联网并通过其 IPv6 地址进行全球访问。</p></li>
+</ul></li>
+<li><p>MAC Layer</p>
+<ul>
+<li><p>Contiki-NG stack implements IEEE 802.15.4e for its MAC and physical layer. IEEE 802.15.4e mainly defines two MAC layers, unslotted CSMA-CA and Time Slotted Channel Hopping （TSCH）.</p>
+<p>Contiki-NG 堆栈为其 MAC 和物理层实现了 IEEE 802.15.4e。 IEEE 802.15.4e 主要定义了两个 MAC 层</p>
+<ol type="1">
+<li>unslotted CSMA-CA</li>
+<li>Time Slotted Channel Hopping （TSCH）。</li>
+</ol></li>
+</ul></li>
+<li><p>Radio driver Layer</p>
+<ul>
+<li><p>Contiki-NG has a radio driver layer that handles low level radio operation for the specific hardware. Radio driver layer provides control to the MAC layer for specific radio operations.</p>
+<p>Contiki-NG 有一个无线电驱动层，用于处理特定硬件的低级无线电操作。 无线电驱动层为特定无线电操作提供对 MAC 层的控制。</p></li>
+<li><p>For example, TSCH MAC can select any of the channels （given in the standard） for its communication. Contiki-NG network stack is built on top of Contiki-NG kernel.</p>
+<p>例如，TSCH MAC 可以选择任何信道（标准中给出）进行通信。 Contiki-NG 网络堆栈建立在 Contiki-NG 内核之上。</p></li>
+</ul></li>
+</ul>
+<h3 id="processes-events">Processes &amp; Events</h3>
+<ul>
+<li><p>Contiki Applications are written using <strong>Process</strong> Abstraction</p>
+<p>Contiki 应用程序是使用 <strong>Process</strong> 抽象编写的</p></li>
+<li><p>Built on top of lightweight threading library called <strong>protothreads</strong></p>
+<p>建立在称为 <strong>protothreads原型线程</strong> 的轻量级线程库之上</p>
+<ul>
+<li><p><strong>Why protothreads?</strong> Because full-fledged processes require more resources (mainly RAM</p>
+<p><strong>为什么是原型线程？</strong> 因为成熟的进程需要更多的资源（主要是 RAM</p></li>
+</ul></li>
+</ul>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C"># include &quot;contiki.h&quot; &#x2F;* Min include file for OS-specfic modules. *&#x2F;
+# include &lt;stdio.g&gt; &#x2F;* For printf. *&#x2F;
+
+PROCESS(test_proc, &quot;Test process&quot;);
+&#x2F;* Process declaration
+		Varibale that identifies the process
+		name of the process
+*&#x2F;
+	
+AUTO_PROCESSES(&amp;test_proc);
+&#x2F;* Automatically start the process after system has booted up (can contain multiple processes) *&#x2F;
+
+&#x2F;* Process implementation
+		Identifier of the process
+		Incoming event
+		POinter to event argument object
+*&#x2F;
+
+PROCESS_THREAD(test_proc, ev, data)&#123;
+	PROCESS_BEGIN();
+    &#x2F;* Identify the satrt of the process (avoid to put code before except varibale definitions) *&#x2F;
+	printtf(&quot;Hello, world!\n&quot;);
+    PROCESS_BEGIN(); 
+    &#x2F;*  Exit from the process *&#x2F;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>Event based execution model 基于事件的执行模型</p></li>
+<li><p>Processes execute chunks of code and will pause while waiting for an event like:</p>
+<p>进程执行代码块并在等待事件时暂停，例如：</p>
+<ul>
+<li><p>Timer expiration 定时器到期</p></li>
+<li><p>Received a packet 收到一个数据包</p></li>
+<li><p>Received something over the serial line interface （used for debugging）</p>
+<p>通过串行线路接口接收到一些东西（用于调试）</p></li>
+<li><p>Sensor/button triggered an interrupt leading to a process event</p>
+<p>传感器/按钮触发导致过程事件的中断</p></li>
+</ul></li>
+<li><p>When a process pauses, the process scheduler will let other queued processes run</p>
+<p>当一个进程暂停时，进程调度器会让其他排队的进程运行</p></li>
+<li><p>If no processes are queued for execution, the device can go to sleep mode to conserve energy</p>
+<p>如果没有进程排队执行，设备可以进入睡眠模式以节省能源</p></li>
+<li><p>Processes are scheduled cooperatively 进程是合作安排的</p>
+<ul>
+<li><p>It should yield control back to the scheduler in a timely manner so other processes can also run</p>
+<p>它应该及时将控制权交还给调度程序，以便其他进程也可以运行</p></li>
+</ul></li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">PROCESS_THREAD</span><span class="token punctuation">(</span>test_proc<span class="token punctuation">,</span> ev<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">/* An event-timer varibale. Note that this varibale must be static in order to preserve the value across yielding */</span>
+    
+    <span class="token keyword">static</span> <span class="token keyword">struct</span> <span class="token class-name">etimer</span> et<span class="token punctuation">;</span>
+    
+    <span class="token function">PROCESS_BEGIN</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token function">etimer_set</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>et<span class="token punctuation">,</span> CLOCK_SECOND<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* Trigger a timer after 1 second. */</span>
+    
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">PROCESS_WAIT_EVENT_UNTIL</span><span class="token punctuation">(</span><span class="token function">etimer_expired</span><span class="token punctuation">(</span>$et<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">/* Give control to the scheduler and resume executing when the time is expired */</span>
+        <span class="token function">etimer_expired</span><span class="token punctuation">(</span>$et<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token function">PROCESS_BEGIN</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token comment">/* Exit from the process */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>Processes can be stopped
+<ul>
+<li>Allowing the <code>PROCESS_END()</code> statement to be reached</li>
+<li>Using <code>PROCESS_EXIT()</code> in the process body</li>
+<li>External process calling <code>process_exit()</code></li>
+</ul></li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">PROCESS_THREAD</span><span class="token punctuation">(</span>test_proc<span class="token punctuation">,</span> ev<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    
+    <span class="token function">PROCESS_BEGIN</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">while</span><span class="token punctuation">(</span>have_operations_to_do<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">do_some_operations</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">PROCESS_PAUSE</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">/* Voluntarily release control to the scheduler */</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token function">PROCESS_BEGIN</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token comment">/* Exit from the process */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>Processes can be started
+<ul>
+<li>Autonomously at startup by including it at <code>AUTOSTART_PROCESSES()</code></li>
+<li>External process calling <code>process_start()</code></li>
+</ul></li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">PROCESS_THREAD</span><span class="token punctuation">(</span>test_proc<span class="token punctuation">,</span> ev<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    
+    <span class="token function">PROCESS_BEGIN</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">static</span> <span class="token class-name">coap_packet_t</span> request<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    
+    <span class="token function">SERVER_NODE</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>server_ipaddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">/* receives all CoAP messages */</span>
+    <span class="token function">coap_int_engine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression">PLATFORM_HAS_BOTTOM</span></span>
+    <span class="token function">SENSOR_ACTIVATE</span><span class="token punctuation">(</span>button_sensor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printtf</span><span class="token punctuation">(</span><span class="token string">"Press a button to request %s\n"</span><span class="token punctuation">,</span> service_urls<span class="token punctuation">[</span>urls_switch<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+    
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">/* Tield control back to the scheduler waiting for an event without a required condition argument */</span>
+        <span class="token function">PROCESS_YIELD</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">/* 
+        	External process can poll this process by calling 
+        		process_poll($er_example_clinrt)
+        	Scheduler will deliver PROCESS_EVENT_POLL to this process
+        
+        */</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">etimer_expired</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>et<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"--Toggle timer--\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span> 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="cooja-simulator"><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=647783">Cooja Simulator</a></h3>
+<ul>
+<li>COOJA is a Contiki network simulator</li>
+<li>Written in Java</li>
+<li>Useful to test and/or troubleshoot code before uploading on real motes</li>
+<li>Open a terminal window</li>
+<li>$ cd contiki-ng/tools/cooja</li>
+<li>$ ant run</li>
+</ul>
+<h4 id="example">Example</h4>
+<p><img src="/images/NET/image-20210821064140368.png" /></p>
+<p>选择图中节点的位置以强制 RPL 树每个父节点有一个子节点。</p>
 
                 
             </div>
@@ -738,13 +1370,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/20/2021-06-20-Proof-by-Resolution/">
+                <a href="/2021/06/23/2021-06-23-Storage,-Indexing-&-Hashing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Proof by Resolution">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Storage, Indexing &amp; Hashing">
                         
-                        <span class="card-title">Proof by Resolution</span>
+                        <span class="card-title">Storage, Indexing &amp; Hashing</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -755,14 +1387,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Artificial-Intelligence/" class="post-category">
-                                    Artificial Intelligence
+                            <a href="/categories/Database/" class="post-category">
+                                    Database
                                 </a>
                             
                             
@@ -772,8 +1404,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Techniques-of-Artificial-Intelligence/">
-                        <span class="chip bg-color">Techniques of Artificial Intelligence</span>
+                    <a href="/tags/Databases/">
+                        <span class="chip bg-color">Databases</span>
                     </a>
                     
                 </div>
@@ -941,6 +1573,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-24
+                    2021-08-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.9k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    11 Min
+                    19 Min
                 </div>
                 
 
@@ -501,35 +501,45 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="dbms-architectures-and-features">DBMS Architectures and Features</h1>
-<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/fc6042f45677a0a668b0bfce82e15c0247f35b69-1616590758018/capture/">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/02/12/2021-02-12-overview/">VUB 4019814ENR Databases</a></p>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/fc6042f45677a0a668b0bfce82e15c0247f35b69-1616590758018/capture/">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17910/files/812563?module_item_id=144793">Slide</a> + Exercise</p>
 <figure>
 <img src="/images/DB/17001700.png" alt="" /><figcaption>Context of Today's Lecture</figcaption>
 </figure>
-<h2 id="dbms-components">DBMS Components</h2>
+<h2 id="dbms-components-管理系统组件">DBMS Components 管理系统组件</h2>
 <ul>
-<li>DML preprocessor
+<li>DML pre-processor
 <ul>
-<li>transforms embedded SQL statements into statements of the host language</li>
-<li>interacts with the query compiler to generate the appropriate host language code</li>
+<li><p>transforms embedded SQL statements into statements of the host language</p>
+<p>将嵌入式 SQL 语句<u>转换为宿主语言的语句</u></p></li>
+<li><p>interacts with the query compiler to generate the appropriate host language code</p>
+<p>与查询编译器交互<u>以生成适当</u>的宿主语言<u>代码</u></p></li>
 </ul></li>
 <li>Query compiler
 <ul>
-<li>transforms queries into a set of low-level instructions (<strong>query plan</strong>) which are forwarded to the database manager component</li>
+<li><p>transforms queries into a set of low-level instructions (<strong>query plan</strong>) which are forwarded to the <u>database manager component</u></p>
+<p>将查询转换为一组低级指令（<strong>查询计划</strong>），这些指令被转发到数据库管理器组件</p></li>
 </ul></li>
 <li>DDL compiler
 <ul>
-<li>converts a set of DDL statements into a set of tables</li>
-<li>tables and metadata are stored in the system catalogue (catalogue manager)</li>
+<li><p>converts a set of DDL statements into a set of <strong>tables</strong></p>
+<p>将一组 DDL 语句转换为一组<strong>表</strong></p></li>
+<li><p>tables and metadata are stored in the system catalogue (catalogue manager)</p>
+<p>表和元数据存储在系统目录中（目录管理器）</p></li>
 </ul></li>
 <li>Catalogue manager
 <ul>
-<li>provides access and manages the system catalogue § used by most DBMS components</li>
+<li><p>provides access and manages the system catalogue § used by most DBMS components</p>
+<p>提供访问和管理大多数 DBMS 组件使用的系统目录</p></li>
 </ul></li>
 <li>Database manager
 <ul>
-<li>processes user-submitted queries</li>
-<li>interfaces with application programs</li>
-<li>contains a set of components
+<li><p>processes user-submitted queries</p>
+<p>处理用户提交的查询</p></li>
+<li><p>interfaces with application programs</p>
+<p>与应用程序的接口</p></li>
+<li><p>contains a set of components</p>
+<p>包含一组组件</p>
 <ul>
 <li>query optimiser</li>
 <li>transaction manager</li>
@@ -537,341 +547,414 @@
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="database-manager-components">Database Manager Components</h3>
+<h3 id="database-manager-components-管理器组件">Database Manager Components 管理器组件</h3>
 <ul>
-<li>Authorisation control
+<li>Authorisation control 授权控制
 <ul>
-<li>checks whether as user has the necessary rights to execute a specific operation</li>
+<li><p>checks whether as user has the necessary rights to execute a specific operation</p>
+<p>检查<strong>用户</strong>是否具有执行特定操作的必要<strong>权限</strong></p></li>
 </ul></li>
-<li>Command processor
+<li>Command processor 命令处理器
 <ul>
-<li>executes the steps of a given query plan handed over by the authorisation control component</li>
+<li><p>executes the steps of a given query plan handed over by the authorisation control component</p>
+<p>执行授权控制组件移交的给定查询计划的步骤</p></li>
 </ul></li>
-<li>Integrity checker
+<li>Integrity checker 完整性检查器
 <ul>
-<li>ensures that the operation is not going to violate any integrity constraints (e.g. key constraints)</li>
+<li><p>ensures that the operation is not going to violate any integrity constraints (e.g. key constraints)</p>
+<p>确保操作不会违反任何完整性约束（例如密钥约束）</p></li>
 </ul></li>
-<li>Query optimiser
+<li>Query optimiser 查询优化器
 <ul>
-<li>computes an optimal query execution strategy</li>
-<li>transforms the initial query plan into the best available sequence of operations on the given data</li>
+<li><p>computes an optimal query execution strategy</p>
+<p>计算最佳查询执行策略</p></li>
+<li><p>transforms the initial query plan into the best available sequence of operations on the given data</p>
+<p>将初始查询计划转换为对给定数据的最佳可用操作序列</p></li>
 </ul></li>
-<li>Transaction manager
+<li>Transaction manager 交易管理器
 <ul>
-<li>processes any transaction-specific operations</li>
+<li><p>processes any transaction-specific operations</p>
+<p>处理任何特定于事务的操作</p></li>
 </ul></li>
-<li>Scheduler
+<li>Scheduler 调度器
 <ul>
-<li>manages the relative order in which transaction operations are executed</li>
+<li><p>manages the relative order in which transaction operations are executed</p>
+<p>管理事务操作执行的相对顺序</p></li>
 </ul></li>
-<li>Recovery manager
+<li>Recovery manager 恢复管理器
 <ul>
-<li>deals with commits and aborts of transaction</li>
-<li>ensures that the database remains in a consistent state in case of failures</li>
+<li><p>deals with commits and aborts of transaction</p>
+<p>处理事务的提交和中止</p></li>
+<li><p>ensures that the database remains in a consistent state in case of failures</p></li>
+<li><p>确保数据库在出现故障时保持一致状态</p></li>
 </ul></li>
-<li>Buffer manager
+<li>Buffer manager 缓冲区管理器
 <ul>
-<li>transfers data between main memory and secondary storage</li>
+<li><p>transfers data between main memory and secondary storage</p>
+<p>在主存储器和辅助存储器之间传输数据</p></li>
 </ul></li>
 </ul>
-<h2 id="dbms-architectures">DBMS Architectures</h2>
-<p>There is a wide variety of different DBMS architectures</p>
+<h2 id="dbms-architectures-系统架构">DBMS Architectures 系统架构</h2>
+<p>有多种不同的 DBMS 架构：</p>
 <ul>
-<li>Teleprocessing</li>
-<li>File-Server Architecture</li>
-<li>Two-Tier Client-Server Architecture</li>
-<li>Three-Tier Client Server Architecture</li>
-<li>N-Tier Architecture</li>
-<li>Peer-to-Peer Architecture</li>
-<li>Distributed DBMS</li>
-<li>Service-Oriented Architecture</li>
-<li>Cloud Architecture</li>
+<li>Teleprocessing 远程处理</li>
+<li>File-Server Architecture 文件服务器架构</li>
+<li>Two-Tier Client-Server Architecture 两层客户端-服务器架构</li>
+<li>Three-Tier Client Server Architecture 三层客户端服务器架构</li>
+<li>N-Tier Architecture N层架构</li>
+<li>Peer-to-Peer Architecture 点对点架构</li>
+<li>Distributed DBMS 分布式数据库管理系统</li>
+<li>Service-Oriented Architecture 面向服务的架构</li>
+<li>Cloud Architecture 云架构</li>
 <li>...</li>
 </ul>
-<h3 id="teleprocessing">Teleprocessing</h3>
+<h3 id="teleprocessing-远程处理">Teleprocessing 远程处理</h3>
 <p><img src="/images/DB/0114110.png" /></p>
 <ul>
-<li>Traditional multi-user system architecture
+<li><p>Traditional multi-user system architecture 传统多用户系统架构</p>
 <ul>
-<li><strong>single mainframe</strong> and <strong>multiple (dumb) terminals</strong></li>
+<li><p><strong>single mainframe</strong> and <strong>multiple (dumb) terminals</strong></p>
+<p><strong>单个主机</strong>和<strong>多个（哑）终端</strong></p></li>
 </ul></li>
-<li>Heavy load on the central mainframe
+<li><p>Heavy load on the central mainframe <strong>中央主机上的重载</strong></p>
 <ul>
-<li>runs application programs and DBMS</li>
-<li>formats data for presentation on terminals</li>
+<li><p>runs application programs and DBMS</p></li>
+<li><p>formats data for presentation on terminals</p>
+<p>格式化数据以在终端上显示</p></li>
 </ul></li>
-<li>Tendency to replace expensive mainframes with network of personal computers (<strong>downsizing</strong>)
+<li><p>Tendency to replace expensive mainframes with network of personal computers (<strong>downsizing</strong>)</p>
+<p>倾向于用个人计算机网络取代昂贵的大型机（<strong>缩小规模</strong>）</p>
 <ul>
-<li>file-server architectures</li>
-<li>client-server architectures</li>
-<li>...</li>
+<li><p>file-server architectures</p>
+<p>文件服务器架构</p></li>
+<li><p>client-server architectures</p>
+<p>客户端-服务器架构</p></li>
+<li><p>...</p></li>
 </ul></li>
 </ul>
-<h3 id="file-server-architecture">File-Server Architecture</h3>
+<h3 id="file-server-architecture-文件服务器架构">File-Server Architecture 文件服务器架构</h3>
 <p><img src="/images/DB/0114111.png" /></p>
 <ul>
 <li><p>A <strong>file-server</strong> is a computer that is connected to a network and mainly serves as a <strong>shared storage</strong></p>
+<p><strong>文件服务器</strong>是连接到网络的计算机，主要用作<strong>共享存储</strong></p>
 <ul>
-<li>e.g. for realising shared access to a database</li>
+<li><p>e.g. for realising <strong>shared access</strong> to a database</p>
+<p>例如用于实现对数据库的共享访问</p></li>
 </ul></li>
 <li><p>In a <strong>file-server architecture</strong> the <strong>processing is distributed</strong> over the network</p>
+<p>在<strong>文件服务器架构</strong>中处理<strong>分布</strong>在网络上</p>
 <ul>
-<li>workstations (application and DBMS) request data (files)</li>
+<li>workstations (application and DBMS) <strong>request</strong> data (files)</li>
 </ul></li>
-<li><p>SQL Request Example</p>
+</ul>
+<p>SQL Request Example</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> street
 <span class="token keyword">FROM</span> Customer<span class="token punctuation">,</span> <span class="token keyword">Order</span>
-<span class="token keyword">WHERE</span> <span class="token keyword">Order</span><span class="token punctuation">.</span>customerID <span class="token operator">=</span> Customer<span class="token punctuation">.</span>customerID <span class="token operator">AND</span> name <span class="token operator">=</span> <span class="token string">'Lebron James'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>Since the file-server is not SQL-aware, the Customer and Order relations (files) have to be transferred to the client</p></li>
-<li><p><strong>Disadvantages</strong></p>
+<span class="token keyword">WHERE</span> <span class="token keyword">Order</span><span class="token punctuation">.</span>customerID <span class="token operator">=</span> Customer<span class="token punctuation">.</span>customerID <span class="token operator">AND</span> name <span class="token operator">=</span> <span class="token string">'Lebron James'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Since the file-server is not SQL-aware, the Customer and Order relations (files) have to be transferred to the client</p>
+<p>由于文件服务器，因此必须将客户和订单关系（文件）传输到客户端</p>
+<p><strong>Disadvantages</strong></p>
 <ul>
-<li><strong>heavy network traffic</strong></li>
-<li><strong>high total costs of ownership</strong> (TCO)
+<li><p><strong>heavy network traffic 网络流量大</strong></p></li>
+<li><p><strong>high total costs of ownership</strong> (TCO)</p>
 <ul>
 <li>maintain a full instance of the DBMS on each client (workstation)</li>
 </ul></li>
-<li>complex integrity, concurrency and recovery control
+<li><p>complex integrity, concurrency and recovery control</p>
+<p>复杂的完整性、并发性和恢复控制</p>
 <ul>
 <li>multiple DBMSs may concurrently access the same shared file</li>
 </ul></li>
-</ul></li>
 </ul>
-<h3 id="two-tier-client-server-architecture">Two-Tier Client-Server Architecture</h3>
+<h3 id="client-server-architectures">Client-server architectures</h3>
+<h4 id="two-tier-client-server-architecture">Two-Tier Client-Server Architecture</h4>
 <p><img src="/images/DB/0114112.png" /></p>
+<p>Application consists of a <strong>client (first tier)</strong> and a <strong>server (second tier)</strong> that might run on different machines</p>
+<p>应用程序由可能运行在不同机器上 的<strong>客户端（第一层）</strong>和<strong>服务器（第二层）组成</strong></p>
 <ul>
-<li>Application consists of a <strong>client (first tier)</strong> and a <strong>server (second tier)</strong> that might run on different machines
+<li><p>clear <strong>separation of concerns</strong> between client and server</p>
+<p>明确<strong>分离</strong>客户端和服务器之间<strong>的关注</strong>点</p></li>
+<li><p><strong>thin client</strong> vs. <strong>thick client</strong></p>
 <ul>
-<li>clear <strong>separation of concerns</strong> between client and server</li>
-<li><strong>thin client</strong> vs. <strong>thick client</strong>
-<ul>
-<li>less or more application logic on the client side</li>
+<li><p>less or more application logic on the client side</p>
+<p>客户端或多或少的应用逻辑</p></li>
 </ul></li>
-</ul></li>
-<li>Supports decentralised business environments</li>
-<li>Client (first tier) tasks
+<li><p>Supports decentralised business environments</p>
+<p>支持去中心化的商业环境</p></li>
+<li><p><strong>Client</strong> (first tier) tasks</p>
 <ul>
-<li><strong>presentation</strong> of data (user interface)</li>
-<li><strong>business</strong> and <strong>data processing logic</strong></li>
-<li>send database requests to the server and process the results</li>
+<li><p><strong>presentation</strong> of data (user interface) 数据<strong>呈现</strong>（用户界面）</p></li>
+<li><p><strong>business</strong> and <strong>data processing logic</strong></p>
+<p><strong>业务</strong>和<strong>数据处理逻辑</strong></p></li>
+<li><p>send database requests to the server and process the results</p>
+<p>向服务器发送数据库请求并处理结果</p></li>
 </ul></li>
-<li>Server (second tier) tasks
+<li><p><strong>Server</strong> (second tier) tasks</p>
 <ul>
-<li>manage (concurrent) database access (<strong>data services</strong>)
+<li><p>manage (concurrent) database access (<strong>data services</strong>)</p>
+<p>管理（并发）数据库访问（<strong>数据服务</strong>）</p>
 <ul>
 <li>authorisation, integrity checks, query/update processing, recovery control, ...</li>
 </ul></li>
-<li>business logic (e.g. <strong>validation of data</strong>)</li>
+<li><p>business logic (e.g. <strong>validation of data</strong>)</p>
+<p>业务逻辑（例如<strong>数据验证</strong>）</p></li>
 </ul></li>
-<li>Different possible client-server topologies
+<li><p>Different possible client-server topologies</p>
 <ul>
 <li>single client and single server</li>
 <li>multiple clients and single server</li>
 <li>multiple clients and multiple servers</li>
 </ul></li>
-<li>Communication between client and server via inter-process communication (IPC) or over network
+<li><p>Communication between client and server via <strong>inter-process communication (IPC)</strong> or over <strong>network</strong></p>
+<p>客户端和服务器之间通过<strong>进程间通信</strong> (IPC) 或<strong>网络</strong>进行通信</p>
 <ul>
-<li>special protocols such as ODBC (JDBC) introduced earlier in the course when discussing the Call Level Interface (CLI)</li>
+<li><p>special protocols such as ODBC (JDBC) introduced earlier in the course when discussing the Call Level Interface (CLI)</p>
+<p>在讨论调用级接口 (CLI) 时在课程前面介绍的特殊协议，例如 ODBC (JDBC)</p></li>
 </ul></li>
-<li><strong>Advantages</strong>
+</ul>
+<p><strong>Advantages</strong></p>
 <ul>
 <li><strong>increased performance</strong>
 <ul>
-<li>certain tasks performed in parallel and server can be tuned for DB processing</li>
+<li><p>certain tasks performed in parallel and server can be tuned for DB processing</p>
+<p>某些任务并行执行，服务器可以针对 DB 处理进行调整</p></li>
 </ul></li>
 <li><strong>reduced communication costs</strong>
 <ul>
-<li>only selected data is transferred</li>
+<li><p>only selected data is transferred</p>
+<p>仅传输选定的数据</p></li>
 </ul></li>
 <li><strong>reduced hardware costs</strong>
 <ul>
-<li>only server has to run a DBMS</li>
+<li><p>only server has to run a DBMS</p>
+<p>只有服务器必须运行 DBMS</p></li>
 </ul></li>
 <li><strong>increased consistency/security</strong> through separation of concerns
 <ul>
-<li>constraint checking in a single place (server)</li>
+<li><p>constraint checking in a single place (server)</p>
+<p>在一个地方（服务器）进行约束检查</p></li>
 </ul></li>
-</ul></li>
-<li><strong>Disadvantages</strong>
+</ul>
+<p><strong>Disadvantages</strong></p>
 <ul>
-<li><strong>limitations</strong> in terms of <strong>enterprise scalability</strong> with thousands of potential clients
+<li><p>Thick client requires a considerable amount of resources (CPU, RAM, ...) to run applications efficiently</p>
+<p>Thick客户端需要大量资源（CPU、RAM 等）才能高效运行应用程序</p></li>
+<li><p><strong>limitations</strong> in terms of <strong>enterprise scalability</strong> with thousands of potential clients</p>
+<p>具有数千个潜在客户 的<strong>企业可扩展性</strong>方面的<strong>限制</strong></p>
 <ul>
-<li>significant client-side administration overhead
+<li><p>significant client-side administration overhead</p>
+<p>大量的客户端管理开销</p>
 <ul>
 <li>e.g. expensive deployment of new business and data application logic</li>
-</ul></li>
-<li>thick client requires a considerable amount of resources (CPU, RAM, ...) to run applications efficiently</li>
+<li>例如新业务和数据应用逻辑的昂贵部署</li>
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="three-tier-client-server-architecture">Three-Tier Client-Server Architecture</h3>
+<h4 id="three-tier-client-server-architecture">Three-Tier Client-Server Architecture</h4>
 <p><img src="/images/DB/0114113.png" /></p>
+<p>In the 1990s, the three-tier client-server architecture was introduced to address the <strong>enterprise scalability</strong> problem - e.g. driven by emerging web applications</p>
+<p>Application consists of a <strong>presentation tier</strong> (client), a <strong>logic tier</strong> (application server) and a <strong>data tier</strong> (database server) that might run on different platforms</p>
+<p>应用程序由可能在不同平台上运行的<strong>表示层</strong>（客户端）、<strong>逻辑层</strong>（应用服务器）和<strong>数据层</strong>（数据库服务器）组成</p>
 <ul>
-<li>In the 1990s, the three-tier client-server architecture was introduced to address the <strong>enterprise scalability</strong> problem
+<li><p><strong>Presentation tier</strong> (first tier) tasks</p>
 <ul>
-<li>e.g. driven by emerging web applications</li>
+<li><p><strong>presentation</strong> of data (user interface)</p></li>
+<li><p>basic input validation (thin client)</p>
+<p>基本输入验证（瘦客户端）</p></li>
+<li><p>send requests to the server and visualise results</p>
+<p>向服务器发送请求并可视化结果</p></li>
 </ul></li>
-<li>Application consists of a <strong>presentation tier</strong> (client), a <strong>logic tier</strong> (application server) and a <strong>data tier</strong> (database server) that might run on different platforms</li>
-<li>Presentation tier (first tier) tasks
+<li><p><strong>Logic tier</strong> (second tier / middle tier) tasks</p>
 <ul>
-<li><strong>presentation</strong> of data (user interface)</li>
-<li>basic input validation (thin client)</li>
-<li>send requests to the server and visualise results</li>
+<li><strong>business logic 业务逻辑</strong></li>
+<li>data processing logic 数据处理逻辑</li>
 </ul></li>
-<li>Logic tier (second tier / middle tier) tasks
+<li><p><strong>Data tier</strong> (third tier) tasks</p>
 <ul>
-<li><strong>business logic</strong></li>
-<li>data processing logic</li>
-</ul></li>
-<li>Data tier (third tier) tasks
-<ul>
-<li>basic data validation</li>
-<li>manage (concurrent) database access (<strong>data services</strong>)
+<li><p>basic data validation 基本数据验证</p></li>
+<li><p>manage (concurrent) database access (<strong>data services</strong>)</p>
+<p>管理（并发）数据库访问（<strong>数据服务</strong>）</p>
 <ul>
 <li>authorisation, integrity checks, query/update processing, recovery control, ...</li>
 </ul></li>
 </ul></li>
-<li><strong>Advantages</strong>
-<ul>
-<li><strong>reduced costs</strong> for thin clients due to lower resource requirements (CPU, RAM, ...)
-<ul>
-<li>e.g. applications running in a web browser</li>
-</ul></li>
-<li>application logic is centralised in a single application server
-<ul>
-<li><strong>reduces</strong> the <strong>software distribution problem</strong> (updates) that is present in two-tier client-server architectures</li>
-</ul></li>
-<li><strong>increased modularity</strong>
-<ul>
-<li>easier to replace one tier without affecting the other tiers</li>
-</ul></li>
-<li><strong>load balancing</strong> becomes easier with a clear separation between the core business logic and the database functionality</li>
-</ul></li>
 </ul>
-<h3 id="web-information-systems-wis">Web Information Systems (WIS)</h3>
+<p><strong>Advantages</strong></p>
+<ul>
+<li><p><strong>reduced costs</strong> for thin clients due to lower resource requirements (CPU, RAM, ...)</p>
+<p>由于较低的资源需求（CPU、RAM 等）而<strong>降低</strong>了瘦客户端的 <strong>成本</strong></p>
+<ul>
+<li><p>e.g. applications running in a web browser</p>
+<p>例如在网络浏览器中运行的应用程序</p></li>
+</ul></li>
+<li><p>application logic is centralised in a single application server</p>
+<p>应用逻辑集中在单个应用服务器中</p>
+<ul>
+<li><p><strong>reduces</strong> the <strong>software distribution problem</strong> (updates) that is present in two-tier client-server architectures</p>
+<p><strong>减少</strong>两层客户端-服务器架构中存在的<strong>软件分发问题</strong>（更新）</p></li>
+</ul></li>
+<li><p><strong>increased modularity 增加模块化</strong></p>
+<ul>
+<li><p>easier to replace one tier without affecting the other tiers</p>
+<p><strong>更容易更换</strong>一层而不影响其他层</p></li>
+</ul></li>
+<li><p><strong>load balancing</strong> becomes easier with a clear separation between the core business logic and the database functionality</p>
+<p>通过明确分离核心业务逻辑和数据库功能，<strong>负载平衡</strong>变得更容易</p></li>
+</ul>
+<h4 id="web-information-systems-wis">Web Information Systems (WIS)</h4>
 <p><img src="/images/DB/0114114.png" /></p>
 <ul>
-<li>The three-tier architecture maps very naturally to web environments
+<li><p>The three-tier architecture maps very naturally to web environments</p>
 <ul>
-<li>browser as a thin client, application server and database server</li>
+<li><p>browser as a thin client, application server and database server</p>
+<p>浏览器作为瘦客户端、应用服务器和数据库服务器</p></li>
 </ul></li>
-<li>The move towards thin browser clients has dramatically reduced the costs for software deployment</li>
+<li><p>The move towards thin browser clients has dramatically reduced the costs for software deployment</p>
+<p>向瘦浏览器客户端的转变极大地降低了软件部署的成本</p></li>
 </ul>
-<h3 id="n-tier-architecture">N-Tier Architecture</h3>
+<h4 id="n-tier-architecture">N-Tier Architecture</h4>
 <p><img src="/images/DB/0114115.png" /></p>
 <p>The three-tier architecture can be extended with additional intermediary tiers for increased flexibility</p>
+<p>三层架构可以通过额外的中间层进行扩展，以提高灵活性</p>
 <ul>
 <li>e.g. separation between web server and application server in the previous web information system example
 <ul>
-<li>increases the flexibility for load balancing by introducing multiple web servers</li>
-<li>only dynamic content delivered by the application server whereas static content is directly managed by the web server</li>
+<li><p>increases the flexibility for load balancing by introducing multiple web servers</p>
+<p>通过引入多个 Web 服务器来提高负载平衡的灵活性</p></li>
+<li><p>only dynamic content delivered by the application server whereas static content is directly managed by the web server</p>
+<p>仅由应用服务器提供动态内容，而静态内容由 Web 服务器直接管理</p></li>
 </ul></li>
 </ul>
-<h3 id="peer-to-peer-architecture">Peer-to-Peer Architecture</h3>
+<h3 id="peer-to-peer-architecture-点对点架构">Peer-to-Peer Architecture 点对点架构</h3>
 <p><img src="/images/DB/0114116.png" /></p>
 <ul>
-<li>Systems exchanging information and services in a <strong>peer-to-peer-like manner</strong> without a central authority
+<li><p>Systems exchanging information and services in a <strong>peer-to-peer-like manner</strong> without a central authority</p>
+<p>在<strong>没有中央权威</strong>的情况下以 <strong>类似点对点的方式</strong>交换信息和服务的系统</p>
 <ul>
-<li>no global schema → need for schema integration (matching)</li>
+<li><p>no global schema → need for schema integration (matching)</p>
+<p>没有全局模式 → 需要模式集成（匹配）</p></li>
 </ul></li>
-<li>Data and service sharing
+<li><p>Data and service sharing 数据和服务共享</p>
 <ul>
-<li>no dedicated clients and servers</li>
-<li>sites may dynamically form new client/server relationships</li>
+<li><p>no dedicated clients and servers</p>
+<p>没有专用的客户端和服务器</p></li>
+<li><p>sites may dynamically form new client/server relationships</p>
+<p>站点可能会动态形成新的客户端/服务器关系</p></li>
 </ul></li>
 </ul>
-<h2 id="middleware">Middleware</h2>
+<h2 id="middleware-中间件">Middleware 中间件</h2>
+<p>Software that connects (mediates) between software components or applications</p>
+<p>在软件组件或应用程序之间连接（中介）的软件</p>
 <ul>
-<li>Software that connects (mediates) between software components or applications
+<li><p><strong>hide complexity</strong> of heterogenous and distributed components (e.g. servers) and provide a uniform interface</p>
+<p><strong>隐藏</strong>异构和分布式组件（例如服务器）的<strong>复杂</strong>性并提供统一的接口</p></li>
+</ul>
+<p>存在不同类型的中间件： - <strong>remote procedure call 远程过程调用 (RPC)</strong></p>
 <ul>
-<li><strong>hide complexity</strong> of heterogenous and distributed components (e.g. servers) and provide a uniform interface</li>
+<li><p>Java RMI</p></li>
+<li><p>CORBA</p></li>
+<li><p>XML RPC</p></li>
+<li><p>asynchronous <strong>publish/subscribe</strong></p>
+<p>异步<strong>发布/订阅</strong></p>
+<ul>
+<li><p>subscribe for different types of messages</p>
+<p>订阅不同类型的消息</p></li>
 </ul></li>
-<li>There exist different types of middleware
-<ul>
-<li><strong>remote procedure call (RPC)</strong>
-<ul>
-<li>Java RMI</li>
-<li>CORBA</li>
-<li>XML RPC</li>
-</ul></li>
-<li>asynchronous <strong>publish/subscribe</strong>
-<ul>
-<li>subscribe for different types of messages</li>
-</ul></li>
-<li><strong>SQL-oriented data access</strong>
+<li><p><strong>SQL-oriented data access</strong></p>
+<p>面向 SQL 的数据访问</p>
 <ul>
 <li>open database connectivity (ODBC), JDBC, ...</li>
 </ul></li>
-<li>...</li>
-</ul></li>
+<li><p>...</p></li>
 </ul>
-<h2 id="transaction-processing-monitor">Transaction Processing Monitor</h2>
+<h3 id="transaction-processing-monitor-事务处理监视器">Transaction Processing Monitor 事务处理监视器</h3>
 <p><img src="/images/DB/0114117.png" /></p>
-<ul>
-<li>Complex applications can be built on top of several resource managers
+<p>Complex applications can be built on top of several resource managers</p>
+<p>复杂的应用程序可以构建在多个资源管理器之上</p>
 <ul>
 <li>e.g. multiple DBMSs, operating systems, ...</li>
-</ul></li>
-<li>A Transaction Processing Monitor (<strong>TP Monitor</strong>) is a middleware component that provides <strong>uniform access</strong> to the services of a number of resource managers</li>
-<li>A TP Monitor offers a number of advantages
+</ul>
+<p>A Transaction Processing Monitor (<strong>TP Monitor</strong>) is a middleware component that provides <strong>uniform access</strong> to the services of a number of resource managers</p>
+<p>事务处理监视器 ( <strong>TP Monitor</strong> ) 是一个中间件组件，它提供对许多资源管理器服务的<strong>统一访问</strong>。</p>
+<p>A TP Monitor offers a number of advantages</p>
+<p><strong>Advantages</strong></p>
 <ul>
-<li><strong>transaction routing</strong>
+<li><p><strong>transaction routing 交易路由</strong></p>
 <ul>
-<li>increase scalability by directing transactions to specific DBMSs</li>
+<li><p>increase scalability by directing transactions to specific DBMSs</p>
+<p>通过将事务定向到特定 DBMS 来提高可扩展性</p></li>
 </ul></li>
-<li><strong>distributed transaction management</strong>
+<li><p><strong>distributed transaction management 分布式事务管理</strong></p>
 <ul>
-<li>manage transactions that require access to multiple heterogeneous DBMSs</li>
-<li>e.g. based on <strong>XA standard</strong> for distributed transaction processing</li>
+<li><p>manage transactions that require access to multiple heterogeneous DBMSs</p>
+<p>管理需要访问多个异构 DBMS 的事务</p></li>
+<li><p>e.g. based on <strong>XA standard</strong> for distributed transaction processing</p>
+<p>例如基于分布式事务处理的<strong>XA 标准</strong></p></li>
 </ul></li>
-<li><strong>load balancing</strong>
+<li><p><strong>load balancing 负载均衡</strong></p>
 <ul>
-<li>balance requests across multiple DBMSs by directing to least loaded server</li>
+<li><p>balance requests across multiple DBMSs by directing to least loaded server</p>
+<p>通过定向到负载最少的服务器来<strong>平衡</strong>多个 DBMS 之间的<strong>请求</strong></p></li>
 </ul></li>
-<li>funnelling
+<li><p>funnelling 漏斗</p>
 <ul>
-<li>establish connections with DBMSs and funnel user requests through these connections thereby <u><strong>reducing the number of required connections</strong></u></li>
+<li><p>establish connections with DBMSs and funnel user requests through these connections thereby <u><strong>reducing the number of required connections</strong></u></p>
+<p>与 DBMS 建立连接并通过这些连接收集用户请求，从而<strong>减少所需的连接数</strong></p></li>
 </ul></li>
-<li><strong>increased reliability</strong>
+<li><p><strong>increased reliability 提高可靠性</strong></p>
 <ul>
-<li>if a DBMS fails, the TP monitor can resubmit the request to another DBMS or hold the transaction request until the DBMS becomes available and resubmit</li>
-</ul></li>
+<li><p>if a DBMS fails, the TP monitor can resubmit the request to another DBMS or hold the transaction request until the DBMS becomes available and resubmit</p>
+<p>如果一个 DBMS 出现故障，TP 监视器可以将请求重新提交给另一个 DBMS 或保留事务请求，直到 DBMS 可用并重新提交</p></li>
 </ul></li>
 </ul>
-<h2 id="parallel-database-architectures">Parallel Database Architectures</h2>
+<h2 id="parallel-database-architectures-并行数据库架构">Parallel Database Architectures 并行数据库架构</h2>
 <p><img src="/images/DB/0114118.png" /></p>
+<p>Parallel machines (multiple processors) can be used to speed up the transaction processing 并行机（多处理器）可用于加速事务处理</p>
+<p>Different models for parallel database architectures</p>
+<p>并行数据库架构的不同模型:</p>
 <ul>
-<li>Parallel machines (multiple processors) can be used to speed up the transaction processing</li>
-<li>Different models for parallel database architectures
+<li><p><strong>Shared memory</strong></p>
 <ul>
-<li><strong>shared memory</strong>, <strong>shared disk</strong>, <strong>shared nothing</strong> and <strong>hierarchical</strong></li>
+<li><p>processors and disks have access to a shared memory via a bus</p>
+<p>处理器和磁盘可以通过总线访问共享内存</p></li>
+<li><p><strong>very efficient</strong> communication between processors</p>
+<p>处理器之间<strong>非常有效的</strong>通信</p></li>
+<li><p><strong>not scalable</strong> since memory bus becomes a bottleneck</p>
+<p><strong>不可扩展，</strong>因为内存总线成为瓶颈</p></li>
 </ul></li>
-<li>Shared memory
+<li><p><strong>Shared disk</strong></p>
 <ul>
-<li>processors and disks have access to a shared memory via a bus</li>
-<li><strong>very efficient</strong> communication between processors</li>
-<li><strong>not scalable</strong> since memory bus becomes a bottleneck</li>
+<li><p>all processors can access all disks via an interconnection network</p>
+<p>所有处理器都可以通过互连网络访问所有磁盘</p></li>
+<li><p>each processor has its own memory</p>
+<p>每个处理器都有自己的内存</p></li>
+<li><p>certain degree of fault tolerance if processor/memory fails</p>
+<p>如果处理器/内存出现故障，则具有一定程度的容错能力</p></li>
+<li><p>also disks maybe have <strong>fault tolerance</strong> (e.g. RAID architecture)</p>
+<p>磁盘也可能具有<strong>容错能力</strong>（例如 RAID 架构）</p></li>
+<li><p>interconnection to the disk systems becomes bottleneck</p>
+<p>与磁盘系统的互连成为瓶颈</p></li>
 </ul></li>
-<li>Shared disk
+<li><p><strong>Shared nothing</strong></p>
 <ul>
-<li>all processors can access all disks via an interconnection network</li>
-<li>each processor has its own memory</li>
-<li>certain degree of fault tolerance if processor/memory fails</li>
-<li>also disks maybe have <strong>fault tolerance</strong> (e.g. RAID architecture)</li>
-<li>interconnection to the disk systems becomes bottleneck</li>
+<li><p>each node consists of a processor, memory and one or more disks</p>
+<p>每个节点由处理器、内存和一个或多个磁盘组成</p></li>
+<li><p>high-speed interconnection network between processors</p>
+<p>处理器之间的<strong>高速互连网络</strong></p></li>
+<li><p>more scalable than shared memory or shared disk model</p>
+<p>比共享内存或共享磁盘模型更具可扩展性</p></li>
+<li><p><strong>increased</strong> communication <strong>costs for non-local disk access</strong></p>
+<p><strong>非本地磁盘访问的</strong>通信<strong>成本增加</strong></p></li>
 </ul></li>
-<li>Shared nothing
+<li><p><strong>Hierarchical</strong></p>
 <ul>
-<li>each node consists of a processor, memory and one or more disks</li>
-<li>high-speed interconnection network between processors</li>
-<li>more scalable than shared memory or shared disk model</li>
-<li><strong>increased</strong> communication <strong>costs for non-local disk access</strong></li>
-</ul></li>
-<li>Hierarchical
+<li><p>combines the different models (composition)</p>
+<p>组合不同的模型（组合）</p></li>
+<li><p><strong>top level is shared nothing between nodes</strong></p>
+<p><strong>顶级节点之间不共享任何内容</strong></p>
 <ul>
-<li>combines the different models (composition)</li>
-<li>top level is shared nothing between nodes
-<ul>
-<li>each node can be a shared memory or shared disk "subsystem"</li>
+<li><p>each node can be a shared memory or shared disk "subsystem"</p>
+<p>每个节点都可以是共享内存或共享磁盘“子系统”</p></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -880,64 +963,75 @@
 <ul>
 <li>Distributed database
 <ul>
-<li><strong>logically related</strong> collection of <strong>shared data and metadata</strong> that is distributed over a network</li>
+<li><p><strong>logically related</strong> collection of <strong>shared data and metadata</strong> that is distributed over a network</p>
+<p>分布在网络上的<strong>共享数据和元数据的逻辑相关</strong>集合</p></li>
 </ul></li>
 <li>Distributed DBMS
 <ul>
-<li>software system to <strong>manage</strong> the <u>distributed database in a transparent way</u></li>
+<li><p>software system to <strong>manage</strong> the <u>distributed database in a transparent way</u></p>
+<p>软件系统来<strong>管理</strong>在以透明的方式分布式数据库</p></li>
 </ul></li>
-<li>Distinction between <strong>local</strong> and <strong>global transactions</strong>
+</ul>
+<h3 id="distinction-between-local-and-global-transactions">Distinction between local and global transactions</h3>
+<p><strong>本地</strong>事务和<strong>全局</strong>事务的区别</p>
 <ul>
 <li><strong>local transaction</strong>
 <ul>
-<li>accesses only data from the site from which the transaction was initiated</li>
+<li><p>accesses only data from the site from which the transaction was initiated</p>
+<p>仅访问发起交易的站点的数据</p></li>
 </ul></li>
 <li>global transaction
 <ul>
-<li>accesses data from several different sites</li>
+<li><p>accesses data from several different sites</p>
+<p>访问来自多个不同站点的数据</p></li>
 </ul></li>
-</ul></li>
-<li>Reasons for building a distributed DBMS
+</ul>
+<h3 id="reasons-for-building-a-distributed-dbms">Reasons for building a distributed DBMS</h3>
 <ul>
-<li><strong>data sharing</strong>
+<li><p><strong>data sharing 数据共享</strong></p>
 <ul>
-<li>possibility to access data that resides at other sides</li>
+<li><p>possibility to access data that resides at other sides</p>
+<p>访问驻留在其他方的数据的可能性</p></li>
 </ul></li>
-<li><strong>autonomy</strong>
+<li><p><strong>autonomy 自治</strong></p>
 <ul>
-<li>each site retains a certain degree of control over the local data</li>
+<li><p>each site retains a certain degree of control over the local data</p>
+<p>每个站点对本地数据保留一定程度的控制权</p></li>
 </ul></li>
-<li><strong>availability</strong>
+<li><p><strong>availability 可用性</strong></p>
 <ul>
-<li>if one site fails the other sites may still be able to continue operating</li>
-<li>data might be <strong>replicated</strong> at several sites for increased availability</li>
+<li><p>if one site fails the other sites may still be able to continue operating</p>
+<p>如果一个站点出现故障，其他站点可能仍然能够继续运行</p></li>
+<li><p>data might be <strong>replicated</strong> at several sites for increased availability</p>
+<p>数据可能会在多个站点<strong>复制</strong>以提高可用性</p></li>
 </ul></li>
-</ul></li>
-<li>Reasons for building a distributed DBMS ...
+<li><p><strong>costs and scalability 成本和可扩展性</strong></p>
 <ul>
-<li><strong>costs and scalability</strong>
-<ul>
-<li>use cluster of PCs instead of large mainframe systems</li>
+<li><p>use cluster of PCs instead of large mainframe systems</p>
+<p>使用 PC 集群而不是大型主机系统</p></li>
 </ul></li>
-<li><strong>integration of existing DBMS</strong>
+<li><p><strong>integration of existing DBMS 现有 DBMS 的集成</strong></p>
 <ul>
-<li>coexistence of legacy systems with new applications</li>
+<li><p>coexistence of legacy systems with new applications</p>
+<p>遗留系统与新应用程序的共存</p></li>
 </ul></li>
-<li><strong>dynamic organisational structure</strong>
+<li><p><strong>dynamic organisational structure 动态组织结构</strong></p>
 <ul>
 <li>mergers and acquisitions</li>
 </ul></li>
-</ul></li>
-<li>Implementation issues
+</ul>
+<h3 id="implementation-issues">Implementation issues</h3>
 <ul>
-<li>transactions have to be executed atomically across different sites (two-phase commit protocol)
+<li><p>transactions have to be executed atomically across different sites (two-phase commit protocol)</p>
+<p>事务必须在不同的站点上以原子方式执行（两阶段提交协议）</p>
 <ul>
-<li>commit decision is left to a single <strong>coordinator</strong></li>
+<li><p>commit decision is left to a single <strong>coordinator</strong></p>
+<p>提交决定留给<strong>单个</strong>协调员</p></li>
 </ul></li>
-<li>distributed concurrency control
+<li><p>distributed concurrency control 分布式并发控制</p>
 <ul>
-<li>deadlock detection has to be carried out across multiple sites</li>
-</ul></li>
+<li><p><strong>deadlock</strong> detection has to be carried out across multiple sites</p>
+<p>必须跨多个站点进行<strong>死锁检测</strong></p></li>
 </ul></li>
 </ul>
 <h2 id="service-oriented-architectures-soa">Service-Oriented Architectures (SOA)</h2>
@@ -969,48 +1063,51 @@
 <li>e.g. Business Process Execution Language (<strong>BPEL)</strong></li>
 </ul></li>
 </ul>
-<h2 id="cloud-computing">Cloud Computing</h2>
+<h2 id="cloud-computing-云计算">Cloud Computing 云计算</h2>
 <p><img src="/images/DB/0114120.png" /></p>
+<p><strong><u>Internet-based computing with on-demand and pay-per-use access to shared resources, data and software</u></strong></p>
+<p><strong>基于 Internet 的计算，可按需和按使用付费访问共享资源、数据和软件</strong></p>
 <ul>
-<li><strong><u>Internet-based computing with on-demand and pay-per-use access to shared resources, data and software</u></strong></li>
 <li>Main characteristics
 <ul>
 <li><strong>web-based access</strong> (e.g. Web Service API or browser)</li>
 <li>pay only for the services that are actually used (<strong>pay-per-use</strong>)</li>
 <li><strong>no initial investment</strong> (e.g. for resources) required</li>
 </ul></li>
-<li>Cloud services
+</ul>
+<h3 id="cloud-services">Cloud services</h3>
 <ul>
-<li><strong>infrastructure as a service (IaaS)</strong>
+<li><p><strong>infrastructure as a service (IaaS)</strong></p>
 <ul>
-<li>OS virtualisation</li>
-<li>e.g. Amazon EC2, Rackspace, ...</li>
+<li><p>OS virtualisation</p>
+<p>操作系统虚拟化</p></li>
+<li><p>e.g. Amazon EC2, Rackspace, ...</p></li>
 </ul></li>
-<li><strong>platform as a service (PaaS)</strong>
+<li><p><strong>platform as a service (PaaS)</strong></p>
 <ul>
-<li>provide platform to run applications</li>
-<li>e.g. Google App Engine, Windows Azure Platform, ...</li>
+<li><p>provide platform to run applications</p>
+<p>提供运行应用程序的平台</p></li>
+<li><p>e.g. Google App Engine, Windows Azure Platform, ...</p></li>
 </ul></li>
-<li><strong>software as a service (SaaS)</strong>
+<li><p><strong>software as a service (SaaS)</strong></p>
 <ul>
-<li>provide software as a service over the Internet</li>
-<li>e.g. Google Docs, ...</li>
+<li><p>provide software as a service over the Internet</p>
+<p>通过 Internet 提供软件即服务</p></li>
+<li><p>e.g. Google Docs, ...</p></li>
 </ul></li>
-</ul></li>
-<li>Cloud service vendor gets some degree of control</li>
-<li>New challenges for database management in cloud computing
+</ul>
+<p>Cloud service vendor gets some degree of control</p>
+<p>云服务供应商获得一定程度的控制权</p>
+<h3 id="challenges">Challenges</h3>
+<p>New challenges for database management in cloud computing</p>
 <ul>
-<li>cloud database server might be less reliable
+<li>cloud database server might be <strong>less reliable</strong>
 <ul>
 <li>might become difficult to guarantee a specific quality of service (QoS) for an application realised in the cloud</li>
 </ul></li>
 <li>backup, replication, ...</li>
-</ul></li>
-<li>Online or web-based databases
-<ul>
-<li>store data in the cloud or on servers on the Internet</li>
-</ul></li>
 </ul>
+<p>Online or web-based databases - store data in the cloud or on servers on the Internet</p>
 <h3 id="cloud-data-service-example">Cloud Data Service Example</h3>
 <ul>
 <li>Amazon Simple Storage Service (Amazon S3)
