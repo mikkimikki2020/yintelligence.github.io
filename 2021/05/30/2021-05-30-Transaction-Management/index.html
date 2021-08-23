@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-20
+                    2021-08-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.6k
+                    5.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    16 Min
+                    25 Min
                 </div>
                 
 
@@ -502,162 +502,203 @@
             <div id="articleContent">
                 <h1 id="transaction-management">Transaction Management</h1>
 <p><a href="https://yintelligence.tech/2021/02/12/2021-02-12-overview/">VUB 4019814ENR Databases</a></p>
-<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/4ac87ee353d7b26404030ceda6836736c1386c1d-1620215941904/capture/">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17910/files/827522?module_item_id=146920">Slide</a></p>
-<h2 id="transaction">Transaction</h2>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/4ac87ee353d7b26404030ceda6836736c1386c1d-1620215941904/capture/">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17910/files/827522?module_item_id=146920">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17910/files/853062?module_item_id=149929">Extra</a></p>
+<h2 id="transaction-交易">Transaction 交易</h2>
+<ul>
+<li><p>A transaction is a <strong><em>sequence of operations</em></strong> that form a <strong><em>single unit of work</em></strong></p>
+<p>事务是形成<strong>单个工作单元</strong>的一系列操作</p></li>
+<li><p>A transaction is often initiated by an <strong>application program</strong></p>
+<p>事务通常由<strong>应用程序</strong>发起</p></li>
+</ul>
 <p><strong>Example</strong>: Ariane Peters wants to transfer 700 Euro from her bank account (314-229) to her landlord's account (889-752)</p>
+<p><strong>示例</strong>：Ariane Peters 想将 700 欧元从她的银行账户 (314-229) 转入她房东的账户 (889-752)</p>
 <p><img src="/images/DB/1730050.png" /></p>
-<p>A transaction is a <strong><em>sequence of operations</em></strong> that form a <strong><em>single unit of work</em></strong></p>
-<p>A transaction is often initiated by an application program</p>
 <ul>
 <li><p>begin a transaction</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">START</span> <span class="token keyword">TRANSACTION</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>end a transaction</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">COMMIT</span> <span class="token punctuation">(</span><span class="token keyword">if</span> successful<span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token keyword">ROLLBACK</span> <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token keyword">errors</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>A transaction T<sub>i</sub> <strong><em>transforms one consistent</em></strong> database state <strong><em>into another consistent</em></strong> database <strong><em>state</em></strong></p></li>
+</ul>
+<p>事务 T<sub>i</sub> 将一种一致的数据库状态<u>转换为另一种一致的数据库状态</u></p>
 <ul>
-<li>``` START TRANSACTION <pre class="line-numbers language-none"><code class="language-none">
-- end a transaction
-
-  - &#96;&#96;&#96;
-    COMMIT (if successful) or ROLLBACK (if errors)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> A transaction T<sub>i</sub> <strong><em>transforms one consistent</em></strong> database state <strong><em>into another consistent</em></strong> database <strong><em>state</em></strong></li>
-</ul></li>
-<li><p>during the execution of <em>T<sub>i</sub></em> the DB <u>may be temporarily inconsistent</u></p></li>
+<li><p>during the execution of <em>T<sub>i</sub></em> the DB <u>may be temporarily inconsistent</u></p>
+<p>在<em>T<sub>i</sub></em>的执行过程中，DB<u>可能会<strong>暂时不一致</strong></u></p></li>
 </ul>
 <p>Either the whole transaction must succeed or the effect of all operations has to be undone (<strong><em>rollback</em></strong>)</p>
+<p><strong>要么</strong>整个事务<strong>必须成功</strong>，<strong>要么必须撤消</strong>所有操作的效果（<strong>回滚</strong>）</p>
+<h3 id="problem">Problem</h3>
 <p>There are two main transaction <strong>issues</strong></p>
 <ol type="1">
-<li><strong>concurrent execution</strong> of multiple transactions</li>
-<li><strong>recovery</strong> after hardware failures and system crashes</li>
+<li><p><strong>concurrent execution</strong> of multiple transactions</p>
+<p>多个事务的<strong>并发</strong>执行</p></li>
+<li><p><strong>recovery</strong> after hardware failures and system crashes</p>
+<p>硬件故障和系统崩溃后的<strong>恢复</strong></p></li>
 </ol>
-<p>In many SQL implementations, each SQL statement is a transaction on its own</p>
+<p>In many SQL implementations, each SQL statement is a <strong>transaction</strong> on its own</p>
+<p>在许多 SQL 实现中，每个 SQL 语句本身就是一个<strong>事务transaction</strong></p>
 <ul>
-<li><p>this default behaviour can be disabled</p></li>
-<li><p>SQL:1999 introduced BEGIN ATOMIC ... END blocks</p>
-<blockquote>
-<p>see earlier SQL and Advanced SQL lectures for more details</p>
-</blockquote></li>
+<li><p>this default behaviour can be disabled</p>
+<p>可以禁用此默认行为</p></li>
+<li><p>SQL:1999 introduced <code>BEGIN ATOMIC ... END</code> blocks</p></li>
 </ul>
 <p>To preserve the integrity of data, the DBMS has to ensure that the so-called <strong><u>ACID properties</u></strong> are fulfilled for any transaction</p>
+<p>为了保持数据的完整性，DBMS 必须确保任何事务都满足所谓的<strong>ACID 属性</strong></p>
 <h2 id="acid-properties">ACID Properties</h2>
 <ul>
-<li><em>Atomicity</em>
+<li><p><strong><em>Atomicity</em> 原子性</strong></p>
 <ul>
-<li>either all operations of a transaction are reflected in the database or none of them (<strong>all or nothing</strong>)</li>
+<li><p>either all operations of a transaction are reflected in the database or none of them (<strong>all or nothing</strong>)</p>
+<p>要么事务的所有操作都反映在数据库中，要么都不反映（<strong>全部或全部</strong>）</p></li>
 </ul></li>
-<li><em>Consistency</em>
+<li><p><strong><em>Consistency</em> 一致性</strong></p>
 <ul>
-<li>if the database was is a consistent state before the transaction started, it will be in a <u><strong>consistent</strong> state after the transaction</u> has been executed</li>
+<li><p>if the database was is a consistent state before the transaction started, it will be in a <u><strong>consistent</strong> state after the transaction</u> has been executed</p>
+<p>如果数据库在事务开始之前是<strong>一致</strong>状态，那么在事务执行之后它就会处于<strong>一致</strong>状态</p></li>
 </ul></li>
-<li><em>Isolation</em>
+<li><p><strong><em>Isolation</em> 隔离性</strong></p>
 <ul>
-<li>if transactions are executed in parallel, the <u>effects of an ongoing transaction</u> must <strong>not</strong> be <strong>visible</strong> to other transactions</li>
+<li><p>if transactions are executed in parallel, the <u>effects of an ongoing transaction</u> must <strong>not</strong> be <strong>visible</strong> to other transactions</p>
+<p>如果交易是并行执行的，在一个正在进行交易的效果一定<strong>不会</strong>是<strong>可见的</strong>其他事务</p></li>
 </ul></li>
-<li><em>Durability</em>
+<li><p><strong><em>Durability</em> 耐用性</strong></p>
 <ul>
-<li>after a transaction finished successfully, its <strong>changes are persistent</strong> and will not be lost (e.g. on system failure)</li>
+<li><p>after a transaction finished successfully, its <strong>changes are persistent</strong> and will not be lost (e.g. on system failure)</p>
+<p>事务成功完成后，其<strong>更改是持久的</strong>，不会丢失（例如在系统故障时）</p></li>
 </ul></li>
 </ul>
-<h3 id="money-transfer-example-revisited">Money Transfer Example Revisited</h3>
+<h3 id="money-transfer-example-revisited-汇款示例">Money Transfer Example Revisited 汇款示例</h3>
 <ul>
 <li><p>Transaction to transfer money from account A to B</p>
-<pre class="line-numbers language-none"><code class="language-none">1. start transaction
-2. read(A)
-3. A &#x3D; A-700
-4. write(A)
-5. read(B)
-6. B &#x3D; B+700
-7. write(B)
-8. commit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1.</span> <span class="token keyword">start</span> <span class="token keyword">transaction</span>
+<span class="token number">2.</span> <span class="token keyword">read</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+<span class="token number">3.</span> A <span class="token operator">=</span> A<span class="token operator">-</span><span class="token number">700</span>
+<span class="token number">4.</span> <span class="token keyword">write</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+<span class="token number">5.</span> <span class="token keyword">read</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span>
+<span class="token number">6.</span> B <span class="token operator">=</span> B<span class="token operator">+</span><span class="token number">700</span>
+<span class="token number">7.</span> <span class="token keyword">write</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span>
+<span class="token number">8.</span> <span class="token keyword">commit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Atomicity</p>
 <ul>
-<li>if the transaction fails after step 4 but before step 8, the updates on A should not be reflected in the database (rollback)</li>
+<li><p>if the transaction fails after step 4 but before step 8, the updates on A should not be reflected in the database (<strong>rollback</strong>)</p>
+<p>如果事务在步骤 4 之后但在步骤 8 之前失败，则 A 上的更新不应反映在数据库中（<strong>回滚</strong>）</p></li>
 </ul></li>
 <li><p>Consistency</p>
 <ul>
-<li>the sum of A and B should not be changed by the transaction</li>
+<li><p>the sum of A and B should not be changed by the transaction</p>
+<p>A 和 B 的总和不应被交易改变</p></li>
 </ul></li>
 <li><p>Isolation</p>
 <ul>
-<li>if another transaction is going to access the partially updated database between step 4 and 7, it will see an inconsistent database (with a sum of A and B which is less than it should be)</li>
+<li><p>if another transaction is going to access the partially updated database between step 4 and 7, it will see an inconsistent database (with a sum of A and B which is less than it should be)</p>
+<p>如果另一个事务将在步骤 4 和 7 之间访问部分更新的数据库，它将看到不一致的数据库（A 和 B 的总和小于应有的值）</p></li>
 </ul></li>
 <li><p>Durability</p>
 <ul>
-<li>once the money has been transferred from A to B (commit), the effect of the transaction must persist
+<li><p>once the money has been transferred from A to B (commit), the effect of the transaction must persist</p>
+<p>一旦资金从 A 转移到 B（提交），交易的效果必须持续存在</p>
 <ul>
-<li>the only way to "undo" a committed transaction is to execute a compensating transaction</li>
+<li><p>the only way to "undo" a committed transaction is to execute a <strong>compensating transaction</strong></p>
+<p>“撤消”已提交事务的唯一方法是<strong>执行补偿事务</strong></p></li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="transaction-states">Transaction States</h2>
+<h2 id="transaction-states-交易状态">Transaction States 交易状态</h2>
 <p><img src="/images/DB/1730051.png" /></p>
 <ul>
-<li><em>Active</em>
+<li><p><strong><em>Active</em> 主动</strong></p>
 <ul>
-<li>initial state; transaction is in this state while executing</li>
+<li><p>initial state; transaction is in this state while executing</p>
+<p>初始状态；事务在执行时处于此状态</p></li>
 </ul></li>
-<li><em>Partially committed</em>
+<li><p><strong><em>Partially committed</em></strong></p>
 <ul>
-<li>after the last statement has been executed</li>
+<li><p>after the last statement has been executed</p>
+<p>执行完最后一条语句后</p></li>
 </ul></li>
-<li><em>Committed</em>
+<li><p><strong><em>Committed</em></strong></p>
 <ul>
-<li>after successful completion</li>
+<li><p>after successful completion</p>
+<p>成功完成后</p></li>
 </ul></li>
-<li><em>Failed</em>
+<li><p><strong><em>Failed</em> 失败</strong></p>
 <ul>
-<li>after discovery that a normal execution is no longer possible - logical error (e.g. bad input), system error (e.g. deadlock) or system crash</li>
+<li><p>after discovery that a normal execution is no longer possible</p>
+<p>在发现不再可能正常执行后</p>
+<ul>
+<li><p>logical error (e.g. bad input)</p>
+<p>逻辑错误（例如错误输入）</p></li>
+<li><p>system error (e.g. deadlock)</p>
+<p>系统错误（例如死锁）</p></li>
+<li><p>system crash</p>
+<p>或系统崩溃</p></li>
 </ul></li>
-<li><em>Aborted</em>
+</ul></li>
+<li><p><strong><em>Aborted</em> 中止</strong></p>
 <ul>
 <li>after the rollback of a transaction</li>
 </ul></li>
 </ul>
-<h2 id="transaction-management-1">Transaction Management</h2>
+<h2 id="transaction-management-components-组件">Transaction Management Components 组件</h2>
 <ul>
-<li>Transaction Manager
+<li><p><strong>Transaction Manager 交易经理</strong></p>
 <ul>
-<li>ensures that we proceed from one consistent state to another consistent state (<strong><em>database consistency</em></strong>)</li>
-<li>ensures that transactions will not violate integrity constraints</li>
+<li><p>ensures that we proceed from one consistent state to another consistent state (<strong><em>database consistency</em></strong>)</p>
+<p>确保我们从一种一致状态进入另一种一致状态（数据库<strong>一致性</strong>）</p></li>
+<li><p>ensures that transactions will not violate integrity constraints</p>
+<p>确保事务不会违反完整性约束</p></li>
 </ul></li>
-<li>Scheduler
+<li><p><strong>Scheduler 调度器</strong></p>
 <ul>
-<li>provides a specific strategy for the execution of transactions and the corresponding <strong><em>concurrency control</em></strong></li>
-<li>avoids or resolves conflicts during concurrent data access</li>
+<li><p>provides a specific strategy for the execution of transactions and the corresponding <strong><em>concurrency control</em></strong></p>
+<p>提供了具体的事务执行策略和相应的<strong>并发控制</strong></p></li>
+<li><p>avoids or resolves conflicts during concurrent data access</p>
+<p>避免或解决并发数据访问期间的冲突</p></li>
 </ul></li>
-<li>Recovery Manager
+<li><p><strong>Recovery Manager 恢复管理器</strong></p>
 <ul>
-<li><strong><em>restore the database</em></strong> to the state it was in before a failure occurred (e.g. due to software bug or hardware problem) while executing one or multiple transactions</li>
+<li><p><strong><em>restore the database</em></strong> to the state it was in before a failure occurred (e.g. due to software bug or hardware problem) while executing one or multiple transactions</p>
+<p>在执行一个或多个事务时将数据库<strong>恢复</strong>到发生故障之前的状态（例如，由于软件错误或硬件问题）</p></li>
 </ul></li>
 </ul>
-<h2 id="scheduler">Scheduler</h2>
-<ul>
-<li><strong><em>Serial execution</em></strong> of transactions
+<h3 id="scheduler-调度器">Scheduler 调度器</h3>
+<h4 id="serial-execution-串行执行">Serial execution 串行执行</h4>
+<p><strong><em>Serial execution</em></strong> of transactions 串行执行</p>
 <ul>
 <li>each operation within a transaction can be executed atomically</li>
 <li>any <strong><em>serial execution</em></strong> of a set of transactions T<sub>1</sub>,..., T<sub>n</sub> by different users is regarded as a <strong><em>correct result</em></strong></li>
-</ul></li>
-<li><strong><em>Parallel execution</em></strong> of transactions
+</ul>
+<h4 id="parallel-execution-并行执行">Parallel execution 并行执行</h4>
+<p><strong><em>Parallel execution</em></strong> of transactions 并行执行</p>
 <ul>
-<li>improves the throughput and resource utilisation as well as the average response time</li>
-<li>too much parallelism can lead to wrong results
+<li><p>improves the throughput and resource utilisation as well as the average response time</p>
+<p>提高吞吐量和资源利用率以及平均响应时间</p></li>
+<li><p>too much parallelism can lead to wrong results</p>
+<p>太多的并行性会导致错误的结果</p>
 <ul>
 <li>e.g. dirty reads, lost updates, phantoms, ...</li>
 </ul></li>
-<li>the scheduler has to choose the appropriate <strong>concurrency control scheme</strong> to avoid problems during parallel execution</li>
-</ul></li>
-<li>A <strong><em>schedule S</em></strong> specifies the <strong><em>chronological order</em></strong> in which the <strong><em>operations</em></strong> of concurrent transactions are executed
-<ul>
-<li>a schedule for the transaction T<sub>1</sub>,..., T<sub>n</sub> must contain all operations of these transactions</li>
-<li>the schedule must <strong><em>preserve</em></strong> the <strong><em>order</em></strong> of the operations <strong>in</strong> each <strong>individual transaction</strong></li>
-</ul></li>
+<li><p>the scheduler has to choose the appropriate <strong>concurrency control scheme</strong> to avoid problems during parallel execution</p>
+<p>调度器必须选择合适的<strong>并发控制方案</strong>以避免并行执行时出现问题</p></li>
 </ul>
-<h3 id="example-schedules">Example Schedules</h3>
+<p>A <strong><em>schedule S</em></strong> specifies the <strong><em>chronological order</em></strong> in which the <strong><em>operations</em></strong> of concurrent transactions are executed</p>
+<p>调度 S 指定执行并发事务操作的<strong>时间顺序</strong></p>
+<ul>
+<li><p>a schedule for the transaction T<sub>1</sub>,..., T<sub>n</sub> must contain all operations of these transactions</p></li>
+<li><p>the schedule must <strong><em>preserve</em></strong> the <strong><em>order</em></strong> of the operations <strong>in</strong> each <strong>individual transaction</strong></p>
+<p>调度必须<strong>保留</strong>每个单独事务中的<strong>操作顺序</strong></p></li>
+</ul>
+<h4 id="example-schedules">Example Schedules</h4>
 <p>Let transaction T<sub>1</sub> transfer 700 Euro from account A to B and T<sub>2</sub> transfer 10% of the balance from A to B</p>
 <ul>
-<li>critical are the read (R) and write (W) operations</li>
+<li>critical are the <code>read (R)</code> and <code>write (W)</code> operations</li>
 </ul>
-<p>Schedule 1</p>
+<h5 id="schedule-1-串行执行">Schedule 1 串行执行</h5>
 <p><img src="/images/DB/1730052.png" /></p>
 <ul>
 <li>serial schedule where T<sub>1</sub> is followed by T<sub>2</sub></li>
 </ul>
-<p>Schedule 2</p>
+<h5 id="schedule-2-非连续时间表">Schedule 2 非连续时间表</h5>
 <p><img src="/images/DB/1730053.png" /></p>
 <ul>
 <li>non-serial schedule but <strong><em>equivalent</em></strong> to Schedule 1</li>
@@ -667,14 +708,17 @@
 <ul>
 <li>this schedule <strong><em>does not preserve the sum</em></strong> of A and B and therefore leads to problems</li>
 </ul>
-<h2 id="conflict-serialisability">Conflict Serialisability</h2>
+<h2 id="conflict-serialisability-冲突串行化">Conflict Serialisability 冲突串行化</h2>
 <ul>
-<li>Two operations of transactions T<sub>i</sub> and T<sub>j</sub> form a <strong>conflict pair</strong> if <u>at least one</u> of them is a <strong>write operation</strong></li>
-<li>If a schedule S can be transformed into a schedule S' by a series of <strong><u>swaps of non-conflicting operations</u></strong>, then S and S' are <u>conflict equivalent</u>
+<li><p>Two operations of transactions T<sub>i</sub> and T<sub>j</sub> form a <strong>conflict pair 冲突对</strong> if <u>at least one</u> of them is a <strong>write operation</strong></p>
+<p>交易的两个操作T<sub>i</sub>和T<sub>j</sub>形成<strong>冲突对</strong>，如果至少一个人是一个<strong>写操作</strong></p></li>
+<li><p>If a schedule S can be transformed into a schedule S' by a series of <strong><u>swaps of non-conflicting operations</u></strong>, then S and S' are <u><strong>conflict equivalent</strong></u></p>
+<p>果调度 S 可以通过一系列<strong>非冲突操作</strong>的<strong>交换</strong>转换为调度 S' ，那么 S 和 S' 是<strong>冲突等价</strong>的</p>
 <ul>
 <li>a conflict pair forces an order on the transactions</li>
 </ul></li>
-<li>A schedule S is <strong>conflict serializable</strong> if it is conflict equivalent to a serial schedule</li>
+<li><p>A schedule S is <strong>conflict serializable</strong> if it is conflict equivalent to a serial schedule</p>
+<p>如果调度 S与串行调度<strong>等价</strong>冲突，则调度 S 是<strong>冲突可序列化的</strong></p></li>
 </ul>
 <p><img src="/images/DB/1730055.png" /></p>
 <h3 id="conflict-serialisability-example">Conflict Serialisability Example</h3>
@@ -710,24 +754,31 @@
 <ul>
 <li>&lt;R<sub>1</sub>(x),W<sub>2</sub>(x)&gt;, &lt;W<sub>2</sub>(x),W<sub>1</sub>(x)&gt;</li>
 </ul></li>
-<li>This schedule is not conflict serializable!</li>
+<li>This schedule is <strong>not</strong> conflict serializable!</li>
 </ul>
-<h3 id="testing-for-serialisability">Testing for Serialisability</h3>
+<h3 id="testing-for-serialisability-可序列化测试">Testing for Serialisability 可序列化测试</h3>
 <ul>
-<li>Check if there is a serial schedule with the same ordering of the conflict pairs as the given schedule S</li>
-<li>Construct a <strong><em>precedence graph</em></strong> G=(V,E) for S
+<li><p>Check if there is a serial schedule with the same ordering of the conflict pairs as the given schedule S</p>
+<p>检查是否存在与给定调度 S 具有相同冲突对顺序的串行调度</p></li>
+<li><p>Construct a <strong><em>precedence graph</em> 优先图</strong> G=(V,E) for S</p>
 <ul>
-<li>the vertices V are represented by the transactions T<sub>1</sub>,..., T<sub>n</sub></li>
-<li>there is an edge from T<sub>i</sub> to T<sub>j</sub> if there exists a conflict pair &lt;x,y&gt; in S with x ∈ T<sub>i</sub> and y ∈ T<sub>j</sub> and x is preceding y</li>
-<li><em><u>a schedule S is serializable if its precedence graph is acyclic</u></em></li>
+<li><p>the vertices V are represented by the transactions T<sub>1</sub>,..., T<sub>n</sub></p></li>
+<li><p>there is an edge from T<sub>i</sub> to T<sub>j</sub> if there exists a conflict pair &lt;x,y&gt; in S with x ∈ T<sub>i</sub> and y ∈ T<sub>j</sub> and x is preceding y</p></li>
+<li><p><em><u>a schedule S is serializable if its precedence graph is acyclic</u></em></p>
+<p>如果调度 S 的优先级图是非循环的，则它是可序列化的</p></li>
 </ul></li>
-<li>Algorithm to find and equivalent serial schedule S'
+<li><p>Algorithm to find and equivalent serial schedule S'</p>
+<p>查找和等效串行调度 S' 的算法</p>
 <ul>
-<li>construct the precedence graph for the schedule S</li>
-<li>perform a <strong><em>topological sorting</em></strong> of the graph
+<li><p>construct the <strong>precedence graph</strong> for the schedule S</p>
+<p>构建调度 S 的<strong>优先级</strong>图</p></li>
+<li><p>perform a <strong><em>topological sorting</em></strong> of the graph</p>
+<p>对图 进行<strong>拓扑排序</strong></p>
 <ul>
-<li>randomly choose a vertex with no incoming edges and remove the vertex and its outgoing edges from S (add its operations to S')</li>
-<li>repeat the vertex removal until there are no more vertices or a cycle occurs</li>
+<li><p>randomly choose a vertex with no incoming edges and remove the vertex and its outgoing edges from S (add its operations to S')</p>
+<p>随机选择一个没有传入边的顶点，并从 S 中删除顶点及其传出边（将其操作添加到 S'）</p></li>
+<li><p>repeat the vertex removal until there are no more vertices or a cycle occurs</p>
+<p>重复顶点移除，直到没有更多的顶点或循环发生</p></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -755,50 +806,60 @@
 </ul></li>
 <li>There is <strong><em>no serializable schedule</em></strong> for S since the precedence <strong><em>graph has a cycle</em></strong></li>
 </ul>
-<h2 id="concurrency-control">Concurrency Control</h2>
+<h2 id="concurrency-control-并发控制">Concurrency Control 并发控制</h2>
+<p>Different <strong><em>concurrency control schemes</em></strong> can be used to ensure that the <strong>isolation</strong> property is ensured when multiple transactions are executed in parallel</p>
+<p>可以采用不同的<strong>并发控制方案</strong>，保证多个事务并行执行时的<strong>隔离性</strong></p>
+<p>The concurrency control schemes for implementing serialisation in an online system include</p>
+<p>在线系统中实现序列化的并发控制方案包括</p>
 <ul>
-<li>Different <strong><em>concurrency control schemes</em></strong> can be used to ensure that the isolation property is ensured when multiple transactions are executed in parallel</li>
-<li>The concurrency control schemes for implementing serialisation in an online system include
+<li><p>lock-based protocols</p>
+<p>基于锁的协议</p></li>
+<li><p>validation-based protocols</p>
+<p>基于验证的协议</p>
 <ul>
-<li>lock-based protocols</li>
-<li>validation-based protocols
-<ul>
-<li>timestamp ordering</li>
-<li>optimistic concurrency control</li>
+<li>timestamp ordering 时间戳排序</li>
+<li>optimistic concurrency control 乐观并发控制</li>
 </ul></li>
-<li>graph-based protocols</li>
-</ul></li>
+<li><p>graph-based protocols</p>
+<p>基于图的协议</p></li>
 </ul>
-<h2 id="lock-based-protocols">Lock-based Protocols</h2>
-<ul>
-<li><p>One way to ensure serialisability is to require that data items can only be accessed in a mutually exclusive manner</p></li>
-<li><p>The DBMS has to offer a mechanism to lock a specific data object x for a given transaction T<sub>i</sub> and mode m</p>
+<h3 id="lock-based-protocols-基于锁的协议">Lock-based Protocols 基于锁的协议</h3>
+<p>One way to ensure serialisability is to require that data items can only be accessed in a <strong>mutually exclusive</strong> manner</p>
+<p>确保可串行化的一种方法是要求数据项<u><strong>只</strong>能以<strong>互斥</strong>的方式访问</u></p>
+<p>The DBMS has to offer a mechanism to lock a specific data object x for a given transaction T<sub>i</sub> and mode m</p>
+<p>DBMS 必须提供一种机制来为给定的事务T<sub>i</sub>和模式m锁定特定的数据对象 x</p>
 <ul>
 <li>lock(T<sub>i</sub> , x, m)</li>
 <li>unlock(T<sub>i</sub>, x)</li>
-</ul></li>
-<li><p>A transaction has to <strong><em>request a lock in the appropriate mode</em></strong> for a data object and can only proceed if the scheduler grants the lock</p></li>
-<li><p>At any given time, there can never be two transactions with incompatible locks on the same data object</p>
+</ul>
+<p>A transaction has to <strong><em>request a lock in the appropriate mode</em></strong> for a data object and can only proceed if the scheduler grants the lock</p>
+<p>事务必须以<strong>适当的模式</strong>请求数据对象的锁，并且只有在调度程序授予锁的情况下才能继续进行</p>
+<p>At any given time, there can never be two transactions with incompatible locks on the same data object</p>
+<p>在任何时候，都不可能有两个事务在同一个数据对象上使用不兼容的锁</p>
 <ul>
-<li>the second transaction has to wait until the object in unlocked</li>
-<li>DBMS puts the waiting transactions into specific queues</li>
-</ul></li>
-<li><p>Current DBMSs implement two types (modes) of locks</p>
+<li><p>the second transaction has to wait until the object in unlocked</p>
+<p>第二个事务必须等到对象解锁</p></li>
+<li><p>DBMS puts the waiting transactions into specific queues</p>
+<p>DBMS 将等待的事务放入特定队列</p></li>
+</ul>
+<h4 id="types-of-locks">Types of locks</h4>
+<p>Current DBMSs implement two types (modes) of locks</p>
+<p>当前的 DBMS 实现了两种类型（模式）的锁</p>
 <p><img src="/images/DB/17300592.png" /></p>
-<ul>
-<li><strong><em>exclusive-mode lock</em></strong> (X)
+<ol type="1">
+<li><strong><em>exclusive-mode lock</em></strong> (X) <strong>排他模式锁</strong>
 <ul>
 <li>read and write access to the data object</li>
 </ul></li>
-<li><strong><em>shared-mode lock</em></strong> (S)
+<li><strong><em>shared-mode lock</em></strong> (S) <strong>共享模式锁</strong>
 <ul>
 <li>read-only access</li>
 <li>at any time several shared-mode locks can be held simultaneously</li>
 </ul></li>
-<li>lock is only granted if there is no other transaction that is already waiting for a lock on the same data object (to <strong><em>prevent starvation</em></strong>)</li>
-</ul></li>
-</ul>
-<h2 id="locking-example">Locking Example</h2>
+</ol>
+<p>lock is only granted if there is no other transaction that is already waiting for a lock on the same data object (to <strong><em>prevent starvation</em></strong>)</p>
+<p>仅当没有其他事务正在等待同一数据对象上的锁定时才授予锁定（以*<strong>防止饥饿*</strong>）</p>
+<h4 id="locking-example">Locking Example</h4>
 <ul>
 <li>Transactions
 <ul>
@@ -825,139 +886,152 @@
 </ul></li>
 <li>We need more than just locking → <strong><em>two-phase locking</em></strong></li>
 </ul>
-<h2 id="two-phase-locking-2pl">Two-Phase Locking (2PL)</h2>
+<h4 id="two-phase-locking-两相锁定-2pl">Two-Phase Locking 两相锁定 (2PL)</h4>
 <p>The two-phase locking protocol is based on two rules</p>
-<ul>
-<li>Rule 1
-<ul>
+<p>两阶段锁定协议基于两个规则</p>
+<ol type="1">
 <li>a data object has to be locked (exclusive or shared lock) before it can be accessed by a transaction (<strong>growing phase</strong>)</li>
-</ul></li>
-<li>Rule 2
-<ul>
+</ol>
+<p>数据对象在被事务访问之前必须被锁定（排他或共享锁）（<strong>增长阶段</strong>）</p>
+<ol start="2" type="1">
 <li>as soon as a transaction unlocks its first data object, it cannot acquire any further locks (<strong>shrinking phase</strong>)</li>
-</ul></li>
-</ul>
+</ol>
+<p>一旦事务解锁了它的第一个数据对象，它就无法获得任何进一步的锁（<strong>收缩阶段</strong>）</p>
 <p><img src="/images/DB/17300596.png" /></p>
+<p>The 2PL protocol <strong><u>guarantees serializable schedules</u></strong></p>
+<p>2PL 协议<strong>保证可序列化的调度</strong></p>
+<h5 id="problems-of-the-2pl-protocol-问题">Problems of the 2PL protocol 问题</h5>
 <ul>
-<li>The 2PL protocol <strong><u>guarantees serializable schedules</u></strong></li>
-<li>Problems of the 2PL protocol
-<ul>
-<li>if we want to use the 2PL protocol, we have to know for each transaction T<sub>i</sub> when no further locks will be necessary (<strong>lock point</strong>)
+<li><p>if we want to use the 2PL protocol, we have to know for each transaction T<sub>i</sub> when no further locks will be necessary (<strong>lock point</strong>)</p>
+<p>如果我们想使用 2PL 协议，我们必须知道每个事务T<sub>i</sub> 何时不需要进一步的锁（<strong>锁点</strong>）</p>
 <ul>
 <li>not very realistic to have this kind of a priori knowledge</li>
 </ul></li>
-<li>the 2PL protocol is <strong>not deadlock free</strong></li>
-<li>potential problems in the case of an abort/rollback of an operation (<strong>cascading rollbacks</strong>)</li>
-</ul></li>
+<li><p>the 2PL protocol is <strong>not deadlock free</strong></p>
+<p>2PL 协议不是无死锁的</p></li>
+<li><p>potential problems in the case of an abort/rollback of an operation (<strong>cascading rollbacks</strong>)</p>
+<p>操作中止/回滚的潜在问题（<strong>级联回滚</strong>）</p></li>
 </ul>
-<h2 id="pl-cascading-rollback-problem">2PL Cascading Rollback Problem</h2>
+<h5 id="pl-cascading-rollback-problem-级联回滚">2PL Cascading Rollback Problem 级联回滚</h5>
+<p>The 2PL protocol is not suited to handle transactions that are aborted since <strong><em>cascading rollbacks</em></strong> may occur</p>
+<p>2PL 协议不适合处理中止的事务，因为可能会发生<strong>级联回滚</strong></p>
 <ul>
-<li>The 2PL protocol is not suited to handle transactions that are aborted since <strong><em>cascading rollbacks</em></strong> may occur</li>
-<li>Cascading rollback
+<li>Cascading rollback 级联回滚
 <ul>
-<li>transaction T<sub>i</sub> ends with an abort/rollback operation A</li>
-<li>this might trigger a previously committed transaction T<sub>j</sub> to be aborted too!</li>
+<li><p>transaction T<sub>i</sub> ends with an abort/rollback operation A</p>
+<p>事务T<sub>i</sub>以中止/回滚操作 A 结束</p></li>
+<li><p>this might trigger a previously committed transaction T<sub>j</sub> to be aborted too!</p>
+<p>这可能会触发先前提交的事务T<sub>j</sub>也被中止！</p></li>
 </ul></li>
-<li>Abort example
+<li>Abort example 中止示例
 <ul>
 <li><img src="/images/DB/17300597.png" /></li>
 <li>An abort A<sub>1</sub> of transaction T<sub>1</sub> can result in an abort of transaction T<sub>2</sub> since it got access to "shared" data objects after T<sub>1</sub> reached its lock point</li>
 </ul></li>
 </ul>
-<h2 id="pl-deadlock-problem">2PL Deadlock Problem</h2>
+<h4 id="pl-deadlock-problem-死锁问题">2PL Deadlock Problem 死锁问题</h4>
+<p>Two transactions T<sub>i</sub> and T<sub>j</sub> might wait in a cycle for a lock held by the other transaction</p>
+<p>两个事务T<sub>i</sub>和T<sub>j</sub>可能在一个周期内等待另一个事务持有的锁</p>
+<p>The scheduler has to periodically check whether such cycles (<strong>deadlocks</strong>) exist</p>
+<p>调度器必须定期检查是否存在这样的循环（<strong>死锁</strong>）</p>
 <ul>
-<li>Two transactions T<sub>i</sub> and T<sub>j</sub> might wait in a cycle for a lock held by the other transaction</li>
-<li>Example
-<ul>
-<li><img src="/images/DB/17300598.png" /></li>
-</ul></li>
-<li>The scheduler has to periodically check whether such cycles (deadlocks) exist
-<ul>
-<li>use a directed <strong><em>wait-for graph</em></strong> to model the dependencies between transactions</li>
-<li>if a deadlock occurs (cycle in the wait-for graph), the scheduler has to <strong><em>reset</em></strong> one of the participating <strong><em>transactions</em></strong></li>
-</ul></li>
+<li><p>use a directed <strong><em>wait-for graph</em></strong> to model the dependencies between transactions</p>
+<p>使用有向<strong>等待图</strong>对事务之间的依赖关系建模</p></li>
+<li><p>if a deadlock occurs (cycle in the wait-for graph), the scheduler has to <strong><em>reset</em></strong> one of the participating <strong><em>transactions</em></strong></p>
+<p>如果发生死锁，则调度程序必须<strong>重置</strong>其中一个参与<strong>事务</strong></p></li>
 </ul>
-<h2 id="strict-two-phase-locking-s2pl">Strict Two-Phase Locking (S2PL)</h2>
+<p><strong>Example</strong></p>
+<p><img src="/images/DB/17300598.png" /></p>
+<h4 id="strict-two-phase-locking-严格两相锁定-s2pl">Strict Two-Phase Locking 严格两相锁定 (S2PL)</h4>
 <p>The strict two-phase locking protocol is based on two rules</p>
-<ul>
-<li>Rule 1
-<ul>
+<p>严格的两阶段锁定协议基于两个规则</p>
+<ol type="1">
 <li>a data object has to be locked (exclusive or shared lock) before it can be accessed by a transaction (<strong><em>growing phase</em></strong>)</li>
-</ul></li>
-<li>Rule 2
-<ul>
+</ol>
+<p>数据对象在被事务访问之前必须被锁定（排他或共享锁）（<strong>增长阶段</strong>）</p>
+<ol start="2" type="1">
 <li>a transaction keeps all locks until the end of the transaction and releases them all at once (<strong><em>commit/abort phase</em></strong>)</li>
-</ul></li>
-</ul>
+</ol>
+<p>事务保持所有锁直到事务结束并立即释放它们（<strong>提交/中止阶段</strong>）</p>
 <p><img src="/images/DB/17300599.png" /></p>
 <ul>
-<li>The S2PL protocol guarantees serializable schedules
+<li><p>The S2PL protocol guarantees serializable schedules</p>
+<p>S2PL 协议保证可序列化的调度</p>
 <ul>
-<li>S2PL <u>avoids cascading aborts</u> but it is still <u>not deadlock free</u></li>
+<li><p>S2PL <u>avoids cascading aborts</u> but it is still <u>not deadlock free</u></p>
+<p>S2PL<strong>避免了级联中止</strong>，但它仍然不是无死锁</p></li>
 </ul></li>
-<li>S2PL is implemented in every major database system</li>
-<li>S2PL can be implemented in a deadlock-free manner (<strong>deadlock prevention</strong>)
+<li><p>S2PL is implemented in every major database system</p>
+<p>S2PL在每个主要的数据库系统中都实现了</p></li>
+<li><p>S2PL can be implemented in a deadlock-free manner (<strong>deadlock prevention</strong>)</p>
+<p>S2PL可以以无死锁的方式实现（<strong>死锁预防</strong>）</p>
 <ul>
-<li>transaction has to acquire all necessary locks (<strong>proclaiming of locks</strong>) before the first operation is executed</li>
-<li><strong>reduces potential concurrency</strong> for long transactions</li>
+<li><p>transaction has to acquire all necessary locks (<strong>proclaiming of locks</strong>) before the first operation is executed</p>
+<p>在执行第一个操作之前，事务必须获得所有必要的锁（<strong>声明锁</strong>）</p></li>
+<li><p><strong>reduces potential concurrency</strong> for long transactions</p>
+<p><strong>减少</strong>长事务的<strong>潜在并发</strong></p></li>
 </ul></li>
 </ul>
 <p><img src="/images/DB/1730060.png" /></p>
-<h2 id="locking-granularity">Locking Granularity</h2>
+<h4 id="locking-granularity-锁定粒度">Locking Granularity 锁定粒度</h4>
+<p>Locking protocols such as 2PL or S2PL can be applied at various granularity levels</p>
+<p>2PL 或 S2PL 等锁定协议可应用于各种粒度级别</p>
 <ul>
-<li>Locking protocols such as 2PL or S2PL can be applied at various granularity levels
-<ul>
-<li>pages/blocks
+<li>pages/blocks 页/块
 <ul>
 <li>commonly used</li>
 </ul></li>
-<li>relations
+<li>relations 关系
 <ul>
-<li>very coarse and restrictive</li>
+<li><p>very coarse and restrictive</p>
+<p>非常粗糙和限制</p></li>
 </ul></li>
 <li>tuples</li>
-</ul></li>
-<li>There is a trade-off between concurrency and overhead</li>
-<li>Small granularity
+</ul>
+<p>There is a trade-off between <strong>concurrency</strong> and <strong>overhead</strong></p>
+<p><strong>并发性</strong>和<strong>开销</strong>之间存在权衡</p>
 <ul>
-<li>higher level of potential concurrency but larger locking overhead</li>
-</ul></li>
-<li>Large granularity
+<li><p>Small granularity 小粒度</p>
 <ul>
-<li>less potential for concurrency but smaller locking overhead</li>
+<li><p>higher level of potential concurrency but larger locking overhead</p>
+<p>更高级别的潜在并发但更大的锁定开销</p></li>
+</ul></li>
+<li><p>Large granularity 大粒度</p>
+<ul>
+<li><p>less potential for concurrency but smaller locking overhead</p>
+<p>并发的可能性较小，但锁定开销较小</p></li>
 </ul></li>
 </ul>
-<h2 id="validation-based-protocols">Validation-based Protocols</h2>
+<h3 id="validation-based-protocols-基于验证的协议">Validation-based Protocols 基于验证的协议</h3>
+<p>Rather than to prevent conflicts from the beginning, it is sufficient to detect them and resolve them</p>
+<p>与其从一开始就预防冲突，不如发现并解决冲突</p>
 <ul>
-<li>Rather than to prevent conflicts from the beginning, it is sufficient to detect them and resolve them
-<ul>
-<li>abort transaction in the case that a conflict is detected</li>
-<li>works efficiently if the probability for conflicts is very low</li>
-</ul></li>
-<li>Example scheduling techniques
-<ul>
-<li>timestamp ordering</li>
-<li>optimistic concurrency control</li>
-</ul></li>
+<li><p>abort transaction in the case that a conflict is detected</p>
+<p>在检测到冲突的情况下中止事务</p></li>
+<li><p>works efficiently if the probability for conflicts is very low</p>
+<p>如果冲突的可能性非常低，则工作效率高</p></li>
 </ul>
-<h2 id="timestamp-ordering">Timestamp Ordering</h2>
+<p>Example scheduling techniques - timestamp ordering 时间戳排序 - optimistic concurrency control 乐观并发控制</p>
+<h4 id="timestamp-ordering-时间戳排序">Timestamp Ordering 时间戳排序</h4>
+<p>Each transaction T<sub>i</sub> gets a unique timestamp TS(TS<sub>i</sub>) assigned</p>
+<p>每笔交易都会获得一个唯一的时间戳</p>
 <ul>
-<li>Each transaction T<sub>i</sub> gets a unique timestamp TS(T<sub>i</sub>) assigned
-<ul>
-<li>e.g. based on system clock or a logical counter</li>
-</ul></li>
-<li>Timestamp ordering rule
-<ul>
-<li>if operation o<sub>i,m</sub>(x) is in conflict with operation o<sub>j,n</sub>(x) and oi,m(x) is part of transaction T<sub>i</sub> whereas o<sub>j,n</sub>(x) is part of T<sub>j</sub> , then they have to be ordered o<sub>i,m</sub>(x) &lt; o<sub>j,n</sub>(x) if TS(T<sub>i</sub>) &lt; TS(T<sub>j</sub>)</li>
-<li>the <strong>timestamp order defines</strong> the <strong><em>serialisation order</em></strong></li>
-</ul></li>
-<li>For each access of a data object the scheduler has to check whether a later transaction (larger timestamp) has already accessed the object
-<ul>
-<li>W-TS(x): largest timestamp of transaction writing x</li>
-<li>R-TS(x): largest timestamp of transaction reading x</li>
-</ul></li>
+<li><p>e.g. based on system clock or a logical counter</p>
+<p>例如基于系统时钟或逻辑计数器</p></li>
 </ul>
-<h2 id="timestamp-ordering-scheduler">Timestamp Ordering Scheduler</h2>
+<p>Timestamp ordering rule 时间戳排序规则</p>
+<ul>
+<li><p>if operation o<sub>i,m</sub>(x) is in conflict with operation o<sub>j,n</sub>(x) and oi,m(x) is part of transaction T<sub>i</sub> whereas o<sub>j,n</sub>(x) is part of T<sub>j</sub> , then they have to be ordered o<sub>i,m</sub>(x) &lt; o<sub>j,n</sub>(x) if TS(T<sub>i</sub>) &lt; TS(T<sub>j</sub>)</p></li>
+<li><p>the <strong>timestamp order defines</strong> the <strong><em>serialisation order</em></strong></p>
+<p>所述<strong>时间戳顺序定义</strong>的<strong>串行次序</strong></p></li>
+</ul>
+<p>For each access of a data object the scheduler has to check whether a later transaction (larger timestamp) has already accessed the object</p>
+<p>对于数据对象的每次访问，调度程序必须检查后面的事务（更大的时间戳）是否已经访问了该对象</p>
+<ul>
+<li><code>W-TS(x)</code>: largest timestamp of transaction <strong>writing</strong> x</li>
+<li><code>R-TS(x)</code>: largest timestamp of transaction <strong>reading</strong> x</li>
+</ul>
+<h5 id="timestamp-ordering-scheduler-时间戳排序调度器">Timestamp Ordering Scheduler 时间戳排序调度器</h5>
 <ul>
 <li>T<sub>i</sub> wants to read object x
 <ul>
@@ -986,74 +1060,85 @@
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="optimistic-concurrency-control-occ">Optimistic Concurrency Control (OCC)</h2>
+<h4 id="optimistic-concurrency-control-乐观并发控制-occ">Optimistic Concurrency Control 乐观并发控制 (OCC)</h4>
 <ul>
-<li>Assumes that there will not be many conflicts</li>
-<li>Transactions are executed with the explicit risk of abortion
+<li><p>Assumes that there will not be many conflicts</p>
+<p>假设不会有很多冲突</p></li>
+<li><p>Transactions are executed with the explicit risk of abortion</p>
+<p>交易的执行存在明显的流产风险</p>
 <ul>
-<li>in <strong><em>snapshot isolation</em></strong> each transaction has a private workspace</li>
+<li><p>in <strong><em>snapshot isolation</em></strong> each transaction has a private workspace</p>
+<p>在<strong>快照隔离</strong>中，每个事务都有一个私有工作区</p></li>
 </ul></li>
-<li>Three phases of a transaction T<sub>i</sub>
+</ul>
+<p>Three phases of a transaction T<sub>i</sub></p>
 <ul>
-<li><strong><em>reading and execution phase</em></strong>
+<li><p><strong><em>reading and execution phase</em> 读取和执行阶段</strong></p>
 <ul>
 <li>T<sub>i</sub> reads objects of the database (read set of T<sub>i</sub>) and writes private versions (write set of T<sub>i</sub>)</li>
 </ul></li>
-<li><strong><em>validation phase</em></strong>
+<li><p><strong><em>validation phase</em> 验证阶段</strong></p>
 <ul>
-<li>before writing the private versions to the database a conflict analysis is performed</li>
+<li><p>before writing the private versions to the database a conflict analysis is performed</p>
+<p>在将私有版本写入数据库之前执行冲突分析</p></li>
 </ul></li>
-<li><strong><em>writing phase</em></strong>
+<li><p><strong><em>writing phase</em> 写作阶段</strong></p>
 <ul>
-<li>if the validation was positive the private versions are written to the disk</li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="recovery">Recovery</h2>
-<ul>
-<li>The <strong><em>recovery manager</em></strong> has to ensure that the <strong><em>atomicity</em></strong> and <strong><em>durability</em></strong> properties are preserved in the case of a system failure</li>
-<li>Different types of system failures
-<ul>
-<li><strong><em>transaction failure</em></strong>
-<ul>
-<li>logical error
-<ul>
-<li>internal transaction problems (e.g. bad data input or data not found)</li>
-</ul></li>
-<li>system error
-<ul>
-<li>system in an undesirable state (e.g. deadlock)</li>
-</ul></li>
-</ul></li>
-<li><strong><em>system crash</em></strong>
-<ul>
-<li>software bug or hardware malfunction not affecting the non-volatile storage</li>
-</ul></li>
-<li><strong><em>disk failure</em></strong>
-<ul>
-<li>content loss on non-volatile storage (e.g. data transfer error or head crash)</li>
-</ul></li>
+<li><p>if the validation was positive the private versions are written to the disk</p>
+<p>如果验证是肯定的，私有版本将写入磁盘</p></li>
 </ul></li>
 </ul>
-<h2 id="log-based-recovery">Log-based Recovery</h2>
+<h2 id="recovery-恢复">Recovery 恢复</h2>
+<p>The <strong><em>recovery manager</em></strong> has to ensure that the <strong><em>atomicity</em></strong> and <strong><em>durability</em></strong> properties are preserved in the case of a system failure</p>
+<p>在<strong>恢复管理器</strong>必须确保<strong>原子性</strong>和<strong>耐久性</strong>特性在系统发生故障的情况下保存</p>
+<p>Different types of system failures - <strong><em>transaction failure</em> 交易失败</strong></p>
 <ul>
-<li>After a system failure we should be able to return to a state where ongoing transactions have either been successfully completed or had no effect on the data at all</li>
-<li>To support <strong>undo</strong> and <strong>redo operations</strong>, we must write logging information to a stable storage before modifying the database
+<li><p>logical error 逻辑错误</p>
 <ul>
-<li>atomicity
-<ul>
-<li>undo based on logging information</li>
+<li><p>internal transaction problems (e.g. bad data input or data not found)</p>
+<p>内部事务问题（例如错误的数据输入或未找到数据）</p></li>
 </ul></li>
-<li>persistency
+<li><p>system error 系统错误</p>
 <ul>
-<li>redo based on logging information</li>
+<li><p>system in an undesirable state (e.g. deadlock)</p>
+<p>系统处于不良状态（例如死锁）</p></li>
 </ul></li>
-<li>redo and undo operations must be <strong><em>idempotent</em></strong>
+<li><p><strong><em>system crash</em> 系统崩溃</strong></p>
 <ul>
-<li>executing them multiple times has the same effect as executing them once</li>
+<li><p>software bug or hardware malfunction not affecting the non-volatile storage</p>
+<p>不影响非易失性存储的软件错误或硬件故障</p></li>
 </ul></li>
+<li><p><strong><em>disk failure</em> 磁盘故障</strong></p>
+<ul>
+<li><p>content loss on non-volatile storage (e.g. data transfer error or head crash)</p>
+<p>非易失性存储上的内容丢失（例如数据传输错误或磁头崩溃）</p></li>
 </ul></li>
-<li>A <strong><em>log file</em></strong> consists of a <strong>sequence of log records</strong> which can be of the following types
+</ul>
+<h3 id="log-based-recovery-基于日志的恢复">Log-based Recovery 基于日志的恢复</h3>
+<p>After a system failure we should be able to return to a state where ongoing transactions have either been successfully completed or had no effect on the data at all</p>
+<p>系统故障后，我们应该能够返回到正在进行的事务已成功完成或对数据根本没有影响的状态</p>
+<p>To support <strong>undo</strong> and <strong>redo operations</strong>, we must write logging information to a stable storage before modifying the database</p>
+<p>为了支持<strong>撤销</strong>和<strong>重做操作</strong>，我们必须在修改数据库之前将日志信息写入一个稳定的存储中</p>
+<ul>
+<li><p>atomicity 原子性</p>
+<ul>
+<li><p>undo based on logging information</p>
+<p>根据日志信息撤消</p></li>
+</ul></li>
+<li><p>persistency 持久性</p>
+<ul>
+<li><p>redo based on logging information</p>
+<p>基于日志信息重做</p></li>
+</ul></li>
+<li><p>redo and undo operations must be <strong><em>idempotent</em></strong></p>
+<p>重做和撤消操作必须是<strong>幂等的</strong></p>
+<ul>
+<li><p>executing them multiple times has the same effect as executing them once</p>
+<p>基于日志信息重做</p></li>
+</ul></li>
+</ul>
+<p>A <strong><em>log file</em></strong> consists of a <strong>sequence of log records</strong> which can be of the following types</p>
+<p>一个<strong>日志文件</strong>包含一个的<strong>日志记录顺序</strong>可以是以下类型</p>
 <ul>
 <li>start of transaction T<sub>i</sub>
 <ul>
@@ -1071,39 +1156,51 @@
 <ul>
 <li>&lt; T<sub>i</sub> abort&gt;</li>
 </ul></li>
-</ul></li>
-<li>We can either perform an <strong>immediate</strong> or a <strong>deferred database modification</strong></li>
 </ul>
-<h2 id="immediate-modification-technique">Immediate Modification Technique</h2>
+<p>We can either perform an <strong>immediate</strong> or a <strong>deferred database modification</strong></p>
+<p>我们可以执行<strong>立即</strong>或<strong>延迟的</strong>数据库修改</p>
+<h3 id="immediate-modification-technique-立即修改技术">Immediate Modification Technique 立即修改技术</h3>
 <ul>
-<li>Allows <strong>uncommitted</strong> database <strong>modifications</strong> while the transaction is still in its active state</li>
-<li>Before a transaction T<sub>i</sub> starts, we write the corresponding <strong>start record</strong> to the log</li>
-<li>Each write operation is preceded by the corresponding <strong>update record</strong> in the log</li>
-<li>When the transaction T<sub>i</sub> partially commits, we write the corresponding commit record to the log</li>
-<li>To support concurrent transactions we further have to ensure that there are no conflicting update operations (e.g. by using S2PL)</li>
+<li><p>Allows <strong>uncommitted</strong> database <strong>modifications</strong> while the transaction is still in its active state</p>
+<p>当事务仍处于活动状态时允许<strong>未提交的</strong>数据库<strong>修改</strong></p></li>
+<li><p>Before a transaction T<sub>i</sub> starts, we write the corresponding <strong>start record</strong> to the log</p>
+<p>在事务T<sub>i</sub> 开始之前，我们将相应的<strong>开始记录</strong>写入日志</p></li>
+<li><p>Each write operation is preceded by the corresponding <strong>update record</strong> in the log</p>
+<p>每次写操作前面都有日志中对应的<strong>更新记录</strong></p></li>
+<li><p>When the transaction T<sub>i</sub> partially commits, we write the corresponding commit record to the log</p>
+<p>当事务T<sub>i</sub> 部分提交时，我们将相应的<strong>提交记录</strong>写入日志</p></li>
+<li><p>To support concurrent transactions we further have to ensure that there are no conflicting update operations (e.g. by using S2PL)</p>
+<p>为了支持并发事务，我们还必须确保没有冲突的更新操作（例如，通过使用 S2PL）</p></li>
 </ul>
-<h2 id="logging-example">Logging Example</h2>
+<h4 id="logging-example-日志示例">Logging Example 日志示例</h4>
 <p><img src="/images/DB/1730061.png" /></p>
 <p>The two transactions might result in the following log file (annotated with the database state)</p>
 <p><img src="/images/DB/1730062.png" /></p>
-<h2 id="restart-recovery">Restart Recovery</h2>
+<h3 id="restart-recovery-重启恢复">Restart Recovery 重启恢复</h3>
 <p>After a crash the system scans the log file and constructs two lists of transactions</p>
+<p>崩溃后系统扫描日志文件并构建两个事务列表</p>
 <ul>
-<li><strong>redo-list</strong>
+<li><p><strong>redo-list 重做列表</strong></p>
 <ul>
-<li>contains each transaction T<sub>i</sub> for which a log record exists</li>
+<li><p>contains each transaction T<sub>i</sub> for which a log record exists</p>
+<p>包含存在日志记录的每个事务</p></li>
 </ul></li>
-<li><strong>undo-list</strong>
+<li><p><strong>undo-list 重做列表</strong></p>
 <ul>
-<li>contains each transaction T<sub>i</sub> for which no log record exists</li>
+<li><p>contains each transaction T<sub>i</sub> for which no log record exists</p>
+<p>包含不存在日志记录的每个事务</p></li>
 </ul></li>
 </ul>
 <p>The system then performs the following two steps</p>
+<p>系统然后执行以下两个步骤</p>
 <ol type="1">
-<li>scan the log file in <strong>reverse</strong> order and for each log record of a transaction T<sub>i</sub> in the undo-list perform an undo operation</li>
-<li>scan the log file in <strong>forward</strong> order and for each log record of a transaction T<sub>i</sub> in the redo-list perform a redo operation</li>
+<li><p>scan the log file in <strong>reverse</strong> order and for each log record of a transaction T<sub>i</sub> in the undo-list perform an <strong>undo</strong> operation</p>
+<p>以<strong>相反的</strong>顺序扫描日志文件，并对撤消列表中事务T<sub>i</sub>的每个日志记录执行<strong>撤消</strong>操作</p></li>
+<li><p>scan the log file in <strong>forward</strong> order and for each log record of a transaction T<sub>i</sub> in the redo-list perform a <strong>redo</strong> operation</p>
+<p>以<strong>正向</strong>顺序扫描日志文件，并为重做列表中事务T<sub>i</sub>的每个日志记录执行<strong>重做</strong>操作</p></li>
 </ol>
 <p>To avoid a scan of the entire log file, special <strong><em>checkpoint</em></strong> operations can be performed periodically</p>
+<p>为了避免扫描整个日志文件，可以定期执行特殊的<strong>检查点</strong>操作</p>
 
                 
             </div>

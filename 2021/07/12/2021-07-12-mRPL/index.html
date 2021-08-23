@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    18 Min
+                    20 Min
                 </div>
                 
 
@@ -835,6 +835,14 @@
 <h4 id="loop-avoidance-mechanism">Loop avoidance mechanism</h4>
 <h4 id="memory-overhead">Memory overhead</h4>
 <h2 id="simulation-analysis">Simulation analysis</h2>
+<h2 id="conclusion">Conclusion</h2>
+<p>本文提出了一种非常简单而有效的解决方案，以应对未来物联网应用的挑战之一——移动性。我们扩展了 RPL——物联网架构中低功耗网络的标准路由协议——提供快速可靠的移动支持。</p>
+<p>我们在 RPL 中顺利集成了切换机制（称为 smart-HOP），以保持与标准协议的向后兼容性。通过在 Trickle 算法（DIS、DIO 和 DAO）中管理控制消息的调度，将智能 HOP 切换机制应用于移动节点 (MN)。 MN根据平均RSSI（ARSSI）选择新的首选父节点。 MN 子集中的相邻节点被忽略，以防止路由循环。</p>
+<p>我们实现了一些计时器，通过减少切换延迟和网络拥塞来提高切换效率。我们考虑了低功耗链路特性和 IPv6 架构的局限性来调整时间表。我们对 AP 应用了优先级（根据 ARSSI 级别）以最小化切换过程中数据包冲突的可能性。</p>
+<p>通过广泛的模拟和实验，对智能 HOP 与 RPL（称为 mRPL）的集成进行了测试、微调和验证。我们获得的结果表明模拟器中不准确的无线电传播模型会影响与切换性能相关的结果：在实际实验中无线电链路重叠更显着（模拟器在相邻 AP 之间创建最小重叠）。</p>
+<p>我们还发现移动应用程序的 RPL 参数的最佳设置会导致巨大的控制消息交换开销。相反，mRPL 能够在响应网络变化的同时保持低开销（= 85 ms 切换延迟）。此外，在移动性上实现了接近 100% 的数据包传递率。</p>
+<p>我们研究了不同网络流量、占空比和移动节点速度对 mRPL 切换性能的影响。结果表明，在低流量网络中，切换过程的响应性较差。此外，增加监听周期会增加切换延迟，从而影响性能。然而，移动节点速度的变化（在人类步行速度范围内）并不影响整体性能。</p>
+<p>我们在 Contiki 的 RPL/6LoWPAN 堆栈中实现并集成了我们的切换机制，Contiki 是一种广泛用于低功耗无线网络的操作系统。重要的是，我们向国际社会免费提供了源代码</p>
 
                 
             </div>

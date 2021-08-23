@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-20
+                    2021-08-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.9k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    18 Min
+                    24 Min
                 </div>
                 
 
@@ -503,39 +503,47 @@
                 <h1 id="query-processing-and-optimisation">Query Processing and Optimisation</h1>
 <p><a href="https://yintelligence.tech/2021/02/12/2021-02-12-overview/">VUB 4019814ENR Databases</a></p>
 <p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/74ab65ac586ade86f0ce21ec3a0a5ddb4a65b305-1619611165384/capture/">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17910/files/827521?module_item_id=146919">Slide</a></p>
-<h2 id="basic-query-processing-steps">Basic Query Processing Steps</h2>
+<h2 id="basic-query-processing-steps-基本查询处理步骤">Basic Query Processing Steps 基本查询处理步骤</h2>
 <p><img src="/images/DB/1119080.png" /></p>
+<h3 id="query-parsing-and-translation-查询解析和翻译-query-compiler">Query parsing and translation 查询解析和翻译 (<strong>query compiler</strong>)</h3>
 <ul>
-<li><p>Query parsing and translation (<strong><em>query compiler</em></strong>)</p>
+<li><p>check the syntax (e.g. SQL for relational DBMS)</p>
+<p>检查语法（例如关系 DBMS 的 SQL）</p></li>
+<li><p>verify that the mentioned relations do exist and replace views</p>
+<p>验证提到的关系确实存在并替换视图</p></li>
+<li><p>transform the SQL query to a <strong><em>query plan</em></strong> represented by a relational algebra expression (for relational DBMS)</p>
+<p>将 SQL 查询转换为由关系代数表达式表示的<strong>查询计划</strong>（对于关系 DBMS）</p>
 <ul>
-<li>check the syntax (e.g. SQL for relational DBMS)</li>
-<li>verify that the mentioned relations do exist and replace views</li>
-<li>transform the SQL query to a <strong><em>query plan</em></strong> represented by a relational algebra expression (for relational DBMS)
-<ul>
-<li>different possible relational algebra expressions for a single query</li>
-</ul></li>
-</ul></li>
-<li><p>Query optimisation (<strong><em>query optimiser</em></strong>)</p>
-<ul>
-<li><p>transform the initial query plan into the best possible query plan based on the given data set</p>
-<ul>
-<li><p>specify the execution of single query plan operations (<strong><em>evaluation primitives</em></strong>)</p>
-<blockquote>
-<p>e.g. which algorithms and indices to be used</p>
-</blockquote></li>
-<li><p>the <strong><em>query execution plan</em></strong> is defined by a sequence of evaluation primitives</p></li>
-</ul></li>
-</ul></li>
-<li><p>Query evaluation (<strong><em>command processor</em></strong>)</p>
-<ul>
-<li>execute the query execution plan and return the result</li>
+<li><p>different possible relational algebra expressions for a single query</p>
+<p>单个查询的不同可能的关系代数表达式</p></li>
 </ul></li>
 </ul>
-<h2 id="query-expression-and-execution">Query Expression and Execution</h2>
+<h3 id="query-optimisation-查询优化-query-optimiser">Query optimisation 查询优化 (<strong>query optimiser</strong>)</h3>
+<ul>
+<li><p>transform the initial query plan into the best possible query plan based on the given data set</p>
+<p>根据给定的数据集将初始查询计划转换为可能的最佳查询计划</p>
+<ul>
+<li><p>specify the execution of single query plan operations (<strong><em>evaluation primitives</em></strong>)</p>
+<p>指定单个查询计划操作的执行（<strong>求值原语</strong>）</p>
+<blockquote>
+<p>e.g. which algorithms and indices to be used</p>
+<p>例如要使用哪些算法和索引</p>
+</blockquote></li>
+<li><p>the <strong><em>query execution plan</em></strong> is defined by a sequence of evaluation primitives</p>
+<p>所述<strong>查询执行计划</strong>是通过评价图元序列所定义</p></li>
+</ul></li>
+</ul>
+<h3 id="query-evaluation-查询评估-command-processor">Query evaluation 查询评估 (<strong>Command processor</strong>)</h3>
+<ul>
+<li><p>execute the query execution plan and return the result</p>
+<p>执行查询执行计划并返回结果</p></li>
+</ul>
+<h3 id="query-expression-and-execution-查询表达式和执行">Query Expression and Execution 查询表达式和执行</h3>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span> street
 <span class="token keyword">FROM</span> Customer<span class="token punctuation">,</span> <span class="token keyword">Order</span>
 <span class="token keyword">WHERE</span> <span class="token keyword">Order</span><span class="token punctuation">.</span>customerID <span class="token operator">=</span> Customer<span class="token punctuation">.</span>customerID <span class="token operator">AND</span> <span class="token keyword">status</span> <span class="token operator">=</span> <span class="token string">'open'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>Transform the SQL query to the following query plan</p>
+<p>将 SQL 查询转换为以下查询计划</p>
 <ul>
 <li>π<sub>name, street</sub>(σ<sub>status="open"</sub>(order ⋈ customer))</li>
 </ul>
@@ -543,58 +551,69 @@
 <blockquote>
 <p>note that we will later see how to optimise the query expression tree</p>
 </blockquote>
-<h2 id="query-costs">Query Costs</h2>
+<h2 id="query-costs-查询成本">Query Costs 查询成本</h2>
 <ul>
-<li>The <strong><em>query costs</em></strong> are defined by the <strong>time</strong> to answer a query (process the query execution plan)</li>
-<li>Different factors contribute to the query costs
+<li><p>The <strong><em>query costs</em></strong> are defined by the <strong>time</strong> to answer a query (process the query execution plan)</p>
+<p><strong>查询成本</strong>由回答查询的<strong>时间</strong>定义（处理查询执行计划）</p></li>
+<li><p>Different factors contribute to the query costs</p>
+<p>不同的因素会影响查询成本</p>
 <ul>
-<li>disk access time, CPU time or even network communication time</li>
+<li><p>disk access time, CPU time or even network communication time</p>
+<p>磁盘访问时间、CPU时间甚至网络通信时间</p></li>
 </ul></li>
-<li>The costs are often dominated by the <strong><em>disk access time</em></strong>
+<li><p>The costs are often dominated by the <strong><em>disk access time</em></strong></p>
+<p>成本通常由<strong>磁盘访问时间</strong>决定</p>
 <ul>
 <li><strong>seek time (t<sub>S</sub>)</strong> (~4 ms)</li>
 <li><strong>transfer time (t<sub>T</sub>)</strong> (e.g. 0.1 ms per disk block)
 <ul>
-<li>write operations are normally slower than read operations</li>
+<li><p>write operations are normally slower than read operations</p>
+<p>写操作通常比读操作慢</p></li>
 </ul></li>
 </ul></li>
-<li>For simplicity, we will use the <strong>number of block transfers</strong> and the <strong>number of seeks</strong> as cost measure
+<li><p>For simplicity, we will use the <strong>number of block transfers</strong> and the <strong>number of seeks</strong> as cost measure</p>
+<p>为简单起见，我们将使用<strong>block transfer传输的数量</strong>和<strong>seek数量</strong>做为成本的措施</p>
 <ul>
-<li>real systems may also take CPU costs into account</li>
+<li><p>real systems may also take CPU costs into account</p>
+<p>实际系统也可能会考虑 CPU 成本</p></li>
 </ul></li>
-<li>We often compute the <strong><em>worst case costs</em></strong> where the main memory buffer can hold only a few blocks
+<li><p>We often compute the <strong><em>worst case costs</em></strong> where the main memory buffer can hold only a few blocks</p>
+<p>我们经常计算主内存缓冲区只能容纳几个块的<strong>最坏情况成本</strong></p>
 <ul>
-<li>we further assume that data has to be initially read from disk and is not yet in the buffer from a previous operation</li>
+<li><p>we further assume that data has to be initially read from disk and is not yet in the buffer from a previous operation</p>
+<p>我们进一步假设数据最初必须从磁盘读取，并且尚未在先前操作的缓冲区中</p></li>
 </ul></li>
 </ul>
-<h2 id="selection-operation">Selection Operation</h2>
-<ul>
-<li>The lowest-level query processing operator for accessing data is the <strong><em>file scan</em></strong>
+<h2 id="selection-operation-选择操作">Selection Operation 选择操作</h2>
+<p>The lowest-level query processing operator for accessing data is the <strong><em>file scan</em></strong></p>
+<p>访问数据的最低级查询处理操作符是<strong>文件扫描</strong></p>
 <ul>
 <li>search and retrieve records for a given <strong><em>selection condition</em></strong></li>
-</ul></li>
-<li>In the following we discuss different file scan algorithms
+</ul>
+<p>In the following we discuss different file scan algorithms - we assume that blocks of the file are <u>stored continuously</u></p>
+<p>我们<strong>假设</strong>文件的块是<u>连续存储</u>的</p>
+<h3 id="linear-search-线性搜索">Linear search 线性搜索</h3>
 <ul>
-<li>we assume that blocks of the file are stored continuously</li>
-</ul></li>
-<li><strong><em>Linear search</em></strong>
-<ul>
-<li>given a file with n blocks, we scan each block and check if any records satisfy the condition</li>
-<li>a selection on a candidate key attribute (unique) can be terminated after a record has been found
+<li><p>given a file with n blocks, we scan each block and check if any records satisfy the condition</p>
+<p>给定一个包含 n 个块的文件，我们扫描每个块并检查是否有任何记录满足条件</p></li>
+<li><p>a selection on a candidate key attribute (unique) can be terminated after a record has been found</p>
+<p>找到记录后，可以终止对候选键属性（唯一）的选择</p>
 <ul>
 <li>average costs: t<sub>S</sub> + n/2 * t<sub>T</sub> , worst case costs: t<sub>S</sub> + n * t<sub>T </sub></li>
 </ul></li>
-<li>applicable to any file regardless of ordering, the availability of indices or the type of selection operation</li>
-</ul></li>
-<li><strong><em>Binary search</em></strong>
-<ul>
-<li>an equality selection condition on a file that is ordered on the selection attribute (n blocks) can be realised via a binary search</li>
-<li><strong>note that this only works if we assume that the blocks of the file are stored continuously!</strong></li>
-<li>worst case costs: log<sub>2</sub>n * (t<sub>S</sub> + t<sub>T</sub>)</li>
-</ul></li>
+<li><p>applicable to any file regardless of ordering, the availability of indices or the type of selection operation</p>
+<p>适用于任何文件，无论排序、索引的可用性或选择操作的类型如何</p></li>
 </ul>
-<h2 id="index-based-selection-operation">Index-based Selection Operation</h2>
+<h3 id="binary-search-二分查找">Binary search 二分查找</h3>
+<ul>
+<li><p>an equality selection condition on a file that is ordered on the selection attribute (n blocks) can be realised via a binary search</p></li>
+<li><p><strong>note</strong> that this only works if we assume that the blocks of the file are <strong>stored continuously</strong>!</p>
+<p><strong>请注意，这仅在我们假设文件的块是连续存储的情况下才有效！</strong></p></li>
+<li><p>worst case costs: log<sub>2</sub>n * (t<sub>S</sub> + t<sub>T</sub>)</p></li>
+</ul>
+<h3 id="index-based-selection-operation-基于索引">Index-based Selection Operation 基于索引</h3>
 <p>A search algorithm that makes use of an index is called an <strong><em>index scan</em></strong> and the index structure is called <strong><em>access path</em></strong></p>
+<p>利用索引的搜索算法称为<strong>索引扫描</strong>，索引结构称为<strong>访问路径</strong></p>
 <p><strong><em>Primary index</em></strong> and <strong><em>equality</em></strong> on <strong><em>candidate key</em></strong></p>
 <ul>
 <li>retrieve a single record based on the index</li>
@@ -635,79 +654,96 @@
 <li>each record may be in a different block (spread over <em>n</em> blocks)</li>
 <li>for large number of records <em>n</em>, this can be very expensive and cost even more than a linear scan!</li>
 </ul>
-<h2 id="conjunctive-selection-operation">Conjunctive Selection Operation</h2>
+<h3 id="conjunctive-selection-operation-联合选择">Conjunctive Selection Operation 联合选择</h3>
 <p>A conjunctive selection has the form σ<sub>θ<sub>1</sub> ∧ θ<sub>2</sub> ∧ ... ∧ θ<sub>n</sub></sub>(r)</p>
-<p><strong>Conjunctive selection</strong> using a <strong>single index</strong></p>
+<h4 id="single-index">Single index</h4>
+<p>Conjunctive selection using a <strong>single index</strong></p>
 <ul>
-<li>check if there is an access path available for an attribute in one of the simple conditions θ<sub>i </sub></li>
-<li>use one of the approaches described before (with minimal cost) to retrieve the records and check the other conditions in memory</li>
+<li><p>check if there is an access path available for an attribute in one of the simple conditions θ<sub>i </sub></p>
+<p>检查在简单条件θ<sub>i </sub>中是否存在可用于属性的访问路径</p></li>
+<li><p>use one of the approaches described before (with minimal cost) to retrieve the records and check the other conditions in memory</p>
+<p>使用前面描述的方法之一（以最低成本）检索记录并检查内存中的其他条件</p></li>
 </ul>
-<p><strong>Conjunctive selection</strong> using a <strong>composite index</strong></p>
+<h4 id="composite-index">Composite index</h4>
+<p>Conjunctive selection using a <strong>composite index</strong></p>
 <ul>
 <li>use the appropriate multi-key index if available</li>
 </ul>
-<p><strong>Conjunctive selection</strong> using <strong>multiple indices</strong></p>
+<h4 id="multiple-indices">Multiple indices</h4>
+<p>Conjunctive selection using <strong>multiple indices</strong></p>
 <ul>
-<li>requires indices with record pointers</li>
-<li>retrieve record pointers from different indices and perform an intersection of the sets of record pointers
+<li><p>requires indices with record pointers</p>
+<p>需要带有记录指针的索引</p></li>
+<li><p>retrieve record pointers from different indices and perform an intersection of the sets of record pointers</p>
+<p>从不同的索引中检索记录指针并执行记录指针集的交集</p>
 <ul>
-<li>additional conditions (without index) might be checked in memory</li>
+<li><p>additional conditions (without index) might be checked in memory</p>
+<p>可能会在内存中检查附加条件（无索引）</p></li>
 </ul></li>
 </ul>
-<h2 id="disjunctive-selection-operation">Disjunctive Selection Operation</h2>
+<h3 id="disjunctive-selection-operation-析取选择操作">Disjunctive Selection Operation 析取选择操作</h3>
 <p>A disjunctive selection has the form σ<sub>θ<sub>1</sub> ∨ θ<sub>2</sub> ∨ ... ∨ θ<sub>n</sub></sub>(r)</p>
 <p><strong><em>Disjunctive selection</em></strong> using <strong><em>indices</em></strong></p>
 <ul>
 <li>indices can only be used if there is an index for <strong><em>all</em></strong> conditions; otherwise a linear scan of the relation has to be performed anyway</li>
+<li>仅当<strong>所有</strong>条件都有索引时才能使用索引；<u>否则无论如何都必须执行关系的线性扫描</u></li>
 </ul>
-<h2 id="sorting">Sorting</h2>
+<h2 id="sorting-排序">Sorting 排序</h2>
 <p>Sorting in database systems is important for two reasons</p>
+<p>数据库系统中的排序很重要有两个原因</p>
 <ul>
-<li>a query may specify that the <strong>output</strong> should be <strong>sorted</strong></li>
-<li>the <strong>processing</strong> of some relational query operations can be implemented <strong>more efficiently</strong> based on sorted relations
+<li><p>a query may specify that the <strong>output</strong> should be <strong>sorted</strong></p>
+<p>一个查询可以指定<strong>输出</strong>应该被<strong>排序</strong></p></li>
+<li><p>the <strong>processing</strong> of some relational query operations can be implemented <strong>more efficiently</strong> based on sorted relations</p>
+<p>一些关系查询操作的<strong>处理</strong>可以基于排序关系 <strong>更高效</strong>地实现</p>
 <ul>
-<li>e.g. join operation</li>
+<li>e.g. <strong>join</strong> operation</li>
 </ul></li>
 </ul>
 <p>For relations that fit into memory, techniques like quicksort can be used</p>
+<p>对于<strong>适合内存</strong>的关系，可以使用<strong>快速排序</strong>等技术</p>
 <p>For relations that do not fit into memory an <strong><em>external merge sort</em></strong> algorithm can be used</p>
-<h3 id="external-merge-sort-example">External Merge Sort Example</h3>
-<p><img src="/images/DB/1119082.png" /></p>
-<blockquote>
-<p>assumption in this example: memory can hold at most M = 4 blocks</p>
-</blockquote>
-<h3 id="external-merge-sort">External Merge Sort</h3>
+<p>对于不适合内存的关系，可以使用外部归并排序算法</p>
+<h3 id="external-merge-sort-外部归并排序">External Merge Sort 外部归并排序</h3>
 <p>Let us assume that there is space for M memory blocks</p>
+<p>让我们假设有 M 个内存块的空间</p>
 <ol type="1">
-<li><p>Create runs</p>
+<li><p>Create runs 创建运行</p>
 <ul>
-<li>repeatedly read M blocks of the initial relation, sort them and write them back as run R<sub>i</sub> (resulting in a total of N runs)</li>
+<li><p>repeatedly read M blocks of the initial relation, sort them and write them back as run R<sub>i</sub> (resulting in a total of N runs)</p>
+<p>重复读取初始关系的 M 个块，对它们进行排序并将它们写回作为运行R<sub>i</sub>（导致总共 N 次运行）</p></li>
 </ul></li>
-<li><p>Merge the runs (<em>N-way merge</em>),</p>
+<li><p>Merge the runs (<em>N-way merge</em>)</p>
+<p>合并运行（<em>N-way merge</em>）</p>
 <ul>
 <li><p>for N &lt; M</p>
 <ul>
-<li><p>use <em>N</em> memory blocks to buffer the input runs (one block per run) and one block as an output buffer</p></li>
+<li><p>use <em>N</em> memory blocks to buffer the input runs (one block per run) and one block as an output buffer</p>
+<p>使用N 个内存块来缓冲输入运行（每次运行一个块）和一个块作为输出缓冲区</p></li>
 <li><p>repeat the following steps until all input buffer blocks are empty</p>
 <ul>
-<li><p>select the smallest record r<sub>s</sub> from all input runs and write it to the output block</p>
+<li><p>select the <strong>smallest</strong> record r<sub>s</sub> from all input runs and write it to the output block</p>
 <blockquote>
 <p>if the output block is full then write it to the disk</p>
+<p>如果输出块已满，则将其写入磁盘</p>
 </blockquote></li>
-<li><p>remove the record r<sub>s</sub> from the buffered block of run R<sub>i</sub></p>
+<li><p><strong>remove</strong> the record r<sub>s</sub> from the <strong>buffered block</strong> of run R<sub>i</sub></p>
 <blockquote>
 <p>if the buffered block of run R<sub>i</sub> becomes empty, then fetch the next block of the input run R<sub>i</sub> into the buffer</p>
+<p>如果 run R<sub>i</sub>的缓冲块变为空，则将输入 run R<sub>i</sub>的下一个块提取到缓冲区中</p>
 </blockquote></li>
 </ul></li>
 </ul></li>
 <li><p>If N ≥ M then <strong><em>multiple merge passes</em></strong> are required</p>
+<p>如果 N ≥ M 则需要<strong>多次合并</strong></p>
 <ul>
-<li>in each pass continuous groups of M - 1 runs are merged</li>
-<li><em>each pass reduces the number of runs by a factor M - 1</em></li>
+<li><p>in each pass continuous groups of M - 1 runs are merged</p>
+<p>在每一轮中，连续的 M - 1 组运行被合并</p></li>
+<li><p><em>each pass reduces the number of runs by a factor M - 1</em></p></li>
 </ul></li>
 </ul></li>
 </ol>
-<p><strong>Cost analysis</strong></p>
+<h4 id="cost-analysis-成本分析">Cost analysis 成本分析</h4>
 <ul>
 <li>initial number of runs: B/M</li>
 <li>for a file with B blocks we need log<sub>M - 1</sub>(B/M) merge passes</li>
@@ -726,34 +762,42 @@
 <blockquote>
 <p>assumption in this example: memory can hold at most M = 3 blocks</p>
 </blockquote>
+<h4 id="external-merge-sort-example">External Merge Sort Example</h4>
+<p><img src="/images/DB/1119082.png" /></p>
+<blockquote>
+<p>assumption in this example: memory can hold at most M = 4 blocks</p>
+</blockquote>
 <h2 id="join-operation">Join Operation</h2>
 <p>Different algorithms for implementing join operations</p>
 <ul>
-<li>nested-loop join</li>
-<li>block nested-loop join</li>
-<li>index nested-loop join</li>
-<li>merge join</li>
-<li>hash join</li>
+<li>nested-loop join 嵌套循环连接</li>
+<li>block nested-loop join 块嵌套循环连接</li>
+<li>index nested-loop join 索引嵌套循环连接</li>
+<li>merge join 合并连接</li>
+<li>hash join 哈希连接</li>
 </ul>
 <p>The query optimiser may choose an algorithm based on cost estimates</p>
+<p>查询优化器可以<strong>根据成本估计</strong>选择算法</p>
 <p>In the join algorithm examples, we will use the two relations Customer and Order with the following data</p>
 <ul>
 <li>Customer has 5000 records and 100 blocks</li>
 <li>Order has 10 000 records and 300 blocks</li>
 </ul>
-<h2 id="nested-loop-join">Nested-Loop Join</h2>
-<pre class="line-numbers language-none"><code class="language-none">for each tuple tr in r &#123;
-	for each tuple ts in s &#123;
-		if (tr and ts satisfy the join condition q) &#123;
-			add tuple tr ´ ts to the result set
-		&#125;
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="nested-loop-join-嵌套循环连接">Nested-Loop Join 嵌套循环连接</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> each <span class="token builtin">tuple</span> tr <span class="token keyword">in</span> r <span class="token punctuation">&#123;</span>
+	<span class="token keyword">for</span> each <span class="token builtin">tuple</span> ts <span class="token keyword">in</span> s <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>tr <span class="token keyword">and</span> ts satisfy the join condition q<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			add <span class="token builtin">tuple</span> tr ´ ts to the result <span class="token builtin">set</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>A nested-loop join with the <strong><em>outer relation</em></strong> r and the <em>i<strong>nner relation</strong></em> s can be used to compute a theta join r ⋈<sub>θ</sub> s</li>
 <li>The nested-loop join algorithm requires no indices and can be used for any join condition</li>
 <li>A nested-loop join is <strong><em>expensive</em></strong> since every pair of tuples in the two relations has to be examined</li>
-<li>Let us assume that r has b<sub>r</sub> blocks and n<sub>r</sub> tuples and s has b<sub>s</sub> blocks and ns tuples</li>
+</ul>
+<p>Let us assume that r has b<sub>r</sub> blocks and n<sub>r</sub> tuples and s has b<sub>s</sub> blocks and n<sub>s</sub> tuples</p>
+<ul>
 <li>In the <strong>worst case</strong>, the buffer can only hold one block of each relation r and s
 <ul>
 <li>n<sub>r</sub> * b<sub>s</sub> + b<sub>r</sub> block transfers and n<sub>r</sub> + b<sub>r</sub> seeks
@@ -768,18 +812,18 @@
 </ul></li>
 <li>If at least one relation fits into memory, that relation should be made the inner relation</li>
 </ul>
-<h2 id="block-nested-loop-join">Block Nested-Loop Join</h2>
-<pre class="line-numbers language-none"><code class="language-none">for each block Br of r &#123;
-	for each Block Bs of s &#123;
-		for each tuple tr in Br &#123;
-			for each tuple ts in Bs &#123;
-				if (tr and ts satisfy the join condition q)&#123;
-						add tuple tr ´ ts to the result set
-				&#125;
-			&#125;
-		&#125;
-	&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="block-nested-loop-join-块嵌套循环连接">Block Nested-Loop Join 块嵌套循环连接</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> each block Br of r <span class="token punctuation">&#123;</span>
+	<span class="token keyword">for</span> each Block Bs of s <span class="token punctuation">&#123;</span>
+		<span class="token keyword">for</span> each <span class="token builtin">tuple</span> tr <span class="token keyword">in</span> Br <span class="token punctuation">&#123;</span>
+			<span class="token keyword">for</span> each <span class="token builtin">tuple</span> ts <span class="token keyword">in</span> Bs <span class="token punctuation">&#123;</span>
+				<span class="token keyword">if</span> <span class="token punctuation">(</span>tr <span class="token keyword">and</span> ts satisfy the join condition q<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+						add <span class="token builtin">tuple</span> tr ´ ts to the result <span class="token builtin">set</span>
+				<span class="token punctuation">&#125;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>Variant of the nested-loop join where every block of the inner relation is paired with every block of the outer relation</p></li>
 <li><p>Much better worst case performance than nested-loop join</p>
@@ -789,24 +833,27 @@
 <p>e.g. Customer in outer relation: 100 * 300 + 100 = 30100 block transfers and 200 seeks</p>
 </blockquote></li>
 </ul></li>
-<li><p>Other optimisations</p>
+</ul>
+<p>Other optimisations 其他优化</p>
 <ul>
-<li>if the join attributes in a natural join or an equi-join form a candidate key on the inner relation, the inner loop can terminate on the first match</li>
-<li>scan inner loop <strong><em>alternately forward and backward</em></strong>
+<li><p>if the join attributes in a natural join or an equi-join form a candidate key on the inner relation, the inner loop can terminate on the first match</p>
+<p>如果自然连接或等连接中的连接属性形成内部关系的候选键，则内部循环可以在第一次匹配时终止</p></li>
+<li><p>scan inner loop <strong><em>alternately forward and backward</em></strong></p>
+<p><strong>前后交替</strong>扫描内循环</p>
 <ul>
-<li>buffered data from previous scan can be reused</li>
-</ul></li>
+<li><p>buffered data from previous scan can be reused</p>
+<p>可以重用先前扫描的缓冲数据</p></li>
 </ul></li>
 </ul>
-<h2 id="indexed-nested-loop-join">Indexed Nested-Loop Join</h2>
-<ul>
-<li>In an <strong><em>indexed nested-loop join</em></strong> we use an index on the inner loop's join attribute for equi-joins/natural joins
+<h3 id="indexed-nested-loop-join-索引嵌套循环连接">Indexed Nested-Loop Join 索引嵌套循环连接</h3>
+<p>In an <strong><em>indexed nested-loop join</em></strong> we use an index on the <strong>inner loop</strong>'s join attribute for equi-joins/natural joins</p>
+<p>在<strong>索引嵌套循环连接</strong>中，我们使用<strong>内循环</strong>连接属性上的索引进行等连接/自然连接</p>
 <ul>
 <li>index lookups instead of file scans</li>
 <li>for each tuple t<sub>r<sub> of the outer relation r, the index is used to lookup tuples in the inner relation s</li>
 <li>index might even be constructed just to compute the join</li>
-</ul></li>
-<li>Worst case performance
+</ul>
+<p><strong>Worst case performance 最坏情况表现</strong></p>
 <ul>
 <li>buffer has space for one block of the outer relation r and we need an index lookup on s for each tuple in r
 <ul>
@@ -817,16 +864,17 @@
 <li>tree height not greater than log<sub>15</sub>(10000) = 4</li>
 <li>cost: 100 * (t<sub>S</sub> + t<sub>T</sub>) + 5000 * (4+1) (t<sub>S</sub> + t<sub>T</sub>) = 25100 * (t<sub>S</sub> + t<sub>T</sub>)</li>
 </ul></li>
-</ul></li>
 </ul>
-<h2 id="other-join-implementations">Other Join Implementations</h2>
+<h3 id="other-join-implementations">Other Join Implementations</h3>
 <ul>
-<li><strong>Merge join</strong>
+<li><p><strong>Merge join 合并连接</strong></p>
 <ul>
-<li>sort both relations on the join attribute</li>
-<li>merge the sorted relations to join them</li>
+<li><p>sort both relations on the join attribute</p>
+<p>对连接属性上的两个关系进行排序</p></li>
+<li><p>merge the sorted relations to join them</p>
+<p>合并已排序的关系以加入它们</p></li>
 </ul></li>
-<li><strong>Hybrid merge join</strong>
+<li><p><strong>Hybrid merge join 混合合并连接</strong></p>
 <ul>
 <li>one relation is sorted and there exists a secondary B<sup>+</sup>-tree index on the join attribute for the second relation
 <ul>
@@ -835,29 +883,36 @@
 <li>scan the unsorted relation to fetch the data and replace the pointers</li>
 </ul></li>
 </ul></li>
-<li><strong>Hash join</strong>
+<li><p><strong>Hash join 哈希连接</strong></p>
 <ul>
 <li>uses a hash function to partition the tuples of the relations r and s based on the join attributes</li>
 <li>details about hash and merge join can be found in the book</li>
 </ul></li>
 </ul>
-<h2 id="duplicate-elimination">Duplicate Elimination</h2>
+<h2 id="duplicate-elimination-重复消除">Duplicate Elimination 重复消除</h2>
 <p>Duplicates can be eliminated via sorting or hashing</p>
+<p>可以通过排序或散列消除重复项</p>
 <ul>
-<li>when sorting, <strong><em>duplicates will be placed next to each other</em></strong> and all but one instance of the duplicate tuples can be removed</li>
-<li>duplicates can be eliminated in the different steps of an external merge sort
+<li><p>when sorting, <strong><em>duplicates will be placed next to each other</em></strong> and all but one instance of the duplicate tuples can be removed</p>
+<p>排序时，<strong>重复项将彼此相邻放置</strong>，并且可以删除重复元组的一个实例以外的所有实例</p></li>
+<li><p>duplicates can be eliminated in the different steps of an external merge sort</p>
+<p>可以在外部归并排序的不同步骤中消除重复项</p>
 <ul>
-<li>while the runs are generated</li>
-<li>during the intermediate merge passes</li>
+<li>while the runs are generated 生成运行时</li>
+<li>during the intermediate merge passes 在中间合并过程中</li>
 </ul></li>
-<li>hashing places duplicate tuples into the same bucket</li>
+<li><p>hashing places duplicate tuples into the same bucket</p>
+<p>散列将重复的元组放入同一个桶中</p></li>
 </ul>
-<p>The elimination of duplicates has high costs and therefore SQL does not eliminate duplicates by default</p>
+<p>The elimination of duplicates has <strong>high costs</strong> and therefore SQL does not eliminate duplicates by default</p>
+<p>消除重复<strong>成本高</strong>，所以SQL<strong>默认不</strong>消除重复</p>
 <ul>
-<li>has to be explicitly specified via the DISTINCT keyword</li>
+<li><p>has to be explicitly specified via the <code>DISTINCT</code> keyword</p>
+<p>必须通过 <code>DISTINCT</code> 关键字明确指定</p></li>
 </ul>
 <p>A <strong><em>projection</em></strong> can be implemented by performing the projection on each tuple and eliminating duplicates</p>
-<h2 id="set-operations">Set Operations</h2>
+<p><strong>投影</strong>可以通过对每个元组进行投影并消除重复来实现</p>
+<h2 id="set-operations-设置操作">Set Operations 设置操作</h2>
 <p>The <strong>union (∪)</strong>, <strong>intersection (∩)</strong> and <strong>set difference (-)</strong> operators can be implemented based on a variant of <strong>merge join</strong> after sorting or a variant of the <strong>hash join</strong></p>
 <p>Hash implementation</p>
 <ul>
@@ -876,25 +931,29 @@
 <li>remove tuple from the index of H<sub>ri</sub> if present in H<sub>si</sub></li>
 </ul></li>
 </ul>
-<h2 id="expressions">Expressions</h2>
+<h2 id="expressions-表达式">Expressions 表达式</h2>
+<p>The individual relational operations that have been discussed so far normally form part of more <strong><em>complex expressions</em></strong></p>
+<p>到目前为止讨论的各个关系操作通常构成更<strong>复杂表达式</strong>的一部分</p>
+<p>There are two approaches how a <strong>query execution tree</strong> can be evaluated</p>
+<p>有两种方法可以评估<strong>查询执行树</strong></p>
 <ul>
-<li>The individual relational operations that have been discussed so far normally form part of more <strong><em>complex expressions</em></strong></li>
-<li>There are two approaches how a query execution tree can be evaluated
+<li><p><strong>materialisation 物化</strong></p>
 <ul>
-<li><strong>materialisation</strong>
-<ul>
-<li>compute the result of an evaluation primitive and materialise (store) the new relation on the disk</li>
+<li><p>compute the result of an evaluation primitive and materialise (store) the new relation on the disk</p>
+<p>计算评估原语的结果并将新关系具体化（存储）在磁盘上</p></li>
 </ul></li>
-<li><strong>pipelining</strong>
+<li><p><strong>pipelining 流水线</strong></p>
 <ul>
-<li>pass on tuples to parent operations even while an operation is still being executed</li>
-</ul></li>
+<li><p>pass on tuples to parent operations even while an operation is still being executed</p>
+<p>即使操作仍在执行，也将元组传递给父操作</p></li>
 </ul></li>
 </ul>
-<h2 id="materialisation">Materialisation</h2>
+<h3 id="materialisation-物化">Materialisation 物化</h3>
 <p>Evaluate one operation after another starting at the leave nodes of the query expression tree</p>
+<p>从查询表达式树的叶子节点开始计算一个又一个的操作</p>
 <ul>
 <li><p>materialise intermediate results in temporary relations and use those for evaluating operations at the next level</p>
+<p>在临时关系中实现中间结果，并将其用于评估下一级的操作</p>
 <p><img src="/images/DB/1119084.png" /></p></li>
 </ul>
 <ol type="1">
@@ -907,25 +966,35 @@
 <li>costs of reading and writing temporary relations can be quite high</li>
 <li><strong><em>double buffering</em></strong> with two output buffers for each operation</li>
 </ul>
-<h2 id="pipelining">Pipelining</h2>
+<h3 id="pipelining-流水线">Pipelining 流水线</h3>
+<p><strong><em>Pipelining</em></strong> evaluates <strong><em>multiple operations simultaneously</em></strong> by passing results of one operation to the next one <strong><em>without storing the tuples on the disk</em></strong></p>
+<p><strong>流水线</strong>通过将一个操作的结果传递给下一个操作而不将元组存储在磁盘上来同时评估多个操作</p>
 <ul>
-<li><strong><em>Pipelining</em></strong> evaluates <strong><em>multiple operations simultaneously</em></strong> by passing results of one operation to the next one <strong><em>without storing the tuples on the disk</em></strong></li>
-<li>Much cheaper than materialisation since no I/O operations for temporary relations</li>
-<li>Pipelining is not always possible
+<li><p>Much cheaper than materialisation since no I/O operations for temporary relations</p>
+<p>由于<strong>没有临时关系的 I/O</strong> 操作，因此比实现<strong>便宜</strong>得多</p></li>
+</ul>
+<p>Pipelining is not always possible 流水线并不总是可行的 - e.g. does not work for input for sorting algorithms</p>
+<p>例如不适用于排序算法的输入</p>
+<p>Pipelines can be executed in a <strong><em>demand driven</em></strong> or in a <strong><em>producer driven</em></strong> manner</p>
+<p>流水线可以以<strong>需求驱动</strong>或<strong>生产者驱动</strong>的方式执行</p>
 <ul>
-<li>e.g. does not work for input for sorting algorithms</li>
+<li><p>Demand driven or <strong><em>lazy pipelining</em></strong> (<strong>pull pipelining</strong>)</p>
+<p>需求驱动或<strong>惰性流水线</strong>（拉流水线）</p>
+<ul>
+<li><p>top level operation repeatedly requests the next tuple from its children</p>
+<p>顶级操作反复从其子级请求下一个元组</p></li>
 </ul></li>
-<li>Pipelines can be executed in a <strong><em>demand driven</em></strong> or in a <strong><em>producer driven</em></strong> manner</li>
-<li>Demand driven or <strong><em>lazy pipelining</em></strong> (<strong>pull pipelining</strong>)
+<li><p>Producer driven or eager <strong><em>pipelining</em></strong> (<em>push pipelining</em>)</p>
+<p>生产者驱动或<strong>急切流水线</strong>（推送流水线）</p>
 <ul>
-<li>top level operation repeatedly requests the next tuple from its children</li>
+<li><p>the child operators produce tuples eagerly and pass them to their parents via a buffer</p>
+<p>子操作员急切地生成元组并通过缓冲区将它们传递给他们的父母</p></li>
+<li><p>if the buffer is full, the child operator has to wait until the parent operator consumed some tuples</p>
+<p>如果缓冲区已满，则子运算符必须等到父运算符消耗一些元组</p></li>
 </ul></li>
-<li>Producer driven or eager <strong><em>pipelining</em></strong> (<em>push pipelining</em>)
-<ul>
-<li>the child operators produce tuples eagerly and pass them to their parents via a buffer</li>
-<li>if the buffer is full, the child operator has to wait until the parent operator consumed some tuples</li>
-</ul></li>
-<li>The use of pipelining may have an <strong>impact on the types of algorithms that can be used</strong> for a specific operation
+</ul>
+<p>The use of pipelining may have an <strong>impact on the types of algorithms that can be used</strong> for a specific operation</p>
+<p>流流水线的使用可能会对可用于特定操作的算法类型产生影响</p>
 <ul>
 <li>e.g. join with a pipelined left-hand-side input
 <ul>
@@ -933,30 +1002,37 @@
 <li>i.e. merge join cannot be used if the inputs are not sorted</li>
 <li>however, we can for example use an indexed nested-loop join</li>
 </ul></li>
-</ul></li>
 </ul>
-<h2 id="query-optimisation">Query Optimisation</h2>
+<h2 id="query-optimisation-查询优化">Query Optimisation 查询优化</h2>
 <p>There are alternative ways for evaluating a given query</p>
 <ul>
-<li>different equivalent expressions (query expression trees)</li>
-<li>different potential algorithms for each operation of the expression</li>
+<li><p>different equivalent expressions (query expression trees)</p>
+<p>不同的等价表达式（查询表达式树）</p></li>
+<li><p>different potential algorithms for each operation of the expression</p>
+<p>表达式的每个操作的不同潜在算法</p></li>
 </ul>
 <p><img src="/images/DB/1119085.png" /></p>
 <p>There can be enormous differences in terms of performance between different query evaluation plans for the same query</p>
+<p>同一查询的不同查询评估计划之间的性能可能存在巨大差异</p>
 <ul>
 <li>e.g. seconds vs. days to execute the same query</li>
 </ul>
-<p>Cost-based query optimisation</p>
+<h3 id="cost-based-query-optimisation">Cost-based query optimisation</h3>
 <ol type="1">
-<li>generate logically equivalent expressions by using a set of equivalence rules</li>
-<li>annotate the expressions to get alternative query evaluation plans (e.g. which algorithms to be used)</li>
-<li>select the cheapest plan based on the estimated costs</li>
+<li><p>generate logically equivalent expressions by using a set of equivalence rules</p>
+<p>使用一组等价规则生成逻辑等价的表达式</p></li>
+<li><p>annotate the expressions to get alternative query evaluation plans (e.g. which algorithms to be used)</p>
+<p>注释表达式以获得替代查询评估计划（例如要使用的算法）</p></li>
+<li><p>select the cheapest plan based on the estimated costs</p>
+<p>根据估计成本选择最便宜的计划</p></li>
 </ol>
 <p>Estimation of query evaluation costs based on</p>
+<p>基于查询评估成本的估计</p>
 <ul>
-<li>statistical information from the catalogue manager in combination with the expected performance of the algorithms</li>
+<li><p>statistical information from the catalogue manager in combination with the expected performance of the algorithms</p>
+<p>自目录管理器的统计信息与算法的预期性能相结合</p></li>
 </ul>
-<h2 id="equivalence-rules">Equivalence Rules</h2>
+<h3 id="equivalence-rules">Equivalence Rules</h3>
 <ul>
 <li>Conjunctive selection operations can be deconstructed into a sequence of individual selections
 <ul>
@@ -1009,13 +1085,15 @@
 </ul></li>
 <li>Note that this is only a selection of equivalence rules</li>
 </ul>
-<h2 id="heuristic-optimisation">Heuristic Optimisation</h2>
+<h3 id="heuristic-optimisation-启发式优化">Heuristic Optimisation 启发式优化</h3>
 <ul>
-<li>Cost-based optimisation can be expensive
+<li><p>Cost-based optimisation can be expensive 基于成本的优化可能很昂贵</p>
 <ul>
-<li>a DBMS may use some <strong><em>heuristics</em></strong> to reduce the number of cost-based choices</li>
+<li><p>a DBMS may use some <strong><em>heuristics</em></strong> to reduce the number of cost-based choices</p>
+<p>DBMS 可能会使用一些<strong>启发式方法</strong>来减少基于成本的选择的数量</p></li>
 </ul></li>
-<li>A heuristic optimisation transforms the query expression tree by using a set of rules that typically improve the execution performance
+<li><p>A heuristic optimisation transforms the query expression tree by using a set of rules that typically improve the execution performance</p>
+<p>启发式优化通过使用一组通常可以提高执行性能的规则来转换查询表达式树</p>
 <ul>
 <li>perform <strong><em>selection as early as possible</em></strong>
 <ul>
@@ -1025,7 +1103,10 @@
 <ul>
 <li>reduces the number of attributes</li>
 </ul></li>
-<li>perform *<strong>most restrictive selection and join operations</strong> (smallest result size) before other operations</li>
+<li>perform <strong>most restrictive selection and join operations</strong> (smallest result size)
+<ul>
+<li>before other operations</li>
+</ul></li>
 </ul></li>
 </ul>
 
