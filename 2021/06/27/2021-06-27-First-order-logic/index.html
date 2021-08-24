@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="VUB 4005196EER Fundamentals of Computer Science, Chaoqun Yin">
+    <meta name="keywords" content="First-order logic, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>VUB 4005196EER Fundamentals of Computer Science | Chaoqun Yin</title>
+    <title>First-order logic | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">VUB 4005196EER Fundamentals of Computer Science</h1>
+                    <h1 class="description center-align post-title">First-order logic</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-22
+                    2021-06-27
                 </div>
                 
 
@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    193
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    7 Min
                 </div>
                 
 
@@ -500,79 +500,177 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="fundamentals-of-computer-science">Fundamentals of Computer Science</h1>
-<p><a href="https://caliweb.vub.be/?page=course-offer&amp;id=001855&amp;anchor=1&amp;target=pr&amp;year=2021&amp;language=en&amp;output=html">Website</a></p>
-<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/9a20138c32d4732609cd1316f590644b25b91580-1600675238359/capture/">Video ~ 31:54</a></p>
-<h2 id="course-content">Course content</h2>
-<p><strong>Logic</strong> for Computer Science</p>
+                <h1 id="first-order-logic">First-order logic</h1>
+<p><a href="https://yintelligence.tech/2021/02/22/2021-02-22-Course-Information/">VUB 4005196EER Fundamentals of Computer Science</a></p>
+<p>Background + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20661/files/folder/Exercises?preview=544882">Question</a> + Video + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20661/files/folder/Exercises/Some%20solution%20files?preview=577202">Solution</a></p>
+<p>Try your solution in <a target="_blank" rel="noopener" href="http://verne.cs.kuleuven.be/idp/server.html#">IDP</a>. Use it to find a valid colouring of the following graph:</p>
+<h2 id="graph-colouring-bis">Graph Colouring (bis)</h2>
+<p>Assume a set Node of nodes and Colour of colours is given. Write a first-order theory that states that the predicate <em>Colouring: Node × Colour→ <strong>B</strong></em> is a valid colouring of a graph represented by a binary predicate <em>Edge</em> ranging over colours.</p>
 <ul>
-<li>Propositional <strong>Logic</strong></li>
-<li>Predicate <strong>Logic</strong></li>
-<li>Proof Strategies (truth tables, substitution, rules of inference, mathematical induction)</li>
+<li>there are 5 nodes: N<sub>1</sub>,N<sub>2</sub>,N<sub>3</sub>,N<sub>4</sub>,N<sub>5</sub></li>
+<li>the graph has the following edges: (N<sub>1</sub>, N<sub>3</sub>), (N<sub>1</sub>, N<sub>4</sub>), (N<sub>2</sub>, N<sub>3</sub>), (N<sub>2</sub>, N<sub>4</sub>), (N<sub>2</sub>, N<sub>5</sub>), (N<sub>3</sub>, N<sub>5</sub>).</li>
+<li>There are three colours: Blue, Red and Green</li>
 </ul>
-<p><strong>Language Models</strong> for Computer Science</p>
-<ul>
-<li>Finite <strong>Automata</strong> (DFA, NFA)</li>
-<li>Regular <strong>languages</strong> and regular expressions</li>
-<li>Context-free Grammars</li>
-<li>Push-down <strong>automata</strong> and parsing</li>
-<li><strong>Turing machines</strong>, computability and undecidability</li>
-</ul>
-<h2 id="lectures">Lectures</h2>
-<h3 id="logic-for-computer-science">Logic for computer science</h3>
+<pre class="line-numbers language-idp" data-language="idp"><code class="language-idp">vocabulary V&#123;
+	type node
+	type color
+	coloring(node, color)
+	edge(node,node)
+&#125;
+
+theory graphFO :V&#123;
+ &#x2F;&#x2F; Put your theory here
+    ! x[node] y[node]: edge(x,y) &#x3D;&gt; ~? z: coloring(x,z) &amp;  coloring(y,z).
+
+	! n: ?1 c: coloring(n,c).
+&#125;
+
+
+structure instance :V&#123;
+	&#x2F;&#x2F;This is the instance given in the assignment:
+	node &#x3D; &#123;n1;n2;n3;n4;n5&#125; 
+	color &#x3D; &#123;blue;red;green&#125;
+	edge &#x3D; &#123;n1,n3;n1,n4;  n2,n3; n2,n4; n2,n5; n3,n5&#125; 
+&#125;
+
+procedure main()&#123;
+ &#x2F;&#x2F;Generate the valid colorings 
+	print(onemodel(graphFO,instance))
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="n-queens-problem">N-Queens problem</h2>
+<p>The problem is to put N queens on a chess-board of dimension N so that they cannot attack each other. A queen can attack another queen if it is on the same column, row or diagonal. First determine which types (sets to quantify over) and predicates you will need. Then, write a first-order theory that models the solutions to the N-Queens problem. (you will need some arithmetic for the diagonals, for that you can assume to have access to the normal functions such as addition of numbers).</p>
+<pre class="line-numbers language-none"><code class="language-none">vocabulary QueensV&#123;
+	type Queen
+	type Row isa int
+	type Col isa int
+	
+	RowOf(Queen):Row
+	ColOf(Queen):Col
+&#125;
+
+theory QueensT : QueensV&#123;	
+&#x2F;&#x2F;NOTE: this is a solution that uses FUNCTIONS which we did not see in class (e.g. a function that maps a queen to a row. Try doing it without fuction symbols yourself! )
+	!q1 q2: q1~&#x3D; q2 &#x3D;&gt; RowOf(q1)~&#x3D;RowOf(q2).
+	!q1 q2: q1~&#x3D; q2 &#x3D;&gt; ColOf(q1)~&#x3D;ColOf(q2).
+	!q1 q2: q1~&#x3D; q2 &#x3D;&gt; abs(ColOf(q1)-ColOf(q2))~&#x3D;abs(RowOf(q1)-RowOf(q2)).
+&#125;
+
+structure Queens7 : QueensV&#123;
+	Queen &#x3D; &#123;1..7&#125;
+	Row  &#x3D; &#123;1..7&#125;
+	Col  &#x3D; &#123;1..7&#125;
+&#125;
+
+structure Queens8 : QueensV&#123;
+	Queen &#x3D; &#123;1..8&#125;
+	Row  &#x3D; &#123;1..8&#125;
+	Col  &#x3D; &#123;1..8&#125;
+&#125;
+
+procedure main()&#123;
+	print(&quot;Searching for a solution for the 7-queens problem&quot;)
+	print(modelexpand(QueensT,Queens7)[1])
+	print(&quot;Searching for a solution for the 8-queens problem&quot;)
+	print(modelexpand(QueensT,Queens8)[1])
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="jugs">Jugs</h2>
+<p>You must obtain exactly 4 liters of water using a 5 liter jug, a 3 liter jug and a water pump.</p>
+<p><strong>Tasks:</strong></p>
 <ol type="1">
-<li>Propositional Logic
-<ol type="1">
-<li><a href="https://yintelligence.tech/2021/02/23/2021-02-23-Propositional-Logic/">Propositional Logic</a> + <a href="https://yintelligence.tech/2021/02/23/2021-02-23-Exercises-for-Lecture-02-%E2%80%93-Propositional-logic/">Exercise</a> + Chapter 2</li>
-<li><a href="https://yintelligence.tech/2021/02/24/2021-02-24-Proving-Things---Why-and-How/">Proving Things: Why and How</a> + <a href="https://yintelligence.tech/2021/02/25/2021-02-25-Exercises-for-Proofs-of-Propositional-logic/">Exercise</a> + Chapter 3
-<ul>
-<li>Truth tables</li>
-<li>Substitution</li>
-<li>Rules of inference</li>
-</ul></li>
-</ol></li>
-<li>Predicate Logic
-<ol type="1">
-<li><a href="https://yintelligence.tech/2021/02/26/2021-02-26-Predicate-Logic/">Predicate Logic</a> + Exercise + Chapter 4</li>
-<li><a href="https://yintelligence.tech/2021/03/02/2021-03-02-Proving-with-Predicates/">Proving with Predicates</a> + Exercise + Chapter 5
-<ul>
-<li>Rules of inference</li>
-<li>Mathematical induction</li>
-</ul></li>
-</ol></li>
+<li>Find a representation in first-order logic.</li>
+<li>Find a solution for the question using <a target="_blank" rel="noopener" href="http://verne.cs.kuleuven.be/idp/server.html#">IDP</a>.</li>
+<li>What is the smallest number of steps necessary to solve this?</li>
 </ol>
-<p><a href="https://yintelligence.tech/2021/03/02/2021-03-02-Recap-and-Exercices-(Chapters-1-5)/">Recap and Exercises</a></p>
-<h3 id="language-models-for-computer-science">Language models for computer science</h3>
-<ol type="1">
-<li><a href="https://yintelligence.tech/2021/03/05/2021-03-05-Language-and-Models/">Language and Models</a> + <a href="https://yintelligence.tech/2021/05/23/2021-05-23-Proving-with-Predicates-&amp;-Language-Models/">Exercise</a> + Chapter 8
-<ul>
-<li>Languages</li>
-<li>Concatenation</li>
-<li>Closure</li>
-</ul></li>
-<li>Regular Languages
-<ol type="1">
-<li><a href="https://yintelligence.tech/2021/03/08/2021-03-08-Finite-Automata-and-their-Languages/">Finite Automata and their Languages</a> + Chapter 9
-<ul>
-<li>Finite automata(DFA,NFA,Λ-NFA)</li>
-<li>Λ-elimination and removing nondeterminism</li>
-<li>Closure properties</li>
-</ul></li>
-<li><a href="https://yintelligence.tech/2021/03/12/2021-03-12-Regular-Expressions/">Regular Expressions</a> + Chapter 10</li>
-</ol></li>
-<li>Context-Free Languages
-<ol type="1">
-<li><a href="https://yintelligence.tech/2021/03/16/2021-03-16-Context-Free-Grammars/">Context-Free Languages</a> + Chapter 12</li>
-<li><a href="https://yintelligence.tech/2021/03/17/2021-03-17-Pushdown-Automata/">Pushdown Automata and parsing</a> + Chapter 13</li>
-</ol></li>
-<li><a href="https://yintelligence.tech/2021/03/18/2021-03-18-Turing-Machines/">Turing Machines</a> + <a href="https://yintelligence.tech/2021/06/17/2021-06-17-Turing-Machines/">Exercise</a> + Chapter 14
-<ul>
-<li>Unrestricted Languages</li>
-<li>Turing Machines and Universal Turing Machine</li>
-</ul></li>
-</ol>
-<h2 id="course-material">Course material</h2>
-<p>Hamburger, H. &amp;Richards, D. (2002). <em><a target="_blank" rel="noopener" href="https://www.pearson.com/uk/educators/higher-education-educators/program/Hamburger-Logic-and-Language-Models-for-Computer-Science/PGM499517.html">Logic and Language Models for Computer Science</a></em>. Upper Saddle River (NJ): Prentice Hall. + <a target="_blank" rel="noopener" href="https://cs.gmu.edu/~henryh/330/Answers/">GMU Exercise Solution</a></p>
+<pre class="line-numbers language-idp" data-language="idp"><code class="language-idp">vocabulary V&#123;
+	&#x2F;&#x2F;Which types do you need (sets to quantify over)?
+
+	&#x2F;&#x2F;Hint: if you want to use arithmetic over, say coordinates, in IDP you can do it as follows
+	type Time isa nat
+	Last(Time) &#x2F;&#x2F;Special predicate indicate the last time point
+	&#x2F;&#x2F; This specifies that time points are subsets of the natural numbers and hence that you can add them up, ... 
+	
+	&#x2F;&#x2F;Which functions and predicates do you need? Many of them will be time-dependent! 
+	&#x2F;&#x2F;How do you model a state? What are the actions? 
+    
+    
+    &#x2F;&#x2F;input:
+    type Volume isa int 
+    type Jug
+    Capacity(Jug,Volume)
+    
+    
+    &#x2F;&#x2F;state
+    Holds(Jug,Volume,Time)
+    
+    &#x2F;&#x2F;actions
+    fill(Jug,Time)
+    empty(Jug,Time)
+    pourFromTo(Jug,Jug,Time)
+    
+    &#x2F;&#x2F;whether or not Jug is involved in an action
+    change(Jug,Time)
+    
+    
+&#125;
+
+theory jugs :V&#123;
+&#x2F;&#x2F;In order to model all the temporal information, we have to be careful. This will be executed in the context of a **finite** domain. So 
+&#x2F;&#x2F; don&#39;t just write constraints about t+1 when t is a time point. 
+&#x2F;&#x2F;Therefor, all our sentences will be conditional: For all times EXCEPT the last time... This is how time T and time T+1 relate... 
+&#x2F;&#x2F; IN LOGIC: ! t [Time]: ~Last(t) &#x3D;&gt; (). 
+    
+    &#x2F;&#x2F;Actions cannot be concurrent
+   ! j t: ~(fill(j,t) &amp; empty(j,t)).
+    ! j j2 t: ~(fill(j,t) &amp; pourFromTo(j,j2,t)).
+    ! j j2 t: ~(empty(j,t) &amp; pourFromTo(j,j2,t)).
+    ! j j2 t: ~(fill(j,t) &amp; pourFromTo(j2,j,t)).
+    ! j j2 t: ~(empty(j,t) &amp; pourFromTo(j2,j,t)).
+	! j j2 t: ~(pourFromTo(j2,j,t) &amp; pourFromTo(j,j2,t)).
+    
+    
+	&#x2F;&#x2F;Definition of when something is changed
+    ! j t: change(j,t) &lt;&#x3D;&gt; (fill(j,t) | empty(j,t) | ? j2: (pourFromTo(j2,j,t) | pourFromTo(j,j2,t))).
+
+    &#x2F;&#x2F;Holds is functionql
+	! j v v2 t: Holds(j,v,t) &amp; Holds(j,v2,t) &#x3D;&gt; v &#x3D; v2. 
+    
+	&#x2F;&#x2F;INERTIA:
+	! j t v: ~change(j,t) &amp; Holds(j,v,t) &amp; ~Last(t) &#x3D;&gt; Holds(j,v,t+1).
+        
+    &#x2F;&#x2F;Definition of state in terms of actions: 
+    &#x2F;&#x2F;initially: empty
+    ! j v: Holds(j,v,0) &lt;&#x3D;&gt; v &#x3D;0.
+    
+    &#x2F;&#x2F;If you fill them they become full
+    ! t j v : ~Last(t) &amp; fill(j,t) &amp; Capacity(j,v) &#x3D;&gt; Holds(j,v,t+1)   .
+    &#x2F;&#x2F;If you empty them they become empty
+    ! t : ~Last(t) &amp;  empty(j,t)  &#x3D;&gt;  Holds(j,0,t+1)  .
+    
+    &#x2F;&#x2F;Rules for pouring. Two cases:
+    &#x2F;&#x2F; First one goes completely in the second: We just pour it out in the second
+    ! t [Time] j j2 v1 v2: ~Last(t) &amp; pourFromTo(j,j2,t) &amp; Holds(j,v1,t) &amp; Holds(j2,v2,t) &amp; Capacity(j2,c) &amp; v1+v2 &#x3D;&lt; c   &#x3D;&gt; Holds(j2,v1+v2,t+1) &amp; Holds(j,0,t+1)    .
+    &#x2F;&#x2F;Otherwise: the second is full and the first contains the rest
+    ! t [Time]: ~Last(t) &#x3D;&gt; ( !j j2: pourFromTo(j,j2,t) &amp; Holds(j,v1,t) &amp; Holds(j2,v2,t) &amp; Capacity(j2,c) &amp; v1+v2 &gt; c   &#x3D;&gt; Holds(j2,c,t+1) &amp; Holds(j,v1+v2-c,t+1)    ).
+
+
+    &#x2F;&#x2F;Goal: in the end a jar has four
+	? t j: Last(t) &amp; Holds(j,4,t).
+
+
+
+    
+&#125;
+
+structure instance :V&#123;
+	Time &#x3D; &#123; 0..7&#125;
+    Last &#x3D; &#123;7	&#125;
+    Volume &#x3D; &#123;0..5&#125;
+    Capacity &#x3D; &#123;j1,5;j2,3&#125;
+&#125;
+
+procedure main()&#123;
+print(onemodel(jugs,instance))
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -599,7 +697,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/02/22/2021-02-22-Course-Information/">https://yintelligence.tech/2021/02/22/2021-02-22-Course-Information/</a>
+                    <a href="https://yintelligence.tech/2021/06/27/2021-06-27-First-order-logic/">https://yintelligence.tech/2021/06/27/2021-06-27-First-order-logic/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -686,13 +784,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/02/23/2021-02-22-Functions/">
+                <a href="/2021/07/11/2021-07-11-Routing-Protocol-for-Low-Power-and-Lossy-Networks-(RPL)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Functions">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Routing Protocol for Low Power and Lossy Networks (RPL)">
                         
-                        <span class="card-title">Functions</span>
+                        <span class="card-title">Routing Protocol for Low Power and Lossy Networks (RPL)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -703,14 +801,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-11
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Network/" class="post-category">
+                                    Network
                                 </a>
                             
                             
@@ -720,8 +818,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Structure-and-Interpretation-of-Computer-Programs/">
-                        <span class="chip bg-color">Structure and Interpretation of Computer Programs</span>
+                    <a href="/tags/Advanced-IT-Networks/">
+                        <span class="chip bg-color">Advanced IT Networks</span>
                     </a>
                     
                 </div>
@@ -735,31 +833,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/22/2021-02-22-Introduction-to-data-structure/">
+                <a href="/2021/06/26/2021-06-26-Functional-Dependencies-and-Normalisation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="UCB CS61B Data structure">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Functional Dependencies and Normalisation">
                         
-                        <span class="card-title">UCB CS61B Data structure</span>
+                        <span class="card-title">Functional Dependencies and Normalisation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Course CS61B outline
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Data-model/" class="post-category">
-                                    Data model
+                            <a href="/categories/Database/" class="post-category">
+                                    Database
                                 </a>
                             
                             
@@ -769,8 +867,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Data-Structures/">
-                        <span class="chip bg-color">Data Structures</span>
+                    <a href="/tags/Databases/">
+                        <span class="chip bg-color">Databases</span>
                     </a>
                     
                 </div>
