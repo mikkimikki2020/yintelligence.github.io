@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-16
+                    2021-08-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    18 Min
+                    19 Min
                 </div>
                 
 
@@ -502,41 +502,42 @@
             <div id="articleContent">
                 <h1 id="finite-automata-and-their-languages">Finite Automata and their Languages</h1>
 <p><a href="https://yintelligence.tech/2021/02/22/2021-02-22-Course-Information/">VUB 4005196EER Fundamentals of Computer Science</a></p>
-<h2 id="introduction">Introduction</h2>
 <ul>
-<li><strong>Recognition</strong> is a fundamental computational problem for formal languages:
+<li><p><strong>Recognition</strong> is a fundamental computational problem for formal languages:</p>
 <ul>
 <li>For string x and language L: <em>does</em> x belong to L?</li>
 </ul></li>
-<li>The problem is solved by designing an <strong>automaton</strong> for L:
+<li><p>The problem is solved by designing an <strong>automaton</strong> for L:</p>
 <ul>
 <li>Complete computational model of the recognition process for L</li>
 </ul></li>
-<li>The <strong>complexity</strong> of language classes can be studied by comparing the complexity of the corresponding classes of automata</li>
+<li><p>The <strong>complexity</strong> of language classes can be studied by comparing the complexity of the corresponding classes of automata</p>
+<p>语言类的<strong>复杂度</strong>可以通过比较automata对应类的复杂度来研究</p></li>
 </ul>
 <h2 id="automata-the-general-idea">Automata: The General Idea</h2>
 <ul>
-<li>An <strong>automaton</strong> is a specification for a <strong>symbol processing machine</strong></li>
-<li>Different from a real machine:
+<li><p>An <strong>automaton</strong> is a specification for a <strong>symbol processing machine</strong></p>
+<p><strong>规范符号加工机</strong></p></li>
+<li><p>Different from a real machine:</p>
 <ul>
 <li>It is a specification</li>
 <li>Operates on symbols</li>
 <li>Relatively simple internal structure to study</li>
 </ul></li>
-<li>An automaton can <strong>recognize</strong> whether a string is part of the language that is specifies</li>
+<li><p>An automaton can <strong>recognize</strong> whether a string is part of the language that is specifies</p></li>
 </ul>
 <h3 id="states">States</h3>
+<p>As an automaton executes: - Changes in its internal condition</p>
 <ul>
-<li>As an automaton executes:
-<ul>
-<li>Changes in its internal condition</li>
-<li>Each possible internal condition is called a <strong>state</strong></li>
-</ul></li>
-<li>The states form the <strong>internal memory</strong> of the automaton</li>
-<li>A <strong>Finite Automaton (FA)</strong> has a <strong>finite number of states</strong> and <strong>no other form of memory</strong></li>
+<li><p>Each possible internal condition is called a <strong>state</strong></p>
+<p>每个可能的内部条件称为一个<strong>状态</strong></p></li>
 </ul>
-<h2 id="diagrams-and-recognition">Diagrams and recognition</h2>
-<h3 id="state-transition-diagram">State transition diagram</h3>
+<p>The states form the <strong>internal memory</strong> of the automaton</p>
+<p>状态形成自动机的<strong>内部存储器</strong></p>
+<p>A <strong>Finite Automaton (FA)</strong> has a <strong>finite number of states</strong> and <strong>no other form of memory</strong></p>
+<p>一个<strong>有限自动机FA一</strong>具有<strong>有限数量的状态</strong>并且<strong>没有其他形式的记忆</strong></p>
+<h2 id="diagrams-and-recognition-图表和识别">Diagrams and recognition 图表和识别</h2>
+<h3 id="state-transition-diagram-状态转移图">State transition diagram 状态转移图</h3>
 <ul>
 <li>A <strong>State Transition Diagram</strong> graphically represents an automaton</li>
 <li>It consists of:
@@ -549,7 +550,7 @@
 <li>A string is <strong>accepted</strong> if it leads from the start state to an accepting state</li>
 <li>The set of strings that an automaton accepts is called its <strong>language</strong></li>
 </ul>
-<h4 id="example">Example</h4>
+<p><strong>Example</strong></p>
 <p><img src="/images/FOCS/0931270.png" /></p>
 <ul>
 <li>Start State: A</li>
@@ -564,17 +565,20 @@
 <h3 id="skiptrap-sate">Skip/trap sate</h3>
 <p><img src="/images/FOCS/0931272.png" /></p>
 <ul>
-<li>State D is a <strong>sink state</strong> (no way out)</li>
-<li>A non-accepting sink state is called a <strong>trap state</strong></li>
-<li>Trap states clutter diagrams and are usually not drawn</li>
+<li><p>State D is a <strong>sink state </strong> (no way out)</p></li>
+<li><p>A non-accepting sink state is called a <strong>trap state 陷阱状态</strong></p></li>
+<li><p>Trap states clutter diagrams and are usually not drawn</p>
+<p>陷阱状态杂波图通常不绘制</p></li>
 </ul>
 <h3 id="trap-free-diagram">Trap-free diagram</h3>
 <p><img src="/images/FOCS/0931275.png" /></p>
 <ul>
-<li>Equivalent, trap-free diagram</li>
-<li>Missing transitions are assumed to lead to the trap state</li>
+<li><p>Equivalent, trap-free diagram</p>
+<p>等效的无陷阱图</p></li>
+<li><p>Missing transitions are assumed to lead to the trap state</p>
+<p>假设缺少转换会导致陷阱状态</p></li>
 </ul>
-<h3 id="proof-l-a-bc">Proof: <em>L</em> = {A, <em>BC</em>}</h3>
+<h3 id="proof-l-a-bc">Proof: <em>L</em> = {a, <em>bc</em>}</h3>
 <p><img src="/images/FOCS/0931275.png" /></p>
 <ul>
 <li>Prove that: <em>L</em> = {a, <em>bc</em>}
@@ -583,14 +587,15 @@
 <li>Prove: <em>L</em> ⊆ {a, <em>bc</em>}</li>
 </ul></li>
 </ul>
-<h3 id="proof-a-bc-l">Proof: {A, <em>BC</em>} ⊆ <em>L</em></h3>
+<h4 id="proof-a-bc-l">Proof: {a, <em>bc</em>} ⊆ <em>L</em></h4>
 <p><img src="/images/FOCS/0931275.png" /></p>
 <ul>
-<li>Prove that: {a, <em>bc</em>} ⊆ <em>L</em></li>
-<li>Prove that the strings a and <em>bc</em> are part of the language specified by the automaton</li>
-<li>Recognize both strings using the automaton</li>
+<li><p>Prove that: {a, <em>bc</em>} ⊆ <em>L</em></p></li>
+<li><p>Prove that the strings a and <em>bc</em> are part of the language specified by the automaton</p></li>
+<li><p>Recognize both strings using the automaton</p>
+<p>使用自动机识别两个字符串</p></li>
 </ul>
-<h3 id="proof-l-a-bc-1">Proof: <em>L</em> ⊆ {A, <em>BC</em>}</h3>
+<h4 id="proof-l-a-bc-1">Proof: <em>L</em> ⊆ {a, <em>bc</em>}</h4>
 <p><img src="/images/FOCS/0931275.png" /></p>
 <p>Prove that: <em>L</em> ⊆ {a, <em>bc</em>}</p>
 <ul>
@@ -649,7 +654,7 @@
 <li>δ : Q × Σ → Q</li>
 </ul>
 <p>δ is the <strong>transition function</strong>, with as domain the set of all ordered pairs (q, σ)</p>
-<h3 id="example-1">Example</h3>
+<h3 id="example">Example</h3>
 <p>Specify a machine <em>M</em> = (<em>Q</em>, Σ, q<sub>0</sub>, δ, <em>A</em>) for the language {a}<sup><em></sup> by giving the values of </em>Q<em>, Σ, δ and </em>A*, and also by drawing the corresponding diagram.</p>
 <p>Q = {q<sub>0</sub>},</p>
 <p>Σ = {a},</p>
@@ -708,8 +713,8 @@
 <li>M = ({q<sub>0</sub>, q<sub>1</sub>}, {a}, q<sub>0</sub>, δ, {q<sub>1</sub>})</li>
 <li><img src="/images/FOCS/0931289.png" /></li>
 </ul>
-<h3 id="closure-of-the-transition-function">Closure of the transition function</h3>
-<h4 id="definition"><strong>Definition:</strong></h4>
+<h2 id="closure-of-the-transition-function">Closure of the transition function</h2>
+<h3 id="definition"><strong>Definition</strong></h3>
 <ul>
 <li><p>M = (Q, Σ, q<sub>0</sub>, δ, A)</p></li>
 <li><p>δ<sup>∗</sup> : Q × Σ<sup>∗</sup> → Q</p></li>
@@ -717,7 +722,7 @@
 <li><p>For any q ∈ Q, any σ ∈ Σ and any x ∈ Σ<sup>∗</sup> , δ<sup>∗</sup> (q, xσ) = δ(δ<sup>∗</sup> (q, x), σ)</p>
 <p><em>Note that the definition is recursive!</em></p></li>
 </ul>
-<h4 id="theorem-δ-for-strings-of-length-1">Theorem : δ<sup>∗</sup> for strings of length 1</h4>
+<h3 id="theorem-δ-for-strings-of-length-1">Theorem : δ<sup>∗</sup> for strings of length 1</h3>
 <ul>
 <li><p>Theorem: ∀q ∈ Q : ∀σ ∈ Σ for which |σ| = 1 : δ<sup>∗</sup> (q, σ) = δ(q, σ)</p></li>
 <li><p>Proof:</p>
@@ -727,7 +732,7 @@
 <p>​ = δ(q, σ) Closure of δ (base case)</p></li>
 </ul></li>
 </ul>
-<h4 id="example-2">Example</h4>
+<p><strong>Example</strong></p>
 <ul>
 <li><p>M = ({q<sub>0</sub>, q<sub>1</sub>, q<sub>2</sub>}, {a, d}, q<sub>0</sub>, δ, {q<sub>1</sub>})</p></li>
 <li><p><img src="/images/CS61A/0931290.png" /></p></li>
@@ -805,24 +810,24 @@
 <li><img src="/images/CS61A/0931292.png" /></li>
 <li><img src="/images/CS61A/0931293.png" /></li>
 </ol>
-<h3 id="recognized-language">Recognized language</h3>
-<h4 id="definition-language-recognized-by-a-fa">Definition: Language recognized by a FA</h4>
+<h2 id="recognized-language">Recognized language</h2>
+<h3 id="definition-language-recognized-by-a-fa">Definition: Language recognized by a FA</h3>
 <ul>
 <li>The language L(M) <strong>recognized</strong> by a finite automaton M = (Q, Σ, q<sub>0</sub>, δ, A) is the set of all strings x ∈ Σ<sup>∗</sup> such that δ<sup>∗</sup> (q<sub>0</sub>, x) ∈ A</li>
 <li>M <strong>accepts</strong> the strings of L(M)</li>
 <li>M <strong>rejects</strong> the strings of Σ<sup>∗</sup>  L(M)</li>
 </ul>
-<h4 id="algorithm-recognizing-the-language-of-a-fa">Algorithm: Recognizing the language of a FA</h4>
+<h3 id="algorithm-recognizing-the-language-of-a-fa">Algorithm: Recognizing the language of a FA</h3>
 <p><img src="/images/FOCS/0931290.png" /></p>
 <ul>
 <li>q: current state, x: input string, σ: current symbol, ⇐: assignment</li>
 <li>dequeue: remove an element from the front and return it</li>
 <li>Algorithm returns <em>TRUE</em> (accept) or <em>FALSE</em> (reject)</li>
 </ul>
-<h2 id="nondeterministic-finite-automata">Nondeterministic finite automata</h2>
+<h2 id="nondeterministic-finite-automata"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8_oN7Txo9zY&amp;list=PLBPbUxsZM4SbFoinAoJXoNAAiGRuPLm4J&amp;index=167">Nondeterministic finite automata</a></h2>
 <h3 id="general-idea">General idea</h3>
 <p>In contrast to Deterministic Finite Automata (DFAs), Nondeterministic Finite Automata (NFAs) can have <u><strong>more than 1 transition</strong></u> for a single symbol out of a state</p>
-<h3 id="example-3">Example</h3>
+<h3 id="example-1">Example</h3>
 <p>For the finite language <em>L</em> = {ab, ac}, draw an NFA state transition diagram, giving each string of <em>L</em> its own states and transitions, sharing only the start state</p>
 <p><img src="/images/FOCS/0931291.png" /></p>
 <h3 id="characteristics">Characteristics</h3>
@@ -854,7 +859,7 @@
 <li>The NFA accepts the strings of L(M)</li>
 <li>The NFA rejects the strings of Σ<sup>∗</sup>  L(M)</li>
 </ul>
-<h4 id="example-4">Example</h4>
+<h4 id="example-2">Example</h4>
 <p>Consider the language <em>L</em> = {x | x ∈ {a, b}<sup><em></sup>} and x ends with ab}. This language contains, for example, the string </em>bbab<em>, but not </em>abba<em>. Draw a state transition diagram for both a DFA and an NFA to recognize </em>L*. Make each as simple as possible.</p>
 <p><img src="/images/FOCS/0931292.png" /></p>
 <h5 id="solution-7">Solution</h5>
@@ -890,7 +895,7 @@
 </ul>
 <h4 id="algorithm">Algorithm</h4>
 <p><img src="/images/FOCS/0931295.png" /></p>
-<h4 id="example-5">Example</h4>
+<h4 id="example-3">Example</h4>
 <p>Find a DFA equivalent to this NFA:</p>
 <p><img src="/images/FOCS/0931294.png" /></p>
 <p><img src="/images/FOCS/0931296.png" /></p>
@@ -927,7 +932,7 @@
 <li>Such a transition consumes no symbol</li>
 </ul></li>
 </ul>
-<h3 id="example-6">Example</h3>
+<h3 id="example-4">Example</h3>
 <p><img src="/images/FOCS/0931298.png" /></p>
 <h3 id="λ-nfa-formal-definition">Λ-NFA formal definition</h3>
 <ul>
@@ -1108,7 +1113,7 @@
 <li>New accepting states: A = {(q<sub>1</sub>, q<sub>2</sub>)|q<sub>1</sub> ∈ A<sub>1</sub> and q<sub>2</sub> ∈ A<sub>2</sub>}</li>
 </ul></li>
 </ul>
-<h4 id="example-7">Example</h4>
+<h4 id="example-5">Example</h4>
 <p>Find an FA for the language <em>L</em>, over Σ = {a,b}. of strings that have both an odd number of <em>as</em> and an odd number of <em>bs</em>. Now clearly L<sub>1</sub> ∩ L<sub>2</sub> where</p>
 <p>L<sub>1</sub> = {x | x ∈ {a,b}<sup><em></sup> ∧ x contains an odd number of </em>as<em>}, and L<sub>1</sub> = {x | x ∈ {a,b}<sup></em></sup> x ∧ contains an odd number of <em>bs</em>}</p>
 <p><img src="/images/FOCS/0931233.png" /></p>
@@ -1491,13 +1496,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
