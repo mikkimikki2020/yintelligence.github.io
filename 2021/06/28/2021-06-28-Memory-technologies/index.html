@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    964
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    13 Min
                 </div>
                 
 
@@ -502,13 +502,18 @@
             <div id="articleContent">
                 <h1 id="electronics-memory-technologies">Electronics: Memory technologies</h1>
 <p><a href="https://yintelligence.tech/2021/02/04/2021-02-04-VUB-4015676ENR-Technology-and-Applications-of-Micro-Electronics-and-Photonics/">VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics</a></p>
-<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/431ba48e1329b35f9324196c74211d5dd852ba0c-1614588853821/capture/">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19120/files/folder/Slides?preview=779761">Slide 21 ~ 38</a></p>
+<p><a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/431ba48e1329b35f9324196c74211d5dd852ba0c-1614588853821/capture/">Video 1:09:34 ~</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19120/files/folder/Slides?preview=779761">Slide 21 ~ 38</a></p>
 <h2 id="outline">Outline</h2>
 <ul>
 <li>Static random-access memory （SRAM）</li>
 <li>Dynamic random-access memory （DRAM）</li>
 <li>Flash memory</li>
 <li>Hard disk drives （magnetic storage）</li>
+</ul>
+<p>存储器芯片领域，主要分为两类：易失性和非易失性。</p>
+<ul>
+<li>易失性：断电以后，存储器内的信息就流失了，例如 DRAM，主要用来做PC机内存（如DDR）和手机内存（如LPDDR），两者各占三成。</li>
+<li>非易失性：断电以后，存储器内的信息仍然存在，主要是闪存（Nand FLASH 和 NOR FLASH），NOR 主要应用于代码存储介质中，而 NAND 则用于数据存储。</li>
 </ul>
 <h2 id="the-memory-hierarchy-in-a-computer-10943">The Memory hierarchy in a computer 1:09:43</h2>
 <p><strong>Optimizing cost and speed 优化成本和速度</strong></p>
@@ -539,6 +544,9 @@
 <p>该电路可以通过一个或多个施加在控制输入端的信号来改变自身的状态，并会有1个或2个输出。</p>
 <p>触发器的线路图由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/逻辑门">逻辑门</a>组合而成，其结构均由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/锁存器">SR锁存器</a>派生而来（广义的触发器包括锁存器）。触发器可以处理输入、输出信号和时脉之间的相互影响。这里的触发器特指flip-flop，flip-flop一词主要是指<strong>具有两个状态</strong>相互翻转，例如编程语言中使用flip-flop buffer（翻译作双缓冲）。</p>
 <h2 id="dynamic-random-access-memory-12420">Dynamic random-access memory 1:24:20</h2>
+<p>动态随机存储器（Dynamic RAM），“动态”两字指的是每隔一段时间，要刷新充电一次，否则内部的数据即会消失。</p>
+<p>这是因为DRAM的基本单元是一个晶体管加一个电容，并用电容有无电荷来表示数字信息0和1，电容<strong>漏电很快</strong>，为防止电容漏电而导致读取信息出错，需要周期性地给DRAM的电容充电，故DRAM速度比SRAM慢。</p>
+<p>另一方面，这种简单的存储模式也使得DRAM的集成度远高于SRAM，一个DRAM存储单元仅需一个晶体管和一个小电容，而每个SRAM单元需要四到六个晶体管和其他零件，故DRAM在高密度（大容量）以及价格方面均比SRAM有优势。SRAM多用于对性能要求极高的地方（如CPU的一级二级缓冲），而DRAM则主要用于计算机的内存条等领域。</p>
 <h3 id="properties-1">Properties</h3>
 <ul>
 <li>Volatile</li>
@@ -562,27 +570,51 @@
 <h3 id="ddr-ram-generations">DDR RAM generations</h3>
 <p><img src="/images/EP/2124242.png" /></p>
 <h2 id="flash-memory-闪存-13352">Flash memory 闪存 1:33:52</h2>
+<p>Flash存储器：又称闪存，它是一种非易失性存储器。闪存的存储单元是场效应晶体管，是一种受电压控制的三端器件，由源极（Source）、漏极（Drain）和栅极（Gate），以及衬底组成，在栅极与硅衬底间有二氧化硅绝缘层，用来保护浮置栅极中的电荷不会泄漏。</p>
 <h3 id="introduction">Introduction</h3>
 <p>Flash memory stores information in an <strong>array</strong> of memory cells made from <u>floating gate transistors</u>.</p>
 <p>闪存将信息存储在由<u>浮栅晶体管</u>制成的<strong>存储单元阵列</strong>中。</p>
 <ul>
 <li>Non-volatile 非挥发性</li>
-<li>Traditional single-level cell (SLC) devices: 1 bit/cell</li>
-<li>Newer multi-level cell (MLC) devices can store multiple bits/cell by choosing between multiple levels of charge.</li>
+<li>Traditional single-level cell （SLC） devices: 1 bit/cell</li>
+<li>Newer multi-level cell （MLC） devices can store multiple bits/cell by choosing between multiple levels of charge.</li>
 </ul>
+<p>闪存的存储单元为三端器件，与场效应管有相同的名称：源极、漏极和栅极。</p>
+<p>栅极与硅衬底之间有二氧化硅绝缘层，用来保护浮置栅极中的电荷不会泄漏。采用这种结构，使得存储单元具有了电荷保持能力，就像是装进瓶子里的水，当你倒入水后，水位就一直保持在那里，直到你再次倒入或倒出，所以闪存具有记忆能力。</p>
 <p><img src="/images/EP/2124243.png" /></p>
 <h3 id="reading-of-a-single-cell">Reading of a single cell</h3>
 <p><img src="/images/EP/2124244.png" /></p>
-<h3 id="writing-of-cells-tunnelling">Writing of cells: tunnelling</h3>
+<p>EPROM、EEPROM、FLASH MEMORY的核心部件都是一个 浮置栅场效应管，通过在浮置栅上放置电子和没有电子两种状态来区分0、1。</p>
+<p>由于浮栅中电子的变化，存贮单元的阈值电压也会随之而改变，向浮栅中注入电子时，域值电压升高，加正常电压不能使该管导通定义为“1”；将浮栅中的电子拉出，加正常电压导通，定义为0。也有说通过检测该管有电流通过为1，无电流通过为0，这样就是有电子为0，无电子为1。不管采用哪种，反正有两种状态区分就可以保存数据了。</p>
+<h3 id="writing-of-cells-tunnelling">Writing of cells: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Quantum_tunnelling">tunnelling</a></h3>
 <p><img src="/images/EP/2124245.png" /></p>
+<p><strong>Quantum tunnelling</strong> or <strong>tunneling</strong> is the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Quantum_mechanics">quantum mechanical</a> phenomenon where a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wavefunction">wavefunction</a> can propagate through a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Potential_barrier">potential barrier</a>.</p>
+<p>隧道效应由<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/微观粒子/1125264">微观粒子</a>波动性所确定的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/量子效应/1498998">量子效应</a>。又称<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/势垒">势垒</a>贯穿。</p>
+<p>考虑粒子运动遇到一个高于粒子能量的势垒，按照经典力学，粒子是不可能越过势垒的；按照量子力学可以解出除了在势垒处的反射外，还有透过势垒的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/波函数/473629">波函数</a>，这表明在势垒的另一边，粒子具有一定的概率，粒子贯穿势垒。</p>
 <h3 id="nor-flash-memory">NOR Flash memory</h3>
+<p>NOR Flash 的特点是芯片内执行（XIP，Execute In Place），即应用程序不必再把代码读到系统RAM中，而是可以直接在Flash闪存内运行。NOR 的传输效率很高，读取速度也比NAND快很多，在1~4MB的小容量时具有很高的成本效益，然而其擦除是以64-128KB的块为单位进行的，执行一个写入/擦除操作的时间为5s，而NAND器件的擦除则是以8-32KB的块为单位进行，执行相同的操作最多只需要4ms，故其很低的写入和擦除速度大大影响到它的性能。</p>
+<p>NOR技术Flash Memory结构，每两个单元共用一个位线接触孔和一条源线线，采用CHE的写入和源极F—N擦除，具有高编程速度和高读取速度的优点。但其编程功耗过 大，在阵列布局上，接触孔占用了相当的空间，集成度不高。具有以下特点</p>
+<ol type="1">
+<li>程序和数据可存放在同一芯片上，拥有独立的数据总线和地址总线，能快速随机读取，允许系统直接从Flash中读取代码执行．而无需先将代码下载至RAM 中再执行；</li>
+<li>可以单字节或单字编程，但不能单字节擦除．必须以块为单位或对整片执行擦除操作，在对存储器进行重新编程之前需要对块或整片进行预编程和擦除操作。适合存储代码，比如用来做BOIS。</li>
+</ol>
 <figure>
 <img src="/images/EP/2124246.png" alt="" /><figcaption>Reading process</figcaption>
 </figure>
+<p>NOR擦除数据是基于隧道效应（电流从浮置栅极到硅基层），但在写入数据时则是采用<strong>热电子注入方式hot electron injection</strong>（电流从浮置栅极到源极）。</p>
+<p>由于NOR技术FlashMemory的擦除和编程速度较慢，而块尺寸又较大，因此擦除和编程操作所花费的时间很长．在纯数据存储和文件存储的应用中，NOR技术显得力不从心。</p>
+<blockquote>
+<p>沟道热电子注人</p>
+<p>CHE是Flash中常用的一种“写”操作方式。其原理是，当在漏和栅极上同时加高电压，沟道中的电子在 Vd建立的横向电场加速下获得很高的能量。这些热电子在编结附近碰撞电离，产生高能电子，在栅极电场的吸引下，跃过3．2 eV 的氧化层电子势垒，形成热电子注入。</p>
+<p>F—N隧穿效应（F—NTunneling） 当在栅极和衬底之间加一个电压时，在氧化层中会建立一个电场。一般情况下．由于SO2 和Si界面的电于势垒很高（3．2 eV）．电子很难越过势垒注入到多晶硅栅中。Fowler等人提出，当氧化层中电场达到10Mv／cm，且氧化层厚度较小（0.01微米 以下）时，电子将发生直接隧穿效应，穿过氧化层中势垒注入到浮栅．近年来出现了在多晶硅上生长Textured一0xide，可以降低隧穿电压，即增强F—N 注入。</p>
+<p>以上两种注入方式的特点有很大不同。沟道热电子注入模式工作电压较低，外围高压工艺的要求也较低，但它的编程电流很大，有较大的功耗，不利于应用在便携式电脑等有低功耗要求的产品上；隧穿入模式的功耗小，但要求有更高的编程电压，外围工艺和升压电路也就较为复杂。由于空穴的有效质量和氧化层界面势垒均比电子要大，CHE方式不能用于FG中电于的擦除。目前，一般采用F—N隧道注入来实现Flash的擦除。</p>
+</blockquote>
 <h3 id="nand-flash-memory">NAND Flash memory</h3>
+<p>在NAND闪存中，数据是以位（bit）的方式保存在Memory Cell中，一个Cell存储一个bit，这些Cell或8个或16个为单位，连成bit line，而这些line组合起来会构成Page，而NAND闪存就是以<strong>页</strong>为单位读写数据，以<strong>块</strong>为单位擦除数据，故其写入和擦除速度虽比DRAM大约慢3-4个数量级，却也比传统的机械硬盘快3个数量级，被广泛用于 eMMC/EMCP，U盘，SSD等市场。</p>
 <figure>
 <img src="/images/EP/2124247.png" alt="" /><figcaption>Reading process</figcaption>
 </figure>
+<p>NAND的擦和写均是基于隧道效应，电流穿过<strong>浮置栅极Floating Gate</strong>与硅基层之间的绝缘层，对浮置栅极进行充电（写数据）或放电（擦除数据）。</p>
 <h3 id="nor-vs-nand-flash"><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26745577">NOR vs NAND flash</a></h3>
 <p><img src="/images/DB/v2-0f09c39ef43d96bbb68864e85ed9fcd0_720w.jpg" /></p>
 <ul>
@@ -604,7 +636,7 @@
 <p>→ Good for SD cards, Digital cameras, USB sticks</p></li>
 </ul></li>
 </ul>
-<h2 id="hard-disk-drives-hdd-14955">Hard Disk Drives (HDD) 1:49:55</h2>
+<h2 id="hard-disk-drives-hdd-14955">Hard Disk Drives （HDD） 1:49:55</h2>
 <h3 id="introduction-1">Introduction</h3>
 <ul>
 <li>Magnetic storage</li>
@@ -612,11 +644,16 @@
 </ul>
 <h3 id="basic-operation">Basic operation</h3>
 <ul>
-<li>Reading head floats only a few nm above the ferromagnetic film of the disk platter.</li>
-<li>Current in write head induces magnetic field → alters bits</li>
-<li>Read element will detects voltage changes, induced by motion over the magnetic field.</li>
-<li>Transition to perpendicular recording in ~2005 → more magnetically stable, stronger fields → boost in density</li>
-<li>In modern HDDs take up less than 50 nm/bit</li>
+<li><p>Reading head floats only a few nm above the ferromagnetic film of the disk platter.</p>
+<p>读头仅漂浮在磁盘盘片铁磁膜上方几纳米处</p></li>
+<li><p>Current in write head induces magnetic field → <strong>alters bits</strong></p>
+<p>写入磁头中的电流感应磁场 → <strong>改变位</strong></p></li>
+<li><p>Read element will detects voltage changes, induced by motion over the magnetic field.</p>
+<p>读取元件将检测由磁场上的运动引起的电压变化</p></li>
+<li><p>Transition to perpendicular recording in ~2005 → more magnetically stable, stronger fields → boost in density</p>
+<p>到 2005 年过渡到垂直记录 → 磁更稳定，磁场更强 → 密度增加</p></li>
+<li><p>In modern HDDs take up less than 50 nm/bit</p>
+<p>在现代 HDD 中占用不到 50 nm/bit</p></li>
 </ul>
 <figure>
 <img src="/images/EP/2124248.png" alt="" /><figcaption>Longitundal vs. Perpendicular recording</figcaption>
@@ -639,21 +676,31 @@
 <figure>
 <img src="/images/EP/2124250.png" alt="" /><figcaption>Helium-sealed HDD</figcaption>
 </figure>
-<h3 id="challenge-the-superparamagnetic-effect">Challenge: the superparamagnetic effect</h3>
+<h3 id="challenge-the-superparamagnetic-effect-超顺磁效应">Challenge: the superparamagnetic effect 超顺磁效应</h3>
 <ul>
-<li><p>Individual grains are only ~8nm in diameter</p></li>
-<li><p>Physical limit - <strong>the superparamagnetic effect</strong>: magnetization can randomly flip direction under the influence of temperature.</p></li>
+<li><p>Individual grains are only ~8nm in diameter</p>
+<p>单个颗粒的直径只有约 8 纳米</p></li>
+<li><p>Physical limit - <strong>the superparamagnetic effect</strong>: magnetization can randomly flip direction under the influence of temperature.</p>
+<p>物理极限——<strong>超顺磁效应</strong>：磁化可以在温度的影响下随机翻转方向。</p></li>
 <li><p>Current materials do not allow to go below ~7nm grains.</p>
-<p><img src="/images/EP/2124251.png" /></p></li>
-<li><p><strong>Coercivity</strong> is a measure of the ability of a ferromagnetic material to withstand an external magnetic field without becoming demagnetized.</p></li>
-<li><p>Higher coercivity means higher stability, but also harder to write to → new writing technologies needed.</p></li>
+<p>当前材料不允许低于~7nm 晶粒。 <span class="math display">\[
+\tau_{N}=\tau_{0}\exp(\frac{KV}{k_{B}T})
+\]</span> <img src="/images/EP/2124251.png" /></p></li>
+<li><p><strong>Coercivity</strong> is a measure of the ability of a ferromagnetic material to withstand an external magnetic field without becoming demagnetized.</p>
+<p><strong>矫顽</strong>力是铁磁材料承受外部磁场而不会退磁的能力的量度。</p></li>
+<li><p>Higher coercivity means higher stability, but also harder to write to → new writing technologies needed.</p>
+<p>更高的矫顽力意味着更高的稳定性，但也更难写入→需要新的写入技术。</p></li>
 </ul>
 <p><img src="/images/EP/2124252.png" /></p>
 <ul>
-<li><p>Microwave-Assisted Magnetic Recording (MAMR) uses 20-40 GHz frequencies to bombard the disk platter with a circular microwave field, lowering its coercivity and enabling the bit value to be written.</p></li>
-<li><p>Heat-Assisted Magnetic Recording (HAMR) uses a tiny 200 mW laser beam to heat up the disk platter to 400 °C and permit the writing operation.</p></li>
-<li><p>Heated-Dot Magnetic Recording (HDMR) extends HAMR, patterning the disk into small “dots”. This allows to better focus the laser energy on individual dots.</p></li>
-<li><p>Expected 10x gains in density over current HDDs on the market → &gt;100 TB HDDs</p></li>
+<li><p>Microwave-Assisted Magnetic Recording （MAMR） uses 20-40 GHz frequencies to bombard the disk platter with a circular microwave field, lowering its coercivity and enabling the bit value to be written.</p>
+<p>微波辅助磁记录 (MAMR) 使用 20-40 GHz 频率以圆形微波场轰击磁盘盘片，降低其矫顽力并允许写入位值。</p></li>
+<li><p>Heat-Assisted Magnetic Recording （HAMR） uses a tiny 200 mW laser beam to heat up the disk platter to 400 °C and permit the writing operation.</p>
+<p>热辅助磁记录 (HAMR) 使用 200 mW 的微小激光束将磁盘盘片加热至 400 °C 并允许写入操作。</p></li>
+<li><p>Heated-Dot Magnetic Recording （HDMR） extends HAMR, patterning the disk into small “dots”. This allows to better focus the laser energy on individual dots.</p>
+<p>加热点磁记录 (HDMR) 扩展了 HAMR，将磁盘图案化为小“点”。这允许更好地将激光能量集中在单个点上。</p></li>
+<li><p>Expected 10x gains in density over current HDDs on the market → &gt;100 TB HDDs</p>
+<p>与目前市场上的 HDD 相比，预计密度提高 10 倍 → &gt;100 TB HDD</p></li>
 </ul>
 <p><img src="/images/EP/2124253.png" /></p>
 
@@ -773,9 +820,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Photodiodes &amp; LED">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="LED &amp; Photodiodes">
                         
-                        <span class="card-title">Photodiodes &amp; LED</span>
+                        <span class="card-title">LED &amp; Photodiodes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
