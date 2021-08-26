@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    13
+                    8.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    34 Min
                 </div>
                 
 
@@ -503,6 +503,661 @@
                 <h1 id="telecommunication">Telecommunication</h1>
 <p><a href="https://yintelligence.tech/2021/02/04/2021-02-04-VUB-4015676ENR-Technology-and-Applications-of-Micro-Electronics-and-Photonics/">VUB 4015676ENR Technology and Applications of Micro-Electronics and Photonics</a></p>
 <p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19120/files/folder/Presentation%20sessions?preview=869202">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/19120/files/folder/Presentation%20sessions?preview=869201">Report</a></p>
+<h2 id="wireless-sensor-network">Wireless Sensor Network</h2>
+<p>WSN 是指一组空间分散的专用传感器，用于监测环境的物理条件</p>
+<ul>
+<li>通信依赖于无线连接wireless connectivity。</li>
+<li>传感器（节点）遭受：
+<ul>
+<li>有限的内存容量memory capabilities → <strong>有限的计算过程</strong>computational processes</li>
+<li>电池供电 → <strong>有限的能量</strong>容量energy capacities</li>
+<li>在<strong>不可靠</strong>的无线电环境中运行 → 耗尽drain传感器节点的电池</li>
+</ul></li>
+<li>这些限制对系统的整体性能和网络使用寿命有重大影响。</li>
+</ul>
+<p>目标：最大化节点的<strong>生命周期</strong></p>
+<p>一种解决方案：<strong>Radio Duty Cycling</strong> 机制</p>
+<p>Nowadays, WSNs are used in many industrial fields applications such as:</p>
+<ul>
+<li>Environment (I.e: water catchments monitoring)</li>
+<li>Heath (I.e: body areas networks)</li>
+<li>Safety (I,e: Remote sensing for disasters)</li>
+</ul>
+<p>在 WSN 中，已经考虑了几个因素，并且已经为通信堆栈的所有层提出了新的节能协议</p>
+<ul>
+<li>COAP " Constrained Application Protocol " (With Observation extension)</li>
+<li>UDP " User Datagram Protocol "</li>
+<li>6lowPAN "IPV6 over Low power wireless Personal Area Network"</li>
+<li>IEEE 802.15.4 standard</li>
+</ul>
+<h3 id="原理">原理</h3>
+<h4 id="radio-duty-cycling-rdc-protocols-无线电工作循环-rdc-协议">Radio Duty Cycling (RDC) Protocols 无线电工作循环 (RDC) 协议</h4>
+<ul>
+<li>在 WSN 中，<strong>功耗</strong>至关重要。在不需要的时候关闭无线电可以降低功率需求。</li>
+<li>在传统的 MAC 协议中增加了<strong>无线电工作循环 (RDC)</strong> 协议。
+<ul>
+<li>这个想法是让一个节点“休眠”，只要没有其他节点想要通信。</li>
+<li>可视为MAC 层机制。</li>
+</ul></li>
+</ul>
+<p>我们将区分两大类 RDC 协议</p>
+<h5 id="异步asynchronous-rdc-protocols-random-medium-access随机媒体访问">异步Asynchronous RDC Protocols (Random medium access随机媒体访问)</h5>
+<p>异步工作的 MAC RDC 协议的一些示例：</p>
+<ul>
+<li>NullRDC</li>
+<li>X-MAC</li>
+<li>LPP Low Power Probing“低功耗探测”</li>
+</ul>
+<p>问题</p>
+<ul>
+<li>发送者在聆听时消耗能量（可能是一个完整的睡眠期）</li>
+<li>接收者可能花费的能量与发送者等待来自未知发送者的数据包一样多。</li>
+<li>多个节点想要将一个数据包发送到一个共同的目的地时，它们的数据包会发生<strong>冲突</strong>collide。
+<ul>
+<li><strong>CSMA-CA algorithm</strong> can be used to avoid collision</li>
+<li>CSMA 在重传未确认数据包时引入的随机延迟random delays可以缓解该问题。</li>
+</ul></li>
+</ul>
+<p><strong>Contiki-MAC</strong></p>
+<ul>
+<li><p>Idle mode “no packets to be sent or received”:</p>
+<ul>
+<li>只要信号强度低于 RSSI 阈值，节点就会保持休眠状态。一旦检测到（RSSI 高），节点开启接收模式。然后进入发送模式发送ACK</li>
+</ul></li>
+<li><p>Transmitting a packet to a specific destination:</p>
+<ul>
+<li>送方在一个完整的睡眠周期（大于发送 2 个 CCA）或直到它收到一个 ACK。</li>
+<li>它计算接收器何时醒来。 下一次传输将发生在它醒来之前不久，从而减少了传输次数--&gt; 减少流量和功耗。</li>
+</ul></li>
+<li><p>Broadcasting a packet:</p>
+<ul>
+<li><strong>广播包不需要确认</strong>。</li>
+<li>发送方在完全唤醒期间重复发送数据包，以确保所有邻居都收到了。</li>
+</ul></li>
+<li><p>节点定期发送 CCA“Clear Channel Assessment”以感知传入数据</p></li>
+<li><p>发送 CCA 消耗更少的能量CCA：是网络活动的载波侦听机制carrier senses mechanism</p></li>
+<li><p>CCA 依赖 RSSI “Received Signal Strength Indicator</p>
+<blockquote>
+<p>备注：</p>
+<ul>
+<li>CCA 检测其他活动，可以是误报 --&gt; 能耗</li>
+<li>节点发送两个 CCA，那么 CCA 不会<strong>落在两个连续的</strong></li>
+<li>*发送者的帧**</li>
+<li>最短帧的长度不能介于两个 CCA 之间</li>
+</ul>
+</blockquote></li>
+</ul>
+<h5 id="同步-synchronous-rdc-protocols">同步 Synchronous RDC Protocols</h5>
+<ul>
+<li>在<strong>contention free</strong>的媒体访问环境中运行</li>
+<li>要求节点间时间同步tight time synchronization</li>
+<li>使用定时通讯time-scheduled communication
+<ul>
+<li>MAC 协议将通信信道划分为时隙time slots，并为通信对分配时隙。</li>
+</ul></li>
+</ul>
+<p><strong>同步工作的 MAC RDC 协议示例：</strong></p>
+<p><strong>TSCH</strong> Time Slotted and Channel Hopping"“时隙和信道跳跃”使用多个通道以同步方式进行节点通信，以增加网络可靠性。</p>
+<ul>
+<li>Time Slotted:
+<ul>
+<li>及时将通信信道切成槽slots（适合traffic size）</li>
+<li>多个equal length and priority的时隙的组合称为时隙帧Slot frame，它随时间<strong>不断重复</strong></li>
+<li>每个时隙都分配给一对通信节点 (Tx/Rx)，<strong>没有随机访问</strong> =&gt; <strong>冲突显着减少</strong></li>
+<li>时隙持续时间必须足够长才能发送数据包并接收 ACK。
+<ul>
+<li>如果需要重传数据包，会在下一次迭代中发生</li>
+</ul></li>
+</ul></li>
+<li>Channel Hopping:
+<ul>
+<li>16 channels are used for communication at 2.4GHz</li>
+<li>Multiple communications <strong>happen at different frequency</strong> channels at the same time.</li>
+<li>如果一个信道发生干扰，则可能跳到另一个信道，从而获得更大的成功机会。</li>
+<li>注意：如果通道彼此靠近则无济于事</li>
+</ul></li>
+</ul>
+<p><strong>Key Features</strong></p>
+<ul>
+<li>时隙访问<strong>减少冲突</strong>并确保无争用访问同时使用不同的信道传输数据<strong>增加了数据传输的容量</strong>网络并<strong>减少延迟</strong>。</li>
+<li>每次通信使用多个信道减少多径衰落效应，干涉。</li>
+<li>这增加了通信的<strong>可靠性</strong>。</li>
+</ul>
+<p><strong>问题</strong></p>
+<p>如果网络上没有活动（没有传输），节点仍然必须在预定的时间段醒来。 --&gt; 与理想相比更高的能耗</p>
+<h3 id="前景">前景</h3>
+<p>无线传感器网络是一种小型、低成本、支持无线通信的传感器，用于构建各种监控网络，用于不同领域，如工业自动化、过程控制、农业、医院监控系统、资产跟踪、 气候感知等。</p>
+<p>在医疗领域，使用可植入和可穿戴医疗设备的无线体域网进行的持续健康监测被设想为一种变革性的医疗保健方法。生物医学传感器、低功耗电子产品和无线通信的快速发展使这一愿景成为现实。随着连接的医疗保健物联网设备的增加，WSN有望获得显着增长。例如，在欧盟，物联网解决方案正在快速增长，该市场为医疗保健部门提供了很多机会。物联网医疗保健活跃连接的数量预计将在预测期内增加，从而推动 WSN 市场。</p>
+<h3 id="市场">市场</h3>
+<p>2020 年 WSN 市场价值为 467.6 亿美元，预计到 2026 年将达到 1239.3 亿美元，2021-2026 年预测期间的复合年增长率为 17.64%。对 WSN 的需求过去几年一直在增加，预计这一趋势将在预测期内持续下去。</p>
+<h2 id="g-networks">5G Networks</h2>
+<p>5G 的目标是改进 4G 并提供数 Gbps 的峰值数据速度、超低延迟、可靠性、海量网络容量、高性能和效率。它由一个完全基于 IP 的模型组成，<strong>专为无线和移动网络设计</strong>。</p>
+<p>该系统由一个用户终端和多个自主无线接入技术组成。5G主核基本上是其他技术的汇聚点。 这种设计便于主核运行到并行的多模式，包括IP网络模式和5G网络模式这样，它控制了 Radio Access Networks和Different Access Technologies.的所有网络技术。</p>
+<h3 id="原理-1">原理</h3>
+<p>除了拓扑的新改进和新的通信架构</p>
+<ul>
+<li>毫米波5G
+<ul>
+<li>运行在更高的无线电频率上，更不杂乱。频率约为 28 GHz 和 38-39 GHz</li>
+<li>4G 目前在 700 MHz 至 2.5-2.6 GHz 无线电频谱频段上运行</li>
+</ul></li>
+<li>Mesh 网络：5G 的骨干网络将从铜缆和光纤连接到毫米波无线连接，通过基站之间的协作实现快速部署和网状连接
+<ul>
+<li>虽然这些更高的频段可以更快地传输信息，但在远距离发送该信息时存在问题。</li>
+</ul></li>
+<li>MIMO 天线：这些波很容易被物理物体阻挡。为了解决这个问题，5G 使用 MIMO 天线来<strong>增强整个网络的信号和容量</strong>。
+<ul>
+<li>5G 将使用更小的发射器，而不是使用单个独立的桅杆</li>
+<li>据估计，5G 将能够比 4G 支持多达 1,000 台设备/米</li>
+</ul></li>
+<li>虚拟网络：5G 还可以将一个物理网络“切片”成多个虚拟网络。
+<ul>
+<li>运营商将能够根据重要性提供正确的网络切片。</li>
+</ul></li>
+</ul>
+<h4 id="技术特点">技术特点</h4>
+<ul>
+<li><strong>Beamforming</strong>
+<ul>
+<li>智能波束成形技术可以通过<strong>将</strong>radio frequency energy<strong>集中在</strong>downlink<strong>上的特定方向</strong>上，并使基站接收器能够从特定方向捕获能量，从而在上行链路上减少噪声和干扰，从而扩展基站的覆盖范围。</li>
+<li>基本上，5G NR 大规模 MIMO 技术将在能够进行 3D 波束成形的基站使用 2D 天线阵列，以利用中频段频谱的较高频段。</li>
+<li><strong>准确及时的信道知识</strong>对于实现这种 3D 波束成形的全部优势至关重要</li>
+</ul></li>
+<li><strong>OFDM</strong> Orthogonal frequency-division multiplexing
+<ul>
+<li>与 4G LTE 一样，5G 基于 OFDM（正交频分复用），但也使用 5G NR 空中接口和更宽的带宽技术，如 sub-6 GHz 和毫米波。</li>
+<li>5G NR 空中接口基本上进一步增强了 OFDM，以提供更高程度的灵活性和可扩展
+<ul>
+<li>3G 信号广播是垂直极化的，在那里你有“上下”传播的波</li>
+<li>4G LTE MIMO 波是倾斜极化的，其中每个波都从水平方向旋转 45 度，经过镜像处理，因此第一个波在 45 度，另一个在 135 度。</li>
+</ul></li>
+<li>这个聪明的技巧被称为polarisation diversity，它允许您的调制解调器在蜂窝塔分配的相同频率上区分两个独立的数据流。</li>
+<li>MIMO 由调制解调器基于与蜂窝塔的协商打开和关闭，具体取决于接收/传输信号的质量被评估。</li>
+</ul></li>
+</ul>
+<h4 id="好处">好处</h4>
+<ul>
+<li>高分辨率双向大带宽成型</li>
+<li>将所有网络聚集在一个平台上的技术</li>
+<li>更有效更高效</li>
+<li>便于用户监管工具的技术</li>
+<li>为了快速行动</li>
+<li>将提供海量广播数据</li>
+<li>与前几代产品一样易于管理</li>
+<li>支持异构的技术声音</li>
+<li>可以提供统一的、不间断的和</li>
+<li>全球一致的连接</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>技术仍在研究中</li>
+<li>可行性正在进行中</li>
+<li>目标速度难以实现</li>
+<li>发展基础设施需要高成本</li>
+<li>安全和隐私问题有待解决</li>
+<li>向前兼容，旧设备需要更换</li>
+</ul>
+<h3 id="前景-1">前景</h3>
+<ul>
+<li>Agriculture - Precision agriculture</li>
+<li>Shipping - Real-time shipping</li>
+<li>Transport - Autonomous driving</li>
+<li>Private commercial - Collaborative Workspace</li>
+<li>Commerce and Marketing - Immersive commerce</li>
+<li>Manufacturing - Flexible manufacturing</li>
+<li>Delivery - Drone delivery</li>
+<li>Entertainment - Immersive entertainment</li>
+</ul>
+<p>我们现在正处于 Release-15 阶段的 5G 部署的开始阶段，即原型阶段。</p>
+<p>下一阶段，Release-16 将吸取 Rel-15 的所有经验教训并对其进行改进。我们分为三个阶段在我们前面，基础，部署和新服务阶段，后者将在 Release 17 中进行。基础阶段将涉及覆盖范围、容量、延迟、节能和移动性，并将旨在增强大规模 MIMO 和多传输点、设备功率使用 C-DRX 和 2 步 RACH 进行节省，以及在切换期间将中断降至最低的更强大的移动性。部署阶段将全部涉及新频谱、拓扑集成回程等，并将针对集成接入/回程以实现更轻松的毫米波部署、未授权频谱包括独立和许可证辅助和增强低/中频段和毫米波 CA 和异步 DC。新的服务阶段将与延迟、可靠性、定位、XRa 等用例有关nd 的目标是进一步改进 MIMIO 以实现更高的移动性（例如：汽车）、进一步节省空闲和小数据的功率、进一步增强混合拓扑的移动性、具有全双工和空间复用的增强型 IAB，支持高达 114.25 GHz 的更高频段，其他诸如as¿4 Rx，1024-QAM，多卡。</p>
+<ul>
+<li>部署和覆盖</li>
+<li>建设成本、购买成本</li>
+<li>到 2023 年全球 5G 总支出将达到 880 亿美元</li>
+<li>法规和标准</li>
+<li>安全和隐私</li>
+</ul>
+<h3 id="市场-1">市场</h3>
+<ul>
+<li>Digitalization and IoT</li>
+<li>Personalization and AI</li>
+<li>Robotics and Automation</li>
+</ul>
+<h2 id="microwave-and-millimeter-wave-communication-for-satellite-communication">Microwave and millimeter wave communication for satellite communication</h2>
+<p>USES OF SATELLITES</p>
+<ul>
+<li>Point to point</li>
+<li>Point to multi-point</li>
+</ul>
+<p>Three types of non-military satellites</p>
+<ul>
+<li>Fixed 提供两个固定位置之间的传输 电视台广播电台和广播网络电话</li>
+<li>Mobile 允许您的 GPS 运行的卫星</li>
+<li>Scientific research</li>
+</ul>
+<p>How Electromagnetic waves carry information</p>
+<ul>
+<li>Bandwidth assigned (carrier wave)</li>
+<li>AM vs FM
+<ul>
+<li>信息可以编码为两种不同的方式：通过改变波的幅度（幅度调制）或通过改变波的频率（频率调制）</li>
+</ul></li>
+<li>From analog to digital
+<ul>
+<li>Sampling voltage over time</li>
+<li>Encoding into bits</li>
+<li>Pulse width modulation</li>
+<li>Decoding</li>
+</ul></li>
+</ul>
+<p>WORKING OF SATELLITES</p>
+<ul>
+<li><p>Atmospheric windows</p></li>
+<li><p>Problems with radio and microwaves</p></li>
+<li><p>Main components of satellites:</p>
+<ul>
+<li>Communication system</li>
+<li>Power system</li>
+<li>Propulsion system</li>
+</ul></li>
+<li><p>From analog to digital</p>
+<ul>
+<li>Sampling voltage over time</li>
+<li>Encoding into bits</li>
+<li>Pulse width modulation</li>
+<li>decoding</li>
+</ul></li>
+<li><p>Types of antennas 天线 on a satellite:</p>
+<p>天线通过在金属棒中振荡电压来发出电磁波，这将导致 de 电子也振荡。该波将导致接收天线杆中的电子以与发射天线中相同的方式振荡。</p>
+<ul>
+<li>Wire antennas
+<ul>
+<li>发送具有相当大波束宽度的波，这使得它们可用于跟踪、遥测和命令 (TT&amp;C) 天线。</li>
+<li>跟踪遥测和控制 (TT&amp;C) 系统是一个双链路系统在卫星和地面站之间，这将有助于跟踪卫星和纠正它的轨迹。</li>
+</ul></li>
+<li>Horn antennas 简单且易于制造，但其效率相当低。
+<ul>
+<li>大多数情况下，多喇叭天线用作阵列天线的阵列组件。 在长距离传输信息时，最好使波束宽度尽可能小，以便能够将波引导到特定对象或点。</li>
+</ul></li>
+<li>Reflector antennas
+<ul>
+<li>反射器天线是使用反射抛物面、双曲面、球面等表面的天线。 该反射面会将波束聚焦到天线本身的单个焦点上。 天线越大，它可以重定向到焦点的波束越多，随后它可以传输的波束宽度越小</li>
+</ul></li>
+<li>Array antennas
+<ul>
+<li>阵列天线是由多个协调发射相同信号的天线组成。 这些天线利用称为干扰的原理。</li>
+<li>当两个波完全同相时，它们将相长干涉，而当它们完全异相时，它们将相消干涉。</li>
+</ul></li>
+</ul></li>
+<li><p>Satellite orbits:卫星离地球越远，可以覆盖表面越大</p>
+<ul>
+<li>LEO</li>
+<li>MEO 大多数移动和语音信号是从LEO 和 MEO 卫星</li>
+<li>GEO 卫星用于广播无线电和电视信号</li>
+</ul></li>
+<li><p>Satellite propulsion system</p>
+<ul>
+<li>needs fuel to be working. The lifespan of a satellite is consequently determined by its fuel capacity.</li>
+</ul></li>
+<li><p>TT&amp;C</p></li>
+<li><p>Satellite power system</p></li>
+<li><p>Satellite frequency allocations</p>
+<ul>
+<li>The frequencies used for satellite telecommunication range from 1GHz to 50GHz</li>
+<li>The higher the frequency used the higher the power of the signal.</li>
+<li><strong>频率越高使用的信号功率越高。更高功率的信号更容易检测,因此可以使用更小的天线</strong>。这使得像 Ku 或 Ka 波段这样的高频段直接到户广播的理想选择</li>
+</ul></li>
+</ul>
+<h3 id="前景-2">前景</h3>
+<ul>
+<li>More data transfer and more</li>
+<li>Bandwidth</li>
+<li>Increase in lifetime</li>
+<li>Reusable launch systems</li>
+<li>Star Link</li>
+</ul>
+<h3 id="市场-2">市场</h3>
+<p>卫星市场是一个不断增长的市场，增长率在稳步提高。卫星工业协会2008年6月11日报告称，全球卫星市场规模为1230亿美元，2002年至2007年平均增长11.5%。2016年全球卫星市场收入翻了一番，达到2605亿美元.</p>
+<p>这种不断增长的市场趋势直到今天都可以观察到。目前正在以惊人速度增长的部分市场是小型卫星市场。预计这部分市场将在短短 5 年内（2020-2025 年）从 28 亿美元增长到 71 亿美元。这部分市场的增长可归因于高分辨率地球成像需求的增加。小卫星通过组成星座收集数据，可用于大范围的地球观测和宽带互联网。随着技术变得更便宜和更容易获得，市场预计将继续增长。</p>
+<h2 id="li-fi-light-fidelity">Li-Fi (Light Fidelity)</h2>
+<p>LiFi 是一种光通信技术，它利用可视光通信或 Visual Light Communication 的特性来传输和接收数据。</p>
+<ul>
+<li>Wi-Fi: Radio Frequencies (40GHz wide) 无线电频率频谱相当有限</li>
+<li>Li-Fi: visible light (400THz wide)</li>
+<li>Interference? Mobile devices + limited spectrum</li>
+<li>Infrastructure = in place</li>
+<li>只需要更换高效的 LED 灯</li>
+<li>VLC的基本原理就像传输数据的点对点源</li>
+<li>LED 的密度可以以非常高的速度进行调制
+<ul>
+<li>平均而言，LED 灯每秒可以打开和关闭约 10.000 次。 在这个速度下，人眼将无法检测到光密度的任何变化</li>
+<li>接收器对光密度的细微变化感兴趣，这会导致信息流。</li>
+</ul></li>
+</ul>
+<h3 id="原理-2">原理</h3>
+<h4 id="downlink">Downlink</h4>
+<p>要使 LiFi 网络正常工作，您需要两个重要的基本组件。</p>
+<p>一方面，你需要一个媒体 <strong>transmitter</strong>，在这种情况下是一个 LED 灯。这将发出信号包含信息。另一方面，您需要一个接收器 <strong>receiver</strong>来捕获正在发送的数据由 LED 传输。光电二极管检测器（嵌入 LiFi Dongle）将作为在这种情况下接收器。</p>
+<ul>
+<li>Basic Components
+<ul>
+<li>LED (transmitter)</li>
+<li>Photodiode detector (receiver)</li>
+</ul></li>
+<li>Lamp Driver = !
+<ul>
+<li>灯驱动器是连接到 LED 灯的关键设备</li>
+<li>为了通过 LED 灯传输数据，灯驱动器将通过以每秒约 10.000 次的非常高的速度打开和关闭 LED 灯将信息转换为比特流。</li>
+</ul></li>
+<li>Signal: LED intensity (≠ amplitude or phase)
+<ul>
+<li>由于无法调制 LED 灯的相位和幅度，因此信号将<strong>基于LED 发出的光的强度</strong></li>
+</ul></li>
+<li>Analogue → digital
+<ul>
+<li>Amplification &amp; processing unit</li>
+</ul></li>
+</ul>
+<h4 id="transceiver">Transceiver</h4>
+<ul>
+<li>Transmitter/receiver</li>
+<li>Modem</li>
+<li>Modulation and demodulation</li>
+</ul>
+<h4 id="uplink">Uplink</h4>
+<ul>
+<li>Network? Need for duplex communication!
+<ul>
+<li>Wavelength Division Multiplexing (WDD) → 2 communication channels, ≠ EM Wavelengths</li>
+<li>有了WDD，有两个通信通道建立在不同的 EM 波长上。</li>
+</ul></li>
+<li>IR vs RF
+<ul>
+<li>红外光是上行通信信道的良好候选者，但无线电频率也可用于上行链路部分（如 Wi-Fi）</li>
+<li>LiFi 将用于下行链路部分，所以通过这种方式，通过将这两者结合起来，可以减轻射频频谱的负担技术</li>
+</ul></li>
+</ul>
+<h3 id="modulation-techniques">Modulation Techniques</h3>
+<p>LiFi attocell network</p>
+<ul>
+<li><p>Different attocells → interference</p>
+<p>不同的 attocell（或接入点，AP）会对网络造成干扰位于 attocell 区域边缘的用户</p>
+<p>E.g.: user 1 &amp; 3 (SIC)</p></li>
+</ul>
+<p>可以通过将 NOMA 与光空分多址或 SDMA 相结合来提供解决方案。 这是通过协调多点辅助联合传输技术实现的。 在传输预编码（TPC）的帮助下，不同地方的用户将同时得到服务。</p>
+<p>→ NOMA + optical space division multiple access (SDMA)</p>
+<p>→ Multi-point aided joint transmission technique</p>
+<ul>
+<li><p>Different users served with TPC</p></li>
+<li><p>Signal → TPC + SDMA ➔ mitigate interference</p>
+<p>当信号传送到接收端时，TCP 和 SDMA 将确保减轻干扰。</p></li>
+<li><p>Spatial signatures → TPC-vector</p>
+<p>将根据两个用户的空间特征设计一个 TPC 向量然后将其添加到信号中，以提高用户 1 和用户 2 的性能。</p></li>
+</ul>
+<h4 id="优点">优点</h4>
+<ul>
+<li>Capacity
+<ul>
+<li>Wireless data traffic</li>
+</ul></li>
+<li>Efficiency
+<ul>
+<li>radio mast → 5% efficient</li>
+</ul></li>
+<li>Availability
+<ul>
+<li>14 Bln. Light sources</li>
+</ul></li>
+<li>Security
+<ul>
+<li>Hackers</li>
+<li>airplanes</li>
+</ul></li>
+</ul>
+<h4 id="缺陷">缺陷</h4>
+<ul>
+<li>Limited operational scope
+<ul>
+<li>Walls</li>
+</ul></li>
+<li>Outdoor use
+<ul>
+<li>Interference</li>
+</ul></li>
+</ul>
+<h3 id="前景-3">前景</h3>
+<p>LiFi 是一项相对较新的技术，具有很多潜在用途。越来越多的设备连接到互联网，数据传输在接下来的几十年只会增加。由 3G 和 4G 等技术引起的数据传输量的增加将揭示电磁频谱的局限性。</p>
+<p>LiFi 可以用作支持 Wi-Fi 系统的补充资产，更具体地说，可以卸载很大一部分无线数据流量。预计未来几十年该市场将高速增长，因为它具有广泛的应用。因此，LiFi 未来应该以积极的方式发展，因为它似乎是 LaaS（Light as a Service）的先驱。</p>
+<p>随着大多数灯现在被节能 LED 灯所取代，这种增长将得到加强，这将拓宽 LiFi 技术可以运行的基础设施。这将作为一个背驮式骑行系统。</p>
+<p>LiFi 技术的主要未来优势将是其安全特性。 它最重要的用途是在医疗保健业务中。 在医疗保健和医院中，设备对电磁污染非常敏感。</p>
+<p>不建议在此处使用 Wi-Fi，因为它以无线电频率运行，这会对设备造成干扰。 因此，LiFi 可以解决这个问题，因为光线不会干扰该设备。 同样的原理也可以用在飞机上，光线不会干扰驾驶舱的设备，乘客也不必关掉手机。</p>
+<p>未来如果 LiFi 技术应用于汽车制造行业，也就不足为奇了。 由于车祸在世界范围内仍然是一个大问题，LiFi 通信可以用于汽车的大灯。 然后汽车可以相互通信并发送信息。 当前方行驶的汽车由于某种原因不得不非常突然地停车时，这可以传达给周围的汽车，以便他们可以对此进行预测。</p>
+<h3 id="市场-3">市场</h3>
+<p>2020 年全球 LiFi 市场估值达到 3 亿美元左右，预计到 2026 年将成长为 40 亿美元的产业，未来五年累计异常增长率每年约为 70%。</p>
+<p>然而，市场由少数主要参与者主导。 我们不能将市场定义为分散的市场（参与者众多且竞争激烈）或整合的市场（市场由一到五个主要参与者主导）。 市场上最大的五个参与者如下：</p>
+<ol type="1">
+<li>Signify Holding BV (Located in the Netherlands)</li>
+<li>pureLiFiLtd (Located in the UK, company founded by professor Haas himself)</li>
+<li>LVX system (Located in Minnesota)</li>
+<li>Oledcomm SAS (Located in France)</li>
+<li>LucibelSA (Located in France)</li>
+</ol>
+<p>其他几家公司位于美国和亚洲的其他地方。 如下图所示，欧洲和亚洲地区的增长率最高。 特别是欧洲市场预计将快速增长，并且也是市场上大多数主要参与者的所在地。 然而，非洲和南美地区对采用这种技术相当不情愿。 北美地区处于中间位置，但也是一些重要公司的所在地。 他们目前正在开发在美国的海洋和海底应用中使用 LiFi 的方法。 此外，美国也在研究 LiFi 在智能家居和智能建筑领域的应用。</p>
+<h2 id="body-area-networks">Body Area Networks</h2>
+<p>体域网络 (BAN) 是人体上或人体内部的传感器集合，它们与位于人体上或人体附近的中央汇节点进行通信，主要侧重于医疗监测。虽然传感器可以通过物理连接（即有线）与汇聚节点进行通信，但在这里我们将只关注无线体域网 (WBAN)。</p>
+<p>WBANs (Wireless Body Area Networks)</p>
+<ul>
+<li>WBAN 与其他短距离通信标准之间的主要区别在于WBAN 应该具有非常低的功耗</li>
+</ul>
+<p><strong>WBAN architecture</strong></p>
+<ul>
+<li><p>Sink aka Personal Server (PS) aka Base Station</p>
+<ul>
+<li>Process the collected data from sensors in Tier 1 and transmit it to Tier-2</li>
+</ul></li>
+<li><p>Tier-1: intra-WBASN</p>
+<ul>
+<li><p>Between sensors and sink</p>
+<p>放置在身体上或身体内的传感器节点（例如 ECG 或葡萄糖传感器）与接收器（也称为个人服务器或基地站），通过低功率通信方法</p></li>
+</ul></li>
+<li><p>Tier-2: inter-WBASN</p>
+<ul>
+<li><p>Between sensor and access point(s) (AP)</p>
+<p>对其进行预处理</p>
+<p>可以访问互联网的接入点，例如智能手机或 PC</p></li>
+<li><p>(Without an AP, the sink could theoretically communicate over 3G/4G)</p></li>
+</ul></li>
+<li><p>Tier-3: beyond-WBASN communication</p>
+<ul>
+<li>Reach end recipient 超越禁令，到达最终接收者医生、救护车</li>
+</ul></li>
+</ul>
+<p><strong>Power Consumption vs Data Rate (critical)</strong></p>
+<p>WBAN 比个人区域网络 (PAN) 具有更具体的用途，因为 PAN“不符合某些应用环境的医疗（接近人体组织）和相关通信法规。它们也不支持广泛满足广泛的体域网应用所需的可靠性 (QoS)、低功耗、数据速率和无干扰的组合。</p>
+<p><strong>WBAN VS WSN</strong></p>
+<p>3 Key Determining Factors</p>
+<ul>
+<li>Range</li>
+<li>Data Rate</li>
+<li>Power Consumption</li>
+</ul>
+<p>Note:</p>
+<ul>
+<li>Bluetooth Low Energy uses about 10% of the energy of Bluetooth Classic</li>
+<li>超宽带通信与 BAN 范围重叠Ultra-Wide Band communication overlaps with the BAN range as it can have a power consumption of 10 mW at a data rate of 1 Mbps.</li>
+</ul>
+<p>CLASSIC BLUETOOTH VS BLUETOOTH LOW ENERGY (BLE)</p>
+<ul>
+<li>Both are short range communication methods</li>
+<li>Both operate in the 2.4 GHz Band</li>
+<li>BLE exploits sleep mode to lower power consumption利用睡眠模式降低功耗</li>
+<li>What is the proper application?
+<ul>
+<li>Data rate数据速率</li>
+<li>Power Consumption (battery life?)功耗（电池寿命？）</li>
+</ul></li>
+<li>1 master can handle only up to 7 simultaneous slave connections at a time</li>
+</ul>
+<p>广告有两个目的：</p>
+<ul>
+<li>“建立设备间的双向连接”</li>
+<li>“无需连接其他设备即可广播信息</li>
+</ul>
+<p>中心节点不断扫描广告。 事实上，BLE“在设备之间创建了短连接以传输突发数据。 BLE 在未连接时保持睡眠模式。 与经典蓝牙相比，这让 BLE 提供更低的带宽和更低的功耗。”</p>
+<h3 id="ultra-wide-band">Ultra-Wide Band</h3>
+<p>超宽带 (UWB) 是一种替代通信机制，也可以服务于需要低功耗的应用。</p>
+<ul>
+<li>UWB Operates below FCC mandated power spectral density load</li>
+<li>Central node wants to communicate to 2 different devices</li>
+<li>Uses Time Hopping</li>
+<li>Time is split into time frames (Tf)
+<ul>
+<li>Each time frame is split into chips (slots) 1 bit is encoded by a transmission of pulses in 3 successive time frames</li>
+<li>For each device, the bit is determined to be a 0 or a 1 depending on a time delay delta</li>
+</ul></li>
+<li>Requires clock <strong>synchronization</strong></li>
+</ul>
+<p>大量数据在传播时可以更快地传输跨越很宽的带宽，让发射机保持更短的持续时间并减少耗电量显着。 这意味着，对于相同的消耗功率，UWB 可以传输更多的数据</p>
+<p>UWB 通信的带宽要大得多：它发送和接收带宽在 500 MHz 和几 GHz 之间但功率谱要低得多的数据密度。由于它们使用的<strong>低功率密度和高频率</strong>，信号可以只行<strong>进有限的距离</strong>，不会干扰其他波。他们是一十手机发出的功率的千分之一到十万分之一，因此它们对人类健康要低得多。这使得它们<strong>非常适合低功率设备</strong>在人体附近操作。</p>
+<p>UWB 很有用，因为它涵盖了广泛的频率范围，并且功率谱密度为低于 FCC 门槛</p>
+<h3 id="未来">未来</h3>
+<p><strong>安全</strong>可能是最大的WBAN 将面临的问题。由于传感器体积小，功率有限，计算能力和执行加密等安全措施的存储仍然存在难的。</p>
+<ul>
+<li>System and device level security</li>
+<li>Invasion of privacy</li>
+<li>Sensor validation</li>
+<li>Data consistency</li>
+<li>Sensor resource constraints</li>
+<li>Worldwide operability</li>
+</ul>
+<h3 id="市场-4">市场</h3>
+<p>由于体域网是一个通用的网络架构概念，因此没有可以附加到其上进行分析的包罗万象的产品。相反，人们可以分析彼此兼容的不同类型的传感器和接收器，以便了解市场的发展方向。虽然体域网有很多应用，但我将重点介绍医疗体域网组件，因为它们具有最大的未来潜力。如前所述，也有许多不同类型的传感器可用于医学评估（心电图、血氧、血糖等）。另外，我将放大智能手表市场，因为它目前是最成熟的，并且看看它多年来在市场份额和越来越多的医疗功能方面是如何发展的。</p>
+<p>从全球来看，智能手表行业主要由苹果、三星、华为、Fitbit（现为谷歌所有）等大型电信和电子电器公司主导。</p>
+<p>显然，苹果的市场份额最大，为 40%，如 2020 年第 4 季度所示。然而，很明显，市场是由高端品牌驱动的，由于技术仍然是新的和专门。这将继续成为未来 4-5 年的趋势，直到小公司找到方法来复制这些设备的功能，同时降低制造成本，因为他们的目标是使技术从高端市场转向大众市场。</p>
+<h2 id="vehicle-to-everything-v2x-communication">Vehicle-to-everything (V2X) Communication</h2>
+<p>车辆通过传感器变得更加智能，现在可以连接车辆，将单个自治单元转变为协作系统。合作智能交通系统 (C-ITS) 需要始终保持连接 目标是提高道路安全和交通效率车载自组织网络 (VANET) 发挥着重要作用。</p>
+<p><strong>主要使用两种技术（DSRC 和 C-V2X）</strong></p>
+<p>AUTONOMOUS DRIVING</p>
+<ul>
+<li>Six Levels of Autonomy (L0-L5).</li>
+<li>First L3 vehicles are available.</li>
+<li>V2X will be needed for fully automated systems.</li>
+<li>Level 4 and 5 require always on communication</li>
+<li>25 Gbps per hour projected requirement for L5 Vehicles communication</li>
+</ul>
+<p>V2X 通信必须持续捕获和解释有关周围环境的完整数据。因此，车辆和实体之间的通信需要始终能够传输和接收有关周围环境的足够信息。</p>
+<p>也就是说，可以根据通信实体和应用程序将 V2X 分析为进一步的子类别。 这些类别是</p>
+<ul>
+<li>Bidirectional communication of between two vehicles 两辆车之间的双向通信(V2V)</li>
+<li>Vehicle to Infrastructure (V2I)</li>
+<li>Vehicle to Pedestrian行人 (V2P)</li>
+<li>Vehicle to Network/Cloud (V2N)</li>
+<li>Vehicle to Grid电网 (V2G)</li>
+</ul>
+<h3 id="原理-3">原理</h3>
+<h4 id="dsrc">DSRC</h4>
+<ul>
+<li>基于名为 <strong>ITS-G5</strong> 的 IEEE 802.11p 的欧洲标准化工作。</li>
+<li>5.9 GHz频段分配给欧美的V2X通信</li>
+<li>Decentralized Congestion Control减少了空气中的拥塞。去中心化拥塞控制 (DCC) 是一种机制，有助于网络的稳定性和资源的分配。</li>
+<li>范围有限，<strong>无忠诚度loyalty free</strong>的临时通信。</li>
+<li>欧洲市场上的可用车辆配备。</li>
+</ul>
+<p>无线网络相比，在 BSS (OCB) 模式之外简化了操作在 IEEE 802.11 术语中称为基本服务集 (BSS) 的网络，因为它禁用管理程序，例如信道扫描、身份验证和关联，并使用通配符BSS 标识符。启用 OCB 的 ITS-G5 站可以直接和立即传输消息没有耗时的控制帧交换延迟。</p>
+<p>网络和传输层分为两层，</p>
+<ol type="1">
+<li>第一个是使用 GeoNet 工作和基本传输协议 (BTP)</li>
+<li>第二种解决方案是已知的来自 Internet 协议，尤其是在 IPv6 中，其中 UDP、TCP 和其他传输协议被执行</li>
+</ol>
+<p>CAM 和 DENM 都组织在带有 ITS PDU 标头的容器中</p>
+<h4 id="cellular-v2xc-v2x">CELLULAR V2X(C-V2X)</h4>
+<ul>
+<li><p>Standardized in 3GPP R14 and next Releases.</p></li>
+<li><p>A vertical of use cases ultra-reliable low latency communications (URLLC)</p>
+<p>垂直用例超可靠低延迟通信</p></li>
+<li><p>LTE Direct extension to support V2X communication.</p></li>
+<li><p>长期演进 (LTE) 可用作此类通信的机制。</p></li>
+<li><p>主要问题之一是现阶段的<strong>延迟</strong>。</p></li>
+<li><p>Use of the current LTE infrastructure</p></li>
+<li><p>V2X 将通过使用 R16 超低延迟增强和宽带载波提供高吞吐量（例如共享大量传感器数据）、更高的可靠性和更低的延迟支持（载波聚合）。</p></li>
+<li><p>它可以被视为超越 4G LTE V2X，但它将与 4G LTE V2X 共存。5G New radio(NR) V2X 侧重于 5G NR 在部署高级 V2X 服务中的作用，作为 3GPP V2X 的一部分。</p>
+<ul>
+<li>这些先进的 V2X 服务代表了超出 LTE R15 V2X 范围开发的服务，需要增强型 5G NR 系统和新的 5G NR</li>
+</ul></li>
+<li><p>车载设备分配 Vehicular Device to Device (D2D) 无线电通信链路满足要求。 在这些要求中，需要有一个灵活的设计来支持具有低延迟和高可靠性要求的服务，以及支持更高的容量和更好的覆盖范围。</p></li>
+</ul>
+<p><strong>C-ITS STACK 应用根据需求使用不同的零件</strong></p>
+<ul>
+<li><strong>Facilities layer ITS</strong> applications are provided with functions, information or services.</li>
+<li><strong>Network and transport layer</strong> Communication heterogeneity covers various ITS-specific and general protocols.</li>
+<li><strong>Physical layer and data link layer</strong> enables V2X communication in ad-hoc networking environment</li>
+</ul>
+<p><strong>COOPERATIVE AWARENESS MESSAGE (CAM) 车辆状态的连续传输</strong></p>
+<p>CAM 协议携带关键的车辆状态信息。安全和交通效率应用程序使用这些消息，接收这些消息的车辆能够跟随其他车辆”，因为它们正在连续发送。包中有两个容器，一个是是车辆状态，被高频发送。 （速度，位置）在较低的频率下，还发送附加信息。</p>
+<ul>
+<li>Vehicle position and basic vehicle data. (Location,acceleration, Size)</li>
+<li>Periodically sent as one hop geographical broadcast.</li>
+<li>Frequency 1-10 Hz and size up to 800 bytes.</li>
+</ul>
+<p><strong>DECENTRALIZED ENVIRONMENTAL NOTIFICATION MESSAGE (DENM) 事件触发消息通知情况</strong></p>
+<p>DENM 是事件驱动的，并在地理范围内提供安全信息。地区。这些消息由应用程序控制，并在检测到情况时发送。一种为该 ITS 站添加了唯一的动作标识符以提供信息。</p>
+<ul>
+<li>Notification to road users on specific events.</li>
+<li>Event triggered.</li>
+<li>Examples: Stationary, Vehicle, Roadworks, Weather Conditions</li>
+</ul>
+<p><strong>GeoNetworking 使用地理信息的网络层功能</strong></p>
+<p>GeoNetworking 堆栈主要用于通过 ITS-G5 进行临时通信，并且可以用于具有地理寻址的单跳和多跳通信。地理寻址使用 IPv6，通过蜂窝网络与基于 IP 的基础设施进行通信。它也可以通过 GeoNetworking 发送 IPv6 数据包。</p>
+<ul>
+<li>Provides ad hoc networking based on geographical addressing and geographical routing.</li>
+<li>Can work on different ITS access technologies.</li>
+<li>Several addressing and forwarding mechanisms (Onecast, Unicast,Broadcast)</li>
+<li>IPv6 Support</li>
+<li>Geo-Networking Flow can be single-hop and multi-hop.
+<ul>
+<li>Single-hop is mainly a beacon and is only broadcasted once (CAM).</li>
+<li>Multi-hop can be a Geo-Broadcast (DENM).</li>
+</ul></li>
+</ul>
+<h3 id="应用">应用</h3>
+<ul>
+<li>Emergency Electronic Brake Light (EEBL) application
+<ul>
+<li>该应用程序向车辆的本地追随者通知硬中断。</li>
+<li>需要车辆的能力，因此紧急电子刹车灯被激活并在 V2X DEN 消息中广播。</li>
+<li>“结果是它会通知主（自我）车辆的驾驶员前方远程车辆突然刹车。 通过提供预警，驾驶员将有更多时间采取必要的行动来避免追尾事故。 当急刹车的车辆被其他车辆（驾驶员视线之外）挡住时，此应用程序在密集驾驶情况下特别有用。</li>
+</ul></li>
+<li>Intersection Movement Assist (IMA)
+<ul>
+<li>驾驶员在前往十字路口时会被警告与交叉路口发生碰撞。 经过解码和分析 CAM 消息，IMA 应用程序计算轨迹并提供碰撞即将发生时发出警告。</li>
+</ul></li>
+<li>Left Turn Assist (LTA)
+<ul>
+<li>驾驶员在即将左转时收到警报，以防止碰撞，当来自相反方向的车辆以相似的轨迹行驶。</li>
+<li>如果车辆之间的视线受阻，则需要使用路边单元 (RSU)。RSU 将是一种能够传递信号或检测并发出碰撞风险信号的设备</li>
+</ul></li>
+<li>Traffic light optimal speed advisory
+<ul>
+<li>在这种情况下，交通灯会广播与状态相关的计时数据（例如，到达绿灯时间）。</li>
+<li>这有助于驾驶员了解状态并调整其速度以获得绿灯波</li>
+</ul></li>
+<li>Cooperative adaptive cruise control
+<ul>
+<li>需要使用 V2X CA 消息和单播交换。 跟随的车辆，是获取前方车辆动态和一般交通情况。 然后，适应ACC并提高其性能。</li>
+</ul></li>
+<li>Cooperative vehicle-highway automation system (Platoon)
+<ul>
+<li>通过使用 CA 消息和单播交换，车辆可以作为一个排在高速公路或特定车道上安全运行。</li>
+</ul></li>
+<li>Vulnerable road user Warning
+<ul>
+<li>在存在易受伤害的道路使用者的情况下向车辆提供警告。</li>
+</ul></li>
+</ul>
+<h3 id="市场-5">市场</h3>
+<p>根据世界卫生组织和道路安全报告，每年约有 135 万人死于道路交通事故。大多数国家的道路交通事故损失占其国内生产总值的 3%。为了减少这些数字，安全车辆在避免碰撞和降低受伤概率方面发挥着重要作用。 20 至 5000 万人遭受非致命伤害，道路交通伤害造成的经济损失为 1677.524 亿美元（2005 年）数据）。欧盟委员会设定了零愿景，旨在消除事故的数量接近于零。</p>
+<p>V2X 可以帮助实现这一目标。这项技术还将提高交通效率，消除因拥堵而浪费时间和燃料的交通拥堵成本。这将有助于减少排放[18]，因为交通拥堵使二氧化碳排放量增加了 300%。在美国，这一成本为每年 1,240 亿美元，每户约 1,700 美元，预计到 2030 年约为 2.8 万亿美元，而在英国德国 法国 成本为 497.54 亿美元，预计到 2030 年将降低 42%。因此，减少排放有助于缓解拥堵、速度管理和交通顺畅。如果将这些策略结合起来，可以减少30%的排放，同时增加旅行体验。</p>
+<p>预计2019年至2022年V2X的复合年增长率（CAGR）将超过170%。 根据[17]到2022年底，V2X的市值将达到12亿美元。 继 2019 年底公开提供的第一个解决方案之后[20]，全球配备 V2X 的车辆预计将接近 600 万辆。[17]。 根据 [3]，到 2028 年，市场预计将达到 128.59 亿美元左右，其中欧洲最大，其次是亚洲，其次是北美。</p>
 
                 
             </div>
