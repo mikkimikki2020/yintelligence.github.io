@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-08-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.6k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    16 Min
+                    26 Min
                 </div>
                 
 
@@ -501,66 +501,84 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="security-privacy-and-trust">Security, Privacy and Trust</h1>
+<p><a href="https://yintelligence.tech/2021/02/06/2021-02-06-VUB-4019862ANR-Web-Technologies/">VUB 4019862ANR Web Technologies</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=896384d2-1ec4-4f83-95b5-ac8e00d48854">Video</a> + <a href="https://yintelligence.tech/2021/06/06/2021-06-06-Searching-and-Security/">Exercise</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17854/files/685439?module_item_id=125539">Slide</a></p>
 <h2 id="security-aspects">Security Aspects</h2>
 <ul>
-<li><strong>Authenticity</strong>
+<li><p><strong>Authenticity 真实性</strong></p>
 <ul>
-<li>knowing the sender or receiver of data
+<li><p>knowing the sender or receiver of data</p>
+<p>了解数据的发送者或接收者</p>
 <ul>
 <li>who is trying to access data on a web server</li>
 <li>who is offering a service</li>
-<li>who sent an email - …</li>
-</ul></li>
-</ul></li>
-<li><strong>Privacy</strong>
-<ul>
-<li>keeping information private</li>
-<li>protect credit card information that is sent to a server</li>
-<li>protect information sent in emails</li>
+<li>who sent an email</li>
 <li>…</li>
 </ul></li>
-<li><strong>Integrity</strong>
+</ul></li>
+<li><p><strong>Privacy 隐私</strong></p>
 <ul>
-<li>ensuring that information is not changed when transferred</li>
+<li><p>keeping information private 保密信息</p></li>
+<li><p>protect credit card information that is sent to a server</p>
+<p>保护发送到服务器的信用卡信息</p></li>
+<li><p>protect information sent in emails</p>
+<p>保护通过电子邮件发送的信息</p></li>
+<li><p>…</p></li>
+</ul></li>
+<li><p><strong>Integrity</strong></p>
+<ul>
+<li><p>ensuring that information is not changed when transferred</p>
+<p>确保信息在传输时不会改变</p></li>
 </ul></li>
 </ul>
 <h2 id="http-authentication">HTTP Authentication</h2>
 <ul>
-<li>Native authentication functionality offered by HTTP
+<li><p><strong>Native authentication functionality</strong> offered by HTTP</p>
+<p>HTTP 提供的<strong>本机身份验证功能</strong></p>
 <ul>
-<li>instead of directly sending a response for a given request, the server can always respond with an <strong>authentication challenge</strong> (401 status code)</li>
+<li><p>instead of directly sending a response for a given request, the server can always respond with an <strong>authentication challenge</strong> (401 status code)</p>
+<p>服务器可以始终以<strong>身份验证质询</strong>（401 状态代码）进行响应，而不是直接为给定请求发送响应</p></li>
 </ul></li>
-<li>HTTP is extensible to support different authentication protocols and offers the following two standard protocols
+<li><p>HTTP is extensible to support different authentication protocols and offers the following two standard protocols</p>
+<p>HTTP 可扩展以支持不同的身份验证协议，并提供以下两种标准协议</p>
 <ul>
-<li><strong>basic access authentication</strong>
+<li><strong>basic access authentication 基本访问认证</strong>
 <ul>
-<li>simple Base64 encoding of the string :</li>
+<li>simple <u>Base64 encoding</u> of the string</li>
 </ul></li>
-<li><strong>digest access authentication</strong></li>
+<li><strong>digest access authentication 摘要访问认证</strong></li>
 </ul></li>
-<li>Protected resources can be grouped in security realms with different sets of authorised users or groups of users</li>
+<li><p>Protected resources can be grouped in security realms with different sets of authorised users or groups of users</p>
+<p>受保护的资源可以在具有不同授权用户集或用户组的安全领域中分组</p></li>
 </ul>
-<h3 id="basic-access-authentication">Basic Access Authentication</h3>
+<h3 id="basic-access-authentication-基本访问认证">Basic Access Authentication 基本访问认证</h3>
 <p><img src="/images/NET/1309340.png" /></p>
 <h4 id="base64-encoding">Base64 Encoding</h4>
 <ul>
-<li>Base64 encoding can be used to <u>represent binary data in a portable format</u> (alphabet)
+<li><p>Base64 encoding can be used to <u>represent binary data in a portable format</u> (alphabet)</p>
+<p>Base64 编码可用于以<u>可移植格式</u>（字母表） 表示<u>二进制数据</u></p>
 <ul>
-<li>used by Media Types (MIME) for content transfer encoding</li>
-<li>used to embed binary data in XML files (e.g. in XML-RPC)</li>
-<li>note that Base64 encoded data needs more space</li>
+<li><p>used by Media Types (MIME) for content transfer encoding</p>
+<p>媒体类型 (MIME) 用于内容传输编码</p></li>
+<li><p>used to embed binary data in XML files (e.g. in XML-RPC)</p>
+<p>用于在 XML 文件中嵌入二进制数据（例如在 XML-RPC 中）</p></li>
+<li><p>note that Base64 encoded data needs more space</p>
+<p>注意 Base64 编码的数据需要更多空间</p></li>
 </ul></li>
-<li>Takes a sequence of bytes (8-bit) and breaks it into 6-bit chunks
+<li><p>Takes a sequence of bytes (8-bit) and breaks it into 6-bit chunks</p>
+<p>获取字节序列（8 位）并将其分解为 6 位块</p>
 <ul>
-<li><strong>padding</strong> with 0s to make it a multiple of 24 (LCM of 6 and 8)</li>
-<li>complete 6-bit padding chunks are represented by the special character '='</li>
+<li><p><strong>padding</strong> with 0s to make it a multiple of 24 (LCM of 6 and 8)</p>
+<p>用 0<strong>填充</strong>以使其成为 24 的倍数（LCM 为 6 和 8）</p></li>
+<li><p>complete 6-bit padding chunks are represented by the special character '='</p>
+<p>完整的 6 位填充块由特殊字符“=”表示</p></li>
 </ul></li>
 </ul>
-<p>Example</p>
+<p><strong>Example</strong></p>
 <ul>
-<li>Each 6-bit chunk is then represented by a character from a 64-character alphabet</li>
-<li>Let us encode the string 'No' to Base64
+<li><p>Each 6-bit chunk is then represented by a character from a 64-character alphabet</p>
+<p>然后每个 6 位块由 64 个字符的字母表中的一个字符表示</p></li>
+<li><p>Let us encode the string 'No' to Base64</p>
 <ul>
 <li>padding to 24 bit</li>
 <li>lookup of 6-bit chunks in index table</li>
@@ -568,10 +586,12 @@
 </ul></li>
 </ul>
 <p><img src="/images/NET/1309341.png" /></p>
-<h4 id="web-server-configuration">Web Server Configuration</h4>
+<h4 id="web-server-configuration-网络服务器配置">Web Server Configuration 网络服务器配置</h4>
 <ul>
-<li>Example configuration for an Apache HTTP Server</li>
-<li>Create a new password file (using the –c parameter)</li>
+<li><p>Example configuration for an Apache HTTP Server</p>
+<p>Apache HTTP 服务器的示例配置</p></li>
+<li><p>Create a new password file (using the <code>–c</code> parameter)</p>
+<p>创建一个新的密码文件（使用 <code>-c</code> 参数）</p></li>
 </ul>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http">#htpasswd -c /usr/local/apache/admin/passwords nelson
 
@@ -579,324 +599,425 @@ New password: nelson123
 Re-type new password: nelson123
 Adding password for user nelson<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>Put an <code>.htaccess</code> file with the configuration into the directory that has to be protected
+<li><p>Put an <code>.htaccess</code> file with the configuration into the directory that has to be protected</p>
+<p>把一个<code>.htaccess</code>带有配置的文件放到需要保护的目录中</p>
 <ul>
-<li>alternatively add information to <code>httpd.conf</code></li>
+<li><p>alternatively add information to <code>httpd.conf</code></p>
+<p>或者将信息添加到 <code>httpd.conf</code></p></li>
 </ul></li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">AuthType Basic
-AuthName &quot;WISE&quot;
-AuthUserFile &#x2F;usr&#x2F;local&#x2F;apache&#x2F;admin&#x2F;passwords
+<pre class="line-numbers language-http" data-language="http"><code class="language-http">AuthType Basic
+AuthName "WISE"
+AuthUserFile /usr/local/apache/admin/passwords
 Require user nelson<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="basic-access-authentication-1">Basic Access Authentication</h4>
+<h4 id="problems-of-basic-access-authentication-基本访问认证问题">Problems of Basic Access Authentication 基本访问认证问题</h4>
 <ul>
-<li>Basic access authentication is not secure
+<li><p>Basic access authentication is <strong>not secure</strong> 基本访问认证<strong>不安全</strong></p>
 <ul>
-<li>username and password are sent almost in "<strong>cleartext</strong>"
+<li><p>username and password are sent almost in "<strong>cleartext</strong>"</p>
+<p>用户名和密码几乎以“<strong>明文</strong>” 形式发送</p>
 <ul>
-<li>Base64 value can be very easily decoded</li>
+<li><p>Base64 value can be very easily decoded</p>
+<p>Base64 值可以很容易地解码</p></li>
 </ul></li>
-<li>easy to do <strong>replay attacks</strong>
+<li><p>easy to do <strong>replay attacks</strong> 容易进行<strong>重放攻击</strong></p>
 <ul>
-<li>simply reuse the Base64-encoded username and the password</li>
+<li><p>simply reuse the Base64-encoded username and the password</p>
+<p>只需重复使用 Base64 编码的用户名和密码</p></li>
 </ul></li>
 </ul></li>
-<li>Potential solutions
+<li><p><strong>Potential solutions 潜在的解决方案</strong></p>
 <ul>
-<li>combine the basic access authentication with an encrypted data transfer (e.g. via TLS/SSL)
+<li><p>combine the basic access authentication with an encrypted data transfer (e.g. via TLS/SSL)</p>
+<p>将基本访问身份验证与加密数据传输相结合（例如通过 TLS/SSL）</p>
 <ul>
-<li><u>does not necessarily prevent replay attacks</u></li>
+<li><p><u>does not necessarily prevent replay attacks</u></p>
+<p>不一定能防止重放攻击</p></li>
 </ul></li>
-<li>use of alternative digest access authentication</li>
-</ul></li>
-</ul>
-<h3 id="digest-access-authentication">Digest Access Authentication</h3>
-<ul>
-<li>Password is no longer sent in cleartext
-<ul>
-<li>only a <strong>one-way digest</strong> that is computed out of the password (one-way hash function) is sent to the server</li>
-<li>Message Digest #5 (<strong>MD5</strong>) is a popular digest function</li>
-</ul></li>
-<li>What about digest <strong>replay attacks</strong>?
-<ul>
-<li>server sends a special token (<strong>nonce</strong>) that changes frequently</li>
-<li>client adds the nonce to the password before computing the MD5
-<ul>
-<li>any changes of the nonce result in changes of the digest which helps to prevent replay attacks</li>
-</ul></li>
+<li><p>use of alternative digest access authentication</p>
+<p>使用替代摘要访问身份验证</p></li>
 </ul></li>
 </ul>
-<pre class="line-numbers language-Computed" data-language="Computed"><div class="caption"><span>response based on MD5</span></div><code class="language-Computed">h1 &#x3D; MD5(username:realm:password)
-h2 &#x3D; MD5(httpMethod:requestedURI)
-response &#x3D; MD5(h1:nonce:h2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="digest-access-authentication-摘要访问认证">Digest Access Authentication 摘要访问认证</h3>
+<ul>
+<li><p>Password is no longer sent in cleartext</p>
+<p>密码不再以明文形式发送</p>
+<ul>
+<li><p>only a <strong>one-way digest</strong> that is computed out of the password (one-way hash function) is sent to the server</p>
+<p>只有从密码中计算出的<strong>单向摘要</strong>（单向哈希函数）被发送到服务器</p></li>
+<li><p>Message Digest #5 (<strong>MD5</strong>) is a popular digest function</p></li>
+</ul></li>
+<li><p>What about digest <strong>replay attacks</strong>?</p>
+<ul>
+<li><p>server sends a special token (<strong>nonce</strong>) that changes frequently</p>
+<p>服务器发送一个经常变化的特殊令牌（<strong>nonce</strong>）</p></li>
+<li><p>client adds the nonce to the password before computing the MD5</p>
+<p>客户端在计算 MD5 之前将随机数添加到密码中</p>
+<ul>
+<li><p>any changes of the nonce result in changes of the digest which helps to prevent replay attacks</p>
+<p>once 的任何变化都会导致摘要的变化，这有助于防止重放攻击</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<pre class="line-numbers language-http" data-language="http"><code class="language-http">// Computed response based on MD5
+h1 = MD5(username:realm:password)
+h2 = MD5(httpMethod:requestedURI)
+response = MD5(h1:nonce:h2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/NET/1309342.png" /></p>
 <ul>
-<li>The <code>Authorization-Info: nextnonce="..."</code> is used to send the next nonce in advance
+<li>The <code>Authorization-Info: nextnonce="..."</code> is used to send the next nonce in advance 用于提前发送下一个随机数
 <ul>
-<li>client can send the computed hash value already with the original request (<strong>pre-emptive authorisation</strong>)</li>
+<li><p>client can send the computed hash value already with the original request (<strong>pre-emptive authorisation</strong>)</p>
+<p>客户端可以发送已计算的哈希值与原始请求（<strong>抢先授权</strong>）</p></li>
 </ul></li>
-<li>The <code>quality of protection (qop)</code> field is used to negotiate different protection mechanisms
+<li>The <code>quality of protection (qop)</code> field is used to negotiate different protection mechanisms 用于协商不同的保护机制
 <ul>
-<li><code>auth</code>
+<li><p><code>auth</code></p>
 <ul>
 <li>authentication</li>
 </ul></li>
-<li><code>auth-int</code>
+<li><p><code>auth-int</code></p>
 <ul>
-<li>authentication and message integrity protection</li>
-<li>add an MD5 of the body</li>
+<li><p>authentication and message integrity protection</p>
+<p>身份验证和消息完整性保护</p></li>
+<li><p>add an MD5 of the body</p></li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="transport-layer-security-tls">Transport Layer Security (TLS)</h2>
+<h4 id="transport-layer-security-传输层安全-tls">Transport Layer Security 传输层安全 (TLS)</h4>
 <p><img src="/images/NET/1309343.png" /></p>
 <ul>
-<li>Cryptographic protocol to ensure secure network communication
+<li><p>Cryptographic protocol to ensure secure network communication</p>
+<p>加密协议，以确保安全的网络通信</p>
 <ul>
-<li>successor of the <strong>Secure Socket Layer (SSL)</strong> protocol</li>
-<li>situated at the TCP/IP <strong>Application Layer</strong> or OSI <strong>Presentation Layer</strong></li>
+<li><p>successor of the <strong>Secure Socket Layer (SSL)</strong> protocol</p>
+<p><strong>安全套接字层 (SSL)</strong>协议的继任者</p></li>
+<li><p>situated at the TCP/IP <strong>Application Layer</strong> or OSI <strong>Presentation Layer</strong></p>
+<p>位于 TCP/IP<strong>应用层</strong>或 OSI<strong>表示层</strong></p></li>
 </ul></li>
-<li>Types of authentication
+<li><p>Types of authentication 类型</p>
 <ul>
-<li><strong>unilateral authentication</strong>
+<li><strong>unilateral authentication 单边认证</strong>
 <ul>
-<li>only server authentication</li>
+<li>only server authentication 仅服务器身份验证</li>
 </ul></li>
-<li><strong>mutual authentication</strong>
+<li><strong>mutual authentication 相互认证</strong>
 <ul>
-<li>client and server authentication</li>
+<li>client and server authentication 客户端和服务器验证</li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="cryptography">Cryptography</h2>
+<h2 id="cryptography-密码学">Cryptography 密码学</h2>
 <ul>
-<li>In cryptography a <strong>cipher</strong> (coding scheme) is used in combination with a <strong>key</strong> to create a <strong>ciphertext</strong> out of a <strong>plaintext</strong></li>
-<li><strong>Cryptanalysis</strong> tries to get information out of the ciphertext without having access to the secret information (key)</li>
+<li><p>In cryptography a <strong>cipher</strong> (coding scheme) is used in combination with a <strong>key</strong> to create a <strong>ciphertext</strong> out of a <strong>plaintext</strong></p>
+<p>在密码学中，<strong>密码</strong>（编码方案）与<strong>密钥</strong>结合使用以从<strong>明文</strong>中创建<strong>密文</strong></p></li>
+<li><p><strong>Cryptanalysis</strong> tries to get information out of the ciphertext without having access to the secret information (key)</p>
+<p><strong>密码分析</strong>试图从密文中获取信息，而无需访问秘密信息（密钥）</p></li>
 </ul>
 <p><img src="/images/NET/1309344.png" /></p>
-<h3 id="symmetric-key-cryptography">Symmetric Key Cryptography</h3>
+<h3 id="symmetric-key-cryptography-对称密钥密码术">Symmetric Key Cryptography 对称密钥密码术</h3>
 <ul>
-<li>A <u>symmetric key cipher</u> uses the <strong>same key</strong> for the <strong>encoding</strong> and <strong>decoding</strong> of a plaintext message</li>
-<li>Many existing symmetric key ciphers
+<li><p>A <u>symmetric key cipher</u> uses the <strong>same key</strong> for the <strong>encoding</strong> and <strong>decoding</strong> of a plaintext message</p>
+<p>对称密钥密码使用<strong>相同的密钥</strong>用于<strong>编码</strong>和<strong>解码</strong>一个明文消息的</p></li>
+<li><p>Many existing symmetric key ciphers 许多现有的对称密钥密码</p>
 <ul>
 <li>DES, Triple DES, Blowfish, Rijndael/AES, ...</li>
 </ul></li>
-<li>The algorithms are often common knowledge and the key is the only secret thing
+<li><p>The algorithms are often common knowledge and the key is the only secret thing</p>
+<p>算法通常是常识，密钥是唯一的秘密</p>
 <ul>
-<li>key has to be kept secret</li>
+<li>key has to be kept secret 密钥必须保密</li>
 </ul></li>
-<li>Brute force attack (<strong>enumeration attack</strong>) tries all keys</li>
-<li>The key length defines the number of potential keys
+<li><p>Brute force attack (<strong>enumeration attack</strong>) tries all keys</p>
+<p>蛮力攻击（<strong>枚举攻击</strong>）尝试所有密钥</p></li>
+<li><p>The key length defines the number of potential keys</p>
+<p>密钥长度定义了潜在密钥的数量</p>
 <ul>
 <li>e.g. 128 bit key considered safe today
 <ul>
-<li>can change with more powerful machines</li>
+<li><p>can change with more powerful machines</p>
+<p>可以用更强大的机器改变</p></li>
 </ul></li>
 </ul></li>
-<li>One problem of symmetric key cryptography is that we have to <strong>secretly share the common key</strong> before we can exchange any messages
+<li><p>One problem of symmetric key cryptography is that we have to <strong>secretly share the common key</strong> before we can exchange any messages</p>
+<p>对称密钥密码学的一个问题是我们必须<strong>秘密地共享公共密钥，</strong>然后才能交换任何消</p>
 <ul>
-<li>this has to be repeated with different keys for any two partners willing to establish a secret communication</li>
-<li>how should we establish the exchange over the Internet?
+<li><p>this has to be repeated with different keys for any two partners willing to establish a secret communication</p>
+<p>对于愿意建立秘密通信的任何两个合作伙伴，必须使用不同的密钥重复此操作</p></li>
+<li><p>how should we establish the exchange over the Internet?</p>
+<p>我们应该如何在互联网上建立交换？</p>
 <ul>
-<li>initially only an insecure channel is available</li>
+<li><p>initially only an insecure channel is available</p>
+<p>最初只有一个不安全的通道可用</p></li>
 </ul></li>
-<li>where should we <strong>secretly store all those keys</strong>?</li>
+<li><p>where should we <strong>secretly store all those keys</strong>?</p>
+<p>我们应该把<strong>所有这些密钥秘密存储</strong>在哪里？</p></li>
 </ul></li>
 </ul>
-<h3 id="public-key-asymmetric-cryptography">Public Key (Asymmetric) Cryptography</h3>
+<h3 id="public-key-asymmetric-cryptography-公钥非对称密码术">Public Key (Asymmetric) Cryptography 公钥（非对称）密码术</h3>
 <ul>
-<li>Instead of a single key, public key cryptography uses an <strong>asymmetric pair of keys</strong>
+<li><p>Instead of a single key, public key cryptography uses an <strong>asymmetric pair of keys</strong></p>
+<p>公钥密码术不是使用单个密钥，而是使用<strong>非对称密钥对</strong></p>
 <ul>
-<li><strong>publicly available key</strong> for the encoding</li>
-<li><strong>secret key</strong> for the decoding</li>
+<li><p><strong>publicly available key</strong> for the encoding</p>
+<p><strong>公开可用</strong>的编码<strong>密钥</strong></p></li>
+<li><p><strong>secret key</strong> for the decoding</p>
+<p>用于解码的<strong>密钥</strong></p></li>
 </ul></li>
-<li>Each party has only a <strong>single public key</strong> which is used by everybody to encode messages to this party
+<li><p>Each party has only a <strong>single public key</strong> which is used by everybody to encode messages to this party</p>
+<p>每一方只有一个<strong>公钥</strong>，每个人都使用它来编码发送给该方的消息</p>
 <ul>
-<li>only the receiver can decode message with their private key</li>
+<li><p>only the receiver can decode message with their private key</p>
+<p>只有接收者可以用他们的私钥解码消息</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/NET/1309345.png" /></p>
 <ul>
-<li><p>Public key cryptography can be used to establish secure Internet connections to any computer around the world without having to secretly share a key beforehand</p></li>
+<li><p>Public key cryptography can be used to establish secure Internet connections to any computer around the world without having to secretly share a key beforehand</p>
+<p>公钥加密可用于与世界各地的任何计算机建立安全的 Internet 连接，而无需事先秘密共享密钥</p></li>
 <li><p>An asymmetric public key cipher has to ensure that an attacker cannot compute the private key based on any information they can intercept</p>
+<p>非对称公钥密码必须确保攻击者无法根据他们可以拦截的任何信息计算私钥</p>
 <ul>
-<li>public key</li>
-<li>ciphertext (with corresponding plaintext)
+<li><p>public key 公钥</p></li>
+<li><p>ciphertext (with corresponding plaintext)</p>
+<p>密文（带有对应的明文）</p>
 <ul>
-<li>can easily be created by any party by using the public key</li>
+<li><p>can easily be created by any party by using the public key</p>
+<p>任何一方都可以使用公钥轻松创建</p></li>
 </ul></li>
 </ul></li>
-<li><p>A well-known public key algorithm is the <strong>RSA cipher</strong></p></li>
-<li><p>A <u>drawback of asymmetric public key cryptography</u> is the fact that the algorithms are <strong>much slower</strong> than symmetric ciphers</p></li>
+<li><p>A well-known public key algorithm is the <strong>RSA cipher</strong></p>
+<p>著名的公钥算法是<strong>RSA 密码</strong></p></li>
+<li><p>A <u>drawback of asymmetric public key cryptography</u> is the fact that the algorithms are <strong>much slower</strong> than symmetric ciphers</p>
+<p>非对称公钥密码术的一个缺点是算法比对称密码<strong>慢</strong>得多</p></li>
 <li><p>Hybrid solutions combine public key with symmetric key cryptography</p>
+<p>混合解决方案将公钥与对称密钥加密相结合</p>
 <ul>
-<li>the public key encryption is only used in the setup phase to securely exchange a pair of symmetric keys</li>
-<li>afterwards a secure channel is established based on the symmetric keys</li>
+<li><p>the public key encryption is only used in the setup phase to securely exchange a pair of symmetric keys</p>
+<p>公钥加密仅在设置阶段使用，以安全地交换一对对称密钥</p></li>
+<li><p>afterwards a secure channel is established based on the symmetric keys</p>
+<p>然后根据对称密钥建立安全通道</p></li>
 </ul></li>
 <li><p>Security of public key cryptography?</p>
 <ul>
-<li>new developments (e.g. quantum computing) might break public key cryptography</li>
+<li><p>new developments (e.g. quantum computing) might break public key cryptography</p>
+<p>新的发展（例如量子计算）可能会破坏公钥密码学</p></li>
 </ul></li>
 </ul>
 <h4 id="rsa-cipher-rivest-shamir-and-adleman">RSA Cipher (Rivest, Shamir and Adleman)</h4>
 <ul>
-<li>Public-key cipher that can be used for <strong>encryption</strong> as well as <strong>signing</strong>
+<li><p>Public-key cipher that can be used for <strong>encryption</strong> as well as <strong>signing</strong></p>
+<p>可用于<strong>加密</strong>和<strong>签名</strong>的公钥密码</p>
 <ul>
 <li>published in 1978 by Rivest, Shamir and Adleman while they were at MIT</li>
 </ul></li>
-<li>The public and private keys are generated based on <u>two large distinct prime numbers</u>
+<li><p>The public and private keys are generated based on <u>two large distinct prime numbers</u></p>
+<p>公钥和私钥是基于两个不同的大素数生成的</p>
 <ul>
-<li>the potential attacker will know about the product of the two prime numbers but nothing about the numbers themselves</li>
-<li>use modular arithmetic for the encoding/decoding</li>
-<li><u>as long as the attacker is not able to do a factorisation into the two prime numbers, RSA is assumed to be secure</u></li>
+<li><p>the potential attacker will know about the product of the two prime numbers but nothing about the numbers themselves</p>
+<p>潜在的攻击者会知道两个素数的乘积，但对数字本身一无所知</p></li>
+<li><p>use modular arithmetic for the encoding/decoding</p>
+<p>使用模块化算法进行编码/解码</p></li>
+<li><p><u>as long as the attacker is not able to do a factorisation into the two prime numbers, RSA is assumed to be secure</u></p>
+<p>只要攻击者无法对两个素数进行因式分解，就认为 RSA 是安全的</p></li>
 </ul></li>
 </ul>
-<h2 id="digital-signatures">Digital Signatures</h2>
+<h2 id="digital-signatures-数字签名">Digital Signatures 数字签名</h2>
 <ul>
-<li>A digital signature can be used for two purposes
+<li><p>A digital signature can be used for two purposes 数字签名可用于两个目的</p>
 <ul>
-<li>to prove the <strong>authenticity</strong> of a message</li>
-<li>to guarantee that a message has not been changed during the transfer (<strong>integrity</strong>)</li>
+<li><p>to prove the <strong>authenticity</strong> of a message</p>
+<p>证明消息的<strong>真实性</strong></p></li>
+<li><p>to guarantee that a message has not been changed during the transfer (<strong>integrity</strong>)</p>
+<p>保证消息在传输过程中没有被改变（<strong>完整性</strong>）</p></li>
 </ul></li>
-<li>Sender creates a plaintext digest, encodes it with the private key and adds it as a signature to the message
+<li><p>Sender creates a plaintext digest, encodes it with the private key and adds it as a signature to the message</p>
+<p>发件人创建一个明文摘要，用私钥对其进行编码并将其作为签名添加到消息中</p>
 <ul>
-<li>the receiver creates the same digest and compares it with the decoded signature</li>
+<li><p>the receiver creates the same digest and compares it with the decoded signature</p>
+<p>接收者创建相同的摘要并将其与解码的签名进行比较</p></li>
 </ul></li>
 </ul>
 <p><img src="/images/NET/1309046.png" /></p>
 <ul>
-<li>Information about a person/company that is digitally signed by a <u><strong>certificate authority (CA)</strong></u>
+<li><p>Information about a person/company that is digitally signed by a <u><strong>certificate authority (CA)</strong></u></p>
+<p>有关由<strong>证书颁发机构 (CA)</strong>数字签名的个人/公司的信息</p>
 <ul>
-<li>owner's name</li>
-<li>validity time</li>
+<li>owner's name 业主姓名</li>
+<li>validity time 有效期</li>
 <li>signature of the CA</li>
-<li>owner's public key</li>
+<li>owner's public key 所有者的公钥</li>
 </ul></li>
 </ul>
 <p><img src="/images/NET/1309346.png" /></p>
 <h2 id="http-secure-https">HTTP Secure (HTTPS)</h2>
 <ul>
-<li>Secure version of HTTP
+<li><p>Secure version of HTTP</p>
 <ul>
-<li>combines HTTP with asymmetric, symmetric and certificate based cryptography</li>
-<li>HTTP sent over TLS/SSL</li>
+<li><p>combines HTTP with asymmetric, symmetric and certificate based cryptography</p>
+<p>将 HTTP 与非对称、对称和基于证书的加密相结合</p></li>
+<li><p>HTTP sent over TLS/SSL</p>
+<p>通过 TLS/SSL 发送的 HTTP</p></li>
 </ul></li>
-<li>HTTPS protocol is selected by the <code>https://</code> URL prefix</li>
-<li>Browser connects to the HTTPS default port (port 443)
+<li><p>HTTPS protocol is selected by the <code>https://</code> URL prefix</p></li>
+<li><p>Browser connects to the HTTPS default port (port 443)</p>
+<p>浏览器连接到 HTTPS 默认端口（端口 443</p>
 <ul>
-<li>Initial SSL handshake
+<li>Initial SSL handshake 初始 SSL 握手
 <ul>
-<li>negotiate protocol versions</li>
-<li>negotiate common cipher</li>
-<li>authentication</li>
-<li>generate temporary symmetric session keys</li>
+<li><p>negotiate protocol versions 协商协议版本</p></li>
+<li><p>negotiate common cipher 协商通用密码</p></li>
+<li><p>authentication 验证</p></li>
+<li><p>generate temporary symmetric session keys</p>
+<p>生成临时对称会话密钥</p></li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="email-security">Email Security</h2>
+<h2 id="email-security-电子邮件安全">Email Security 电子邮件安全</h2>
 <ul>
-<li>Emails are generally sent as <strong>unencrypted plain text</strong></li>
-<li>An email is stored on multiple intermediary servers before reaching its target
+<li><p>Emails are generally sent as <strong>unencrypted plain text</strong></p>
+<p>电子邮件通常以<strong>未加密的纯文本形式</strong>发送</p></li>
+<li><p>An email is stored on multiple intermediary servers before reaching its target</p>
+<p>电子邮件在到达目标之前存储在多个中间服务器上</p>
 <ul>
-<li>relatively easy to intercept</li>
+<li>relatively easy to intercept 比较容易拦截</li>
 <li><u>would you also put anything you write in an email on a postcard?</u></li>
 </ul></li>
-<li>Note that the sender of an email can easily be faked</li>
-<li>If we want to fix these problems we have to use third-party tools such as Pretty Good Privacy (PGP)
+<li><p>Note that the sender of an email can easily be faked</p>
+<p>请注意，电子邮件的发件人很容易被伪造</p></li>
+<li><p>If we want to fix these problems we have to use third-party tools such as Pretty Good Privacy (PGP)</p>
+<p>如果我们想解决这些问题，我们必须使用第三方工具，例如 Pretty Good Privacy (PGP)</p>
 <ul>
-<li>privacy
+<li>privacy 隐私
 <ul>
-<li>strong encryption</li>
+<li>strong encryption 强加密</li>
 </ul></li>
-<li>authentication
+<li>authentication 验证
 <ul>
-<li>digital signatures</li>
+<li>digital signatures 数字签名</li>
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="email-spam">Email SPAM</h2>
+<h3 id="email-spam-垃圾邮件">Email SPAM 垃圾邮件</h3>
 <ul>
-<li>Abuse of an electronic messaging system (email) to deliver unwanted messages</li>
-<li>A major part of all SPAM is sent by only a few hundred spammers</li>
-<li>It is estimated that SPAM costs businesses more than 100 billion dollars per year</li>
-<li>SPAM is illegal in many countries and some spammers have already been sentenced to jail</li>
-<li>"Solutions"
+<li><p>Abuse of an electronic messaging system (email) to deliver unwanted messages</p>
+<p>滥用电子信息系统（电子邮件）发送不需要的信息</p></li>
+<li><p>A major part of all SPAM is sent by only a few hundred spammers</p>
+<p>只有几百个垃圾邮件发送者发送了所有垃圾邮件的主要部分</p></li>
+<li><p>It is estimated that SPAM costs businesses more than 100 billion dollars per year</p>
+<p>据估计，SPAM 每年给企业造成的损失超过 1000 亿美元</p></li>
+<li><p>SPAM is illegal in many countries and some spammers have already been sentenced to jail</p>
+<p>垃圾邮件在许多国家都是非法的，一些垃圾邮件发送者已经被判入狱</p></li>
+<li><p><strong>"Solutions"</strong></p>
 <ul>
-<li>SPAM filters</li>
-<li>micropayments for emails</li>
+<li>SPAM filters 垃圾邮件过滤器</li>
+<li>micropayments for emails 电子邮件的小额支付</li>
 </ul></li>
-<li><strong>Phishing attacks</strong>
+<li><p><strong>Phishing attacks 网络钓鱼攻击</strong></p>
 <ul>
-<li>send emails that look like coming from an official authority and contain a request for sensitive data (e.g. password)</li>
-<li>send emails with links to websites that look like official companies (e.g. your home bank)</li>
+<li><p>send emails that look like coming from an official authority and contain a request for sensitive data (e.g. password)</p>
+<p>发送看似来自官方机构并包含敏感数据（例如密码）请求的电子邮件</p></li>
+<li><p>send emails with links to websites that look like official companies (e.g. your home bank)</p>
+<p>发送带有链接的电子邮件，链接到看起来像官方公司的网站（例如您的家庭银行）</p></li>
 </ul></li>
-<li>Spammers often use <strong>botnets</strong> to send their SPAM</li>
+<li><p>Spammers often use <strong>botnets</strong> to send their SPAM</p>
+<p>垃圾邮件发送者经常使用<strong>僵尸网络</strong>发送他们的垃圾邮件</p></li>
 </ul>
-<h3 id="botnets">Botnets</h3>
+<h2 id="botnets-僵尸网络">Botnets 僵尸网络</h2>
 <ul>
-<li>Computers infected by malicious software become part of a large botnet that can be remotely controlled
+<li><p>Computers infected by malicious software become part of a large botnet that can be remotely controlled</p>
+<p>被恶意软件感染的计算机成为可远程控制的大型僵尸网络的一部分</p>
 <ul>
-<li>the largest botnets contain more than 1 million machines</li>
+<li><p>the largest botnets contain more than 1 million machines</p>
+<p>最大的僵尸网络包含超过 100 万台机器</p></li>
 </ul></li>
-<li>An attacker can buy part of such a botnet to perform various harmful tasks including
+<li><p>An attacker can buy part of such a botnet to perform various harmful tasks including</p>
+<p>攻击者可以购买此类僵尸网络的一部分来执行各种有害任务，包括</p>
 <ul>
-<li>the distribution of SPAM</li>
+<li>the distribution of SPAM 垃圾邮件的分布</li>
 <li><strong>distributed denial of service attacks (DDOS)</strong></li>
-</ul></li>
-<li>Distributed denial of service attacks are a very powerful weapon as it has for example been shown when Estonia was attacked in May 2007
+<li><strong>分布式拒绝服务攻击 (DDOS)</strong>
+<ul>
+<li>Distributed denial of service attacks are a very powerful weapon as it has for example been shown when Estonia was attacked in May 2007</li>
+<li>分布式拒绝服务攻击是一种非常强大的武器，例如在 2007 年 5 月爱沙尼亚遭到攻击时就表明了这一点
 <ul>
 <li>cannot easily be detected and filtered by firewalls since the traffic is created by many different machines</li>
+<li>由于流量是由许多不同的机器创建的，因此防火墙无法轻易检测和过滤</li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
-<h2 id="firewalls">Firewalls</h2>
+<h2 id="firewalls-防火墙">Firewalls 防火墙</h2>
 <p><img src="/images/NET/1309047.png" /></p>
 <p>Software and hardware firewalls introduce artifical "bottlenecks" that have to be passed by all the traffic</p>
+<p>软件和硬件防火墙引入了所有流量必须通过的人为“瓶颈”</p>
 <ul>
-<li>block specific ports</li>
-<li>filter and block content</li>
-<li>protect private intranets from incoming Internet traffic
+<li><p>block specific ports 阻止特定端口</p></li>
+<li><p>filter and block content 过滤和阻止内容</p></li>
+<li><p>protect private intranets from incoming Internet traffic</p>
+<p>保护私有 Intranet 免受传入 Internet 流量的影响</p>
 <ul>
-<li>often only a subnetwork (<strong>demilitarised zone</strong>) is connected to the Interne</li>
+<li><p>often only a subnetwork (<strong>demilitarised zone</strong>) is connected to the Interne</p>
+<p>通常只有一个子网（<strong>非军事区</strong>）连接到互联网</p></li>
 </ul></li>
 </ul>
-<h2 id="privacy">Privacy</h2>
+<h2 id="privacy-隐私">Privacy 隐私</h2>
 <ul>
-<li>While users access information over the Internet, there is a continuous logging of their requests</li>
-<li>Each server stores information about clients who accessed specific resources</li>
-<li>Data mining techniques can be used to combine this logging information and create user profiles ▪ can for example be used for user-targeted advertising</li>
-<li>Users also "deliberately" publish personal information
+<li><p>While users access information over the Internet, there is a continuous logging of their requests</p>
+<p>当用户通过 Internet 访问信息时，他们的请求会被持续记录</p></li>
+<li><p>Each server stores information about clients who accessed specific resources</p>
+<p>每个服务器存储有关访问特定资源的客户端的信息</p></li>
+<li><p>Data mining techniques can be used to combine this logging information and create user profiles</p>
+<p>数据挖掘技术可用于组合这些日志信息并创建用户配置文件</p>
+<ul>
+<li><p>can for example be used for user-targeted advertising</p>
+<p>例如可用于针对用户的广告</p></li>
+</ul></li>
+<li><p>Users also "deliberately" publish personal information</p>
+<p>用户还“故意”发布个人信息</p>
 <ul>
 <li>e.g. on Facebook</li>
 </ul></li>
-<li>Published information often cannot be easily deleted
+<li><p>Published information often cannot be easily deleted</p>
+<p>已发布的信息往往不容易删除</p>
 <ul>
 <li>e.g. still accessible via <a target="_blank" rel="noopener" href="https://archive.org/">Internet Archive</a></li>
 </ul></li>
 </ul>
-<h2 id="web-log">Web Log</h2>
+<h3 id="web-log-网络日志">Web Log 网络日志</h3>
 <ul>
-<li>Log entry created every time a web server is accessed</li>
-<li>A log entry typically contains information about
+<li><p>Log entry created every time a web server is accessed</p>
+<p>每次访问 Web 服务器时都会创建日志条目</p></li>
+<li><p>A log entry typically contains information about</p>
+<p>日志条目通常包含有关</p>
 <ul>
-<li>IP address of the requesting machine</li>
-<li>accessed URL</li>
-<li>request time</li>
-<li><strong>refer link</strong> (previous page accessed by the client)
+<li><p>IP address of the requesting machine</p>
+<p>请求机器的 IP 地址</p></li>
+<li><p>accessed URL 访问的 URL</p></li>
+<li><p>request time 请求时间</p></li>
+<li><p><strong>refer link 参考链接</strong></p>
 <ul>
-<li>sent as part of the HTTP Request</li>
+<li><p>previous page accessed by the client</p>
+<p>客户访问的上一页</p></li>
+<li><p>sent as part of the HTTP Request</p>
+<p>作为 HTTP 请求的一部分发送</p></li>
 </ul></li>
-<li>browser type</li>
-<li>errors that occurred</li>
-<li>...</li>
+<li><p>browser type 浏览器类型</p></li>
+<li><p>errors that occurred 发生的错误</p></li>
+<li><p>...</p></li>
 </ul></li>
-<li>Web logs can be combined with other information
+<li><p>Web logs can be combined with other information</p>
+<p>网络日志可以与其他信息结合</p>
 <ul>
-<li>e.g. login information can be used to reveal a user's identity</li>
+<li><p>e.g. login information can be used to reveal a user's identity</p>
+<p>例如，登录信息可用于揭示用户的身份</p></li>
 </ul></li>
-<li>Refer link
+<li><p><strong>Refer link 参考链接</strong></p>
 <ul>
-<li>enables access to potentially private information</li>
-<li>e.g. if previous request was an HTML form request using the GET method then all the data will be available as part of the URL</li>
+<li><p>enables access to potentially private information</p>
+<p>允许访问潜在的私人信息</p></li>
+<li><p>e.g. if previous request was an HTML form request using the <code>GET</code> method then all the data will be available as part of the URL</p>
+<p>例如，如果之前的请求是使用<code>GET</code>方法的 HTML 表单请求，则所有数据都将作为 URL 的一部分可用</p></li>
 </ul></li>
 </ul>
 <pre class="line-numbers language-web" data-language="web"><div class="caption"><span>log with refer links</span></div><code class="language-web">XXX.XXX.XXX.193 - - [02&#x2F;Dec&#x2F;2009:05:50:40 +0100] &quot;GET &#x2F;knives-shun-c-81_114-l-en.html?gclid&#x3D;CLOFucf5tp4CFc5L5Qod8jQzpA HTTP&#x2F;1.1&quot; 200 65478 
@@ -913,85 +1034,109 @@ Mozilla&#x2F;4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) )&quot;
 XXX.XXX.XXX.139 - - [02&#x2F;Dec&#x2F;2009:05:52:21 +0100] &quot;GET &#x2F;images&#x2F;pixel_trans.gif HTTP&#x2F;1.1&quot; 200 43 &quot;http:&#x2F;&#x2F;www.tenera.ch&#x2F;kai-seki-magoroku-redwoodnakirimesser-165-cm-p-1433-l-de.html&quot; &quot;Mozilla&#x2F;4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; Mozilla&#x2F;4.0 (compatible; MSIE 6.0; Windows NT 5.1; 
 SV1) )&quot;
 ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="web-log-file-analysis">Web Log File Analysis</h3>
+<h4 id="web-log-file-analysis-网络日志文件分析">Web Log File Analysis 网络日志文件分析</h4>
 <p><img src="/images/NET/1309348.png" /></p>
 <ul>
-<li>Site owner can use various tools to analyse the log files
+<li><p>Site owner can use various tools to analyse the log files 网站所有者可以使用各种工具来分析日志文件</p>
 <ul>
 <li>e.g. Webalizer</li>
 </ul></li>
-<li>How much information do we give away when accessing a website?<br />
-</li>
-<li>What is happening with the logged data?
+<li><p>How much information do we give away when accessing a website?</p>
+<p>我们在访问网站时会泄露多少信息？</p></li>
+<li><p>What is happening with the logged data?</p>
+<p>记录的数据发生了什么？</p>
 <ul>
-<li>combined with other information to reveal IP addresses?</li>
-<li>combined with log files from other sites?
+<li><p>combined with other information to reveal IP addresses?</p>
+<p>结合其他信息来揭示 IP 地址？</p></li>
+<li><p>combined with log files from other sites?</p>
+<p>与来自其他站点的日志文件相结合？</p>
 <ul>
-<li>user profiling<br />
-</li>
+<li>user profiling 用户分析</li>
 </ul></li>
-<li>intended use of data should be mentioned in the <strong>privacy policy</strong></li>
-</ul></li>
-</ul>
-<h2 id="cookies-revisited">Cookies Revisited</h2>
-<ul>
-<li><strong>Persistent cookies</strong> can be used to track a user over time
-<ul>
-<li>similar to IP address but more precise</li>
-</ul></li>
-<li><strong>Third-party cookies</strong> can be used to build an <strong>anonymous user profile</strong>
-<ul>
-<li>if a website contains elements that have to be accessed from another server (e.g. banner ads), then the server can set a cookie
-<ul>
-<li>the third-party server creates a unique resource URL for every page on which the resource has been embedded</li>
-<li>the user can be tracked on any site that uses the same service (e.g. banner ads) and an anonymous user profile can be created</li>
-</ul></li>
-</ul></li>
-<li>Cookies should not be used for authentication
-<ul>
-<li>can be modified by a user to forge identity (<strong>cookie poisoning</strong>)</li>
+<li><p>intended use of data should be mentioned in the <strong>privacy policy</strong></p>
+<p><strong>隐私政策中</strong>应提及数据的预期用途</p></li>
 </ul></li>
 </ul>
-<h2 id="web-bugs">Web Bugs</h2>
+<h3 id="cookies-revisited">Cookies Revisited</h3>
 <ul>
-<li>User tracking based on the same idea as with third-party cookies
+<li><p><strong>Persistent cookies</strong> can be used to track a user over time</p>
+<p><strong>持久性 cookie</strong>可用于随着时间的推移跟踪用户</p>
 <ul>
-<li>Embed a small object (e.g. 1 pixel image) in a webpage and get informed every time the webpage is accessed</li>
-<li>request containing the IP address is sent to the server</li>
+<li><p>similar to IP address but more precise</p>
+<p>类似于 IP 地址，但更精确</p></li>
 </ul></li>
-<li>The web bugs approach cannot only be used for webpages but also for other resources such as email, Word documents etc.
+<li><p><strong>Third-party cookies</strong> can be used to build an <strong>anonymous user profile</strong></p>
+<p><strong>第三方 cookie</strong>可用于构建<strong>匿名用户配置文件</strong></p>
 <ul>
-<li>if the user reads an email containing an embedded HTML web bug, the server knows when the email has been read but also gets information about the IP address of the mail client</li>
+<li><p>if a website contains elements that have to be accessed from another server (e.g. banner ads), then the server can set a cookie</p>
+<p>如果网站包含必须从另一台服务器访问的元素（例如横幅广告），则服务器可以设置 cookie</p>
+<ul>
+<li><p>the third-party server creates a unique resource URL for every page on which the resource has been embedded</p>
+<p>第三方服务器为每个嵌入资源的页面创建一个唯一的资源 URL</p></li>
+<li><p>the user can be tracked on any site that uses the same service (e.g. banner ads) and an anonymous user profile can be created</p>
+<p>可以在使用相同服务（例如横幅广告）的任何站点上跟踪用户，并且可以创建匿名用户配置文件</p></li>
+</ul></li>
+</ul></li>
+<li><p>Cookies should not be used for authentication 不应用于身份验证</p>
+<ul>
+<li><p>can be modified by a user to forge identity (<strong>cookie poisoning</strong>)</p>
+<p>可以被用户修改以伪造身份（<strong>cookie 中毒</strong></p></li>
 </ul></li>
 </ul>
-<h2 id="other-services-with-privacy-issues">Other Services with Privacy Issues</h2>
+<h3 id="web-bugs-网络错误">Web Bugs 网络错误</h3>
 <ul>
-<li>Google Earth shows a lot of sensitive information
+<li><p>User tracking based on the same idea as with third-party cookies</p>
+<p>基于与第三方 cookie 相同的想法的用户跟踪</p>
+<ul>
+<li><p>Embed a small object (e.g. 1 pixel image) in a webpage and get informed every time the webpage is accessed</p>
+<p>在网页中嵌入一个小对象（例如 1 像素图像）并在每次访问网页时获得通知</p></li>
+<li><p>request containing the IP address is sent to the server</p>
+<p>包含 IP 地址的请求被发送到服务器</p></li>
+</ul></li>
+<li><p>The web bugs approach cannot only be used for webpages but also for other resources such as email, Word documents etc.</p>
+<p>Web bug 方法不仅可以用于网页，还可以用于其他资源，例如电子邮件、Word 文档等</p>
+<ul>
+<li><p>if the user reads an email containing an embedded HTML web bug, the server knows when the email has been read but also gets information about the IP address of the mail client</p>
+<p>如果用户阅读了一封包含嵌入式 HTML 网络漏洞的电子邮件，服务器会知道电子邮件何时被阅读，但也会获取有关邮件客户端 IP 地址的信息</p></li>
+</ul></li>
+</ul>
+<h3 id="other-services-with-privacy-issues">Other Services with Privacy Issues</h3>
+<ul>
+<li><p>Google Earth shows a lot of sensitive information</p>
+<p>谷歌地球显示大量敏感信息</p>
 <ul>
 <li>e.g. military bases etc.</li>
 </ul></li>
-<li>Google Street View shows not only streets and buildings but also citizens
+<li><p>Google Street View shows not only streets and buildings but also citizens</p>
+<p>谷歌街景不仅显示街道和建筑物，还显示市民</p>
 <ul>
 <li>privacy of individuals might be violated since they are shown at strange places or in weird situations</li>
 <li>since the blurring of faces and number plates does not always work, some countries would like to stop the service</li>
 </ul></li>
-<li>Many other free services from Google as well as other companies harvest personal information and use it, for example, for customer-targeted advertising</li>
+<li><p>Many other free services from Google as well as other companies harvest personal information and use it, for example, for customer-targeted advertising</p>
+<p>Google 和其他公司提供的许多其他免费服务会收集个人信息并将其用于例如针对客户的广告</p></li>
 </ul>
-<h2 id="google-analytics">Google Analytics</h2>
+<h3 id="google-analytics-谷歌分析">Google Analytics 谷歌分析</h3>
 <ul>
-<li>Very nice tool for web administrators to analyse their web traffic
+<li><p>Very nice tool for web administrators to analyse their web traffic</p>
+<p>非常好的网络管理员分析网络流量的工具</p>
 <ul>
-<li>easy to "install" over the Web</li>
-<li>website administrators have to add a piece of JavaScript code (tracking code) to their website
+<li><p>easy to "install" over the Web 易于通过网络“安装”</p></li>
+<li><p>website administrators have to add a piece of JavaScript code (tracking code) to their website</p>
+<p>网站管理员必须在他们的网站上添加一段 JavaScript 代码（跟踪代码）</p>
 <ul>
-<li>similar to web bug approach shown earlier</li>
+<li><p>similar to web bug approach shown earlier</p>
+<p>类似于前面显示的网络错误方法</p></li>
 </ul></li>
-<li>Google gets information about site visitors</li>
+<li><p>Google gets information about site visitors</p>
+<p>Google 获取有关网站访问者的信息</p></li>
 </ul></li>
-<li>While a user can normally choose to use a free service (e.g. Gmail) or not, the user has no choice when it comes to the tracking via Google Analytics</li>
-<li>How save is the captured data?
+<li><p>While a user can normally choose to use a free service (e.g. Gmail) or not, the user has no choice when it comes to the tracking via Google Analytics</p>
+<p>虽然用户通常可以选择是否使用免费服务（例如 Gmail），但在通过 Google Analytics 进行跟踪时，用户别无选择</p></li>
+<li><p>How save is the captured data? 捕获的数据如何保存？</p>
 <ul>
-<li>what if somebody manages to steal the data?</li>
+<li><p>what if somebody manages to steal the data?</p>
+<p>如果有人设法窃取数据怎么办？</p></li>
 </ul></li>
 </ul>
 
@@ -1160,15 +1305,15 @@ SV1) )&quot;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Searching and Security">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Security">
                         
-                        <span class="card-title">Searching and Security</span>
+                        <span class="card-title">Security</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Exercise 10
+                            Exercise 11
                         
                     </div>
                     <div class="publish-info">

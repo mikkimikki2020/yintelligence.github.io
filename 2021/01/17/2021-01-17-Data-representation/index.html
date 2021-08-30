@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-01
+                    2021-08-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    6
+                    6.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    23 Min
                 </div>
                 
 
@@ -503,6 +503,463 @@
                 <h1 id="data-representation">Data representation</h1>
 <p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fa9b506d-0820-495e-96d7-ac4100cc40fd">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564886">Slide</a></p>
 <h2 id="digital-techniques">Digital techniques</h2>
+<p>存在两种根本不同的表示（和存储）信息的方式：模拟和数字。</p>
+<ul>
+<li><p><strong>Analog</strong></p>
+<ul>
+<li>数量的表示几乎可以连续变化，步长太小而无法观察到</li>
+<li>沙漏代表下室中沙子的高度</li>
+</ul></li>
+<li><p><strong>Digital</strong></p>
+<ul>
+<li><p>要表示的值的范围细分为预定义的有限数量的子范围，并且为每个子范围分配一个名称。</p></li>
+<li><p>值的表示形式变为该值所属的子范围的名称。</p>
+<p>通常，分配给这些子范围的名称是与表示的值成比例的数值。</p></li>
+<li><p>数字手表则以小时，分钟和秒为单位来测量时间。</p></li>
+</ul></li>
+</ul>
+<p>在数字计算机中，所有信息都是通过整数integer编码的。这些数字需要通过该存储器的某些物理特性（例如电压，电流，磁场或光学不透明度）物理存储在存储器中。</p>
+<p>为了使存储的可靠性最大化，将要存储的不同数字的数量最小化，以便于它们的识别并<strong>最小化外部干扰因素的影响</strong>。 这意味着存储在数字设备中的整数通常是二进制数binary numbers，仅具有两位数字，即0和1。此类二进制数字称为“<strong>位bits</strong>”。</p>
+<p>一个位只能表示两个不同的值，但加一位会使值的数量加倍。 每个字具有32位，已经可以实现超过40亿个值。</p>
+<h2 id="binary-numbers">Binary numbers</h2>
+<p>如上所示，在文本中写下二进制数通常有点乏味，对于3或bits，则将其分组为一个八进制octal或十六进制hexadecimal数字。这适用于有关计算机的编程语言和文本，但对内部的始终为二进制的数字表示形式没有影响。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Decimal</th>
+<th style="text-align: center;">Binary</th>
+<th style="text-align: center;">Octal</th>
+<th style="text-align: center;">Hexadecimal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0001</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0100</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0101</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0110</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1001</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1010</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">1011</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">1100</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">1101</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">1110</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">E</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+<p>An number with n bits have <strong>2<sup>n</sup></strong> combinations.</p>
+<h3 id="some-useful-abbreviations">Some useful abbreviations</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">mili-</th>
+<th style="text-align: center;">m</th>
+<th style="text-align: center;">10<sup>-3</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">micro-</td>
+<td style="text-align: center;">μ</td>
+<td style="text-align: center;">10<sup>-6</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">nano-</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">10<sup>-9</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">pico-</td>
+<td style="text-align: center;">p</td>
+<td style="text-align: center;">10<sup>-12</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">femto-</td>
+<td style="text-align: center;">f</td>
+<td style="text-align: center;">10<sup>-15</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">kilo-</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">10<sup>3</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">mega-</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">10<sup>6</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">giga-</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">10<sup>9</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">tera-</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">10<sup>12</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">peta-</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">10<sup>15</sup></td>
+</tr>
+</tbody>
+</table>
+<h3 id="numbers-in-any-base">Numbers in any base</h3>
+<p>大多数人使用以10为底的算术，但可以以任何底数定义一个连贯的算术系统，不仅可以用于整数，还可以用于分数。</p>
+<p>上图显示了以任意基数为基础的算术系统的定义以及计算相应值的方式。 给出了三个示例，一个在基数2中，一个在基数5中，一个在基数16中。 知道并能够在任何基础上使用算术都是很有用的。</p>
+<h2 id="digital-data-representation">Digital Data Representation</h2>
+<h3 id="sound">Sound</h3>
+<p>在 Vinyle 唱片中，grove的深度是声音的模拟表示。</p>
+<p>在数字音乐中，声音每秒采样一定次数（对于 CD 来说，这是每秒 44100 次）每秒采样数决定了，根据Nyquist sampling theorem，可以无混叠aliasing存储的最高频率（ 对于 CD，这大约是 20000Hz）。</p>
+<p>每个声道中的位数决定了声音幅度表示的准确性（CD 使用两个 16 位字，立体声音乐的每个声道一个）。</p>
+<p>当音乐以数字序列存储时，执行数字信号处理技术以提高（或修改）声音质量变得容易。例如，乙烯基CD和聚碳酸酯CD都可能被刮擦。 由于声音是由乙烯基的树丛深度编码的，因此划痕与音乐几乎没有区别，并且仍会听到。</p>
+<p>Digital signal processing techniques can hide CD's scratches by interpolating between readable samples.</p>
+<p>在CD中，从头开始会导致某些样本不可读，这些样本很容易被阅读器中的软件检测到，并且可以通过在可读样本之间进行插值来被同一软件隐藏。 <strong>信息不会还原，但是其缺失可以隐藏</strong>。</p>
+<h3 id="images">Images</h3>
+<p>通常使用两种技术来存储图像：</p>
+<ul>
+<li>位图 bit maps</li>
+<li>几何图案 geometric patterns</li>
+</ul>
+<h4 id="bits-maps-位图">Bits Maps 位图</h4>
+<p>最简单的方法就是只存储描述每个像素pixel属性的数字。在Windows中，后缀<code>.bmp</code>用于此类图片。</p>
+<p>存储为位图bit map的图片的大小（以<strong>Mbytes兆字节</strong>为单位）显然与图片的内容无关，风景和带有单个圆的均匀表面之间的唯一区别是，对于后者， 内部包含的的字节数将彼此相同。</p>
+<h4 id="geometric-coding-of-images-几何图案">Geometric coding of images 几何图案</h4>
+<p>简单图像也可以描述为一组几何图案，这将大大<strong>减少所需的内存大小</strong>。</p>
+<p>例如，这是用文本texts完成的，在该文本中，代替了存储每个字符的图像，而是在计算机生成的图像（例如Powerpoint演示文稿）中存储了相应的ASCII码。</p>
+<p>通过分析图片并提取其特征，自然图像也可以表示为一组几何图案，这可以大大减少其内存大小。</p>
+<p> 上图显示了相对于位图可以实现的一些尺寸减小。</p>
+<p>存在许多更复杂的技术来减小所存储图片的大小（例如，大多数相机中使用的Jpeg）。 大多数情况下，它们会<strong>降低图像的质量</strong>，因此具有特定的应用领域。</p>
+<blockquote>
+<p>在休假图片中，只要呈现整体印象就可以删除细节，而在医学图像中，这些细节恰恰是重要的。</p>
+</blockquote>
+<h3 id="texts">Texts</h3>
+<p>从数量上说，非常重要的是需要存储的各种图像是文本。 可以识别并编码单个字符，而不是像打印传真机那样打印图像。 编码文本并再现其图像表示字符字体的概念，该字体与每个字符代码关联一个特定的图形表示。</p>
+<p>如上面的示例所示，分别存储文本和用于复制这些文本的字体可以节省大量的存储空间。 编码characters而不是graphical aspect需要的内存减少了20000倍！</p>
+<h4 id="history">History</h4>
+<p>虽然更古老的莫尔斯电码 (1837) 使用可变长度variable length的字符编码，允许最大限度地减少表示特定文本所需的位数，但电信和计算机行业采用了<strong>效率较低但更实用的固定长度fixed length代码</strong>。</p>
+<p>允许在全世界传输打字文本的 TELEX 网络使用每字符 5 位的 Baudot代码。</p>
+<p>几年间，在 60 年代，6 位代码非常流行，因为它们允许表示拉丁字母表的 32 个字母和 10 个十进制数字（2<sup>6</sup> = 64）。</p>
+<p>7 位美国信息交换标准代码American Standard Code for Information Interchange (ASCII) 在 20 世纪末和 21 世纪初在大多数计算机中得到了广泛使用。它允许将大写和小写字母与数字和许多命令一起表示。许多制造商已经用额外的位扩展了 ASCII 代码，以允许带有重音符号的字母。不幸的是，这些扩展没有标准化，在使用重音时仍然会产生意想不到的效果（例如在 PC 和 Apple 计算机之间的电子邮件中）。</p>
+<p>目前，ASCII 正被 16 位 Unicode 所取代，该 Unicode 不仅对拉丁盎格鲁撒克逊字母进行编码，而且对世界上任何地方使用的大多数字母进行编码。</p>
+<h4 id="baudot-character-set">Baudot Character Set</h4>
+<p>在Baudot中使用的32位5位组合不足以表示拉丁字母，10个十进制数字和一些命令，例如return和换行line feed。</p>
+<p>通过根据发送者和接收者的“字母alphabetical”或“数字numeric”状态为32个组合combination中的30个分配两种不同的含义来解决此问题。 其余两个组合combination用于更改状态。 此技巧仍在某些打印机中用于在字母或图形模式之间切换。</p>
+<p>This trick is used for some printers to switch between alphabetical or graphical modes.</p>
+<h4 id="ascii-character-set">ASCII Character Set</h4>
+<p>原始的 7 位 ASCII 代码没有规定使用英语以外的其他语言的文本。</p>
+<p>ASCII 有一套丰富的指令用于控制远程打印机或在电传打字机之间传输文本。</p>
+<p>个人计算机制造商已扩展 ASCII 以在字母表中包含重音符号和常用符号。</p>
+<h4 id="unicode">Unicode</h4>
+<p>Web 上普遍使用的 Unicode 通过使用 16 位表示解决了与不同字母表相关的大多数问题。</p>
+<h2 id="numbers">Numbers</h2>
+<p>用数字表示数值应该不难。 但是，对带符号的整数signed integers和小数fractional numbers进行编码需要一些其他编码。</p>
+<h3 id="decimal-numbers">Decimal numbers</h3>
+<p>由于大多数业务应用程序使用带符号的十进制decimal数字，因此使用ASCII码表示10位数字是合乎逻辑的，<code>*</code>和<code>–</code>符号以及小数点代表数字。 但是，这将浪费大量的存储空间。 例如，在一个32位的单词中，可以存储4个ASCII字符，这意味着可以存储0到9999之间的数字，而我们知道32位可以容纳40亿个不同的值！</p>
+<p>但是，对于非常特殊的应用（例如袖珍计算器），已经设计了一种4 bit十进制数字表示形式，称为Binary Coded Decimal BCD）。 BCD仍然浪费内存空间，但是以一种更合理的方式。 一些面向业务的编程语言（例如COBOL）有时确实使用BCD编码数字。</p>
+<h3 id="absolute-value-sign">Absolute Value + Sign</h3>
+<p>在“absolute value plus sign”中，integer和sign的二进制表示形式彼此独立地处理handled independently。符号是表示形式的<strong>最左位</strong>，0表示+，1表示-。 其余的n-1位用于表示数字的绝对值。</p>
+<p>整数的不同编码将通过具有4位的示例进行描述。</p>
+<p>当然，这是完全不现实的，但可以使用清晰的图形说明。 这些表示形式以黄色椭圆形表示在一个圆圈上，强调了具有固定位数的整数的模2<sup>n</sup>性质。 所表示的值显示在此圆圈的外部。</p>
+<p>对于“absolute value plus sign”，人们观察到数字0有两个不同的表示形式，并且在圆形刻度上出现了两个不连续性，分别在+7和-0之间以及在-7和+ 0之间。</p>
+<p>Absolute Value + Sign表示法主要用于与幅度分开处理幅度的设备中，例如电话的动态范围压缩。</p>
+<h3 id="binary-offset-二进制偏移">Binary offset 二进制偏移</h3>
+<p>为了以“二进制偏移 Binary offset”表示形式表示数字，将恒定的正值添加到要表示的所有数字上，以便表示形式始终为正。</p>
+<p>在表示的圆上，二进制偏移量表示只有一个不连续，介于7和-8之间。</p>
+<ul>
+<li>表示形式0表示可能的最大负值</li>
+<li>表示形式0并非全为零的二进制数</li>
+</ul>
+<h3 id="twos-complement-二进制补码">Two's complement 二进制补码</h3>
+<p>迄今为止，“<strong>二进制补码 two’s complebment</strong>”表示法是现代计算机中最常用的表示整数的表示法。 如果不深入研究数字表示的历史，就无法解释表示的名称。</p>
+<p>简而言之，存在另一种表示形式，称为“<strong>one’s complement</strong>”，是通过从一个全为1的数字中减去实际值而获得的。 对于负值，“one’s complement” 等于 “one’s complement” +1。</p>
+<blockquote>
+<p>这不是一个非常准确的名称！！！</p>
+</blockquote>
+<p>二进制补码的主要<strong>好处</strong>是，所有算术运算都可以对数字的表示取2<sup>n</sup>取模modulo，并且可以正确表示结果。 这意味着无需关注操作数的符号，从而大大简化了算术单元的设计。</p>
+<p>圆形表示在 +7 和 -8 之间呈现一个不连续性。 值 0 由只有位 0 的二进制数表示。</p>
+<p>由于two’s complement非常普遍，因此熟悉它们很有用。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">value</th>
+<th style="text-align: center;">4 bit</th>
+<th style="text-align: center;">8 bit</th>
+<th style="text-align: center;">16 bit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-32768</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;"><strong>1</strong>000000000000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-32767</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;"><strong>1</strong>000000000000001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-128</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;"><strong>1</strong>0000000</td>
+<td style="text-align: center;"><strong>1</strong>111111110000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-127</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;"><strong>1</strong>0000001</td>
+<td style="text-align: center;"><strong>1</strong>111111110000001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-8</td>
+<td style="text-align: center;"><strong>1</strong>000</td>
+<td style="text-align: center;"><strong>1</strong>1111000</td>
+<td style="text-align: center;"><strong>1</strong>111111111111000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-7</td>
+<td style="text-align: center;"><strong>1</strong>001</td>
+<td style="text-align: center;"><strong>1</strong>1111001</td>
+<td style="text-align: center;"><strong>1</strong>111111111111001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;"><strong>1</strong>111</td>
+<td style="text-align: center;"><strong>1</strong>1111111</td>
+<td style="text-align: center;"><strong>1</strong>111111111111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong>000</td>
+<td style="text-align: center;"><strong>0</strong>0000000</td>
+<td style="text-align: center;"><strong>0</strong>000000000000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">+1</td>
+<td style="text-align: center;"><strong>0</strong>001</td>
+<td style="text-align: center;"><strong>0</strong>0000001</td>
+<td style="text-align: center;"><strong>0</strong>000000000000001</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">+7</td>
+<td style="text-align: center;"><strong>0</strong>111</td>
+<td style="text-align: center;"><strong>0</strong>0000111</td>
+<td style="text-align: center;"><strong>0</strong>000000000000111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">+8</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;"><strong>0</strong>0001000</td>
+<td style="text-align: center;"><strong>0</strong>000000000001000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">+127</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;"><strong>0</strong>1111111</td>
+<td style="text-align: center;"><strong>0</strong>000000011111111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">+32767</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;"><strong>0</strong>111111111111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">+32768</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;">out of range</td>
+<td style="text-align: center;">out of range</td>
+</tr>
+</tbody>
+</table>
+<p>从左开始的第一位始终是符号位，0表示正，1表示负。</p>
+<ul>
+<li>小正数在符号位旁边带有前导0</li>
+<li>最大的正数在其符号位旁边有一个1</li>
+<li>较小的负数在符号位旁边带有前导1</li>
+<li>最大的负数在其符号位旁边有一个0</li>
+<li>当要增加表示一个值的位数时，只需向左复制符号位就可以了</li>
+</ul>
+<h4 id="airthmetic-运算">Airthmetic 运算</h4>
+<p>上图是一个二进制补码运算的例子： 加法表和乘法表都很简单。所有算术运算都需要以2<sup>n</sup>为模进行，这意味着必须忽略第 n 位左侧的所有内容。</p>
+<p>如本例所示，仅当从未超过可表示的值的范围时，二进制补码算法的吸引属性才有效。</p>
+<p>当超出此范围时，结果将完全错误！！！</p>
+<h4 id="overflow-溢出">Overflow 溢出</h4>
+<p>具有16个可能值的循环表示将阐明<strong>溢出overflow</strong>的机制。</p>
+<p>首先让我们假设要将4加到-3。 我们从-3的表示形式（即1101）开始，顺时针旋转4个步骤。 这使我们进入位置0001，即+1的表示形式。 实际上-3 + 4 = + 1。</p>
+<p>现在让我们尝试将4加到+6。 我们从0110代表的+6开始，顺时针旋转4步。 这使我们到达1010，这是-6的表示形式，所以6 + 4 = -6 !!!</p>
+<p>这是因为在顺时针步进时，我们越过了+7&gt; -8不连续点，这表明我们超出了可以用4位[-8，+ 7]表示的值的范围</p>
+<p>我们在这里经历的被称为“<strong>整数溢出integer overflow</strong>”。</p>
+<p>不幸的是，整数溢出integer overflow经常发生。 一些优秀的Tetris玩家已经体验过它，因为Tetris将其得分存储在16位整数中。</p>
+<p>不幸的是，其他一些integer overflow更为严重。 在首次飞行期间，必须摧毁Ariane 5火箭，因为加速度计输出中的整数溢出使火箭完全迷失了方向。</p>
+<p>以arithmetic unit检测integer overflow相对简单。</p>
+<ul>
+<li><p>仅当两个具有相同符号的数字相加时才会发生溢出</p></li>
+<li><p>将两个具有不同符号的数字相加将得出结果，其绝对值小于具有最大绝对值的项的绝对值</p></li>
+<li><p>当两个正数相加时，两个数字的符号位均等于0，结果应为正，因此符号位等于0。如果从进位位旁边的位产生进位，则溢出的结果为负</p></li>
+<li><p>当两个负数相加时，两个数字的符号位均等于1，结果应为负，因此其符号位等于1</p></li>
+<li><p>将两个数字的符号位等于1相加将得出一个总和，且符号位等于等于0，除非在右边的下一位发生进位</p>
+<p>因此，当两个负数相加时，右边无进位时会发生溢出</p></li>
+</ul>
+<p>实际上，可以通过在硬件上计算符号位左侧和右侧的进位位的<strong>异或exclusive or</strong>功能来检测溢出。</p>
+<h4 id="extended-multiplication">Extended Multiplication</h4>
+<p>由于乘法很容易引起溢出，因此通过乘积乘以位数进行预防通常很有用。 乘法完成后不能执行此操作。 一个人需要扩展两个因素的位数。 如果因子都具有n位，则应通过将每个因子的符号位向左扩展另外n位，将两者都带到2n位。 完成后，可以计算2n位乘积。</p>
+<h3 id="real-types">REAL types</h3>
+<p>除整数外，实数也应在计算机中编码。</p>
+<p>在任何两个实数值之间，存在无限个中间值intermediate values （Bolzano-Weierstrass定理），只能在有限的计算机中表示实数值。</p>
+<p>因此，任何实数编码的重要特征是对实数进行编码时产生的相对误差的上限。当实际值的范围从-∞扩展到+∞时，任何有限编码都会施加一定范围的可编码值。</p>
+<p>在1980年之前，每个计算机制造商都有自己的专有的实数编码方案，其中一些方案的聪明才智是大型计算机设计人员之间为科学应用竞争的主要资产。</p>
+<p>八十年代初，IEEE受教授启发。加州大学伯克利分校的Wiliam Kahan提出了一种用于真实编码的标准，名为IEEE754。现在，几乎所有计算机都使用此标准。它提出了两种格式，称为单精度和双精度，分别对应于Java中的float和double类型。</p>
+<h4 id="floating-point-numbers">Floating Point Numbers</h4>
+<p>实数值被编码为浮点数。 如图所示，浮点数由3个变量部分和一个预定义常数predefined constant组成。</p>
+<p>指数exponent给出值的数量级，而尾数mantissa给出值的有效数字。</p>
+<p>当尾数mantissa的底数为2时尾数没有前导零位leading zero bit，而底数为16时尾数没有前导十六进制0时，则认为浮点数已标准化。</p>
+<p>为了评估实际实数值与其表示形式之间的相对误差，我们将尾数mantissa视为整数，这意味着绝对误差将小于0.5 *base<sup>Exponet</sup></p>
+<p>要计算相对误差relative error，我们必须将绝对误差absolute error除以最小可能的实际值，仅考虑归一化的尾数normalized mantissa（否则我们可以根据需要人为地增加相对误差）</p>
+<p>如果m是尾数位数，则最小归一化值为（2<sup>m</sup> base）* base<sup>E</sup>，因此，我们获得相对误差 Base* 2<sup>-（m + 1）</sup>的上限，该结果清楚地表明，选择大于2的基数不是一个好主意。</p>
+<h4 id="normalization">Normalization</h4>
+<p>要理解标准化浮点数normalized floating point number 的概念，日常生活中的例子很有用。 考虑一个带有三位十进制显示和四个预定义比例因子 0.01Kg、0.1Kg、1Kg 和 10Kg 的电子秤。</p>
+<p>假设一个体重为 77.3Kg 的人使用该秤来验证其体重。</p>
+<ul>
+<li>比例系数scale factor为 10Kg 时，读数为 008，表示重量在 75 至 85 Kg 之间。</li>
+<li>比例因子scale factor为 1Kg 时，读数为 077，表示重量介于 76.5 和 77.5 Kg 之间。</li>
+<li>比例因子scale factor为 0.1Kg 时，读数为 773，表示重量介于 77.25 和 77.35 Kg 之间。</li>
+<li>比例因子scale factor为 0.01Kg 时，会发生过载。</li>
+</ul>
+<p>很明显，第三个比例因子给出了最好的精度，因为显示中的所有数字都得到了有效利用。 （没有前导零）。</p>
+<p>以显示为尾数，以比例因子为指数，0.1Kg比例因子对应于归一化形式。</p>
+<p>当需要表示非常小的数字时，要求所有数字都应归一化。</p>
+<p>如果上图中显示的秤的最敏感范围是0.1Kg，则不能再对小于10 Kg的体重进行归一化，而要求归一化将禁止体重小于10 Kg的儿童使用该秤。</p>
+<p>更好的解决方案是在10Kg以下接受精度损失，但仍显示非标准化重量。</p>
+<p>如果我们要求对所有浮点数进行归一化，那么我们会遇到一个非常小的实数值的问题，尽管这些实数值很重要，例如，在计算缓慢收敛的序列时。</p>
+<p>图中显示的问题是尾数为4位，底数为2。这显然是不切实际的，但对于教学目的却很有用。</p>
+<p>最小归一化值为10002.2<sup>min</sup>，其中min是允许的指数的最大负值。下一个标准化值各自与上一个标准化值之间的距离为1.2分钟，比0与第一个标准化值之间的距离小8倍。这种接近于0的分辨率不连续性可能会导致某些算法出现收敛convergence 问题。当然，当考虑尾数的实际位数时，<u>分辨率的不连续性discontinuity in resolution</u>（在图中为8倍）要高得多。</p>
+<p>为了避免这种情况，某些浮点格式（尤其是IEEE754）在指数具有最大负值时允许使用非标准化数字unnormalized numbers。图中也显示了这种规则的效果。</p>
+<h4 id="significand">Significand</h4>
+<p>EEE754二进制格式中，基数为2，指数以各种二进制偏移量编码，尾数被视为1.00000<sub>2</sub>和1.111111<sub>2</sub>之间的数字，二进制点之后的位称为“<strong>有效位数significand</strong>”，其数量取决于使用的格式。 由于以2为底的归一化数字的尾数始终以1开头，因此尾数中二进制点之前的1是隐式的，这提高了精度，而没有浮点数所需的总位数。</p>
+<ul>
+<li>当指数的值为0时，尾数的第一个（隐式implicit）位为0，该数字未归一化，逐渐下溢gradual underflow有效。</li>
+<li>当指数的值为255时，该值是不确定的或无限的（请参阅进一步）</li>
+</ul>
+<p>作为示例，这里将计算 IEEE 短实数格式的特征。 当尾数为 1.0 且指数为 1. 对应于 2<sup>-126</sup> = 1.18×10<sup>-38</sup> 的值时，达到最小归一化值。 最大值的尾数尽可能接近 2，指数等于 254。那么该值是 2×2<sup>254-127</sup> = 3.4×10<sup>38</sup> 由于 MANTISSA 中的位数（不是有效数）为 24，因此相对误差为 2×2<sup>-24</sup> = 1.2×10<sup>-7</sup></p>
+<p>For performing calculations inside the arithmetic unit, a higher precision than the one used to encode the operand and the results is required.</p>
+<h4 id="temporary-real">Temporary Real</h4>
+<p>为了在算术单元内执行计算，<strong>需要比用于对操作数和结果进行编码的精度更高的精度</strong>。</p>
+<p>这种更高的精度格式在IEEE754中定义。 由于不需要在算术单元或数字库之外使用它们，因此不需要对其进行优化。</p>
+<h4 id="speacial-values">Speacial values</h4>
+<p>对于编码0，IEEE754使用指数为零的非标准化格式。 这意味着将零编码为全为零的单词，这很方便。</p>
+<p>在科学计算中，除数有时会发生。 通常，这会导致程序异常终止，但是在某些情况下（例如，非常大的矩阵求逆），某些部分与研究中的问题无关，因此最好将∞的计算结果除以 0.为此目的，使用具有零有效位和全为指数的IEEE754数字。 应该由算术单元识别并正确处理。 但是，此处理需要一个附加的特殊值，称为“非数字Not A Number”（NAN），这是两个无限值相减或相除的结果。 NAN编码为非零有效值，并且包含所有全为1的指数。</p>
+<h4 id="example">Example</h4>
+<p>这张图提供了一些简单值编码的示例。 建议您验证这些编码，以确保您了解编码实数值的所有细节 。</p>
+<h2 id="data-compression">Data compression</h2>
+<p>找到对给定数据集进行编码所需的最小位数是一个具有非常重要的实际意义的研究课题。</p>
+<p>一个非常简单的示例将介绍该主题，接下来的几张幻灯片中将给出常用技术的摘要。</p>
+<p>举例来说，我们考虑一个代表4种不同颜色的集合的数据集。 该集合包含1000种颜色。 众所周知，颜色不是均匀分布的，如图所示，红色项目比黄色项目多得多。</p>
+<p>由于存在四种不同的颜色，因此通过2位数字对每种颜色进行编码似乎是合乎逻辑的。 这将产生2000位，以对整个1000种颜色进行编码。</p>
+<p>如果我们受到摩尔斯电码的启发，在那里，频繁的符号由短序列编码，而频率更低的符号由较长序列编码，我们可以想象一个代码，其中红色将由一个比特0编码，蓝色由两个比特10编码，其余两个 颜色由树位代码110和111组成。使用此代码，一组具有预定义频率的1000种颜色将需要1750位，这比使用统一代码所需的位数少得多。</p>
+<p><strong>我们可以得出结论，非统一代码是可取的吗？</strong></p>
+<ul>
+<li>不，上图显示相同的替代方案，但四种颜色的频率相似。</li>
+<li>在这里，我们看到非均匀non-uniform编码没有优势，相反，需要250个附加位。</li>
+</ul>
+<p>从这些例子中，可以看出，当不同符号的频率非常不同时，非均匀non-uniform编码变得很有吸引力，但是当频率相同时，非均匀non-uniform编码就会变得有害。</p>
+<h3 id="shannon-law">Shannon Law</h3>
+<p><span class="math display">\[
+n_{min}=-\sum_{i}p_{i}\log_2p_{i}
+\]</span></p>
+<h3 id="entropy-coding">Entropy coding</h3>
+<p>存在不同的编码技术。 那些称为“熵编码”的编码是基于符号频率symbol frequencies的，<strong>不会造成信息丢失</strong>。</p>
+<p>用于先前示例的第一种技术称为霍夫曼编码Huffman coding。 另一个示例是ZIP数据压缩程序中使用的游程长度run length编码。</p>
+<h3 id="source-coding">Source coding</h3>
+<p>存在其他压缩算法。 它们基于要压缩的数据的属性，并会导致少量但可接受的信息丢失，同时允许惊人的压缩率。 得益于数据压缩的惊人进步，流音乐和/或电影流已成为可能。</p>
 
                 
             </div>

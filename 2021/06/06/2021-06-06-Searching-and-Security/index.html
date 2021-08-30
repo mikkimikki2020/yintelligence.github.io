@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Searching and Security, Chaoqun Yin">
+    <meta name="keywords" content="Security, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Searching and Security | Chaoqun Yin</title>
+    <title>Security | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Searching and Security</h1>
+                    <h1 class="description center-align post-title">Security</h1>
                 </div>
             </div>
         </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-08-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    485
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    2 Min
                 </div>
                 
 
@@ -500,95 +500,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="searching-and-security">Searching and Security</h1>
-<p>Background <a href="https://yintelligence.tech/2021/05/24/2021-05-24-Web-Search-and-SEO/">1</a> + <a href="https://yintelligence.tech/2021/06/07/2021-06-07-Security,-Privacy-and-Trust/">2</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17854/files/folder/Exercises?preview=693396">Question</a> + <a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/f32d4a431a76706fa9c55a54adac8e5d9bf6d407-1608042697461/capture/">Video</a></p>
-<h2 id="searching-and-pagerank">Searching and PageRank</h2>
-<p>The simplified PageRank algorithm is defined as: <span class="math display">\[
-PR(u)=\sum_{v∈B_{u}}\frac{PR(v)}{L(v)}
-\]</span> with:</p>
-<ul>
-<li>PR（u）, the PageRank of page u</li>
-<li>B<sub>u</sub>, the set of pages that link to page u</li>
-<li>L（v）, the amount of outgoing links of page v</li>
-</ul>
-<p>So to calculate the PageRank of a given page u, we need to do the following:</p>
-<ol type="1">
-<li>Get all pages that link to page u, the resulting set of pages is B<sub>u</sub></li>
-<li>For every page v in B<sub>u</sub>, calculate <span class="math inline">\(\frac{PR(v)}{L(v)}\)</span></li>
-<li>Add the results together</li>
-</ol>
-<p>The PageRank computations require several passes, called “iterations”, to adjust approximate PageRank values to more closely reflect the theoretical true value. During each iteration, the PageRank values from the previous iterations are used. So in order to calculate the PageRank for a graph, you need to do the following steps:</p>
-<ol type="1">
-<li>Start by assigning every page with an initial PageRank of <span class="math inline">\(\frac{1}{1\#pageswhere}\)</span> #pages is the amount of pages in the graph</li>
-<li>Calculate the new PageRank for every page in the graph</li>
-<li>Go to step 2</li>
-</ol>
-<p>For more information, see <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PageRank#Simplified_algorithm">here</a></p>
-<p><strong>Note</strong>: If a page has no outgoing links, we have a s o-called “sink”, which will accumulate most of the PageRank over time. To fix this, we assume that these sinkns are connected to every other nodes during the calculation.</p>
-<h3 id="exercises">Exercises</h3>
-<h4 id="calculate-pagerank-for-graphs">Calculate PageRank for Graphs</h4>
-<p>Calculate the PageRanks for the following graphs. 2 iterations are sufficient.</p>
-<p><img src="/images/NET/0448300.png" /></p>
-<pre class="line-numbers language-none"><code class="language-none">it 1:
-A: PR(B)&#x2F;L(B) + PR(C)&#x2F;L(C) + PR(D)&#x2F;L(D) &#x3D; 1&#x2F;4 + 1&#x2F;4 + 1&#x2F;4 &#x3D; 3&#x2F;4
-B: PR(A)&#x2F;L(A) &#x3D; (1&#x2F;4)&#x2F;3 &#x3D; 1&#x2F;12
-C: 1&#x2F;12 (idem)
-D: 1&#x2F;12 (idem)
-
-it 2:
-A: PR(B)&#x2F;L(B) + PR(C)&#x2F;L(C) + PR(D)&#x2F;L(D) &#x3D; 1&#x2F;12 + 1&#x2F;12 + 1&#x2F;12 &#x3D; 1&#x2F;4
-B: PR(A)&#x2F;L(A) &#x3D; (3&#x2F;4)&#x2F;3 &#x3D; 1&#x2F;4
-C: 1&#x2F;4 (idem)
-D: 1&#x2F;4 (idem)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/images/NET/0448301.png" /></p>
-<pre class="line-numbers language-none"><code class="language-none">it 1:
-A: 1&#x2F;4
-B: 1&#x2F;4
-C: 1&#x2F;4
-D: 1&#x2F;4
-
-it 2:
-A: 1&#x2F;4
-B: 1&#x2F;4
-C: 1&#x2F;4
-D: 1&#x2F;4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/images/NET/0448302.png" /></p>
-<pre class="line-numbers language-none"><code class="language-none">it 1:
-A: (1&#x2F;4)&#x2F;3 + (1&#x2F;4)&#x2F;3 + (1&#x2F;4)&#x2F;3 &#x3D; 1&#x2F;4
-B: 1&#x2F;4 (idem)
-C: 1&#x2F;4 (idem)
-D: 1&#x2F;4 (idem)
-
-it 2:
-idem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/images/NET/0448303.png" /></p>
-<p>Page D is a sink which will accumulate all the pagerank! Therefore we add links from D to every other page as explained in the instructions. We can then calculate the pagerank normally.</p>
-<pre class="line-numbers language-none"><code class="language-none">it1:A: (1&#x2F;4)&#x2F;3 &#x3D; 1&#x2F;12
-B: (1&#x2F;4)&#x2F;2 + (1&#x2F;4)&#x2F;3 &#x3D; 1&#x2F;8 + 1&#x2F;12 &#x3D; 6&#x2F;48 + 4&#x2F;48 &#x3D; 10&#x2F;48 &#x3D; 5&#x2F;24
-C: idem
-D: 1&#x2F;4 + 1&#x2F;4 &#x3D; 2&#x2F;4
-
-it2:
-A: 2&#x2F;4.3 &#x3D; 2&#x2F;12 &#x3D; 1&#x2F;6
-B: (1&#x2F;12)&#x2F;2 + (2&#x2F;4)&#x2F;3 &#x3D; 1&#x2F;24 + 4&#x2F;24 &#x3D; 5&#x2F;24
-C: idem
-D: 5&#x2F;24 + 5&#x2F;24 &#x3D; 10&#x2F;24 &#x3D; 5&#x2F;12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="calculate-pagerank-for-grouped-sites">Calculate PageRank for Grouped Sites</h4>
-<p>Consider the following graph:</p>
-<p><img src="/images/NET/0448304.png" /></p>
-<p>Since page D is an internal sink, most of our website’s PageRank is accumulated there. However, by linking to external sites from D we are “leaking” a lot of PageRank away from our website, which is not desirable. What can we do to minimize the leakage? Can it be achieved without removing any existing links?</p>
-<h5 id="solution">Solution</h5>
-<p>By adding links from D to our internal pages, we are diluting the amount that is leaked.</p>
-<ul>
-<li>originally half goes to external site 1 （ex1）, half goes to external site 2 （ex2）</li>
-<li>if we add one internal link （e.g. from D to A）, 1/3 goes to ex1, 1/3 goes to ex2, 1/3 is returned to one of our pages</li>
-<li>if we add another internal link, 2/4 is lost to external pages, 2/4 is returned</li>
-<li>if we add another internal link, 2/5 is lost to external pages, 3/5 is returned</li>
-<li>...</li>
-</ul>
-<p>One could also add additional pages, and link to those from D.</p>
-<h2 id="security">Security</h2>
-<h3 id="cross-site-scripting-xss">Cross-site Scripting （XSS）</h3>
+                <h1 id="security">Security</h1>
+<p><a href="https://yintelligence.tech/2021/02/06/2021-02-06-VUB-4019862ANR-Web-Technologies/">VUB 4019862ANR Web Technologies</a></p>
+<p><a href="https://yintelligence.tech/2021/06/07/2021-06-07-Security,-Privacy-and-Trust/">Background</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17854/files/folder/Exercises?preview=693396">Question</a> + <a target="_blank" rel="noopener" href="https://recordings.reu1.blindsidenetworks.com/vub/f32d4a431a76706fa9c55a54adac8e5d9bf6d407-1608042697461/capture/">Video</a></p>
+<h2 id="cross-site-scripting-跨站脚本攻击xss">Cross-site Scripting 跨站脚本攻击（XSS）</h2>
 <p>Image a web page with the following PHP code:</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
@@ -602,13 +517,14 @@ D: 5&#x2F;24 + 5&#x2F;24 &#x3D; 10&#x2F;24 &#x3D; 5&#x2F;12<span aria-hidden="tr
     
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>This page takes the “name” GET parameter from the URL and displays it. For instance, if we would go to page.php? name=Kugou, the page would display “Hello, Kugou” with the following outputted HTML</p>
+<p>This page takes the “name” <code>GET</code> parameter from the URL and displays it. For instance, if we would go to <code>page.php? name=Kugou</code>, the page would display “Hello, Kugou” with the following outputted HTML</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token operator">&lt;</span>html<span class="token operator">></span>
 <span class="token operator">&lt;</span>body<span class="token operator">></span>
 Hello<span class="token punctuation">,</span> Kugou
 <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>You can see that it just outputs the value of the name parameter right into the HTML. Now imagine that we modified the url to this:</p>
+<p>You can see that it just outputs the value of the name parameter right into the HTML.</p>
+<p>Now imagine that we modified the url to this:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">page.php?name=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><span class="token function">alert</span><span class="token punctuation">(</span>’test’<span class="token punctuation">)</span><span class="token punctuation">;</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>The page will take the value and put it in the HTML like this:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
@@ -618,23 +534,23 @@ Hello<span class="token punctuation">,</span> Kugou
         <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>As you can see, we can sometimes abuse an URL to inject JavaScript into the page. This is called a cross-site scripting （XSS） vulnerability.</p>
+<p>As you can see, we can sometimes abuse an URL to inject JavaScript into the page. This is called a <strong>cross-site scripting （XSS） vulnerability</strong>.</p>
 <ul>
-<li>Modify the site （CSS, HTML, ...） to show other information （e.g. showing fake news on a reputable news site）</li>
-<li>Execute actions as the logged in user （e.g. post a message）</li>
-<li>Create a script that intercepts the password that you enter and performs an AJAX request that sends it to your server</li>
-<li>Create a script that sends all the cookies to your server （cookie stealing）</li>
+<li><p>Modify the site （CSS, HTML, ...） to show other information （e.g. showing fake news on a reputable news site）</p>
+<p>修改站点（CSS、HTML、...）以显示其他信息（例如在信誉良好的新闻站点上显示假新闻）</p></li>
+<li><p>Execute actions as the logged in user （e.g. post a message）</p>
+<p>以登录用户身份执行操作（例如发布消息）</p></li>
+<li><p>Create a script that intercepts the password that you enter and performs an AJAX request that sends it to your server</p>
+<p>创建一个脚本，拦截您输入的密码并执行 AJAX 请求，将其发送到您的服务器</p></li>
+<li><p>Create a script that sends all the cookies to your server （cookie stealing）</p>
+<p>创建一个脚本，将所有 cookie 发送到您的服务器（cookie 窃取）</p></li>
 </ul>
 <p>An interesting video about a self-retweeting tweet on Twitter that you can watch at <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zv0kZKC6GAM">here</a>.</p>
 <p>To make things worse, we can encode our JavaScript into hexadecmial to help us hide our attack. For instance, the following two URLs are equivalent:</p>
-<ul>
-<li>```javascript page.php?name=
-<script>alert(’test’);</script>
-<pre class="line-numbers language-none"><code class="language-none">
-- &#96;&#96;&#96;javascript
-  page.php?name&#x3D;%3c%73%63%72%69%70%74%3e%61%6c%65%72%74%28%27%74%65%73%74%27%29%3b%3c%2f%73%63%72%69%70%74%3e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-For this exercise session you can do an XSS game at <a target="_blank" rel="noopener" href="https://xss-game.appspot.com/">here</a>.</li>
-</ul>
+<p>更糟糕的是，我们可以将 JavaScript 编码为十六进制来帮助我们隐藏攻击。例如，以下两个 URL 是等效的：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">page<span class="token punctuation">.</span>php<span class="token operator">?</span>name<span class="token operator">=</span><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token function">alert</span><span class="token punctuation">(</span>’test’<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">page<span class="token punctuation">.</span>php<span class="token operator">?</span>name<span class="token operator">=</span><span class="token operator">%</span><span class="token number">3</span>c<span class="token operator">%</span><span class="token number">73</span><span class="token operator">%</span><span class="token number">63</span><span class="token operator">%</span><span class="token number">72</span><span class="token operator">%</span><span class="token number">69</span><span class="token operator">%</span><span class="token number">70</span><span class="token operator">%</span><span class="token number">74</span><span class="token operator">%</span><span class="token number">3</span>e<span class="token operator">%</span><span class="token number">61</span><span class="token operator">%</span><span class="token number">6</span>c<span class="token operator">%</span><span class="token number">65</span><span class="token operator">%</span><span class="token number">72</span><span class="token operator">%</span><span class="token number">74</span><span class="token operator">%</span><span class="token number">28</span><span class="token operator">%</span><span class="token number">27</span><span class="token operator">%</span><span class="token number">74</span><span class="token operator">%</span><span class="token number">65</span><span class="token operator">%</span><span class="token number">73</span><span class="token operator">%</span><span class="token number">74</span><span class="token operator">%</span><span class="token number">27</span><span class="token operator">%</span><span class="token number">29</span><span class="token operator">%</span><span class="token number">3</span>b<span class="token operator">%</span><span class="token number">3</span>c<span class="token operator">%</span><span class="token number">2</span>f<span class="token operator">%</span><span class="token number">73</span><span class="token operator">%</span><span class="token number">63</span><span class="token operator">%</span><span class="token number">72</span><span class="token operator">%</span><span class="token number">69</span><span class="token operator">%</span><span class="token number">70</span><span class="token operator">%</span><span class="token number">74</span><span class="token operator">%</span><span class="token number">3</span>e<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>For this exercise session you can do an XSS game at <a target="_blank" rel="noopener" href="https://xss-game.appspot.com/">here</a>.</p>
 
                 
             </div>

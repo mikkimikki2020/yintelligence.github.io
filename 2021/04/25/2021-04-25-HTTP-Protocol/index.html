@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-08-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    7 Min
                 </div>
                 
 
@@ -501,36 +501,65 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="http-protocol">HTTP Protocol</h1>
+<p><a href="https://yintelligence.tech/2021/02/06/2021-02-06-VUB-4019862ANR-Web-Technologies/">VUB 4019862ANR Web Technologies</a></p>
 <p><a href="https://yintelligence.tech/2021/04/24/2021-04-24-Web-Architectures/">Background</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17854/files/579426?module_item_id=103001">Question</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17854/files/folder/Exercises?preview=575315">Slide</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=82fc571c-50c3-4062-bcc3-ac5300aba6fd">Video</a></p>
 <h2 id="http-request">HTTP Request</h2>
 <p>An HTTP Request is sent to the server by the client (browser).</p>
 <ul>
-<li><p>GET</p>
-<p>(’GET’ information from ...)</p></li>
-<li><p>POST</p>
-<p>(’POST’ information to ...)</p></li>
-<li><p>PUT</p>
-<p>(’PUT’ information inside ...)</p></li>
-<li><p>DELETE</p>
-<p>(’DELETE’ something from ...)</p></li>
-<li><p>OPTIONS</p>
-<p>(What are my ’OPTIONS’ with ...)</p></li>
-<li><p>HEAD</p>
-<p>(Only fetch the headers, used to determine file sizes)</p></li>
-<li><p>TRACE</p>
-<p>(Debugging request, Apache recommends it being disabled)</p></li>
+<li><p><code>GET</code></p>
+<ul>
+<li>’GET’ information from ...</li>
+</ul></li>
+<li><p><code>POST</code></p>
+<ul>
+<li>’POST’ information to ...</li>
+</ul></li>
+<li><p><code>PUT</code></p>
+<ul>
+<li>’PUT’ information inside ...</li>
+</ul></li>
+<li><p><code>DELETE</code></p>
+<ul>
+<li>’DELETE’ something from ...</li>
+</ul></li>
+<li><p><code>OPTIONS</code></p>
+<ul>
+<li>What are my ’OPTIONS’ with ...</li>
+</ul></li>
+<li><p><code>HEAD</code></p>
+<ul>
+<li><p>Only fetch the headers, used to determine file sizes</p>
+<p>只获取标题，用于确定文件大小</p></li>
+</ul></li>
+<li><p><code>TRACE</code></p>
+<ul>
+<li><p>Debugging request, Apache recommends it being disabled</p>
+<p>调试请求，Apache 建议禁用</p></li>
+</ul></li>
 </ul>
 <blockquote>
 <p><strong>Note</strong>: Regular browsing usually only uses GET and POST requests.</p>
+<p>常规浏览通常只使用 GET 和 POST 请求。</p>
 </blockquote>
-<p>An HTTP Request contains information about the client/browser represented as ’HTTP Request Headers’.</p>
+<p>An HTTP Request contains information about the client/browser represented as ’<strong>HTTP Request Headers</strong>’.</p>
+<p>HTTP 请求包含有关客户端/浏览器的信息，表示为“<strong>HTTP Request Headers</strong>”。</p>
 <ul>
-<li><strong>Browser Information (User-Agent)</strong>:Type of browser,version, platform, ...</li>
-<li><strong>User Information (Cookies, Authorization)</strong>:Session information, settings, ...</li>
-<li><strong>Request Data</strong>: Form data, parameters, ...</li>
+<li><strong>Browser Information (User-Agent)</strong>
+<ul>
+<li>Type of browser,version, platform, ...</li>
+</ul></li>
+<li><strong>User Information (Cookies, Authorization)</strong>
+<ul>
+<li>Session information, settings, ...</li>
+</ul></li>
+<li><strong>Request Data</strong>
+<ul>
+<li>Form data, parameters, ...</li>
+</ul></li>
 </ul>
 <blockquote>
 <p>Note: Some things can be inferred by the server, such as yourIP-address,... (even when it is not included in a request)</p>
+<p>服务器可以推断出某些内容，例如您的 IP 地址，...（即使它未包含在请求中）</p>
 </blockquote>
 <p>Example to https://www.vub.be/en:</p>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token request-line"><span class="token property">GET</span> https://www.vub.be/en HTTP/1.1</span>
@@ -549,9 +578,19 @@
 <h2 id="http-response">HTTP Response</h2>
 <p>An HTTP Response is the information that is returned after posting an HTTP Request. It contains:</p>
 <ul>
-<li><strong>Response Status</strong>: Represents the status of the request. There are many different status codes available.</li>
-<li><strong>Response headers</strong>: Server info, policies, cookies, content info (type, length) ,...</li>
-<li><strong>Response Body</strong>: The content that is returned.</li>
+<li><strong>Response Status</strong>
+<ul>
+<li>Represents the status of the request.</li>
+<li>There are many different status codes available.</li>
+</ul></li>
+<li><strong>Response headers</strong>
+<ul>
+<li>Server info, policies, cookies, content info (type, length) ,...</li>
+</ul></li>
+<li><strong>Response Body</strong>
+<ul>
+<li>The content that is returned.</li>
+</ul></li>
 </ul>
 <p>Example from https://www.vub.be/en</p>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token response-status">HTTP/1.1 <span class="token property">200 OK</span></span>
@@ -572,25 +611,35 @@
 &lt;!DOCTYPE ....</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="http-proxy">HTTP Proxy</h2>
 <ul>
-<li>Forwards requests to the actual website</li>
-<li>Forwards responses to the client that made the request</li>
+<li><p><strong>Forwards</strong> requests to the actual website</p>
+<p>将请求<strong>转发</strong>到实际网站</p></li>
+<li><p><strong>Forwards</strong> responses to the client that made the request</p>
+<p>将响应<strong>转发</strong>给发出请求的客户端</p></li>
 </ul>
 <h2 id="cookies">Cookies</h2>
 <ul>
-<li>HTTP is stateless!This means that it does remember who or what is browsing between HTTP requests (e.g. page clicks)
+<li><p>HTTP is stateless!This means that it does remember who or what is browsing between HTTP requests (e.g. page clicks)</p>
 <ul>
 <li><strong>Solution</strong>: Cookies</li>
 </ul></li>
-<li>Browser-kept data for sites.</li>
-<li>Used for user sessions, language settings, ...</li>
-<li>Browser needs to provide the cookies with each request to the site that requires it.</li>
-<li>Uniquely identify users with a code</li>
-<li>Randomized with letters and numbers (You don’t want hackers to guess the codes)</li>
-<li>Sessions prevent you from having to log in again when changing pages</li>
-<li>Cookies can be transferred to another browser
+<li><p>Browser-kept data for sites.</p>
+<p>浏览器保存的站点数据</p></li>
+<li><p>Used for user sessions, language settings, ...</p>
+<p>用于用户会话、语言设置、...</p></li>
+<li><p>Browser needs to provide the cookies with each request to the site that requires it.</p>
+<p>浏览器需要向需要它的站点提供每个请求的 cookie</p></li>
+<li><p>Uniquely <strong>identify</strong> users with a code</p>
+<p>用代码<strong>验证</strong>唯一标识用户</p></li>
+<li><p><strong>Randomized</strong> with letters and numbers (You don’t want hackers to guess the codes)</p>
+<p>用字母和数字<strong>随机化</strong>（你不想让黑客猜出密码）</p></li>
+<li><p>Sessions prevent you from having to log in again when changing pages</p>
+<p>会话可防止您在更改页面时重新登录</p></li>
+<li><p>Cookies can be transferred to another browser</p>
+<p>Cookie 可以传输到另一个浏览器</p>
 <ul>
-<li>”Cookie stealing”</li>
-<li>Extra security measures such as checking the IP, checking the User-Agent,</li>
+<li><p>”<strong>Cookie stealing</strong>”</p></li>
+<li><p>Extra security measures such as checking the IP, checking the User-Agent</p>
+<p>额外的安全措施，例如检查 IP、检查用户代理</p></li>
 </ul></li>
 </ul>
 <h1 id="exercise">Exercise</h1>

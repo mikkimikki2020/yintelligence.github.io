@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-08
+                    2021-08-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.3k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    14 Min
+                    19 Min
                 </div>
                 
 
@@ -501,25 +501,32 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="javascript-and-jquery">JavaScript and jQuery</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7b511f5a-5615-4792-a60f-ac6400d72ea9">Video</a> + Exercise + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17854/files?preview=614906">Slide</a></p>
+<p><a href="https://yintelligence.tech/2021/02/06/2021-02-06-VUB-4019862ANR-Web-Technologies/">VUB 4019862ANR Web Technologies</a></p>
+<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=7b511f5a-5615-4792-a60f-ac6400d72ea9">Video</a> + <a href="https://yintelligence.tech/2021/05/04/2021-05-04-HTML5-and-JavaScript/">Exercise</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17854/files?preview=614906">Slide</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1022910821149312">JavaScript教程</a></p>
 <h2 id="javascript">JavaScript</h2>
 <ul>
-<li>High-level <strong>loosely typed dynamic</strong> language</li>
-<li>Introduced by Netscape in 1995
+<li><p>High-level <strong>loosely typed dynamic</strong> language</p>
+<p>高级<strong>松散类型动态</strong>语言</p></li>
+<li><p>Introduced by Netscape in 1995</p>
 <ul>
-<li>lightweight interpreted client-side programming</li>
+<li><p>lightweight interpreted client-side programming</p>
+<p>轻量级解释型客户端编程</p></li>
 </ul></li>
-<li>Supports imperative, object-oriented and functional programming styles</li>
-<li>Nowadays also used in non-web-based environments
+<li><p>Supports imperative, object-oriented and functional programming styles</p>
+<p>支持命令式、面向对象和函数式编程风格</p></li>
+<li><p>Nowadays also used in non-web-based environments</p>
+<p>现在也用于非基于 Web 的环境中</p>
 <ul>
 <li>PDF, Microsoft Office, …</li>
 </ul></li>
-<li>JavaScript implements the ECMAScript specification
+<li><p>JavaScript implements the ECMAScript specification</p>
+<p>JavaScript 实现了 ECMAScript 规范</p>
 <ul>
 <li>latest version is ECMAScript 2019</li>
 </ul></li>
 </ul>
-<h3 id="adding-javascript-to-a-webpage">Adding JavaScript to a Webpage</h3>
+<h3 id="adding-javascript-to-a-webpage-添加到网页">Adding JavaScript to a Webpage 添加到网页</h3>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -539,56 +546,74 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>JavaScript code can be placed in the <code>&lt;head&gt;</code>, in the <code>&lt;body&gt;</code> or in external files</li>
-<li><strong>Advantages</strong> of external JavaScript files
+<li><p>JavaScript code can be placed in the <code>&lt;head&gt;</code>, in the <code>&lt;body&gt;</code> or in external files</p>
+<p>JavaScript代码可以被放置在<code>&lt;head&gt;</code>，在<code>&lt;body&gt;</code>或在外部文件</p></li>
+<li><p><strong>Advantages</strong> of external JavaScript files</p>
+<p>外部 JavaScript 文件的 <strong>优点</strong></p>
 <ul>
-<li>separation of HTML and code</li>
-<li>faster page load if JavaScript file is cached</li>
+<li><p>separation of HTML and code</p>
+<p>HTML 和代码的分离</p></li>
+<li><p>faster page load if JavaScript file is cached</p>
+<p>如果 JavaScript 文件被缓存，页面加载速度会更快</p></li>
 </ul></li>
-<li>JavaScript code placed just before the <code>&lt;/body&gt;</code> tag (end of the page) might improve page load
+<li><p>JavaScript code placed just before the <code>&lt;/body&gt;</code> tag (end of the page) might <strong>improve page load</strong></p>
+<p>放置在<code>&lt;/body&gt;</code>标记之前（页面末尾）的JavaScript 代码可能会<strong>改善页面加载</strong></p>
 <ul>
-<li>display of HTML is not blocked by script loading</li>
-<li>alternative: attribute <code>defer="true"</code> in the <code>&lt;script&gt;</code> tag</li>
+<li><p>display of HTML is not blocked by script loading</p>
+<p>脚本加载不会阻止 HTML 的显示</p></li>
+<li><p>alternative: attribute <code>defer="true"</code> in the <code>&lt;script&gt;</code> tag</p>
+<p>替代：属性<code>defer="true"</code>在<code>&lt;script&gt;</code>标签</p></li>
 </ul></li>
-<li>JavaScript errors silently ignored by most browsers
+<li><p>JavaScript errors silently ignored by most browsers</p>
+<p>大多数浏览器会默默忽略 JavaScript 错误</p>
 <ul>
-<li>activate browser console for debugging (e.g. F12)</li>
-<li>Error <code>aalert</code> shows up in the console</li>
+<li><p>activate browser console for debugging (e.g. F12)</p>
+<p>激活浏览器控制台进行调试（例如 F12）</p></li>
+<li><p>Error <code>aalert</code> shows up in the console</p>
+<p>错误<code>aalert</code>显示在控制台中</p></li>
 </ul></li>
-<li>Use the latest version of the language by adding "<code>use strict</code>"; to the top of a script</li>
+<li><p>Use the latest version of the language by adding "<code>use strict</code>"; to the top of a script</p>
+<p>通过添加“ <code>use strict</code>”来使用最新版本的语言；到脚本的顶部</p></li>
 </ul>
-<h3 id="output">Output</h3>
+<h3 id="output-输出">Output 输出</h3>
+<p>There are different possibilities for JavaScript output</p>
+<p>JavaScript 输出有不同的可能性</p>
 <ul>
-<li>There are different possibilities for JavaScript output</li>
 <li><code>document.write()</code>
 <ul>
-<li>adds content to the page while loading</li>
-<li>deletes (overwrites) page if used after page has been loaded</li>
-<li>should only be used for testing (slow)</li>
+<li><p>adds content to the page while loading</p>
+<p>加载时向页面添加内容</p></li>
+<li><p>deletes (overwrites) page if used after page has been loaded</p>
+<p>如果在页面加载后使用，则删除（覆盖）页面</p></li>
+<li><p>should only be used for testing (slow)</p>
+<p>如果在页面加载后使用，则删除（覆盖）页面</p></li>
 </ul></li>
 <li><code>console.log()</code>
 <ul>
-<li>outputs content to the browser console</li>
+<li><p>outputs content to the browser console</p>
+<p>将内容输出到浏览器控制台</p></li>
 </ul></li>
 <li><code>window.alert()</code> or <code>alert()</code>
 <ul>
-<li>outputs data in an alert message box</li>
+<li><p>outputs data in an alert message box</p>
+<p>在警报消息框中输出数据</p></li>
 </ul></li>
 <li><code>innerHTML</code> property
 <ul>
-<li>adds content to an HTML element (via DOM tree)</li>
+<li><p>adds content to an HTML element (via DOM tree)</p>
+<p>向 HTML 元素添加内容（通过 DOM 树）</p></li>
 </ul></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"p2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">"A new second paragraph."</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="variables-and-data-types">Variables and Data Types</h3>
+<h3 id="variables-and-data-types-变量和数据类型">Variables and Data Types 变量和数据类型</h3>
 <ul>
-<li><p>Variables have dynamic types</p>
+<li><p>Variables have dynamic types 变量具有动态类型</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> x<span class="token punctuation">;</span> <span class="token comment">// x has been declared but the value is 'undefined'</span>
 x <span class="token operator">=</span> <span class="token string">"Albert Einstein"</span><span class="token punctuation">;</span> <span class="token comment">// now x is a string</span>
 x <span class="token operator">=</span> <span class="token number">3.1415</span><span class="token punctuation">;</span> <span class="token comment">// now x is a number</span>
 <span class="token keyword">typeof</span> x<span class="token punctuation">;</span> <span class="token comment">// number</span>
 x <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// now x is a boolea</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>Primitive data types</p>
+<li><p>Primitive data types 变量具有动态类型</p>
 <ul>
 <li>string, number and boolean</li>
 <li><code>null</code> and <code>undefined</code></li>
@@ -597,9 +622,10 @@ x <span class="token operator">=</span> <span class="token boolean">false</span>
 </ul>
 <h4 id="strings">Strings</h4>
 <ul>
-<li>Any text between single (<code>'</code>) or double quotes (<code>"</code>)</li>
-<li>Strings are <strong><em>immutable</em></strong></li>
-<li>Special characters (e.g. <code>\</code>, <code>\t</code> or <code>\n</code>) have to be escaped with a backslash (<code>\</code>)</li>
+<li><p>Any text between single (<code>'</code>) or double quotes (<code>"</code>)</p></li>
+<li><p>Strings are <strong><em>immutable</em></strong></p>
+<p>字符串是<strong>不可变的</strong></p></li>
+<li><p>Special characters (e.g. <code>\</code>, <code>\t</code> or <code>\n</code>) have to be escaped with a backslash (<code>\</code>)</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> hello <span class="token operator">=</span> <span class="token string">"Hello World"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> correct <span class="token operator">=</span> <span class="token string">"This is \"correct\""</span><span class="token punctuation">;</span> <span class="token comment">// escaped double quotes</span>
@@ -612,20 +638,23 @@ tmp <span class="token operator">=</span> hello<span class="token punctuation">.
 <ul>
 <li><p>Only one type of numbers (64-bit floating point)</p>
 <ul>
-<li>mantissa (52 bits), exponent (11 bits) and sign (1 bit)</li>
+<li><p>mantissa (52 bits), exponent (11 bits) and sign (1 bit)</p>
+<p>尾数（52 位）、指数（11 位）和符号（1 位）</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">42.00</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> z <span class="token operator">=</span> <span class="token number">42e3</span><span class="token punctuation">;</span> <span class="token comment">// 42000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong><em>NaN</em></strong> indicates that a value is not a number</p>
+<p><strong>NaN</strong>表示值不是数字</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">42</span> <span class="token operator">/</span> <span class="token string">"foo"</span><span class="token punctuation">;</span> <span class="token comment">// but what about 'x = 42 + "foo"?</span>
 <span class="token function">isNaN</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// returns true</span>
 <span class="token comment">// what is the difference between '10 + 10 + "foo"' and '"foo" + 10 + 10'? </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong><em>Infinity</em></strong> for values that are too large to be represented</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">42</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// x becomes Infinity</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>Rounding errors</p>
+<li><p>Rounding errors 舍入误差</p>
 <ul>
-<li>due to rounding errors we <u>might not always get the expected result</u></li>
+<li><p>due to rounding errors we <u>might not always get the expected result</u></p>
+<p>由于舍入错误，我们可能并不总能得到预期的结果</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">0.3</span> <span class="token operator">+</span> <span class="token number">0.6</span><span class="token punctuation">;</span> <span class="token comment">// 0.8999999999999999</span>
 <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.3</span> <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">0.6</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// possible solution (resulting in 0.9)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -638,28 +667,34 @@ tmp <span class="token operator">=</span> hello<span class="token punctuation">.
 <h4 id="date-and-math-objects">Date and Math Objects</h4>
 <ul>
 <li><p>Date object can be used to work with dates</p>
+<p>日期对象可用于处理日期</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> nextWeek <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">"2017-11-10T14:00:00"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ISO 8610 syntax</span>
 <span class="token keyword">let</span> milis <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// time in milliseconds since January 1, 1970</span>
 <span class="token keyword">let</span> test <span class="token operator">=</span> nextWeek<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> now<span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Math object can be used for various mathematical operations and offers some constans (e.g. PI and E)</p>
+<p>Math 对象可用于各种数学运算并提供一些常量（例如 PI 和 E）</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// random number between 0 (inclusive) and 1 (exclusive)</span>
 Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token number">3.6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 4 (rounded to the nearest integer)</span>
 Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10 (number with the highest value)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="objects">Objects</h4></li>
 <li><p>Container of properties (name/value) where a value can be any JavaScript value (including other objects)</p>
+<p>属性（名称/值）的容器，其中值可以是任何 JavaScript 值（包括其他对象）</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> student <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     firstName<span class="token operator">:</span> <span class="token string">"John"</span><span class="token punctuation">,</span>
     lastName<span class="token operator">:</span> <span class="token string">"Harper"</span><span class="token punctuation">,</span>
     height<span class="token operator">:</span> <span class="token number">182</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Two possibilities to retrieve object values</p>
+<p>检索对象值的两种可能性</p>
 <ul>
-<li>second option only works for legal JavaScript names and non-reserved words</li>
+<li><p>second option only works for legal JavaScript names and non-reserved words</p>
+<p>第二个选项仅适用于合法的 JavaScript 名称和非保留字</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">student<span class="token punctuation">[</span><span class="token string">"firstName"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 student<span class="token punctuation">.</span>lastName<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>Existing values can be updated, new properties can be added and existing properties can be deleted</p>
+<p>可以更新现有值，可以添加新属性，可以删除现有属性</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">student<span class="token punctuation">.</span>lastName <span class="token operator">=</span> <span class="token string">"Wayne"</span><span class="token punctuation">;</span> 
 student<span class="token punctuation">.</span>address <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
 	street<span class="token operator">:</span> <span class="token string">"Pleinlaan"</span><span class="token punctuation">,</span>
@@ -667,11 +702,13 @@ student<span class="token punctuation">.</span>address <span class="token operat
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">delete</span> student<span class="token punctuation">.</span>lastName<span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Objects are <strong><em>passed by reference</em></strong> and not by value</p>
+<p>对象通过<strong>引用</strong>而不是通过值传递</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> x <span class="token operator">=</span> student<span class="token punctuation">;</span> 				<span class="token comment">// student object created before</span>
 x<span class="token punctuation">.</span>firstName <span class="token operator">=</span> <span class="token string">"Peter"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> name <span class="token operator">=</span> student<span class="token punctuation">.</span>firstName<span class="token punctuation">;</span> 	<span class="token comment">// name is "Peter" since x and student are references</span>
 								<span class="token comment">// to the same object</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Cloning of objects (deep copy) is not trivial in JavaScript</p>
+<p>对象的克隆（深拷贝）在 JavaScript 中并不简单</p>
 <ul>
 <li>e.g. jQuery offers a <code>clone()</code> method</li>
 </ul></li>
@@ -679,8 +716,10 @@ x<span class="token punctuation">.</span>firstName <span class="token operator">
 <h4 id="arrays">Arrays</h4>
 <ul>
 <li><p>An array is a variable that can hold multiple values which can be accessed via an integer offset</p>
+<p>数组是一个可以保存多个值的变量，这些值可以通过整数偏移量访问</p>
 <ul>
-<li>values of different types might be mixed</li>
+<li><p>values of different types might be mixed</p>
+<p>不同类型的值可能会混合</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> points <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 points<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token comment">// number of elements (4)</span>
@@ -695,40 +734,48 @@ l <span class="token operator">=</span> points<span class="token punctuation">.<
 matrix <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Other methods to sort arrays, combine arrays etc.</p></li>
 </ul>
-<h3 id="functions">Functions</h3>
+<h3 id="functions-函数">Functions 函数</h3>
 <p>A function is a block of code to perform a particular task</p>
 <ul>
-<li>enables the reuse of code</li>
-<li><strong>functions are objects</strong> and can be used like any other value
+<li><p>enables the reuse of code</p></li>
+<li><p><strong>functions are objects</strong> and can be used like any other value</p>
+<p><strong>函数是对象</strong>，可以像任何其他值一样使用</p>
 <ul>
 <li>can be stored in variables, objects and arrays</li>
 <li>can be passed as argument to functions or returned from functions</li>
 </ul></li>
-<li>access to a function without the () operator returns the definition of a function</li>
+<li><p>access to a function without the () operator returns the definition of a function</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token parameter">p1<span class="token punctuation">,</span> p2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	<span class="token keyword">return</span> p1 <span class="token operator">*</span> p2<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="scope">Scope</h3>
+<h3 id="scope-范围">Scope 范围</h3>
 <ul>
-<li>Local variables declared within a function have <strong>block-level scoping</strong></li>
-<li>A variable declared outside of a function has global scope</li>
-<li>Local variables deleted when the block is completed</li>
-<li>Function arguments (parameters) work as local variables within functions</li>
-<li>Warning
+<li><p>Local variables declared within a function have <strong>block-level scoping</strong></p>
+<p>在函数中声明的局部变量具有<strong>块级作用域</strong></p></li>
+<li><p>A variable declared outside of a function has global scope</p>
+<p>在函数外声明的变量具有全局作用域</p></li>
+<li><p>Local variables deleted when the block is completed</p>
+<p>块完成时删除局部变量</p></li>
+<li><p>Function arguments (parameters) work as local variables within functions</p>
+<p>函数参数（参数）作为函数内的局部变量</p></li>
+<li><p><strong>Warning</strong></p>
 <ul>
-<li>old <code>var</code> syntax does not offer block-level scoping but rather provides <strong>function scoping</strong></li>
+<li><p>old <code>var</code> syntax does not offer block-level scoping but rather provides <strong>function scoping</strong></p>
+<p>旧<code>var</code>语法不提供块级范围，而是提供<strong>函数范围</strong></p></li>
 </ul></li>
 </ul>
-<h3 id="objects-revisited">Objects Revisited</h3>
+<h3 id="objects-revisited-重访对象">Objects Revisited 重访对象</h3>
 <ul>
 <li><p>Functions can be added to objects (<strong><em>methods</em></strong>)</p>
+<p>函数可以添加到对象（<strong>方法</strong>）</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Let us assume that we have the student object that was created earlier</span>
 	student<span class="token punctuation">.</span><span class="token function-variable function">fullName</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lastName<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Multiple objects can be created via an object constructor function (prototype)</p>
+<p>可以通过对象构造函数（原型）创建多个对象</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">student</span><span class="token punctuation">(</span><span class="token parameter">firstName<span class="token punctuation">,</span> lastName<span class="token punctuation">,</span> height</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName<span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>lastName <span class="token operator">=</span> lastName<span class="token punctuation">;</span>
@@ -738,7 +785,7 @@ matrix <span class="token punctuation">[</span><span class="token number">1</spa
 
 <span class="token keyword">let</span> student1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">student</span><span class="token punctuation">(</span><span class="token string">"SpongeBob"</span><span class="token punctuation">,</span> <span class="token string">"SquarePants"</span><span class="token punctuation">,</span> <span class="token number">174</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> student2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">student</span><span class="token punctuation">(</span><span class="token string">"Patrick"</span><span class="token punctuation">,</span> <span class="token string">"Star"</span><span class="token punctuation">,</span> <span class="token number">177</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="classes">Classes</h3></li>
+<h3 id="classes-类">Classes 类</h3></li>
 </ul>
 <p>Classes have been introduced in ECMAScript 2015</p>
 <ul>
@@ -767,11 +814,14 @@ matrix <span class="token punctuation">[</span><span class="token number">1</spa
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>student<span class="token punctuation">.</span><span class="token function">fullname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Audrey Sanctorum</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>student <span class="token keyword">instanceof</span> <span class="token class-name">Person</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>student <span class="token keyword">instanceof</span> <span class="token class-name">Student</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="modules">Modules</h3>
+<h3 id="modules-模块">Modules 模块</h3>
 <p>Modules can be used to control the scoping instead of using a shared-everything approach</p>
+<p>模块可用于控制范围，而不是使用共享一切的方法</p>
 <ul>
-<li><code>export</code> keyword to expose code to other modules</li>
-<li>exported functionality can be accessed from another module via the <code>import</code> keyword</li>
+<li><p><code>export</code> keyword to expose code to other modules</p>
+<p><code>export</code> 将代码暴露给其他模块的关键字</p></li>
+<li><p>exported functionality can be accessed from another module via the <code>import</code> keyword</p>
+<p>可以通过<code>import</code>关键字从另一个模块访问导出的功能</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token parameter">p1<span class="token punctuation">,</span> p2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -780,7 +830,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> multiply <span class="token keyword">from</span> <span class="token string">"./example.js"</span><span class="token punctuation">;</span>
 <span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="conditional-statement">Conditional Statement</h3>
+<h3 id="conditional-statement-条件语句">Conditional Statement 条件语句</h3>
 <p>Used to perform different actions based on different conditions</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> mention <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
@@ -816,28 +866,32 @@ console<span class="token punctuation">.</span><span class="token function">log<
     text <span class="token operator">+=</span> <span class="token string">"Number: "</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">"&lt;br />"</span><span class="token punctuation">;</span>
     i<span class="token operator">++</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="events">Events</h3>
+<h3 id="events-事件">Events 事件</h3>
 <ul>
-<li>Various events can be triggered when accessing an HTML document
+<li><p>Various events can be triggered when accessing an HTML document</p>
+<p>访问 HTML 文档时可以触发各种事件</p>
 <ul>
-<li>document has finished loading</li>
-<li>form field has been changed</li>
-<li>button has been clicked</li>
-<li>mouse is moved over an image</li>
+<li>document has finished loading 文件已完成加载</li>
+<li>form field has been changed 表单字段已更改</li>
+<li>button has been clicked 按钮已被点击</li>
+<li>mouse is moved over an image 鼠标在图像上移动</li>
 <li>...</li>
 </ul></li>
-<li>JavaScript can be used to trigger some actions when events are detected</li>
+<li><p>JavaScript can be used to trigger some actions when events are detected</p>
+<p>JavaScript 可用于在检测到事件时触发某些操作</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>button onclick<span class="token operator">=</span><span class="token string">"startSlideshow()"</span><span class="token operator">></span>Start<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="javascript-best-practices">JavaScript Best Practices</h2>
 <ul>
-<li><p>Avoid (minimise) global variables</p>
+<li><p>Avoid (minimise) global variables 避免（最小化）全局变量</p>
 <ul>
-<li>global variables can lead to name collisions for sub-programs but modules can be used to fix the problem</li>
+<li><p>global variables can lead to name collisions for sub-programs but modules can be used to fix the problem</p>
+<p>全局变量可能会导致子程序的名称冲突，但可以使用模块来解决问题</p></li>
 </ul></li>
 <li><p>Always initialise variables when they are declared</p>
+<p>声明变量时总是初始化变量</p>
 <ul>
-<li>avoids undefined values</li>
+<li>avoids undefined values 避免未定义的值</li>
 </ul></li>
 <li><p>Always use the <code>===</code> and <code>!==</code> equality operators</p>
 <ul>
@@ -849,31 +903,39 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Avoid the use of <code>eval()</code></p>
 <ul>
-<li>runs text as code and leads to performance and security issues</li>
+<li><p>runs text as code and leads to performance and security issues</p>
+<p>将文本作为代码运行并导致性能和安全问题</p></li>
 </ul></li>
 </ul>
 <h2 id="jquery">jQuery</h2>
 <ul>
-<li>JavaScript library that simplifies the use of JavaScript on websites
+<li><p>JavaScript library that simplifies the use of JavaScript on websites</p>
+<p>简化 JavaScript 在网站上使用的 JavaScript 库</p>
 <ul>
-<li>HTML/DOM traversal and manipulation</li>
-<li>event handling</li>
-<li>effects and animation</li>
-<li>AJAX</li>
+<li><p>HTML/DOM traversal and manipulation</p>
+<p>HTML/DOM 遍历和操作</p></li>
+<li><p>event handling 事件处理</p></li>
+<li><p>effects and animation 效果和动画</p></li>
+<li><p>AJAX</p></li>
 </ul></li>
-<li>Most popular and extendable JavaScript framework
+<li><p>Most popular and extendable JavaScript framework</p>
+<p>最流行和可扩展的 JavaScript 框架</p>
 <ul>
-<li>large developer community</li>
+<li>large developer community 大型开发者社区</li>
 </ul></li>
-<li>Two ways to add jQuery to a website
-<ul>
-<li>download jQuery library (JavaScript file) from jquery.com</li>
-<li>link to jQuery library on content delivery network (CDN) server
+<li><p>Two ways to add jQuery to a website</p>
+<p>将 jQuery 添加到网站的两种方法</p>
+<ol type="1">
+<li><p>download jQuery library (JavaScript file) from jquery.com</p>
+<p>从 jquery.com下载 jQuery 库（JavaScript 文件）</p></li>
+<li><p>link to jQuery library on <strong>content delivery network (CDN)</strong> server</p></li>
+</ol>
+<p>链接到<strong>内容交付网络 (CDN)</strong> 服务器上的 jQuery 库</p>
 <ul>
 <li>Microsoft, Google, …</li>
 </ul></li>
-</ul></li>
-<li>jQuery code executed when document loaded (ready)</li>
+<li><p>jQuery code executed when document loaded (ready)</p>
+<p>加载文档时执行的 jQuery 代码（就绪）</p></li>
 </ul>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
@@ -892,18 +954,21 @@ console<span class="token punctuation">.</span><span class="token function">log<
         ...
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="dom-revisited">DOM Revisited</h3>
+<p><a href="https://yintelligence.tech/2021/04/26/2021-04-26-HTML5-and-the-Open-Web-Platform/"><strong>DOM Revisited</strong></a></p>
 <p><img src="/images/NET/012150.png" /></p>
 <ul>
-<li>cross-browser issues when accessing DOM via JavaScript</li>
+<li><p>cross-browser issues when accessing DOM via JavaScript</p>
+<p>通过 JavaScript 访问 DOM 时的跨浏览器问题</p></li>
 </ul>
-<h3 id="jquery-syntax">jQuery Syntax</h3>
+<h3 id="jquery-syntax-语法">jQuery Syntax 语法</h3>
 <p>jQuery syntax makes it easy to select HTML elements (based on CSS-style selectors) and perform some actions on these elements</p>
+<p>jQuery 语法可以轻松选择 HTML 元素（基于 CSS 样式选择器）并对这些元素执行一些操作</p>
 <ul>
-<li><code>$</code> sign to access jQuery followed by a <strong>selector</strong> and the <strong>action</strong> to be performed on the selected elements</li>
+<li><p><code>$</code> sign to access jQuery followed by a <strong>selector</strong> and the <strong>action</strong> to be performed on the selected elements</p>
+<p><code>$</code>访问 jQuery 的符号，然后是<strong>选择器</strong>和要对所选元素执行的<strong>操作</strong></p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>Example:</p>
+<p><strong>Example:</strong></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hide all h1 elements (implicit iteration)</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fadeIn</span><span class="token punctuation">(</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// multiple methods can be chained</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h1:first"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hides the first h1 element</span>
@@ -913,24 +978,29 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// get content from first h1 element</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// loop over each h1 element</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">"New"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// updates the content of all p elements to "New"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="caching-jquery-selections">Caching jQuery Selections</h3>
+<h3 id="caching-jquery-selections-缓存-jquery-选择">Caching jQuery Selections 缓存 jQuery 选择</h3>
 <p>A jQuery object (result of a selection) has references to the elements in the DOM tree</p>
+<p>一个 jQuery 对象（选择的结果）引用了 DOM 树中的元素</p>
 <ul>
-<li>if the same selection is used multiple times, the jQuery object can be reused (cached) by storing it in a variable</li>
+<li><p>if the same selection is used multiple times, the jQuery object can be reused (cached) by storing it in a variable</p>
+<p>如果多次使用相同的选择，则可以通过将 jQuery 对象存储在变量中来重用（缓存）它</p></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> $paragraphs <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// often prefix $ used for variables with a jQuery object</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="attributes">Attributes</h3>
+<h3 id="attributes-属性">Attributes 属性</h3>
 <ul>
 <li><p>Attributes can be accessed and updated</p>
+<p>可以访问和更新属性</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"a:first"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// get the href attribute of the first anchor tag</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"a:first"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">,</span> <span class="token string">"http://wise.vub.ac.be"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// update attribute</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"a:first"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeAttr</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// remove href attribute of the first anchor tag</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>Similar functionality exists for classes</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// adds an additional class</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// removes the class main</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="event-handling">Event Handling</h3></li>
-<li><p>Deals with cross-browser issues behind the scenes</p></li>
+<h3 id="event-handling-事件处理">Event Handling 事件处理</h3></li>
+<li><p>Deals with <u>cross-browser issues</u> <strong>behind the scenes</strong></p>
+<p>在<strong>幕后处理</strong><u>跨浏览器问题</u></p></li>
 <li><p>There are various jQuery events from different sources</p>
+<p>有来自不同来源的各种 jQuery 事件</p>
 <ul>
 <li>keyboard
 <ul>
@@ -954,9 +1024,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul></li>
 </ul></li>
 <li><p>We can handle events via the <code>on()</code> method</p>
-<ul>
-<li>the first parameter is the event to respond to and the second parameter is a named or anonymous function</li>
-</ul></li>
+<p>我们可以通过<code>on()</code>方法处理事件</p>
+<ol type="1">
+<li><p>the first parameter is the event to respond to</p>
+<p>第一个参数是要响应的事件</p></li>
+<li><p>the second parameter is a named or anonymous function</p>
+<p>第二个参数是命名或匿名函数</p></li>
+</ol></li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#start"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token function">startSlideshow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// calls a named function</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"p"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"mouseover"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// anonymous function</span>
@@ -964,6 +1038,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="dom-navigation">DOM Navigation</h3>
 <p>Various methods can be used to start navigating the DOM tree from a given selection</p>
+<p>可以使用各种方法从给定的选择开始导航 DOM 树</p>
 <ul>
 <li><code>parent()</code>
 <ul>
@@ -987,49 +1062,61 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul></li>
 <li>...</li>
 </ul>
-<h3 id="other-javascript-libraries">Other JavaScript Libraries</h3>
+<h2 id="other-javascript-libraries">Other JavaScript Libraries</h2>
 <ul>
 <li>jQuery UI
 <ul>
-<li>various widgets and effects</li>
+<li>various widgets and effects 各种小部件和效果</li>
 </ul></li>
 <li>jQuery Mobile
 <ul>
-<li>touch optimised interaction for mobile devices</li>
+<li><p>touch optimised interaction for mobile devices</p>
+<p>针对移动设备的触摸优化交互</p></li>
 </ul></li>
 <li>Modernizr.js
 <ul>
-<li>check availability of certain features in a browser</li>
+<li><p>check availability of certain features in a browser</p>
+<p>检查浏览器中某些功能的可用性</p></li>
 </ul></li>
 <li>D3.js
 <ul>
-<li>interactive data visualisations</li>
+<li><p>interactive data visualisations</p>
+<p>交互式数据可视化</p></li>
 </ul></li>
 </ul>
 <h2 id="javascript-object-notation-json">JavaScript Object Notation (JSON)</h2>
 <ul>
-<li>Developed as an XML alternative to represent JavaScript objects as strings (<strong><em>language independent</em></strong>)</li>
-<li>Easy to produce and faster to parse than XML
+<li><p>Developed as an XML alternative to represent JavaScript objects as strings (<strong><em>language independent</em></strong>)</p>
+<p>作为 XML 替代方案开发，将 JavaScript 对象表示为字符串（<strong>独立语言</strong>）</p></li>
+<li><p>Easy to produce and faster to parse than XML</p>
+<p>比 XML 易于生成且解析速度更快</p>
 <ul>
-<li>supports different data types</li>
+<li><p>supports different data types</p>
+<p>支持不同的数据类型</p></li>
 </ul></li>
-<li>JSON is based on a subset of JavaScript
+<li><p>JSON is based on a subset of JavaScript</p>
+<p>JSON 基于 JavaScript 的一个子集</p>
 <ul>
-<li>JSON document can be read via the JavaScript eval() function
+<li><p>JSON document can be read via the JavaScript <code>eval()</code> function</p>
+<p>JSON 文档可以通过 JavaScript <code>eval()</code> 函数读取</p>
 <ul>
-<li><strong>security issues</strong>: note that this approach can be dangerous if the source is not trusted since any JavaScript code might be executed</li>
+<li><p><strong>security issues</strong>: note that this approach can be dangerous if the source is not trusted since any JavaScript code might be executed</p>
+<p><strong>安全问题</strong>：请注意，如果来源不受信任，这种方法可能很危险，因为可能会执行任何 JavaScript 代码</p></li>
 </ul></li>
-<li>most recent browsers offer a JSON parser
+<li><p>most recent browsers offer a JSON parser</p>
+<p>最近的浏览器提供了一个 JSON 解析器</p>
 <ul>
-<li>recognises only JSON data types and rejects any scripts</li>
+<li><p>recognises only JSON data types and rejects any scripts</p>
+<p>仅识别 JSON 数据类型并拒绝任何脚本</p></li>
 </ul></li>
 </ul></li>
-<li>Many Web 2.0 Applications offer a JSON interface
+<li><p>Many Web 2.0 Applications offer a JSON interface</p>
+<p>许多 Web 2.0 应用程序提供 JSON 接口</p>
 <ul>
 <li>Flickr, YouTube, Delicious, ...</li>
 </ul></li>
 </ul>
-<h3 id="json-data-types">JSON Data Types</h3>
+<h3 id="json-data-types-数据类型">JSON Data Types 数据类型</h3>
 <table>
 <colgroup>
 <col style="width: 10%" />
@@ -1068,7 +1155,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </tr>
 </tbody>
 </table>
-<h3 id="json-syntax-diagrams">JSON Syntax Diagrams</h3>
+<h3 id="json-syntax-diagrams-语法图">JSON Syntax Diagrams 语法图</h3>
 <p><img src="/images/NET/012151.png" /></p>
 <h3 id="json-example">JSON Example</h3>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
