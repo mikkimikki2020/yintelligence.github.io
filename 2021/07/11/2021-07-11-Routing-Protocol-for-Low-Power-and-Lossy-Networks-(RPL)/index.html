@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    7.8k
+                    7.9k
                 </div>
                 
 
@@ -502,12 +502,9 @@
             <div id="articleContent">
                 <h1 id="routing-protocol-for-low-power-and-lossy-networks-rpl">Routing Protocol for Low Power and Lossy Networks （RPL）</h1>
 <p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> +Slide <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=686052">1</a>,<a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=663682">2</a>,<a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=670822">3</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=670855">Reference</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files/folder/Laboratory?preview=686031">Note</a></p>
-<hr />
-<p>[TOC]</p>
-<hr />
 <p>随着Low Power Lossy Networks （LLN）和Internet of Things（IoT）市场的出现，很明显需要为由严格受限的设备形成的网络标准化新协议。</p>
 <p>RPL 是由国际工程任务组（IETF）的 ROLL（低功耗和有损网络路由）工作组于 2011 年提出的。RPL 似乎是一种有前途的路由协议，可为 LLN 设备提供 IPv6 连接。</p>
-<h2 id="internet-of-things">Internet of Things</h2>
+<h2 id="internet-of-things-物联网">Internet of Things 物联网</h2>
 <h3 id="definition">Definition</h3>
 <p>IoT 是连接到 Internet 的对象网络。它也可以限制为本地网络，即 Intranet。 连接到互联网的设备被赋予endowed with了处理、存储和通信能力。</p>
 <ul>
@@ -528,14 +525,14 @@
 <li>Congestion monitoring</li>
 </ul>
 <p>物联网可用于许多领域，从环境监测、智能家居和建筑、智能交通、医疗保健应用、智能农业到拥堵监控。</p>
-<h2 id="wireless-sensor-and-actuator-networks-wsan">Wireless Sensor and Actuator Networks （WSAN）</h2>
+<h2 id="wireless-sensor-and-actuator-networks-无线网络wsan">Wireless Sensor and Actuator Networks 无线网络（WSAN）</h2>
 <p>无线网络是一种利用无线数据通信和无线电波来连接各种网络元素的计算机网络。</p>
 <p>无线传感器和执行器网络（WSAN）由配备无线功能的自主传感和执行设备组成。它们协同监测物理环境并对其进行驱动。</p>
 <p>WSAN 用于许多领域，从健康监测和护理到感测地震事件和控制交通。但 WSAN 面临挑战和限制。一些最值得注意的是能源、自我管理、无线网络、分散管理、设计约束和安全。</p>
 <p>电池是传感器和执行器的能量来源。这些电池必须在特定的时间间隔更换或充电。存在无法更换或充电电池的节点；在这些情况下，节点必须运行直到达到它们的范围。</p>
 <p>这就是为什么在设计节点时<strong>能效</strong>至关重要。<u>许多节点在恶劣或偏远的环境中运行，它们必须能够自我配置、与其他节点协作并适应环境的变化。</u></p>
 <p>由于所有这些挑战，传感器和执行器网络需要开发新的协议和解决方案来增强安全性，能源效率、通信和自我管理能力。这些协议之一是 RPL。</p>
-<h3 id="sensors-and-actuators">Sensors and actuators</h3>
+<h3 id="sensors-and-actuators-传感器和执行器">Sensors and actuators 传感器和执行器</h3>
 <p>为了更好地理解无线传感器和执行器网络，必须了解传感器和执行器执行的传感和执行的概念。</p>
 <ul>
 <li>Sensors:
@@ -596,8 +593,9 @@
 <p>一个典型的 LLN 可能包括从几个路由器到数千个资源受限的执行器和传感器节点的任何东西，具有一些路由功能，通过一个特殊的 <strong>LLN Border Router</strong> (LBR) 连接到外部世界（例如 Internet），该路由器本身没有这种限制。</p>
 <h2 id="rpl">RPL</h2>
 <p>RPL 协议基于 IPv6 低功耗无线个域网（6LoWPAN），通过汇聚sink节点连接到 IP 网络。</p>
+<p>数据速率通常较低（小于 250 kbps）并且通信容易出现高错误率，从而导致数据吞吐量低。</p>
 <ul>
-<li><p>Distance Vector protocol 距离矢量协议</p>
+<li><p><strong>Distance Vector protocol 距离矢量协议</strong></p>
 <ul>
 <li><p>Vectors of distances to other nodes in the network</p>
 <p>操纵到网络中其他节点的距离向量</p></li>
@@ -606,7 +604,7 @@
 <p>这种方法具有较低的计算复杂度和消息开销</p></li>
 <li><p>适应变化很慢，这会导致不良副作用。</p></li>
 </ul></li>
-<li><p>Source Routing protocol 源路由协议</p>
+<li><p><strong>Source Routing protocol 源路由协议</strong></p>
 <ul>
 <li><p>Enables a node to discover all the possible routes to a host</p>
 <p>允许数据包的发送者部分或完全指定数据包通过网络所采用的路由</p></li>
@@ -615,29 +613,29 @@
 </ul>
 <h3 id="basic-terminology">Basic Terminology</h3>
 <ul>
-<li>RPL Instance
+<li><code>RPL Instance</code>
 <ul>
-<li>RPL Instance设置为一个或多个共享 RPLInstanceID 的 DODAG。</li>
+<li><code>RPL Instance</code>设置为一个或多个共享 RPLInstanceID 的 DODAG。</li>
 </ul></li>
-<li>RPLInstanceID
+<li><code>RPLInstanceID</code>
 <ul>
-<li>RPLInstanceID 是网络中的唯一标识符。具有相同 RPLInstanceID 的 DODAG 共享相同的目标函数 (OF)，用于计算节点在 DODAG 中的位置。</li>
+<li><code>RPLInstanceID</code> 是网络中的唯一标识符。具有相同 <code>RPLInstanceID</code> 的 DODAG 共享相同的目标函数 (OF)，用于计算节点在 DODAG 中的位置。</li>
 </ul></li>
-<li>DODAGID
+<li><code>DODAGID</code>
 <ul>
 <li>是唯一标识 DODAG 根的编号； 如果 root 没有改变，这个 ID 也不会改变。</li>
 </ul></li>
-<li>DODAGVersionNumber
+<li><code>DODAGVersionNumber</code>
 <ul>
-<li>DODAGVersionNumber 是一个顺序计数器，由root递增以形成新版本。</li>
+<li><code>DODAGVersionNumber</code> 是一个顺序计数器，由root递增以形成新版本。</li>
 </ul></li>
-<li>Rank
+<li><code>Rank</code>
 <ul>
-<li>Rank定义了一个节点相对于根的位置； 换句话说，它显示了与根的距离。</li>
+<li><code>Rank</code>定义了一个节点相对于根的位置； 换句话说，它显示了与根的距离。</li>
 </ul></li>
-<li>Goal
+<li><code>Goal</code>
 <ul>
-<li>Goal确定了 DODAG 想要达到的目标； 这个goal是特定于应用程序的。</li>
+<li><code>Goal</code>确定了 DODAG 想要达到的目标； 这个goal是特定于应用程序的。</li>
 </ul></li>
 </ul>
 <h3 id="routing-metricsconstraints-路由度量">Routing metrics/constraints 路由度量</h3>
@@ -1324,13 +1322,13 @@ PROCESS_THREAD(test_proc, ev, data)&#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/07/12/2021-07-12-mRPL/">
+                <a href="/2021/07/12/2021-07-12-mRPL---Boosting-mobility-in-the-Internet-of-Things/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="mRPL">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="mRPL - Boosting mobility in the Internet of Things">
                         
-                        <span class="card-title">mRPL</span>
+                        <span class="card-title">mRPL - Boosting mobility in the Internet of Things</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

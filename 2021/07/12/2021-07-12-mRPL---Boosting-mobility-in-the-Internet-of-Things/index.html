@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="mRPL, Chaoqun Yin">
+    <meta name="keywords" content="mRPL - Boosting mobility in the Internet of Things, Chaoqun Yin">
     <meta name="description" content="Veni, Vidi, Vici">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mRPL | Chaoqun Yin</title>
+    <title>mRPL - Boosting mobility in the Internet of Things | Chaoqun Yin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mRPL</h1>
+                    <h1 class="description center-align post-title">mRPL - Boosting mobility in the Internet of Things</h1>
                 </div>
             </div>
         </div>
@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-30
+                    2021-08-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.6k
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    20 Min
+                    17 Min
                 </div>
                 
 
@@ -500,18 +500,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="mrpl">mRPL</h1>
+                <h1 id="mrpl-boosting-mobility-in-the-internet-of-things">mRPL: Boosting mobility in the Internet of Things</h1>
 <p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S157087051400225X">Hossein Fotouhi, Daniel Moreira, Mário Alves, mRPL: Boosting mobility in the Internet of Things, Ad Hoc Networks., 26 (2015), pp. 17-35</a></p>
-<p>第 2 节解释了 RPL 的基础知识：控制消息、目标函数和根据链路动态维护路由的过程。</p>
-<p>第 3 节介绍了智能 HOP 切换机制的简要背景。</p>
-<p>第 4 节描述了 mRPL 设计的一般情况，第 5 节将进一步详细说明。</p>
-<p>第 6 节和第 7 节分别介绍了模拟和实验设置以及结果和讨论。</p>
-<p>第 8 节中对基于 IP 的低功耗网络中移动性支持的相关工作进行了分类。还提供了 mRPL 和相关工作之间的一些定量比较。</p>
-<p>第 9 节中概述了最相关的发现。</p>
-<h2 id="introduction">Introduction</h2>
-<p>十多年来，<strong>低功耗无线网络low-power wireless network</strong>研究一直在挑战传感器网络应用的互联网架构的复杂性。</p>
-<h3 id="fundamental-building-block-for-the-iot">Fundamental building block for the IoT</h3>
+<hr />
+<h2 id="fundamental-building-block-for-the-iot">Fundamental building block for the IoT</h2>
 <p>然而，随着最先进技术的进步，学术和商业努力发明了基于互联网架构的新网络抽象。</p>
 <ul>
 <li>The Internet Engineering Task Force (IETF) 设计了一些<strong>protocols</strong>和<strong>适配层adaptation layers</strong>，允许 IPv6 在 IEEE 802.15.4 链路层link layer上运行。</li>
@@ -519,21 +512,21 @@
 <li>IETF Routing Over Low-power and Lossy networks (ROLL) 工作组设计了一种路由协议，简称 RPL，它是 6LoWPAN 的事实上的标准路由协议。</li>
 </ul>
 <p>因此，这些基于 IP 的标准协议是物联网的基本构建块。</p>
-<h3 id="routing-scheme">Routing scheme</h3>
+<h2 id="routing-scheme-路由方案">Routing scheme 路由方案</h2>
 <p>6LoWPAN 作为适配层adaptation layer，设计了mesh-under和route-over两种路由方案，分别支持链路层和网络层路由。</p>
 <ul>
-<li><p>Mesh-under design</p>
+<li><p><strong>Mesh-under design</strong></p>
 <ul>
-<li><p>The adaptation layer performs the mesh routing and forwards packets to the destination via multiple radio hops.</p>
-<p>适配层执行网格路由并通过多个无线电跳将数据包转发到目的地</p></li>
+<li><p>The <strong>adaptation layer</strong> performs the mesh routing and forwards packets to the destination via multiple radio hops.</p>
+<p><strong>适配层</strong>执行网格路由并通过多个无线电跳将数据包转发到目的地</p></li>
 <li><p>适用于单跳网络 single-hop networks</p>
 <ul>
 <li>有节点都在彼此的传输范围内</li>
 </ul></li>
 </ul></li>
-<li><p>Route-over</p>
+<li><p><strong>Route-over</strong></p>
 <ul>
-<li>路由决策在网络层做出
+<li>路由决策在<strong>网络层</strong>做出
 <ul>
 <li>节点充当 IP 路由器</li>
 </ul></li>
@@ -541,28 +534,28 @@
 <li>支持 multi-hop mesh routing communication，适合<strong>大规模部署</strong>。</li>
 </ul></li>
 </ul>
-<h2 id="mobility-support">Mobility support</h2>
-<p>移动性支持Mobility support正在成为各种新兴物联网应用的必要条件，包括医疗监控health-care monitoring、工业自动化industrial automation和智能电网smart grids。最近的许多研究项目和研究都考虑了移动和固定传感器节点之间的合作。</p>
-<ul>
-<li>在临床监测中，患者嵌入了实时报告数据的无线传感设备。</li>
-<li>在炼油厂，不断收集工人的生命体征，以监测他们在危险环境中的健康状况。</li>
-</ul>
-<p>事实上，许多应用程序需要<strong>及时性timeliness</strong>和<strong>可靠性reliability</strong>保证从源到目的地传输关键消息，但在低功耗和移动网络中提供服务质量Quality of Service (QoS) 是非常具有挑战性的。</p>
+<h2 id="mobility-support-移动性支持">Mobility support 移动性支持</h2>
+<p>许多应用程序需要<strong>及时性timeliness</strong>和<strong>可靠性reliability</strong>保证从源到目的地传输关键消息，但在低功耗和移动网络中提供服务质量Quality of Service (QoS) 是非常具有挑战性的。</p>
 <p>本文作者考虑了一种<u>收集患者生命体征的无线临床监测应用程序。</u>患者是移动节点mobile nodes，可产生<strong>流量traffic</strong>并自由移动，同时保持与固定节点基础设施的连接。该系统模型中的所有节点都是具有低功耗 CC2420 无线电的简单传感器节点。</p>
 <p><img src="/images/NET/image-20210820130158214.png" /></p>
 <p>上图说明了系统模型，其中一个 MN 从节点 8 附近移动到节点 7。</p>
-<h3 id="hand-off-mechanism">Hand-off mechanism</h3>
-<p>本文作者提出了一种<strong>快速检测移动实体</strong>并在<strong>本地更新路由树routing tree</strong>的切换机制。 <strong>切换Hand-off</strong>是指将 MN 从一个连接点切换到另一个连接点的过程。</p>
-<p>在这个过程中，标准的 RPL 路由正常执行，而移动节点运行<strong>切换handoff算法</strong>。 本文作者基于 smart-HOP 构建支持移动性的 RPL，<u>这是一种硬切换机制，在通用网络架构中以与<strong>协议无关protocol-agnostic</strong>的方式设计和测试。</u></p>
-<h3 id="mobility">Mobility</h3>
-<p>RPL 和 6LoWPAN 中采用了两种主要机制来部分应对移动性。</p>
+<h3 id="mobility-detection-移动性检测">Mobility detection 移动性检测</h3>
+<p>移动性被认为是 RPL 不一致的主要来源之一。</p>
+<p>通常，有两种主要方法可以帮助检测移动性；</p>
 <ol type="1">
-<li>Trickle algorithm
+<li><p>由 Trickle 算法控制的 ICMPv6数据包传输</p>
 <ul>
-<li>首先，由 Trickle 算法调度的控制数据包control packets的周期性传输periodic transmission可以检测拓扑topological变化。</li>
-<li>在此过程中，RPL 会恢复导致<strong>高开销的快速全局路由更新</strong>。</li>
+<li><p>首先，由 Trickle 算法调度的控制数据包control packets的周期性传输periodic transmission可以检测拓扑topological变化。</p></li>
+<li><p>在此过程中，RPL 会恢复导致<strong>高开销的快速全局路由更新</strong>。</p>
+<blockquote>
+<p><strong>mRPL 性能与 Trickle 设置无关</strong>。</p>
+<p>分析表明，较高的数据流量会导致较低的数据包传输率。</p>
+<p>Trickle 计时器的较小值和较高的数据生成速率会增加网络流量，从而增加数据包冲突的机会。数据包丢失在较大的涓流计时器中更为显着</p>
+<p>Trickle 计时器的较小值会在 RPL 中施加较高的控制数据包开销。开销按照ICMPv6报文占报文总数的百分比（ICMPv6报文 + 数据报文）计算</p>
+<p>较低的数据传输速率会导致控制消息相对于数据包交换总数的百分比较高。</p>
+</blockquote></li>
 </ul></li>
-<li>Neighbour Discovery mechanism
+<li><p>由 ND 协议控制的 ICMPv6 数据包传输。</p>
 <ul>
 <li>其次，邻居发现（ND – 在 RFC 4861 中定义）机制定期评估邻居可达性。</li>
 <li>在每次激活时，ND 协议都会用路由器广告淹没整个网络，这也导致了很高的开销。
@@ -571,61 +564,6 @@
 </ul></li>
 <li>但是，在 6LoWPAN 修改后的 ND 机制中，路由器广告数据包是在收到路由器请求消息时发送的</li>
 </ul></li>
-</ol>
-<h2 id="rpl-protocol">RPL protocol</h2>
-<p>RPL 是一种 IPv6 距离矢量distance vector路由协议，它在 IEEE 802.15.4 物理和数据链路层之上运行，适用于能量和带宽资源非常有限的低功耗无线网络。</p>
-<blockquote>
-<p>数据速率data rate通常较低（小于 250 kbps）且通信容易出现高错误率，导致数据吞吐量低</p>
-</blockquote>
-<h3 id="dodag">DODAG</h3>
-<p>RPL 在目标导向有向无环图Destination Oriented Directed Acyclic Graph (DODAG) 中组织节点。</p>
-<p>每个 RPL 路由器都标识一组稳定的父节点，每个父节点都是通往 DODAG 的“root’”的路径上的潜在下一跳。</p>
-<ul>
-<li>首选父母通常被选为候选父母中<strong>排名最低</strong>的那个。</li>
-</ul>
-<p>一个网络可能包含多个 DODAG，这些 DODAG 由以下参数标识：</p>
-<ol type="1">
-<li><p><code>RPLInstanceID</code></p>
-<p>这用于识别针对给定场景优化的独立 DODAG 集。</p></li>
-<li><p><code>DODAGID</code></p>
-<p>这是 DODAG root的标识符。 DODAGID 在 RPLInstanceID 的范围内是唯一的。</p></li>
-<li><p><code>DODAGVersionNumber</code></p>
-<p>此参数会随着某些特定事件（例如 DODAG 的重建）而增加。</p></li>
-<li><p><code>Rank</code></p>
-<p>此参数定义相对于 DODAG 中root节点的节点位置。</p>
-<p>DODAG 中的每个节点都被分配了一个<code>Rank</code>，该<code>Rank</code>在 DAG 的下游方向上增加，在上游方向上减少。</p>
-<blockquote>
-<p>例如，在上中，节点 8 的排名高于节点 5，节点 5 的排名高于节点 3 和节点 2</p>
-</blockquote></li>
-</ol>
-<h3 id="rpl-control-messages">RPL control messages</h3>
-<p>RPL 控制消息是 RFC 2463 中定义的新型 Internet 控制消息协议版本 6 (ICMPv6)。</p>
-<p>RPL 规范定义了四种类型的控制消息：</p>
-<ol type="1">
-<li>DODAG Information Object (DIO)
-<ul>
-<li>此消息的传输由root节点发出，然后由其他节点组播。</li>
-<li>此消息包含用于构建和维护树的主要信息，例如节点的当前等级、RPL 实例和root地址，</li>
-</ul></li>
-<li>DODAG Information Solicitation (DIS)
-<ul>
-<li>需要来自邻居的 DIO 消息的节点，通过多播 DIS 消息来请求它，</li>
-</ul></li>
-<li>Destination Advertisement Object（DAO）
-<ul>
-<li>每个节点向上传播一个 DAO 消息（沿着 DODAG）。</li>
-<li>因此，此消息启用从根通过 DODAG 到此节点的下行流量。</li>
-</ul></li>
-<li>Destination Advertisement Object Acknowledgment（DAO-ACK）
-<ul>
-<li>此单播消息由 DAO 接收方发送以确认其成功接收。</li>
-</ul></li>
-</ol>
-<h3 id="mobility-detection-in-rpl">Mobility detection in RPL</h3>
-<p>移动性被认为是 RPL 不一致的主要来源之一。RPL 和 6LoWPAN 中采用了两种主要机制来部分应对移动性。</p>
-<ol type="1">
-<li>ICMPv6 数据包传输，由Trickle algorithm控制</li>
-<li>ICMPv6 数据包传输，由Neighbour Discovery mechanism控制</li>
 </ol>
 <h4 id="trickle-algorithm">Trickle algorithm</h4>
 <p>低功耗网络中的传统收集协议通常以fixed time interval广播控制消息。</p>
@@ -679,23 +617,29 @@
 </ol>
 <h2 id="smart-hop">Smart-HOP</h2>
 <h3 id="why-smart-hop">Why smart-HOP?</h3>
-<p>Hand-off已经在蜂窝和无线局域网中得到广泛研究。然而，它在低功耗网络中并没有受到同等程度的关注。</p>
-<p>蜂窝网络执行集中切换决策 centralized hand-off decisions，通常由强大的基站协调。与蜂窝网络相反，WiFi 网络具有分布式架构distributed architecture，当服务质量下降时会触发切换。</p>
-<p>在低功耗网络中，集中式方法是不可行的，因为假设接入点资源稀缺。</p>
-<p>smart-HOP考虑了低功耗网络的主要特征、链路不可靠性以及每个节点存在单个低功耗无线电。它以分布式方式管理切换并导致非常短的断开时间。</p>
-<h3 id="why-integrating-smart-hop-in-rpl">Why integrating smart-HOP in RPL?</h3>
-<p>有四个主要的 RPL 功能促使我们为其授予移动性支持：</p>
-<ol type="1">
-<li>RPL 的主动特性proactive feature，可以<strong>生成和维护稳定的路由表</strong>。
+<p>切换Hand-off在蜂窝Cellular和无线局域网wireless <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/topics/computer-science/local-area-networks">local area networks</a>中得到了广泛的研究。然而，它在低功耗网络RPL中并没有受到同等程度的关注。</p>
 <ul>
-<li>所有节点之间的控制消息的<strong>周期性广播</strong>维护它们之间的路径和链路状态。</li>
-<li>在反应式路由协议中；例如 AODV 和 DSR，路由是<strong>根据请求建立</strong>的，因此它们不会对由于移动性或链路退化引起的环境变化做出快速响应。</li>
-<li>RPL 以最小的开销在后台维护路由，对于移动性有限且对基础设施有要求的应用，RPL非常适合。</li>
+<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/topics/computer-science/cellular-network">蜂窝网络</a>执行集中切换决策，通常由强大的<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/topics/engineering/basestation">基站</a>协调。与蜂窝网络相反，</li>
+<li>WiFi 网络具有分布式架构，当服务质量下降时会触发切换。</li>
+</ul>
+<p>In low-power networks, a centralized approach is not feasible as the access points are assumed to have scarce resources.</p>
+<p>在低功耗网络中，集中式方法是不可行的，因为假设接入点资源稀缺。</p>
+<p><strong>smart-HOP</strong>, considers the main features of low-power networks, the link unreliability and the existence of a single low-power radio per node. It manages hand-offs in a distributed way and leads to very short disconnection times.</p>
+<p>smart-HOP 考虑了低功率网络的主要特征、链路不可靠性以及每个节点存在单个低功率无线电。它以分布式方式管理切换并导致非常短的断开时间。</p>
+<h3 id="why-integrating-smart-hop-in-rpl">Why integrating smart-HOP in RPL?</h3>
+<ul>
+<li><p>RPL 的主动特性proactive feature，可以<strong>生成和维护稳定的路由表</strong>。</p>
+<ul>
+<li><p>所有节点之间的控制消息的<strong>周期性广播periodic broadcast</strong>维护它们之间的路径和链路状态。</p></li>
+<li><p>In reactive routing protocols; such as AODV and DSR, routes are established upon request, so they do not respond quickly to environmental changes due to mobility or link degradation.</p>
+<p>在反应式路由协议中；例如 AODV 和 DSR，路由是<strong>根据请求建立</strong>的，因此它们不会对由于移动性或链路退化引起的环境变化做出快速响应。</p></li>
+<li><p>RPL 以<strong>最小的开销</strong>在后台维护路由，对于移动性有限且对基础设施有要求的应用，RPL非常适合。</p></li>
 </ul></li>
-<li>与其他主动路由协议不同，RPL 在邻居之间<strong>交换本地信息</strong>以修复路由不一致，而不是全局广告控制消息。</li>
-<li>RPL 基于树的结构，适合数据收集 WSN 应用程序。</li>
-<li>RPL 中基于 IPv6 的寻址自然地执行与其他 Internet 设备的互操作性。</li>
-</ol>
+<li><p>unlike other proactive routing protocols (e.g. OSPF), RPL exchanges local information among neighbours to repair routing inconsistencies, instead of globally advertising control messages,</p>
+<p>与其他主动路由协议不同，RPL 在邻居之间<strong>交换本地信息</strong>以修复路由不一致，而不是全局广告控制消息。</p></li>
+<li><p>RPL 基于树的结构，适合数据收集 WSN 应用程序。</p></li>
+<li><p>RPL 中基于 IPv6 的寻址自然地执行与其他 Internet 设备的互操作性。</p></li>
+</ul>
 <h3 id="phase-阶段">Phase 阶段</h3>
 <p>smart-HOP 算法有两个主要阶段：</p>
 <ol type="1">
@@ -712,10 +656,15 @@
 <li>如果没有收到数据包，serving AP不采取任何行动。</li>
 <li>这可能会导致断开连接，这可以通过使用超时机制来解决。</li>
 </ul>
+<p>It is important to notice that smart-HOP filters out asymmetric links implicitly by using reply packets at the Data Transmission and Discovery Phases.</p>
 <p>值得注意的是，smart-HOP 通过在数据传输和发现阶段使用回复数据包<u>隐式过滤掉非对称链路</u>。</p>
 <p>如果相邻 AP 没有活动链路，则该 AP 根本不参与该过程。</p>
-<h3 id="hand-off-parameters">Hand-off parameters</h3>
-<p>smart-HOP 机制包含用于<strong>微调fine-tuning</strong>的三个主要参数：</p>
+<h3 id="parameters-主要参数">Parameters 主要参数</h3>
+<ul>
+<li>Window size (ws)</li>
+<li>Hysteresis margin 滞后余量 (HM)</li>
+<li>Stability monitoring (m)</li>
+</ul>
 <h4 id="window-size-ws">Window size (ws)</h4>
 <p><code>ws</code>是在特定时间间隔内计算 ARSSI 所需的数据包数量，如图所示。</p>
 <p>一个<strong>小的<code>ws</code></strong>提供了有关link的详细信息，但会增加对回复数据包的处理，从而导致<strong>更高的能耗energy consumption</strong>和<strong>更低的交付率delivery rate</strong>。</p>
@@ -759,16 +708,13 @@
 <li>较宽的滞后余量需要较低的 m，反之亦然。</li>
 <li>适当调整滞后余量将导致 m = 1，从而使开销最小。</li>
 </ul>
-<h2 id="mrpl-1">mRPL</h2>
-<p>如前所述，我们正在以一种非常简单、有效且与标准协议向后兼容的方式将 smart-HOP 集成到 RPL 中。</p>
-<p>在该模型中，标准 RPL 协议在提供移动性支持的同时保持不变，即标准节点和智能 HOP 节点可以在同一网络中共存和互操作。</p>
-<p>集成在 RPL 中的 smart-HOP（mRPL）中信标beacon和数据交换的一般过程类似于原始的 smart-HOP 设计，除了采用 RPL 控制消息（DIS 和 DIO）作为信标并添加一些定时器以提高可靠性和效率。</p>
-<h3 id="mrpl-算法">mRPL 算法</h3>
+<h2 id="mrpl算法">mRPL算法</h2>
 <figure>
 <img src="/images/NET/image-20210822113537927.png" alt="" /><figcaption>mRPL timing diagram for the Data Tx Phase and Discovery Phase</figcaption>
 </figure>
 <p>该算法的时间线如图所示。</p>
-<p>在这种方法中，MN 在传输预定数量的数据包（窗口尺寸）。DIO 回复消息（保持平均 RSSI 级别）隐式过滤掉非对称链接。</p>
+<p>在这种方法中，MN 在传输预定数量的数据包（窗口尺寸）。</p>
+<p>DIO 回复消息（保持平均 RSSI 级别）隐式过滤掉非对称链接。</p>
 <ul>
 <li>在检测到质量良好的链路时（根据 DIO 回复消息中的平均 RSSI 级别），MN 继续数据传输阶段。</li>
 <li>通过观察 ARSSI 退化，MN 开始发现阶段</li>
@@ -782,11 +728,26 @@
 </ul></li>
 <li>在检测到高链路质量（ARSSI 高于 T<sub>h</sub>）时，发现阶段停止并且 MN 恢复常规数据</li>
 </ul>
-<h3 id="mrpl-design">mRPL design</h3>
-<p>本节详细介绍了 mRPL 设计。 我们首先描述了提高切换过程的效率和可靠性的附加计时器。</p>
-<p>然后描述增强控制消息包和应答包（来自邻居 AP 的 DIO 消息）的优先级分配。</p>
-<p>以及讨论了涓流计时器设置（在切换期间）和父级选择。</p>
-<h4 id="timers">Timers</h4>
+<h2 id="mrpl-配置和评估">mRPL 配置和评估</h2>
+<p>为了实施和评估 mRPL，我们选择了支持 Cooja 模拟器的 Contiki 2.6.1 [36]操作系统 (OS)。选择 Contiki 的主要原因是：</p>
+<ol type="1">
+<li>相当成熟和广泛使用的 RPL/6LoWPAN 实现的可用性，</li>
+<li>将 Cooja 代码移植到硬件平台的容易性，</li>
+<li>移动性的可用性Cooja中的插件，可以在可重复的环境中评估 mRPL。</li>
+</ol>
+<h3 id="评估指标">评估指标</h3>
+<h4 id="packet-delivery-ratio-pdr">Packet Delivery Ratio (PDR)</h4>
+<p>它被定义为所有 AP 成功接收的数据包数量与从 MN 发送的数据包总数之比。将 mRPL 的<strong>成功交付率</strong>与<strong>存在移动性</strong>的不同 RPL 场景进行比较。</p>
+<h4 id="dao-数据包总数">DAO 数据包总数</h4>
+<p>为了建立下行路由，RPL 节点向上发送单播DAO 消息。</p>
+<p>DAO 消息的下一跳目的地是首选父级。切换到最佳父节点后，子节点将其断开连接通知前一个父节点，并通知所选父节点其可达性。</p>
+<p>DAO 数据包的总数是评估路由<strong>响应性</strong>和<strong>启用移动性</strong>的网络中的切换数量的指标。</p>
+<h3 id="实验配置">实验配置</h3>
+<ul>
+<li>通过提供快速可靠的切换过程来保证连接性</li>
+<li>接入点和移动节点是路由器；MN 生成数据，AP 将它们转发给根。</li>
+</ul>
+<h4 id="timers-计时器">Timers 计时器</h4>
 <p>我们实现了四个主要计时器，以便在短时间内轻松感知链路退化和父节点不可达。 这些定时器在数据传输和发现阶段的使用在以下算法中实例化，并简要描述如下</p>
 <ol type="1">
 <li><strong>Connectivity timer (T<sub>C</sub>)</strong>
@@ -830,20 +791,33 @@
 </ul></li>
 </ul></li>
 </ol>
-<h4 id="enhanced-control-messages">Enhanced control messages</h4>
-<h4 id="priority-assignment">Priority assignment</h4>
-<h4 id="trickle-setting-during-mrpl">Trickle setting during mRPL</h4>
-<h4 id="loop-avoidance-mechanism">Loop avoidance mechanism</h4>
-<h4 id="memory-overhead">Memory overhead</h4>
-<h2 id="simulation-analysis">Simulation analysis</h2>
-<h2 id="conclusion">Conclusion</h2>
-<p>本文提出了一种非常简单而有效的解决方案，以应对未来物联网应用的挑战之一——移动性。我们扩展了 RPL——物联网架构中低功耗网络的标准路由协议——提供快速可靠的移动支持。</p>
-<p>我们在 RPL 中顺利集成了切换机制（称为 smart-HOP），以保持与标准协议的向后兼容性。通过在 Trickle 算法（DIS、DIO 和 DAO）中管理控制消息的调度，将智能 HOP 切换机制应用于移动节点 (MN)。 MN根据平均RSSI（ARSSI）选择新的首选父节点。 MN 子集中的相邻节点被忽略，以防止路由循环。</p>
-<p>我们实现了一些计时器，通过减少切换延迟和网络拥塞来提高切换效率。我们考虑了低功耗链路特性和 IPv6 架构的局限性来调整时间表。我们对 AP 应用了优先级（根据 ARSSI 级别）以最小化切换过程中数据包冲突的可能性。</p>
-<p>通过广泛的模拟和实验，对智能 HOP 与 RPL（称为 mRPL）的集成进行了测试、微调和验证。我们获得的结果表明模拟器中不准确的无线电传播模型会影响与切换性能相关的结果：在实际实验中无线电链路重叠更显着（模拟器在相邻 AP 之间创建最小重叠）。</p>
-<p>我们还发现移动应用程序的 RPL 参数的最佳设置会导致巨大的控制消息交换开销。相反，mRPL 能够在响应网络变化的同时保持低开销（= 85 ms 切换延迟）。此外，在移动性上实现了接近 100% 的数据包传递率。</p>
-<p>我们研究了不同网络流量、占空比和移动节点速度对 mRPL 切换性能的影响。结果表明，在低流量网络中，切换过程的响应性较差。此外，增加监听周期会增加切换延迟，从而影响性能。然而，移动节点速度的变化（在人类步行速度范围内）并不影响整体性能。</p>
-<p>我们在 Contiki 的 RPL/6LoWPAN 堆栈中实现并集成了我们的切换机制，Contiki 是一种广泛用于低功耗无线网络的操作系统。重要的是，我们向国际社会免费提供了源代码</p>
+<h3 id="优点">优点</h3>
+<ul>
+<li>mRPL 能够提供接近 100% 的数据包交付率。</li>
+<li>mRPL 的控制消息开销与具有最小开销的 RPL 设置相当。</li>
+<li>mRPL 对网络动态非常敏感。</li>
+<li>mRPL 对于正常人类步行速度范围是有效的。</li>
+<li>mRPL 在低流量网络中的开销较小。</li>
+<li>无论网络流量和移动节点速度如何，切换延迟都很低。</li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<h4 id="网络连通性">网络连通性</h4>
+<p>RPL 在网络连通性方面的主要缺点是：</p>
+<ol type="1">
+<li>如果网络已经稳定了一段时间，则无法快速检测到由于节点移动性引起的突然变化，</li>
+<li>ND 协议是在父端发起的（就像被动的切换），这会扩大切换持续时间，</li>
+<li>恢复 ND 协议（重建路由树）非常昂贵。</li>
+</ol>
+<h2 id="实验发现">实验发现</h2>
+<ul>
+<li><p>增加收听周期会降低切换性能。</p></li>
+<li><p>在随机移动模式场景中，切换延迟很低。</p></li>
+<li><p>网络密度对网络开销有直接影响。</p></li>
+<li><p>成功的父切换基于数据速率和涓流设置。</p></li>
+<li><p>mRPL 性能与 Trickle 设置无关。</p></li>
+<li><p>无线链路的更高重叠增加了分组传送率。</p></li>
+<li><p>更高的链路重叠减少了父交换的可能性。</p></li>
+</ul>
 
                 
             </div>
@@ -870,7 +844,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yintelligence.tech/2021/07/12/2021-07-12-mRPL/">https://yintelligence.tech/2021/07/12/2021-07-12-mRPL/</a>
+                    <a href="https://yintelligence.tech/2021/07/12/2021-07-12-mRPL---Boosting-mobility-in-the-Internet-of-Things/">https://yintelligence.tech/2021/07/12/2021-07-12-mRPL---Boosting-mobility-in-the-Internet-of-Things/</a>
                 </span>
             </div>
             <div class="reprint__notice">
