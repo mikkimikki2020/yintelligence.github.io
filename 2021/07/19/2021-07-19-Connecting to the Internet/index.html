@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-30
+                    2021-08-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    11.9k
+                    12.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    54 Min
+                    57 Min
                 </div>
                 
 
@@ -501,14 +501,17 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="connecting-to-the-internet">Connecting to the Internet</h1>
-<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a></p>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569995">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569989">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569995">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569989">Video</a></p>
+<hr />
+<p>[TOC]</p>
+<hr />
 <h2 id="point-to-point-links">Point to Point Links</h2>
 <h3 id="the-telephone-network">The Telephone Network</h3>
 <p>全球有线电话网络包含四个主要组成部分：</p>
+<p><img src="/images/NET/18921.png" /></p>
 <ul>
-<li><p>Telephone sets电话机</p></li>
-<li><p>Local loop本地环路</p>
+<li><p>Telephone sets 电话机</p></li>
+<li><p>Local loop 本地环路</p>
 <ul>
 <li><p>Local lines connecting telephone sets to telephone exchanges</p>
 <p>将电话机连接到电话交换机的本地线路</p></li>
@@ -540,6 +543,7 @@
 <p>FAX machines use modems to transmit images of paper documents.</p>
 <p>传真机使用调制解调器传输纸质文档的图像。</p>
 <h5 id="modem-protocols">Modem protocols</h5>
+<p><img src="/images/NET/18922.png" /></p>
 <p>In the vocabulary about physical data communications, one distinguishes</p>
 <p>在有关物理数据通信的词汇中，有一个区别</p>
 <ul>
@@ -620,6 +624,22 @@
 </tbody>
 </table>
 <h5 id="full-duplex-modems">Full duplex modems</h5>
+<ul>
+<li>Frequency domain multiplexing ( V21 , V22 , V23 , )
+<ul>
+<li>Divides the available bandwidth</li>
+<li>Reserved for low speed modems</li>
+</ul></li>
+<li>Time domain multiplexing ( ping-pong )
+<ul>
+<li>Mainly used for half-duplex applications ( such as FAX )</li>
+</ul></li>
+<li>Echo Cancellation (V32 , V34 , .)
+<ul>
+<li>Uses the full bandwidth</li>
+<li>Full duplex transmission does not excessively degrade the S / N ratio</li>
+</ul></li>
+</ul>
 <p>A first serious problem, when one wants to use a circuit switched telephone link to transmit data, is that a single circuit is used for transmitting sound in both directions: the sounds are simply superposed and are heard at both ends of the link.</p>
 <p>当一个人想要使用电路交换电话链路来传输数据时，第一个严重的问题是使用单个电路在两个方向上传输声音：声音被简单地叠加并在链路的两端被听到。</p>
 <p>For <strong>full duplex transmissions</strong>, the two flows of data would perturb each other and the receivers would not be able to distinguish them.</p>
@@ -632,6 +652,7 @@
 <li><p>If real full duplex transmission at data rates necessitating the full bandwidth of the telephone channel is required, a special technique, called “<strong>echo cancellation</strong>” to be explained in the following slides, is used to avoid the two data flows interfering with each other.</p>
 <p>如果需要以需要电话信道全带宽的数据速率进行真正的全双工传输，则可以使用一种特殊的技术来避免两个数据流相互干扰，这种技术称为“<strong>回声消除</strong>”。</p></li>
 </ul>
+<p><img src="/images/NET/18923.png" /></p>
 <p>V32和V34调制解调器使用相同的技术，并具有回声消除功能。</p>
 <ul>
 <li><p>V32 modem uses them in a straightforward way</p>
@@ -640,19 +661,46 @@
 <p>V34将所有这些技术推到了极限，达到了PSTN上数据传输的香农极限</p></li>
 </ul>
 <h5 id="echo-cancellation">Echo cancellation</h5>
+<ul>
+<li>Problem : insufficient bandwidth for FDM</li>
+<li>Simple Solution
+<ul>
+<li>Superpose incoming and outgoing signal</li>
+<li>Incoming signal total signal-outgoing signal</li>
+<li>Outgoing signal is known</li>
+</ul></li>
+<li>Practical difficulties
+<ul>
+<li>Outgoing signal &gt; incoming signal</li>
+<li>Outgoing signal can be reflected at several points</li>
+<li>along the transmission channel</li>
+</ul></li>
+<li>Complete solution
+<ul>
+<li>Minimize correlation between outgoing signal and signal at the input of the receiver section after subtraction of delayed and attenuated copies of outgoing signal .</li>
+</ul></li>
+<li>Necessary requirement
+<ul>
+<li>Outgoing and incoming signals uncorrelated</li>
+<li>Fulfilled by means of scramblers</li>
+</ul></li>
+</ul>
 <p>The first innovative technique used by the V32 modems is echo cancellation for allowing full duplex operation over a normal telephone connection.</p>
 <p>V32调制解调器使用的第一个创新技术是回声消除，用于允许通过普通电话连接进行全双工操作。</p>
 <p>Similar techniques are used in audio applications for fighting <strong>Larsen oscillations</strong> in public address systems and in hands-free telephones.</p>
 <p>音频应用中使用了类似的技术来消除公共广播系统和免提电话中的<strong>拉森振荡</strong>。</p>
+<p><img src="/images/NET/18924.png" /></p>
 <p>Part of the transmitted energy is reflected by electrical discontinuities along the transmission channel and reenters the local receiver together with the signal flowing in the opposite direction.</p>
 <p>传输的能量的一部分被沿传输通道的电中断反射，并与沿相反方向流动的信号一起重新进入本地接收器。</p>
 <p>Such reflections can be detected by computing the correlation function between outgoing and incoming signals. This is obviously only possible if, in the absence of any reflections, the two signals are uncorrelated. This condition is enforced by combining both data steams with known but different pseudo random sequences.</p>
 <p>可以通过计算输出信号与输入信号之间的相关函数来检测此类反射。 显然，只有在没有任何反射的情况下，两个信号不相关时，才有可能这样做。 通过将两个数据流与已知但不同的伪随机序列组合在一起来强制执行此条件。</p>
 <p>The position of the correlation peaks on the time axis is determined by the propagation delay to and from the reflection point. Their amplitude gives the importance of the reflection.</p>
 <p>相关峰在时间轴上的位置由往返反射点的传播延迟确定。 它们的振幅给出了反射的重要性。</p>
+<p><img src="/images/NET/18925.png" /></p>
 <h4 id="xdsl">XDSL</h4>
 <p>As the bandwidth of the local loop is much higher than what is required for analog telephony or for ISDN, the remaining bandwidth can be used to carry data between the local telephone exchange and the premises of the end user.</p>
 <p>由于本地环路的带宽远高于模拟电话或ISDN所需要的带宽，因此剩余带宽可用于在本地电话交换机和最终用户房屋之间传输数据。</p>
+<p><img src="/images/NET/18926.png" /></p>
 <p>This technique is called “XDSL” where DSL stands for “Digital Subscribers Line while the X distinguishes different varieties of specifications:</p>
 <p>此技术称为“ XDSL”，其中DSL代表“数字用户线”，而X则区分不同的规格品种</p>
 <ul>
@@ -669,6 +717,7 @@
 <p>ADSL 意味着上行数据速率通常比下行数据速率低一个数量级。</p></li>
 <li><p>ASDL for <strong>residential Internet access.</strong></p></li>
 </ul>
+<p><img src="/images/NET/18927.png" /></p>
 <p>The most popular application of XDSL is the domestic access to the Internet.</p>
 <p>他最流行的XDSL应用是国内访问Internet。</p>
 <p>This access goes through the digital infrastructure of the telecommunications operator to the nearest telephone exchange and reaches the end user over the existing local loop by means of the XDSL technology.</p>
@@ -679,6 +728,7 @@
 <p>VDSL 描述了一种高性能的各种数字用户线，其中光纤被带到每条街道的拐角处，并且本地环路减少到 1000m 以下。</p></li>
 <li><p>VDSL for Internet access and video on demand</p></li>
 </ul>
+<p><img src="/images/NET/18928.png" /></p>
 <p>Exactly the same configuration as for Internet access can be used for video distribution: through the digital infrastructure a multimedia stream is brought to the local telephone exchange and through ADSL or VDSL to the end user.</p>
 <p>可以将与Internet访问完全相同的配置用于视频分发：通过数字基础结构，将多媒体流传输到本地电话交换机，并通过ADSL或VDSL传输到最终用户。</p>
 <p>It should be noted that with this technology the choice of a program is not made locally on the end-user’s premises, but at the local telephone exchange, meaning that with one XDSL line only one or two TV programs can be watched at one time.</p>
@@ -686,6 +736,7 @@
 <h4 id="wimax-point-to-point-links">WiMAX point to point links</h4>
 <p>WiMax is a wireless technology that can compete with XDSL as it allows throughputs of several Mb/s over distances of several tens of Km.</p>
 <p>WiMax是一种可以与XDSL竞争的无线技术，因为它允许在数十Km的距离上达到几Mb / s的吞吐量。</p>
+<p><img src="/images/NET/18929.png" /></p>
 <p>It is very successful in countries where no wired telephone network, nor cable TV networks exist, such as in Africa.</p>
 <p>在没有有线电话网络或有线电视网络的国家，例如非洲，这是非常成功的。</p>
 <p>It supports mobility which made it also a competing technology for 4G mobile networks, but the ITU finally choose LTE rather than WiMax. After that decision less WiMax products have been developed, and the technology is likely to disappear slowly.</p>
@@ -694,6 +745,7 @@
 <h3 id="shared-media-networks">Shared Media Networks</h3>
 <p>The original local area networks in the late seventies were intended to interconnect computers in a single building. As electronic equipment and especially memory was still fairly expensive, a passive system with no memory was the obvious choice. A full mesh interconnection was unpractical because the number of interfaces in all computers has to be changed whenever new computers are added in the network.</p>
 <p>七十年代后期的原始局域网旨在将单个建筑物中的计算机互连。 由于电子设备，尤其是存储器仍然相当昂贵，因此无存储器的无源系统是显而易见的选择。 全网状互连是不切实际的，因为每当网络中添加新计算机时，都必须更改所有计算机中的接口数量。</p>
+<p><img src="/images/NET/18930.png" /></p>
 <p>A broadcast system with a passive communications medium, such as a bus cable is the simplest solution, even if it requires a medium access control protocol to ensure that at any moment only one of the computers is allowed to put data on the shared medium.</p>
 <p>具有无源通信介质（例如总线电缆）的广播系统是最简单的解决方案，即使它需要介质访问控制协议来确保在任何时候仅允许一台计算机将数据放入共享介质上。</p>
 <p>To avoid that one of the computers should <strong>monopoliz</strong>e the transmission medium and block transmission by other computers, data is transported by relatively small, independant packets , called frames.</p>
@@ -702,12 +754,35 @@
 <p><u><strong>介质访问控制协议</strong></u>必须确保所有计算机都有公平的机会传输其帧。</p>
 <h3 id="the-3-lower-osi-layers">The 3 lower OSI layers</h3>
 <p>For shared medium networks</p>
+<p><img src="/images/NET/18931.png" /></p>
 <p>In the seven layers communications model, the medium access control is logically located between the physical and the data link layer. As medium access control is intimately related to the physical communications, it would be quite logical to consider it as an upper sublayer of the physical layer.</p>
 <p>在七层通信模型中，介质访问控制在逻辑上位于物理层和数据链路层之间。 由于媒体访问控制与物理通信密切相关，因此将其视为物理层的上层子层是很合逻辑的。</p>
 <p>However, as, at the time such decision had to be made, a large part of the medium access control protocols were implemented by software, they ended up in an optional sublayer at the bottom side of layer 2.</p>
 <p>但是，由于在必须做出这样的决定时，很大一部分媒体访问控制协议是通过软件实现的，它们最终位于第2层底部的可选子层中。</p>
 <h3 id="local-area-networks">Local Area Networks</h3>
 <h4 id="ethernet">Ethernet</h4>
+<ul>
+<li>Developed in the seventies at Xerox Parc
+<ul>
+<li>Invented by Lamport</li>
+<li>Commercially supported by Digital and Intel</li>
+<li>Still has a dominant market position</li>
+</ul></li>
+<li>Originally based on coaxial bus
+<ul>
+<li>Passive broadcast medium</li>
+<li>Length limited by electrical properties of cable
+<ul>
+<li>Thick coaxial : 500 m</li>
+</ul></li>
+<li>Repeaters ( = electronic amplifiers ) allow to
+<ul>
+<li>extend cable length</li>
+<li>replace coaxial bus by twisted pairs star</li>
+</ul></li>
+</ul></li>
+<li>Medium access control inspired by Aloha</li>
+</ul>
 <p>Ethernet is the commercial name of the local area network whose MAC protocol has remained dominant in the market for the last 35 years, even if its technology has evolved.</p>
 <p>以太网是局域网的商业名称，即使其技术已经发展，其MAC协议在过去的35年中仍然在市场上占主导地位。</p>
 <p>Present day Ethernets still implement the original MAC protocol that was designed in the seventies, but many of the features of that protocol are seldom used nowadays, because modern transmission techniques no longer require them. Nevertheless it is important to fully understand that protocol because some network configurations can expose unexpectedly some of its less known properties.</p>
@@ -715,6 +790,7 @@
 <h4 id="aloha">Aloha</h4>
 <p>To understand the medium access protocol called Aloha, one of its first large scale applications, developed, as was the protocol itself, at the University of Hawaii is a good starting point.</p>
 <p>要了解称为 Aloha 的媒体访问协议，它是其首批大型应用程序之一，该协议本身也是在夏威夷大学开发的，这是一个很好的起点。</p>
+<p><img src="/images/NET/18932.png" /></p>
 <p>The computer center of the University of Hawaii had many terminals located in various islands in the pacific ocean. These terminals were connected through a geostationary satellite which behaved as a shared passive communications medium.</p>
 <p>夏威夷大学的计算机中心有很多终端，分布在太平洋的各个岛屿上。这些终端通过地球同步卫星连接，该卫星充当共享的无源通信介质。</p>
 <p>At that time, when several terminals were connected to a single computer through a passive shared medium, access control was done through “polling”, which means that the computer asks successively each terminal if it has something to transmit and eventually allows the terminal to use the shared medium to transmit.</p>
@@ -728,6 +804,26 @@
 <p>If not, and to avoid that the two messages that collided should again collide, each station waits a random delay before retransmitting the damaged message.</p>
 <p>如果不是，并且为了避免冲突的两个消息再次冲突，每个站点在重传损坏的消息之前等待一个随机延迟。</p>
 <h4 id="csmacd-operation">CSMA/CD operation</h4>
+<ul>
+<li>Carrier Sense
+<ul>
+<li>Listen before sending</li>
+</ul></li>
+<li>Multiple Access
+<ul>
+<li>Everybody noticing silence can start sending</li>
+</ul></li>
+<li>Collision Detect
+<ul>
+<li>Stop sending when noticing that others sending</li>
+<li>Collision fragments characterized by insufficient length and therefore discarded by MAC entity</li>
+<li>Collision detection in time limits cable length ( 300m at 100 Mb / s )</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Graceful degradation due to average repetition delay</p>
+<p>Increasing with number of retransmissions</p>
+</blockquote>
 <p>On a cable with a length of a few hundred meters the Aloha protocol can be further improved considerably, because the long propagation delays no longer exist.</p>
 <p>在几百米长的电缆上，Aloha 协议可以进一步显着改进，因为长的传播延迟不再存在。</p>
 <p>Such an improved version called CSMA/CD is used in Ethernet. Its operation is as follows:</p>
@@ -751,6 +847,7 @@
 <p>收发器技术的进步和双绞线的质量（类似于用于电话的双绞线的质量）允许在几十米长的点对点链路上以数Mb/s的速率传送数字信号。 在这样的链路上，一对单独的对用于数据流的每个方向。</p>
 <p>Sometimes, in buildings extensively wired with twisted pairs of insufficient quality to carry data at the desired rate, two pairs per direction are used, each carrying half of the bits, through special interfaces that are expensive , but often cheaper than the replacement of the wiring.</p>
 <p>有时，在建筑物中使用质量不佳的双绞线进行大量布线，无法以所需的速率传输数据时，每个方向使用两对电缆，每对电缆都通过昂贵但又比更换布线便宜的特殊接口携带一半的比特 。</p>
+<p><img src="/images/NET/18933.png" /></p>
 <p>Point to point links over twisted pairs do not fit very well in the original Ethernet bus topology, but can be used, provided that a repeater ( a signal amplifier) is used for every single connected station.</p>
 <p>双绞线上的点对点链接不适用于原始的以太网总线拓扑，但是可以使用，只要每个连接的站点都使用中继器（信号放大器）即可。</p>
 <p>Sets of 8, 16 or more repeaters (called “hubs”) with appropriate connectors for twisted pairs were widely available and constituted one of the major building blocks of Ethernets in the nineties.</p>
@@ -760,24 +857,29 @@
 <p>Some operated at 100 Mb/s, requiring “<strong>Class 5 Unshielded Twisted Pairs</strong>”. For these Ethernets, when hubs were cascaded, the protocol requirement of less than 300m between any two stations became a practical concern.</p>
 <p>有些以100 Mb / s的速度运行，要求使用“ <strong>5级非屏蔽双绞线</strong>”。 对于这些以太网，当集线器级联时，任何两个站点之间的协议要求小于300m成为一个实际问题。</p>
 <h3 id="repeaters">Repeaters</h3>
+<p><img src="/images/NET/18934.png" /></p>
 <p>The role of repeaters is limited to the physical layer, they have no significant influence on the higher layers with the exception that they can introduce additional delays.</p>
 <p>中继器的作用仅限于物理层，它们对较高层没有显着影响，除了它们会引入额外的延迟。</p>
-<h3 id="bridge-网桥">Bridge 网桥</h3>
+<h3 id="bridge-网">Bridge 网</h3>
 <p>Instead of building one large broadcast domain, where distance limitations due to the CDMA protocol apply, it is also possible to interconnect LANs at the MAC layer by means of bridges.</p>
 <p>除了建立一个大的广播域（在该域中由于CDMA协议而引起的距离限制）外，还可以通过网桥在MAC层互连LAN。</p>
+<p><img src="/images/NET/18935.png" /></p>
 <p>As the interconnected LANs have their own MAC layers, distance restrictions resulting from the MAC layer are to be applied to each of the LANs separately, allowing for composite LANs with significantly longer distances than what is possible with a single LAN.</p>
 <p>由于互连的LAN具有自己的MAC层，因此将分别对每个LAN应用MAC层引起的距离限制，从而使复合LAN的距离远比单个LAN的距离长。</p>
 <p>As all devices on LANs have distinct MAC layer addresses, it is also possible to assign a filtering task to the bridges to restrict traffic to those LANs where it is useful.</p>
 <p>由于LAN上的所有设备都具有不同的MAC层地址，因此还可以将过滤任务分配给网桥，以将流量限制在有用的那些LAN上。</p>
 <p>Towards the data link layer and the higher layers, interconnected LANs appear as just one LAN.</p>
 <p>在数据链路层和更高层中，互连的局域网仅表现为一个局域网。</p>
+<p><img src="/images/NET/18936.png" /></p>
 <p>Bridges allow to subdivide one large Ethernet into many smaller Ethernets, while keeping the connectivity at level 2, which ensure transparency for all protocols at higher layers.</p>
 <p>网桥允许将一个大型以太网细分为许多较小的以太网，同时将连接性保持在2级，这确保了更高层上所有协议的透明性。</p>
 <p>By choosing carefully which workstations are on which Ethernet, a global diminution of traffic on the Ethernet can be obtained, because the bridge will avoid that frames come on parts of the LAN where they have nothing to do.</p>
 <p>通过仔细选择哪个工作站在哪个以太网上，可以减少以太网上的流量，因为网桥可以避免帧进入与局域网无关的部分。</p>
+<p><img src="/images/NET/18937.png" /></p>
 <p>A bridge allows to connect transparently an IEEE 802.11 wireless lan to an Ethernet used, for instance, to connect desktop workstations with the Internet. The wireless lan allows to connect laptops without much effort to the same infrastructure. In fact, the bridge functionality is build in the WiFi access points that can be connected to an Ethernet.</p>
 <p>桥接器允许将IEEE 802.11无线局域网透明地连接到以太网，该以太网用于例如将台式机工作站与Internet连接。 通过无线局域网，无需花费太多精力即可将笔记本电脑连接到相同的基础架构。 实际上，网桥功能内置在可以连接到以太网的WiFi接入点中。</p>
 <h4 id="filtering-bridges">Filtering Bridges</h4>
+<p><img src="/images/NET/18938.png" /></p>
 <p>A bridge contains for each direction a receiver, a fifo buffer and a transmitter.</p>
 <p>桥包含每个方向的接收器，fifo缓冲区和发送器。</p>
 <p>If the bridge has no filtering function, each frame received is retransmitted on the other side. The <strong>fifo buffer</strong> is needed when a frame needs to be retransmitted after a collision and the next frame has already been received.</p>
@@ -793,6 +895,13 @@
 <h4 id="learning-bridges">Learning bridges</h4>
 <p>IEEE802.1 specifies that bridges should be capable of learning which addresses are on what side.</p>
 <p>IEEE802.1规定网桥应该能够学习哪一侧的地址。</p>
+<ul>
+<li>Frames with unknown destination are always forwarded ( promiscuous mode)</li>
+<li>Source addresses of all frames are monitored and added to the database , with a time stamp</li>
+<li>Frames with a destination address known to be on the same side as their source are not forwarded</li>
+<li>Addresses which have not been confirmed since some time are removed from the database</li>
+<li>The learning algorithm requires that there are no loops through the interconnected lan's</li>
+</ul>
 <p>The bridge transmits all frames that have a destination address that is not yet known in the database.</p>
 <p>桥接器传输具有目标地址的所有帧，这些目标地址在数据库中尚不知道。</p>
 <p>Initially the database is empty and all frames are transmitted (promiscuous mode).</p>
@@ -804,6 +913,7 @@
 <p>To avoid corruption of the database by laptops with frequently changing locations, all entries in the database are time-stamped and discarded after a few minutes.</p>
 <p>为避免位置经常变化的笔记本电脑损坏数据库，数据库中的所有条目均带有时间戳记，并在几分钟后被丢弃。</p>
 <h4 id="spanning-tree-algorithm-生成树算法">Spanning Tree Algorithm 生成树算法</h4>
+<p><img src="/images/NET/18939.png" /></p>
 <p>In large global networks build with many LAN’s interconnected by a large number of bridges loops can exist and could even be introduced voluntarily for ensuring alternative paths in case of defects.</p>
 <p>在大型的全球网络中，通过许多网桥将许多LAN互连起来，可以存在环路，甚至可以自愿引入环路，以确保出现故障时的替代路径。</p>
 <p>Such loops would make the learning algorithm ineffective as a frame could reach a specific bridge from both sides. To avoid this problem IEEE802.1 specifies the so called “<strong>spanning tree algorithm</strong>” to discover bridges that close loops and to temporarily disable them.</p>
@@ -811,6 +921,7 @@
 <p>Periodically the bridges communicate with each other to find the bridge in the network that has the lowest serial number. This bridge sends periodically broadcast messages. Whenever a bridge receives such broadcast message on both of its receivers, it knows that it is closing a loop and stops transferring frames from one side to the other, but continues to listen to messages from the root. If these messages stop appearing on both sides, the loop has been opened at an other location and the bridge can resume its normal operation.</p>
 <p>桥接器定期相互通信，以查找网络中序列号最低的桥接器。该网桥定期发送广播消息。每当网桥在其两个接收器上都接收到此类广播消息时，它就知道它正在闭合环路，并停止将帧从一侧传送到另一侧，但是继续侦听来自根的消息。如果这些消息不再出现在两侧，则说明循环已在其他位置打开，并且网桥可以恢复其正常运行。</p>
 <h4 id="half-bridges">Half Bridges</h4>
+<p><img src="/images/NET/18940.png" /></p>
 <p>Nothing in the concept of a bridge requires that both sides are located next to each other. Indeed, the delay of transferring a frame from one side of the bridge to the other is not to be accounted for in the left or right side MAC protocol.</p>
 <p>桥梁概念中的任何内容都不需要将两侧彼此相邻放置。 实际上，在左侧或右侧MAC协议中不考虑将帧从网桥的一侧传输到另一侧的延迟。</p>
 <p>By building half bridges connected through a data link that can carry the frames from one half to the other, one can obtain virtual LAN’s with parts separated by thousands of kilometers.</p>
@@ -818,6 +929,7 @@
 <h3 id="wireless-link-between-lans">Wireless link between LANs</h3>
 <p>When a company has buildings on both sides of a street, to avoid the cost of putting a wire across the street, two WiFi access points, configured as half bridges that communicate via the WiFi (IEEE 802.11) protocol can be used.</p>
 <p>当公司在街道两边都有建筑物时，为了避免在街道上铺设电线的成本，可以使用两个WiFi接入点，这些接入点配置为通过WiFi（IEEE 802.11）协议进行通信的半桥。</p>
+<p><img src="/images/NET/18941.png" /></p>
 <p>Frames from one Ethernet are carried via the wireless connection to the Ethernet at the other side of the street. With an adequate configuration, the two access points can only communicate with each other and not with other computers that might be within reach by radio, and they can learn which MAC addresses are on each side of the street.</p>
 <p>来自一个以太网的帧通过无线连接传送到街道另一侧的以太网。 通过适当的配置，两个访问点只能相互通信，而不能与可能通过无线电到达的其他计算机通信，并且它们可以了解街道两边的MAC地址。</p>
 <p>This specific functionality is represented in the layered model by the pink colored entities shown between the 2a entities of the Ethernets and the WiFi network.</p>
@@ -825,11 +937,13 @@
 <h3 id="backbones-骨干网">Backbones 骨干网</h3>
 <p>The links which interconnect half bridges don’t need to be point to point links. Any network capable of carrying MAC frames from one point to an other can be used to interconnect LAN’s. Such an interconnection network is commonly called “backbone”.</p>
 <p>互连半桥的链接不必是点对点链接。 任何能够将MAC帧从一个点传送到另一点的网络都可以用于互连LAN。 这种互连网络通常称为“骨干网”。</p>
+<p><img src="/images/NET/18942.png" /></p>
 <p>Of course, interconnecting half bridges by means of a backbone requires that the addresses database in each of the half bridges should be extended, in order to contain not only “left” and “right” MAC addresses, but the list of the MAC addresses in all the interconnected networks, and the addresses in the backbone of the corresponding half bridges. The contents of such extended databases can no longer be learned automatically, but have to be filled in by the system manager who sets-up the network.</p>
 <p>当然，通过骨干网互连半桥需要扩展每个半桥中的地址数据库，以便不仅包含“左”和“右” MAC地址，而且还包含其中的MAC地址列表 所有互连的网络，以及相应半桥主干中的地址。 这样的扩展数据库的内容不再能够自动学习，而是必须由设置网络的系统管理员来填写。</p>
 <p>Carrying frames between half bridges through a backbone network is called “level 2 tunneling” through the backbone.</p>
 <p>通过骨干网在半桥之间承载帧称为通过骨干网的“二级隧道”。</p>
 <h3 id="virtual-lans">Virtual LAN's</h3>
+<p><img src="/images/NET/18943.png" /></p>
 <p>The databases of the different half bridges can be configured in such a way, that frames from LAN A are transferred through the backbone to LAN D and vice-versa, while frames from LAN B are transferred to LAN C and vice-versa. In that case LANs A and D constitute one virtual LAN and LANs B and C an other. The different parts of such virtual LANs behave like a single LAN, even if they are located in different continents.</p>
 <p>可以通过以下方式配置不同半桥的数据库：将来自LAN A的帧通过骨干网传输到LAN D，反之亦然，而将来自LAN B的帧传输到LAN C，反之亦然。 在这种情况下，LAN A和D构成一个虚拟LAN，LAN B和C构成另一个虚拟LAN。 即使这些虚拟LAN位于不同的大陆，它们的不同部分的行为也像单个LAN。</p>
 <p>Providing shared backbones for companies wanting to have interconnected LAN’s in their different offices is one of the services proposed by all major telecommunications operators.</p>
@@ -837,17 +951,20 @@
 <p>Of course, the encapsulation and routing mechanism on the backbone must ensure that frames belonging to a specific customer can only reach LAN’s belonging to that customer.</p>
 <p>当然，骨干网的封装和路由机制必须确保属于特定客户的帧只能到达属于该客户的LAN。</p>
 <h3 id="cable-tv-networks">Cable TV networks</h3>
+<p><img src="/images/NET/18944.png" /></p>
 <p>The original cable TV networks consisted in a set of coaxial cables leaving a central office (“<strong>Head-end</strong>”) where the different analog TV programs where multiplexed with frequency domain multiplexing on the coaxial distribution cables.</p>
 <p>原始的有线电视网络是由一组同轴电缆组成的，这些同轴电缆离开中心办公室（“<strong>首端</strong>”），在那里，不同的模拟电视节目在同轴分配电缆上与频域多路复用。</p>
 <p>Approximately every Km the attenuation on the distribution cables is compensated by amplifiers.</p>
 <p>分配电缆上的衰减大约每公里由放大器补偿。</p>
 <p>A fairly high signal level is used on the cable in order to allow a strong attenuation between the distribution cable and individual subscribers. This attenuation avoids that a misbehaving user could send disturbing signals on the distribution cable.</p>
 <p>电缆上使用了相当高的信号电平，以允许分配电缆和各个用户之间的强烈衰减。 这种衰减避免了行为不端的用户可能在配电电缆上发送干扰信号。</p>
+<p><img src="/images/NET/18945.png" /></p>
 <p>The frequency domain multiplexing did use a bandwidth of 7 or 8 MHz per analog TV channel. The frequency bands and the multiplexing scheme used on the cable were approximately the same as those used for wireless TV broadcasting.</p>
 <p>频域复用确实每个模拟电视频道使用7或8 MHz的带宽。 电缆上使用的频带和复用方案与无线电视广播所使用的频带和复用方案大致相同。</p>
 <p>The advent of High Definition Television has forced the cable TV operators to replace the analog TV signals by digitally encoded and strongly compressed signals. With digital encoding, the bandwidth of one analog channel is sufficient to carry some ten digitally encoded channels.</p>
 <p>高清晰度电视的到来迫使有线电视运营商用数字编码和高度压缩的信号代替模拟电视信号。 使用数字编码时，一个模拟通道的带宽足以承载大约十个数字编码通道。</p>
 <h4 id="data-over-cable-tv">Data over Cable TV</h4>
+<p><img src="/images/NET/18946.png" /></p>
 <p>Using a cable TV network for bidirectional Internet access or for digital telephony is technically quite challenging.</p>
 <p>将有线电视网络用于双向 Internet 访问或数字电话在技术上非常具有挑战性。</p>
 <p>First of all a frequency band has to be selected for the return traffic. The frequency band bellow the frequencies normally used for TV is assigned for that purpose. Then all unidirectional amplifiers have to be replaced by double amplifiers, in one direction for the lowest frequencies and one in the other direction for the higher frequencies. Finally, one or several TV channels need to be reserved for data traffic.</p>
@@ -861,6 +978,7 @@
 <p>Access to the upstream channel is more complex as any station must be able to transmit data and as CSMA/CD is not applicable, because of the amplifiers that hide collisions occurring in upstream segments. More complex MAC protocols, involving medium reservation, such as CSMA/CA (see wireless LAN’s) are needed.</p>
 <p>对上行信道的访问更加复杂，因为任何站都必须能够传输数据，而且 CSMA/CD 不适用，因为放大器隐藏了上行段中发生的冲突。需要更复杂的 MAC 协议，包括介质预留，例如 CSMA/CA（参见无线 LAN）。</p>
 <h3 id="gigabit-ethernet-as-man">Gigabit Ethernet as MAN</h3>
+<p><img src="/images/NET/18947.png" /></p>
 <p>As strong attenuation between the distribution cable and the users is not possible in bidirectional MAN’s, the shared cable based networks are poorly protected against (accidental) misbehavior of one station that transmits uncontrolled data on the cable.</p>
 <p>由于在双向城域网中配电电缆和用户之间不可能发生强烈衰减，因此，基于共享电缆的网络无法很好地防止在电缆上传输不受控制的数据的一个站点的（偶然）不当行为。</p>
 <p>Moreover, as the data channels are shared among all the users on the same cable, the available bandwidth to each user depends on the activity of the other users.</p>
@@ -868,6 +986,7 @@
 <p>For these reasons, when new TV distribution networks have to be build, more and more operators do consider replacing the shared cable by a switched Ethernet operating at 10 Gb/s over optical fibers.</p>
 <p>由于这些原因，当必须建立新的电视分配网络时，越来越多的运营商确实考虑通过光纤上以10 Gb /s速率运行的交换式以太网替换共享电缆。</p>
 <h3 id="ieee-802-standards">IEEE 802 Standards</h3>
+<p><img src="/images/NET/18948.png" /></p>
 <p>In the 802 standards, all LAN’s share a common LLC layer (IEEE802.2) and common standards for management, interconnection and services definition (IEEE 802.1).</p>
 <p>在 802 标准中，所有 LAN 共享一个公共 LLC 层 (IEEE802.2) 和管理、互连和服务定义的公共标准 (IEEE 802.1)。</p>
 <p>The physical layer and the corresponding MAC layer are standardized by means of specific modules. Several of these modules handle wireless LAN’s.</p>
@@ -881,6 +1000,7 @@
 <p>802.16 对 WIMAX 协议进行了标准化，旨在用于数十公里距离上的多兆比特无线电链路，该协议广泛用于没有广泛使用有线基础设施的国家/地区）。</p></li>
 </ul>
 <h3 id="the-hidden-collision-source">The hidden collision source</h3>
+<p><img src="/images/NET/18949.png" /></p>
 <p>The CSMA/CD protocol is inadequate as a MAC layer for wireless LAN’s, because of the hidden station problem.</p>
 <p>由于隐藏站问题，CSMA/CD 协议不足以作为无线 LAN 的 MAC 层。</p>
 <p>In a wireless LAN, because of particular propagation conditions it is perfectly possible that a station B can communicate with both stations A and C, while A and C can not communicate directly. If A and C would transmit simultaneously a frame to B, these frames would collide but A nor C would notice it because they can not receive the signal from the other station. This excludes protocols based on collision detection and even makes carrier sense more or less useless.</p>
@@ -892,12 +1012,29 @@
 <p>If, by accident, A and C would simultaneously transmit a RTS message to B, these messages would collide, B would not be able to decode them and would send no CTS message. Both A and C, not receiving the expected CTS will wait a random time interval and try again.</p>
 <p>如果 A 和 C 意外地同时向 B 发送 RTS 消息，这些消息将发生冲突，B 将无法对其进行解码，也不会发送 CTS 消息。 A 和 C 都没有收到预期的 CTS，将等待一个随机时间间隔并重试。</p>
 <h3 id="ieee-802.11---wifi">IEEE 802.11 - WiFi</h3>
+<p><img src="/images/NET/18950.png" /></p>
 <p>As progress was made in local wireless communications, amendments to the original IEEE802.11 standard were made and called 802.11a,b, c,...</p>
 <p>随着本地无线通信的进步，对原始IEEE802.11标准进行了修订，并将其称为802.11a，b，c，...</p>
 <p>These amendments were consolidated in a single document, the IEEE 802.11- 2007 standard, including all amendments up to 802.11j.</p>
 <p>这些修订已合并到一个文档IEEE 802.11- 2007标准中，包括802.11j之前的所有修订。</p>
 <h3 id="wifi-repeaters">WiFi repeaters</h3>
+<ul>
+<li>To extend the range of WiFi based LANs</li>
+<li>Low cost repeaters widely available</li>
+<li>They use two different radio channels</li>
+<li>Frames received in one channel are retransmitted in the other</li>
+</ul>
 <h3 id="ieee-802.15---wpan">IEEE 802.15 - WPAN</h3>
+<p>Personal Area Networks cover distances of a few meters.</p>
+<p>WPANs are intended to allow wireless communications between a variety of devices used in the personal sphere.</p>
+<p>The IEEE802.15 working groups try to unify diverse proposals made by industry groups.</p>
+<ul>
+<li>802.15.1 ( Bluetooth ) : Wireless replacement for cables for keyboard , mouse , hands free mobile phones ,</li>
+<li>802.15.3 : WPAN with high data rates ( for multimedia )</li>
+<li>802.15.4 : WPAN with low data rates ( 100Kb / s ) bat very long battery life.</li>
+<li>802.15.5 ( Zigbee , 6LoWPAN ) : Meshed 802.15.3 or 802.15.4scalable networks with multi-hop communications .</li>
+<li>802.15.6 : Body Area Networks for communication between wearable devices</li>
+</ul>
 <p>Radio communications over short distances have gained a lot of importance due to the availability of low cost integrated radio transceivers. RFID product identification tags, wireless car keys and wireless computer mice are the most common examples.</p>
 <p>由于低成本集成无线电收发器的可用性，短距离无线电通信已变得非常重要。 RFID产品识别标签，无线车钥匙和无线计算机鼠标是最常见的示例。</p>
 <p>Due to the potentially enormous markets that some of these products have, proprietary protocols dominate the market, but nevertheless, the IEEE 802.15 working groups push for some standardization and interoperability.</p>

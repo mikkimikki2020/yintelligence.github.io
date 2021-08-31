@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    6.5k
+                    7.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    23 Min
+                    29 Min
                 </div>
                 
 
@@ -501,14 +501,33 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="communications-systems-modelling">Communications Systems Modelling</h1>
-<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a></p>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=562741">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=562384">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=562741">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=562384">Video</a></p>
+<hr />
+<p>[TOC]</p>
+<hr />
 <h2 id="introduction">Introduction</h2>
-<p>电信系统可能非常复杂。为了控制这种复杂性，有必要将系统细分subdivide为一定数量的子系统subsystem，这些子系统应尽可能彼此独立。</p>
-<p>从IBM在70年代初宣布的SNA开始，已经将计算机网络系统地设计为一组独立的功能层functional layers.。</p>
+<ul>
+<li>The problem :
+<ul>
+<li>Complexity of networked systems</li>
+</ul></li>
+<li>The solution :
+<ul>
+<li>Decomposition into independent subsystems</li>
+</ul></li>
+</ul>
+<p>电信系统可能非常复杂。为了控制这种复杂性，有必要将系统<u>细分subdivide为一定数量的子系统subsystem</u>，这些子系统应尽可能彼此独立。</p>
+<p>从IBM在70年代初宣布的SNA开始，已经将计算机网络系统地设计为一组独立的功能层functional layers。</p>
 <p>现在更名为“国际电信联盟 International Telecommunications Union”和“国际标准化组织 International Standardization Organization”的“法国电信委员会 Comité Consultatif pour la Télégraphie et la Téléphonie”已在70年代后期试图开发一种分层系统的正式框架，称为“<strong>Seven layers OSI (Open Systems Interconnection) model</strong>”（ITU recommendation X200, ISO standard 7498)。</p>
 <p>他们提出的<strong>七层框架 seven layers framework</strong>的概念和broad lines被广泛用于描述网络，但是现在实际协议<u>已被互联网标准Internet protocols所取代</u>，而这些协议是独立于这些标准化机构开发的。</p>
-<h2 id="example-a-dialomatic-negotiation-外交谈判示例">Example: a dialomatic negotiation 外交谈判示例</h2>
+<p>Layered network model</p>
+<ul>
+<li>Introduced by IBM ( SNA , 1971 )</li>
+<li>Standardized by ITU ( X200 ) and Iso ( 7498 )</li>
+<li>Method universally adopted</li>
+<li>Standards not really obeyed in practice</li>
+</ul>
+<h2 id="example-a-dialomatic-negotiation">Example: a dialomatic negotiation</h2>
 <p>首先将通过一个假想的例子来解释<strong>分层layered分解decomposition</strong>的原理。</p>
 <blockquote>
 <p>为了理解layered model的基础思想，将以与网络问题相同的方式来处理与虚构的国际谈判有关的技术问题。</p>
@@ -520,6 +539,7 @@
 <li><p>但是，为了进行谈判，他们需要一些<strong>支持服务</strong>，这将使他们能够克服由于语言差异和距离而引起的困难。</p></li>
 <li><p>另外，他们希望这些服务的提供方式应使谈判的内容<strong>保密</strong>。换句话说，他们应该需要某种安全的电话服务，还提供翻译。</p></li>
 </ul>
+<p><img src="/images/NET/18800.png" /></p>
 <p>在上图中，此服务被描绘为标有“Communication Services”的黑匣子（灰框），X和Y可以通过“Service Access Points”对其进行访问。</p>
 <p><strong>通信服务设计翻译translation，加密cryptographic和传输服务transmission。</strong></p>
 <ul>
@@ -534,11 +554,13 @@
 </ul></li>
 <li>译员通过<strong>另一个</strong>黑匣子提供的服务相互通信。</li>
 </ul>
+<p><img src="/images/NET/18801.png" /></p>
 <p>上图显示了之前的黑匣子的内部结构，该黑匣子提供了满足<strong>机密性</strong>要求的加密编码。</p>
 <ul>
 <li><strong>加密encryption</strong>和<strong>解密decryption</strong>是通过某些<strong>加密密钥 cryptographic key</strong> K<sub>c</sub>完成的，该密钥应该保密。</li>
 <li>只有T<sub>x</sub>和T<sub>y</sub>中的加密设备的操作员才能访问该密钥。</li>
 </ul>
+<p><img src="/images/NET/18802.png" /></p>
 <p>密码cryptographic设备借助<strong>另一个黑匣子</strong>提供的服务进行通信。</p>
 <ul>
 <li>在上一个黑匣子内，可以找到确保T<sub>x</sub>和T<sub>y</sub>之间实际通信的无线电设备radio equipment。</li>
@@ -547,6 +569,7 @@
 </ul>
 <h2 id="principles-of-layered-model-原理">Principles of layered model 原理</h2>
 <p>在前面的示例中，按照此图中示意性表示的一些一般原理，将复杂的通信问题分解为4个独立的层。</p>
+<p><img src="/images/NET/18803.png" /></p>
 <ul>
 <li>每一层解决一个特定的问题。</li>
 <li>第n层到第n + 1级到第n级服务访问点<strong>Service Access Points</strong>提供服务。</li>
@@ -554,12 +577,18 @@
 <li>级别n的实体根据专门针对该层达成的一些规则（语言L<sub>c</sub>，加密密钥K<sub>c</sub>和频率F<sub>c</sub>）相互通信。 这种“水平”协议称为“ <strong>protocols of level n</strong>（n级协议）”。</li>
 </ul>
 <p><strong>Example: The telephone Service</strong></p>
+<p><img src="/images/NET/18804.png" /></p>
 <p>可以使用传统电话网络作为示例来阐明引入的概念：</p>
 <ul>
 <li>电话服务在两个电话接入点（电话机）之间传送声音。</li>
 <li>电话网络具有两个以上的服务访问点（实际上超过10<sup>9</sup>个），并且所有这些访问点均通过其地址（电话号码）进行标识。</li>
 </ul>
+<h3 id="protocol-data-unit-协议数据单元-pdu">Protocol Data Unit 协议数据单元 (PDU)</h3>
 <p>重要的是要注意，级别为n的实体之间相互通信，而没有它们之间的直接通信通道，它们通过<strong>虚拟通道virtual channel</strong>进行通信，该<strong>virtual channel</strong>由基础层实现。</p>
+<blockquote>
+<p>每一层直接都可以认为与同层进行了<strong>虚拟的通道传播</strong>（Virtual Level n Communication Path)，虚拟的通道里传输的东西可以理解为，<strong>两个层直接商量好的数据单元</strong>（Protocol Data Unit)。</p>
+</blockquote>
+<p><img src="/images/NET/18805.png" /></p>
 <ul>
 <li>从一个第n级实体发送到另一实体（在OSI行话中称为“<strong>level n Protocol Data Unit</strong>”或<strong>nPDU</strong>）的消息实际上将被委托给n-1层，该层将其封装在（n-1）PDU，依次将其委托给n-2层等。</li>
 <li>最终，最终以物理方式传输的消息可能比在级别n生成的消息要<strong>长得多</strong>，因为<u>所有中间层都将自己的服务信息添加到其中</u>。</li>
@@ -572,11 +601,12 @@
 <li>在B的城镇中，快递服务的另一名员工将信封带到B的办公室，从信封中取出信件，丢弃信封，然后将信件交给B。</li>
 </ul>
 </blockquote>
+<p><img src="/images/NET/18806.png" /></p>
 <p>如上图所示，甚至有可能一个（n + 1）PDU导致多个nPDU。</p>
 <ul>
 <li>例如，当级别n协议要求在可以传输任何数据之前建立连接并且连接的打开和关闭确实需要交换许多消息时，就是这种情况。</li>
 </ul>
-<h2 id="side-tracks">Side-tracks</h2>
+<h2 id="approaches-to-communications-通信方法">Approaches to communications 通信方法</h2>
 <p>存在两种根本不同的通信方法。</p>
 <ol type="1">
 <li>Connected oriented networks
@@ -592,12 +622,22 @@
 <p>It is perfectly possible to use connectionless protocol at layer n while layers n+1 and n-1 are connection oriented.</p>
 <p><strong>当第n + 1层和第n-1层面向连接时，完全可以在第n层使用无连接协议。</strong></p>
 <p>在特定的电信环境中，几乎所有组合都是有意义且有用的。</p>
-<h3 id="connection-oriented-communication">Connection oriented communication</h3>
+<h3 id="connection-oriented-communication-面向连接通讯">Connection oriented communication 面向连接通讯</h3>
 <p>通过电话进行的通信可以分解为三个明显不同的阶段：</p>
 <ol type="1">
-<li></li>
-<li></li>
-<li></li>
+<li>Establish connection
+<ul>
+<li>using the signalling protocol</li>
+</ul></li>
+<li>Use connection
+<ul>
+<li>using an informal protocol</li>
+<li>being billed for duration of usage</li>
+</ul></li>
+<li>Terminate connection
+<ul>
+<li>Terminate connection</li>
+</ul></li>
 </ol>
 <p>在面向连接的协议中，两个地址之间的virtual link被建立，使用和删除。</p>
 <ol type="1">
@@ -613,30 +653,36 @@
 <li>最后，用户请求关闭连接</li>
 </ol>
 <p>在开始进行数据传输之前，必须完成许多工作，但是一旦建立连接，数据传输就非常简单和高效。</p>
-<h4 id="main-points">Main points</h4>
+<h4 id="main-points-关键点">Main points 关键点</h4>
 <ul>
-<li><p>Network has a state: the list of active connections</p></li>
-<li><p>Network is <strong>fragile</strong>: state can be lost</p></li>
-<li><p>Applicaiont domain</p></li>
-<li><ul>
-<li>Very efficient for transferring <strong>high volumes of data</strong></li>
+<li>Network has a state : the list of <strong>active connections</strong></li>
+<li>Network is <strong>fragile</strong> : state can be lost</li>
+<li>Application domain
+<ul>
+<li>Very efficient for transferring high volumes of data</li>
+<li>Mandatory if stringent Quality of Service request</li>
+<li>Poor initial response times due to connection state</li>
+<li>Inapplicable if nodes have high failure rate.</li>
 </ul></li>
 </ul>
-<p>通过将<strong>冗余redundant信息</strong>添加到每个消息（例如，消息的所有字节之和sum of all bytes of the message），可以<strong>检测</strong>传输错误<strong>transmission errors</strong>。</p>
-<blockquote>
-<p>在<strong>无连接协议connectionless protocol</strong>中，对错误消息的唯一可能处理是<strong>忽略</strong>它们，而将丢失消息的处理留给更高层。</p>
-</blockquote>
 <p>在面向连接connection oriented的协议中，由于发送方和接收方具有状态变量，因此可以对连续的消息进行<strong>编号</strong>，以允许接收方向发送方发送ack（确认）或否定确认（通知）。然后，后者可以保留已传输的消息，直到它们被确认为止，然后重新传输已被否定确认的消息。</p>
 <ul>
 <li>Guarantee <strong>Quality of Service</strong>
 <ul>
-<li>Reservation of transmission capacity of connection estiblishment</li>
+<li>Reservation of transmission capacity of connection establishment</li>
 <li>Monitoring of data transfer and correction of transmission errors by retransmission (<strong>sliding window protocols</strong>)</li>
 </ul></li>
 </ul>
+<h5 id="transmission-errors-detection-传输错误检测">Transmission errors detection 传输错误检测</h5>
+<p>通过将<strong>冗余redundant信息</strong>添加到每个消息（例如，消息的所有字节之和sum of all bytes of the message），可以<strong>检测</strong>传输错误<strong>transmission errors</strong>。</p>
+<blockquote>
+<p>在<strong>无连接协议connectionless protocol</strong>中，对错误消息的唯一可能处理是<strong>忽略</strong>它们，而将丢失消息的处理留给更高层。</p>
+</blockquote>
+<h5 id="sliding-window-protocols-滑动窗口协议">Sliding window protocols 滑动窗口协议</h5>
 <p>某些协议<strong>一一发送</strong>消息，等待ack后再发送下一条消息。其他协议（用于长途往返延迟的链接）在等待ack的同时继续发送消息。这种协议称为“<strong>滑动窗口协议sliding window protocols</strong>”，<strong>窗口的大小是在收到确认之前可以发送的消息数</strong>。</p>
-<h3 id="connectionless-communication">Connectionless Communication</h3>
+<h3 id="connectionless-communication-无连接通讯">Connectionless Communication 无连接通讯</h3>
 <p>在邮政服务中，无需进行任何初步设置即可将普通信件从A点发送到B点。将信件及其目的地地址和服务付款证明放在A的信箱中即可。邮局将信件收集在信箱中，按目的地分类，将其运输到目的地，然后将其放入所需的邮箱中。</p>
+<p><img src="/images/NET/18807.png" /></p>
 <ul>
 <li>没有建立任何连接，没有保留有关各个字母的记录。</li>
 <li>由于放置在不同信箱中的字母的数量差异很大，因此<strong>无法保证</strong>对所有字母进行分类和交付需要多长<strong>时间</strong>。</li>
@@ -649,30 +695,36 @@
 <li>由于每个数据包都是分开处理的，因此<strong>不保留任何连接列表</strong>，并且通常<strong>不保留</strong>任何已发送数据包的<strong>记录</strong>。</li>
 </ul>
 <p>当必须将<strong>少量数据small volumes of data</strong>发送到各个目的地并且<strong>响应时间很短short response times</strong>时，无连接通信connectionless communications似乎就足够了。</p>
-<h4 id="main-points-1">Main points</h4>
+<h4 id="main-points-关键点-1">Main points 关键点</h4>
 <ul>
-<li><p>The network is <strong>stateless</strong>.</p></li>
-<li><p>Application domain</p></li>
-<li><ul>
-<li>whenever single message reponse times are critical</li>
+<li>The network is <strong>stateless</strong>.</li>
+<li>Network is r<strong>obust</strong>
+<ul>
+<li>No state stored in any node</li>
+<li>No error correction by retransmission</li>
+</ul></li>
+<li>Application domain
+<ul>
+<li>whenever single message response times are critical</li>
 <li>whenever nodes are unreliable</li>
 </ul></li>
-</ul>
-<p>在<strong>无连接协议connectionless protocol</strong>中，对错误消息的唯一可能处理是<strong>忽略</strong>它们，而将丢失消息的处理留给更高层。</p>
-<ul>
 <li><strong>No</strong> guaranteed Quality of Service
 <ul>
 <li>No reservation of transmission capacity</li>
 <li>No error correction by <strong>retransmission</strong></li>
 </ul></li>
 </ul>
-<p>No connection estiblishement and each packet <strong>decided independently</strong> even if they have same destination.</p>
+<p>在<strong>无连接协议connectionless protocol</strong>中，对错误消息的唯一可能处理是<strong>忽略</strong>它们，而将丢失消息的处理留给更高层。</p>
+<p>No connection establishment and each packet <strong>decided independently</strong> even if they have same destination.</p>
+<p>没有连接建立，每个数据包<strong>独立</strong>，即使它们具有相同的目的地。</p>
 <p>Sometimes there are severe delays and packet loss caused by <strong>congestion problems</strong>.</p>
+<p>有时会出现<strong>拥塞问题</strong>导致的严重延迟和丢包。</p>
 <h2 id="layered-models-for-communication-networks">Layered models for communication networks</h2>
 <h3 id="two-layer-model">Two layer model</h3>
 <p>仅基于两层的第一个模型在“<strong>连接性<em>connectivity</em></strong>和<strong>互操作性<em>interoperability</em></strong>”之间建立了区别。</p>
 <p>“普通的旧电话服务”示例清楚地表明了区别：由于采用了全球范围的编号方案，并且所有国家电话网络都实现了互连，因此在世界上任意两个点之间建立电话连接非常容易，因为在这两点之间传送声音。这是<strong>全球连接</strong>。</p>
 <p>但是，如果人们希望通过电话进行互操作interoperate（做有意义的事情），则他们不仅应该能够交换声音，而且还应该能够理解彼此的声音，即在对方讲话时进行聆听，反之亦然，以便使用通用的语言和谈论他们都很了解的主题。</p>
+<p><img src="/images/NET/18808.png" /></p>
 <p>在此模型中，称为“<strong>网络层networks layer</strong>”的下层提供连接服务，而称为“<strong>应用层application layer</strong>”的上层处理使连接有用的其他问题。</p>
 <ul>
 <li>即使在单个连接网络中，也可能<u>需要使用不同的通信技术</u>，因为距离可能相差很大，并且某些用户的位置固定，而另一些用户移动。不同的网络实体必须共存。</li>
@@ -683,54 +735,116 @@
 </ul>
 <h3 id="three-layer-model">Three layer model</h3>
 <p>为了减少网络实体和应用程序实体之间的interface数量，通常在网络和应用程序层之间插入一个称为“ Internet and Transport layer”的附加层。这样，仅需要<strong>n + m</strong>而不是n × m接口。</p>
+<p><img src="/images/NET/18809.png" /></p>
 <p>此外，中间层可用于将某些网络提供的服务增强到某些应用程序所需的服务级别。</p>
 <ul>
 <li>例如，某些应用程序需要面向连接的连接服务，而可用的网络仅提供无连接服务。 在这种情况下，中间层可以将连接添加到基础服务。</li>
 </ul>
 <p><strong>Example: WWW</strong></p>
 <p>例如，可以考虑使用万维网。</p>
+<p><img src="/images/NET/18810.png" /></p>
 <p>在应用程序级别，可以找到http协议以及作为客户端应用程序实体的浏览器（例如Explorer或FireFox）和服务器端的Web服务器软件（例如Apache）。</p>
 <p>中间层实现TCP和IP协议。 基础网络是由各种Internet服务提供商（ISP）提供的网络，例如比利时，Proximus，Telenet或Belnet。</p>
 <p>在这些ISP的网络之间的互连点上，可以找到IP实体，但找不到TCP实体，因为只能与应用程序实体一起找到传输实体。</p>
 <h3 id="the-seven-layers-of-osi-model">The seven layers of OSI model</h3>
 <p>“<strong>开放系统互连Open System Interconnection</strong>”模型使用7层而不是3层。</p>
+<p><img src="/images/NET/18811.png" /></p>
 <p>3层模型的应用程序层可分为三层：</p>
 <ol type="1">
-<li>Application Layers - makes the connectivity useful
+<li><strong>Application Layers</strong> - makes the connectivity useful
 <ol type="1">
 <li>Application层提供了网络软件和特定应用程序之间的“应用程序接口Application Programmers Interface”（API）。</li>
 <li>Presentation层（6）处理有关数据语法data syntax和语义semantic的问题</li>
 <li>Session层控制应用程序同步synchronization（一个应用程序应在另一个发送时监听）</li>
 </ol></li>
-<li>Internet and Transport layers - TCP/IP</li>
-<li>NetworkS Layer - provide the connectivity service
+<li><strong>Internet and Transport layers</strong> - TCP/IP</li>
+<li><strong>Networks Layer</strong> - provide the connectivity service
 <ol type="1">
 <li>由三层模型的Internet and Network layers处理的所有<strong>寻址addressing</strong>和<strong>路由routing</strong>问题都被分组为一个称为“Network层”的第三OSI层。</li>
 <li>Data link层将数据打包在compatible with the physical transmission的帧frame中，并控制这些帧的传输，<strong>执行传输错误检测</strong>，并在需要时通过重新传输错误的帧进行纠错。</li>
 <li>Physical层的底层负责实际数据传输的物理细节，例如通过电波形对位进行编码encoding bits by means of electrical waveforms</li>
 </ol></li>
 </ol>
+<blockquote>
+<p>试想一种情况，你想和特朗普对话并给他播放B站的鬼畜视频</p>
+<p>你需要：</p>
+<ol type="1">
+<li>找到特朗普的电话，拨打给他，于是你们建立了连接（Network Layer)</li>
+<li>找来他的翻译，跟他对话，并给他播放鬼畜视频（Application Layer)</li>
+</ol>
+<p>此时你会发现，电话连接并不能给他播放鬼畜视频，于是，你可能需要与特先生建立其他的连接（Network Layer)，并且需要在第一层和第二层之间加一个新的接口（interface），能让特朗普看到你给他播放的鬼畜视频。</p>
+<p>所以，每多一种application layer，每多一种network layer，接口的数量都会增加</p>
+<p>Interfaces = Applications × Networks</p>
+<p><strong>这可不行！</strong>你想到你还想给特先生跳支舞，也想特先生给你唱个歌，那得需要更多的接口，更多的层，于是你想到，你可以雇佣闪电侠，让闪电侠把你的意思快速传给特先生。新的一层就创造出来了（Internet&amp;Transport Layer)，这纯粹是因为你太懒，不想搭这么多接口。</p>
+</blockquote>
 <h2 id="assigning-addresses-分配地址">Assigning addresses 分配地址</h2>
 <p>分配地址时，可以使用两种不同的方法：该地址包含有关所有者的一些信息，或者不包含任何信息。</p>
 <h3 id="hierarchical-addresses-分层地址">Hierarchical addresses 分层地址</h3>
 <p>当地址包含某些信息时，可以将地址细分为不同的层次结构字段，每个字段传达一些有关地址的本地化或所有者的信息。这些地址称为“<strong>分层地址 hierarchical addresses</strong>”。</p>
+<ul>
+<li>Addresses composed of meaningful fields</li>
+<li>Address = hierarchical list of domain names</li>
+<li>A domain is an organizational and / or geographic entity regrouping lower level domains or hosts.</li>
+<li>Addresses belonging to a given domain are maintained by the authority of that domain .</li>
+<li>Example : classical telephone numbers
+<ul>
+<li>32 2 629 2905 . 32475819327</li>
+<li>hierarchy jeopardized by number portability !</li>
+</ul></li>
+</ul>
 <p>例如，经典电话号码包含许多有关其本地化的信息：从电话号码32 2 629 2905可以通过查看该号码在比利时的前两个数字（32）并通过查看下一个数字来得出（2），它位于布鲁塞尔。接下来的三位数（629）标识Proximus交易所（埃尔森的Borrensstreet），以及下一位数字（1、2或3）代表VUB的私人交易所。后三位数字标识连接到VUB专用交换机的特定线路。</p>
 <p>使用这种分级编号系统，每个国家/地区都可以维护其用户数据库，编号的前几位表示哪个数据库包含相关信息。</p>
 <blockquote>
 <p>比利时的电话号码已失去其部分等级特性，因为电话用户在电话提供商之间进行切换时可以保留原始号码。如果VUB不再是Proximus客户，它将不再实际连接到Borrensstreet中的交易所。它将具有属于另一个运算符的另一个（不可见）数字。当呼叫VUB时，将有一个端口号数据库</p>
 </blockquote>
-<h3 id="flat-addresses">Flat addresses</h3>
+<h3 id="flat-addresses-单位地址">Flat addresses 单位地址</h3>
 <p>由于组织方案不再必须与物理实现physical implementations相匹配，因此保持分层地址的一致性变得越来越困难。</p>
+<ul>
+<li>Organizational and geographic hierarchy do not necessarily match</li>
+<li>Address values contain <u>no useful information</u></li>
+<li>Example : Internet network ID'S
+<ul>
+<li>VUB = 134.184</li>
+<li>ULB = 164.15</li>
+</ul></li>
+<li>Using large set of flat addresses user-unfriendly</li>
+<li>Solution
+<ul>
+<li><strong>Assign a flat and an hierarchical address to every user and maintain a database linking both</strong></li>
+</ul></li>
+</ul>
 <p>因此，通常会<strong>决定物理地址不应传达任何上下文信息</strong>（可能是分配日期，因为大多数地址随后会按顺序分配），但是，<u>由于单一数据库应包含所有地址，因此这种平面寻址方案给目录数据库带来了沉重负担。</u></p>
 <p>通过为用户分配<strong>物理单位地址physical flat addresses</strong>和<strong>逻辑分层地址logical hierarchical addresses</strong>可以解决此问题。</p>
 <p>基于分层逻辑地址，可以在映射逻辑和物理地址的本地维护数据库的分层结构中分解目录。</p>
 <blockquote>
 <p>Domain Name System域名系统（DNS）为Internet用户实现了这种分布式目录。</p>
 </blockquote>
+<ul>
+<li>因为地址可能会发生改变，需要一个不体现物理信息的地址</li>
+<li>随机分配的地址，所有地址都是平行的</li>
+<li>还是想要看归属信息？--数据库</li>
+</ul>
 <h2 id="domain-name-servers-域名服务器-dns">Domain Name Servers 域名服务器 (DNS)</h2>
 <p><strong>DNS (Domain Name Servers, 域名服务器)</strong> 是一种分布式目录distributed directory，它允许具有<strong>稳定地址stable address</strong>的任何用户以用户友好的方式访问互联网。</p>
+<ul>
+<li><p>In Each domain , there is at least one DNS</p>
+<blockquote>
+<p>在每一个节点的区域下存在的数据库服务，存着Flat Addresses以及Hierarchical Addresses，可以进行转换</p>
+</blockquote>
+<ul>
+<li>Name DNS Address of all subdomains</li>
+<li>Name address of all hosts in the domain</li>
+<li>DNS address of , at least , root of DNS system</li>
+<li>Names DNS addresses of frequently used domains</li>
+</ul></li>
+<li><p>Each host must know the address of one DNS</p></li>
+<li><p>Address resolution can be done recursively or by successive calls to different DNS</p></li>
+<li><p>Local DNS is locally maintained</p></li>
+<li><p><strong>Caching</strong> greatly <u>improves performance of DNS</u> by keeping the translations of most recently accessed domains and hosts</p></li>
+</ul>
 <h3 id="internet-domains">Internet Domains</h3>
 <p>互联网上的每个主机都在其物理互联网地址<strong>physical internet address</strong>（当前为32位二进制数，逐渐由128位数字代替）旁边，具有一个适合<strong>域层次结构hierarchy of domains</strong>的<strong>逻辑地址logical address</strong> 。</p>
+<p><img src="/images/NET/18812.png" /></p>
 <p>每个domain可以包含其他domain和本地主机。 在每个域domain中，一个称为“域名服务器Domain Name Server”（DNS）的本地数据库将保留</p>
 <ul>
 <li><strong>子域列表 list of subdomains</strong></li>
@@ -742,20 +856,42 @@
 </ul>
 <h2 id="session-initiation-protocol-会话发起协议-sip">Session Initiation Protocol 会话发起协议 (SIP)</h2>
 <p>SIP为由于例如移动性而具有快速更改地址的用户补充了DNS。</p>
-<p>为了管理移动性，这意味着在不中断进出移动设备的数据流flow of data的情况下更改设备的地址，每个移动用户都需要有一个稳定的<strong>参考地址reference address</strong>。</p>
+<p><img src="/images/NET/18813.png" /></p>
+<ul>
+<li><strong>The SIP server can handle both diversity in terminals and mobility of terminals</strong></li>
+</ul>
+<p>为了<strong>管理移动性mobility</strong>，这意味着<u>在不中断进出移动设备的数据流flow of data的情况下更改设备的地址</u>，每个移动用户都需要有一个稳定的<strong>参考地址reference address</strong>。</p>
 <p>当移动用户处于活动状态时，他会将其移动设备（例如智能手机）记录在其SIP服务器中。 SIP服务器<u>维护一个已登录用户logged- in users的数据库</u>，其中包含其各自的地址和其设备的属性。</p>
 <p>当用户的地址由于移动性而更改时，SIP服务器将通过类似于移动电话切换的过程<strong>自动更新其数据库</strong>。</p>
 <h3 id="redirection-mode-重定向模式">Redirection mode 重定向模式</h3>
 <p>当某人想与SIP用户建立语音连接时，首先与该用户的SIP服务器建立连接，该连接会将主叫方的当前地址通知主叫方。</p>
+<p><img src="/images/NET/18814.png" /></p>
+<ul>
+<li><strong>Most efficient data transfer</strong></li>
+<li>Caller has access to actual called address</li>
+</ul>
 <p>每当被叫方更改其地址时，SIP服务器都会向呼叫者通知要使用的新地址。</p>
 <p>使用重定向模式Redirection mode的SIP服务器会<strong>严重损害被呼叫者的隐私</strong>，因为任何呼叫者都可以通过被呼叫者的地址确定其物理位置。</p>
-<h3 id="proxy-mode">Proxy mode</h3>
+<h3 id="proxy-mode-代理模式">Proxy mode 代理模式</h3>
 <p>SIP服务器通常扮演被呼叫者的<strong>代理</strong>角色，将呼叫者与被呼叫者之间的实际数据传输转发给自己。</p>
+<p><img src="/images/NET/18815.png" /></p>
+<ul>
+<li>Longer transmission delays</li>
+<li>SIP server can be bottleneck</li>
+<li>Caller has no access to the actually called address</li>
+</ul>
 <p>当然，<u>当许多用户共享同一台SIP服务器时，这样的SIP proxy server可能成为<strong>瓶颈</strong>。</u></p>
 <h2 id="world-wide-web">World Wide Web</h2>
 <p>最初旨在访问分布式超文本的WWW已成为任何计算机或智能手机与最终用户在其设备（应用程序）上运行的交互式应用程序之间的标准化接口。</p>
 <p>万维网是Tim Berners Lee和Robert Caillau最初在“欧洲核子研究中心”（CERN）开发的应用程序，它使物理学家可以与统一的用户进行协商，以访问位于互联网上任何地方的各种数据库。随着网络很快成为营销和信息传播的强大工具，WWW应用程序已成为迄今为止互联网上最常用的应用程序。</p>
+<ul>
+<li>Uniform , hypertext based , user friendly interface for distributed databases</li>
+<li>Inexpensive , high quality , browsers available for almost all computers</li>
+<li>Well over 10<sup>9</sup> pages available worldwide , mainly for public relations , publicity and electronic commerce</li>
+<li>As executable programs can be part of hypertext, web browsers are now a universal run-time environment for end-user applications ( apps )</li>
+</ul>
 <p>大多数防火墙都阻止可执行程序，以避免病毒入侵，但由于每个人都希望它们而不能阻止网页。 由于超文本可以包含隐藏在网页中的可执行程序，因此，Web浏览器现在是执行通过Internet（“apps”）加载的程序的标准环境，因此，需要在每个Web浏览器中都包含复杂的安全性。</p>
+<h3 id="what-is-the-web">What is the Web?</h3>
 <p>Basically, the web has three key ingredients:</p>
 <p><strong>The Web = Internet + HTML + URL + HTTP</strong></p>
 <ol type="1">
@@ -782,41 +918,75 @@
 </ul>
 <h3 id="url-universal-resource-locators">URL (Universal Resource Locators)</h3>
 <p>URL实际上是扩展的Internet地址，不仅提供了主机的地址，而且还提供了所需页面的主机上的标识，用于传输该页面的协议以及该页面上的应用程序级别实体的标识。 能够处理该协议的主机。</p>
-<p>Internet Resource address includes <strong>host address</strong> and the <strong>desired page address</strong>.</p>
+<p>Protocol used to <u>communicate with resource</u></p>
 <ul>
-<li><p>Domain name</p></li>
-<li><ul>
-<li>Internet Protocol address of machine (134.121.023.001)</li>
-<li>Domain Server Name of machine (www.vub.ac.be)</li>
+<li>each protocol further defines URL format</li>
+</ul>
+<p>Internet Resource address includes:</p>
+<ul>
+<li><strong>Domain name</strong>
+<ul>
+<li>Internet Protocol address of machine ( 134 . 121 023 . 001 )</li>
+<li>Domain Server Name of machine(www.vub.ac.be)</li>
+</ul></li>
+<li><strong>Port number</strong> on machine
+<ul>
+<li>Optional : Each protocol has a default port number</li>
 </ul></li>
 </ul>
-<p>Including the address of host and the filename of an desired HTML page.</p>
+<p>Resource details (protocol specific)</p>
+<ul>
+<li>i.e. directory and filename of an HTML page</li>
+</ul>
 <h3 id="http-hypertext-transfer-protocol">HTTP (Hypertext Transfer Protocol)</h3>
-<p>Web应用程序显然是“一对多”信息流的一个示例，因为来自许多不同网站的数据可以在客户端的浏览器中合并。</p>
+<p><img src="/images/NET/18816.png" /></p>
+<p>Web应用程序显然是“一对多many to one”信息流的一个示例，因为来自许多不同网站的数据可以在客户端的浏览器中合并。</p>
 <p>“超文本传输协议HTTP”是网络上最常用的应用程序级别协议。在Web服务器上，与网站的所有访问者保持连接在应用程序级别上将是一项繁重且无用的任务，尤其是因为这将意味着关闭所有忘记关闭其连接的偶然访问者的连接。 因此，http协议是<strong>无连接协议</strong>。称为HTTPS的面向连接的加密替代协议通常用于需要连接和/或高度安全性的应用程序。</p>
 <ul>
-<li><p>HTTP client - web browser</p></li>
-<li><ul>
-<li></li>
+<li>HTTP Client : a Web Browser
+<ul>
+<li>Presenting information encoded in HTML</li>
+<li>Translating user interactions Into the HTTP.</li>
 </ul></li>
-<li><p>HTTP server</p></li>
-<li><ul>
-<li></li>
+<li>HTTP Server a process interpreting client requests
+<ul>
+<li>Sending pieces of hypertext stored in HTML</li>
+<li>Translating information available in other formats</li>
+<li>acquiring information from outside the Web</li>
 </ul></li>
+<li><strong>Stateless</strong> ( connectionless ) communication protocol</li>
+<li>Uses a <strong>connection oriented</strong> transport protocol</li>
 </ul>
 <blockquote>
 <p>重要的是要牢记面向连接或无连接是特定协议的属性，适用于分层系统中的单个层。 当第n-1层是面向连接的时，完全可以在第n层上使用无连接协议，反之亦然。 在特定的电信环境中，几乎所有组合都是有意义且有用的。</p>
 </blockquote>
-<p>已经提到HTTP是无连接的应用程序层协议。 但是，当访问站点时，需要将页面从服务器传输到客户端，并且这种传输应该是<strong>无错误</strong>的，这几乎意味着，如后所述，这是<strong>面向连接connection oriented的协议</strong>。因此，HTTP使用TCP，一种面向连接connection oriented的传输协议。 每当从Web服务器请求页面时，在传输整个页面（可能与多媒体附件一起）后，就会打开和关闭TCP连接。</p>
+<p>已经提到HTTP是无连接的应用程序层协议。 但是，当访问站点时，需要将页面从服务器传输到客户端，并且这种传输应该是<strong>无错误</strong>的，这几乎意味着，如后所述，这是<strong>面向连接connection oriented的协议</strong>。</p>
+<p>因此，HTTP使用TCP，一种面向连接connection oriented的传输协议。 每当从Web服务器请求页面时，在传输整个页面（可能与多媒体附件一起）后，就会打开和关闭TCP连接。</p>
+<p><img src="/images/NET/18817.png" /></p>
+<ul>
+<li><strong>Benefit</strong>: performance of server</li>
+<li><strong>Penalty</strong>: Server can not keep information about user</li>
+</ul>
 <p>由于HTTP是无连接的，因此按定义它也是无状态的，换句话说，应用程序<strong>实体没有内存</strong>。</p>
 <p>这对于诸如家庭银行业务之类的应用程序显然是不可接受的，在该应用程序中，服务器将要求用户对他/她自己进行身份验证，并记住整个银行业务会话的身份验证。通常，此问题可以通过使用其他面向连接的应用程序级别协议HTTPS解决，但是对于不太重要的应用程序，http可以提供一些技巧。</p>
 <ul>
 <li>HTTP is a connectionless protocol to avoid waste resources.</li>
 <li><strong>HTTPS</strong> is a connection oriented and encrypted alternative protocol for requirinf connection or high level of security.</li>
 </ul>
+<h4 id="cookie">Cookie</h4>
 <p>在无状态协议中模拟状态变量的技巧在于来回发送一条特定的，通常不可见的消息（称为“ Cookie”），该消息包含由于无连接协议而无法存储在应用程序实体中的状态变量。</p>
 <p>例如，在银行业务中，服务器可以在成功进行身份验证后发回一个密码密钥，用户可以通过该密钥发送请求以查看他/她的银行帐户状态。 出于明显的安全原因，此类密钥应为一次性使用且难以猜测。</p>
 <h2 id="web-security">Web security</h2>
+<ul>
+<li><p>Most attacks start with an executable program being installed remotely in a computer.</p>
+<p>大多数攻击始于远程安装在计算机中的可执行程序。</p></li>
+<li><p>Initially , web browsers provided a "sand bag" to run remote programs, prohibiting them to access local resources such as disks</p>
+<p>最初，网络浏览器提供了一个"sand bag"来运行远程程序，禁止它们访问磁盘等本地资源。</p></li>
+<li><p>Making web browsers the run-time environment for a multitude of application programs made " sandbags " too restrictive !</p>
+<p>使网络浏览器成为众多应用程序的运行时环境，使"sand bag"变得过于严格！</p></li>
+<li><p>Only trusted apps should be allowed !!!</p>
+<p>应该只允许受信任的应用程序！！！</p></li>
+</ul>
 
                 
             </div>

@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-30
+                    2021-08-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.8k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    17 Min
+                    19 Min
                 </div>
                 
 
@@ -501,20 +501,26 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="multiplexing">Multiplexing</h1>
-<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a></p>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569993">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569988">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569993">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569988">Video</a></p>
+<hr />
+<p>[TOC]</p>
+<hr />
 <p>Capacity of physical links does not necessarily match the throughput requirements of the applications.</p>
 <p>物理链接的容量不一定与应用程序的吞吐量要求匹配。</p>
-<p>For instance, using an optical fiber with a throughput of several gigabits per second for a telephone conversation requiring just 64 Kb/s seems to be a real waste of resources.</p>
-<p>例如，对于每秒仅需64 Kb/s的电话通话，使用吞吐量为每秒几吉比特的光纤似乎是对资源的真正浪费。</p>
+<ul>
+<li><p>For instance, using an optical fiber with a throughput of several gigabits per second for a telephone conversation requiring just 64 Kb/s seems to be a real waste of resources.</p>
+<p>例如，对于每秒仅需64 Kb/s的电话通话，使用吞吐量为每秒几吉比特的光纤似乎是对资源的真正浪费。</p></li>
+</ul>
 <p>For this reason, most physical links carry simultaneously several data flows. This is called “<strong>multiplexing</strong>”.</p>
-<p>因此，大多数物理链路同时承载多个数据流。 这称为“<strong>多路复用 multiplexing</strong>”。</p>
+<p>因此，大多数物理链路同时承载多个数据流。 这称为“<strong>多路复用multiplexing</strong>”。</p>
+<p><img src="/images/NET/18910.png" /></p>
 <p>存在两种不同的复用技术multiplexing techniques</p>
 <ul>
 <li>circuit switching 电路交换</li>
 <li>packet switching 分组交换</li>
 </ul>
 <h2 id="circuit-switching-电路交换">Circuit Switching 电路交换</h2>
+<p><img src="/images/NET/18911.png" /></p>
 <p>With circuit switching, the technique traditionally used in the telephone network, the capacity of the shared links is subdivided in predefined parts called circuits.</p>
 <p>电路交换是电话网络中传统使用的技术，它把共享链路的容量细分为称为电路的预定部分。</p>
 <p>Upon a request, such circuit, if available, is reserved for a given conversation, and remains reserved until the participants to the conversation release explicitly the link.</p>
@@ -522,6 +528,7 @@
 <p>Normally billing is based upon the duration of the reservation, not on the volume of data transferred.</p>
 <p>通常，计费是基于预订的持续时间，而不是基于传输的数据量。</p>
 <h3 id="frequency-domain-multiplexing">Frequency Domain Multiplexing</h3>
+<p><img src="/images/NET/18912.png" /></p>
 <p>Frequency domain multiplexing consists in shifting the base band spectrum of each signal to be multiplexed by a different carrier frequency Ωi. Provided that the different values of Ωi differ by more than the bandwidth of the base band signals to be multiplexed, these signals can be transmitted in separate frequency ranges.</p>
 <p>频域复用包括移动每个信号的基带频谱，以便由不同的载频 Ωi 复用。如果Ωi 的不同值相差超过要复用的基带信号的带宽，则这些信号可以在不同的频率范围内传输。</p>
 <p>The multiplexed signals can be shifted back to the original baseband spectrum by mixing them again with the appropriate carrier at frequency Ωi.</p>
@@ -533,16 +540,20 @@
 <p>Other techniques, such as frequency or phase modulation can be used. They are slightly more performant from the point of view of transmission capacity vs. Bandwidth, but evaluating their spectral effects require more complex mathematics than is the case for amplitude modulation. Nevertheless these different modulation techniques allow, in first approximation similar frequency shifts.</p>
 <p>可以使用其他技术，例如频率或相位调制。从传输容量与带宽的角度来看，它们的性能稍好一些，但评估它们的频谱效应需要比幅度调制更复杂的数学。尽管如此，这些不同的调制技术在第一次近似中允许类似的频移。</p>
 <h4 id="fdm-in-broadcasting">FDM in broadcasting</h4>
+<p><img src="/images/NET/18913.png" /></p>
 <p>Frequency domain multiplexing is widely used in radio and TV broadcasting. Each transmitter is assigned a carrier frequency and the receiver chooses a program by mixing the incoming signal with a locally generated carrier with the appropriate frequency.</p>
 <p>频域多路复用广泛用于无线电和电视广播。 每个发射机都分配有一个载波频率，接收机通过将输入信号与本地生成的具有适当频率的载波进行混合来选择节目。</p>
 <h4 id="gsm-radio-slots">GSM Radio Slots</h4>
 <p>As described in the chapter on transmission media, second generation cellular telephony (gsm) uses in each cell a set of different frequencies, two for each conversation. This is also a form of frequency domain multiplexing.</p>
 <p>如有关传输媒体的章节所述，第二代蜂窝电话（gsm）在每个小区中使用一组不同的频率，每个会话使用两个。 这也是频域复用的一种形式。</p>
-<h4 id="wave-domain-multiplexing">Wave Domain Multiplexing</h4>
+<p><img src="/images/NET/18914.png" /></p>
+<h3 id="wave-domain-multiplexing">Wave Domain Multiplexing</h3>
+<p><img src="/images/NET/18915.png" /></p>
 <p>Wave domain multiplexing, widely used to multiplex several data links over a single optical fiber, by using a different color for each link, is also a form of frequency domain multiplexing as different colors correspond to different frequencies of the light.</p>
 <p>通过对每个链路使用不同的颜色，被广泛用于在一条光纤上多路复用多个数据链路的波域多路复用也是频域多路复用的一种形式，因为不同的颜色对应于光的不同频率。</p>
 <h3 id="synchronous-time-domain-multiplexing">Synchronous time domain multiplexing</h3>
 <h4 id="time-domian-multiplexing">Time Domian Multiplexing</h4>
+<p><img src="/images/NET/18916.png" /></p>
 <p>Circuit switching is implemented in digital systems by combining bit per bit or byte per byte several incoming digital lines into a single digital output line with a bit rate slightly higher than the sum of the bit rates of the incoming lines.</p>
 <p>在数字系统中，电路交换是通过将几条输入的数字线路的每位或每字节的字节组合到一条数字输出线路中而实现的，比特率略高于输入线路的比特率之和。</p>
 <p>The outgoing line needs to have a data rate slightly higher than the sum of the data rates of the incoming lines, because some synchronization data needs to be added in order to identify correctly which bits belong to which channel when the multiplexed line needs to be demultiplexed.</p>
@@ -554,17 +565,43 @@
 <li>In the USA : A T1 1544 Kb/s caries 24 circuits at 64 Kb/s, leaving 8 Kb/s for synchronization.</li>
 </ul>
 <h2 id="packet-switching-分组交换">Packet switching 分组交换</h2>
+<p><img src="/images/NET/18917.png" /></p>
 <p>Instead of subdividing in advance the total capacity of the shared link, packet switching allows each user to use part of the time the full capacity of the shared link. While one user uses the link, data from other users needs to be buffered. Normally, the time span each user can use the link is continuously adjusted in order to minimize the amount of buffered data.</p>
 <p>分组交换不是预先预先划分共享链路的总容量，而是允许每个用户在部分时间中使用共享链路的全部容量。 当一个用户使用链接时，其他用户的数据需要进行缓冲。 通常，每个用户可以使用链接的时间跨度会不断调整，以最大程度地减少缓冲数据量。</p>
 <p>Charges based on the volume of data transmitted is the most obvious way to charge for packet switched services.</p>
 <p>基于传输的数据量收费是对分组交换服务收费的最明显方式。</p>
 <h2 id="circuit-vs.-packet-switching">Circuit vs. Packet Switching</h2>
+<p><img src="/images/NET/18918.png" /></p>
 <p>Circuit switching is a logical choice for multiplexing almost continuous flows of data (flows where the ratio of the peak data rate and the average data rate is close to one) because it will ensure a simple and efficient sharing of the communication link.</p>
 <p>电路交换是用于复用几乎连续的数据流（峰值数据速率与平均数据速率之比接近1的流）的逻辑选择，因为它将确保简单有效地共享通信链路。</p>
 <p>Packet switching allows efficient sharing when the peak to average ratio is very large or, in other words, when the traffic is bursty because it can provide the full link capacity to handle a data burst. Of course, when two bursts from different sources coincide in time, one of the two will have to be delayed. This is in packet switched network the main source of random transmission delays.</p>
 <p>当峰均比非常大时，换句话说，在流量突发时，分组交换可实现有效共享，因为它可以提供完整的链路容量来处理数据突发。当然，当来自不同来源的两个脉冲串在时间上重合时，这两个脉冲之一必须被延迟。这是分组交换网络中随机传输延迟的主要来源。</p>
 <p>For voice transmission the peak to average rate is close to two (on the telephone, when one speaks, the other doesn’t) while typical data applications such as transaction handling or web surfing are characterized by peak to average ratios at least one order of magnitude higher (most people tend to think a little bit between transactions and spend time reading the web pages)</p>
 <p>对于语音传输，峰均速率接近于两个（在电话上，一个人讲话时，另一人则不讲话），而典型的数据应用（例如事务处理或网络冲浪）的特征是峰均比至少为一个数量级。数量级更高（大多数人倾向于在事务之间思考一点，花时间阅读网页）</p>
+<ul>
+<li>Circuit Switching
+<ul>
+<li><strong>Σ peak</strong> data rates &lt;= transmission capacity
+<ul>
+<li>Acceptable for voice and image transmission</li>
+<li>wasteful of resources for data transmission</li>
+</ul></li>
+<li>Fixed total delay</li>
+</ul></li>
+<li>Packet Switching
+<ul>
+<li><strong>Σ average</strong> data rates &lt;= transmission capacity
+<ul>
+<li>Optimal use of transmission capacity</li>
+<li>Congestion control to handle traffic peaks</li>
+</ul></li>
+<li>Variable total delay
+<ul>
+<li>caused by queuing in front of shared link</li>
+<li>problematic for transmission of voice</li>
+</ul></li>
+</ul></li>
+</ul>
 <p>An other way to distinguish the advantages of circuit and packet switching consists in evaluating the transmission capacity of the shared link.</p>
 <p>区分电路和分组交换优势的另一种方法是评估共享链路的传输容量。</p>
 <p>As in circuit switching, no user can get more than its preallocated share, the capacity of the shared link should be equal to the sum of the desired peak rates on each channel.</p>
@@ -575,7 +612,28 @@
 <p>再次，这表明电路交换是良好的，峰值/平均数接近于1，而分组交换以更大的峰值/平均比保持有效。</p>
 <p>As with circuit switching, capacity is reserved, delays will not be influenced by the activity of other users. This is obviously not the case with packet switching.</p>
 <p>与电路交换一样，容量是保留的，延迟不会受到其他用户活动的影响。 分组交换显然不是这种情况。</p>
-<h4 id="connection-oriented-vs.-connectionless">Connection oriented vs. Connectionless</h4>
+<h3 id="connection-oriented-vs.-connectionless">Connection oriented vs. Connectionless</h3>
+<ul>
+<li>Circuit Switching
+<ul>
+<li>Intrinsically connection oriented</li>
+</ul></li>
+<li>Packet Switching
+<ul>
+<li>Connectionless
+<ul>
+<li>Each packet is an independent message</li>
+<li>No reservation of resources is possible</li>
+<li>Typical example : Internet Protocol</li>
+</ul></li>
+<li>Connection oriented : Virtual Circuits
+<ul>
+<li>Each packet carries an identifier ( Virtual Circuit Number ) of the data flow it belongs to</li>
+<li>Quality control and resource reservatation</li>
+<li>Typical examples : X25 , Frame Relay ,</li>
+</ul></li>
+</ul></li>
+</ul>
 <p>Circuit switching is inherently connection oriented as reserving a circuit implies establishing a connection.</p>
 <p>电路交换本质上是面向连接的，因为保留电路意味着建立连接。</p>
 <p>For packet switching, both connection oriented and connectionless protocols can be used.</p>
@@ -584,14 +642,31 @@
 <p>如果采用无连接协议，则每个数据包将作为独立的消息处理，无法对数据包进行编号，无法检测其丢失，并且无法为特定数据流保留传输容量。 互联网中使用的IP协议就是这种方法的一个例子。</p>
 <p>If a connection oriented approach is adopted, a specific flow of packets that belong to a specific application is called a virtual circuit and all packets carry an identifier of the virtual circuit. On a virtual circuit it is possible to number the packets to detect eventual packet loss and it is possible to reserve resources to guarantee the throughput.</p>
 <p>如果采用面向连接的方法，则属于特定应用程序的特定数据包流称为虚拟电路，并且所有数据包均携带该虚拟电路的标识符。 在虚拟电路上，可以对数据包编号以检测最终的数据包丢失，并且可以保留资源以保证吞吐量。</p>
-<h4 id="connectionless-packet-switching">Connectionless Packet Switching</h4>
+<h3 id="connectionless-packet-switching">Connectionless Packet Switching</h3>
+<ul>
+<li>The multiplexing protocol has no state variables</li>
+<li>Each packet is an independent message</li>
+<li>No error correction by retransmission</li>
+<li>Throughput and delay depend on traffic</li>
+<li>No guaranteed throughput or delay</li>
+<li>Priorities to differentiate delay in function of application</li>
+<li>Fragmentation of long , low priority also reduce delay for high priority pa</li>
+</ul>
 <p>If a connectionless protocol is adopted, each packet is handled as an independent message, packets can not be numbered, their loss due to transmission errors is not detectable.</p>
 <p>如果采用无连接协议，则每个数据包将作为独立的消息处理，无法对数据包进行编号，并且无法检测到由于传输错误而造成的丢失。</p>
 <p>As no transmission capacity can be reserved for a specific data-flow, throughput and delay will essentially be determined by the total traffic.</p>
 <p>由于无法为特定的数据流预留传输容量，因此吞吐量和延迟将基本上由总流量决定。</p>
 <p>The <strong>only way</strong> to influence the delay of a specific flow consists in assigning different priorities to packets belonging to different flows, and to transmit the packets according to their priority. Delay variations can further be reduced by cutting large, low priority, packets in several fragments transmitted independently.</p>
 <p>影响特定流延迟的<strong>唯一方法</strong>是为属于不同流的数据包分配不同的优先级，并根据其优先级发送数据包。 可以通过分割独立传输的几个片段中的大的，低优先级的数据包来进一步减少延迟变化。</p>
-<h4 id="connection-oriented-packet-switching">Connection oriented Packet Switching</h4>
+<h3 id="connection-oriented-packet-switching">Connection oriented Packet Switching</h3>
+<ul>
+<li>The multiplexing protocol has state variables</li>
+<li>Each specific data flow is identified by its Virtual Circuit Number ( VCN )</li>
+<li>Sliding window error correction can be applied to each Virtual Circuit</li>
+<li>A committed throughput can be negotiated for each Virtual Circuit.</li>
+<li>A virtual circuit can try to exceed its committed throughput</li>
+<li>When the sum of the committed throughput does not exceed the transmission ca wa delay and throughput can be guaranted</li>
+</ul>
 <p>If a connection oriented approach is adopted, the protocol has state variables.</p>
 <p>如果采用面向连接的方法，则协议具有状态变量。</p>
 <p>Each specific flow of packets is identified as a virtual circuit and all packets carry their virtual circuit number. On a virtual circuit it is possible to number the packets to detect eventual packet loss and to correct it by retransmission of the missing packets.</p>
@@ -599,6 +674,9 @@
 <p>It is also possible to define a committed throughput for a specific virtual circuit. A virtual circuit can exceed its committed throughput, unless this jeopardizes the committed throughput of other virtual circuits. As long as the sum of the committed throughputs does not exceed the total transmission capacity, each virtual circuit can be guaranteed its committed throughput, with a defined upper limit for the delay.</p>
 <p>还可以定义特定虚拟电路的承诺吞吐量。 虚拟电路可能会超过其承诺的吞吐量，除非这会危害其他虚拟电路的承诺吞吐量。 只要承诺的吞吐量之和不超过总传输容量，就可以确保每个虚拟电路的承诺吞吐量，并具有定义的延迟上限。</p>
 <h2 id="network-coding">Network coding</h2>
+<p><img src="/images/NET/18919.png" /></p>
+<p>Just routing entire packets doesn’t necessarily make optimal usage of the network resources: In the shown example, two messages, m1 and m2 need to be sent through a 6 nodes network with all unidirectional links, all with a throughput of t bits/second. As one link needs to be shared between the two messages, this link will be a bottleneck while the other links will be used at half their capacity or remain idle. The average throughput for each message will only be t/2 bits per second.</p>
+<p><img src="/images/NET/18920.png" /></p>
 <p>By merging messages instead of multiplexing them, network resources can potentially be used more efficiently: Instead of transmitting alternatively packets of both messages on the bottleneck link, one could merge the two messages by means of a bitwise exclusive OR operation.</p>
 <p>通过合并消息而不是对消息进行多路复用，可以潜在地更有效地利用网络资源：代替在瓶颈链路上交替发送两个消息的数据包，可以通过按位异或操作合并两个消息。</p>
 <p>This merged message is sent to both destinations b and d, while, through the previously idle links, message m1 and m2 are also sent respectively to b and d. By combining the merged message with respectively m1 and m2, b obtains m2 and d obtains m1, both at a rate of t b/s, while no link has a higher throughput and both messages need to share a common link.</p>

@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-30
+                    2021-08-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    9.6k
+                    10.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    42 Min
+                    47 Min
                 </div>
                 
 
@@ -501,10 +501,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="telecommunications-theory">Telecommunications Theory</h1>
-<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a></p>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569991">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569981">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569991">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569981">Video</a></p>
+<hr />
+<p>[TOC]</p>
+<hr />
 <h2 id="electromagnetism-and-spectra">Electromagnetism and Spectra</h2>
 <h3 id="spectra">Spectra</h3>
+<p><img src="/images/NET/18854.png" /></p>
 <p>频率frequencies范围range称为<strong>频谱spectrum</strong>。</p>
 <p>例如，空气携带的机械振动mechanical vibrations的频谱可分为三个部分：</p>
 <ul>
@@ -564,24 +567,42 @@
 </ul>
 <h2 id="theorem-of-shannon">Theorem of Shannon</h2>
 <h3 id="transmission">Transmission</h3>
-<h4 id="parallel-transmission">Parallel Transmission</h4>
+<h4 id="parallel-transmission-并行传输">Parallel Transmission 并行传输</h4>
+<p><img src="/images/NET/18855.png" /></p>
 <p>As, traditionally, storage in computers is organized in words (often 8 bit words, called bytes) it would seem logical to establish communication channels with a width of 8 or a multiple of 8 bits.</p>
 <p>传统上，计算机中的存储是按字（通常为8位字，称为字节）组织的，因此建立宽度为8或8位的倍数的通信通道似乎是合理的。</p>
+<blockquote>
+<p>因为 1 byte = 8 bits ，那么传输数据，用8的倍数的平行通道传播效率就会很高</p>
+<p>当然，也会留一个通道clock，告诉传输的双方此时的state，也就是此时的数据到底有没有用。</p>
+<p>根据麦克斯韦方程组，远距离传播这样的数据会受到很多其他参数的影响，也就会导致很高的delay</p>
+</blockquote>
 <ul>
 <li><p>例如，这是在计算机内部完成的，在这些计算机中，扁平电缆在主板和磁盘等外围设备之间并行承载8、16、32甚至64位。</p></li>
 <li><p>In addition to these data lines, an additional line, called “clock” is required to tell a receiver when the state of the data lines represents valid information.</p>
-<p>除了这些数据线之外，还需要一条称为“时钟clock”的附加线来告知接收器何时数据线的状态代表有效信息。</p></li>
+<p>除了这些数据线之外，还需要一条称为“<strong>时钟clock</strong>”的附加线来告知接收器何时数据线的状态代表有效信息。</p></li>
 <li><p>这种“并行parallel”数据传输在将打印机连接到PC上也很普遍，但是系统上可用的打印机电缆长度被限制为几米。</p></li>
 <li><p>The reason for such a limitation is that it is very difficult to ensure equal propagation speeds on the different channels</p>
 <p>这种限制的原因是要确保不同信道上的相等传播速度非常困难</p>
 <p>Propagation speed of electromagnetic waves along conductors is function of the ε and μ coefficients characterizing the environment of a conductor and these coefficients can be strongly influenced locally for instance by the vicinity of the iron frame of the table on which the printer is standing.</p>
 <p>电磁波沿导体的传播速度是表征导体环境的ε和μ系数的函数，这些系数可能会受到局部强烈影响，例如，打印机所站立的工作台的铁框架附近。</p></li>
 </ul>
-<p>Uncertainty about propagation speeds restricts severely the attainable <strong>(data rate) * distance</strong> product for parallel links.</p>
-<p>传播速度的不确定性严重限制了并行链路可达到的（**数据速率）*距离**乘积。</p>
-<h4 id="serial-transmission">Serial Transmission</h4>
+<p>Uncertainty about propagation speeds restricts severely the attainable <strong>(data rate) × distance</strong> product for parallel links.</p>
+<p>传播速度的不确定性严重限制了并行链路可达到的（<strong>数据速率）× 距离</strong>乘积。</p>
+<h5 id="disadvantage">Disadvantage</h5>
+<ul>
+<li>Differences in propagation delay</li>
+<li>Cost of multiple communcation channels</li>
+</ul>
+<h4 id="serial-transmission-串行传输">Serial Transmission 串行传输</h4>
 <p>In order to avoid the limitations of parallel transmissions over long distances, data is always transmitted bit per bit over a single data link, called a “<strong>serial link</strong>”.</p>
 <p>为了避免长距离并行传输的限制，总是在单个数据链路（称为“<strong>串行链路serial link</strong>”）上逐位传输数据。</p>
+<blockquote>
+<p>可以把传输的8n个bit的数据再变成bit flow，用一条通道传播，到站了，在分成8n个bit的数据，实现远距离传播。当然此时也需要clock参数。</p>
+</blockquote>
+<p><img src="/images/NET/18856.png" /></p>
+<ul>
+<li>with clock/data multiplexing</li>
+</ul>
 <p>This is the reason why data rates in transmission systems are always expressed in <strong>bits per second</strong> rather than in bytes per second while memory sizes are always expressed in bytes.</p>
 <p>这就是为什么传输系统中的数据速率始终以<strong>比特/秒</strong>而不是字节/秒表示而内存大小始终以<strong>字节/秒</strong>表示的原因。</p>
 <p>Of course, on a serial link, it is also necessary to provide a clock signal to inform the receiver when the state of the data is meaningful.</p>
@@ -590,9 +611,10 @@
 <p>This is true, but, data and clock can be merged onto a single link, ensuring <strong>strict synchronicity</strong>.</p>
 <p>一个人可能会反对，要确保以8f的数据速率连接两个链路之间的同步，而不是要以f的数据速率确保九个链路之间的同步，要简单得多。</p>
 <p>的确如此，但是数据和时钟可以合并到单个链路上，从而确保严格的<strong>同步性</strong>。</p>
-<h4 id="synchronous-transmission">Synchronous Transmission</h4>
+<h4 id="synchronous-transmission-同步传输">Synchronous Transmission 同步传输</h4>
 <p>Synchronous DCE’s typically transmit a modified version of the clock signal, the modifications encoding the data.</p>
 <p>同步DCE通常会发送时钟信号的修改版本，这些修改会编码数据。</p>
+<p><img src="/images/NET/18857.png" /></p>
 <p>在此图所示的示例中，发送了与时钟频率相同的正弦波sine wave。</p>
 <ul>
 <li><p>For a bit 1, a full period of the sine wave is transmitted</p>
@@ -614,6 +636,7 @@
 <li><p>The goal is to obtain at the output of the receiver a digital sequence of bits identical to the one entered on the transmitter side but due to signal degradation along the analog link, differences, called <strong>transmission errors</strong>, can appear.</p>
 <p>目的是在接收机的输出端获得与在发射机端输入的比特相同的数字比特序列，但是由于沿模拟链路的信号衰减，可能会出现称为<strong>传输错误</strong>的差异。</p></li>
 </ul>
+<p><img src="/images/NET/18858.png" /></p>
 <p>In the example shown in this picture, a bit one is translated into red light and a bit zero into darkness.</p>
 <p>在此图所示的示例中，位1转换为红色，位0转换为黑暗。</p>
 <p>The light generated by the light emitting diode in the transmitter is carried by an optical fiber to a receiver which is a photo detector.</p>
@@ -623,13 +646,45 @@
 <p>The red light will be less intense and the darkness will be less dark. The receiver has to guess whether the output of the fiber corresponds to light or darkness at the transmitter side of the fiber. A wrong guess results in a transmission error.</p>
 <p>红光的强度将降低，而黑暗的强度将降低。接收器必须猜测光纤的输出是对应于光纤发送器端的亮还是暗。错误的猜测会导致传输错误。</p>
 <h4 id="encoding-and-decoding-digital-signals">Encoding and decoding digital signals</h4>
+<ul>
+<li>Transmitter (Tx)
+<ul>
+<li><strong>Input</strong>: stream of binary numbers</li>
+<li><strong>Output</strong>: stream of analog signals suitable for transmission over long distances</li>
+</ul></li>
+<li>Receiver (R)
+<ul>
+<li><strong>Input</strong>: stream of analog signals
+<ul>
+<li>generated by transmitter</li>
+<li>distorted by transmission channel</li>
+</ul></li>
+<li>Compares each input signal with all signals which could have been transmitted and decides from which one the input is a distorted image.</li>
+<li><strong>Output</strong>: stream of binary numbers , preferably identical to the input of the transmitter</li>
+</ul></li>
+</ul>
 <h4 id="analog-transmission-channel">Analog Transmission Channel</h4>
 <p>The Shannon’s theorem gives the upper limit of the information throughput an analog channel can carry.</p>
 <p>香农定理给出了模拟信道可以承载的信息吞吐量的上限。</p>
 <p>The analog channel 模拟信道 has 2 properties:</p>
 <ul>
-<li>the bandwidth 带宽</li>
-<li>the signal to noise ratio 信噪比</li>
+<li><p>the bandwidth 带宽</p>
+<ul>
+<li><p>Differewnce betwwen highest and lowest frequency of sine waves which can be transmitted</p></li>
+<li><p>能传递信号的频段的宽度，它决定一秒钟信号的state能变几次。</p>
+<p><img src="/images/NET/18859.png" /></p></li>
+</ul></li>
+<li><p>the signal to noise ratio 信噪比</p>
+<ul>
+<li><p><span class="math display">\[
+\frac{S}{N}=\frac{signal\ power}{noise\ power}
+\]</span></p></li>
+<li><p>S/N determins number of distinct states which can be distinguished within a given observation interval</p>
+<p>它决定接收端能分辨出多少种state</p>
+<blockquote>
+<p>简单来说，S/N越大，说明噪音占比越大，规定4v是分界线，大于4v的是0，那么由于噪音的影响（举例为100），那么4往上往下100都没法用，因为很容易被噪音影响，这100个单位就没法定义state，要是噪音特别小（举例为0.0001），那么基本上每隔0.001都可以定义一个state。</p>
+</blockquote></li>
+</ul></li>
 </ul>
 <p>带宽定义为可以传输的最高频率和最低频率之间的差值。</p>
 <ul>
@@ -639,21 +694,29 @@
 <p>在第一个近似值中，可以说信道的带宽决定了传输信道状态每秒变化的频率。</p></li>
 </ul>
 <p>信噪比 (SNR) 是传输信道接收器侧有用信号功率与噪声功率之比。严格来说，该定义仅适用于噪声频谱均匀分布在整个带宽（“白噪声”）上的情况，否则通过频率敏感滤波器降低噪声功率将很简单。传输信道的信噪比决定了<u>接收器可以可靠地区分多少种不同的状态。</u></p>
-<h5 id="binary-vs.-multi-bit-encoding">Binary vs. Multi-bit encoding</h5>
+<h4 id="binary-vs.-multi-bit-encoding">Binary vs. Multi-bit encoding</h4>
 <p>This picture explains by means of an example how the signal to noise ratio determines the number of states that can be distinguished and how this number of states can influence the total throughput.</p>
 <p>这张图通过一个例子解释了信噪比如何决定可以区分的状态数，以及这个状态数如何影响总吞吐量。</p>
+<p><img src="/images/NET/18860.png" /></p>
 <ul>
-<li>在左侧，显示了二进制传输系统binary transmission system 。
+<li><p><span class="math display">\[
+Modulation\ rate =\frac{1}{t}\ (Band)
+\]</span></p></li>
+<li><p><span class="math display">\[
+Data\ rate=\frac{1}{t}\log_2n\ (b/s)
+\]</span></p></li>
+<li><p>在左侧，显示了二进制传输系统binary transmission system 。</p>
 <ul>
 <li>在发送端，位 1 由 +4V 表示，位 0 由 -4V 表示。</li>
 <li>接收器的合理决策算法包括将所有正输入信号解释为位 1，将所有负输入信号解释为位 0。</li>
 <li>只要任何<u>叠加错误电压superposed error voltage</u>保持小于 4V，就不会发生传输错误。</li>
 </ul></li>
-<li>但是，如果误差电压error voltages的最大幅度maximum amplitude小于 2V，则可以决定，如右侧所示，一次编码两个位，分别代表双位 00 乘 -6V、01 乘 -2V、10 乘 +2V和 11 乘 +6V。
+<li><p>但是，如果误差电压error voltages的最大幅度maximum amplitude小于 2V，则可以决定，如右侧所示，一次编码两个位，分别代表双位 00 乘 -6V、01 乘 -2V、10 乘 +2V和 11 乘 +6V。</p>
 <ul>
 <li>如果由于信道带宽的原因，在时间 t 内无法可靠地检测到状态变化，则左侧系统可以传输 1/tb/s，而右侧系统可以传输 2/tb/s .</li>
 </ul></li>
 </ul>
+<h5 id="modulation-rate---band-调制率">Modulation rate - band 调制率</h5>
 <p>The number of state changes that can be detected per second (also called “<strong>modulation rate</strong>”) is expressed in Baud while the channel throughput is simply expressed in b/s.</p>
 <p>每秒可检测到的状态变化次数（也称为“<strong>调制率modulation rate</strong>”）以波特率Baud表示，而通道吞吐量仅以 b/s 表示。</p>
 <blockquote>
@@ -685,6 +748,10 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <h3 id="eye-diagram-眼图">Eye Diagram 眼图</h3>
 <p>The origin of the name “eye diagram” can best be understood by considering the encoding described earlier as an example of synchronous transmission.</p>
 <p>通过将前面描述的编码作为同步传输的示例，可以最好地理解名称“眼图”的来源。</p>
+<p><img src="/images/NET/18861.png" /></p>
+<ul>
+<li>The incoming waveforms are displayed on an oscilloscope, synchronied by the recovered clock</li>
+</ul>
 <p>A sine wave, synchronous with the data clock, is modulated in phase, a 1800 phase shift representing a bit 0 and no phase shift representing a bit 1.</p>
 <p>与数据时钟同步的正弦波被相位调制，其中1800相移代表位0，没有相移代表位1。</p>
 <p>If one displays one period of the received waveforms on an oscilloscope with long persistence and with a time base synchronized with the data clock, one will see a pair of eyes wide open when the received signals have a good amplitude and when the clock is correctly extracted from the received signal.</p>
@@ -695,6 +762,9 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <li><p>When the clock recovery doesn’t work properly the display will be entirely filled with moving waveforms and no open eyes will be visible.</p>
 <p>当时钟恢复无法正常工作时，显示屏将完全充满移动的波形，并且看不到睁开的眼睛。</p></li>
 </ul>
+<blockquote>
+<p>那么很明显，如果传输来的信号很强，眼睛会打开，反之，眼睛则会关闭，这就能很直观的看到信号的强弱。</p>
+</blockquote>
 <h3 id="multi-bit-eye-diagrams">Multi-bit Eye Diagrams</h3>
 <p>In modern transmission systems, more than one amplitude and many different phase shifts are used to encode data.</p>
 <p>在现代传输系统中，<strong>一个以上的振幅</strong>和<strong>许多不同的相移</strong>用于编码数据。</p>
@@ -702,41 +772,56 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <p>大多数仪器没有显示原始的输入波形，而是提供了输入信号的极性表示：<u>与显示屏中心的距离</u>给出了<strong>幅度</strong>，<u>方向</u>显示了<strong>相移</strong>。</p>
 <p>If such an instrument is positioned near the transmitter, the eye diagram will feature as many sharp dots as there are different states, each being encoded by a specified amplitude and a specified phase shift.</p>
 <p>如果将这样的仪器放置在发射器附近，则眼图将具有与不同状态一样多的尖点，每个尖点均由指定的幅度和指定的相移编码。</p>
+<p><img src="/images/NET/18862.png" /></p>
 <p>On the receiver side these dots will have evolved into <strong>clouds</strong> as transmission noise can have affected the amplitude and phase of the signals.</p>
 <p>在接收器端，<u>由于传输<strong>噪声</strong>会<strong>影响</strong>信号的幅度和相位，这些点将演变为<strong>云</strong>。</u></p>
 <p>As long as the clouds corresponding to the different states remain separate, as shown on the left side of the slide, an <strong>errorless transmission</strong> is possible.</p>
 <p>只要对应于不同状态的云保持分离，如图左所示，就可以实现<strong>无误传输</strong>。</p>
 <p>When the clouds overlap, as shown on the right side, the receiver will no longer be able to always guess correctly which state was send out and a <strong>transmission error</strong> could occur.</p>
 <p>当云层重叠时，如右侧所示，接收器将不再能够始终正确地猜测出哪个状态已发出，并且可能发生<strong>传输错误</strong>。</p>
+<blockquote>
+<p>每一个信号段位成为一个小球环绕着中央，从中央到圆心的距离代表振幅，相位则在图中体现为与中心存在的夹角。</p>
+<p>非常有趣的是，这个新图像有了一个新的特性，能直观的看到信噪比对图像的影响，如果信噪比影响不大，小球是粒粒分明的；如果小球相连，则说明他们直接会出现干扰，也就是很大概率会出现Transmission Error。</p>
+</blockquote>
 <h4 id="communications-in-degraded-mode">Communications in degraded mode</h4>
+<blockquote>
+<p>当小球重叠了，我们可以根据香农定理<strong>，给DataRate或Bandwidth作出调整</strong>，使得小球重新分离。通常Bandwidth是无法调整的，我们对DataRate作出调整，由于信噪比过小，所以可以把DataRate也调小，看！分离的图像就重见天日了</p>
+</blockquote>
 <p>When the eye diagram of a transmission system shows overlapping clouds it is often possible, by <u>reducing the number of <strong>distinct states</strong></u>, to separate sufficiently the clouds to make correct transmission again possible, but at a lower data rate.</p>
 <p>当传输系统的眼图显示重叠的云时，通常可以通过<u>减少<strong>不同状态</strong>的数量</u>来充分分离云，以再次进行正确的传输，但是数据速率较低。</p>
+<p><img src="/images/NET/18863.png" /></p>
 <p>The strange noises one can hear when establishing a modem connection through the switched telephone network correspond to the evaluation of the <strong>maximum baud rate</strong> and <strong>the maximum number of states</strong> that can be used to establish a reliable data link.</p>
 <p>当通过交换电话网络建立调制解调器连接时，会听到奇怪的声音，这对应于最大波特率和可用于建立可靠数据链路的最大状态数的评估。</p>
 <h2 id="error-detection-and-correction">Error detection and correction</h2>
 <p>In order to study formally and techniques, some notations are introduced here.</p>
 <p>为了正式研究错误error检测detection和纠正correction技术，这里引入了一些符号。</p>
 <table>
+<thead>
+<tr class="header">
+<th>Length of messages</th>
+<th>k + r ≤ LMax</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td></td>
+<td>Informative message</td>
+<td>k bits</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
+<td>Redundancy</td>
+<td>r bits, f(int.mess.)</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
+<td># Messages send</td>
+<td>2<sup>k</sup></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
+<td># Messages received</td>
+<td>2<sup>k+r</sup></td>
 </tr>
 <tr class="odd">
 <td>Hamming distance （X-Y）</td>
-<td></td>
+<td>Σ<sub>k+r</sub><sup>i=1</sup>|X<sub>i</sub>-Y<sub>i</sub>|</td>
 </tr>
 </tbody>
 </table>
@@ -755,6 +840,11 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <h3 id="error-detecting-code">Error detecting code</h3>
 <p>Two trivial examples will be used to differentiate codes allowing only error detection and those that allow also error correction without requiring retransmission of the message.</p>
 <p>将使用两个简单的示例来区分仅允许错误检测的代码和也允许纠错而无需重新传输消息的代码。</p>
+<p><img src="/images/NET/18864.png" /></p>
+<ul>
+<li>Single bit errors are detected if hamming distance between legitimate message &gt; 1</li>
+<li>No guessing is possible as erroneous messages are at equal distance from several correct ones</li>
+</ul>
 <p>One considers here messages that contain only one bit of information (k=1). A single redundant bit (r=1) is added to the information bit. The redundant bit is set to be equal to the information bit, so that only two messages (00 and 11) can be correct.</p>
 <p>人们在这里考虑仅包含一位信息的消息（k = 1）。 将单个冗余位（r = 1）添加到信息位。 冗余位被设置为等于信息位，因此只有两个消息（00和11）可以正确。</p>
 <p>Four different messages (00, 01, 10 and 11) can be received</p>
@@ -767,8 +857,14 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 </ul>
 <p>由于正确消息之间的汉明距离为2，因此没有单个位错误可以将正确消息转换为另一正确消息。 在此系统中无法检测到影响两位的错误。</p>
 <p>As the Hamming distance between correct messages is two, no single bit error can convert a correct message into an other correct one. Errors that affect the two bits are undetectable in this system.</p>
+<h3 id="error-correcting-code">Error correcting code</h3>
+<p><img src="/images/NET/18865.png" /></p>
+<ul>
+<li>Hamming distance between legitimate messaage &gt;2</li>
+<li>This implied that each erroneous message is closer to one correct message than to any other.</li>
+</ul>
 <p>Instead of adding one redundant but to the one bit message, it is possible to add two redundant bits to it. For simplicity they are both chosen equal to the information bit. The two correct messages are 000 and 111.</p>
-<p>除了向一位消息中添加一个冗余之外，还可以向其中添加两个冗余位。为简单起见，它们都选择等于信息位。正确的两个消息是000和111。</p>
+<p>除了向一位消息中添加一个冗余之外，还可以向其中添加<strong>两个冗余位</strong>。为简单起见，它们都选择等于信息位。正确的两个消息是000和111。</p>
 <p>In this example, the Hamming distance of any incorrect message to the two correct ones will be different and, as a single bit error is more likely than a two bits error, one could guess upon reception of an incorrect message what the correct original might have been. This results from an Hamming distance between correct messages of at least 3.</p>
 <p>在此示例中，任何不正确消息与两个正确消息之间的汉明距离将不同，并且由于一位错误比两位错误更有可能，因此人们可以在接收到一条错误消息时猜测正确的原始邮件可能具有的错误是。这是由于正确消息之间的汉明距离至少为3。</p>
 <p>Codes with a Hamming distance between correct messages larger than 2 allow correction on the fly of any single bit error and are therefore called “<strong>error correcting codes</strong>”.</p>
@@ -779,6 +875,7 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <p>例如，在具有移动终端的无线网络中通常就是这种情况。</p>
 <h3 id="error-correction-with-a-43-bit-code">Error correction with a 4+3 bit code</h3>
 <p>此图显示了具有4个信息information和3个冗余位redundant bits的纠错码error correcting code。</p>
+<p><img src="/images/NET/18866.png" /></p>
 <p>One can verify that all 16 correct messages are at an Hamming distance larger than 2 from all other correct messages. (for clarity only a few of the 120 Hamming distances between correct messages are shown on the picture ).</p>
 <p>可以验证所有16条正确消息与所有其他正确消息的汉明距离均大于2。 （为清楚起见，图上仅显示正确消息之间的120 Hamming距离中的一些）。</p>
 <p>The picture shows also how an incorrect message can be corrected by calculating its Hamming distance to all correct messages and retaining the shortest.</p>
@@ -788,23 +885,51 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <p>Coding theory provides also means to design error correcting codes that can be used to correct errors involving multiple bits.</p>
 <p>编码理论还提供了设计纠错码的方法，这些纠错码可用于纠正涉及多个位的错误。</p>
 <h3 id="error-detecting-codes-and-error-correction-codes">Error detecting codes and Error correction codes</h3>
+<ul>
+<li>Error detecting codes
+<ul>
+<li>Correction by transmission of erroneous blocks</li>
+<li>If few errors , very low overhead</li>
+<li>Most common approach to error correction in data communications</li>
+</ul></li>
+<li>Error correcting codes
+<ul>
+<li>Very high overhead with short data blocks</li>
+<li>Longer data blocks can have multiple errors</li>
+<li>Used when transmission impossible or impractical</li>
+<li>Also used when error rate rather high</li>
+<li>Error correcting codes for long blocks with multiple errors exist and are used (<strong>trellis encoding</strong>)</li>
+</ul></li>
+</ul>
 <h3 id="error-correction">Error correction</h3>
 <p>When only error detecting codes are used, whenever an error is detected, the only way to get the correct information consists in requesting a retransmission of the data block. This requires a connection oriented protocol to manage retransmissions when required.</p>
 <p>当仅使用错误检测代码时，每当检测到错误时，获得正确信息的唯一方法是请求重新发送数据块。 这需要面向连接的协议，以在需要时管理重传。</p>
 <h4 id="retransmission-重传">Retransmission 重传</h4>
 <p>In most transmission systems, when a transmission error is detected, the corrupted data block is dropped, often by the hardware of the receiver.</p>
 <p>在大多数传输系统中，当检测到传输错误时，损坏的数据块通常会被接收器的硬件丢弃。</p>
+<p><img src="/images/NET/18867.png" /></p>
 <p>The simplest way for managing retransmissions consists in the receiver sending an acknowledgement whenever a correct data block has been received and by retransmitting after a predefined time interval any data block for which no acknowledgment has been received.</p>
 <p>管理重传的最简单方法是，每当接收到正确的数据块时，接收器就发送一个确认，并在预定的时间间隔后通过重传未接收到确认的任何数据块。</p>
 <p>As the absence of an acknowledgement can result both from the corruption of the data block itself or from the corruption of the acknowledgment, the data blocks need to be <strong>numbered,</strong> at least modulo 2, to avoid duplication at the receiver side when an acknowledgement gets lost.</p>
 <p>由于没有确认可能是由于数据块本身的损坏或由于确认的损坏而引起的，因此需要对数据块进行<strong>编号</strong>（至少为模2），以避免在丢失确认之后在接收方进行重复 。</p>
 <p>This implies that error correction by retransmission requires s<u>tate variables to <strong>number data blocks</strong></u> or, in other words, a <strong>connection oriented protocol</strong>.</p>
 <p>这意味着通过重传进行的纠错需要<u>状态变量为数据块编号</u>，或者换句话说，是<strong>面向连接的协议</strong>。</p>
+<p><img src="/images/NET/18868.png" /></p>
+<ul>
+<li>Inefficient unless</li>
+<li>round-trip delay &lt;&lt; transmission time of a datablock</li>
+</ul>
 <p>When, due to the distance, the round trip delay between source and destination becomes long, waiting for an acknowledgement before sending the next data block can become extremely inefficient.</p>
 <p>当由于距离而导致源与目的地之间的往返延迟变长时，在发送下一个数据块之前等待确认可能会变得非常低效。</p>
 <p>For instance, consider a 1 Mb/s satellite link with a round trip delay of almost half a second. If the transmitted data blocks are 100 Kb in length, sending a data block will take 0.1 s but before the next data block can be sent il will be necessary to wait 0.5 s to get the acknowledgement, resulting in a link utilization of approximately 17%, which is, considering the cost of satellite channels, prohibitively low.</p>
 <p>例如，考虑一条1 Mb / s的卫星链路，其往返延迟将近半秒。 如果传输的数据块长度为100 Kb，则发送数据块将花费0.1 s，但是在下一个数据块可以发送之前，il将需要等待0.5 s来获得确认，从而导致大约17％的链路利用率 ，考虑到卫星频道的费用，这太低了。</p>
-<h4 id="sliding-window-滑动窗口">Sliding window 滑动窗口</h4>
+<h4 id="ssliding-window-滑动窗口">sSliding window 滑动窗口</h4>
+<p><img src="/images/NET/18869.png" /></p>
+<p><img src="/images/NET/18870.png" /></p>
+<ul>
+<li>Data blocks in sliding window can be transmitted without waiting for an acknowledgement.</li>
+<li>Receiving acknowledgements pushes window forward.</li>
+</ul>
 <p>The inefficiency resulting from the time lost while waiting for acknowledgements can be avoided by transmitting data blocks without waiting for acknowledgements and only worry when acknowledgements should have arrived.</p>
 <p>通过在不等待确认的情况下传输数据块可以<u><strong>避免</strong>因等待确认而浪费时间所导致的效率低下</u>，而<u>仅担心确认应该到达的时间</u>。</p>
 <p>The number of data blocks that can be transmitted before an acknowledgement is due is called the “<strong>sliding window</strong>”.</p>
@@ -813,27 +938,32 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <p>The way a sliding window protocol operates is explained here by means of a series of pictures showing successive states of the transmitter during transmission of a sequence of data blocks.</p>
 <p>此处通过一系列图片来说明滑动窗口协议的操作方式，这些幻灯片显示了在发送一系列数据块期间发射机的连续状态。</p>
 <p>The sliding window contains three blocks 滑动窗口包含三个块。</p>
+<p><img src="/images/NET/18871.png" /></p>
 <p>The first block has just been transmitted and the second is being transmitted. 第一个块刚被发送，第二个块正在发送。</p>
 <p>The first block has been received, its acknowledgement is under way, The second block is under way and the third block is being transmitted</p>
 <p>第一个块已收到，正在确认中，第二个块正在执行中，第三个块正在发送中</p>
+<p><img src="/images/NET/18872.png" /></p>
 <p>The acknowledgement for the first block has been received, the sliding window has been shifted one block forward and the first block can be dropped from the transmitter buffer.</p>
 <p>已收到对第一个块的确认，滑动窗口已向前移动了一个块，可以从发送器缓冲区中删除第一个块。</p>
 <p>The acknowledgement for the second block is under way,</p>
 <p>第二个程序段的确认正在进行中，</p>
 <p>The third block is also under way and the fourth block is being transmitted.</p>
 <p>第三块也在进行中，第四块正在传输中。</p>
+<p><img src="/images/NET/18873.png" /></p>
 <p>The acknowledgement for the second block has been received, the sliding window has been shifted one block forward and block 2 can be removed from the transmitter buffer.</p>
 <p>已收到第二个块的确认，滑动窗口已向前移动了一个块，可以从发送器缓冲区中删除块2。</p>
 <p>Block 3 has been damaged and was dropped. Block 4 is under way.</p>
 <p>第3块已损坏并被丢弃。 第4区块正在进行中。</p>
 <p>Block 5 is being transmitted.</p>
 <p>块5正在发送。</p>
+<p><img src="/images/NET/18874.png" /></p>
 <p>As no acknowledgement for block 3 has been received, the sliding window remains where it was.</p>
 <p>由于未收到对块3的确认，因此滑动窗口保持原样。</p>
 <p>Block 4 has been received and its acknowledgement is under way. Block 5 is under way.</p>
 <p>块4已收到，其确认正在进行中。 第5区块正在进行中。</p>
 <p>As the sliding window has not been moved, the transmitter is idle because no data block is released for transmission.</p>
 <p>由于滑动窗口尚未移动，发送器处于空闲状态，因为没有释放任何数据块进行发送。</p>
+<p><img src="/images/NET/18875.png" /></p>
 <p>Acknowledgement for block 4 has been received.</p>
 <p>已收到对方框4的确认。</p>
 <p>Block 5 has been been received and the acknowledgement is under way, The transmitter is still idle, but the time-out interval has been completed.</p>
@@ -845,10 +975,43 @@ DataRate &lt;=B.\log_{2}(1+\frac{S}{N})
 <p>最常见的算法称为“<strong>go back n</strong>”，它只是将时间倒回到丢失块传输开始之前的那一刻，然后从那一刻起重新传输所有块。</p>
 <p>在此示例中，“ go back n”策略表示不必要重传块4和5。</p>
 <h5 id="buffering-required">Buffering required</h5>
+<p><img src="/images/NET/18876.png" /></p>
 <p>A more efficient algorithm consist in retransmitting only the blocks that have not been acknowledged, but such an algorithm requires <strong>buffering</strong> in the receiver to put the blocks back in the correct order.</p>
 <p>一种更有效的算法在于仅重发尚未确认的块，但是这种算法需要在接收器中进行<strong>缓冲</strong>，以按正确的顺序放回这些块。</p>
 <h3 id="tcp-error-correction">TCP Error correction</h3>
+<ul>
+<li>Sliding window error correction</li>
+<li>Cumulative Acknowledgment
+<ul>
+<li>Position in stream of last received byte</li>
+<li>Acknowledgments piggybacking with reverse traffic</li>
+<li>Retransmission policy implementation dependent</li>
+</ul></li>
+<li>Adaptive time-out
+<ul>
+<li>Network delays vary widely due to traffic fluctuations</li>
+<li>Round-trip time continuously monitored</li>
+<li>Time-out based on weighted average of round-trip times</li>
+</ul></li>
+<li>Congestion control
+<ul>
+<li>Receiver congestion prevented by adapting window size</li>
+<li>Network congestion detected by round-trip delay analysis</li>
+<li>Congestion cured by slowing down transmissions</li>
+</ul></li>
+</ul>
 <h2 id="shannon-vs-error-correction">Shannon vs Error Correction</h2>
+<ul>
+<li>Shannon upper limit of （correct） information throughput</li>
+<li>Error correction techniques do not change this limit !</li>
+<li>By transmitting more bits than strictly required （redundancy） , it is eventually possible to come closer to the limit imposed by Shannon</li>
+</ul>
+<blockquote>
+<p><strong>那如果错误是可以修正的，那我们是不是可以打破香农定理？</strong></p>
+<p>答案是否定的，<strong>香农定理规定的最大的通道指的是传输正确的数据的通道。</strong></p>
+<p>无论添加多少冗余数据，都不会改变这个定律，也就是说，添加的冗余码越多，越能接近这个通道的极限。</p>
+</blockquote>
+<h2 id="modulation">Modulation</h2>
 <h3 id="characterization-of-random-signals">Characterization of random signals</h3>
 <p><strong>Autocorrelation function</strong>: <span class="math display">\[
 R(\tau)=\lim_{\sigma \to \infty}\frac{1}{\sigma}\int^{+\sigma}_{-\sigma}v(t)\cdot v(t+\tau)\cdot dt
@@ -868,6 +1031,7 @@ S(\omega)=\int^{+\infty}_{-\infty}R(\tau).\cos(\omega \tau)d\tau
 <li>可以通过计算自相关函数的傅立叶变换的实部来找到频谱</li>
 </ul>
 <h3 id="straight-binary-code">Straight Binary Code</h3>
+<p><img src="/images/NET/18877.png" /></p>
 <p>When one computes the spectrum of a straight binary signal derived from a clock at frequency f, a bit 1 being encoded by a positive voltage a and a bit 0 by a zero voltage, the spectrum represented on the picture is obtained.</p>
 <p>当计算从频率为 f 的时钟导出的直接二进制信号的频谱时，位 1 由正电压 a 编码，位 0 由零电压编码，从而获得图上表示的频谱。</p>
 <p>可以观察到四个有趣的事实：</p>
@@ -882,6 +1046,7 @@ S(\omega)=\int^{+\infty}_{-\infty}R(\tau).\cos(\omega \tau)d\tau
 <p>频谱中连续最大值的幅度降低为 1/f2，这意味着在第一个 0 之后，在高于时钟频率的频率上可以找到很大一部分功率。为了可靠地传输这样的信号，需要至少等于时钟频率的两倍或三倍的带宽。</p></li>
 </ul>
 <h3 id="manchester-code">Manchester code</h3>
+<p><img src="/images/NET/18878.png" /></p>
 <p>To eliminate some of the less desirable properties of the straight binary encoding, Manchester encoding can be used.</p>
 <p>为了<u>消除直接二进制编码的一些不太理想的特性</u>，可以使用<strong>曼彻斯特编码</strong>。 位 0 由半个位周期内的 -a/2 电压表示，然后是另一半个周期内的 +a/2 电压。</p>
 <p>A bit 0 is represented by a <strong>-a/2</strong> voltage during half a bit period followed by a <strong>+a/2</strong> voltage during the other half period. A bit 1 is represented by the same pattern, with reversed signs. As can be seen, each bit corresponds to an up or down transition between <strong>+a/2</strong> and <strong>-a/2</strong>, but additional transitions appear when successive bits are equal. Per bit, there is, at least, one transition, synchronized with the clock, which ensures very easy clock extraction from the received signal.</p>
@@ -898,13 +1063,24 @@ S(\omega)=\int^{+\infty}_{-\infty}R(\tau).\cos(\omega \tau)d\tau
 <h3 id="assymptotic-behaviour-of-spectra">Assymptotic behaviour of spectra</h3>
 <p>The slow decrease of successive maxima is not due to the coding but to the waveforms: it can easily be verified that the spectrum of all square signals decreases as 1/f<sup>2</sup>.</p>
 <p>连续最大值的缓慢减小不是由于编码，而是由于波形：可以很容易地验证所有方波信号的频谱降低为1/f<sup>2</sup>。</p>
+<p><img src="/images/NET/18879.png" /></p>
+<ul>
+<li>Both tudied codes have energy spectra decreasing as 1/f<sup>2</sup></li>
+<li>meaning that the voltage or current spectra decrease as 1/f</li>
+</ul>
 <p>This is already visible in the simple Fourier series representing a <strong>square wave</strong>.</p>
 <p>这已经在简单代表<strong>方波</strong>的傅立叶系列中可见</p>
+<p><img src="/images/NET/18880.png" /></p>
+<ul>
+<li>The smoother the waveforms are, the lesser energy will be found in the specturm at higher frequencies</li>
+<li>In actual transmission systems, rounded waveforms, such as parts of sine waves will be used</li>
+</ul>
 <p>The only way to fasten the decrease is to <strong>use other waveforms</strong>, triangular waveforms would yield a 1/f<sup>4</sup> decrease, and smoother waveforms, such as half sine waves would result in even less importance of higher maxima.</p>
 <p>加快减小的唯一方法是<strong>使用其他波形</strong>，三角波形将产生 1/f<sup>4</sup>的减小，而平滑的波形（例如半正弦波）将导致更高最大值的重要性降低。</p>
 <h3 id="modulation-techniques">Modulation techniques</h3>
 <p>使用正弦波的一部分对数据进行编码可以通过三种根本不同的方式进行：</p>
 <p>Encoding data by means of portions of sine waves can be done in three fundamentally different ways:</p>
+<p><img src="/images/NET/18881.png" /></p>
 <ul>
 <li>Amplitude modulation 振幅调制
 <ul>
@@ -1286,6 +1462,13 @@ S(\omega)=\int^{+\infty}_{-\infty}R(\tau).\cos(\omega \tau)d\tau
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

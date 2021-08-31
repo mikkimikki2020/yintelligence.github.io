@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-30
+                    2021-08-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    10.4k
+                    11.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    45 Min
+                    52 Min
                 </div>
                 
 
@@ -501,11 +501,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="the-internet">The Internet</h1>
-<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a></p>
-<p><a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569990">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569979">Video</a></p>
+<p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> +<a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569990">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569979">Video</a></p>
+<hr />
+<p>[TOC]</p>
+<hr />
 <h2 id="the-internet-structure-and-routing">The Internet structure and routing</h2>
 <h3 id="the-internet-structure">The Internet Structure</h3>
-<p>如第1章所述，Internet是一组独立的网络，通过称为“<strong>路由器routers</strong>”的设备互连。</p>
+<p>如<a href="https://yintelligence.tech/2021/04/19/2021-04-19-Evolution-of-telecommunications/#toc-heading-27">第1章</a>所述，Internet是一组独立的网络，通过称为“<strong>路由器routers</strong>”的设备互连。</p>
+<p><img src="/images/NET/18818.png" /></p>
 <ul>
 <li><p>Routers are devices that can <u>transfer data packets between different networks</u>.</p>
 <p>路由器是可以<u>在<strong>不同网络</strong>之间传输数据包</u>的设备。</p></li>
@@ -515,19 +518,48 @@
 <p>并且具有特定于它们所连接的每个网络的<strong>接口</strong>。</p></li>
 </ul>
 <h3 id="the-internet-layer">The Internet Layer</h3>
-<p>如第2章所述，network层和application层之间的中间层可以<strong>减少</strong>需要设计的<u>层间接口interlayer interface的数量</u>。</p>
+<p>如<a href="https://yintelligence.tech/2021/07/14/2021-07-14-Communications%20Systems%20Modeling/">第2章</a>所述，network层和application层之间的中间层可以<strong>减少</strong>需要设计的<u>层间接口interlayer interface的数量</u>。</p>
+<p><img src="/images/NET/18819.png" /></p>
 <ul>
 <li><p>On the lower side, this intermediate layer should interface with all networks, regardless of their technology and should have provisions for relaying communications through various networks, possibly based upon different technologies.</p>
 <p>在较低的一侧，该中间层应与所有网络接口，而不论其技术如何，并应具有可能通过基于不同技术的各种网络中继通信的规定。</p>
 <ul>
-<li>路由器Routers实现此Internet层，并使用IIP protocol相互通信。</li>
+<li>路由器Routers实现此Internet层，并使用IP protocol相互通信。</li>
 </ul></li>
 <li><p>在上侧，中间层应与应用程序软件接口。 为此，在Internet层和application层之间放置了一个称为“<strong>传输Transport</strong>”层的附加层。</p>
 <ul>
 <li>为了选择通信中涉及的应用程序，Transport层添加了自己的地址集set of addresses，称为“<strong>端口号port numbers</strong>”。</li>
 </ul></li>
+<li><p>The Internet requires connectivity through many different networks</p></li>
+<li><p>Existing networks offer diverse</p>
+<ul>
+<li>services levels (Connectionless / Connection Oriented)</li>
+<li><u>interfaces with transport layer</u></li>
+</ul></li>
+<li><p>An Interface layer (the INTERNET layer) is added on top of the Network layers of each of the networks</p></li>
+<li><p>The INTERNET layer ensures</p>
+<ul>
+<li>Uniform addressing through all networks</li>
+<li>Well defined and identical services from all networks</li>
+<li>A common interface with the Transport layer 1200K</li>
+</ul></li>
 </ul>
 <h4 id="the-internet-sublayer">The Internet Sublayer</h4>
+<ul>
+<li><p><strong>In the OSl Community</strong></p>
+<p>Less performing networks are enhanced</p>
+<ul>
+<li>Additional sublayer between network and internet layers : The Enhancement Sublayer.</li>
+<li>Most often , <u>Connection oriented , Reliable</u></li>
+<li>Inspired by X25</li>
+</ul></li>
+<li><p><strong>In the Internet Community ( Internet Protocol )</strong> Minimal Internet Service definition</p>
+<ul>
+<li>Service restricted to whatever all networks can do</li>
+<li><u>Connectionless Unreliable</u></li>
+<li>Inspired by Local Area Networks</li>
+</ul></li>
+</ul>
 <p>1975年左右，很明显由电话公司开发和运营的长途电信网络ong distance telecommunication networks和由计算机行业开发的局域网local area networks需要互通。 为完成这项任务，我们进行了两项重大努力：</p>
 <ul>
 <li><p>一方面，联合国的两个部门国际标准化组织International standardisation organisation（ISO）和国际电联和电信委员会the Comité Consultatif International pour la Téléphonie et la Télégraphie （CCITT）都开始确定适用于两者的协议。</p>
@@ -535,10 +567,11 @@
 <li><p>另一方面，美国政府通过高级研究计划局Advanced Research Project Agency（ARPA）向已经使用各种局域网的大约十个研究小组提供了资金，以通过美国电话公司的长途电信基础设施互连其网络， 当时叫AT＆T。 后者导致了如今被称为“互联网Internet”的问题</p></li>
 </ul>
 <h5 id="osi-approach">OSI approach</h5>
-<p>在OSI世界中，面向连接的协议显然比无连接协议更受欢迎，并且公共电信运营商提出的网络服务可以提供面向连接connection oriented的可靠reliable服务。</p>
+<p>在OSI世界中，<strong>面向连接</strong>的协议显然比无连接协议更受欢迎，并且公共电信运营商提出的网络服务可以提供面向连接<strong>connection oriented</strong>的可靠<strong>reliable</strong>服务。</p>
 <p>Therefore it was quite logical to adopt as common level of service the one available from the best networks.</p>
 <p>因此，采用最佳网络中可用的服务作为通用服务级别是很合逻辑的。</p>
 <p>但是，这意味着<strong>所有网络</strong>，甚至是非常流行的网络（如以太网Ethernet）都<strong>需要“增强enhanced”</strong>，然后才能集成到Internet中。 可以将面向IEEE802.2面向连接connection oriented的链路控制层link control layer视为适应这一趋势的工具。</p>
+<p><img src="/images/NET/18820.png" /></p>
 <p>然而，在互连之前就需要增强现有网络的服务确实使大多数自发spontaneous的联网尝试networking attempts面临很高的门槛。 这可能部分解释了<u>为何OSI方法从<strong>未在大型组织中得到采用</strong></u>。</p>
 <h5 id="ip-approach">IP approach</h5>
 <p>ARPA互联网络的方法更为实用：</p>
@@ -550,10 +583,27 @@
 <p>and that the transport layer should compensate whenever needed the shortcomings of the network service.</p>
 <p>并且传输层应在需要时弥补网络服务的缺点。</p></li>
 </ul>
+<p><img src="/images/NET/18821.png" /></p>
 <p>Despite these disadvantages, the ARPA approach clearly won over the OSI approach, possibly because it was possible to set up interconnection experiments <strong>without having to change the existing communications software,</strong> just not using some of its features was enough to allow its use for internetworking purposes.</p>
-<p>尽管存在这些缺点，但ARPA方法显然胜过OSI方法，这可能是因为<strong>无需更改现有的通信软件</strong>即可进行互连实验，只是不使用其某些功能就足以使其用于互联网络。</p>
+<p>尽管存在这些缺点，<u>但ARPA方法显然胜过OSI方法</u>，这可能是因为<strong>无需更改现有的通信软件</strong>即可进行互连实验，只是不使用其某些功能就足以使其用于互联网络。</p>
 <h3 id="the-internet-protocol">The internet protocol</h3>
 <h4 id="original-ip-services">Original IP Services</h4>
+<ul>
+<li>Internet-wide uniform addressing
+<ul>
+<li>Two part addresses
+<ul>
+<li>Network : identifies the network</li>
+<li>Host : identifies host on a specific network (Host part = subnet identifier + host identifier)</li>
+</ul></li>
+</ul></li>
+<li>Connectionless , unreliable datagram service</li>
+<li>Fragmentation when required by network</li>
+<li>Routing through the entire Internet</li>
+<li>Elimination of " lost " datagrams</li>
+<li>Debugging facilities</li>
+<li>Special transmission modes</li>
+</ul>
 <p>IP协议提供了一种<u>统一的寻址方案uniform addressing scheme</u>，该方案可以映射到任何<u>基础网络underlying network</u>的寻址上。</p>
 <p>IP地址基本上有两个部分:</p>
 <ul>
@@ -568,23 +618,35 @@
 <p>由于路由表的<strong>不一致性</strong>，数据包可能会进入<strong>环路</strong>。 IP将在一段时间后将其消除，以避免丢失数据包使网络混乱。</p>
 <p>Finally, IP provides special services intended to <strong>debug</strong> the protocol implementations, to check the proper operation of the underlying networks and to force special routes for specific datagrams.</p>
 <p>最后，IP提供了旨在调试协议实现，检查基础网络正常运行并为特定数据报强制特殊路由的特殊服务。</p>
-<h4 id="ip-networks---routing-mechanism">IP Networks - Routing mechanism</h4>
+<h4 id="routing-mechanism-路由机制">Routing mechanism 路由机制</h4>
 <p>为了清楚起见，在此示例中，将使用一位数字的网络network和主机host标识符identifiers。</p>
 <p>实际上，它们在现代IPv6地址中每个都有64 bits长，而在仍是最常用的IP版本（即IPv4）中，网络和主机部分的位数随网络大小的变化而变化，但是他们的总和总是32。</p>
 <p><strong>Example:</strong></p>
 <p>为了说明路由机制，将说明从1.5到5.5的数据包向后传输。</p>
+<p><img src="/images/NET/18822.png" /></p>
 <p>每个连接的设备都包含一个<strong>路由表routing table</strong>，该表为所有可能的网络提供了要遵循的路由上的<u>第一个路由器的地址</u>。 设备1.5中的表说，要到达网络5，应将数据包发送到地址1.1，即路由器。</p>
+<p><img src="/images/NET/18823.png" /></p>
 <p>the router accessed through address 1.1 also has a routing table, telling that to reach network 5, the packet should be sent to address 2.2, which is also a router.</p>
 <p>通过地址1.1访问的路由器router.也有一个路由表，告知要到达网络5，该数据包应发送到地址2.2，该地址也是路由器router.。</p>
+<p><img src="/images/NET/18824.png" /></p>
 <p>As the router accessed via address 2.2 has also an interface with network 5, the router can directly deliver the packet at 5.5, the final destination.</p>
 <p>由于通过地址2.2访问的路由器还具有与网络5的接口，因此路由器可以直接在最终目的地5.5处传递数据包。</p>
+<p><img src="/images/NET/18825.png" /></p>
 <p>If 5.5 wants to answer the received packet, the answer does not necessarily take the same route. In this example it will go via network 3 rather than via network 2.</p>
 <p>如果5.5要回答接收到的数据包，则答案不一定采用相同的路由。 在此示例中，它将通过网络3而不是网络2。</p>
+<p><img src="/images/NET/18826.png" /></p>
 <p>The routing tables are filled in by a specific software that <strong>periodically explores</strong> the entire internet and determines which are the best routes to go from any network to any other.</p>
 <p>路由表由特定的软件填充，该软件会<strong>定期浏览</strong>整个Internet并确定从任何网络到任何其他网络的最佳路由。</p>
-<h4 id="ip-datagram-fragmentation">IP datagram fragmentation</h4>
+<h4 id="ip-datagram-fragmentation-碎片化">IP datagram fragmentation 碎片化</h4>
 <p>The IP protocol allows routers to cut datagrams in parts and forward them as separate datagrams. This process is called “<strong>fragmentation</strong>”.</p>
 <p>IP协议允许路由器将数据报分割成一部分并将其作为单独的数据报转发。 该过程称为“<strong>碎片化</strong>”。</p>
+<p><img src="/images/NET/18841.png" /></p>
+<ul>
+<li><p>Packet size exceeds maximum size in network</p>
+<p>数据包大小超过网络中的最大大小</p></li>
+<li><p>Excessive delay jitter due to long package</p>
+<p>长封装导致延迟抖动过大</p></li>
+</ul>
 <p>Fragmentation can be required when the datagram size exceeds the maximum allowed packet size in a network a router needs to use to carry the datagram to its final destination.</p>
 <p>当数据报大小超过路由器用来将数据报传送到其最终目的地所需的网络中允许的最大数据包大小时，可能需要分段。</p>
 <p>Fragmentation can also be used by routers when a link needed for a high priority short datagram is kept busy by a low priority very long datagram. The router can then interrupt the transmission of the low priority datagram, transmit the high priority one and resume the transmission of the interrupted one without having to retransmit the already transmitted fragment.</p>
@@ -600,7 +662,15 @@
 </ul>
 <p>The rigidity of the different network classes led to a waste of addresses, while their number is the major limitation of IPv4. Therefore the rigid classes have been abandoned and the number of bits for identifying the network and the host are now free, as long as their sum is 32.</p>
 <p>不同网络类别的刚性导致地址的浪费，而它们的数量是IPv4的主要限制。因此，刚性类已被放弃，用于标识网络和主机的位数现在是空闲的，只要它们的总和为32。</p>
+<p><img src="/images/NET/18838.png" /></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/56895036">如何理解子网掩码？</a></p>
+</blockquote>
 <p>因此，每个地址都关联了一个<strong>32位掩码 mask</strong>:</p>
+<blockquote>
+<p>问题就来了，<strong>在同一个局域网下的两个设备，并不需要通过Internet进行交流，有什么方法可以让他们便捷的认清对方，并建立本地连接呢？</strong></p>
+<p>IPv4提供了一个特性：MASK（子网掩码），也是由32bits构成的序列，1处代表该部分处于同一局域网，0处代表不处于。</p>
+</blockquote>
 <ul>
 <li><p>Bits corresponding to the network part of the address correspond to 1’s in the mask</p>
 <p>与地址的网络部分相对应的位对应于掩码中的1</p></li>
@@ -620,7 +690,8 @@
 <li>这里以子网为例的地址将被标记为xxx.xxx.xxx.xxx/27，例如195.1.133 / 27。</li>
 </ul></li>
 </ul>
-<h5 id="ipv4-datagram-format">IPv4 datagram format</h5>
+<h5 id="ipv4-datagram-format-数据包">IPv4 datagram format 数据包</h5>
+<p><img src="/images/NET/18839.png" /></p>
 <p>Each IP datagram starts with an <strong>header</strong>.</p>
 <p>每个IP数据报均以<strong>标头</strong>开头。</p>
 <ul>
@@ -630,13 +701,41 @@
 <p>如果需要，将填充标题，以便标题具有所需的长度（<strong>填充padding</strong>）</p></li>
 </ul>
 <h5 id="ipv4-datagram-header">IPv4 datagram Header</h5>
+<p><img src="/images/NET/18840.png" /></p>
+<ul>
+<li><code>Ver</code>
+<ul>
+<li>Protocol version, incompatibale datagrams are rejected</li>
+</ul></li>
+<li><code>Len</code>
+<ul>
+<li>Length of header, in 32 bit words</li>
+</ul></li>
+<li><code>Tot.Length</code>
+<ul>
+<li>Length in bytes, of te entire datagram</li>
+</ul></li>
+</ul>
 <p>The header contains a 4 bit version number field. In IP v4, this field always contains the binary value 0100.</p>
 <p>标头包含4位版本号字段。 在IPv4中，此字段始终包含二进制值0100。</p>
-<p>The 4 bit LEN field gives the length of the header expressed in 32 bit words.</p>
+<p>The 4 bit <code>LEN</code> field gives the length of the header expressed in 32 bit words.</p>
 <p>4位LEN字段给出以32位字表示的标头长度。</p>
 <p>The 16 bit Total Length field gives the total length of the datagram, expressed in bytes. This means that the longest datagram IP can handle is 65536 bytes long.</p>
 <p>16位的总长度字段给出了数据报的总长度，以字节为单位。 这意味着IP可以处理的最长数据报长度为65536字节。</p>
-<p>The <strong>Typ.Ser.</strong> 8 bit field allows to <u>define a <strong>priority</strong></u> (between 0 for normal traffic to 7 for control messages) and a preferred mode of routing.</p>
+<ul>
+<li><code>Typ.Ser.</code>
+<ul>
+<li>Precedence
+<ul>
+<li>0 = normal</li>
+<li>7 = control</li>
+</ul></li>
+<li>D = Short delay wanted (best effort)</li>
+<li>T = High throughput wanted (best effort)</li>
+<li>R = High reliabilty wanted (best effort)</li>
+</ul></li>
+</ul>
+<p>The <code>Typ.Ser.</code> 8 bit field allows to <u>define a <strong>priority</strong></u> (between 0 for normal traffic to 7 for control messages) and a preferred mode of routing.</p>
 <p>典型值 <strong>8位字段</strong>允许<strong>定义优先级</strong>（在正常流量的0到控制消息的7之间）和优选的路由模式。</p>
 <p>需要三个头字段来<strong>控制分段fragmentation</strong>。</p>
 <ul>
@@ -676,9 +775,22 @@
 <li><p>It is also through the option field that secure transmission modes such as IPSEC can be implemented.</p>
 <p>也可以通过选项字段来<u>实现IPSEC等安全传输模式</u></p></li>
 </ul>
-<h4 id="network-address-translation-网络地址转换器-natß">Network Address Translation 网络地址转换器 (NATß)</h4>
+<h4 id="network-address-translation-网络地址转换器-nat">Network Address Translation 网络地址转换器 (NAT)</h4>
 <p>The shortage of Internet addresses has partially been solved by sharing a single address among several hosts.</p>
 <p>通过在多个主机之间共享一个地址，部分解决了Internet地址短缺的问题。</p>
+<blockquote>
+<p>因为根据定义，IP地址是有限的，所以早晚会有用完的那一天。那么可以把内网（Intranet）的地址重新定义，在外部只表现为1个IP地址，这样就能大大减少IP地址的数量。</p>
+</blockquote>
+<p><img src="/images/NET/18842.png" /></p>
+<ul>
+<li>Work-around for solving IPv4 address shortage</li>
+<li>Maps many intranet addresses into a single internet address</li>
+<li>Uses TCP or UDP non standard port numbers to identit hosts in the intranet</li>
+<li>A <strong>NAT device can not be stateless</strong> and therefore is <u>a reliability threat</u></li>
+<li>To establish a connection , only one end can be behind a NAT and that end needs to initiate the connection</li>
+<li>Is believed by some to increase intranet security</li>
+<li>Is a good excuse for further delaying IPv6 deployment</li>
+</ul>
 <p>A local network is connected to the Internet by means of a kind of router, called <strong>Network Address Translator</strong>.</p>
 <p>局域网通过一种称为<strong>网络地址转换器</strong>的路由器连接到Internet。</p>
 <p>On the Internet side, the NAT behaves as a single host, while on the side of the local network it behaves like a normal Router.</p>
@@ -698,6 +810,9 @@
 <h4 id="ipv6">IPv6</h4>
 <p>With 128 bit addresses, the Internet community hopes to have solved for any foreseeable future the shortage of addresses issue.</p>
 <p>借助128位地址，Internet社区希望在可预见的将来解决地址短缺问题。</p>
+<ul>
+<li>Represented as 8 groups of 4 hex digits, seperated by colons,leading zeros suppressed.</li>
+</ul>
 <p>Very little of the available address space has been assigned to specific purposes, only broad categories of addresses have been defined.</p>
 <p>很少有可用地址空间已分配给特定目的，仅定义了大范围的地址。</p>
 <p>The Global Unicast category corresponds roughly to the present IPv4 addresses. The NSAP and IPX categories have been reserved to facilitate the conversion to IP of networks using legacy protocols such as the OSI level 3 protocol used in DECNET and IPX used in the Novell PC networks.</p>
@@ -705,6 +820,7 @@
 <p>The size of the Multicast addresses has also been considerably extended so that multicasting could be used on a large scale for commercial video on demand applications without having to reuse the same identifications within a commercially meaningful time span.</p>
 <p><strong>多播地址</strong>的大小也已得到相当大的扩展，因此多播可大规模用于商业视频点播应用，而不必在商业上有意义的时间段内重复使用相同的标识。</p>
 <h5 id="unicast-addresses">Unicast addresses</h5>
+<p><img src="/images/NET/18843.png" /></p>
 <p>The 128 bits of an IPv6 address have been subdivided in order to allow hierarchical routing of packets through the internet.</p>
 <p>IPv6地址的128位已细分，以便允许通过Internet进行数据包的分层路由。</p>
 <p>Different address formats are used for different purposes, the format of the unicast addresses is explained here.</p>
@@ -744,10 +860,16 @@
 </ul></li>
 </ul>
 <h5 id="anycast-address-任播地址">Anycast address 任播地址</h5>
+<p><img src="/images/NET/18844.png" /></p>
 <p>An anycast address is a set of unicast addresses giving addresses to the same resources, so that a datagram send to an anycast address only needs to delivered at one of the unicast addresses that constitute the anycast address.</p>
 <p>任播地址是<u>将地址分配给<strong>相同资源</strong>的一组单播地址</u>，因此发送到任播地址的数据报仅需在构成任播地址的单播地址之一处传递。</p>
 <p>This technique can be very attractive for computer having <strong>redundant network interfaces</strong> or for <u>subnetworks accessible via <strong>several routes</strong></u>.</p>
 <p>对于<u>具有<strong>冗余</strong>网络接口的计算机或可通过<strong>几条路径</strong>访问的子网</u>，此技术可能非常有吸引力。</p>
+<h5 id="unicast-vs-anycast">Unicast VS Anycast:</h5>
+<ul>
+<li>Unicast 是点对点传播</li>
+<li>Anycast是有用一个地址源可以指向一组地址：大大提高了效率</li>
+</ul>
 <h5 id="ipv6-header">IPv6 Header</h5>
 <p>As simultaneous change of all IP entities on the entire Internet is unthinkable, IPv4 and IPv6 should be able to coexist on the Internet, even if they can not interoperate without conversion gateways. The possibility of coexistence results from the inclusion at the beginning of the header of the Version field.</p>
 <p>由于无法同时更改整个Internet上所有IP实体，因此IPv4和IPv6应该能够在Internet上共存，即使没有转换网关也无法互操作。 共存的可能性是由于在Version字段的标题的开头包含了。</p>
@@ -758,6 +880,7 @@
 <p>In order to allow multimedia applications on the Internet some measures had to be taken to allow resource reservation and traffic differentiation.</p>
 <p>Adding one bit to the Priority field allows to define 16 classes of traffic:</p>
 <p>为了允许Internet上的多媒体应用程序，必须采取一些措施来允许资源保留和流量区分。</p>
+<p><img src="/images/NET/18845.png" /></p>
 <p>向<code>Priority</code>字段添加一位可以定义16种流量类别：</p>
 <ul>
 <li><p>The 8 lower priorities are intended for applications where correctness is more important than delay which typically use TCP as transport protocol.</p>
@@ -768,35 +891,45 @@
 <p>Such applications typically use UDP as transport protocol.</p>
 <p>这样的应用程序通常使用<strong>UDP</strong>作为传输协议</p></li>
 </ul>
+<p><img src="/images/NET/18846.png" /></p>
 <p>The <code>Flow Label</code>, when different from zero, concatenated with the source IP address can be used to inform routers that a large number of packets will be sent to the same address. Routers then have the opportunity to set up a kind of virtual circuit and even to reserve resources for handling that flow in a more efficient way than with the traditional, stateless, Internet Protocol.</p>
 <p>流标签<code>Flow Label</code>（不同于零）与源IP地址串联在一起时，可用于通知路由器大量数据包将被发送到同一地址。 这样，路由器就有机会建立一种虚拟电路，甚至有机会比传统的无状态Internet协议更有效地处理资源。</p>
 <h4 id="ipv4-to-ipv6-transition">IPv4 to IPv6 Transition</h4>
 <p>从IPv4到IPv6的过渡显然不可能在一个普遍达成共识的时刻完成。在提出IPv6时，IETF已计划通过<strong>双栈主机dual stack hosts</strong>和<strong>双栈网络dual stack networks</strong>实现平稳过渡。</p>
+<p><img src="/images/NET/18847.png" /></p>
 <p>In a dual stack architecture IPv4/IPv6 the v4 and v6 network entities coexist and handle each their specific traffic. It was planned that quickly v4 traffic would vanish and that only v6 entities would be needed after some time.</p>
 <p>在双堆栈体系结构IPv4 / IPv6中，v4和v6网络实体共存并处理它们各自的特定流量。根据计划，v4流量将很快消失，一段时间后仅需要v6实体。</p>
 <blockquote>
 <p>Windows和Linux的所有最新版本均支持IPv4和IPv6。</p>
 </blockquote>
+<h5 id="dual-stack-quick-upgrade-by-isps">Dual stack + quick upgrade by ISPs</h5>
+<p><img src="/images/NET/18848.png" /></p>
 <p>由于新的v4地址在世界大部分地区不再可用，因此由IETF提出的提议的，平稳的过渡方案变得越来越难以遵循，并且由于美国和欧洲的ISP并不期望昂贵的费用能带来短期收益升级，他们会继续推迟升级，这使得升级越来越困难，成本也越来越高。</p>
 <p>尽管在欧洲，政府的压力迫使ISP朝IPv6迈进，但许多人担心升级不会在美国进行，而它们将与过时的v4保持一致，就像美国工业界对度量系统所做的那样。</p>
 <p>在过渡时期，绝大多数网络和服务器将同时支持v4和v6。 在客户端方面，大多数也将同时支持这两种协议，而一些较旧的客户端将仍然受v4的限制，而较新的客户端将不再关心v4，而只能使用v6。</p>
 <p>Clients supporting only v4 could only access dual stack servers and (obsolete) v4 servers. The new clients with only v6 would not be able to access v4 only servers.</p>
 <p>仅支持v4的客户端只能访问双堆栈服务器和（过时的）v4服务器。 仅具有v6的新客户端将无法访问仅v4的服务器。</p>
+<h5 id="dual-stack-tunnels-when-needed">Dual stack + tunnels when needed</h5>
+<p><img src="/images/NET/18849.png" /></p>
 <p>As not all network operators would upgrade quickly their networks in order to support both v4 and v6, v4 traffic could be carried through v4 networks by means of tunnels between routers. Such tunnels would carry v6 packets as payload inside v4 packets, ensuring transfer of v6 packets between v6 networks via v4 networks.</p>
 <p>由于并非所有网络运营商都会快速升级其网络以支持v4和v6，因此可以通过路由器之间的<strong>隧道tunnels</strong>通过v4网络承载v4流量。 这样的隧道会将v6数据包作为v4数据包内部的有效负载进行传输，从而确保v6数据包之间通过v4网络在v6网络之间传输。</p>
-<p><strong>Transition</strong> from IPv4 to IPv6 by dual stack hosts and dual stack networks, they handle their specific traffic.</p>
-<p>There are tunnels would carry v6 packets as payload inside v4 packets.</p>
-<p><strong>Virtual Private Networks (VPN)</strong> can encrypt packets, so VPN be uesed to carry packets in a secure way between 2 routers.</p>
-<p>VPN can be used to carry IPv6 packets through an IPv4 section of the internet, called <strong>Tunnel</strong>.</p>
-<p><strong>Net Neutrality</strong>:</p>
-<ul>
-<li>ISP should not discrimate between applications;</li>
-<li>All IP packets should obey the same rules, regardless of their origin or destination;</li>
-<li>Overall user satisfaction is not only determined by the handling of IP packets, nor by the ISPs policies;</li>
-</ul>
-<p><strong>Cache memories (edge servers)</strong> store frequently requested data to reduce the internet traffic. These servers are owned by the ISP or specialized companies. The contents stored in cache influcend by users performance.</p>
-<h3 id="routing-algorithms">Routing algorithms</h3>
+<h3 id="routing-algorithms-路由算法">Routing algorithms 路由算法</h3>
 <h4 id="routing">Routing</h4>
+<ul>
+<li>Best route is application dependent
+<ul>
+<li>Shortest latency</li>
+<li>Highest throughput</li>
+<li>Lowest cost</li>
+</ul></li>
+<li>Best route can change
+<ul>
+<li>Nodes can go down or can become congested</li>
+<li>Links can be interrupted</li>
+<li>New links can be added</li>
+</ul></li>
+<li>Best routes maintained by exploring periodically the network</li>
+</ul>
 <p>到达给定目的地的“最佳”路线取决于如何定义“最佳”概念。它可以是最短，最便宜，最快，最安全或最可靠的路线。</p>
 <p>it is even possible that routers maintain several different routes, which are selected in function of the nature of the <strong>payload</strong> to be transferred.</p>
 <p>路由器甚至有可能维护若干不同的路由，这些路由是根据要传输的<strong>有效负载payload</strong>的性质来选择的。</p>
@@ -806,23 +939,48 @@
 <p>通过定期向所有其他路由器发送消息并分析答案来<strong>维护</strong>大多数路由表。</p>
 <h4 id="routing-tables-路由表">Routing tables 路由表</h4>
 <p>为了在无连接网络中建立连接或路由单个数据包，需要一个表，该表给出了网络中任何两个终端之间的最佳路由。</p>
+<p><img src="/images/NET/18827.png" /></p>
+<ul>
+<li>For each nide, a routing table gives the link to use to reach all other nodes.</li>
+</ul>
 <p>An efficient way of structuring such a table consists in defining for each router, a table that gives, for each possible destination, the outgoing link to use.</p>
 <p>构造此类表的有效方法是为每个路由器<strong>定义一个表</strong>，该表为每个可能的目的地提供要使用的传出链接。</p>
 <p>This is not in contradiction with the fact that routers belong to at least two different networks, but considers only the links established to an other router through these networks.</p>
 <p>这与路由器至少属于两个不同的网络并不矛盾，而是仅考虑通过这些网络建立到另一个路由器的链路。</p>
 <h4 id="centralized-vs.-distributed-routing">Centralized vs. Distributed routing</h4>
 <p>路由表的初始设置和维护可以是集中式centralized过程，也可以是分布式distributed过程。</p>
+<p><img src="/images/NET/18828.png" /></p>
+<ul>
+<li><strong>Centralized</strong>: A single entity performs computational functions for determining functions the best route</li>
+<li><strong>Distributed</strong>: Each entity performs computational functions and shares a distributed state</li>
+</ul>
 <h5 id="centralized-routing-集中式路由">Centralized routing 集中式路由</h5>
 <p>In a centralized approach the routing tables for all routers are kept in one <strong>management center</strong>, that gets information about the status of the routers and the links via a (logically) separate signaling network.</p>
 <p>在一种<strong>集中式centralized方法</strong>中，所有路由器的路由表都保存在一个管理中心management center，该管理中心通过（逻辑上）独立的信令网络signaling network获取有关路由器和链路状态的信息。</p>
 <p>This approach is mainly used in connection oriented networks where the (virtual) circuits have a long persistence (from days to years).</p>
 <p>这种方法主要用于（虚拟）电路<strong>持续时间长（从几天到几年）</strong>的面向连接的网络。</p>
 <h5 id="distributed-routing-分布式路由">Distributed routing 分布式路由</h5>
-<p>For circuits with a shorter live-time, or for connectionless networks, a distributed approach is preferred for scalability and reliability.</p>
-<p>对于实时时间较短的电路，或者对于无连接网络，为了<strong>可扩展性scalability</strong>和<strong>可靠性reliability</strong>，首选分布式方法。</p>
+<p>For circuits with a <strong>shorter live-time</strong>, or for connectionless networks, a distributed approach is preferred for scalability and reliability.</p>
+<p>对于<strong><u>实时时间较短</u></strong>的电路，或者对于无连接网络，为了<strong>可扩展性scalability</strong>和<strong>可靠性reliability</strong>，首选分布式方法。</p>
 <p>Each router maintains its own routing table and uses a distributed algorithm to fill it in and to maintain it.</p>
 <p><u>每个路由器都维护自己的路由表</u>，并使用分布式算法对其进行填写和维护。</p>
 <h3 id="distributed-routing-algorithms">Distributed routing algorithms</h3>
+<p>Two main families of routing algorithms :</p>
+<ul>
+<li><p><strong>Distance Vector</strong></p>
+<ul>
+<li><p>By questioning its neighbors , each node determines, for all destinations . what link to use and the corresponding distance</p>
+<p>通过<strong>询问其邻居</strong>，每个节点确定所有目的地。 使用什么链接和对应的距离</p></li>
+</ul></li>
+<li><p><strong>Link State</strong></p>
+<ul>
+<li><p>By broadcasting the state of all its links each node allows the other nodes to build their own map of the network .</p>
+<p>通过<strong>广播其所有链接的状态</strong>，每个节点允许其他节点构建自己的网络地图。</p>
+<p>Each node finds the best routes by exploring its map</p>
+<p>每个节点通过探索其地图找到最佳路线</p></li>
+</ul></li>
+</ul>
+<p>These two families count many variants</p>
 <h4 id="comparision">Comparision</h4>
 <p><strong>距离矢量Distance Vector（DV）算法</strong>是一种分布式算法：</p>
 <ul>
@@ -844,7 +1002,7 @@
 <li><p>This algorithm causes <strong>more overhead</strong> than DV but avoids the problems resulting from the slow convergence.</p>
 <p>该算法比DV引起<strong>更多的开销</strong>，但<u>避免了收敛速度慢带来的问题</u>。</p></li>
 </ul>
-<h4 id="the-dv-algorithm">The DV Algorithm</h4>
+<h4 id="the-dv-algorithm-距离矢量算法">The DV Algorithm 距离矢量算法</h4>
 <p>在Internet的早期阶段中使用的距离矢量Distance Vector路由算法是如何工作的，这里将通过一个简短的示例进行说明。</p>
 <p>每个路由器都应该知道其到所有邻居的距离，并维护一个动态表:</p>
 <ul>
@@ -852,14 +1010,21 @@
 <li><strong>如果未知，则认为该距离是无限的</strong>。</li>
 </ul>
 <p>每个路由器都会<u>定期询问其邻居到指定目的地的距离</u>。 例如，在上图中，路由器E询问其所有邻居到VUB的最短距离是多少。 下表总结了答案：</p>
+<p><img src="/images/NET/18829.png" /></p>
 <ul>
-<li><p>A is at distance 10 from VUB and at distance 1 from E. Via A, VUB is at 11.</p></li>
-<li><p>B is at distance 5 from VUB and at distance 4 from E. Via B, VUB is at 9.</p></li>
-<li><p>C is at distance 7 from VUB and at distance 1 from E. Via C, VUB is at 8.</p></li>
-<li><p>D is at distance 20 from VUB and at distance3 from E. Via D VUB is at 23.</p></li>
-<li><p>Node E concludes that the best route to VUB is via C and that the corresponding distance is 8.</p></li>
-<li><p>E然后相应地更新其路由表的VUB条目。在算法的下一轮中，A和D将发现比以前知道的有一种更好的VUB方式，并将依次更新其VUB条目。</p></li>
-<li><p>此处显示了节点A，B，C，D和E向VUB的最终路由。</p></li>
+<li>A is at distance 10 from VUB and at distance 1 from E. Via A, VUB is at 11.</li>
+<li>B is at distance 5 from VUB and at distance 4 from E. Via B, VUB is at 9.</li>
+<li>C is at distance 7 from VUB and at distance 1 from E. Via C, VUB is at 8.</li>
+<li>D is at distance 20 from VUB and at distance3 from E. Via D VUB is at 23.</li>
+<li>Node E concludes that the best route to VUB is via C and that the corresponding distance is 8.</li>
+</ul>
+<p><img src="/images/NET/18830.png" /></p>
+<ul>
+<li>E然后相应地更新其路由表的VUB条目。在算法的下一轮中，A和D将发现比以前知道的有一种更好的VUB方式，并将依次更新其VUB条目。</li>
+</ul>
+<p><img src="/images/NET/18831.png" /></p>
+<ul>
+<li>此处显示了节点A，B，C，D和E向VUB的最终路由。</li>
 </ul>
 <p>Bellman and Ford have proven that this algorithm converges toward a state where each router has in its routing table the shortest path to all other destinations in a time proportional to the product of the number of nodes and the number of links.</p>
 <p>Bellman和Ford已证明，该算法收敛于一种状态，即每个路由器在其路由表中在与节点数量和链路数量的乘积成比例的时间内，具有到所有其他目的地的最短路径。</p>
@@ -868,14 +1033,33 @@
 <p>当有新的路由可用时，路由表将迅速适应新情况，<u>但是当链路断开时，路由表将<strong>非常缓慢地更新</strong>，并且可能会暂时存在环路。</u></p>
 <p>This problem, known as “<strong>count to infinity</strong>” is the main reason why this algorithm has been replaced by a better one in the Internet.</p>
 <p>这个问题被称为“<strong>无穷计数</strong>”，是该算法在Internet上被更好的算法所取代的主要原因。</p>
+<h5 id="degradation-降级">Degradation 降级</h5>
+<p>Examples of degradation : a link is broken, the error rate on a link has increased so that useful throughput is severely diminished.</p>
+<p>降级示例：链路中断，链路上的错误率增加，从而导致可用吞吐量严重减少。</p>
+<p>The effects of such a degradation are represented in the Distance Vector Algorithm by increasing "distance" parameter of the link. For instance, a broken link will be characterized by an infinite distance.</p>
+<p>这种退化的影响在距离向量算法中通过增加链路的“距离”参数来表示。 例如，断开的链接将以无限距离为特征。</p>
 <h5 id="count-to-infinity-无穷计数">Count to infinity 无穷计数</h5>
 <p>该方案表明<u><strong>链路降级link degradation</strong>在网络中传播非常缓慢</u>。</p>
+<p><img src="/images/NET/18832.png" /></p>
+<blockquote>
+<p>Initially the link BA had a distance 1. After an incident damaging the link, the distance becomes 7.</p>
+<p>最初链接 BA 的距离为 1。在发生损坏链接的事件后，距离变为 7。</p>
+<p>The successive drawings of the network show how the distance vector algorithm will slowly update its DistanceToDestination A figures. For simplicity we suppose that the local updates take place in the shown network from left to right.</p>
+<p>网络的连续图显示了距离向量算法将如何缓慢更新其 DistanceToDestination A 数字。 为简单起见，我们假设本地更新在所示网络中从左到右发生。</p>
+<p>Immediately after the incident, when B asks its two neighbors about their distance to A, it will conclude the best way to A is via C because C, ignoring the incident, still believes that it is at a distance 2 from A. Soon thereafter C will ask its neighbors about their distance to A and will deduce from the answer by B (3) that the best way from C to A is via B. This creates a loop between B and C, insulating in fact nodes B to E from node A. This situation will be corrected when, through successive steps of the algorithm, B has concluded that for going to A the best route is over the degraded link B&gt;A .</p>
+<p>事件发生后，当 B 立即询问其两个邻居到 A 的距离时，它会得出结论，到 A 的最佳途径是通过 C，因为 C 忽略了事件，仍然认为它与 A 的距离为 2。此后不久，C 将询问它的邻居他们到 A 的距离，并从 B (3) 的答案中推断出从 C 到 A 的最佳方式是通过 B。这在 B 和 C 之间创建了一个循环，实际上将节点 B 到 E 与节点隔离 A. 当通过算法的连续步骤，B 得出结论，去 A 的最佳路由是通过降级链路 B&gt;A 时，这种情况将得到纠正。</p>
+</blockquote>
 <p>In case of failure of a link the traffic through that link will be bounced back (and enter a loop without issue) until the <code>DistanceToDestination</code> variable of neighbouring nodes has grown, by two units per routing round, to a value sufficient to change the routes in that neighbourhood.</p>
 <p>如果发生链路故障，则通过该链路的流量将被反弹（并进入循环而不会出现问题），直到相邻节点的<code>DistanceToDestination</code>变量在每个路由回合中增加了两个单位，直至足以改变路由那个街区。</p>
 <p>这种非常烦人的现象被称为“无穷计数count to infinity”，<u>因为失败的链接failed link被认为具有无限的距离infinite distance。</u></p>
 <h4 id="link-state-routing">Link state routing</h4>
+<p><img src="/images/NET/18833.png" /></p>
+<ul>
+<li>Each node broadcasts its list of ongoing links</li>
+</ul>
 <p>With link state routing, each router maintains a list of its neighbors and the “cost” of reaching them. This list is <strong>periodically broadcaste</strong>d.</p>
 <p>通过链路状态路由，每个路由器都维护其邻居列表以及达到邻居的“cost”。 该列表被<strong>定期广播</strong>。</p>
+<p><img src="/images/NET/18834.png" /></p>
 <p>Whenever the state of one of the links to neighbors changes, the local link list is updated and broadcasted again.</p>
 <p>每当到邻居的链接之一的状态更改时，本地链接列表都会更新并再次广播。</p>
 <p>Successive versions of that list are identified by an <strong>integer sequence number.</strong></p>
@@ -884,7 +1068,14 @@
 <p>广播允许每个路由器建立一个包含所有可用链接及其各自“成本costs”的数据库，并在路由器发出信号通知其附近进行修改时升级该数据库。</p>
 <p>This database allows each node to build a full map of the interconnected networks and to find the best route to any destination by applying Dijkstra’s algorithm to find the shortest path to a specific destination in a graph.</p>
 <p>该数据库允许每个节点建立互连网络的完整地图，并通过应用Dijkstra的算法来找到图中特定目的地的最短路径，从而找到通往任何目的地的最佳路线。</p>
-<h5 id="local-link--state-database">Local Link- State Database</h5>
+<h5 id="local-link---state-database">Local Link - State Database</h5>
+<p><img src="/images/NET/18835.png" /></p>
+<ul>
+<li><p>Based on the broadcasts received from other nodes, each node builds its own database of links.</p>
+<p>基于从其他节点收到的广播，每个节点建立自己的链接数据库。</p></li>
+<li><p>With each link, the "<strong>freshness</strong>" of the information is kept in order to check, upon reception of a broadcast whether an update is required.</p>
+<p>对于每个链接，信息的“<strong>新鲜度</strong>”都会保留，以便在接收到广播时检查是否需要更新。</p></li>
+</ul>
 <p>For building that database, following algorithm is used:</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span> <span class="token punctuation">(</span>true<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   Receive message<span class="token punctuation">;</span>
@@ -905,20 +1096,40 @@
   <span class="token punctuation">&#125;</span> 
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="best-route-consequence">Best route consequence</h4>
+<p><img src="/images/NET/18836.png" /></p>
 <p>Using optimal routes can have deleterious effects: in the example shown, all left to right traffic will go through the bottom node because it is on the shortest route while no traffic will go through the two upper nodes, even if the bottom node gets congested.</p>
 <p>使用最佳路由可能产生有害影响：在所示示例中，所有从左到右的流量都将通过底部节点，因为它位于最短路径上，即使底部节点拥塞，也没有流量会通过两个较高的节点。</p>
 <h4 id="routing-in-large-networks">Routing in large networks</h4>
+<p><img src="/images/NET/18837.png" /></p>
+<ul>
+<li>Complete routing tables impossible in large networks</li>
+<li>Hierarchical routing is the solution
+<ul>
+<li>Routing table restrcited to one level of hierarchy</li>
+</ul></li>
+</ul>
 <p>网络数量的增加导致引入了子网的概念：例如，VUBNET，即VUB校园网在Internet上以其16位网络号1000011010111000（写为134.184）而为人所知，剩下的16位用于标识其中的任何一个。</p>
 <p>可以连接到VUBNET的65534个可能的主机。 但是，VUBNET本身是一组IP网络，将16位主机号分解为8位子网号和8位主机号，从而在VUBNET内部最多允许254个子网，每个子网上254个主机。 这些子网对于外部世界是不可见的，外部世界将VUBNET视为具有最多65534台主机的单个网络。</p>
-<h2 id="private-virtual-networks">Private Virtual Networks</h2>
-<p>可以很好地想象一种互联网应用程序，它将IP数据包从一个地址传送到Internet中的另一个地址。 该应用程序甚至可以（在OSI模型的第6级）对这些数据包进行<strong>加密</strong>。</p>
+<h2 id="virtual-private-networks-tunnels">Virtual Private Networks (= Tunnels)</h2>
+<p>可以很好地想象一种互联网应用程序，它将IP数据包从一个地址传送到Internet中的另一个地址。 该应用程序甚至可以（<u>在OSI模型的第6级</u>）对这些数据包进行<strong>加密</strong>。</p>
 <p>这样，Internet可以用于以安全的方式在不属于公共Internet的两个路由器之间承载数据包。 此技术称为“<strong>虚拟专用网Virtual Private Network”</strong>（VPN）。</p>
+<p><img src="/images/NET/18850.png" /></p>
 <p>在从IPv4到IPv6的演进过程中，VPN可用于通过Internet的IPv4部分承载IPv6数据包。 在这种情况下，VPN通常被称为“<strong>隧道Tunnel</strong>”。</p>
 <p>作为使用此类隧道的一个示例，Microsoft无法通过IPv6网络使用Windows隧道将Windows更新带到您的计算机。</p>
 <h2 id="net-neutrality-网络中立性">Net Neutrality 网络中立性</h2>
+<ul>
+<li>The Internet is a communications service , just like the telephone service (EU and USA ?)</li>
+<li>The Internet Service Providers (ISP) should not discriminate between applications.</li>
+<li>All IP packets should obey the same rules , regardless of their origin or destination</li>
+<li>Overall user satisfaction is not only determined by the handling of IP packets , nor by the ISPs policies</li>
+</ul>
 <p>欧洲和美国都赋予互联网一种类似于电话服务的状态，这意味着不允许运营商歧视用户，而互联网服务提供商希望以一定的代价来支持主要的内容提供商， 例如Netflix。</p>
 <p>ISP确实相信，如果他们无法区分服务，则互联网访问将成为一种不太有利可图的商品。 在许多为居民提供免费互联网访问的欧洲城镇中，这种演变已显而易见。</p>
 <h3 id="edge-servers-边缘服务器">Edge servers 边缘服务器</h3>
+<p><img src="/images/NET/18851.png" /></p>
+<blockquote>
+<p>大家都用公网进行数据访问，网络压力很大，于是，当地的服务运营商可以把最常见的访问数据存储在当地的服务器（Edge Server）。这就能大大提高访问的速度和效率。</p>
+</blockquote>
 <p>To reduce the Internet traffic, frequently requested data can be locally stored in cache memories, called “<strong>edge servers</strong>”.</p>
 <p>为了减少Internet流量，可以将经常请求的数据本地存储在称为“<strong>边缘服务器edge servers</strong>”的缓存中。</p>
 <blockquote>
@@ -928,6 +1139,7 @@
 <p>边缘服务器中存储的内容的选择会影响用户观察到的性能，并且<u>不受“网络中立性”规则的约束。</u></p>
 <h2 id="the-transport-layer">The Transport Layer</h2>
 <h3 id="tcp">TCP</h3>
+<p><img src="/images/NET/18852.png" /></p>
 <p>每个TCP数据包都有自己的标头header，其中一些重要字段是：</p>
 <ul>
 <li><p>Source Port 源端口</p>
@@ -957,11 +1169,25 @@
 </ul></li>
 </ul>
 <h3 id="udp">UDP</h3>
+<ul>
+<li><p>Service offered to application layer:</p>
+<ul>
+<li>Application port identification</li>
+<li>Connectionless (stateless)</li>
+<li>Error detection , no correction</li>
+</ul></li>
+<li><p>Service required from network layer</p>
+<ul>
+<li><p>Connectionless network service</p>
+<p>(As provided by the Internet Protocol)</p></li>
+</ul></li>
+</ul>
 <p>If the application does not require reliable data transport, it is preferable to reduce the transport protocol to a minimum, in order to maximally reduce the delays caused by the transport layer.</p>
 <p>如果应用程序<u>不需要可靠的数据传输</u>，则最好将传输协议减少到最小，以便最大程度地<strong>减少</strong>由传输层引起的<strong>延迟</strong>。</p>
 <p>The User Datagram Protocol implements such a minimal transport protocol. In fact, it only handles the addressing of the applications level entities and discards packets containing transmission errors.</p>
 <p>用户数据报协议实现了这样的最小传输协议。 实际上，它仅处理应用程序级别实体的寻址，并丢弃包含传输错误的数据包。</p>
 <h4 id="message-format">Message format</h4>
+<p><img src="/images/NET/18853.png" /></p>
 <p>The header of UDP packets reflects the simplicity of the transport protocol.</p>
 <p>UDP数据包的标头反映了传输协议的简单性。</p>
 <h4 id="port-numbers">Port Numbers</h4>
@@ -969,45 +1195,45 @@
 <thead>
 <tr class="header">
 <th>0</th>
-<th></th>
+<th>Reserved</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>7</td>
-<td></td>
+<td>Echo</td>
 </tr>
 <tr class="even">
 <td>11</td>
-<td></td>
+<td>User (Gives list of active users)</td>
 </tr>
 <tr class="odd">
 <td>13</td>
-<td></td>
+<td>Daytime</td>
 </tr>
 <tr class="even">
 <td>17</td>
-<td></td>
+<td>Quote (Gives the quote of the day)</td>
 </tr>
 <tr class="odd">
 <td>53</td>
-<td></td>
+<td>Domain (Domain name server)</td>
 </tr>
 <tr class="even">
 <td>67</td>
-<td></td>
+<td>BOOTPS (Bootstrap Protoccol Server)</td>
 </tr>
 <tr class="odd">
 <td>68</td>
-<td></td>
+<td>BOOTPC (Bootstrap Protoccol Client)</td>
 </tr>
 <tr class="even">
 <td>69</td>
-<td></td>
+<td>TFTP (Trivial File Transfer Protocol)</td>
 </tr>
 <tr class="odd">
 <td>123</td>
-<td></td>
+<td>NTP (Network Time Protocol)</td>
 </tr>
 </tbody>
 </table>
@@ -1186,7 +1412,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Layers
+                            主要讲解layer的内容
                         
                     </div>
                     <div class="publish-info">
