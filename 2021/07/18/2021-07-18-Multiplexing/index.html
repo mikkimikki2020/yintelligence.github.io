@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.1k
+                    4.2k
                 </div>
                 
 
@@ -502,6 +502,7 @@
             <div id="articleContent">
                 <h1 id="multiplexing">Multiplexing</h1>
 <p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569993">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569988">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/339897821">笔记</a></p>
 <p>Capacity of physical links does not necessarily match the throughput requirements of the applications.</p>
 <p>物理链接的容量不一定与应用程序的吞吐量要求匹配。</p>
 <ul>
@@ -522,8 +523,8 @@
 <p>电路交换是电话网络中传统使用的技术，它把共享链路的容量细分为称为电路的预定部分。</p>
 <p>Upon a request, such circuit, if available, is reserved for a given conversation, and remains reserved until the participants to the conversation release explicitly the link.</p>
 <p>根据请求，这种电路（如果有的话）将为给定的对话保留，并保持保留状态，直到对话的参与者明确释放该链接为止。</p>
-<p>Normally billing is based upon the duration of the reservation, not on the volume of data transferred.</p>
-<p>通常，计费是基于预订的持续时间，而不是基于传输的数据量。</p>
+<p>Normally billing is based upon <strong><u>the duration of the reservation</u></strong>, not on the volume of data transferred.</p>
+<p>通常，计费是<u>基于预订的持续时间</u>，而不是基于传输的数据量。</p>
 <h3 id="frequency-domain-multiplexing">Frequency Domain Multiplexing</h3>
 <p><img src="/images/NET/18912.png" /></p>
 <p>Frequency domain multiplexing consists in shifting the base band spectrum of each signal to be multiplexed by a different carrier frequency Ωi. Provided that the different values of Ωi differ by more than the bandwidth of the base band signals to be multiplexed, these signals can be transmitted in separate frequency ranges.</p>
@@ -565,8 +566,8 @@
 <p><img src="/images/NET/18917.png" /></p>
 <p>Instead of subdividing in advance the total capacity of the shared link, packet switching allows each user to use part of the time the full capacity of the shared link. While one user uses the link, data from other users needs to be buffered. Normally, the time span each user can use the link is continuously adjusted in order to minimize the amount of buffered data.</p>
 <p>分组交换不是预先预先划分共享链路的总容量，而是允许每个用户在部分时间中使用共享链路的全部容量。 当一个用户使用链接时，其他用户的数据需要进行缓冲。 通常，每个用户可以使用链接的时间跨度会不断调整，以最大程度地减少缓冲数据量。</p>
-<p>Charges based on the volume of data transmitted is the most obvious way to charge for packet switched services.</p>
-<p>基于传输的数据量收费是对分组交换服务收费的最明显方式。</p>
+<p>Charges based on <u><strong>the volume of data transmitted</strong></u> is the most obvious way to charge for packet switched services.</p>
+<p><strong><u>基于传输的数据量收费</u></strong>是对分组交换服务收费的最明显方式。</p>
 <h2 id="circuit-vs.-packet-switching">Circuit vs. Packet Switching</h2>
 <p><img src="/images/NET/18918.png" /></p>
 <p>Circuit switching is a logical choice for multiplexing almost continuous flows of data (flows where the ratio of the peak data rate and the average data rate is close to one) because it will ensure a simple and efficient sharing of the communication link.</p>
@@ -673,6 +674,7 @@
 <h2 id="network-coding">Network coding</h2>
 <p><img src="/images/NET/18919.png" /></p>
 <p>Just routing entire packets doesn’t necessarily make optimal usage of the network resources: In the shown example, two messages, m1 and m2 need to be sent through a 6 nodes network with all unidirectional links, all with a throughput of t bits/second. As one link needs to be shared between the two messages, this link will be a bottleneck while the other links will be used at half their capacity or remain idle. The average throughput for each message will only be t/2 bits per second.</p>
+<p>仅路由整个数据包并不一定能优化网络资源的使用：在所示的示例中，需要通过具有所有单向链路的 6 节点网络发送两条消息，m1 和 m2，且吞吐量均为 t 位/秒. 由于需要在两条消息之间共享一条链路，因此该链路将成为瓶颈，而其他链路将使用其容量的一半或保持空闲。每条消息的平均吞吐量仅为每秒 t/2 位。</p>
 <p><img src="/images/NET/18920.png" /></p>
 <p>By merging messages instead of multiplexing them, network resources can potentially be used more efficiently: Instead of transmitting alternatively packets of both messages on the bottleneck link, one could merge the two messages by means of a bitwise exclusive OR operation.</p>
 <p>通过合并消息而不是对消息进行多路复用，可以潜在地更有效地利用网络资源：代替在瓶颈链路上交替发送两个消息的数据包，可以通过按位异或操作合并两个消息。</p>

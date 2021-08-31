@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    6.4k
+                    6.5k
                 </div>
                 
 
@@ -502,6 +502,7 @@
             <div id="articleContent">
                 <h1 id="communication-media">Communication Media</h1>
 <p><a href="https://yintelligence.tech/2021/04/15/2021-04-15-VUB-4020724ENR-Advanced-IT-Networks/">VUB 4020724ENR Advanced IT Networks</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=569992">Slide</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/17362/files?preview=606395">Video</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/339894414">笔记</a></p>
 <h2 id="optical-fiber-光纤">Optical fiber 光纤</h2>
 <h3 id="snells-law-斯涅尔定律">Snell's Law 斯涅尔定律</h3>
 <p>电磁波electromagnetic wave（例如光）的速度取决于传播介质propagation medium 的电磁特性 ε和μ。</p>
@@ -581,7 +582,7 @@
 <li><p>electromagnetic induction and crosstalk between pairs in a single cable</p>
 <p>电磁感应和单根电缆中的双绞线之间的串扰</p></li>
 <li><p>Different and very constant twisting steps for each pair reduces these problems.</p>
-<p>s每对的不同且非常恒定的加捻步骤减少了这些问题</p></li>
+<p>每对的不同且非常恒定的加捻步骤减少了这些问题</p></li>
 <li><p>商业上可获得不同质量的双绞线，价格和性能差别很大</p></li>
 </ul></li>
 </ul>
@@ -690,6 +691,14 @@ Power\ per\ unit\ of\ surface = \frac{P_{t}}{4\pi r^2}
 <p>由于传播条件通常都不理想，因此蜂窝网络运营商不会使用仅3种不同频率的集合来覆盖一个区域，而是使用至少7种不同频率的集合。</p>
 <h4 id="gsm-station-authentication">GSM station authentication</h4>
 <p><img src="/images/NET/18899.png" /></p>
+<ol type="1">
+<li>SIM card is used with the inside <strong>K</strong> (key), MS sends a imsi to VLR （请求连接）</li>
+<li>VLR sends imsi to HLR</li>
+<li>HLR sends rand (random number sequence) and the sres(answer to rand),Kc( another key)</li>
+<li>MS could use <strong>K</strong> to compute the rand to sres</li>
+<li>MS sends the sres , if same, then connection is built</li>
+<li>latter exchange message use the new key Kc</li>
+</ol>
 <p>窃听无线电通信overhear radio communications和/或冒充他人非常简单impersonate somebody else。</p>
 <p>通过加密无线电发送的所有消息，可以保护蜂窝移动无线电系统免受这种安全破坏。每个用户都通过称为<strong>SIM</strong>的芯片卡进行标识。该卡包含其所有者的唯一标识符<strong>unique identifier (imsi)</strong>和秘密密码密钥secret cryptographic key <strong>K</strong>，每张卡都不同，但由发行卡的运营商知道。从物理上讲，不可能恢复隐藏在卡中的值K，但可以计算从K得出的值。</p>
 <p>交付SIM卡后，相应的密钥K将存储在用户本地寄存器中。当移动设备在某个单元中签入时，它将其imsi传输到该单元中的访问者注册表。访客注册然后将imsi发送到SIM卡所有者的家庭注册。</p>
@@ -800,6 +809,9 @@ Power\ per\ unit\ of\ surface = \frac{P_{t}}{4\pi r^2}
 <p>考虑到电磁物理定律和香农定理的限制，在不久的将来不太可能实现5G的所有目标，但是计划在2020年在许多地方进行试点项目。</p>
 <h5 id="mimo">MIMO</h5>
 <p><img src="/images/NET/18909.png" /></p>
+<blockquote>
+<p>MIMO: use antenna arrays that can focus the radio wave in narrow beams</p>
+</blockquote>
 <p>One of the techniques that should make 5G possible is MIMO. It consists in using antenna arrays that can dynamically focus the radio waves in narrow beams, enabling spatial multiplexing of many radio links around a single base station.</p>
 <p>MIMO应该是使5G成为可能的技术之一。 它包括使用可以动态地将无线电波聚焦在窄波束中的天线阵列，从而实现单个基站周围许多无线电链路的空间复用。</p>
 <h5 id="future">Future</h5>
@@ -1186,6 +1198,13 @@ Power\ per\ unit\ of\ surface = \frac{P_{t}}{4\pi r^2}
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
