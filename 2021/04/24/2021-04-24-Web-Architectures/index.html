@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-28
+                    2021-08-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.6k
+                    5.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    25 Min
+                    27 Min
                 </div>
                 
 
@@ -566,7 +566,9 @@
 </ol></li>
 </ul></li>
 </ol>
-<h2 id="http-protocol">HTTP Protocol</h2>
+<h2 id="http-protocol-hypertext-transfer-protocol">HTTP Protocol (Hypertext Transfer Protocol)</h2>
+<p>HTTP gives users a way to interact with web resources such as HTML files by transmitting hypertext messages between clients and servers.</p>
+<p>HTTP clients generally use Transmission Control Protocol (TCP) connections to communicate with servers.</p>
 <ul>
 <li><p><strong>Request/response</strong> communication model</p>
 <p><strong>请求/响应</strong>通信模型</p>
@@ -592,12 +594,12 @@
 <p><img src="/images/NET/1715302.png" /></p>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http">HTTP_message = start_line , &#123;header&#125; , "CRLF" , &#123;body&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="http-request-message-请求消息">HTTP Request Message 请求消息</h4>
-<p><strong>Request-specific start line 请求特定的起始行</strong></p>
+<h5 id="request-specific-start-line-请求特定的起始行">Request-specific start line 请求特定的起始行</h5>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http">start_line = method, " " , resource , " " , version;
 method = "GET" , "HEAD" , "POST" , "PUT" , "TRACE" , "OPTIONS" , "DELETE";
 resource = complete_URL | path;
 version = "HTTP/" , major_version, "." , minor_version; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Methods</strong></p>
+<h5 id="methods">Methods</h5>
 <ul>
 <li><code>GET</code> : get a resource from the server 从服务器获取资源</li>
 <li><code>HEAD</code> : get the header only (no body) 仅获取标题（无正文）</li>
@@ -607,6 +609,31 @@ version = "HTTP/" , major_version, "." , minor_version; <span aria-hidden="true"
 <li><code>OPTIONS</code> : get a list of methods supported by the server 获取服务器支持的方法列表</li>
 <li><code>DELETE</code>: delete a resource on the server 删除服务器上的资源</li>
 </ul>
+<blockquote>
+<p><strong>Note</strong>: Regular browsing usually only uses GET and POST requests.</p>
+<p>常规浏览通常只使用 GET 和 POST 请求。</p>
+</blockquote>
+<h5 id="http-request-headers">HTTP Request Headers</h5>
+<p>An HTTP Request contains information about the client/browser represented as ’<strong>HTTP Request Headers</strong>’.</p>
+<p>HTTP 请求包含有关客户端/浏览器的信息，表示为“<strong>HTTP Request Headers</strong>”。</p>
+<ul>
+<li>Browser Information (User-Agent)
+<ul>
+<li>Type of browser,version, platform, ...</li>
+</ul></li>
+<li>User Information (Cookies, Authorization)
+<ul>
+<li>Session information, settings, ...</li>
+</ul></li>
+<li>Request Data
+<ul>
+<li>Form data, parameters, ...</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Note: Some things can be inferred by the server, such as yourIP-address,... (even when it is not included in a request)</p>
+<p>服务器可以推断出某些内容，例如您的 IP 地址，...（即使它未包含在请求中）</p>
+</blockquote>
 <p><strong>Example HTTP Request Message</strong></p>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http">GET / HTTP/1.1
 <span class="token header-name keyword">Host:</span> www.vub.ac.be
@@ -621,12 +648,28 @@ version = "HTTP/" , major_version, "." , minor_version; <span aria-hidden="true"
 <span class="token header-name keyword">Pragma:</span> no-cache
 <span class="token header-name keyword">Cache-Control:</span> no-cache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="http-response-message-响应消息">HTTP Response Message 响应消息</h4>
-<p><strong>Response-specific start line</strong></p>
+<p>An HTTP Response is the information that is returned after posting an HTTP Request. It contains:</p>
+<ul>
+<li>Response Status
+<ul>
+<li>Represents the status of the request.</li>
+<li>There are many different status codes available.</li>
+</ul></li>
+<li>Response headers
+<ul>
+<li>Server info, policies, cookies, content info (type, length) ,...</li>
+</ul></li>
+<li>Response Body
+<ul>
+<li>The content that is returned.</li>
+</ul></li>
+</ul>
+<h5 id="response-specific-start-line">Response-specific start line</h5>
 <pre class="line-numbers language-http" data-language="http"><code class="language-http">start_line = version , status_code , reason;
 version = "HTTP/" , major_version, "." , minor_version;
 status_code = digit , digit , digit;
 reason = string_phrase;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Status codes 状态码</strong></p>
+<h5 id="status-codes-状态码">Status codes 状态码</h5>
 <ul>
 <li>100-199 : informational</li>
 <li>200-299 : success (e.g. 200 for 'OK')</li>
@@ -752,6 +795,13 @@ reason = string_phrase;<span aria-hidden="true" class="line-numbers-rows"><span>
 <ul>
 <li>inspired by Google’s development of SPDY</li>
 </ul>
+<h3 id="http-proxy">HTTP Proxy</h3>
+<ul>
+<li><p><strong>Forwards</strong> requests to the actual website</p>
+<p>将请求<strong>转发</strong>到实际网站</p></li>
+<li><p><strong>Forwards</strong> responses to the client that made the request</p>
+<p>将响应<strong>转发</strong>给发出请求的客户端</p></li>
+</ul>
 <h2 id="proxies-代理">Proxies 代理</h2>
 <p><img src="/images/NET/1715303.png" /></p>
 <p>A web proxy is situated between the client and the server</p>
@@ -762,12 +812,12 @@ reason = string_phrase;<span aria-hidden="true" class="line-numbers-rows"><span>
 <li><p>can for example be specified in the browser settings; used for</p>
 <p>例如可以在浏览器设置中指定；用于</p>
 <ul>
-<li><p>firewalls and content filters 防火墙和内容过滤器</p></li>
-<li><p>transcoding (on the fly transformation of HTTP message body)</p>
+<li><p>firewalls and content <strong>filters</strong> 防火墙和内容过滤器</p></li>
+<li><p><strong>transcoding</strong> (on the fly transformation of HTTP message body)</p>
 <p>转码（HTTP 消息体的动态转换）</p></li>
-<li><p>content router (e.g. select optimal server in content distribution networks)</p>
+<li><p><strong>content router</strong> (e.g. select optimal server in content distribution networks)</p>
 <p>内容路由器（例如在内容分发网络中选择最佳服务器）</p></li>
-<li><p>anonymous browsing</p>
+<li><p><strong>anonymous browsing</strong></p>
 <p>匿名浏览</p></li>
 <li><p>..</p></li>
 </ul></li>
@@ -786,6 +836,9 @@ reason = string_phrase;<span aria-hidden="true" class="line-numbers-rows"><span>
 <p><img src="/images/NET/1715304.png" /></p>
 <p>A proxy cache is a special type of proxy server</p>
 <p>代理缓存是一种特殊类型的代理服务器</p>
+<blockquote>
+<p>他会和服务器沟通，把常用的网站保存下来，这样以后用户访问，就可以不走那么远的路去服务器。</p>
+</blockquote>
 <ul>
 <li><p>can reduce server load if multiple clients share the same cache</p>
 <p>如果多个客户端共享相同的缓存，可以减少服务器负载</p></li>
@@ -795,6 +848,9 @@ reason = string_phrase;<span aria-hidden="true" class="line-numbers-rows"><span>
 <p>被动或主动（预取）缓存</p></li>
 </ul>
 <h4 id="special-http-cache-control-header-fields-缓存控制头字段">Special HTTP cache control header fields 缓存控制头字段</h4>
+<blockquote>
+<p><strong>HTTP协议中可以控制用不用caches</strong></p>
+</blockquote>
 <ul>
 <li>Expires
 <ul>
