@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    825
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -501,7 +501,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="functions">Functions</h1>
-<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18771/files/?preview=622397">Slide 11 ~ 29</a></p>
+<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/18771/files/?preview=622397">Slide 11 ~ 29</a> + Video <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e71239c3-cb93-474c-98ed-ac700141db68">1</a>, <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cb98b317-da25-4e70-af19-ac700141dba3">2</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017105145133280">廖雪峰 - 函数</a></p>
 <h2 id="查找列表中的最小元素">查找列表中的最小元素</h2>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">smallest</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">:</span>
     smallest <span class="token operator">=</span> <span class="token number">1000000</span>
@@ -511,7 +512,10 @@
     <span class="token keyword">return</span> smallest
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>smallest<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>函数允许多个返回值。 返回值打包成<strong>元组</strong>:</p>
+<p>Output</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">-</span><span class="token number">3</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="返回多个值元组">返回多个值→元组</h3>
+<p>函数允许多个返回值。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">smallest2</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">:</span>
     smallest <span class="token operator">=</span> <span class="token number">1000000</span>
     smallestPos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
@@ -523,8 +527,18 @@
         i <span class="token operator">+=</span> <span class="token number">1</span>
     <span class="token keyword">return</span> smallest<span class="token punctuation">,</span> smallestPos
 
-<span class="token keyword">print</span><span class="token punctuation">(</span>smallest2<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>为了摆脱显式索引变量explicit index variable，我们使用<strong>枚举enumeration</strong>。</p>
+x<span class="token punctuation">,</span> y <span class="token operator">=</span> smallest2<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">-</span><span class="token number">3</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>但其实这只是一种假象，Python函数返回的仍然是单一值，返回值打包成<strong>元组tuple</strong>:：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> smallest2<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>原来返回值是一个tuple！但是，在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple，但写起来更方便。</p>
+<h3 id="枚举enumeration">枚举enumeration</h3>
+<p>为了摆脱<u><strong>显式索引变量explicit index variable</strong></u>，我们使用<strong>枚举enumeration</strong>。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">smallest3</span><span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token punctuation">:</span>
     smallest <span class="token operator">=</span> <span class="token number">1000000</span>
     smallestPos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
@@ -536,6 +550,8 @@
     <span class="token keyword">return</span> smallest<span class="token punctuation">,</span> smallestPos
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>smallest3<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>与任何其他数据类型一样，我们可以<strong>将函数分配给变量</strong>。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sum</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> x <span class="token operator">+</span> y
@@ -636,6 +652,15 @@ f <span class="token operator">=</span> operator<span class="token punctuation">
     <span class="token keyword">return</span> <span class="token punctuation">[</span>x <span class="token keyword">for</span> x <span class="token keyword">in</span> alist <span class="token keyword">if</span> function<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>filt<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">></span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="空函数">空函数</h2>
+<p>如果想定义一个什么事也不做的空函数，可以用<code>pass</code>语句：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">nop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>pass</code>语句什么都不做，那有什么用？实际上<code>pass</code>可以用来作为<strong>占位符</strong>，比如现在还没想好怎么写函数的代码，就可以先放一个<code>pass</code>，让代码能运行起来。</p>
+<p><code>pass</code>还可以用在其他语句里，比如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> age <span class="token operator">>=</span> <span class="token number">18</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>缺少了<code>pass</code>，代码运行就会有语法错误。</p>
 
                 
             </div>

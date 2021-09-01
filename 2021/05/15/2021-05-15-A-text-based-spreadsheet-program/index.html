@@ -511,21 +511,24 @@
 </ul>
 <h2 id="a-matrix">A matrix</h2>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span>  <span class="token class-name">Matrix</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    ”””A simple Matrix  <span class="token keyword">class</span> <span class="token class-name">in</span> Python ”””
+    <span class="token triple-quoted-string string">"""
+    A simple Matrix  class in Python
+    """</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> rows<span class="token punctuation">,</span> columns<span class="token punctuation">)</span> <span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>width <span class="token operator">=</span> columns
         self<span class="token punctuation">.</span>height <span class="token operator">=</span> rows
         self<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        
         <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>rows<span class="token punctuation">)</span><span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>data<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
             <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>columns<span class="token punctuation">)</span><span class="token punctuation">:</span>
                 self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
                 
      <span class="token keyword">def</span>  <span class="token function">setElementAt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>data <span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span> value
+        self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span> value
         
      <span class="token keyword">def</span>  <span class="token function">getElementAt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>More Pythonic ???</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> rows<span class="token punctuation">,</span> columns<span class="token punctuation">)</span> <span class="token punctuation">:</span>
     self<span class="token punctuation">.</span>width <span class="token operator">=</span> columns

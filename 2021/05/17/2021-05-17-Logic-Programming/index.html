@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    871
+                    361
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    1 Min
                 </div>
                 
 
@@ -501,7 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="logic-programming">Logic Programming</h1>
-<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 101 ~ 102</a></p>
+<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 79 ~ 86</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=95d8ba99-6b41-48d5-a12e-ac8b01471b95">Video</a></p>
 <p>给定一个已知事实数据库和一个规则数据库，系统能否自动回答查询？</p>
 <h2 id="prolog">Prolog</h2>
 <ul>
@@ -512,20 +512,22 @@
 <li>Automatic reasoning on rules, queries and facts.</li>
 </ul>
 <h3 id="facts">Facts</h3>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">male(john).
-female(mary).
-male(marc)
-parent(john,marc).
-parent(mary,marc).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-prolog" data-language="prolog"><code class="language-prolog"><span class="token function">male</span><span class="token punctuation">(</span>john<span class="token punctuation">)</span><span class="token operator">.</span>
+<span class="token function">female</span><span class="token punctuation">(</span>mary<span class="token punctuation">)</span><span class="token operator">.</span>
+<span class="token function">male</span><span class="token punctuation">(</span>marc<span class="token punctuation">)</span>
+<span class="token function">parent</span><span class="token punctuation">(</span>john<span class="token punctuation">,</span>marc<span class="token punctuation">)</span><span class="token operator">.</span>
+<span class="token function">parent</span><span class="token punctuation">(</span>mary<span class="token punctuation">,</span>marc<span class="token punctuation">)</span><span class="token operator">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Facts是始终正确的断言。</li>
 <li>Facts存储在数据库中：<strong>事实库factbase</strong></li>
 <li>没有大写！</li>
 <li>以点结束！</li>
 </ul>
-<h3 id="rules">Rules</h3>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">boy ( john ) :−male ( john ) .
-father(john,mary) :- parent(john,mary),male(john).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="rules--">Rules <code>:-</code></h3>
+<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">定义 :- 条件
+
+boy(john) :− male(john) .
+father(john,mary) :- parent(john,mary), male(john).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如果 john 是男性，则 john 是男孩。如果 X 是 Y 的父母<strong>且AND</strong> X 是男性，则 X 是 Y 的父亲。</p>
 <ul>
 <li>如果规则体的所有子句都成立，则规则头结束。</li>
@@ -568,78 +570,8 @@ father(X,Y).<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <li>Run prolog and type [’testfile.pl’]. This loads the facts and the rules.</li>
 <li>A prompt appears ? put your query there and press ¡enter¿</li>
 </ul>
-<h2 id="our-objectives">Our objectives</h2>
-<ul>
-<li>Prolog 可以做的更多，我们不在乎。我们只想展示逻辑编程logic programming的力量。</li>
-<li>我们定义了 ToyProlog，有事实、简单的规则和查询。</li>
-<li>我们研究 ToyProlog 如何工作。</li>
-<li>我们研究可以用 Toyprolog 构建的强大推理系统的例子。</li>
-<li>我们将实现 ToyProlog。</li>
-</ul>
-<h3 id="toyprolog-can-only-do-three-things">ToyProlog can only do three things</h3>
 <ol type="1">
-<li>ToyProlog 可以存储新的事实facts。 我们假设事实存储在简单的数据库中，例如 一个列表。</li>
-<li>ToyProlog 可以存储新规则rules。 我们假设规则存储在简单的数据库中，例如 一个列表。</li>
-<li>我们专注于 ToyProlog 如何在rulebase和factbase上操作以回答查询。</li>
-</ol>
-<h2 id="the-fundamental-principle-resolution">The fundamental principle: Resolution</h2>
-<ul>
-<li>允许我们用是或否回答一些简单的查询。</li>
-<li>如果 A 成立并且 A implies B，那么我们可以得出结论 B.</li>
-<li>A 是事实，A implies B 是规则，B 是新事实。</li>
-</ul>
-<p>From the fact and the rule:</p>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">male(john).
-boy(john) :- male(john) &#x2F;&#x2F;get new fact boy(john).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>We can conclude the new fact:</p>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">boy(john).<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>规则和查询可以有变量。</li>
-<li>事实没有变量。</li>
-<li>将事实与查询相匹配称为<strong>Pattern Matching</strong>。</li>
-<li>将规则子句clause与查询相匹配称为<strong>Unification</strong>。</li>
-</ul>
-<h3 id="pattern-matching">Pattern matching</h3>
-<p>将fact与query相匹配称为<strong>Pattern Matching</strong>。</p>
-<ul>
-<li>为了知道是否可以为某个 X 得出规则的头部，我们需要将规则的主体与事实库中的事实进行匹配。</li>
-<li>如果谓词predicate相同并且变量 X 可以绑定到 john，那么这种匹配是可能的。</li>
-</ul>
-<p><img src="/images/CS61A/2311310.png" /></p>
-<figure>
-<img src="/images/CS61A/2311311.png" alt="" /><figcaption>Example 1</figcaption>
-</figure>
-<figure>
-<img src="/images/CS61A/2311312.png" alt="" /><figcaption>Example 2</figcaption>
-</figure>
-<figure>
-<img src="/images/CS61A/2311313.png" alt="" /><figcaption>Example 3</figcaption>
-</figure>
-<figure>
-<img src="/images/CS61A/2311314.png" alt="" /><figcaption>Example 4</figcaption>
-</figure>
-<figure>
-<img src="/images/CS61A/2311315.png" alt="" /><figcaption>Example 5</figcaption>
-</figure>
-<p><strong>Using pattern matching and unification to answer queries</strong></p>
-<p>Assume again the facts and the rule:</p>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">male(john).
-female(mary).
-male(marc).
-parent(john,marc).
-parent(mary,marc).
-father(X,Y) :− parent (X,Y),male (X).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>We would like to answer the query:</p>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">father(A,B)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol type="1">
-<li><p>Match all facts in the factbase with the query</p>
-<p>⇒ No matches in this case.</p></li>
-<li><p>For each rule in the rulebase:</p>
-<ol type="1">
-<li>Unify the conclusions of the rule with the query.</li>
-<li>Upon successful unification of the conclusion, try to answer the body of the rule.</li>
-</ol>
-<p>⇒ Unification of the conclusion of the rule (father(X,Y)) with the query father(A,B) results in the frame {X=A,Y=B}. So, we need to answer the query parent(X,Y), male(X) given this frame (= recursion step).</p></li>
+<li></li>
 </ol>
 
                 

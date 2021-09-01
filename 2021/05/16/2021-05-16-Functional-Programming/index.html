@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    632
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    11 Min
                 </div>
                 
 
@@ -501,40 +501,215 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="functional-programming">Functional Programming</h1>
-<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 62 ~ 78</a></p>
+<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 62 ~ 78</a>+ <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e2f636ff-9564-4d2d-92f5-ac830138955d">Video</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017328655674400">廖雪峰 - 高阶函数</a></p>
-<h2 id="aims">Aims</h2>
-<ul>
-<li>Introduce the concept of functional programming.</li>
-<li>Introduce more Python. (e.g. decorators, nonlocal, help ...)</li>
-</ul>
 <h2 id="introduction">Introduction</h2>
 <ul>
-<li>In functional programming (FP), computation is seen as theevaluation of mathematical functions.</li>
-<li>In imperative programming, there is much more emphasis on thechange of state.</li>
-<li>In FP, no state is changed.</li>
-<li>Specific languages, or general purpose languages allowing for it.</li>
+<li><p>In functional programming (FP), computation is seen as the evaluation of mathematical functions.</p>
+<p>在函数式编程 (FP) 中，计算被视为数学函数的计算。</p></li>
+<li><p>In <u>imperative programming</u>, there is much more emphasis on thechange of <strong>state</strong>.</p>
+<p>在<u>命令式编程</u>中，更强调<strong>状态state</strong>的改变。</p></li>
+<li><p>In FP, no state is changed.</p>
+<p>在函数式编程中，状态不会改变。</p></li>
+<li><p>Specific languages, or general purpose languages allowing for it.</p>
+<p>特定语言，或允许它的通用语言。</p></li>
 </ul>
-<h2 id="terminology">Terminology</h2>
+<h2 id="terminology-术语">Terminology 术语</h2>
 <ul>
-<li>A function which does not change any state, is said to have no side-effects.</li>
-<li>Referential transparency: A function has the same output on the same input.</li>
+<li><p>A function which does not change any state, is said to have <u><strong>no</strong> side-effects</u>.</p>
+<p>不改变任何状态的函数被称为<u>没有副作用</u>。</p></li>
+<li><p><strong>Referential transparency</strong>: A function has the same output on the same input.</p>
+<p><strong>参照透明度</strong>：一个函数在相同的输入上有相同的输出。</p></li>
 </ul>
-<h2 id="referential-transparency">Referential Transparency</h2>
+<h3 id="referential-transparency-参照透明度">Referential Transparency 参照透明度</h3>
+<p><a target="_blank" rel="noopener" href="https://www.coder.work/article/6468106">什么是参照透明度？</a></p>
 <ul>
 <li>In FP, referential transparency is obvious.</li>
-<li>Mathematical concept of function evaluation.</li>
-<li>Easier to understand what is going on.</li>
-<li>Allows for performance improvement.</li>
+<li>Mathematical concept of function evaluation 函数评估的数学概念。</li>
+<li>Easier to understand what is going on 更容易理解发生了什么。</li>
+<li>Allows for performance improvement 允许性能改进。</li>
 </ul>
-<h2 id="performance-implications">Performance implications</h2>
+<h2 id="closures-闭包">Closures 闭包</h2>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/54498.htm">Python中的闭包实例详解</a></p>
+<p>在一个内部函数中，对外部作用域的变量进行引用，(并且一般外部函数的返回值为内部函数)，那么内部函数就被认为是闭包Closures。举个栗子先：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_multiplier</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">multiplier</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> x <span class="token operator">*</span> n
+    <span class="token keyword">return</span> multiplier<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在函数<code>make_multiplier</code>中定义了一个<code>multiplier</code>函数，<code>multiplier</code>访问了外部函数<code>make_multiplier</code>的变量，并且函数返回值为<code>multiplier</code>函数</p>
+<blockquote>
+<p>注意python是可以返回一个函数的，这也是python的特性之一</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># time = multiplier() 其实就是一个函数</span>
+times3 <span class="token operator">=</span> make_multiplier<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'function：'</span><span class="token punctuation">,</span> times3<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'result：'</span><span class="token punctuation">,</span> times3<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">function： <span class="token operator">&lt;</span>function make_multiplier<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token builtin">locals</span><span class="token operator">></span><span class="token punctuation">.</span>multiplier at <span class="token number">0x0000028588729940</span><span class="token operator">></span>
+result： <span class="token number">27</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>times3是函数<code>multiplier</code>而不是<code>make_multiplier</code>，因为return回来的是<code>multiplier</code>函数。</p>
+<h3 id="局部变量">局部变量</h3>
+<p>闭包<u>无法改变外部函数<strong>局部变量指向的内存地址</strong>。</u></p>
 <ul>
-<li>If a result of a function is not used, the function should not be evaluated.</li>
-<li>If functions do not use each others results, their order can be changed.</li>
-<li>Calling twice the same function with the same arguments will result in the same result, so it is possible to avoid useless recalculations(caching, memorization).</li>
+<li>当外部函数的局部变量为不可变类型时，修改时会改变其内存地址。</li>
+<li>当局部变量为可变类型是，不改变其内存地址，添加内容的话，是能够改变成功的。</li>
 </ul>
-<h2 id="examples">Examples</h2>
-<h3 id="changing-the-order-of-evaluation">Changing the order of evaluation</h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">outFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    x <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">def</span> <span class="token function">innerFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'innerFunc:'</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'out x before call innerFunc:'</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span>
+    innerFunc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'out x after call innerFunc:'</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span>
+    
+outFunc<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">out x before call innerFunc<span class="token punctuation">:</span> <span class="token number">0</span>
+innerFunc<span class="token punctuation">:</span> <span class="token number">1</span>
+out x after call innerFunc<span class="token punctuation">:</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在<code>innerFunc</code>中x的值发生了改变，但是在<code>outerFunc</code>中x的值并未发生变化。</p>
+<h4 id="global-和-nolocal-区别"><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/41030153"><code>global</code> 和 <code>nolocal</code> 区别</a></h4>
+<p><code>global</code>很明显就是声明代码块中的变量使用外部<strong>全局</strong>的同名变量</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">1</span> 
+<span class="token keyword">def</span> <span class="token function">change</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> a
+    a <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"函数内部的a的值："</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span>   <span class="token comment"># 2</span>
+change<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"调用change函数后， 函数外部的a的值："</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span>  <span class="token comment"># 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>nolocal</code>的使用场景就比较单一，它是使用在闭包中的，使变量使用<strong>外层</strong>的同名变量</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        a <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"外层函数a的值"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                func<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">nonlocal</span> a
+                a <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"经过改变后，里外层函数a的值："</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> wrapper
+
+<span class="token decorator annotation punctuation">@foo</span>
+<span class="token keyword">def</span> <span class="token function">change</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"nolocal的使用"</span><span class="token punctuation">)</span>
+
+change<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">外层函数a的值 <span class="token number">1</span>
+nolocal的使用
+经过改变后，里外层函数a的值： <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="不包含域的概念">不包含域的概念</h3>
+<p><strong>python循环中不包含域的概念</strong>。</p>
+<h2 id="decorator">Decorator</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017451662295584">廖雪峰 - 装饰器</a></p>
+</blockquote>
+<p>由于函数也是一个对象，而且函数对象可以被赋值给变量，所以，通过变量也能调用该函数。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">def</span> <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'2015-3-25'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">>></span><span class="token operator">></span> f <span class="token operator">=</span> now
+<span class="token operator">>></span><span class="token operator">></span> f<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token number">2015</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">25</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>函数对象有一个<code>__name__</code>属性，可以拿到函数的名字：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> now<span class="token punctuation">.</span>__name__
+<span class="token string">'now'</span>
+<span class="token operator">>></span><span class="token operator">></span> f<span class="token punctuation">.</span>__name__
+<span class="token string">'now'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>现在，假设我们要增强<code>now()</code>函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改<code>now()</code>函数的定义，这种在<strong><u>代码运行期间动态增加功能</u></strong>的方式，称之为“装饰器”（<strong>Decorato</strong>r）。</p>
+<p>本质上，decorator就是<strong>一个返回函数的高阶函数</strong>。所以，我们要定义一个能打印日志的decorator，可以定义如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">log</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'call %s():'</span> <span class="token operator">%</span> func<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> wrapper<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>观察上面的<code>log</code>，因为它是一个decorator，所以接受一个函数作为参数，并返回一个函数。我们要借助Python的@语法，把decorator置于函数的定义处：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@log</span>
+<span class="token keyword">def</span> <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'2015-3-25'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>调用<code>now()</code>函数，不仅会运行<code>now()</code>函数本身，还会在运行<code>now()</code>函数前打印一行日志：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+call now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token number">2015</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">25</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>把<code>@log</code>放到<code>now()</code>函数的定义处，相当于执行了语句：</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">now <span class="token operator">=</span> log<span class="token punctuation">(</span>now<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>由于<code>log()</code>是一个decorator，返回一个函数，所以，原来的<code>now()</code>函数仍然存在，只是现在同名的<code>now</code>变量指向了新的函数，于是调用<code>now()</code>将执行新函数，即在<code>log()</code>函数中返回的<code>wrapper()</code>函数。</p>
+<p><code>wrapper()</code>函数的参数定义是<code>(*args, **kw)</code>，因此，<code>wrapper()</code>函数可以接受任意参数的调用。在<code>wrapper()</code>函数内，首先打印日志，再紧接着调用原始函数。</p>
+<p>如果decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">log</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">decorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s %s():'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>text<span class="token punctuation">,</span> func<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> wrapper
+    <span class="token keyword">return</span> decorator<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这个3层嵌套的decorator用法如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@log</span><span class="token punctuation">(</span><span class="token string">'execute'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'2015-3-25'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>执行结果如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+execute now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token number">2015</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">-</span><span class="token number">25</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> now <span class="token operator">=</span> log<span class="token punctuation">(</span><span class="token string">'execute'</span><span class="token punctuation">)</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们来剖析上面的语句，首先执行<code>log('execute')</code>，返回的是<code>decorator</code>函数，再调用返回的函数，参数是<code>now</code>函数，返回值最终是<code>wrapper</code>函数。</p>
+<p>以上两种decorator的定义都没有问题，但还差最后一步。因为我们讲了函数也是对象，它有<code>__name__</code>等属性，但你去看经过decorator装饰之后的函数，它们的<code>__name__</code>已经从原来的<code>'now'</code>变成了<code>'wrapper'</code>：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> now<span class="token punctuation">.</span>__name__
+<span class="token string">'wrapper'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>因为返回的那个<code>wrapper()</code>函数名字就是<code>'wrapper'</code>，所以，需要把原始函数的<code>__name__</code>等属性复制到<code>wrapper()</code>函数中，否则，有些依赖函数签名的代码执行就会出错。</p>
+<p>不需要编写<code>wrapper.__name__ = func.__name__</code>这样的代码，Python内置的<code>functools.wraps</code>就是干这个事的，所以，一个完整的decorator的写法如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> functools
+
+<span class="token keyword">def</span> <span class="token function">log</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token decorator annotation punctuation">@functools<span class="token punctuation">.</span>wraps</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'call %s():'</span> <span class="token operator">%</span> func<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> wrapper<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或者针对带参数的decorator：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> functools
+
+<span class="token keyword">def</span> <span class="token function">log</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">decorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token decorator annotation punctuation">@functools<span class="token punctuation">.</span>wraps</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s %s():'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>text<span class="token punctuation">,</span> func<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kw<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> wrapper
+    <span class="token keyword">return</span> decorator<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>import functools</code>是导入<code>functools</code>模块。模块的概念稍候讲解。现在，只需记住在定义<code>wrapper()</code>的前面加上<code>@functools.wraps(func)</code>即可。</p>
+<h2 id="匿名函数"><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017451447842528">匿名函数</a></h2>
+<p>当我们在传入函数时，有些时候，不需要显式地定义函数，直接传入匿名函数更方便。</p>
+<p>在Python中，对匿名函数提供了有限支持。还是以<code>map()</code>函数为例，计算f(x)=x2时，除了定义一个<code>f(x)</code>的函数外，还可以直接传入匿名函数：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">map</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x <span class="token operator">*</span> x<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">,</span> <span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">81</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>通过对比可以看出，匿名函数<code>lambda x: x * x</code>实际上就是：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> x <span class="token operator">*</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>关键字<code>lambda</code>表示匿名函数，冒号前面的<code>x</code>表示函数参数。</strong></p>
+<p>匿名函数有个<strong>限制</strong>，就是<u>只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果。</u></p>
+<p>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> f <span class="token operator">=</span> <span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x <span class="token operator">*</span> x
+<span class="token operator">>></span><span class="token operator">></span> f
+<span class="token operator">&lt;</span>function <span class="token operator">&lt;</span><span class="token keyword">lambda</span><span class="token operator">></span> at <span class="token number">0x101c6ef28</span><span class="token operator">></span>
+<span class="token operator">>></span><span class="token operator">></span> f<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token number">25</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>同样，也可以把匿名函数作为返回值返回，比如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">build</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token keyword">lambda</span><span class="token punctuation">:</span> x <span class="token operator">*</span> x <span class="token operator">+</span> y <span class="token operator">*</span> y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="performance-implications-性能影响">Performance implications 性能影响</h2>
+<ul>
+<li><p>If a result of a function is not used, the function should not be evaluated.</p>
+<p>如果未使用函数的结果，则不应评估该函数。</p></li>
+<li><p>If functions do not use each others results, their order can be changed.</p>
+<p>如果函数不使用彼此的结果，则可以更改它们的顺序。</p></li>
+<li><p>Calling twice the same function with the same arguments will result in the same result, so it is possible to avoid useless recalculations(caching, memorization).</p>
+<p>使用相同的参数调用两次相同的函数将导致相同的结果，因此可以避免无用的重新计算（缓存、存储）。</p></li>
+</ul>
+<h3 id="examples">Examples</h3>
+<h4 id="changing-the-order-of-evaluation-更改评估顺序">Changing the order of evaluation 更改评估顺序</h4>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">For each x
 	y <span class="token operator">=</span> g<span class="token punctuation">(</span><span class="token punctuation">)</span>
     z <span class="token operator">=</span> f<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
@@ -545,13 +720,20 @@ For each x
 	z <span class="token operator">=</span> f<span class="token punctuation">(</span>x <span class="token punctuation">,</span> y<span class="token punctuation">)</span>
     <span class="token keyword">print</span> z<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>In FP this could be done automatically.</p>
-<h3 id="caching-results">Caching results</h3>
+<h3 id="caching-results-缓存结果">Caching results 缓存结果</h3>
 <ul>
-<li>If there is referential transparency, calling the same function twice on the same arguments, gives the same result.</li>
-<li>The first time we store the result, later on we simply return the stored result.</li>
-<li>Large performance gain if the function is expensive.</li>
+<li><p>If there is referential transparency, calling the same function twice on the same arguments, gives the same result.</p>
+<p>如果存在引用透明性，则对相同的参数调用相同的函数两次，会给出相同的结果。</p></li>
+<li><p>The first time we store the result, later on we simply return the stored result.</p>
+<p>第一次我们存储结果，稍后我们简单地返回存储的结果。</p></li>
+<li><p>Large performance gain if the function is expensive.</p>
+<p>如果该函数很昂贵，则性能会大大提高。</p></li>
 </ul>
-<p>Ad-hoc caching</p>
+<h4 id="ad-hoc-caching-临时缓存">Ad-hoc caching 临时缓存</h4>
+<blockquote>
+<p><strong><em>Ad hoc</em></strong> 是一个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/拉丁文常用短语">拉丁文常用短语</a>。这个短语的意思是“特设的、特定目的的（地）、即席的、临时的、将就的、专案的”。</p>
+<p>这个短语通常用来形容一些特殊的、不能用于其它方面的，为一个特定的问题、任务而专门设定的解决方案。这个词汇须与 <em><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/A_priori">a priori</a></em> 区分。</p>
+</blockquote>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'compute'</span><span class="token punctuation">)</span>
     <span class="token comment"># computes something that takes ages here</span>
@@ -560,19 +742,20 @@ For each x
 
 <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>compute<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="optimization-优化">Optimization 优化</h4>
 <p>Could be optimized into:</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">result <span class="token operator">=</span> <span class="token boolean">None</span>
 <span class="token keyword">def</span> <span class="token function">compute0</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">global</span> result
     <span class="token keyword">if</span> result <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> f
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'ompute0'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'compute0'</span><span class="token punctuation">)</span>
         <span class="token comment"># computes something that takes ages here</span>
+        result <span class="token operator">=</span> <span class="token number">11</span>
 	<span class="token keyword">return</span> result
 
 <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>compute<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Slightly better</p>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>compute0<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="closures-闭包-1">Closures 闭包</h5>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">memorize</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">:</span>
     result <span class="token operator">=</span> <span class="token boolean">None</span>
     <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -583,42 +766,18 @@ For each x
         <span class="token keyword">return</span> result
     <span class="token keyword">return</span> wrapper
 
-compute <span class="token operator">=</span> memorize<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+compute <span class="token operator">=</span> memorize<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span>
 
 <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>compute<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>Relies on closures. 依赖闭包。</li>
+<li>Build the environment models! 建立环境模型！</li>
+</ul>
 <blockquote>
-<p>Relies on closures.</p>
-<p>Build the environment models!</p>
 <p>More work to be done for supporting arguments ...</p>
 </blockquote>
-<h3 id="closures">Closures</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_multiplier</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">multiplier</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> x <span class="token operator">*</span> n
-    <span class="token keyword">return</span> multiplier
-
-<span class="token comment"># time = multiplier()</span>
-times3 <span class="token operator">=</span> make_multiplier<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>times3<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>虽然函数make multiplier已经完成了，但是环境还在！！！</p>
-<ul>
-<li>我们必须有一个嵌套nested函数（函数内的函数）。</li>
-<li>嵌套函数必须引用在封闭函数中定义的值。</li>
-<li>封闭函数必须返回嵌套函数。</li>
-</ul>
-<p>只有在使用 <strong>nonlocal</strong> 时才能对这些变量进行赋值。</p>
-<p><strong>Even better with decorators</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@memoize</span>
-<span class="token keyword">def</span> <span class="token function">compute2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span> ”calling compute2”<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token number">1</span>
-
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>compute2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Syntactic sugar (purely syntax) for calling higher-order functions.</p>
-<h3 id="decorator-example">Decorator example</h3>
+<h4 id="decorator-1">Decorator</h4>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 
 <span class="token keyword">def</span> <span class="token function">timing_function</span><span class="token punctuation">(</span>some_function<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -638,6 +797,9 @@ times3 <span class="token operator">=</span> make_multiplier<span class="token p
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\nSum of all the numbers: '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">sum</span><span class="token punctuation">(</span>num_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token keyword">print</span><span class="token punctuation">(</span>my_function<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Sum of <span class="token builtin">all</span> the numbers<span class="token punctuation">:</span> <span class="token number">499500</span>
+Time it took to run the function<span class="token punctuation">:</span> <span class="token number">0.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="reduce">Reduce</h3>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">reduce</span><span class="token punctuation">(</span>function<span class="token punctuation">,</span>sequence<span class="token punctuation">,</span>neutral<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>sequence<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -645,7 +807,11 @@ times3 <span class="token operator">=</span> make_multiplier<span class="token p
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> function<span class="token punctuation">(</span>sequence<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token builtin">reduce</span><span class="token punctuation">(</span>function<span class="token punctuation">,</span>sequence<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>neutral<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">reduce</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">+</span>y<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">reduce</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">+</span>y<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># (4 + 3 + 2 + 1) + 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Output</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token number">11</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="any">Any</h3>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">any</span><span class="token punctuation">(</span>sequence<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> <span class="token builtin">reduce</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x <span class="token keyword">or</span> y<span class="token punctuation">,</span> sequence<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    894
+                    912
                 </div>
                 
 
@@ -501,8 +501,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="implementing-an-interpreter-for-toyprolog">Implementing an interpreter for ToyProlog</h1>
-<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 102 ~ 117</a></p>
-<h2 id="toyprolog-at-a-glance">ToyProlog at a glance</h2>
+<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 102 ~ 117</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=95d8ba99-6b41-48d5-a12e-ac8b01471b95">Video</a></p>
+<p>Background: ToyProlog, <a href="https://yintelligence.tech/2021/05/13/2021-05-13-Object-Oriented-Programming/">Object Oriented Programming</a></p>
+<h2 id="toyprolog-at-a-glance-interpreter">ToyProlog at a glance <code>Interpreter</code></h2>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Interpreter</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>_facts <span class="token operator">=</span> DBase<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -533,15 +534,16 @@
         <span class="token keyword">for</span> frame <span class="token keyword">in</span> self<span class="token punctuation">.</span>_qeval<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span><span class="token punctuation">(</span>frame<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="using-toyprolog">Using ToyProlog</h2>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">i &#x3D; Interpreter ()
-i.addFact(”male (john).”)
-i.addFact(”female (mary).”)
-i.addFact(”male (marc).”)
-i.addFact(”parent(john,marc)”)
-i.addFact(”parent(mary,marc).”)
-i.addRule(”father(X,Y) :− parent(X,Y), male(X).”)
-i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="factbase-and-rulebase-are-very-naive-databases.">Factbase and rulebase are very naive databases.</h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">i <span class="token operator">=</span> Interpreter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+i<span class="token punctuation">.</span>addFact<span class="token punctuation">(</span>”male<span class="token punctuation">(</span>john<span class="token punctuation">)</span><span class="token punctuation">.</span>”<span class="token punctuation">)</span>
+i<span class="token punctuation">.</span>addFact<span class="token punctuation">(</span>”female<span class="token punctuation">(</span>mary<span class="token punctuation">)</span><span class="token punctuation">.</span>”<span class="token punctuation">)</span>
+i<span class="token punctuation">.</span>addFact<span class="token punctuation">(</span>”male<span class="token punctuation">(</span>marc<span class="token punctuation">)</span><span class="token punctuation">.</span>”<span class="token punctuation">)</span>
+i<span class="token punctuation">.</span>addFact<span class="token punctuation">(</span>”parent<span class="token punctuation">(</span>john<span class="token punctuation">,</span>marc<span class="token punctuation">)</span>”<span class="token punctuation">)</span>
+i<span class="token punctuation">.</span>addFact<span class="token punctuation">(</span>”parent<span class="token punctuation">(</span>mary<span class="token punctuation">,</span>marc<span class="token punctuation">)</span><span class="token punctuation">.</span>”<span class="token punctuation">)</span>
+i<span class="token punctuation">.</span>addRule<span class="token punctuation">(</span>”father<span class="token punctuation">(</span>X<span class="token punctuation">,</span>Y<span class="token punctuation">)</span> <span class="token punctuation">:</span>− parent<span class="token punctuation">(</span>X<span class="token punctuation">,</span>Y<span class="token punctuation">)</span><span class="token punctuation">,</span> male<span class="token punctuation">(</span>X<span class="token punctuation">)</span><span class="token punctuation">.</span>”<span class="token punctuation">)</span>
+i<span class="token punctuation">.</span>interpret<span class="token punctuation">(</span>”Father <span class="token punctuation">(</span>X<span class="token punctuation">,</span>Y<span class="token punctuation">)</span><span class="token punctuation">.</span>”<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="database-dbase">Database <code>DBase</code></h2>
+<p><code>Factbase</code> and <code>rulebase</code> are very naive databases.</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">DBase</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>_items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
@@ -558,7 +560,7 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
     
     <span class="token keyword">def</span> <span class="token function">__getitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>_items<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="variables">Variables</h2>
+<h2 id="variables"><code>Variables</code></h2>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Variable</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>_name <span class="token operator">=</span> value
@@ -577,7 +579,7 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
             <span class="token keyword">return</span> binding<span class="token punctuation">.</span>dependsOn <span class="token punctuation">(</span>variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="values">Values</h2>
+<h2 id="values"><code>Values</code></h2>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Value</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>_value <span class="token operator">=</span> value
@@ -590,8 +592,9 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
             returun self<span class="token punctuation">.</span>_value <span class="token operator">==</span> other<span class="token punctuation">.</span>_value
         <span class="token keyword">except</span> Exception <span class="token keyword">as</span> inst<span class="token punctuation">:</span>
             <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="frame">Frame</h2>
+<h2 id="frame"><code>Frame</code></h2>
 <p>A Frame is a dictionary of associations between variables and values.</p>
+<p>Frame 是变量和值之间关联的字典。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Frame</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>_bindings <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
@@ -610,7 +613,8 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
         <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> self<span class="token punctuation">.</span>_bindings<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
             result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">+</span> ”<span class="token punctuation">:</span>” <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> <span class="token string">','</span><span class="token punctuation">.</span> join <span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>The queries, facts and rules are composed of patterns.</p>
+<h2 id="query-pattern">Query <code>Pattern</code></h2>
+<p>The queries, facts and rules are composed of patterns <code>Pattern</code>.</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Pattern</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exps<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>_expressions <span class="token operator">=</span> exps
@@ -631,7 +635,7 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
             
 	<span class="token keyword">def</span> <span class="token function">dependsOn</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token builtin">any</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">.</span> dependsOn <span class="token punctuation">(</span>variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> self <span class="token punctuation">.</span>_expressions<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Matching a patterns against rules and facts.</p>
+<p><strong>Matching a patterns against rules and facts.</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Pattern</span> <span class="token punctuation">:</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
     <span class="token keyword">def</span> <span class="token function">qeval</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> frameStream<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -651,7 +655,6 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
                     <span class="token comment"># then there is nothing to add </span>
                     result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
             <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>The queries, facts and rules are composed of patterns.</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Pattern</span><span class="token punctuation">:</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
     <span class="token keyword">def</span> <span class="token function">_applyRules</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> frame<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -672,6 +675,7 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
                 <span class="token keyword">return</span> frames
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 <span class="token keyword">return</span> ruleBody<span class="token punctuation">.</span>qeval<span class="token punctuation">(</span>frames<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="andpattern"><code>AndPattern</code></h3>
 <p>Combining patterns for the and</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">AndPattern</span><span class="token punctuation">(</span>Pattern<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exps<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -682,8 +686,8 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
         <span class="token keyword">for</span> expression <span class="token keyword">in</span> self<span class="token punctuation">.</span>expressions<span class="token punctuation">:</span>
             result <span class="token operator">=</span> expression<span class="token punctuation">.</span>qeval<span class="token punctuation">(</span>result<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span>
         <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="pattern-matching">Pattern matching</h2>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Matcher</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2 id="pattern-matching-matcher">Pattern matching <code>Matcher</code></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Matcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">patternMatch</span> <span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> pattern2<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">if</span> frame <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> frame
@@ -735,6 +739,7 @@ i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-row
                 <span class="token keyword">return</span> extendedFrame
             <span class="token keyword">else</span><span class="token punctuation">:</span>
                 <span class="token keyword">return</span> <span class="token boolean">None</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="extend">Extend</h3>
 <p>Extend if possible</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">_extendIfPossible</span><span class="token punctuation">(</span>variable<span class="token punctuation">,</span> value<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> frame<span class="token punctuation">.</span>containsBinding <span class="token punctuation">(</span>variable<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
