@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-08
+                    2021-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.8k
+                    871
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    9 Min
+                    4 Min
                 </div>
                 
 
@@ -501,7 +501,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="logic-programming">Logic Programming</h1>
-<p><a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 62 ~ 78</a></p>
+<p><a href="https://yintelligence.tech/2021/01/03/2021-01-03-VUB-4016393ENR-Advanced-Programming-Concepts/">VUB 4016393ENR Advanced Programming Concepts</a> + <a target="_blank" rel="noopener" href="https://canvadocs-prod-dub.inscloudgate.net/1/sessions/eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjIjoxNjI4MzY1NzY2NjAzLCJkIjoiMVNtVHdVSmVCR29UVktNODNYOGpOMDBTZE0xbGFfIiwiZSI6MTYyODQwMTc2NiwiciI6InBkZmpzIiwibCI6ImVuIiwiZyI6Im5vbmUiLCJoIjp7fSwidXNlX2Nsb3VkZnJvbnQiOnRydWUsImlhdCI6MTYyODM2NTc2NiwiZXhwIjoxNjI4NDAxNzY1fQ.k56Bm4X0YEEBNHMqwiEY9u9uQ9ZP1O0x7tJdt4Kt4RUad1qFy9ly16ITIPMXn603z5KMblaIlEgV-sDDi7ro7Q/view?theme=dark#">Slide 101 ~ 102</a></p>
 <p>给定一个已知事实数据库和一个规则数据库，系统能否自动回答查询？</p>
 <h2 id="prolog">Prolog</h2>
 <ul>
@@ -641,257 +641,6 @@ father(X,Y) :− parent (X,Y),male (X).<span aria-hidden="true" class="line-numb
 </ol>
 <p>⇒ Unification of the conclusion of the rule (father(X,Y)) with the query father(A,B) results in the frame {X=A,Y=B}. So, we need to answer the query parent(X,Y), male(X) given this frame (= recursion step).</p></li>
 </ol>
-<h2 id="implementing-an-interpreter-for-toyprolog">Implementing an interpreter for ToyProlog</h2>
-<h3 id="toyprolog-at-a-glance">ToyProlog at a glance</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Interpreter</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_facts <span class="token operator">=</span> DBase<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>_rules <span class="token operator">=</span> DBase<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>_parser <span class="token operator">=</span> Parser<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-	<span class="token keyword">def</span> <span class="token function">addFact</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> someFact<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pattern <span class="token operator">=</span> self<span class="token punctuation">.</span>parser<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>someFact<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>_facts<span class="token punctuation">.</span>store<span class="token punctuation">(</span>pattern<span class="token punctuation">)</span>
-        
-	<span class="token keyword">def</span> <span class="token function">addRule</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> someRule<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pattern <span class="token operator">=</span> self<span class="token punctuation">.</span>_parser<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>someRule<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>_rules<span class="token punctuation">.</span>store <span class="token punctuation">(</span>pattern<span class="token punctuation">)</span>
-        
-	<span class="token keyword">def</span> <span class="token function">getFactBase</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_facts
-    
-    <span class="token keyword">def</span> <span class="token function">getRuleBase</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>rules
-    
-    <span class="token keyword">def</span> <span class="token function">_qeval</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> query<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        frameStream <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        frameStream<span class="token punctuation">.</span>append<span class="token punctuation">(</span>Frame<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> query<span class="token punctuation">.</span>qeval<span class="token punctuation">(</span>frameStream<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_facts<span class="token punctuation">,</span> self <span class="token punctuation">.</span>_rules<span class="token punctuation">)</span>
-    
-    <span class="token keyword">def</span> <span class="token function">repl</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> string<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        o <span class="token operator">=</span> self<span class="token punctuation">.</span>_parser<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>string<span class="token punctuation">)</span>
-        <span class="token keyword">for</span> frame <span class="token keyword">in</span> self<span class="token punctuation">.</span>_qeval<span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>frame<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="using-toyprolog">Using ToyProlog</h3>
-<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">i &#x3D; Interpreter ()
-i.addFact(”male (john).”)
-i.addFact(”female (mary).”)
-i.addFact(”male (marc).”)
-i.addFact(”parent(john,marc)”)
-i.addFact(”parent(mary,marc).”)
-i.addRule(”father(X,Y) :− parent(X,Y), male(X).”)
-i.interpret(”Father (X,Y).”)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="factbase-and-rulebase-are-very-naive-databases.">Factbase and rulebase are very naive databases.</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">DBase</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-	<span class="token keyword">def</span> <span class="token function">store</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_items<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-        
-	<span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        strs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> item <span class="token keyword">in</span> self<span class="token punctuation">.</span>_items<span class="token punctuation">:</span>
-            strs<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            strs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>”\n”<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>strs<span class="token punctuation">)</span>
-    
-    <span class="token keyword">def</span> <span class="token function">__getitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_items<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="variables">Variables</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Variable</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_name <span class="token operator">=</span> value
-        
-	<span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> ”?” <span class="token operator">+</span> self<span class="token punctuation">.</span>name
-    
-    <span class="token keyword">def</span> <span class="token function">rename</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prefix<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> self<span class="token punctuation">.</span>name <span class="token operator">+</span> prefix
-        
-	<span class="token keyword">def</span> <span class="token function">dependsOn</span><span class="token punctuation">(</span>self <span class="token punctuation">,</span>variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> self <span class="token operator">==</span> variable<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">elif</span> frame<span class="token punctuation">.</span>containsBinding<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            binding <span class="token operator">=</span> frame<span class="token punctuation">.</span>getBinding <span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> binding<span class="token punctuation">.</span>dependsOn <span class="token punctuation">(</span>variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="values">Values</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Value</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_value <span class="token operator">=</span> value
-        
-	<span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_value
-    
-    <span class="token keyword">def</span> <span class="token function">__eq__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">try</span><span class="token punctuation">:</span>
-            returun self<span class="token punctuation">.</span>_value <span class="token operator">==</span> other<span class="token punctuation">.</span>_value
-        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> inst<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="frame">Frame</h3>
-<p>A Frame is a dictionary of associations between variables and values.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Frame</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_bindings <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-
-	<span class="token keyword">def</span> <span class="token function">addBindingToFrame</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_bindings<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> value
-        
-	<span class="token keyword">def</span> <span class="token function">containsBinding</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> name <span class="token keyword">in</span> self<span class="token punctuation">.</span>_bindings
-    
-    <span class="token keyword">def</span> <span class="token function">getBinding</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_bindings<span class="token punctuation">[</span>name<span class="token punctuation">]</span>
-    
-    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> self<span class="token punctuation">.</span>_bindings<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">+</span> ”<span class="token punctuation">:</span>” <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token string">','</span><span class="token punctuation">.</span> join <span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>The queries, facts and rules are composed of patterns.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Pattern</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exps<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>_expressions <span class="token operator">=</span> exps
-        
-	<span class="token keyword">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_expressions<span class="token punctuation">)</span>
-    
-    <span class="token keyword">def</span> <span class="token function">__getitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_expressions<span class="token punctuation">[</span>item<span class="token punctuation">]</span>
-    
-    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        expstrings <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> self<span class="token punctuation">.</span>_expressions <span class="token punctuation">]</span>
-        <span class="token keyword">return</span> <span class="token string">'['</span> <span class="token operator">+</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>expstrings<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">']'</span>
-    
-    <span class="token keyword">def</span> <span class="token function">rename</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prefix<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> exp <span class="token keyword">in</span> self<span class="token punctuation">.</span>_expressions<span class="token punctuation">:</span>
-            exp<span class="token punctuation">.</span>rename <span class="token punctuation">(</span>prefix<span class="token punctuation">)</span>
-            
-	<span class="token keyword">def</span> <span class="token function">dependsOn</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token builtin">any</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">.</span> dependsOn <span class="token punctuation">(</span>variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> self <span class="token punctuation">.</span>_expressions<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Matching a patterns against rules and facts.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Pattern</span> <span class="token punctuation">:</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-    <span class="token keyword">def</span> <span class="token function">qeval</span> <span class="token punctuation">(</span>self<span class="token punctuation">,</span> frameStream<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> frame <span class="token keyword">in</span> frameStream<span class="token punctuation">:</span>
-            result <span class="token operator">=</span> result <span class="token operator">+</span> self<span class="token punctuation">.</span>_findAssertions<span class="token punctuation">(</span>frame<span class="token punctuation">,</span> factBase<span class="token punctuation">)</span>
-            result <span class="token operator">=</span> result <span class="token operator">+</span> self<span class="token punctuation">.</span>_app lyRules<span class="token punctuation">(</span>frame<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> result
-        
-        <span class="token keyword">def</span> <span class="token function">_findAssertions</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> frame<span class="token punctuation">,</span> factBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-            <span class="token keyword">for</span> fact <span class="token keyword">in</span> factBase<span class="token punctuation">:</span>
-                res <span class="token operator">=</span> Matcher<span class="token punctuation">.</span>patternMatch<span class="token punctuation">(</span>self<span class="token punctuation">,</span> fact<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-                <span class="token comment"># match the current pattern with the fact from the factbase</span>
-                <span class="token comment"># under the current frame constraints</span>
-                <span class="token keyword">if</span> res<span class="token punctuation">:</span> <span class="token comment"># to catch the case where the matching failed ,</span>
-                    <span class="token comment"># then there is nothing to add </span>
-                    result<span class="token punctuation">.</span>append<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>The queries, facts and rules are composed of patterns.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Pattern</span><span class="token punctuation">:</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-    <span class="token keyword">def</span> <span class="token function">_applyRules</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> frame<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> 
-        <span class="token keyword">for</span> rule <span class="token keyword">in</span> ruleBase<span class="token punctuation">:</span>
-            result <span class="token operator">+=</span> self<span class="token punctuation">.</span>applyRule<span class="token punctuation">(</span>rule<span class="token punctuation">,</span> frame<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> result
-    
-    <span class="token keyword">def</span> <span class="token function">_applyRule</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> rule<span class="token punctuation">,</span> frame <span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span> <span class="token punctuation">:</span>
-        newRule <span class="token operator">=</span> rule<span class="token punctuation">.</span>rename <span class="token punctuation">(</span><span class="token punctuation">)</span>
-        resFrame <span class="token operator">=</span> Matcher<span class="token punctuation">.</span>unifyMatch<span class="token punctuation">(</span>self<span class="token punctuation">,</span>newRule<span class="token punctuation">.</span>getConclusion <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> resFrame <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span> 
-            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            frames <span class="token operator">=</span> <span class="token punctuation">[</span>resFrame<span class="token punctuation">]</span>
-            ruleBody <span class="token operator">=</span> newRule<span class="token punctuation">.</span>getBody<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>ruleBody<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> frames
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> ruleBody<span class="token punctuation">.</span>qeval<span class="token punctuation">(</span>frames<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Combining patterns for the and</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">AndPattern</span><span class="token punctuation">(</span>Pattern<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exps<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        Pattern<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">,</span> exps<span class="token punctuation">)</span>
-        
-    <span class="token keyword">def</span> <span class="token function">qeval</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> frameStream<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> frameStream
-        <span class="token keyword">for</span> expression <span class="token keyword">in</span> self<span class="token punctuation">.</span>expressions<span class="token punctuation">:</span>
-            result <span class="token operator">=</span> expression<span class="token punctuation">.</span>qeval<span class="token punctuation">(</span>result<span class="token punctuation">,</span> factBase<span class="token punctuation">,</span> ruleBase<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="pattern-matching-1">Pattern matching</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Matcher</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">patternMatch</span> <span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> pattern2<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> frame <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> frame
-        <span class="token keyword">elif</span> pattern1 <span class="token operator">==</span> pattern2<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> frame
-        <span class="token keyword">elif</span> <span class="token builtin">isinstance</span> <span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span>Variable<span class="token punctuation">.</span>Variable<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Matcher<span class="token punctuation">.</span>_extendIfConsistent<span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> pattern2<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-        <span class="token keyword">elif</span> <span class="token builtin">isinstance</span> <span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span> Pattern<span class="token punctuation">.</span> Pattern<span class="token punctuation">)</span> 
-        <span class="token keyword">and</span> <span class="token builtin">isinstance</span> <span class="token punctuation">(</span>pattern2<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span> Pattern<span class="token punctuation">.</span> Pattern<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>pattern1<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>pattern2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">None</span>
-        extendedFrame <span class="token operator">=</span> frame
-        <span class="token keyword">for</span> exp1 <span class="token punctuation">,</span> exp2 <span class="token keyword">in</span> <span class="token builtin">zip</span> <span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> pattern2<span class="token punctuation">)</span> <span class="token punctuation">:</span>
-            extendedFrame <span class="token operator">=</span> Matcher<span class="token punctuation">.</span>patternMatch <span class="token punctuation">(</span>exp1<span class="token punctuation">,</span> exp2<span class="token punctuation">,</span> extendedFrame<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> extendedFrame
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">None</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Extend if consistent</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Matcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-    <span class="token keyword">def</span> <span class="token function">_extendIfConsistent</span><span class="token punctuation">(</span>variable<span class="token punctuation">,</span> value<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> frame<span class="token punctuation">.</span>containsBinding<span class="token punctuation">(</span>variable<span class="token punctuation">.</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Matcher<span class="token punctuation">.</span>patternMatch<span class="token punctuation">(</span>frame<span class="token punctuation">.</span>getBinding <span class="token punctuation">(</span>variable<span class="token punctuation">.</span> name<span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            frameCopy <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>frame<span class="token punctuation">)</span>
-            frameCopy<span class="token punctuation">.</span>addBindingToFrame<span class="token punctuation">(</span>variable<span class="token punctuation">.</span>name<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> frameCopy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="unification">Unification</h3>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Matcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-    <span class="token keyword">def</span> <span class="token function">unifyMatch</span><span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> pattern2<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> frame <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> frame
-        <span class="token keyword">elif</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span> Value<span class="token punctuation">.</span> Value<span class="token punctuation">)</span> 
-        <span class="token keyword">and</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pattern2<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span> Value<span class="token punctuation">.</span> Value<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> pattern1<span class="token punctuation">.</span>_value <span class="token operator">==</span> pattern2<span class="token punctuation">.</span>_value<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> frame
-            <span class="token keyword">elif</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span> Variable<span class="token punctuation">.</span>V ariable<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> Matcher<span class="token punctuation">.</span>extendIfPossible<span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> pattern2<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-            <span class="token keyword">elif</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pattern2<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span> Variable<span class="token punctuation">.</span>V ariable<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> Matcher<span class="token punctuation">.</span>extendIfPossible<span class="token punctuation">(</span>pattern2<span class="token punctuation">,</span> pattern1<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-            <span class="token keyword">elif</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span>Pattern<span class="token punctuation">.</span>Pattern<span class="token punctuation">)</span>
-            <span class="token keyword">and</span> <span class="token builtin">isinstance</span> <span class="token punctuation">(</span>pattern2<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span> Pattern<span class="token punctuation">.</span>Pattern<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>pattern1<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>pattern2<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    <span class="token keyword">return</span> <span class="token boolean">None</span>
-                extendedFrame <span class="token operator">=</span> frame
-                <span class="token keyword">for</span> exp1<span class="token punctuation">,</span> exp2 <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>pattern1<span class="token punctuation">,</span> pattern2<span class="token punctuation">)</span> <span class="token punctuation">:</span>
-                    extendedFrame <span class="token operator">=</span> Matcher<span class="token punctuation">.</span>unifyMatch <span class="token punctuation">(</span>exp1<span class="token punctuation">,</span> exp2<span class="token punctuation">,</span> extendedFrame<span class="token punctuation">)</span>
-                <span class="token keyword">return</span> extendedFrame
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">None</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Extend if possible</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">_extendIfPossible</span><span class="token punctuation">(</span>variable<span class="token punctuation">,</span> value<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> frame<span class="token punctuation">.</span>containsBinding <span class="token punctuation">(</span>variable<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> Matcher<span class="token punctuation">.</span>unifyMatch<span class="token punctuation">(</span>frame<span class="token punctuation">.</span>getBinding<span class="token punctuation">(</span>variable<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">,</span> frame<span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> <span class="token builtin">isinstance</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> toyProlog<span class="token punctuation">.</span>Variable<span class="token punctuation">.</span>Variable<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> frame<span class="token punctuation">.</span>containsBinding<span class="token punctuation">(</span>value<span class="token punctuation">.</span> Name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Matcher<span class="token punctuation">.</span>UnifyMatch<span class="token punctuation">(</span>variable<span class="token punctuation">,</span> frame<span class="token punctuation">.</span>getBinding<span class="token punctuation">(</span>value<span class="token punctuation">.</span> Name<span class="token punctuation">)</span><span class="token punctuation">,</span> frame <span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            frameCopy <span class="token operator">=</span> copy<span class="token punctuation">.</span>Deepcopy<span class="token punctuation">(</span>frame<span class="token punctuation">)</span>
-            frameCopy<span class="token punctuation">.</span>AddBindingToFrame<span class="token punctuation">(</span>variable<span class="token punctuation">.</span>Name<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> frameCopy
-        <span class="token keyword">elif</span> value<span class="token punctuation">.</span>dependsOn<span class="token punctuation">(</span>variable<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">None</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            frameCopy <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>frame<span class="token punctuation">)</span>
-            frameCopy<span class="token punctuation">.</span>addBindingToFrame<span class="token punctuation">(</span>variable<span class="token punctuation">.</span>name<span class="token punctuation">,</span> value <span class="token punctuation">)</span>
-            <span class="token keyword">return</span> frameCopy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

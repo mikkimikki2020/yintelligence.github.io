@@ -907,15 +907,15 @@ Z:=X+Y
 <p>我们引入了一个状态变量 j 来计算等待用户的数量，我们想计算系统在给定时刻处于状态 j 的概率 P<sub>j</sub>。</p>
 <p>During time-interval dt , when system is in state j</p>
 <ul>
-<li><p>Probability that the system evolves towards state j + l : = p<sub>j</sub> ( n-j )λdt</p></li>
+<li><p>Probability that the system evolves towards state j + l : = p<sub>j</sub>（n-j）λdt</p></li>
 <li><p>Probability that the system evolves towards state j-1 : = p<sub>j</sub>μdt</p></li>
 <li><p>Probability that the system remains in state j :</p>
-<p>= p<sub>j</sub> 1- ( ( n-j ) λ + μ ) dt</p>
-<p>p<sub>0</sub> = p<sub>0</sub> ( I-n λdt ) + p<sub>1</sub>μdt</p>
+<p>= p<sub>j</sub> 1- （（n-j ） λ + μ）dt</p>
+<p>p<sub>0</sub> = p<sub>0</sub> （I-n λdt）+ p<sub>1</sub>μdt</p>
 <p>...</p>
-<p>p<sub>j</sub> = p<sub>j-1</sub> ( n-j+1 ) λdt + p <sub>j</sub>( 1-( n-j ) λ + μ ) dt + p<sub>j+1</sub>μdt</p>
+<p>p<sub>j</sub> = p<sub>j-1</sub> （ n-j+1 ） λdt + p <sub>j</sub>（1-（n-j） λ + μ）dt + p<sub>j+1</sub>μdt</p>
 <p>...</p>
-<p>P<sub>a</sub> = p<sub>n-1</sub>λdt + p<sub>n</sub>( 1-μdt )</p></li>
+<p>P<sub>a</sub> = p<sub>n-1</sub>λdt + p<sub>n</sub>（1-μdt）</p></li>
 </ul>
 <p>假设系统处于状态 j，我们可以计算系统向</p>
 <ul>
@@ -923,7 +923,7 @@ Z:=X+Y
 <li><p>状态 j-1，因为处理器完成了它正在执行的任务。</p></li>
 </ul>
 <p>这意味着我们可以建立一组 n+1 个齐次线性方程homogeneous linear equations，给出所有 P<sub>j</sub> 作为 λ 和 μ 的函数， <span class="math display">\[
-P_j=\frac{n!}{(n-j)!}(\frac{\lambda}{\mu})^{j}p_0\\
+P_j=\frac{n!}{(n-j)}!(\frac{\lambda}{\mu})^{j}p_0\\
 p_0+p_1+p_2+...+p_n=1\\
 p_0 =[\sum^{n}_{J=0}\frac{n!}{(n-j)!}(\frac{\lambda}{\mu})^{j}]^{-1}
 \]</span> 求解该系统允许我们用 n、λ、μ 和 P<sub>0</sub> 的函数来表达 P<sub>j</sub> 并且记住，由于系统总是具有 n 个状态之一，所有 P<sub>j</sub>的总和必须为 1，我们可以找到一个表达式 P<sub>0</sub> 作为 n、λ 和 µ 的函数。</p>
@@ -936,7 +936,7 @@ p_0 =[\sum^{n}_{J=0}\frac{n!}{(n-j)!}(\frac{\lambda}{\mu})^{j}]^{-1}
 <p>Getting response time <strong>R</strong> by computing the flow of request entering and leaving from the processor.</p>
 <p>Fraction of Users will generate λ requests per seconds to enter the processor, the fraction is <span class="math display">\[
 \frac{average\ think\ time}{tink \ time + reponse\ time\ R}
-\]</span> The processor generate <img src="https://www.zhihu.com/equation?tex=%5Cmu" alt="[公式]" /> answers per second.</p>
+\]</span> The processor generate μ answers per second.</p>
 <p>In a steady state, requests and answers are equal. We can get an function R of n, λ and μ.</p>
 <h4 id="time-sharing-response-time">7.4.1 Time-sharing response time</h4>
 <p>由于对于大量用户而言，处理器空闲的概率非常小，P<sub>0j</sub> 将接近于 0，可以观察到响应时间将随 n 线性增长，斜率为 1/μ。</p>
