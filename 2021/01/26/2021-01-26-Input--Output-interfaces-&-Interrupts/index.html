@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-01
+                    2021-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3.5k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    12 Min
+                    15 Min
                 </div>
                 
 
@@ -501,10 +501,10 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="input-output-interfaces-interrupts">Input / Output interfaces &amp; Interrupts</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=123b8dd5-521a-40d0-8c07-ac4200f0031d">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564893">Slide</a></p>
+<p><a href="https://yintelligence.tech/2021/01/15/2021-01-15-Computer-Systems/">VUB 4004876EER Computer Systems</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=123b8dd5-521a-40d0-8c07-ac4200f0031d">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564893">Slide</a></p>
 <p>在前面的章节中，已经详细描述了 CPU 的操作。 然而，有一个方面被完全忽略了。 它是计算机与外部世界之间的通信。这将在本章中讨论。</p>
 <p>计算机通过称为接口interface的电子设备连接到外围设备peripheral equipment或通信网络。</p>
-<h2 id="memory-mapped-output">Memory Mapped Output</h2>
+<h2 id="memory-mapped-output">1. Memory Mapped Output</h2>
 <p><img src="/images/HMS/0917400.png" /></p>
 <p>在许多计算机（例如 PC）中，存在概念上简单的界面来在屏幕上显示文本或图像。部分主内存具有双重访问权限：</p>
 <ul>
@@ -514,9 +514,17 @@
 <p>虽然第一个显示控制器只是将存储在内存中的 ASCII 字符转换为与特定字体相对应的位图，但现代 GPU 是非常强大的专用处理器，可以实时编码或解码视频流，使用适当的阴影旋转 3D 对象并生成所有视觉效果游戏中常见的效果。</p>
 <p>现代 GPU 不仅用于控制显示器，还用于加速算法，这些算法可以从图形所需的大规模并行处理能力中受益。一个典型的例子是蛋白质折叠的计算机模拟。</p>
 <p>在屏幕上显示文本或图画不需要计算机和屏幕之间的同步机制。这两个组件可以按照自己的节奏工作，而不必担心另一个组件的节奏。</p>
-<h3 id="polled-io">Polled I/O</h3>
+<h3 id="polled-io">1.1 Polled I/O</h3>
+<blockquote>
+<p>其实就是输出输入设备的state，就像饭店的传菜响铃一样，你来了一个菜，按一下响铃，拿到菜了，响铃结束，厨师就知道要上下一个菜了</p>
+<p>这里就出现了一个Sy：synchronization bit</p>
+<ul>
+<li>当true时，外接设备可以进行工作</li>
+<li>当false时，计算机来拿东西</li>
+</ul>
+</blockquote>
 <p><img src="/images/HMS/0917401.png" /></p>
-<p>当计算机和外围设备的节奏必须同步时，使用的接口本质上包含一个数据寄存器（“data”）和一个同步位synchronization bit（“sy”）。</p>
+<p>当计算机和外围设备的节奏必须同步时，使用的接口本质上包含一个数据寄存器（“data”）和一个<strong>同步位synchronization bit</strong>（“sy”）。</p>
 <p>为了说明这些想法，让我们将原始打印机视为外围设备。</p>
 <ul>
 <li>当程序需要向打印机发送一个character时，该character被写入接口的 DATA 寄存器并且 Sy 位设置为true。</li>
@@ -526,7 +534,7 @@
 <li>程序会定期regularly检查 Sy 位的状态。 当发现 Sy 位为false时，下一个character将加载到 DATA 寄存器中，并且将Sy 位再次设置为true。</li>
 </ul></li>
 </ul>
-<h3 id="polling-procedure">Polling Procedure</h3>
+<h3 id="polling-procedure">1.2 Polling Procedure</h3>
 <p>示例 C 函数使用了接口interface。</p>
 <pre class="line-numbers language-C" data-language="C"><code class="language-C">void print(char ch);
 &#x2F;&#x2F;Printer polling method
@@ -537,33 +545,47 @@
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>需要注意的是，在将要打印的字符放入数据寄存器之前，用于等待 Sy 位复位的 <code>while ... do</code> 循环。在循环执行期间，程序只是等待打印机准备就绪，不断验证 Sy 变量的状态。</p>
 <p>这种技术已经在本课程第一章描述的电子锁的例子中使用过，叫做“<strong>轮询polling</strong>”</p>
-<h3 id="interrupt-handler">Interrupt handler</h3>
+<h2 id="interrupt-handler">2 Interrupt handler</h2>
+<blockquote>
+<p><strong>试想这样一个情景，你在学习，但是点了个外卖，你不想错过外卖，于是就一段时间看一下手机（polling），看看外卖还来没来，但是你一直看，这个时候，学习的内容就会出现中断，你如何能把这一些中断的学习再拼成知识网络呢？</strong></p>
+<p>就是中断控制啦，计算机的CU中都有一个interupt termimal，当控制器完成指令后中断，这个terminal就抓取中断时候的指令地址，之后可以再召唤子流程（subroutine），然后下一条就可以接着上面中断的地址和数据继续工作了</p>
+</blockquote>
 <p>正如在课程的第一部分中已经解释的那样，中断机制interrupt mechanism可用于避免以<strong>轮询polling</strong>为特征的non-productive waiting activity。</p>
 <p>具有interrupt mechanism的计算机的CU有一个或多个输入端。Interrupt terminal的状态改变导致当前程序的中断：在中断期间，控制器完成当前指令的执行，但不是将下一条指令取到该语句确定的地址，而是在另一条指令上寻找它地址由信号中断决定。通常，在调用subroutine时，会保留被中断程序的下一条指令的地址，以便在中断处理后继续执行程序。</p>
 <p>由于interrupt而执行的程序通常称为“<strong>中断处理程序interrupt handler</strong>”。</p>
-<h3 id="interrupt-issues">Interrupt Issues</h3>
+<h3 id="interrupt-issues">2.1 Interrupt Issues</h3>
 <p>CU的架构师必须做出两个与中断机制相关的重要选择：</p>
 <ul>
 <li>Where is the interrupt handler</li>
 <li>How to save the return address</li>
 </ul>
-<h4 id="location-of-the-interrupt-handler">Location of the interrupt handler</h4>
+<h4 id="location-of-the-interrupt-handler">2.1.2 Location of the interrupt handler</h4>
+<blockquote>
+<p>现在又出现了问题，中断控制需要程序呀！这个中断控制程序应该放在哪呀？</p>
+</blockquote>
 <ul>
 <li><p>Fixed direct address (INTEL)</p>
 <blockquote>
 <p>每个中断终端关联一个physical address，相应的中断处理程序的第一条指令必须在该physical address上</p>
+<p>terminal和物理地址关联，在这个地址中，中断程序的第一条指令，就是这个地址</p>
 </blockquote></li>
 <li><p>Fixed indirect address (Motorola)</p>
 <blockquote>
 <p>为每个终端关联一个physical address，指令地址的第一个管理器manager必须位于该physical address</p>
+<p>terminal还是关联物理地址，但是指令地址的管理器位于地址上</p>
 </blockquote></li>
 <li><p>Vectored Interrupts (DEC)</p>
 <blockquote>
 <p>load导致中断的设备，为自己提供第一条指令。</p>
+<p>直接加载中断设备提供的第一条指令</p>
 </blockquote></li>
 </ul>
 <p>保存中断程序的状态（通常称为“<strong>上下文context</strong>”）也可以通过多种方式来完成，但应该意识到这还不够，例如在子程序调用的情况下保存返回地址和可能的动态链接，但也应该保存所有可能被中断处理程序改变的寄存器的内容，<u>因为我们无法知道什么时候会发生中断的执行</u>，而且很可能只是当所有寄存器都包含将要执行的中间结果时才发生在程序的其余部分执行期间使用。</p>
-<h5 id="direct-interrupt-addresses">Direct interrupt addresses</h5>
+<h5 id="direct-interrupt-addresses">2.1.2.1 Direct interrupt addresses</h5>
+<blockquote>
+<p>在内存上，把指令分成块，每一块都设置一个和IH相连接的地址，可以无条件到IH</p>
+<p>就像某些单机游戏每隔几分钟保存存档一样，执行这样的操作</p>
+</blockquote>
 <p>在某些处理器中，尤其是个人计算机中普遍使用的 X86 系列处理器中，每个中断输入线都与一个固定地址相关联，并且在中断之后，要执行的第一条指令将是在该地址处找到的指令。</p>
 <ul>
 <li>在X86处理器中，地址0为RESET interruption，地址4为第一个正常中断，地址8为下一个，依此类推。在复位reset信号 (RESET) 期间，无需在当前程序中保存任何内容。</li>
@@ -571,7 +593,10 @@
 </ul>
 <p><img src="/images/HMS/0917402.png" /></p>
 <p>对应于其他中断的地址通常包含对相关中断处理程序的子程序调用。这样，在中断期间，返回地址自动保存在堆栈中，并通过返回指令结束中断处理程序，它自动返回到被中断的程序。对于每个中断处理程序，程序员必须注意备份可能被中断处理程序修改的所有上下文context数据（例如在返回地址上方的堆栈上）。在返回主程序之前，即在返回指令之前，上下文context数据必须恢复到中断前的情况。</p>
-<h5 id="indirect-interrupt-addresses">Indirect interrupt addresses</h5>
+<h5 id="indirect-interrupt-addresses">2.1.2.2 Indirect interrupt addresses</h5>
+<blockquote>
+<p>在内存上腾出来固定的一片区域放与IH相连接的地址。</p>
+</blockquote>
 <p>在其他处理器中，包括最初由摩托罗拉设计的处理器，每个中断终端都在内存中分配了一个固定地址，控制单元可以在其中获取fetch相应中断处理程序的开头地址。</p>
 <p><img src="/images/HMS/0917403.png" /></p>
 <ul>
@@ -580,7 +605,10 @@
 </ul>
 <p>在此类处理器中，控制单元将负责备份back堆栈上所有寄存器的内容。因此，这些处理器具有在恢复所有已保存记录的内容时从中断处理程序返回的特定指令。</p>
 <p>这种方式无疑对程序员更加友好，因为他或她不必担心保存被中断程序的context，但是如果该context有相当大的规模，那么对于某些关键应用程序，对中断的响应时间可能会令人望而却步。为此，在某些处理器中，仅自动保存部分context。 在这种情况下，如果在中断执行期间可能会修改其余的context，则由程序员来保护它。</p>
-<h5 id="vectored-interrupts">Vectored Interrupts</h5>
+<h5 id="vectored-interrupts">2.1.2.3 Vectored Interrupts</h5>
+<blockquote>
+<p>CU向中断的设备发布指令，让他发送之前中断的指令</p>
+</blockquote>
 <p>一些旨在处理来自不同来源的大量中断的处理器没有将地址与特定中断一成不变地关联的机制。</p>
 <p>中断后，它们只是开始下一条指令的读取周期，但不寻址内存。</p>
 <p>相反，它们赋予引起中断的设备authorization，将其自身置于数据总线上的可执行语句以加载到指令寄存器instruction register中。</p>
@@ -592,14 +620,14 @@
 <li>After an interrupt, the interrupting device will normally put a JSB instruction on the data bus for calling the interrupt handler</li>
 </ul>
 <p>引起中断的设备通常会发送带有所需中断处理程序地址的子程序调用指令。有了这种称为“<strong>向量中断vectored interrupt</strong>”的机制，很明显程序员对上下文保存负有全部责任。</p>
-<h4 id="save-the-return-address">Save the return address</h4>
+<h4 id="save-the-return-address">2.1.3 Save the return address</h4>
 <ul>
 <li>By programmer</li>
 <li>Automatically, the entire state</li>
 <li>Automatically, a part of the state</li>
 <li>By shadow registers</li>
 </ul>
-<h3 id="interrupt-driven-io">Interrupt Driven I/O</h3>
+<h3 id="interrupt-driven-io">2.2 Interrupt Driven I/O</h3>
 <p>使用中断来管理 I/O 操作使用与polling方法研究中描述的完全相同的接口。</p>
 <p><img src="/images/HMS/0917405.png" /></p>
 <p>在图中，我们看到 Sy 位直接连接到处理器的一个中断输入。</p>
@@ -634,7 +662,7 @@
 <li><p>然后驱动程序处于阻塞blocked状态state，直到打印机引起中断。</p></li>
 </ul>
 <p>如果在驱动程序激活时缓冲区为空，则驱动程序立即被阻塞，不希望通过中断释放。</p>
-<h4 id="performance-of-interrupt-driven-io">Performance of interrupt Driven I/O</h4>
+<h4 id="performance-of-interrupt-driven-io">2.2.1 Performance of interrupt Driven I/O</h4>
 <ul>
 <li>Some orders of magnitude :
 <ul>
@@ -658,8 +686,12 @@
 <p>这导致传输一个字节大约需要一微秒，并且最大可达到的流速约为a megabyte per second (1 MB/s)。</p>
 <p>由于本地网络的其他吞吐量大约为每秒 1 到 20 兆字节，并且在硬盘驱动器和 CD 驱动器中发现相同数量的吞吐量，人们意识到中断管理的操作 I/O 设备太慢了。</p>
 <p>由中断直接管理的慢速 I/O 操作直接影响 CPU 的通用性。 由于 CPU 可以执行多种任务，因此需要 50 条指令才能准确描述在内存和 I/O 接口之间简单传输一个字节的任务。</p>
-<h2 id="direct-memory-access-controller">Direct Memory Access Controller</h2>
+<h2 id="direct-memory-access-controller-dmac">3. Direct Memory Access Controller (DMAC)</h2>
+<blockquote>
+<p>在I/O接口中，值得注意的是，Sy和IH都有连接，所以不必一直polling，没了化就是中断了可以直接用IH中断控制。</p>
+<p>但是IH控制的I/O还是太慢了，于是出现了DMAC，它用于在内存和I/O之间传数据，并带有自己的IH部分，下面看一下DMAC的结构:</p>
 <p>为了加速 I/O，在计算机中添加了一个专门的处理器。该处理器只能完成一项任务，包括在内存和 I/O 接口之间传输字节。</p>
+</blockquote>
 <p>只需一个简单的控制信号就足以进行传输，而无需从内存中读取任何指令。这种专用处理器称为“<strong>直接内存访问控制器Direct Memory Access Controller</strong>”。</p>
 <p><img src="/images/HMS/0917406.png" /></p>
 <p>在传输之前，CPU 执行的程序通过在 DMAC 中加载源地址、目标地址和要传输的字节数来准备传输。</p>

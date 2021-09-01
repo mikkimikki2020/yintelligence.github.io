@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-01
+                    2021-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.4k
+                    5.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    21 Min
+                    23 Min
                 </div>
                 
 
@@ -501,9 +501,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="from-lowlevel-machine-code-to-highlevel-langeuage">From Lowlevel "Machine Code" To Highlevel "Langeuage"</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5236a5b2-9e73-4c5b-8c5d-ac4100a8659c">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564912">Slide</a></p>
-<h2 id="the-structure-of-computer">The structure of Computer</h2>
-<h3 id="the-sequential-computer">The Sequential Computer</h3>
+<p><a href="https://yintelligence.tech/2021/01/15/2021-01-15-Computer-Systems/">VUB 4004876EER Computer Systems</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5236a5b2-9e73-4c5b-8c5d-ac4100a8659c">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564912">Slide</a></p>
+<h2 id="the-structure-of-computer-计算机结构">1. The structure of Computer 计算机结构</h2>
+<h3 id="the-sequential-computer">1. 1 The Sequential Computer</h3>
 <p>在计算机内部，所有信息都以<strong>整数integer、定长fixed length、数字numbers</strong>的方式进行编码。</p>
 <p>为了在外界和计算机之间传输信息，需要键盘、显示器、打印机、温度传感器、加速度计等。我们称它们为输入或输出input or output接口interfaces。</p>
 <p><u>通常信息在被引入计算机后<strong>不能立即处理</strong></u>。例如，如果想知道温度是否在攀升，则需要将从温度传感器获得的实际值与从同一传感器获得的先前值进行比较。因此，计算机具有<strong>数据存储器</strong>data memory，可以<u><strong>根据需要存储数字</strong></u>。这些数字最终<u>可以从该存储器中<strong>取出fetch</strong></u>，由算术计算器arithmetic calculator组合，结果也存储在data memory中。</p>
@@ -519,6 +519,9 @@
 </ul>
 <p>The computer memory stores fixed length number and identified by <strong>address</strong>.</p>
 <h3 id="memories">Memories</h3>
+<blockquote>
+<p>Data Memory：可以看作一个抽屉架，如果我要改变其中一个抽屉里的东西，必定会清除掉原来抽屉的东西。</p>
+</blockquote>
 <p>作为第一个类比，可以将计算机内存视为抽屉柜，每个抽屉可以容纳一个<strong><u>one, fixed length, integer number</u></strong>，并由一个数字标识，称为“<strong>address</strong>”。 将号码存储在抽屉中会<strong>automatically discard</strong>之前存储在该抽屉中的number 。</p>
 <p>作为在我们将考虑的最低级别计算机如何执行给定任务的示例，我们将讨论一个简单的电子锁。输入接口为数字键盘，输出接口为电磁锁。</p>
 <p><img src="/images/OP/0853523.png" /></p>
@@ -544,8 +547,12 @@
 <li><strong>Archival stores（档案存储）</strong>: <strong>very slow access</strong> but <strong>huge storage capacity</strong> and <strong>high reliability</strong>, e.g. cassettes.</li>
 </ul>
 <p><strong>CPU （Central Processor Units, 中央处理器）</strong> in a single silicon ship with cooling devices including heating pipes and fans 一个或多个中央处理器单元内置于单个硅芯片中，由于此类芯片耗散大量功率，因此它们通常安装在包括热管和风扇在内的冷却设备中。</p>
-<h3 id="instructions">Instructions</h3>
-<p>A <strong>数据处理指令data handling （arithmetic） instruction</strong>由 5 个独立的项组成:</p>
+<h3 id="arithmetic-unit">1.2 Arithmetic unit</h3>
+<blockquote>
+<p>这里会提到有关指令：Instruction Format</p>
+</blockquote>
+<h4 id="instructions">1.2.1 Instructions</h4>
+<p><strong>数据处理指令data handling （arithmetic） instruction</strong>由 5 个独立的项组成:</p>
 <ul>
 <li>The <strong>nature</strong> of the operation that needs to be performed</li>
 <li>The addresses in data memory of the two operands that need to be <u>combined by an arithmetic operation</u>需要通过算术运算合并的两个操作数在中的address</li>
@@ -555,11 +562,33 @@
 <p><img src="/images/OP/0853521.png" /></p>
 <p>如果只存在data handling指令，则执行指令的<u>顺序</u>将是<u><strong>预先确定</strong></u>的，<strong>不受某些数据项值的影响</strong>。因此，需要第二种指令，即<strong>控制指令control instructions</strong>。在<strong>控制指令control instructions</strong>中，<u>比较两个数据项的值</u>，下一条要取的指令的地址<strong>取决于比较的结果</strong>。</p>
 <p><img src="/images/OP/0853522.png" /></p>
-<h2 id="low-level-language">Low Level Language</h2>
-<h3 id="machine-language">Machine language</h3>
+<h2 id="low-level-language">2.1 Low Level Language</h2>
+<h3 id="machine-language">2.1.1 Machine language</h3>
 <p>前面已经提到，程序和数据在计算机内总是以<strong>整数、固定长度、数字</strong>的形式进行编码。这种形式的程序被称为<strong>机器语言Machine language</strong>。</p>
 <p>这种加载在计算机program memory中的代码也称为“<strong>Object code目标代码</strong>”。</p>
-<h3 id="assembler汇编">Assembler（汇编）</h3>
+<h3 id="assembler汇编">2.1.2 Assembler（汇编）</h3>
+<blockquote>
+<ul>
+<li>加载assembler</li>
+<li>一行一行翻译</li>
+<li>把翻译好的OC放入内存加载</li>
+<li>执行</li>
+</ul>
+<p>特性</p>
+<ul>
+<li>它保存了变量、接口等东西的符号名字</li>
+<li>操作通常也都有一个唤醒（evoke）用的名字</li>
+<li>会出现一些无意义的操作名，比如“结束”“开始”，这种叫做Pseudo Instruction</li>
+</ul>
+<p>于是问题就来了，在之前提到过，assembler是一行一行翻译，那么我们后面定义的操作标签，如果在前面调用了该咋整？</p>
+<p>两种解决方案：</p>
+<ul>
+<li>one pass：扫描到不认识的东西，先留下memory space，之后填上</li>
+<li>two pass：我直接扫描翻译两遍</li>
+</ul>
+<p>之后，介绍一个定义Macro（宏）：</p>
+<p>其实就是因为懒，有一些重复性的东西，用一个代号代替，以后就直接写代号。</p>
+</blockquote>
 <p>给instructions和memory locations命名，这称为汇编语言assembler language。汇编语言中的<u>每条指令对应于机器语言中的一条instruction</u>。汇编语言被称为“低级语言low level language”（LLL）。用 LLL 编写的程序比用机器语言编写的程序更容易被人类理解。当这些程序由人类编写时，它们是称为“<strong>Source Code源代码</strong>”。 它们通常通过称为“<strong>汇编程序assembler</strong>”的翻译程序翻译成机器语言。Assembler生成Object code（机器语言），可以加载到计算机的程序存储器中。</p>
 <p><img src="/images/OP/08535231.png" /></p>
 <blockquote>
@@ -582,7 +611,7 @@
 <p>当然，第 1 步和第 2 步使用的计算机可能与第 3 步和第 4 步使用的计算机不同。</p>
 <p>当运行用户程序的计算机是一台非常小的机器，缺乏外围存储器和友好的用户界面时，通常会出现这种情况。</p>
 </blockquote>
-<h3 id="machine-vs-assembly-language">Machine vs Assembly language</h3>
+<h3 id="machine-vs-assembly-language">2.1.3 Machine vs Assembly language</h3>
 <ul>
 <li><em>Variables</em> keep their <em>symbolic</em> name</li>
 <li><em>IO interfaces</em> keep their <em>symbolic</em> name</li>
@@ -590,14 +619,14 @@
 <li>each machine instruction corresponds to <strong>one</strong> assembly language instruction</li>
 <li><strong>An assembly language program have pseudo instructions which a special commands for the assembler</strong></li>
 </ul>
-<h3 id="source-code-format">Source Code Format</h3>
+<h3 id="source-code-format">2.1.4 Source Code Format</h3>
 <p><img src="/images/OP/085352311.png" /></p>
 <p>Program memory中的addresses也可以接收符号symbolic名称name：在上面的示例中，BGN 和 KLP 是将在某些控制指令之后获取的指令的地址。例如，在发现 KFL 等于 0 或发现 ND 不同于 3 后，将提取地址 KLP 处的指令。这些symbolic名称只是通过将它们写在它们代表的地址的指令前面来定义。</p>
-<h3 id="pseudo-instructions">Pseudo-instructions</h3>
+<h3 id="pseudo-instructions">2.1.5 Pseudo-instructions</h3>
 <p>当需要将 LLL 程序翻译成object code时，需要向翻译程序提供一些指示。 例如，程序将从data or program memory中的哪个地址加载。这通常是通过向程序中添加看起来像真正指令但未转换为机器指令的<strong>伪指令pseudo-instructions</strong>来实现的。</p>
 <p><img src="/images/OP/085352312.png" /></p>
 <p>在上面的例子中，两条 ORG <strong>伪指令pseudo-instructions</strong>告诉汇编器数据存储器从地址 101 开始，而程序存储器从地址 11 开始，对于变量 ND 和 SC，需要在数据存储器中保留一个存储器字，变量 KFL、KDA 和 DDA 分别有固定地址 1,2 和 3，定义在普通数据存储器之外。伪指令 END 通知汇编器它已到达要翻译的程序的末尾。</p>
-<h3 id="forward-reference">Forward Reference</h3>
+<h3 id="forward-reference">2.1.6 Forward Reference</h3>
 <p><img src="/images/OP/085352313.png" /></p>
 <p>翻译 LLL 相当简单。 实际上只有一个问题需要特别注意：在定义之前使用symbolic name（例如上例中的 Next）时，这称为“<strong>前向引用forward reference</strong>”。</p>
 <blockquote>
@@ -626,7 +655,7 @@
 <p>源代码被翻译两次，第一次只是建立一个符号表，其中存储所有符号名称及其值，第二次生成目标代码。</p>
 </blockquote>
 <p>至于计算符号名对应的地址，需要进行<strong>几乎完整</strong>的翻译，遗憾的是没有使用这种翻译来生成最终的目标代码。 一些两遍汇编器在第一遍期间生成部分翻译并在第二遍期间完成它。</p>
-<h3 id="variable-length-instructions">Variable Length Instructions</h3>
+<h3 id="variable-length-instructions">2.1.7 Variable Length Instructions</h3>
 <p>Instruction length can be function of value of operands</p>
 <ul>
 <li>One pass Assemblers
@@ -647,19 +676,19 @@
 <p><u>当指令的长度取决于其操作数的值时，可能会危及一遍和两遍汇编器的正确工作。</u></p>
 <p>确实，有些处理器有可以引用8位、16位或32位地址的指令，在知道操作数的长度之前，汇编器无法知道应该使用哪个版本的指令。 如果 n 是可以影响指令长度的前向引用数，则可以证明通过实现 n+1 遍翻译器，可以正确处理所有前向引用。</p>
 <p>然而，这种技术<strong>几乎从未使用过</strong>。 相反，要求程序员向翻译器提示应该使用指令的哪个变体。 如果提示错误，翻译器可以生成错误消息或警告，程序员可以更改提示。</p>
-<h3 id="macro-instruction">Macro instruction</h3>
-<h4 id="macro-assembler">Macro Assembler</h4>
-<p>Instead of multiple uses of identical sequences of instructions, can define a macroinstrucion.</p>
+<h3 id="macro-instruction-宏">2.1.8 Macro instruction 宏</h3>
+<h4 id="macro-assembler">2.1.8.1 Macro Assembler</h4>
+<p>Instead of multiple uses of identical sequences of instructions, can define a macro instruction.</p>
 <p><img src="/images/OP/085352315.png" /></p>
 <p>在低级编程中，多次使用相同的指令序列，最终使用不同的参数经常发生，如幻灯片左侧所示。不用重复写入序列 LDA、LDB、MUL 及其操作数，我们可以定义带有两个形式参数 &amp;1 和 &amp;2 的宏指令 MULB，并用适当的实际操作数引用 MULB 来替换多次出现的序列 LDA、LDB、MUL ，如幻灯片右侧所示。</p>
 <p>接受宏的汇编器首先在source code中展开宏（右侧显示的程序被替换为左侧显示的程序），然后将整个程序转换为object code</p>
-<h4 id="macros-in-high-level-languages">Macros in High Level languages</h4>
+<h4 id="macros-in-high-level-languages">2.1.8.2 Macros in High Level languages</h4>
 <p>宏不仅用于低级语言，还用于高级语言，例如 c，其中#include 命令允许插入在别处定义的程序的特定部分。</p>
-<h4 id="macro-expanders">Macro expanders</h4>
+<h4 id="macro-expanders">2.1.8.3 Macro expanders</h4>
 <p><img src="/images/OP/085352316.png" /></p>
 <p>在将源代码翻译成目标代码之前，宏通常由预处理器pre-processor处理，适用于处理任何编程语言中的宏。 这种宏扩展器实际上只是一个sophisticated merging of text operations的文本处理器。</p>
 <p>对于大多数 LLL 存在的宏库，包含宏来执行许多简短但经常使用的操作，例如，计算有符号数的绝对值。</p>
-<h4 id="macros-vs-functions">Macros vs Functions</h4>
+<h4 id="macros-vs-functions">2.1.8.4 Macros vs Functions</h4>
 <ul>
 <li>Macros
 <ul>
@@ -675,11 +704,16 @@
 </ul></li>
 </ul>
 <p>事实上，对于肤浅的观察者来说，宏看起来就像高级语言中常用的函数、过程或方法。 然而，它们是根本不同的，从某种意义上说，生成的程序包含与“called”一样多的宏副本，而<strong>只存在一个函数副本</strong>，每次调用函数时都会使用该副本 . 可以说宏将函数调用的开销从执行时间转移到编译或组装时间。 <strong>它们通常比函数更快，但需要更多内存</strong>!</p>
-<h2 id="linker">Linker</h2>
+<h2 id="linker">3. Linker</h2>
+<blockquote>
+<p>一个程序如果是由不同的文件组成，就需要一个连接用的<strong>Program</strong>,就是linker</p>
+<p>每一个部分分别进行翻译，再运行之前组合在一起。</p>
+<p>那么就需要一个定位的代码（relocatable object code）</p>
+</blockquote>
 <p>大型程序很少由一个人完成，现有的部分被重复使用，新的部分通常由一个团队完成。在单个操作中将此类程序的源代码转换为目标代码是不切实际的。最好在程序执行之前将不同的部分分别翻译并组合在一起。</p>
 <p><img src="/images/OP/085352317.png" /></p>
 <p>这可以通过使用所谓的可重定位目标代码relocatable object code实现，该目标代码可以通过称为链接器的特定程序与其他可重定位目标代码片段链接在一起，以获得可执行目标代码executable object code。</p>
-<h3 id="relocatable-code">Relocatable Code</h3>
+<h3 id="relocatable-code">3.1 Relocatable Code</h3>
 <p>Relocatable code has 3 parts:</p>
 <ul>
 <li><p><strong>The object code(CODE)</strong>: containing all the instructions and addresses about separate piece of relocatable code were to be loaded in memory</p>
@@ -701,7 +735,7 @@
 <li>Address corresponding to the symbolic name</li>
 </ul></li>
 </ul>
-<h3 id="two-pass-linkers">Two Pass Linkers</h3>
+<h3 id="two-pass-linkers">3.2 Two Pass Linkers</h3>
 <p>链接器linker的任务包括匹配不同可用可重定位模块的externals和entry points，从这个匹配操作推导出需要包含在最终目标代码中的模块列表，并因此调整每个模块中的所有地址以建立一个连贯的可执行目标代码。</p>
 <p><img src="/images/OP/085352318.png" /></p>
 <p>就像汇编器一样，许多链接器使用两遍：第一遍匹配externals和entry points，通过这样做建立要链接的模块列表，第二遍实际生成目标代码。</p>
@@ -709,7 +743,7 @@
 <li>First pass matches the externals and the entry points of the different available relocatable modules, and establishes the list of modules to be linked.</li>
 <li>Second pass generates the object code.</li>
 </ul>
-<h3 id="dynamic-linking">Dynamic Linking</h3>
+<h3 id="dynamic-linking">3.3 Dynamic Linking</h3>
 <p>在 Microsoft Office 等大型软件套件中，并非所有用户都使用所有可用功能。 事实上，每个用户只需要可用软件的一小部分。因此，提前链接所有可用功能会浪费时间和内存空间。</p>
 <ul>
 <li>Link at run-time
@@ -724,23 +758,30 @@
 <p>The function will be linked when user wants to use it unless it is not activated at program execution.</p>
 </blockquote>
 <p>查看 Windows 和 Windows 中的系统目录，您会发现 Microsoft 软件实际上是一个巨大的.dll 文件集合，其中dll 代表“动态可链接库dynamically linkable libraries”。</p>
-<h3 id="high-level-language">High level language</h3>
+<h2 id="high-level-language">4 High level language</h2>
 <p>大多数程序都是用高级语言 (HLL) 编写的，例如 Java、c、FORTRAN 或 Python。 一千多种这样的语言正在使用中。</p>
 <p><img src="/images/OP/085352319.png" /></p>
 <p>这张幻灯片显示了一个用 HLL 编写的电子锁程序，称为 Modula 2，这是一种针对可读性和一致性进行了优化的语言。 第 2 到 6 行是声明。它们对应于汇编程序中的伪指令，但在这里它们较少针对计算机的技术细节而强调程序逻辑。比如 SC 的声明提醒我们 SC 的值是一个 0 到 999 范围内的整数。 BEGIN 和 END 锁分隔的程序部分对应于汇编程序中的可执行指令，但同样，在一个 这种方式更接近于应用程序程序员的思考方式，而不是计算机指令为获得所需结果而需要安排的方式。</p>
 <p>当然，用 HLL 编写的程序需要翻译成目标代码才能执行，但这种翻译比机器代码中汇编程序的翻译复杂几个数量级，因为 HLL 指令之间不再存在一对一的关系 和机器指令。然而，<u>这允许为不同的处理器翻译相同的 HLL 源代码</u>。 相同的应用程序可以翻译为配备英特尔处理器的笔记本电脑或配备 ARM 处理器的智能手机。</p>
 <p><img src="/images/OP/085352320.png" /></p>
 <p>对 HLL 到机器代码的转换过程的稍微过于简化的描述显示了两种根本不同的处理方式：第一种方式称为<strong>编译compilation</strong>，包括将整个程序从 HLL 转换为目标代码（或可重定位代码）。 第二种方法包括翻译并立即执行源代码的每条语句。 执行这种翻译和后续执行的程序称为<strong>解释器interpreter</strong>。</p>
-<h2 id="compiler-vs.-interpreter">Compiler VS. Interpreter</h2>
+<h2 id="compiler-vs.-interpreter">5 Compiler VS. Interpreter</h2>
+<blockquote>
+<p>不同于compilers的逐行翻译，最后生成一个OC，Interpreter是真正贯彻了逐行翻译逐行运行。</p>
+<ul>
+<li>Lexical Analyser：检查字符的错误</li>
+<li>Syntax Analyser：检查语法的错误</li>
+</ul>
+</blockquote>
 <p>Compiler和interpretation的主要优点是什么？</p>
 <ul>
-<li><p>Compilation</p></li>
-<li><ul>
+<li>Compilation
+<ul>
 <li>when the program needs to be executed many times, compilation is more efficient.</li>
 <li>Error reporting have little information value.</li>
 </ul></li>
-<li><p>Interpreter</p></li>
-<li><ul>
+<li>Interpreter
+<ul>
 <li>reporting useful information about any incident that occurs during execution.</li>
 <li>translating repeatedly many times will waste time.</li>
 </ul></li>
@@ -755,11 +796,11 @@
 <li>code generator</li>
 <li>code optimizer</li>
 </ol>
-<h3 id="compiler">Compiler</h3>
+<h3 id="compiler">5.1 Compiler</h3>
 <p><img src="/images/OP/085352321.png" /></p>
 <p>一些编译器还有一个预处理器pre-processor来处理宏。 大多数编译器生成relocatable code，但有些编译器生成assembler code。然后需要通过汇编程序进一步翻译此汇编程序代码。</p>
 <p>这两个步骤的翻译在最初作为学生项目开发的编译器中很常见。 为了检查新编译器是否正常工作，读取生成的汇编程序而不是目标代码确实要简单得多。</p>
-<h3 id="lexical-analyser">Lexical analyser</h3>
+<h3 id="lexical-analyser">5.2 Lexical analyser</h3>
 <p>Recognizes lexical tokens such as</p>
 <ul>
 <li>Numbers
@@ -784,7 +825,7 @@
 </ul></li>
 </ul>
 <p>词法分析器Lexical analyser读取源代码的字符序列并识别特定序列，例如指定格式的十进制数、保留字、多字符符号、文本字符串、变量……</p>
-<h3 id="syntax-analyser">Syntax analyser</h3>
+<h3 id="syntax-analyser">5.3 Syntax analyser</h3>
 <p><strong>Recognizes</strong> non-terminal symbols such as :</p>
 <ul>
 <li>a program s</li>
@@ -795,10 +836,10 @@
 <p>Can be generated automatically by a parser generator, starting from the BNF syntax definitions</p>
 <p><strong>Represents</strong> a program by a syntax tree .</p>
 <p>编程语言的语法syntax通常通过称为 BNF（Backus-Naur Formalism）的特定符号来定义。在该表示法notation中，词法分析器识别的项目称为“终结符terminal symbols”，而遵守特定语法规则的一组终结符terminal symbols称为“非终结符non-terminal symbol”。</p>
-<h3 id="multi-pass-compiler">Multi-pass compiler</h3>
+<h3 id="multi-pass-compiler">5.4 Multi-pass compiler</h3>
 <p><img src="/images/OP/085352323.png" /></p>
 <p>一些编译器逐步执行翻译，创建多个中间体intermediates。</p>
-<h3 id="single-pass-compiler">Single-pass compiler</h3>
+<h3 id="single-pass-compiler">5.5 Single-pass compiler</h3>
 <p><img src="/images/OP/085352322.png" /></p>
 <p>一些编译器具有整体monolithic结构。 语法分析器syntax analyser是编译器的核心。 其他函数生成相应的机器码来执行识别的语句。</p>
 
@@ -926,7 +967,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            本章主要介绍补码、IEEE754标准。
                         
                     </div>
                     <div class="publish-info">

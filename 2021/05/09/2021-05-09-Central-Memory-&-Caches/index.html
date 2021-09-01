@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-04
+                    2021-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.7k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    17 Min
+                    19 Min
                 </div>
                 
 
@@ -501,18 +501,18 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="central-memory-caches">Central Memory &amp; Caches</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4c34e079-e57a-4a8d-9e65-ac4200f6f9dd">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564895">Slide</a></p>
+<p><a href="https://yintelligence.tech/2021/01/15/2021-01-15-Computer-Systems/">VUB 4004876EER Computer Systems</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4c34e079-e57a-4a8d-9e65-ac4200f6f9dd">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564895">Slide</a></p>
 <p>到目前为止，主存储器main memory被认为是一组homogeneous的words，可通过它们的address进行识别，并且只要有电源就能够保持，具有预定predetermined位数的二进制数binary number的值。</p>
 <p>在main memory的这种简单化视图中，所有memory word具有相同的访问时间，地址address是一个基数cardinal number，其值可以在 0 和内存容量之间变化memory capacity，以<strong>字word</strong>表示。</p>
 <p>在本章中，这些概念受到质疑。 首先将展示如何通过使用访问时间不同的内存来实现平均访问时间明显低于其大多数组件的大内存。然后将介绍用于管理部分内存任务分配的各种技术。</p>
-<h2 id="cost-of-memory">Cost of memory</h2>
+<h2 id="cost-of-memory">1. Cost of memory</h2>
 <p>在课程的第一部分，区分了快速主存储器main memory和慢得多的外围存储器peripheral memory。以下是考虑到的main memory的不同access time。</p>
 <ul>
 <li>一方面，semiconductor memory的存取时间范围几乎跨越span两个数量级，介于 1 到 100 纳秒之间，但最快的存储器比较慢的存储器贵一百多倍。</li>
 <li>另一方面，对连续地址consecutive address的access time通常比对randomly selected address的访问时间快十倍。这种现象来自这样一个事实，即在一个芯片内，不同的存储单元memory cell按行和列排列。</li>
 </ul>
 <p>Access time分为<strong>列的选择时间selection time for the column</strong>、<strong>列中的行的选择时间selection time for the row in the column</strong>和<strong>读取时间read time</strong>本身。在读取同一列中连续地址时，<u>一定不要重复列的选择，行的选择被简化，从而节省了相当多的时间。</u></p>
-<p><img src="/images/OP/2101330.png" /></p>
+<p><img src="/images/OP/OP\2101330.png" /></p>
 <p>固态非易失性存储器Solid state non-volatile memory，例如用于 U 盘和固态盘的存储器，具有介于中央存储器和外围存储器之间的特性。</p>
 <p>Distinction between fast main memory and slower peripheral memory.</p>
 <ul>
@@ -520,21 +520,34 @@
 <li>Access time to consecutive addresses is ten times faster than the randomly selected addresses;</li>
 </ul>
 <p>Because consecutive addresses in the same column do not need to repeat the selection of the column.</p>
-<h2 id="memory-hierarchy">Memory hierarchy</h2>
+<h2 id="memory-hierarchy-存储层级">2. Memory hierarchy 存储层级</h2>
 <p>大多数现代计算机系统不是单个存储器，而是具有不同<strong>访问时间access time</strong>、不同成本和不同大小的hierarchy of memory。 有些甚至在物理上靠近计算机及其用户，但可以通过 Internet 或任何其他网络设施进行访问。通过使用对用户透明的附加高速缓存cache memory，可以将这些不同存储器的表观访问时间保持在相当小的范围内。</p>
-<p><img src="/images/OP/2101300.png" /></p>
+<p><img src="/images/OP/OP\2101300.png" /></p>
 <p>为了保持复杂存储器层次结构的性能可接受，使用了许多高速缓存，在系统的网络部分networked part也称为“<strong>缓冲区buffer</strong>”。</p>
 <p>它们由硬件管理速度最快，软件管理速度慢。 存在三种不同的管理方案。 选择是一个性价比问题。</p>
-<h2 id="cache">Cache</h2>
+<h2 id="cache-缓存">3. Cache 缓存</h2>
 <p>特定组织允许最好地利用不同内存速度之间的成本和速度差异。这是auxiliary内存的使用，称为“Cache”。</p>
 <p>When the processor reads a word from the main memory, the neighbour words are copied in the cache. Because of advantages of reading consecutive addresses, the processer reads words from cache.</p>
 <p>hit-rate (h) is the part of memory that only need to access the cache.</p>
-<h3 id="principle">Principle</h3>
+<h3 id="principle">3.1 Principle</h3>
 <p>该原则可用于信息存储层次结构中的不同级别。这里的解释将基于几乎所有计算机中main memory和处理器processor之间的cache。</p>
-<p><img src="/images/OP/2101301.png" /></p>
+<p><img src="/images/OP/OP\2101301.png" /></p>
 <p>Cache是与bus上的主存储器并行parallel连接的快速存储器，它将main memory和processor结合在一起。当processor读取main memory的一个字时，相邻的字被复制到cache中，利用缩短的access time来读取consecutive address。这样，当processor将启动新的读取命令时，请求的word很可能已在cache中找到，因此不应从main memory中读取。</p>
 <p>从统计上讲，对memory的访问时间因此介于对cache的访问时间和对main memory的访问时间之间。有人将平均“命中率hit-rate (h)”定义为仅访问缓存即可满足的内存访问部分。有了设计良好的架构和结构良好的程序，h 可以超过 90%。</p>
-<h3 id="levels">Levels</h3>
+<blockquote>
+<p><strong>那么如何在cache里实现读写操作呢？</strong></p>
+<ul>
+<li>读：通常read操作开始时，我们把最旧的page存起来</li>
+<li>写：此时，cache和memory写一个数据就要做到同步性，那么通常cache里是只读文件，执行了写的操作，原来cache里的就会被删除。</li>
+</ul>
+<p><strong>如何在cache里快速查找到一个数据呢？</strong></p>
+<ul>
+<li>通常设置快速查找set number，cache里数据是分页的，只要找到相应页码，就可以快速找到一个元素。</li>
+<li>但是通常有些情况，两个元素在同一页中出现。</li>
+<li>于是cache里会把set number分配几个不同的页面，每次查找时做两次比较，就不容易出现上面的问题。</li>
+</ul>
+</blockquote>
+<h3 id="levels">3.1 Levels</h3>
 <p>Cache的概念可用于信息处理器架构的不同级别。</p>
 <p><u>在 CPU 和主存之间，我们几乎总是会发现一个cache，有时甚至是两个不同的cache。这是因为processor速度和主存访问时间之间的差距越来越大。</u>因此，在现代 PC 中，我们会在同一processor芯片上发现第一个非常快的几千字节kilobyte，其访问时间非常适合processor速度，然后是第二个cache，几百 KB，明显慢得多。</p>
 <p>各种cache、processor和main memory的特性是否足够对计算机的性能至关重要，而与 CPU 的时钟速度的依赖关系则要少得多。</p>
@@ -558,8 +571,8 @@
 <li>Potentially serious consistency problems</li>
 </ul></li>
 </ul>
-<h3 id="fully-associative-cache">Fully associative cache</h3>
-<p><img src="/images/OP/2101302.png" /></p>
+<h3 id="fully-associative-cache">3.3 Fully associative cache</h3>
+<p><img src="/images/OP/OP\2101302.png" /></p>
 <p>为了实际实现缓存，存储空间在概念上被划分为更小的page，此处显示的图中为四个字，实际上为 8 到 64 个字。如果地址是 32 位，我们可以说，在 4 个字的页面的情况下，两个最低有效位least significant bit指定designate页面中的一个字，而 30 个最高有效位most significant bit指定designate一个特定页面。</p>
 <p>在物理上，缓存包含多个page，与每个page相关联，一个记录页面编号的地方。</p>
 <p><strong>在读取操作期间，将requested的地址page与cache中的page进行比较。如果请求的page存在，则读取操作将保留在cache中，否则从内存中读取整个page并复制到cache中。在cache中加载新page时，必须删除旧page。</strong></p>
@@ -567,16 +580,16 @@
 <p><strong>当写入内存时，缓存的存在会带来一些难题，因为它必须确保缓存内容与主内存之间的一致性。幸运的是，写入操作的频率远低于读取，可以使用低效但可靠的技术。</strong></p>
 <p>因此，人们总是可以同时在高速缓存和主存储器中执行写操作。其他系统一旦更改了一个单词，就会从缓存中删除整个页面。</p>
 <p>在 CPU 和中央存储器之间使用大型完全映射缓存成本太高，因为它们需要大量非常快速的地址比较器address comparator，但它们通常用于磁盘缓存和 Web 缓存，因为地址比较可以在软件中完成。</p>
-<h3 id="fully-mapped-cache">Fully mapped cache</h3>
-<p><img src="/images/OP/2101303.png" /></p>
+<h3 id="fully-mapped-cache">3.4 Fully mapped cache</h3>
+<p><img src="/images/OP/OP\2101303.png" /></p>
 <p>为了减少比较器comparator的数量，可以使用地址中page number的最低有效位least significant bit来选择缓存页cache page。 页码的那部分被称为“<strong>集数set number</strong>”。</p>
 <p>地址中的set number决定了所需页面将驻留在哪个缓存页面中。 这样，只需要一个比较器，但是如果运气不好，一条指令和它处理的数据有相同的set number，缓存的好处就完全失去了。</p>
 <p>当指令中引用的两个向量的元素映射到同一个集合instruction map时，也会发生这种情况。</p>
-<h3 id="set-associative-cache">Set associative cache</h3>
-<p><img src="/images/OP/2101304.png" /></p>
+<h3 id="set-associative-cache">3.5 Set associative cache</h3>
+<p><img src="/images/OP/OP\2101304.png" /></p>
 <p>为了避免将同一指令中的两个或更多memory reference映射到同一组中的风险，“组关联缓存set associative caches”为每个组分配两个或四个缓存页面。</p>
 <p>这需要两个或四个比较器，但会显着提高命中率hit rate。大多数 CPU 缓存都有一组关联组织set associative organisation。</p>
-<h2 id="memory-management">Memory Management</h2>
+<h2 id="memory-management-内存">4. Memory Management 内存</h2>
 <p>已经在本课程的第 3 章中我们已经看到，要编译和运行最初用具有块结构block structure的高级语言编写的程序，将变量的地址分解为两部分是很有趣的，</p>
 <ul>
 <li>首先确定变量所在的块block被声明</li>
@@ -584,9 +597,9 @@
 </ul>
 <p>在第 3 章和第 4 章中，已经展示了使用带有static and dynamic links的堆栈来实现这个想法。</p>
 <p>随着现代操作系统越来越倾向于允许多个独立程序的内存共存，但谁仍然可以几乎同时使用共享对象，那么为处理器配备更灵活的地址管理机制变得越来越重要，该机制允许分离尽可能多的可能的逻辑地址logical address，在不同的单独程序中使用，来自物理地址physical address，由硬件电路hardware circuit全局使用。</p>
-<p><img src="/images/OP/2101305.png" /></p>
-<h3 id="memory-segment">Memory Segment</h3>
-<p><img src="/images/OP/2101306.png" /></p>
+<p><img src="/images/OP/OP\2101305.png" /></p>
+<h3 id="memory-segment">4.1 Memory Segment</h3>
+<p><img src="/images/OP/OP\2101306.png" /></p>
 <p>分段机制segmentation mechanism包括将逻辑地址logical address分成两部分:</p>
 <ol type="1">
 <li>段名称segment name</li>
@@ -599,25 +612,36 @@
 <p>除其他外，分段允许同时在运行的计算机的内存中的不同程序具有各自的具有独立逻辑地址的内存空间，而不管这些程序被加载到物理内存的何处。</p>
 <h4 id="segment-table">Segment table</h4>
 <p>在具有分段存储器segmented memory的系统中使用的逻辑地址logical address中，逻辑地址logical address由两个字段field组成，第一个是段号segment number，第二个是段内的地址address within the segment。</p>
-<p><img src="/images/OP/2101307.png" /></p>
+<p><img src="/images/OP/OP\2101307.png" /></p>
 <p>Logical address到physical address的转换是使用segment table完成的。对于每个segment，该表包含segment开始的physical memory address和segment size。一些表还包含允许例如防止特定段中的写操作的信息。</p>
 <p><u>在内存访问期间，segment number被用作段表中的index，并且将段开头的地址添加到段内的地址以找到所需的物理地址</u>。如果段中的地址超过它的大小，则对物理内存的有效访问将被禁止，并产生一个中断以停止尝试访问可能不属于它的内存部分的程序。当程序尝试写入受写保护的段时，也会发生同样的情况。</p>
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination-分页">4.2 Pagination 分页</h3>
+<blockquote>
+<p><strong>现在出现了一个新问题：如果我瞎分段，就像切蛋糕一样，你切一下，我切一下，中间空余的小段大家都不要，就造成了浪费，这该怎么办呢？</strong></p>
+<p>我可以规定，大家切蛋糕必须切一样的尺寸，这样每个人的都一样，就会少机会出现浪费。</p>
+<p>这就是pagination，分页。</p>
+<p>这时segment table就变成了page table，此时的page table就不必出现length了</p>
+</blockquote>
 <p>由于物理内存中的位置只有在可用的连续空闲空间available contiguous free space等于或大于段大小时才能分配给新段，因此频繁段的创建和销毁不可避免地会导致小的未使用内存块的出现。</p>
 <p>为了避免这种类型的内存碎片memory fragmentation，最好将内存分配为<strong>固定大小的块fixed-size block</strong>。 此类块称为“<strong>页面pages</strong>”，实现它们的技术称为“<strong>分页paging</strong>”。</p>
-<p><img src="/images/OP/2101308.png" /></p>
+<p><img src="/images/OP/OP\2101308.png" /></p>
 <p>逻辑内存空间和物理空间都被划分为固定大小的页面（<strong>通常为 4096 字节</strong>）。 然后，内存管理系统允许将任何逻辑页与任何物理页进行匹配。 这种方法允许使用所有未使用的物理内存块来创建单个逻辑地址块。</p>
 <h4 id="page-table">Page table</h4>
 <p>在分页内存paged memory的情况下，地址由页码page number和页内地址address within the page组成。</p>
 <p>页表page table建立logical page number和physical page number之间的对应关系。 在分页paging的情况下，不应包括页的长度，因为后者是预定义的常量predefined constant。 用于对页面内容的使用施加限制的字段field显然是可能的。</p>
 <p>在segmentation的情况下，逻辑页码作为页表的索引，我们可以在其中找到相应的物理页码。 物理地址是通过将物理页号和页内地址连接起来得到的。</p>
-<p><img src="/images/OP/2101309.png" /></p>
+<p><img src="/images/OP/OP\2101309.png" /></p>
 <h4 id="expanded-memory-in-pc">Expanded memory in PC</h4>
+<blockquote>
+<p>memory里还有一个漏洞，就是每个physical page的位数不必和logical page 的位数相等，这样就可以拓展memory</p>
+<p>同样的道理，可以把拓展的memory定义为外部设备，USB呀。</p>
+<p>这样就出现了Virtual memory</p>
+</blockquote>
 <p><strong>物理页号的位数bit不一定与逻辑页号的位数bit相同</strong>。</p>
 <p>大于逻辑页的物理页数预测比计算机体系结构的设计者最初计划的更多的物理内存。在内存非常昂贵并且由于存在许多难以适应的程序而仍在使用中的架构的情况下，这种可能性是非常可取的。</p>
 <p>DOS 和 Windows 系统支持的称为“<strong>扩展内存expanded memory</strong>”的技术是众所周知的<u>使用分页扩展物理内存而不影响逻辑内存大小</u>的示例。</p>
 <p>原始 PC 的逻辑和物理寻址空间限制为 1 兆字节。在此空间中，已将四个 16 KB 的页面设置为使用扩展内存。在为 I/O 接口保留的空间中，可以插入最多 2048 页 16 KB 的存储卡。使用存储板控制寄存器中的写指令（被视为 I/O 寄存器），可以将任何物理页与原始地址空间中包含的四个逻辑页中的每一个相关联。</p>
-<p><img src="/images/OP/2101310.png" /></p>
+<p><img src="/images/OP/OP\2101310.png" /></p>
 <p>In the original PC, the logical address space was limited to 1 MB .</p>
 <p>Additional memory could be added in IO slots , and accessed through a 16 KB window in the I MB Logical address space.</p>
 <p>The accessible page was selected by a peripheral control statement</p>
@@ -625,28 +649,36 @@
 <p>分页的另一个应用是在 Windows 系统中，当它运行为 DOS 编写的旧程序并在 Windows 管理的窗口中显示结果时。</p>
 <p>在第 6 章中，已经看到在 PC 屏幕上的显示是通过将适当的信息放置在预定的内存地址来完成的，视频处理器负责显示这个保留内存区域的内容。</p>
 <p>因此，所有为 DOS 系统计划的旧程序都将应该出现在屏幕上的内容写入特定的内存地址，结果显示在整个屏幕上。 Windows 分页机制将 DOS 显示页面映射到其他页面，这些页面的内容由临时驱动程序转换为可以在任何地方显示的大窗口。</p>
-<h3 id="virtual-memory">Virtual Memory</h3>
+<h3 id="virtual-memory">4.3 Virtual Memory</h3>
 <p>它也是用于实现virtual memory的分页pagination，它允许逻辑内存的某些页面物理存储在磁盘上。</p>
-<p><img src="/images/OP/2101311.png" /></p>
+<p><img src="/images/OP/OP\2101311.png" /></p>
 <p>为此，我们只需在页表中添加一个额外的列，指示该页是在主内存中还是在外围设备上。 当读或写操作指向不在中央存储器中的页面时，会产生“缺页missing page”中断，请求读或写操作的程序将被挂起，直到操作系统将所需的页面放入主存储器 .</p>
-<h3 id="demand-paging">Demand paging</h3>
+<h3 id="demand-paging">4.4 Demand paging</h3>
+<blockquote>
+<p>值得注意的是，如果在传输内存数据发生中断了，会怎么样？</p>
+<p>因为在上一章我们知道，中断发生后，CU会继续执行完这个指令，然后再执行相应的中断程序，但是如果数据都不到位，这个指定都没办法执行，此时的中断就宛如时间倒流，重新执行这个指令</p>
+</blockquote>
 <p>缺页中断missing page interrupt是一个非常特殊的操作，因为通常CU在响应中断之前完成当前指令的执行，但这对于缺页中断是不可能的，因为它是导致中断的当前指令并且它需要缺页待补。</p>
 <p>当指令导致缺页中断missing page interrupt时，控制单元应将程序状态返回到导致中断的指令开始之前的状态。</p>
-<p><img src="/images/OP/2101312.png" /></p>
+<p><img src="/images/OP/OP\2101312.png" /></p>
 <p><strong>缺页missing page被带入主存后，导致中断的指令将被完整重放，但不会导致缺页中断，因为请求的页面已加载到中央存储器中</strong>。</p>
 <p>这种中断机制interrupt mechanism并非在所有处理器中都存在，这就解释了为什么一些支持virtual memory的现代操作系统不能在旧计算机上运行，尽管它们的处理器与新的处理器具有完全相同的指令集。</p>
-<h3 id="segmentation-pagination">Segmentation &amp; Pagination</h3>
+<h3 id="segmentation-pagination">4.5 Segmentation &amp; Pagination</h3>
 <p>不用说，分段segmentation和分页paging是可以结合的。使用段由整数页组成，将与段相关联的功能组织与paging-related memory的灵活性和高效使用相结合。</p>
 <p><strong>在分段和分页结合的情况下，逻辑地址由三个字段组成，第一个字段表示段号segment number，第二个字段表示段内的页号number of the page within the segment，最后第三个字段表示页内的地址address within the page.</strong></p>
 <p><strong>在这样的配置中，segment table将包含特定于该段的页表地址address of the page table，而不是包含物理内存段的起始地址。</strong></p>
-<p><img src="/images/OP/2101313.png" /></p>
+<p><img src="/images/OP/OP\2101313.png" /></p>
 <p>现代 PC 使用分段和分页：它们的体系结构允许定义 2<sup>14</sup> (=16384) 个分段，每个分段可以包含 2<sup>20</sup> (≈ 106) 个 2<sup>12</sup> (=4096) 字节的页面。</p>
 <p>不用说，只有当虚拟内存机制允许将大部分逻辑内存放置在外围设备上时，如此大的逻辑内存才有意义。</p>
-<h2 id="translate-look-aside-buffer">Translate Look aside Buffer</h2>
+<h2 id="translate-look-aside-buffer-tlb">5. Translate Look aside Buffer (TLB)</h2>
+<blockquote>
+<p>另外，通常来说，运行一段程序，一段数据经常存在于自身附近，每次都要从物理地址翻译成逻辑地址实在是对于时间的一种糟蹋。</p>
+<p>所以，Translate Look Aside Buffer（TLB），出来了，他会保存最近几十条翻译，cpu调用的时候，先看看这个Cache里面有没有，cache里有的话，就直接传过来，如果没有的话，cache发一个中断信号，然后接着从memory里面查翻译。</p>
+</blockquote>
 <p>人们可能会得出结论，<u>一台带有分段和分页的计算机非常慢，因为每次内存访问都需要两次内存访问来查询段 segment和页面page</u>。</p>
 <p>幸运的是，很可能在给定的时间间隔内，绝大多数访问都在一小部分page中。事实上，在任何结构良好的程序中，要连续执行的指令是一个接一个，并且使用的数据也彼此接近。</p>
 <p>因此，保留地址转换address translation的结果以供以后重用是有意义的。在处理器中发现了一种特殊的缓存，称为“<strong>翻译后备缓冲区Translate Look aside Buffer</strong>”，其中保存了最近几十次地址翻译的结果。</p>
-<p><img src="/images/OP/2101314.png" /></p>
+<p><img src="/images/OP/OP\2101314.png" /></p>
 <p>这种 TLB 的每一行一方面包含段和逻辑页的编号，另一方面包含相应物理页的编号。</p>
 <p>在每次内存访问期间，所需的逻辑地址都会与 TLB 中的地址内容进行比较。如果这个地址已经存在，物理页号立即由 TLB 提供，否则会产生一个缺页中断，操作系统将查询段和页表以找到所需的物理页，如果需要的话, 将页面放入主内存。</p>
 

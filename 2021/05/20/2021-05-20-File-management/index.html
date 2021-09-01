@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-05
+                    2021-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.5k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    16 Min
+                    20 Min
                 </div>
                 
 
@@ -501,18 +501,32 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="file-management">File management</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4732e4cf-e2fc-45cd-9036-ac4201082916">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564897">Slide</a></p>
+<p><a href="https://yintelligence.tech/2021/01/15/2021-01-15-Computer-Systems/">VUB 4004876EER Computer Systems</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4732e4cf-e2fc-45cd-9036-ac4201082916">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564897">Slide</a></p>
+<blockquote>
+<p>在之前介绍过，外部的存储可以作为Virtual Memory使用，但是一般来说不这么用，所以就要建立一套管理文件的系统：</p>
+</blockquote>
 <p>在本章中，将讨论存储设备和文件的组织。提供非常大的逻辑地址空间logical address space（数量级为 2<sup>64</sup> 字节byte）并将所有设备视为<strong>main memory的虚拟扩展virtual extension</strong>，这是完全可能的，并且在某些系统中已完成此操作。</p>
 <p>在这种情况下，外围存储器peripheral memory不需要特殊的管理系统，因为所有存储器的管理将由<u>中央存储器管理系统central memory management system</u>提供。</p>
 <p>然而，这种方法并不普遍，绝大多数操作系统将外围存储器的（小）部分作为主存储器的虚拟扩展单独管理，其余部分作为用户和应用程序按名称访问的一组文件进行管理。</p>
 <p>本章将介绍广义的文件管理。</p>
-<h2 id="physical-disk-organization">Physical disk organization</h2>
+<h2 id="physical-disk-organization">1. Physical disk organization</h2>
+<blockquote>
+<p>硬盘就是一个一个光盘叠加在一起，有个梳子（comb）在每个地方划过，同一个轨道的一圈圆柱体叫做Cylinder，某个轨道上的一篇圆弧就叫做sector，很明显，sector就是用来存储数据的单元。</p>
+</blockquote>
 <p>正如在本课程第一部分的<a href="https://yintelligence.tech/2021/01/16/2021-01-16-From-Lowlevel-Machine-CodeTo-Highlevel-Langeuage/">第 1 章</a>中已经提到的，用于存储信息的磁盘magnetic disk由几个围绕公共轴common axis高速旋转的磁性表面magnetic surface组成。信息是使用磁头magnetic head写入和读取的，磁头magnetic head需要紧邻磁性表面magnetic surface（实际上，在空气动力aerodynamic的作用下，它们漂浮在表面上方几微米micron的高度altitude）。</p>
 <p><img src="/images/OP/0617090.png" /></p>
 <p>每个magnetic surface都由一个magnetic head“<strong>飞行flown</strong>”。所有magnetic head都安装在可移动的梳齿comb上，用于将magnetic head定位在多个预定义predefined的圆形circular磁路magnetic path上。</p>
 <p>与轴axis等距的不同magnetic surface上的一组磁道track称为“<strong>圆柱体cylinder</strong>”。同时访问同一柱面cylinder的所有track，无需移动磁头magnetic head。</p>
 <p>信息作为几千位bit的独立记录写入磁盘。这样的记录称为“<strong>扇区sector</strong>”。如果您知道<strong>区域area、柱面cylinder和它所在的区域</strong>，<u>则可以在磁盘中定位特定记录</u>。通常，这种三维寻址被通过对所有记录进行编号而获得的一维地址所代替，以便尽可能快地以数字顺序访问磁盘的物理特性。</p>
-<h3 id="clusters-vs.-sectors">Clusters vs. Sectors</h3>
+<h3 id="clusters-vs.-sectors">1.1 Clusters vs. Sectors</h3>
+<blockquote>
+<p>那么，如何定义sector的大小呢？</p>
+<p>对于大的磁盘，sector就大一点好，这样不行呀。要有一个统一的标准。</p>
+<p>于是，先规定sector有统一的尺寸，然后把几个sector汇编成cluster。</p>
+<p>每个cluster就有自己的 Physical Cluster Number，也就是地址PCN</p>
+<p>一个文件就是由不同的cluster组成的，那么在这个文件中，各个cluster的顺序就给个编号叫做Logical Cluster Number，也就是在这个文件中的地址，和上面的PCN要区分开。</p>
+<p>问题就来了，如何把LCN和PCN关联起来呢？ -FAT16</p>
+</blockquote>
 <p>人们可能想知道<u>磁盘的最佳<strong>扇区大小</strong>是多少what is the optimal <strong>sector size</strong> of a disk</u>。</p>
 <p><strong>小区域small area</strong>的主要优点是<u>减少浪费的空间（通常称为“<strong>松弛slack</strong>”），因为需要在每个文件中分配整数个扇区sector。</u>在大文件的情况下，我们统计每个文件丢失半个sector。在小文件的情况下，可能会丢失相当多的地方。因此，在<strong>低容量驱动器low-capacity drive</strong>的情况下，最好选择小扇区small sector size大小。</p>
 <p><strong>大扇区大小large sector size</strong>的主要优点是由于<strong>传输块大小size of block的增加</strong>而增加了<strong><u>数据吞吐量data throughput</u></strong>。另一个优点在于<strong>扇区sector的编号numbering</strong>：扇区sector越大，对于给定的总容量total capacity，sector数越少，从而减少<strong><u>扇区号sector number所需的bit数</u></strong>。<strong>对于较大的磁盘，首选大扇区。</strong></p>
@@ -530,12 +544,12 @@
 <li>It is desirable to have a single sector size for all disks</li>
 <li>Solution : define clusters as groups of sectors with size optimized for each specific disk.</li>
 <li>Transfer entire clusters instead of sectors</li>
-<li>Each cluster on disk has a Physical Cluster Number ( PCN )</li>
+<li>Each cluster on disk has a <strong>Physical Cluster Number ( PCN )</strong></li>
 </ul>
 <p>然而，由于磁盘控制器disk controller及其驱动程序driver的复杂性，无论磁盘是什么，都非常希望对扇区采用统一的大小。</p>
 <p>这就是为什么在包括微软在内的一些系统中引入了“<strong>集群cluster</strong>”一词，它是一组连续consecutive的物理扇区sector，软件将其视为一个扇区sector，从软件传输整个cluster的意义上说，并管理cluster编号而不是物理扇区sector数。</p>
 <p>尽管术语“<strong>集群cluster</strong>”实际上是 Microsoft 系统独有的，但它将在接下来的解释中用作<u>可识别的最小数据块smallest identifiable data block</u>的名称，并可由文件管理软件传输。</p>
-<h3 id="formats-of-3.5-diskettes-for-pcs">Formats of 3.5" diskettes for PC's</h3>
+<h3 id="formats-of-3.5-diskettes-for-pcs">1.2 Formats of 3.5" diskettes for PC's</h3>
 <p>旧 PC 软盘floppy disk提供了一个有趣的说明，说明了可能决定cluster大小的相互竞争的考虑因素。</p>
 <p>3.5"软盘有两种格式：格式"<strong>Double Density</strong>"和格式"<strong>High Density</strong>"。下表显示了cluster采用的物理特性和大小。</p>
 <table>
@@ -582,26 +596,42 @@
 <p><u>双密度double density软盘floppy disk采用的是2 sector的cluster，而高密度high-density软盘disk则是一个sector的cluster。</u></p>
 <p>这些奇怪选择的原因是历史性的：在很少有个人计算机配备硬盘驱动器的时候，使用了双密度软盘。所有软件和所有数据都存储在软盘上。因此，磁盘的transfer speed对系统性能至关重要，采用相当大的<strong>cluster</strong>是合乎逻辑的。</p>
 <p>推出高密度软盘时，所有计算机都配备了硬盘驱动器hard drive。软盘仅用于备份或数据交换。因此，对于这些新磁盘，采用cluster大小以最大限度地减少“slack”中浪费的空间是合乎逻辑的。</p>
-<h2 id="logical-to-physical-mapping">Logical to physical mapping</h2>
+<h2 id="logical-to-physical-mapping">2. Logical to physical mapping</h2>
 <p>在文件管理领域要解决的第一个主题是文件的逻辑组织和物理组织之间应该存在的关系。</p>
 <p>由于物理上完整的文件存储为一组固定大小的记录，因此自然也将用户已知的logical file视为大小与physical record size相同的块组sets of blocks。 此类block在本章的其余部分称为“<strong>集群clusters</strong>”。</p>
 <p>每个cluster都有一个物理簇号 (<strong>PCN</strong>)，由它在磁盘上的物理位置确定，还有一个逻辑簇号 (<strong>LCN</strong>)，由它在所属文件中的逻辑位置确定。</p>
 <p>下图介绍了主题，是建立文件簇的逻辑编号logical number和物理编号physical number之间的对应关系。</p>
 <p><img src="/images/OP/0617091.png" /></p>
 <p>根据所讨论的操作系统，以各种方式实现对应关系。</p>
-<h3 id="dos-windows-file-access-table-fat16">DOS &amp; Windows: File Access Table (FAT16)</h3>
-<h4 id="stream-and-free-file">Stream and free file</h4>
+<h3 id="dos-windows-file-access-table-fat16">2.1 DOS &amp; Windows: File Access Table (FAT16)</h3>
+<blockquote>
+<p>类似于linked list，每个cluster附带一个指针，指向下一个cluster的物理地址，这样文件就可以得到访问了，也不用管LCN的问题。</p>
+</blockquote>
+<h4 id="stream-and-free-file">2.1.1 Stream and free file</h4>
+<blockquote>
+<p>在磁盘中设置以一个区域叫free:</p>
+<p>删除了文件，就是把这个文件的cluster放进free里，所以实质上，文件并没有删除，只是把这个文件的指向关系删除了，后面就可以通过软件恢复。</p>
+<p>这些指针们，通常不是cluster里面的内容，所以把这些指针一般放在一个专门的表格里，叫做File Access Table，这个表格通常有两个copy，防止被误删。</p>
+<p><strong>之后我们来研究这个指针，在FAT16里，指针就是16bits的，也就是一个指针最多能表示65536个cluster number，因为cluster的大小是可以改变的，盘小的时候没什么影响，当盘的大小增加到65536分不开，cluster 的数量不变，cluster 的大小就有变化，例如在8Gb里，每个cluster要有128Kb大，这就意味着，一个文件，就算啥都没有，都要有一个cluster大，也就是128Kb。</strong></p>
+<p><strong>如何解决呢？</strong></p>
+<ul>
+<li><strong>把磁盘分为几个小的磁盘使用</strong></li>
+<li><strong>提高指针的bits，后面就发布了FAT32</strong></li>
+</ul>
+<p><strong>MS的工程师又想到了一种新的文件管理系统，叫做NTFS</strong></p>
+<p><strong>原则是，把物理地址连续的cluster，分给同一个file，也就是在logical 地址上也连续。</strong></p>
+</blockquote>
 <p>在微软的 DOS 中，每个文件，也称为“<strong>流stream</strong>”，是一个cluster序列。每个cluster包含 512 byte数据的倍数，并且每个cluster都与一个指针<strong>pointer</strong>相关联，该pointer给出了文件下一个cluster的物理编号。该指针可能是indicate the end of a file的particular value。</p>
 <p>我们看到 DOS 文件基本上是顺序sequential文件，因为对任何文件的探索都必须从第一个cluster开始（或至少从与第一个cluster关联的指针开始）。</p>
 <p><img src="/images/OP/0617092.png" /></p>
 <p>整个光盘中存在一个<strong>特殊文件（“free”）</strong>，其中包含所有未使用的cluster。当一个文件被删除时，它实际上只是简单地插入到free file之前，当一个新文件被创建时，它的cluster从free file中取出。</p>
 <p>从这一观察我们可以推断出，在文件销毁期间，数据通常不会立即丢失，只有当属于被销毁文件的一个cluster被回收到另一个文件时才会丢失。</p>
 <p>如果发生unwanted的文件删除，recovery首先要避免创建新文件并使用允许更改与不同cluster关联的pointer的计算机工具。</p>
-<h4 id="file-access-table">File Access Table</h4>
+<h4 id="file-access-table">2.1.2 File Access Table</h4>
 <p>在 DOS 系统中，与磁盘的不同cluster相关联的指针不是cluster本身的一部分。它们被分组在一个特定的表中，包括两个副本存储在每个磁盘上。 该表是“<strong>文件访问表File Access Table</strong>”，通常缩写为“<strong>FAT</strong>”。</p>
 <p><img src="/images/OP/0617093.png" /></p>
 <p>FAT 由两个独立副本independent copy保留，因为在擦除 FAT 后，存储在磁盘上的所有数据实际上都无法使用。 不幸的是，丢失 FAT 的最常见原因是病毒的恶意干预，而病毒编写者知道一张光盘上总是有两个 FAT 副本。</p>
-<h4 id="minimum-cluster-size">Minimum cluster size</h4>
+<h4 id="minimum-cluster-size">2.1.3 Minimum cluster size</h4>
 <p>FAT 中包含的pointer长度为 16 位，这限制了磁盘 2<sup>16</sup> (65536) 上的cluster数。 如图所示，此限制是使用容量可达到几十GB 的现代磁盘的严重情况。</p>
 <table>
 <thead>
@@ -651,7 +681,7 @@
 </table>
 <p>我们看到，对于 8 GB 磁盘cluster大小至少为 128 KB。 这也意味着任何文件，即使它只包含几个字节，也必须具有 128 KB 的最小大小。</p>
 <p>这种行为解释了为什么当磁盘容量超过 1 GB 时，DOS 用户倾向于将磁盘分区partition为两个、三个或四个partition，由 DOS 管理，就好像它们是单独的磁盘一样。</p>
-<h4 id="fat32">FAT32</h4>
+<h3 id="fat32">2.2 FAT32</h3>
 <p><strong>FAT16 became inadequate as soon as the size of disks started to exceed 1 GB.</strong></p>
 <ul>
 <li><p>Cluster number = 32 bits instead of 16 bits</p></li>
@@ -661,27 +691,36 @@
 <li><p>FAT16 orFAT32 depends on size of device</p></li>
 </ul>
 <p>尽管新的磁盘管理模式称为 FAT32，但在 Windows 系统中通过放弃事实上的 FAT 解决了此问题。 与此处描述的 FAT 中使用的 16 位指针不同，原始 FAT 现在称为 FAT16。</p>
-<h3 id="unix---linux-inode">Unix - Linux: inode</h3>
-<p>在 UNIX 和 LINUX 中，物理集群和逻辑集群之间的对应关系不像 DOS 那样针对整个驱动器建立，而是通过每个文件的单独表建立。该表名为“<strong>inode</strong>”，包含 13 个物理簇号。</p>
-<p><img src="/images/OP/0617094.png" /></p>
-<p>前 10 个是前 10 个逻辑文件簇的物理编号。第11个是物理簇号，包含了后面256个逻辑簇的物理号。第 12 位是一个簇的物理编号，它包含 256 个簇的物理编号，这些物理编号依次包含 256 × 256 个以下逻辑簇的物理编号。最后，第十三个，根据类似的机制，允许访问文件的最后一个 256 × 256 × 256 簇。</p>
-<p>很明显，只有访问有效填充的文件簇所需的树结构部分才会占用磁盘空间。与在 DOS 中发生的情况不同，这允许创建非常小气stingy的非常大 large的文件，而不会不必要地占用磁盘空间。</p>
-<p><strong>inodes结构以非常明显的方式促进对短文件和长文件的开头的访问。该选项在统计上非常适合办公自动化和软件工程的应用。</strong></p>
-<h3 id="windows-ntfs-master-file-table">Windows NTFS: Master File Table</h3>
+<h3 id="windows-ntfs-master-file-table">2.3 Windows NTFS: Master File Table</h3>
 <p>为了消除FAT16的限制，微软设计了一个完全不同的文件系统（New Technology File System）。 在该系统中，簇号从 16 位传递到 32 位。</p>
 <p>为了减少 FAT 等价物equivalent的大小，考虑了经常<strong>将连续的物理地址分配给逻辑上连续的簇</strong>的事实。</p>
 <p>在 NTFS 中，每个文件都有一个表，其中包含逻辑簇编号、相应物理簇的编号以及此关联适用的连续簇的编号。</p>
 <p><img src="/images/OP/0617095.png" /></p>
 <p>可以从这种组织中得出结论，MS/DOS 文件的基本顺序性质得到了保护，但更实用和更紧凑的表格已经取代了旧的 FAT16。</p>
 <p>本章稍后将阐明这些新表的位置。</p>
-<h2 id="disk-directories">Disk directories</h2>
-<h3 id="directory-tree">Directory Tree</h3>
+<h3 id="unix---linux-inode">2.4 Unix - Linux: inode</h3>
+<blockquote>
+<p>相对于DOS的这种管理方式，unix给了一种新的方式，<strong>inode</strong></p>
+<p><strong>每个文件都有自己的table，用来逐项不同的cluster，可以指向相当多的PCN。</strong></p>
+</blockquote>
+<p>在 UNIX 和 LINUX 中，物理集群和逻辑集群之间的对应关系不像 DOS 那样针对整个驱动器建立，而是通过每个文件的单独表建立。该表名为“<strong>inode</strong>”，包含 13 个物理簇号。</p>
+<p><img src="/images/OP/0617094.png" /></p>
+<p>前 10 个是前 10 个逻辑文件簇的物理编号。第11个是物理簇号，包含了后面256个逻辑簇的物理号。第 12 位是一个簇的物理编号，它包含 256 个簇的物理编号，这些物理编号依次包含 256 × 256 个以下逻辑簇的物理编号。最后，第十三个，根据类似的机制，允许访问文件的最后一个 256 × 256 × 256 簇。</p>
+<p>很明显，只有访问有效填充的文件簇所需的树结构部分才会占用磁盘空间。与在 DOS 中发生的情况不同，这允许创建非常小气stingy的非常大 large的文件，而不会不必要地占用磁盘空间。</p>
+<p><strong>inodes结构以非常明显的方式促进对短文件和长文件的开头的访问。该选项在统计上非常适合办公自动化和软件工程的应用。</strong></p>
+<h2 id="disk-directories">3. Disk directories</h2>
+<blockquote>
+<p>前面的方法只给了PCN和LCN，也就是说，用户想要这个文件，要报PCN或者LCN，如果用户想要给这个文件命名该怎么办呢？</p>
+<p>要建立一个目录（directory），用来管理用户命名的名字。</p>
+<p>只需要给每个文件分一个指针，指向PCN就可以了</p>
+</blockquote>
+<h3 id="directory-tree">3.1 Directory Tree</h3>
 <p>除了物理和逻辑簇数之间的对应关系，文件管理器还管理用户操作的<strong>文件命名</strong>。为此，文件管理器使用至少包含每个文件名称的目录directory和一个pointer来查找显示这些文件的逻辑簇和物理簇之间对应关系的表。</p>
 <p>绝大多数当前的管理系统使用树目录 tree-directory，其中目录与其他文件相似。</p>
 <p><img src="/images/OP/0617096.png" /></p>
 <p>上图显示了一个目录树tree-directory（MS / Windows 独有）：顶部是初始目录，称为“root”并注明 <code>\</code>，其中包含对 8 个文件的引用。其中五个以绿色显示并设计为方角的文件包含data or program，而其他三个以橙色表示并用圆角绘制的文件本身就是目录。</p>
 <p>在这样的结构中，文件的专有名称前面是所有目录的列表，这些目录必须从初始目录经过才能到达专有名称。这种树结构允许通过按层次结构中的主题对文件进行分组来管理大量文件。</p>
-<h3 id="directory-entry">Directory Entry</h3>
+<h3 id="directory-entry">3.2 Directory Entry</h3>
 <p>例如，下图显示了DOS 目录的结构。</p>
 <p><img src="/images/OP/0617097.png" /></p>
 <p>对于每个文件，有一个 8 字节的名称和三个字节的名称扩展名。名称的扩展名在 DOS 中传统上用于指示文件内容的性质。因此，.exe 扩展名用于包含可执行程序的目标代码的文件，而 .ppt 扩展名则以使用 PowerPoint 程序创建的演示文稿为特色。</p>
@@ -689,7 +728,10 @@
 <p>显然，找到了指向第一个物理簇的指针，并指示以字节表示的文件总长度。磁盘上的文件大小是超过此长度的簇大小的第一个倍数。</p>
 <p>最后是一个字节，每一位都有一个特殊的含义，称为文件的“<strong>属性attribute</strong>”。属性字节的第 4 位将普通文件与目录区分开来。其他属性允许保护某些文件免受意外或恶意更改或防止在目录中显示其名称</p>
 <p>最后，与某些备份程序结合使用的存档位允许在备份期间仅复制自上次备份以来已更改的文件。</p>
-<h3 id="unix-directories">Unix directories</h3>
+<h3 id="unix-directories">3.3 Unix directories</h3>
+<blockquote>
+<p>unix给了一种管理方式，就是不同的路线，可以指向同一个文件：</p>
+</blockquote>
 <p>UNIX 和 LINUX 系统也使用树目录（实际上，这种目录流行的是 UNIX），但是 UNIX 树的语义稍微复杂一些，因为同一个文件可以在多个目录中引用，因此有多个不同的名字。</p>
 <p><img src="/images/OP/0617098.png" /></p>
 <p>例如，当一个文件用于多个不同的项目时，这种可能性可能会很有趣，并且当共享文件的内容发生变化时，我们不想使用副本来避免一致性问题。</p>
@@ -699,23 +741,31 @@
 <li><p>当文件的用户决定销毁它而其他人仍然需要它时，我们应该怎么做？</p></li>
 <li><p>如果要等待一个所有用户都销毁的文件占用的空间再回收，我们如何验证是否如此？</p></li>
 </ul>
-<h3 id="msntfs-master-file-table">MS/NTFS Master File Table</h3>
+<h3 id="msntfs-master-file-table">3.4 MS/NTFS Master File Table</h3>
+<blockquote>
+<p>NTFS想了，既然之前说可以设一个table在磁盘里，那我是不是也可以设置table在磁盘里，存一下这个文件的名字什么的信息，然后再给他指针，指向物理地址：</p>
+<p>所以，NTFS的directory也是一个table文件存在这个table里，</p>
+<ul>
+<li>在最右边那个格子有个data项，如果文件大的化，就把指针放里头，如果文件小的化，我直接把文件放里头看起来也可以。</li>
+<li>同样的directory'文件里，如果目录小的小，我就把目录全放里头，如果目录多的化，我就放指针：</li>
+</ul>
+</blockquote>
 <p>Microsoft 的 NTFS 文件管理器为其目录采用了原始格式：每张光盘都包含一个名为“<strong>主文件表Master File Table</strong>”的大表。</p>
 <p>在 MFT 中，每个文件占用 1. 2 或 4 KB 的空间。在这个空间中有几个大小和数量可变的字段，用于描述文件，可能是为了确保它们的安全并允许找到它的内容。</p>
 <p><img src="/images/OP/0617099.png" /></p>
 <p>因此，每个文件可以有多个名称：传统 DOS 格式中的名称为 8 + 3 个字符character，Windows 标准的名称长度不受限制，甚至可能是其他管理系统特有的名称，这些名称可以在 Windows NT 环境中模拟。</p>
 <p>在其他领域，我们可以找到已应用于文件内容的加密和/或压缩技术的描述或其属性的非常详细的列表。</p>
 <p>最后，在最后一个字段中，有与文件实际内容相关的信息。此信息的性质和组织可能因文件而异。</p>
-<h4 id="msntfs-data-files">MS/NTFS Data Files</h4>
+<h4 id="msntfs-data-files">3.4.1 MS/NTFS Data Files</h4>
 <p>如果相关文件是小数据文件，则直接存储在该文件对应的MFT块中。 通过这种方式，我们在查看小文件时避免了额外的磁盘访问，因为在任何 Windows 系统中都有数千个文件。</p>
 <p>另一方面，如果它是一个大文件，在 MFT 中没有足够的空间，那么逻辑和物理集群对应表将被放置在 MFT 中，如前所述，允许从 MFT 中包含的数据中有效地查找， 整个文件的内容。</p>
 <p><img src="/images/OP/06170990.png" /></p>
-<h4 id="msntfs-directories">MS/NTFS directories</h4>
+<h4 id="msntfs-directories">3.4.2 MS/NTFS directories</h4>
 <p>目录使用有点类似的策略。 对于小目录，MFT 中所有列出文件的索引都包含在 MFT 块中，即<strong>目录directory</strong>。</p>
 <p><img src="/images/OP/06170991.png" /></p>
 <p>另一方面，如果它是一个大目录，则它被组织为称为“BTREE”的树结构，其中只有根和包含结构其余部分的物理簇的编号包含在 MFT 中。</p>
 <p>使用 BTREE 表示大目录可以显着缩短在目录中查找文件所需的时间（在传统文件中，此时间与目录中的文件数成正比，而在大型 NTFS 目录中，此时间与此数量的对数成正比）</p>
-<h2 id="system-calls">System calls</h2>
+<h2 id="system-calls">4. System calls</h2>
 <p>文件管理是计算机操作系统的任务之一。所以操作系统必须包含一系列可以被应用程序调用来执行文件操作的函数。</p>
 <p>操作系统通常提供的功能是：</p>
 <ul>

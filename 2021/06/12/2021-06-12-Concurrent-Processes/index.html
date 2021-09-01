@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-08
+                    2021-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    6.8k
+                    8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    25 Min
+                    29 Min
                 </div>
                 
 
@@ -501,11 +501,17 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="concurrent-processes">Concurrent Processes</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1c09987d-fe07-446c-a266-ac420113af19">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564898">Slide</a></p>
+<p><a href="https://yintelligence.tech/2021/01/15/2021-01-15-Computer-Systems/">VUB 4004876EER Computer Systems</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1c09987d-fe07-446c-a266-ac420113af19">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564898">Slide</a></p>
 <p>在本章中，将介绍与多道程序设计相关的一些方面，即准同时 quasi-simultaneous执行execution和交错interlacing多个程序或程序部分。</p>
 <p>这些主题很重要，因为它们可以出现在工程师生活的许多方面，并且因为非 IT 工程师并不总是意识到其中包含的陷阱。</p>
-<h2 id="processes-and-threads">Processes and Threads</h2>
-<h3 id="process">Process</h3>
+<h2 id="processes-and-threads">1. Processes and Threads</h2>
+<h3 id="process">1.1 Process</h3>
+<blockquote>
+<p>process就是一个程序分离出来的运行步骤，这里要重点说明的是进程的有序性</p>
+<p>那如果这个进程运行了一半，另外程序的进程想运行呢？</p>
+<p>这就是interrupt，在之前有讲过，就是A存档，B运行，B存档，A读档</p>
+<p>这里的读档存档，我们称为转交状态。</p>
+</blockquote>
 <p>所谓的“<strong>进程process</strong>”是在其执行期间的<u>顺序程序<strong>sequential program</strong>或顺序程序部分</u>。 这里强调的是进程的顺序性质，这意味着特定process的所有指令都按照<u><strong>指令</strong>的<strong>顺序</strong>和<strong>数据值</strong></u>的完全确定的顺序执行。</p>
 <p>在任何多道程序设计系统multiprogramming中，多个进程交替执行。<u>同时运行的<strong>进程process数</strong>由计算机可用的<strong>处理器processor数量</strong>决定，每个处理器可以保证一个进程的活动。</u></p>
 <p>许多程序由多个必须同时执行的进程组成。 例如，在图形界面中，每个按钮都是一个独立的进程，等待用户选择它。 发生这种情况时，它会向负责执行所选命令的进程发送一条消息。</p>
@@ -525,7 +531,7 @@
 <li>Example : in a GUI every button is a process waiting to be selected by the user</li>
 </ul></li>
 </ul>
-<h3 id="active-process-switch">Active Process Switch</h3>
+<h3 id="active-process-switch">1.2 Active Process Switch</h3>
 <p><img src="/images/OP/1907073.png" /></p>
 <p>当进程管理器process manager决定active进程 P<sub>0</sub> 必须将其状态让给进程 P<sub>1</sub> 时会发生什么？</p>
 <ul>
@@ -538,7 +544,10 @@
 </ul>
 <p>如果稍后 P<sub>1</sub> 必须再次将处理器让给 P<sub>0</sub>，则必须执行逆操作。</p>
 <p>在保存进程状态并重新加载另一个进程状态时，计算机不提供“生产性”工作。 这种损失的时间实际上是多道程序的主要成本。</p>
-<h3 id="threads">Threads</h3>
+<h3 id="threads">1.3 Threads</h3>
+<blockquote>
+<p>在program里，分享Memory的轻量化的（lightweight）进程，称为线程。</p>
+</blockquote>
 <ul>
 <li>Process context
 <ul>
@@ -558,9 +567,10 @@
 <p>段表segment table和页page的大小可能相当大，改变活动进程的时间成本可能很大，这将严重反对软件工程中越来越多地分解大量进程中的每个程序的趋势.</p>
 <p>但是，可以观察到，当多个进程属于同一个程序时，保护每个进程自己的内存空间不受其同事的活动影响并不是必需的。因此，为每个程序定义了一个特定的内存空间，其中包含段表segment table和页page，构成程序的所有进程都可以访问这些表。</p>
 <p>这创建了两种类型的进程，<strong>自然进程natural process</strong>，受到良好保护，具有大上下文和<strong>轻进程light process</strong>，要保存的状态很小，因为它们是大型进程的“占用squatting”内存空间，这种轻量级进程称为“<strong>线程thread</strong>”。</p>
-<h3 id="concurrent-shared-variables">Concurrent &amp; shared variables</h3>
+<h3 id="concurrent-shared-variables">1.4 Concurrent &amp; shared variables</h3>
 <p>多个进程在同一地点的合作可能是敏感问题的根源，这些问题将在本章中通过示例进行介绍。</p>
-<h4 id="example-rain-gauge">Example: rain gauge</h4>
+<h4 id="example-rain-gauge">1.4.1 Example: rain gauge</h4>
+<p><strong>很明显，这两个函数分享了同一个变量v</strong></p>
 <p>有问题的例子是雨量计rain gauge，可以从远处测量降雨量。雨水通过漏斗funnel收集到一个小的校准桶calibrated bucket中。 当bucket装满时，它会反转，激活电触点electrical contact并很快恢复到其初始位置。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// P1</span>
 <span class="token keyword">while</span> <span class="token punctuation">(</span>true<span class="token punctuation">)</span>
@@ -582,11 +592,15 @@
 <p>由于电话呼叫随时可能发生，因此指令 <code>v = v + 1</code> 的执行有可能在 D<sub>1</sub> 的内容增加之后但在内容被复制到 v 之前被中断。</p>
 <p>由于新的 P<sub>2</sub> 值（重置）将被 P<sub>1</sub> 计算的旧值覆盖，因此在电话呼叫之后执行的将 v 重置为 0 将无效。</p>
 <p>稍加想象，您可以找到雨量计的其他情况，而不是读数过多会读数过少。因此，这个量表将是不可靠的。</p>
-<h2 id="critical-sections">Critical sections</h2>
+<h2 id="critical-sections">2. Critical sections</h2>
+<blockquote>
+<p>虽然桶已经集满，并且马上要改写v时，电话来了，此时计数就是错误的，这就是进程管理出现了问题，如何解决这样的问题呢？</p>
+<p>我们称这样的情况是Critical Section</p>
+</blockquote>
 <p>问题是两个进程 P<sub>1</sub> 和 P<sub>2</sub> <strong>共享同一个变量 v</strong> 。 它们都可以更改其值，而另一个将旧值保留在其寄存器register之一中。</p>
 <p>为了避免这种错误，我们应该能够确保当一个进程正在使用变量 v 时，另一个进程不能以任何方式访问 v。为了实现这一点，可以在操作系统保护的每个进程中定义一个<strong>临界区critical section</strong>，以确保在每一时刻只有一个进程可以进入其critical section。</p>
 <p>在示例中，来自 P<sub>1</sub> 的指令 <code>v = v + 1</code> 和指令<code>write(v)</code>; 并且来自 P<sub>2</sub> 的指令 <code>v = 0</code> 应该受critical section保护。</p>
-<h3 id="fundamental-mechanism">Fundamental mechanism</h3>
+<h3 id="fundamental-mechanism">2.1 Fundamental mechanism</h3>
 <ul>
 <li>Software implementation : busy wait !
 <ul>
@@ -604,13 +618,17 @@
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="software-implementations">Software implementations</h3>
-<h4 id="example-railroad-crossing">Example: railroad crossing</h4>
+<h3 id="software-implementations">2.2 Software implementations</h3>
+<h4 id="example-railroad-crossing">2.2.0 Example: railroad crossing</h4>
 <p>要理解临界区，使用铁路类比是很有用的。</p>
 <p><img src="/images/OP/1907072.png" /></p>
 <p>考虑轨道交叉。 很明显，没有两列火车可以同时进入交叉路口，这类似于临界区。 红色和绿色信号量控制交叉区域的入口，以防止碰撞。</p>
 <p>我们必须找到一种算法，确保不会有两列 2 列火车同时访问临界区，而不会造成不必要的延迟。</p>
-<h5 id="with-boolean-reservation">With Boolean reservation</h5>
+<h4 id="with-boolean-reservation">2.2.1 With Boolean reservation</h4>
+<blockquote>
+<p>设置一个布尔数free，有人通过，此时的free为false，反之则为true。</p>
+<p>这是一种相当笨的方法，那么如果出现两个车一同来呢？</p>
+</blockquote>
 <p>想到的第一个想法是基于系统的完美对称性，并使用耦合coupled灯，如果交叉路口空闲，则显示相同颜色的绿色，否则显示红色。</p>
 <p>一列火车到达入口点的交叉口会发出红色信号，通过过程的结束确保交付到绿色。</p>
 <p><img src="/images/OP/1907071.png" /></p>
@@ -622,7 +640,13 @@ free <span class="token operator">=</span> false<span class="token punctuation">
 <span class="token comment">/* critical section */</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个算法的风险在于指令<code>do &#123;&#125; while (free!);</code>和<code>free = false;</code>。 此时，进程知道它可以进入其临界区，但尚未阻止其他进程对其临界区的访问。 多个进程同时处于其临界区的风险是真实的，这是对临界区原则的否定。</p>
-<h5 id="with-run-indicator">With run indicator</h5>
+<h4 id="with-run-indicator">2.2.2 With run indicator</h4>
+<blockquote>
+<p>设置两个布尔数，pturn，qturn</p>
+<p>你一辆我一辆的通行</p>
+<p>这样就会出现一个问题，如果两条路的车辆数不同呢？</p>
+<p>就会出现Deadlock</p>
+</blockquote>
 <p>为防止两列火车同时进入交叉路口，只需安排两个信号同时为绿色即可。 只需交叉接线即可。当列车 p 到达且 p 亮绿灯时，他进入交叉路口，并在通过终点时引起信号变化。 因此，Q 列车可以轮到他通过十字路口。</p>
 <p><img src="/images/OP/1907070.png" /></p>
 <p>过境安全有保障，但连续两列列车不能通过同一通道。 第二个将不得不等到火车通过另一条路径。</p>
@@ -635,8 +659,12 @@ turn <span class="token operator">=</span> qturn<span class="token punctuation">
 <p>前面算法程序中的翻译很简单。 只需创建一个枚举enumeration类型的<strong>共享shared变量</strong> <code>turn</code>，它可以采用两个值 <code>pturn</code> 和 <code>qturn</code>。</p>
 <p>在进程P中插入的代码只是等到<code>turn</code>有<code>pturn</code>值才能进入临界区，不要忘记在临界区完成时将<code>turn</code>赋值给<code>qturn</code>值。在Q过程中插入的代码是一样的。</p>
 <p>再次保证了安全性，但强加了 P 和 Q 过程之间的严格交替，这通常是不可接受的。</p>
-<h5 id="with-double-indicator">With double indicator</h5>
+<h4 id="with-double-indicator">2.2.3 With double indicator</h4>
+<blockquote>
+<p>设置布尔数，pneed、qneed，就像新式人行道红绿灯一样，要过马路先按一下，红绿灯知道你有过马路的需求了，才会开放让你通行</p>
+<p>这个方法的问题是，两边都同时按下按钮，该怎么办？</p>
 <p>为了避免上述算法强加的严格交替，可以使用稍微复杂一些的算法：</p>
+</blockquote>
 <p>到达路口后，每列火车通过分别为布尔变量 <code>pneed</code> 和 <code>qneed</code> 分配<code>true</code> 来宣布它的到达。</p>
 <p>出发时，每列火车将其关联变量重置为 <code>false</code>。</p>
 <p>两个信号通常都是红色的，但如果 <code>pneed</code> 和 <code>qneed</code> 的值显示交叉操作的合意性和安全性，则每个信号都可以是绿色的。</p>
@@ -651,7 +679,11 @@ pneed <span class="token operator">=</span> true<span class="token punctuation">
 pneed <span class="token operator">=</span> false<span class="token punctuation">;</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>就像火车一样，进程 P 和 Q 可能最终会在试图无限期地运行它们的指令<code>do while (!qneed)</code>和<code>do while (!pneed)</code>时卡住。</p>
-<h5 id="deckers-algorithm">Deckers algorithm</h5>
+<h4 id="deckers-algorithm">2.2.4 Deckers algorithm</h4>
+<blockquote>
+<p>通俗来讲，就是把第二种和第三种方法融合了，如果两边都有需求，就先验证一下是谁的turn</p>
+<p>但是如上图所示，每一次看需求之后，都要执行一次while看是谁的turn，这大大的消耗了cpu的运算时间，所以大部分情况不予采用。</p>
+</blockquote>
 <p>事实上，只有结合每轮技术和双重保留的技术，我们才能找到一个令人满意的算法，通过软件实现一个可靠的临界区，没有阻塞风险。</p>
 <p>只有在双重预订导致阻塞的情况下才使用：我们通过交替偏爱 P 或 Q 来摆脱这种阻塞。这种组合以其发明者荷兰计算机科学家德克斯的名字命名。</p>
 <p>以下显示了要包含在流程 P 中的代码。 Q 流程的代码是相同的，做必要的修改。</p>
@@ -673,12 +705,20 @@ pneed <span class="token operator">=</span> false<span class="token punctuation"
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Deckers 算法是临界区的软件实现。甚至可以正式证明这种实现是正确的。 不幸的是，Deckers 算法有一个很大的缺点，等待过程继续消耗 CPU 时间。</p>
 <p>为了证明，只需查看指令<code>do &#123;&#125; while (turn != pturn);</code>因此，它在实践中很少使用。</p>
-<h3 id="hardware-implementations">Hardware implementations</h3>
+<h3 id="hardware-implementations">2.3 Hardware implementations</h3>
+<blockquote>
+<p>首先，如果只有一个处理器存在的化，非常简单，只需要设置一个程序区域，在区域内不能interrupt就可以。</p>
+<p>之后，如果有很多不同的处理器呢？<strong>一般采用，Test &amp; Set bit</strong></p>
+</blockquote>
 <p>由于临界区的软件实现导致资源的浪费，因此提供了硬件机制来实现临界区。</p>
 <p>在具有<strong>单个处理器</strong>的系统中，<u>active进程抑制中断inhibit interrupts以创建临界区就足够了，因为另一个进程只能通过interrupt激活。</u>如果使用这种技术，人们<strong>不能忽视</strong>直接内存访问控制器direct memory access controller也是一种可以改变共享变量值的处理器活动。</p>
 <p>幸运的是，这样一个控制器的操作很简单，我们可以很容易地防止他的干扰。</p>
 <p>对于<strong>多处理器</strong>系统，禁止中断不足以创建临界区。在这样的系统中，确实有许多同时活动的进程，因为有处理器。如果我们要避免 Deckers 算法，这将需要特定的硬件设备来实现临界区。</p>
-<h4 id="test-set-bit">Test &amp; Set bit</h4>
+<h4 id="test-set-bit">2.3.1 Test &amp; Set bit</h4>
+<blockquote>
+<p><strong>和上文的Free一样，设置一个free布尔数，当有人看时，这个变成false，防止其他人访问</strong></p>
+<p>在这里我们介绍了Free，其实还有更高阶的方法，也就是Semaphore</p>
+</blockquote>
 <p><strong>测试和设置位test &amp; set bit是一个布尔变量Boolean variable，它的值可以通过读取来改变！</strong></p>
 <p>如果变量为 false，则读取操作不会更改此值。 但是，如果为true，则读取操作将返回此值，<strong>同时</strong>将变量的值从true更改为false。</p>
 <p>如果我们重新考虑使用简单保留布尔值来尝试实现临界区的错误算法，但通过使用test &amp; set bit实现布尔值free，我们会看到获得进入critical section的授权并阻止进入任何 现在可以在一个不可分割的事务中完成其他过程。因此，没有 2 个进程可以同时观察critical section的可用性并进行他们认为是排他的保留。</p>
@@ -688,7 +728,7 @@ free <span class="token operator">=</span> false<span class="token punctuation">
 	<span class="token comment">/* critical section */</span>
 free <span class="token operator">=</span> true<span class="token punctuation">;</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="semaphores">Semaphores</h2>
+<h2 id="semaphores">3. Semaphores</h2>
 <p>诸如用于制作critical section的那些机制是微妙的。</p>
 <p>因此，重要的是不要让应用程序程序员小心地实现它们，而是为此目的<u>将它们包含在特定的功能管理系统中</u>。然后应用程序可以调用这些函数来创建临界区，而用户不必知道其实现的细节。该领域最常用的工具是“<strong>信号量semaphore</strong>”。</p>
 <p><strong>Variable s exclusively accessed through two <u>atomic</u> functions, wait &amp; signal.</strong></p>
@@ -709,7 +749,7 @@ free <span class="token operator">=</span> true<span class="token punctuation">;
 </ul>
 <p>可以看到等待函数包含一个等待循环<code>do &#123;&#125; while (s = &lt;0);</code>从中可以得出结论，此功能，如 Deckers 算法必须在等待期间保持活动状态。</p>
 <p>但是情况并非如此，此处显示的等待实现仅旨在解释此功能，而不是它是如何执行的。</p>
-<h3 id="critical-sections-with-semaphore">Critical sections with semaphore</h3>
+<h3 id="critical-sections-with-semaphore">3.1 Critical sections with semaphore</h3>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/* Declare a semaphore varibale mutex */</span>
 <span class="token comment">/* coomon to all processes */</span>
 <span class="token comment">/* with an initial value of 1 */</span>
@@ -723,11 +763,10 @@ free <span class="token operator">=</span> true<span class="token punctuation">;
 <p>上面的代码显示了如何使用信号量semaphore实现临界区。</p>
 <p>信号量semaphore，<code>mutex</code>初始化为值 1，在将使用临界区的不同进程之间共享。</p>
 <p>在进入其临界区之前，每个进程都必须调用<code>wait(&amp; mutex)</code>函数。 此函数将阻止相关进程，因为<code>mutex</code>具有负值或零值。 离开临界区，进程必须调用<code>signal (&amp; mutex)</code>函数来解锁另一个阻塞在等待函数中的进程。</p>
-<h3 id="resource-allocation-with-semaphore">Resource allocation with semaphore</h3>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="resource-allocation-with-semaphore">3.2 Resource allocation with semaphore</h3>
 <p>信号量semaphore甚至可以概括临界区的概念：例如，如果一台计算机随时有 10 个 CD 刻录机，则不能有 10 个以上的 CD 刻录进程处于活动状态。</p>
 <p>可以使用与用于临界区的技术完全相同的技术来评估这种情况，但将信号量设置为值 10 而不是 1。</p>
-<h3 id="synchronization-with-semaphore">Synchronization with semaphore</h3>
+<h3 id="synchronization-with-semaphore">3.3 Synchronization with semaphore</h3>
 <p>Two processes P<sub>1</sub> and P<sub>2</sub> are such that statement S<sub>2</sub> should not be executed before statement S<sub>1</sub></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> synch <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     
@@ -743,7 +782,17 @@ S1<span class="token punctuation">;</span>
 <span class="token function">signal</span><span class="token punctuation">(</span><span class="token operator">&amp;</span> synch<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>信号量也可以用来同步进程：例如，如果进程P<sub>1</sub>包含一个要在进程P<sub>2</sub>的S<sub>2</sub>指令可以执行之前执行的S<sub>1</sub>指令，只需使用一个信号量<strong>synch</strong>初始化为0，并调用<code>wait(synch &amp;)</code> 在 S<sub>2</sub> 指令之前和在 S<sub>1</sub> 之后立即调用 <code>signal(&amp; synch)</code></p>
-<h3 id="semaphore-implementation">Semaphore implementation</h3>
+<h3 id="semaphore-implementation">3.4 Semaphore implementation</h3>
+<blockquote>
+<p>这个代码内嵌到了操作系统里，也就是每个程序运行时，都要运行上面的代码：</p>
+<p>先wait（），看看此时的s是不是小于0，如果小于零，他就一直do{}，等等</p>
+<p>如果大于0了，他就运行一下，让s-1，指的是，有一个人正在操作了</p>
+<p>运行完了，再加回来1</p>
+<p>比如：两个程序，有一个程序运行的太快了，就先运行到了synch，发现是0，得等待另外一个程序把synch变成1，再继续运行；</p>
+<p>我们发现，再wait（）函数中，do while语句是空缺，实际上还可以干点事情：</p>
+<p>比如把这个进程加入等待名单呀。说到等待名单，就要看看process的三种state了</p>
+<p>同样的，既然wait里面可以加，signal就可以把人从等待名单里拿出来：</p>
+</blockquote>
 <p><strong>Busy waiting avoided by using the process scheduler</strong></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">wait</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -758,9 +807,21 @@ S1<span class="token punctuation">;</span>
 <p><img src="/images/OP/1907067.png" /></p>
 <p>一个进程可以有三种状态：</p>
 <ol type="1">
-<li>“pending”：进程在内存中，但正在执行其他进程的指令；</li>
-<li>“active”：正在执行进程的代码；</li>
-<li>“blocked”：由于一些外部原因，例如输入/输出操作，进程无法继续。</li>
+<li>“pending”
+<ul>
+<li>进程在内存中，但正在执行其他进程的指令</li>
+<li>我在排着队，队伍非常顺利的在走</li>
+</ul></li>
+<li>“active”
+<ul>
+<li>正在执行进程的代码</li>
+<li>我和菜店老板在交涉买菜的事情</li>
+</ul></li>
+<li>“blocked”
+<ul>
+<li>由于一些外部原因，例如输入/输出操作，进程无法继续</li>
+<li>菜地老板出去上厕所去了，留我在等待</li>
+</ul></li>
 </ol>
 <p>活动active状态和阻塞blocked状态之间的转换是当信号量 s 为零或负值时调用函数 <code>wait(&amp;s)</code> 的结果。</p>
 <p>通常这种转换是作为输入-输出操作启动的结果出现的，但实际上很多其他原因可以阻塞一个进程，输入输出操作像所有其他潜在的阻塞原因一样使用信号量机制来确保所需的同步 .</p>
@@ -778,20 +839,29 @@ S1<span class="token punctuation">;</span>
 <p>进程P<sub>1</sub>执行信号函数在进程P<sub>1</sub>的状态图中没有可见的影响。</p>
 <p>实际上，这种执行只能在 P<sub>1</sub> 处于活动状态并且信号对运行它的进程的状态没有影响时发生。 缺点是，如果进程 P<sub>2</sub> 被<code>wait(&amp;s)</code>的执行阻塞，则 P<sub>1</sub> 执行<code>signal(&amp; s)</code> 可能会对进程 P<sub>2</sub> 的状态产生影响。 在这种情况下，<code>signal(&amp;s)</code> 的执行可能具有将 P<sub>2</sub> 的状态从“blocked”更改为“pending”的效果。</p>
 <p>如果有多个进程挂起，信号函数的执行显然只能liberate一个。释放进程的选择在信号量的定义中没有具体说明，是每个操作系统的特定选项。 <u>一般情况下，阻塞时间最长的进程会被释放，但可以实施复杂的优先级规则。</u></p>
-<h2 id="deadlocks">Deadlocks</h2>
+<h2 id="deadlocks-死锁">4. Deadlocks 死锁</h2>
+<blockquote>
+<p>程序员实习都要有实习经验才能入职，那只有参加程序员实习才能获得实习经验</p>
+<p>这就是一个死局（deadlock)</p>
+</blockquote>
 <p>使用并发进程时可能出现的最后一个重要问题是不可避免的相互阻塞mutual blocking。</p>
 <p>在日常生活中，致命阻塞的情况并不少见，甚至经常有警告声明，如果照章办事，将不可避免地导致这种阻塞。因此，在 19 世纪后期，俄亥俄州立法者希望在属于竞争公司的 2 条铁路线交叉点处大力防止任何碰撞风险。 为此，他们颁布了一项法律，规定任何火车将在过境点前一英里处停下，并且在另一列火车先行之前不能离开。</p>
 <blockquote>
 <p>"All trains shall stop at one mile from the crossing and wait until other trains are out of sight." - Ohio State Law, 1896</p>
 </blockquote>
-<h3 id="evolution-of-processes">Evolution of processes</h3>
+<h3 id="evolution-of-processes">4.1 Evolution of processes</h3>
 <p>为了能够理解相互阻塞机制，使用一个图表来绘制可能相互挂起的进程的演变是很有用的。</p>
 <p><img src="/images/OP/1907066.png" /></p>
 <p>这样的图表具有与考虑的过程一样多的维度。出于易于理解的实际原因，上图仅限于表示 2 个进程的状态。每个轴从 0%（早期(early stage）到 100%（完成finish）。</p>
 <p>在一个处理器的系统中，不同的进程交替工作，代表两个被考虑进程的演变的图表将具有阶梯形状，因为每次只能有一个进程在进行。</p>
 <p>在多处理器系统的情况下，状态将由在代表 2 个进程结束的点处连接原点（start of the 2 processes）的连续线表示。</p>
 <p>在下一节中，将只使用实线，因为相互阻塞的研究没有必要区分单处理器和多处理器。相互阻塞可能有多种原因。为简单起见，这里只考虑资源共享造成的阻塞。其他阻塞原因很容易减少到这一点。我们将通过与轴平行的彩色线显示每个进程在其执行的哪个阶段需要哪些资源。</p>
-<h3 id="deadlock">Deadlock</h3>
+<h3 id="deadlock-zone">4.2 Deadlock Zone</h3>
+<blockquote>
+<p>当然合理的分配资源呢，就能双方都到达100%</p>
+<p>如果进入了图中红色的区域，且双方都不让资源，就发生了死局Deadlock</p>
+<p>这个区域就叫做：deadlock zone</p>
+</blockquote>
 <p>进程 P<sub>1</sub> 和 P2 都使用部分执行资源 R<sub>1</sub> 和 R2。</p>
 <p>使用 R<sub>1</sub> 和 R2 分别由平行于轴的红线和蓝线表示。代表了两条不同的路线，第一个绿色不会导致阻塞blockage，而第二个紫色导致死锁deadlock。</p>
 <p><img src="/images/OP/1907065.png" /></p>
@@ -800,7 +870,7 @@ S1<span class="token punctuation">;</span>
 <p>在紫色路线中，P<sub>2</sub>首先询问R<sub>1</sub>，R<sub>1</sub>收到它。然后 P<sub>1</sub>请求 R<sub>2</sub>，它也收到它。稍后，P<sub>1</sub>需要 R<sub>1</sub>，而 R<sub>1</sub>已分配给 P<sub>2</sub>。</p>
 <p>P<sub>1</sub>被阻塞，直到 P<sub>2</sub> 释放 R<sub>1</sub>，但在释放 R<sub>1</sub>之前，P<sub>2</sub> 请求 R<sub>2</sub>。 P<sub>2</sub> 也将被阻塞，直到 P<sub>1</sub> 释放 R2。因此，进程 P<sub>1</sub> 和 P<sub>2</sub> 都被阻塞，并且将无限期地保留，因为它们相互依赖才能被释放。</p>
 <p>在图中可以看到，从紫色轨迹进入红色矩形的那一刻起，也就是说，当P<sub>2</sub>和P<sub>1</sub>收到R<sub>1</sub> R<sub>2</sub>时，情况就无可救药地妥协了。两个进程仍然可以在红色矩形内继续，但无法退出。红色矩形称为“<strong>死锁区deadlock zone</strong>”。</p>
-<h3 id="deadlock-handling">Deadlock handling</h3>
+<h3 id="deadlock-handling">4.3 Deadlock handling</h3>
 <p><strong>What can be done to avoid a deadlock?</strong></p>
 <p>有两种可能的策略：预防prevention和纠正correction。</p>
 <p>为了理解这些不同的策略，我们可以将死锁区deadlock area比作一个人可能掉进的洞。</p>
@@ -827,18 +897,32 @@ S1<span class="token punctuation">;</span>
 <li>Provide escape from Deadlock</li>
 </ul></li>
 </ul>
-<h4 id="deadlock-prevention">Deadlock prevention</h4>
-<h5 id="request-all-resources-together">Request all resources together</h5>
+<h4 id="deadlock-prevention">4.3.1 Deadlock prevention</h4>
+<h5 id="request-all-resources-together">4.3.1.1 Request all resources together</h5>
+<blockquote>
+<p>一个人一个人的走</p>
+</blockquote>
 <p><img src="/images/OP/1907064.png" /></p>
 <p>在双进程系统的情况下，阻塞区blocking area是对应于两个进程都已经拥有追求另一个进程所必需的资源的状态的区域。</p>
 <p>通过强制所有进程同时请求他们需要的所有资源，阻塞区域blocking area的面积减少到零，不再有任何阻塞。</p>
 <p>这种技术的唯一缺点通常是过早地将资源预留给其他进程。</p>
-<h5 id="request-resources-in-fixed-order">Request resources in fixed order</h5>
+<h5 id="request-resources-in-fixed-order">4.3.1.2 Request resources in fixed order</h5>
+<blockquote>
+<p>一个资源一个资源的走</p>
+</blockquote>
 <p><img src="/images/OP/1907063.png" /></p>
 <p>消除阻塞区的一种方法比之前的方法稍逊一筹，是对所有资源进行编号，并强制所有进程按编号递增的顺序获取资源。</p>
 <p>因此，在上一节中使用的示例中，P<sub>1</sub> 应该在单个请求中询问 R<sub>1</sub> 和 R<sub>2</sub>，因为它在 R<sub>1</sub> 之前需要 R<sub>2</sub>，而 P<sub>2</sub> 可以从询问 R<sub>1</sub> 开始，并且只询问真正需要的 R<sub>2</sub>。</p>
 <p>与前一种技术一样，这种技术减少了零阻塞区域zero blocking area，并且在不必要的保留资源方面可能会稍微便宜一些。</p>
-<h5 id="bankers-algorithm">Bankers algorithm</h5>
+<h5 id="bankers-algorithm">4.3.1.3 Bankers algorithm</h5>
+<blockquote>
+<p>先从P1来看，P1有了资源R1之后，P2就无法运行，P2有了R3资源之后，P3就无法运行，P3有了R2资源之后，P1就无法运行，这就构成了一个闭环，这三个家伙之间就可以连成Deadlock Zone：</p>
+<p>通过banker algorithm，算出来deadlock zone，避开走</p>
+<p>那如果走进了这个区域，该如何改正呢？</p>
+<p><strong>这就要提到备份了，在进程分配资源之前备份好进程的状态</strong></p>
+<p><strong>遇到Deadlock之后用Banker Algorithm算出来，到底是哪条资源出现了问题，</strong></p>
+<p><strong>然后恢复到之前备份好的状态，避免再进入那个区域就可以。</strong></p>
+</blockquote>
 <ul>
 <li><strong>All processes needing more than one resource have to declare in advance ask resources they will request</strong></li>
 <li>Time needed to find all loops grow exponentially with the number of nodes !</li>
@@ -853,7 +937,7 @@ S1<span class="token punctuation">;</span>
 <p>在上图中显示的示例中，P<sub>1</sub> 请求 R<sub>1</sub> 并获得满意，因为图中仅包含从 P<sub>1</sub> 到 P<sub>2</sub> 的一个箭头。 P<sub>2</sub>然后询问 R3，添加了从 P<sub>2</sub> 到 P<sub>3</sub> 和 P<sub>4</sub> 的箭头，但由于仍然没有循环 R3 被授予。</p>
 <p>最后 P<sub>3</sub> 询问 R<sub>2</sub>，图中添加了 P<sub>3</sub> 到 P<sub>1</sub> 的箭头，导致出现循环 P<sub>1</sub>、P<sub>2</sub>、P<sub>3</sub>。这意味着如果将 R<sub>2</sub> 交给 P<sub>3</sub>，则后者的进程持有 P<sub>1</sub> 可以请求的资源，P<sub>1</sub> 已经拥有 P<sub>2</sub> 可以请求的资源，P<sub>2</sub> 又持有 P<sub>3</sub> 可以请求的资源，在其他表示可能导致致命阻塞的情况。</p>
 <p>银行家算法在 1970 年和 80 年的大多数多任务操作系统中都使用过，但是图中的搜索循环所需的时间随着该图中节点的数量大致呈指数增长，导致防止阻塞在现代系统中变得非常昂贵数百个进程可以共享系统资源的系统。</p>
-<h4 id="deadlock-correction">Deadlock correction</h4>
+<h4 id="deadlock-correction">4.3.2 Deadlock correction</h4>
 <p>要摆脱deadlock，您必须首先检测blockage，这可以通过建立与银行家算法中使用的图形相同的图形来完成，但仅限于在特定时间内观察到的过程。</p>
 <p><img src="/images/OP/1907060.png" /></p>
 <p>使用相同的图形，它可以确定哪个进程中的哪个资源分配允许进入阻塞区域。</p>

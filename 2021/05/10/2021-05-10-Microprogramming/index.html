@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-04
+                    2021-09-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.4k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    9 Min
+                    10 Min
                 </div>
                 
 
@@ -501,15 +501,18 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="microprogramming">Microprogramming</h1>
-<p><a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=84b42031-6a58-4a1c-ac3d-ac4200fe857e">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564896">Slide</a></p>
-<h2 id="the-control-unit">The control unit</h2>
+<p><a href="https://yintelligence.tech/2021/01/15/2021-01-15-Computer-Systems/">VUB 4004876EER Computer Systems</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=84b42031-6a58-4a1c-ac3d-ac4200fe857e">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564896">Slide</a></p>
+<h2 id="the-control-unit">1. The control unit</h2>
+<blockquote>
+<p>讲解一下CPU上的控制单元，他用于接收RI的指令信息，安排活给ALU干。</p>
+</blockquote>
 <p>控制单元是控制所有活动的计算机的核心元件。 它从程序存储器program memory中读取instruction并将这些instruction转换为电信号，指示计算机的每个组件在正确的时间执行特定的任务。</p>
 <p>Activities of Control unit includes:</p>
 <ul>
 <li>Reading instructions from program memory;</li>
 <li>Translating these instructions into electrical signals;</li>
 </ul>
-<p><img src="/images/OP/0549060.png" /></p>
+<p><img src="C:\Users\heart\Desktop\Blog\source\images\OP\0549060.png" /></p>
 <p>CU是一个<strong>顺序布尔电路sequential Boolean circuit</strong>，输入：</p>
 <ul>
 <li>从程序存储器中fetch并在执行期间存储在指令寄存器 instruction register中的指令</li>
@@ -521,7 +524,13 @@
 <p>基于这些输入并通过internal clock计时，CU生成用于控制计算机所有部分的digital sequence。</p>
 <p><img src="/images/OP/0549061.png" /></p>
 <p>执行CU的一组布尔函数包括，对于每个command信号，instruction register中包含的位bit、各种输入信号（例如interrupt line）和计时计数器timing counter的内容的组合布尔函数。</p>
-<h2 id="microprogramming-1">Microprogramming</h2>
+<h2 id="microprogramming-1">2. Microprogramming</h2>
+<blockquote>
+<p>通常把set of boolean function封存在ROM里（Read Only Memory）</p>
+<p>包含了决定计算机指令如何工作function（就是上一行那个）的memory，被称为microstore</p>
+<p>然后这些function被称为microprogramming</p>
+</blockquote>
+<p>然后Timing counter用于计数，就可以控制连续指令的输入。</p>
 <p>为了实现大量输入的大量布尔函数，最简单的解决方案包括将这些布尔函数中的每一个的连续successive值存储在memory的successive words中，CU的所有输入，由内容增加计数器augmented by the contents of a counter counting对执行特定指令所需的连续时钟周期successive clock cycle进行计数，该指令用于寻址该存储器的字。</p>
 <p><img src="/images/OP/0549062.png" /></p>
 <p>The control unit is a set if Boolean functions and includes:</p>
@@ -532,7 +541,7 @@
 </ul>
 <p>这样的存储器，其内容决定了计算机的entire operation，通常称为“<strong>微存储microstore</strong>”，微存储的内容称为“<strong>微程序microprogram</strong>”。</p>
 <p>微型存储器可以是只读存储器 (ROM)，其内容在制造过程中是固定的，也可以是允许动态修改微程序的可写存储器。可写微存储允许在计算机的生命周期内修改计算机的指令集。这对于纠正微程序中的错误、添加可以加速特定程序的特定指令或什至构建可以本地使用不同指令集的计算机非常有用。由于可写存储器通常比 ROM 使用更多的芯片空间和能量，几乎所有现代处理器都有 ROM 微型存储器。</p>
-<h3 id="micro-programmed-control-unit">Micro programmed Control Unit</h3>
+<h3 id="micro-programmed-control-unit">2.1 Micro programmed Control Unit</h3>
 <p><img src="/images/OP/0549063.png" /></p>
 <p>微程序控制单元microprogrammed control unit的全局组织可以概括如下：</p>
 <ul>
@@ -544,23 +553,43 @@
 <li>在所有其他情况下，获取fetch下一条微指令microinstruction。</li>
 </ul>
 <p>由于一条指令的执行是从 microstore 中获取许多microinstruction的结果，因此后者和相关的电子设备需要比微程序计算机microprogrammed computer执行指令的节奏快一个数量级。</p>
-<h3 id="horizontal-vertical-microprogramming">Horizontal &amp; vertical microprogramming</h3>
+<h3 id="microinstruction-微指令">2.2 Microinstruction 微指令</h3>
+<blockquote>
+<p>就是从IR里取出来的指令</p>
+</blockquote>
+<h4 id="horizontal-microprogramming">2.2.1 Horizontal microprogramming</h4>
+<blockquote>
+<p>因为要管理的设备很多，所以每个微指令就很长</p>
+</blockquote>
 <p>在高级advanced微程序处理器microprogrammed processor的简单设计中，每条微指令中的位数number of bits可能非常大，因为需要控制许多设备。 数百位是正常的。 这种方法被称为“<strong>横向微编程horizontal microprogramming</strong>”</p>
+<h4 id="vertical-microprogramming">2.2.2 Vertical microprogramming</h4>
+<blockquote>
+<p>因为要管理的设备，有可能不能同时运行，于是就要分别编程，指令会短，但是分行，总的指令就会长</p>
+</blockquote>
 <p>然而，许多控制功能是相互排斥的（例如，不允许两个不同的register同时将它们的内容放在同一条总线上）并且可以编码以减少microinstruction的大小，这会导致更短的microinstruction，但它减少了并行parallel执行不同操作的机会，通常会导致更长的微程序。 这被称为“<strong>垂直微编程vertical microprogramming</strong>”。</p>
 <p><img src="/images/OP/0549064.png" /></p>
-<h2 id="risc-vs-cisc">Risc vs Cisc</h2>
+<h2 id="risc-vs-cisc-指令集">3. Risc vs Cisc 指令集</h2>
 <p>在设计计算机体系结构时，必须在一组简单但快速的指令 (RISC) 或一组较慢但功能强大的 (CISC) 指令之间进行选择。</p>
 <p>当每个芯片的晶体管transistor数量是一个关键的设计问题时，选择 CISC 架构的架构师需要一个大型微型存储microstore，因此无法负担大型片上缓存cache。</p>
 <p>RISC 架构的推动者正确地声称，cache中的transistor比microstore中的transistor对整体性能的贡献更大。</p>
 <p><img src="/images/OP/0549065.png" /></p>
 <ul>
-<li><strong>RISC</strong>: a small set of simple but fast instructions;</li>
-<li><strong>CISC</strong>: a large set of slower but powerful instructions;</li>
+<li><strong>RISC</strong>
+<ul>
+<li>a small set of simple but fast instructions</li>
+<li><strong>simple fast</strong></li>
+</ul></li>
+<li><strong>CISC</strong>
+<ul>
+<li>a large set of slower but powerful instructions</li>
+<li><strong>slow，powerful</strong></li>
+<li><strong>更依赖cache</strong></li>
+</ul></li>
 </ul>
 <p>对于汇编级程序员来说，CISC 方法很有吸引力，因为它减少了他们的程序长度，因此许多 60 年代和 70 年代出生的处理器系列都有一个复杂的指令集。出于向上兼容的动机，这些指令集一直存在到现在。</p>
 <p>另一方面，assembly language大多被高级语言取代，为简单指令集编写编译器比为复杂指令集编写编译器更容易，这就解释了为什么八九十年代设计的指令集大多属于RISC变种。</p>
 <p>在九十年代后期，每个芯片的晶体管数量变得不那么重要，并且由于专门为 x86 指令集优化的软件的大量可用性，带有 x86 指令集微程序解释器的 RISC 处理器变得非常普遍。</p>
-<h2 id="history-of-mircoprogramming">History of mircoprogramming</h2>
+<h2 id="history-of-mircoprogramming">4. History of mircoprogramming</h2>
 <p>1951 年，剑桥大学的Maurice Vincent Wilkes发明了计算机control unit的微编程microprogramming，但由于缺乏良好的只读存储器read-only memories和读写存储器read-write memories 的成本，该概念在工业用途中不切实际。</p>
 <blockquote>
 <p><strong>ROM (Read Only Memory)</strong> is a kind of microstore. Its contents can be fixed during the process;</p>
@@ -570,7 +599,7 @@
 <p>在 70 年代，非常快速的 RAM 和 ROM 存储器的可用性使小型计算机制造商能够为特定应用程序提供专门的指令集，例如用于加速数字信号处理的快速傅立叶变换指令。为了允许在一台机器上执行针对不同大型机的目标代码，一家公司 NanoData 公司甚至提出了一种大型机，其中每个程序都可以加载它想要使用的指令集，但这并没有取得商业上的成功。</p>
 <p>消除（部分）经典指令集并允许编译器直接生成微代码有时被处理器设计人员认为是一种增加并行度parallelism的方法，而无需大量电路来防止产生结果的指令和使用它们的指令之间的竞争条件操作数。通过这种方式，应用程序程序员和编译器设计人员可以在应用程序允许的情况下引入并行性parallelism。</p>
 <p>遵循这种方法的计算机体系结构称为“超大指令字体系结构very large instruction word architectures”。然而，惠普和英特尔在 2010 年左右沿着这个思路联合开发的Itanium处理器家族似乎并没有取得巨大的商业成功，可能是因为编译器设计人员和应用程序开发人员似乎没有接受挑战.</p>
-<h2 id="evolution-of-processor-chips">Evolution of processor chips</h2>
+<h2 id="evolution-of-processor-chips">5. Evolution of processor chips</h2>
 <p>1965 年至 2005 年间，处理器的进步是基于技术进步：在一个芯片上集成更多更快的晶体管。</p>
 <p><strong>Gordon Moore's law</strong>:</p>
 <ul>
@@ -587,7 +616,7 @@
 </ul>
 <p>到 2005 年，指数级的进步不得不停止：额外的晶体管没有任何有意义的用途，更高的时钟频率clock frequency导致了主要的设计问题。</p>
 <p>由于晶体管的数量仍有可能增加，与其试图将更强大的处理器集成到一个芯片上，不如将上一代的两个、四个甚至八个处理器放在一个芯片上。这一举措将计算性能问题从处理器设计转向了高效可靠的并行处理算法parallel processing algorithm的设计。</p>
-<h2 id="cloud-computing">Cloud Computing</h2>
+<h2 id="cloud-computing">6. Cloud Computing</h2>
 <p>高速通信，首先是在组织内部，后来是通过互联网在全球范围内，迅速导致了客户端服务器架构的普遍化：最终用户拥有一台针对用户友好性进行了优化的个人计算机，它调用专用服务器，首先用于存储，然后用于繁重的计算。 由于数据的安全存储需要在不同位置复制数据，因此中小型组织发现将其数据存储外包给专业公司很有吸引力。</p>
 <p>计算服务器性能的提高，以及在不同系统上模拟任何计算机系统的便利性也迅速导致了外包处理。</p>
 <p>事实上，我们又回到了集中式大型机时代，它具有所有优点（成本较低）和缺点（您的数据处理完全由外部组织控制）。</p>

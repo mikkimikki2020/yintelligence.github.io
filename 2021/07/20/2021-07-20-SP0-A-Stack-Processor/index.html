@@ -1,0 +1,1862 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="SP0- A Stack Processor, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>SP0- A Stack Processor | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">SP0- A Stack Processor</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Computer-Systems/">
+                                <span class="chip bg-color">Computer Systems</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Computer-Systems/" class="post-category">
+                                Computer Systems
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-07-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-09-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    11k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    52 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="sp0-a-stack-processor">SP0: A Stack Processor</h1>
+<p><a href="https://yintelligence.tech/2021/01/15/2021-01-15-Computer-Systems/">VUB 4004876EER Computer Systems</a> + <a target="_blank" rel="noopener" href="https://vub.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=58e82ab0-5c3a-484d-878b-ac4200d6fd08">Video</a> + <a target="_blank" rel="noopener" href="https://canvas.vub.be/courses/20575/files?preview=564890">Slide</a></p>
+<hr />
+<p>In this chapter, intended as an illustration of some concepts introduced in the preceding chapter, a machine with a data memory organized as a <strong>LIFO stack</strong> is described.</p>
+<p>在本章中，作为对上一章中介绍的一些概念的举例说明，描述了一种具有组织为LIFO堆栈的数据存储器的机器。</p>
+<p>This machine doesn’t exist as a commercial product, but it has all the essential properties of the many stack machines that had a significant commercial success between 1970 and 1990. Such machines are no longer build, but modern machines emulate their operation. This is the reason why this chapter is an important part of this course.</p>
+<p>该机器不作为商业产品存在，但是具有许多堆叠式机器的所有基本特性，这些机器在1970年至1990年间取得了巨大的商业成功。这种机器不再制造，但是现代机器模仿了它们的操作。 这就是本章是本课程重要组成部分的原因。</p>
+<h2 id="generic-structure-通用结构">1. Generic structure 通用结构</h2>
+<p>The computer in this chapter includes:</p>
+<ul>
+<li><p>Memory for program 程序存储器 (code);</p></li>
+<li><p>Memory for data 数据存储器;</p></li>
+<li><p>LIFO stack LIFO 堆栈 (data);</p></li>
+<li><p>Program counter 程序计数器 (P);</p></li>
+<li><p>Instruction register 指令寄存器 (I);</p></li>
+<li><p>Base register 基址寄存器 (B);</p></li>
+<li><p>Stack pointer 堆栈指针 (T);</p></li>
+<li><p>Arithmetic unit 运算单元:</p></li>
+<li><ul>
+<li><p>fetches 2 operands from top of the stack (TOS) then push its result back</p>
+<p>从堆栈的顶部（TOS）获取其两个操作数，然后将其结果推回堆栈中</p></li>
+<li><p>an arithmetic operation results in a reduction of one of the height of the stack</p>
+<p>算术运算导致堆栈高度降低</p></li>
+</ul></li>
+</ul>
+<p><img src="C:\Users\heart\Desktop\Blog\source\images\NET\image-20210901081732700.png" /></p>
+<blockquote>
+<p>左边的code memory在运行时只读，并且可以随机定位</p>
+<p>右边的data memory可以定位，可以随机访问</p>
+</blockquote>
+<h2 id="memory">2. Memory</h2>
+<h3 id="code-memory-usage">2.1 Code memory usage</h3>
+<ul>
+<li><p>The code memory is <strong>randomly addressable</strong> and is <u>read only during program execution</u>.</p>
+<p><strong>代码存储器code memory</strong>是可<strong>随机寻址</strong>的，并且<u>只能在程序执行期间读取</u></p></li>
+<li><p>The program counter P mostly holds the next execution address.</p>
+<p><strong>程序计数器program counter P</strong>主要保存下一个执行地址</p></li>
+<li><p>Once the instruction fetched into the instruction register I, execution is conducted by electronic signals that control different computer parts.</p>
+<p>一旦将指令提取到<strong>指令寄存器instruction register I</strong>中，就通过控制不同计算机部件的电子信号执行执行</p></li>
+<li><p>This operation is illustrated using a <strong>C++ program</strong> simulating the operation of the computer. This basically helps to accurately illustrate the operation of a computer without using the electronic concepts.</p>
+<p>使用模拟计算机操作的<strong>C ++程序</strong>说明了此操作。 这基本上有助于准确地说明计算机的操作，而<u>无需使用电子概念</u>。</p>
+<p>Additionally it acts as an application to simulate the execution of object code written for this computer.</p>
+<p>此外，它还用作模拟为该计算机编写的目标代码的执行的应用程序。</p></li>
+</ul>
+<h3 id="data-memory-usage">2.2 Data memory usage</h3>
+<ul>
+<li>Data memory is addressable , random access .</li>
+<li><strong>Part of it can be managed as a LIFO stack</strong>
+<ul>
+<li>Base register ( B )</li>
+<li><strong>Top of Stack register</strong></li>
+</ul></li>
+<li>Data memory is used to store:
+<ul>
+<li>Variables of active blocks ( = activation record )</li>
+<li><strong>Temporary variables</strong></li>
+<li>Return addresses of subroutines</li>
+<li>Static and dynamic data links</li>
+<li>Procedure parameters</li>
+</ul></li>
+</ul>
+<p>The data memory is randomly accessible.</p>
+<p>数据存储器是可随机访问的。</p>
+<p><strong>The base register B and the stack pointer T allow to manage the stack memory.</strong></p>
+<p>The arithmetic unit uses the two top values and replaces them with the result of the arithmetic operation.</p>
+<p><strong>基址寄存器B和堆栈指针T允许管理堆栈存储器。</strong></p>
+<p>算术单元使用两个最高值，并用算术运算的结果替换它们。</p>
+<p>The data memory is used for variables of active blocks, temporary variables, return addresses of subroutines, static and dynamic data links and finally for procedure parameters.</p>
+<p>数据存储器用于活动块的变量，临时变量，子例程的返回地址，静态和动态数据链接，最后用于过程参数。</p>
+<h2 id="instructions">3. Instructions</h2>
+<p>All these instructions assume a single format for the operands, as, for example, 32-bit integers (<strong>int</strong>). If you want to allow the use of other data formats, such as floating point numbers (<strong>float</strong> or <strong>double</strong>) one should provide additional instructions and even instructions to perform conversions between different formats.</p>
+<p>所有这些指令均假定操作数采用单一格式，例如32位整数（int）。 如果要允许使用其他数据格式，例如浮点数（float或double），则应提供其他说明，甚至是在不同格式之间执行转换的说明。</p>
+<h3 id="data-handling">3.1 Data handling</h3>
+<table>
+<thead>
+<tr class="header">
+<th><code>CHS</code></th>
+<th>Change sign of top of stack ( tos )</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>EXC</code></td>
+<td>Exchange two topmost elements of stack</td>
+</tr>
+<tr class="even">
+<td><code>ADD</code></td>
+<td>Add two topmost elements of stack</td>
+</tr>
+<tr class="odd">
+<td><code>SUB</code></td>
+<td>Subtract tos from underlying element</td>
+</tr>
+<tr class="even">
+<td><code>MUL</code></td>
+<td>Multiply topmost elements of stack</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>DIV</code></td>
+<td>Divide underlying element by tos</td>
+</tr>
+<tr class="odd">
+<td><code>EQ?</code></td>
+<td>Are two topmost elements equal ?</td>
+</tr>
+<tr class="even">
+<td><code>NE?</code></td>
+<td>Are two topmost elements different ?</td>
+</tr>
+<tr class="odd">
+<td><code>LT?</code></td>
+<td>Is tos less than underlying clement ?</td>
+</tr>
+<tr class="even">
+<td><code>LE?</code></td>
+<td>Is tos less than or equal to underlying element ?</td>
+</tr>
+<tr class="odd">
+<td><code>GT?</code></td>
+<td>Is tos greater than underlying element ?</td>
+</tr>
+<tr class="even">
+<td><code>GE?</code></td>
+<td>Is tos greater than or equal to underlying element ?</td>
+</tr>
+</tbody>
+</table>
+<p>Among the instructions for processing data, the <strong><code>CHS</code></strong> instruction changes the sign of the element that is at the top of the stack (TOS) and the <strong><code>EXC</code></strong> instruction exchanges the values of the two upper elements of the stack.</p>
+<p>在用于处理数据的指令中，<code>CHS</code>指令更改位于堆栈顶部（TOS）的元素的符号，而<code>EXC</code>指令交换堆栈顶部两个元素的值。</p>
+<p>Besides these two instructions there are four traditional arithmetic instructions and six comparison instructions that compare the values of the two upper elements of the stack and replace them with a Boolean value.</p>
+<p>除了这两个指令外，还有四个传统的算术指令和六个比较指令，它们比较堆栈的两个较高元素的值并将它们替换为布尔值。</p>
+<h3 id="data-transfer">3.2 Data transfer</h3>
+<p>提供了五个用于传输数据的指令。</p>
+<table>
+<thead>
+<tr class="header">
+<th><code>LIT,a</code></th>
+<th>load a constant on tos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>LOD,l,a</code></td>
+<td>copy value from specified address to tos</td>
+</tr>
+<tr class="even">
+<td><code>STO,l,a</code></td>
+<td>move value from tos to specified address</td>
+</tr>
+<tr class="odd">
+<td><code>LDI,l,a</code></td>
+<td>copy value from indirect address to tos</td>
+</tr>
+<tr class="even">
+<td><code>STI,l,a</code></td>
+<td>move value from tos to indirect address</td>
+</tr>
+</tbody>
+</table>
+<p>The first, <strong><code>LIT</code></strong>, allows to place a constant value at the top of the stack (TOS).</p>
+<p>第一个<code>LIT</code>允许在堆栈的顶部（TOS）放置一个恒定值。</p>
+<p>The <strong><code>LOD</code></strong> and <strong><code>LDI</code></strong> instructions copy the value of a variable at the TOS. The first uses direct addressing to access the variable while the second uses indirect addressing.</p>
+<p><code>LOD</code>和<code>LDI</code>指令在TOS处复制变量的值。 第一个使用直接寻址来访问变量，而第二个使用间接寻址。</p>
+<p>The <strong><code>STO</code></strong> and <strong><code>STI</code></strong> instructions remove the top element of the TOS to incorporate its value to a specified address directly for the first indirectly for the second.</p>
+<p><code>STO</code>和<code>STI</code>指令删除了TOS的顶部元素，以将其值直接合并到第一个的指定地址，第二个间接。</p>
+<h4 id="for-indirect-addresses">3.2.1 For indirect addresses</h4>
+<p><img src="/images/NET/image-20210901083157245.png" /></p>
+<p>The <code>LDI</code> and <code>STI</code> instructions allow to transfer data between the TOS and any data memory location where its the address itself is stored in the memory where the instruction fethes its information.</p>
+<p><code>LDI</code>和<code>STI</code>指令允许在TOS和地址本身存储在该指令用来存储其信息的存储器中的任何数据存储位置之间传输数据。</p>
+<blockquote>
+<p>关于指令见4.4.6.</p>
+</blockquote>
+<h4 id="for-local-variables">3.2.2 For local variables</h4>
+<p><img src="C:\Users\heart\Desktop\Blog\source\images\NET\image-20210901082318095.png" /></p>
+<p>The use local variables will be illustrated.</p>
+<p>During the execution of a instruction, <strong>local variables</strong> of the instruction are on the stack, in the stack frame of the instruction.</p>
+<p>在执行一条指令期间，该指令的<strong>局部变量</strong>位于该指令的堆栈帧中的堆栈中。</p>
+<p>The base register <strong>(B)</strong> now contains the <strong>address</strong> of the beginning of this frame.</p>
+<p>现在，基址寄存器（B）包含该帧开始的<strong>地址</strong>。</p>
+<p>The <strong>address</strong> of a memory variable is defined by the two operands found in all instructions that reference to variables:</p>
+<p>内存变量的<strong>地址</strong>由在所有引用变量的指令中找到的两个操作数定义:</p>
+<ol type="1">
+<li><p>The first operand, <code>l</code>, has the value 0 for local variables and the value 1 for global variables.</p>
+<p>第一个操作数<code>l</code>对于局部变量的值为0，对于全局变量的值为1</p></li>
+<li><p>The second, <code>a</code>, is the address of the variable in the activation of the function block.</p>
+<p>第二个<code>a</code>是功能块激活中变量的地址。</p></li>
+</ol>
+<p>To perform calculations with variables or pass them as parameters to another instruction, you need to copy the value at the stack top.</p>
+<p>要使用变量执行计算或将其作为参数传递给另一条指令，您需要在堆栈顶部复制该值。</p>
+<p>To assign the result of a calculation to a variable, one need instructions to move the results of the stack top to the address of a specific variable.</p>
+<p>要将计算结果分配给变量，需要一条指令将堆栈顶部的结果移至特定变量的地址。</p>
+<h3 id="miscellaneous">3.3 Miscellaneous</h3>
+<p>Transfer instructions using <strong>indirect addressing</strong> are primarily intended to access functions <u>passed by reference parameters</u>.</p>
+<p>使用<strong>间接寻址</strong>的传输指令主要用于访问参数传递的功能。</p>
+<table>
+<thead>
+<tr class="header">
+<th><code>INT,a</code></th>
+<th>Increment stack pointer by constant value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>LAD,l,a</code></td>
+<td>Load specified address Nn tos</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong><code>INT</code></strong> instruction is used to change the value of the stack pointer by adding a constant which can be positive or negative. This instruction is mainly used to reserve space on the stack for active blocks.</p>
+<p><code>INT</code>指令用于通过添加可以为正或负的常量来更改堆栈指针的值。 该指令主要用于在堆栈上为活动块保留空间。</p>
+<p>The <strong><code>LAD</code></strong> instruction allows to calculate a local or global address in the data memory and to place this address at the TOS. This instruction is used to define a actual parameter passed by reference<em>.</em></p>
+<p><code>LAD</code>指令允许计算数据存储器中的本地或全局地址，并将该地址放置在TOS上。 该指令用于定义通过引用传递的实际参数。</p>
+<h2 id="interpreter">4. Interpreter</h2>
+<h3 id="data-types">4.1 Data types</h3>
+<p>The simulator uses an enumeration to define the operation codes of instructions.</p>
+<p>模拟器使用枚举来定义指令的操作代码。</p>
+<p>The instruction itself is a three-field structure, the first of which contains the operation code and the two following can contain the operands.</p>
+<p>指令本身是一个三字段结构，其中的第一个包含操作代码，后面的两个可以包含操作数。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">enum</span> <span class="token class-name">Opcode</span>
+<span class="token punctuation">&#123;</span>
+  EXC<span class="token punctuation">,</span> CHS<span class="token punctuation">,</span> ADD<span class="token punctuation">,</span> SUB<span class="token punctuation">,</span> MUL<span class="token punctuation">,</span> DIV<span class="token punctuation">,</span>
+  EQ<span class="token operator">?</span><span class="token punctuation">,</span> NE<span class="token operator">?</span><span class="token punctuation">,</span> LT<span class="token operator">?</span><span class="token punctuation">,</span> LE<span class="token operator">?</span> GT<span class="token operator">?</span><span class="token punctuation">,</span> GE<span class="token operator">?</span><span class="token punctuation">,</span>
+  LIT<span class="token punctuation">,</span> LOD<span class="token punctuation">,</span> STO<span class="token punctuation">,</span> LDI<span class="token punctuation">,</span> STI<span class="token punctuation">,</span> LIT<span class="token punctuation">,</span> LAD<span class="token punctuation">,</span>
+  JMP<span class="token punctuation">,</span> JPT<span class="token punctuation">,</span> JPE<span class="token punctuation">,</span> JSR<span class="token punctuation">,</span> RET<span class="token punctuation">,</span> HLT
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The <strong>struct</strong> type is used to declare and give a name to aggregations of variables of differential types. The variables that are part of a structure are named by giving the name of the structure, followed by a period and the name of the structure field.</p>
+<p><strong>struct</strong>类型用于声明差异类型的变量并为其命名。 通过提供结构名称，后跟句点和结构字段的名称来命名结构中的变量。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">Instr</span>
+<span class="token punctuation">&#123;</span>
+  opcode opc<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> <span class="token number">1</span><span class="token punctuation">,</span>a<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>So, if <strong>I</strong> is a variable of the type <strong>Instr</strong> declared in the codes above, you can reference the entire statement with the variable name <strong>I</strong> or the different fields of <strong>I</strong> by the names <strong>I.opc</strong> , <strong>I.I</strong> and <strong>I.a</strong></p>
+<p>因此，如果<strong>I</strong>是上面代码声明的<strong>Instr</strong>类型的变量，则可以使用变量名<strong>I</strong>或<strong>I</strong>的不同字段（名称为<code>I.opc</code>，<code>I.I</code>和<code>I.a</code>）引用整个语句。</p>
+<h3 id="variables-变量">4.2 Variables 变量</h3>
+<p>Memories and processor registers are represented in the simulator by variables.</p>
+<p>存储器和处理器寄存器在模拟器中由变量表示。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">instr Code<span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> D<span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+instr I<span class="token punctuation">;</span>
+<span class="token keyword">int</span> P<span class="token punctuation">,</span>B<span class="token punctuation">,</span>T<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="main-loop">4.3 Main Loop</h3>
+<blockquote>
+<p>先写一下这个处理器的主程序，写一个while循环即可</p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">Running <span class="token operator">=</span> true
+<span class="token keyword">do</span>
+<span class="token punctuation">&#123;</span>
+  I <span class="token operator">=</span> Code <span class="token punctuation">[</span>P<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+  P <span class="token operator">=</span> P <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>I<span class="token punctuation">.</span>opc<span class="token punctuation">)</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> CHS<span class="token operator">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> EXC<span class="token operator">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">case</span> HIT<span class="token operator">:</span> Running <span class="token operator">=</span> false<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">while</span> Running<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The heart of the simulator is a <strong><code>do ... while</code></strong> loop in which the instructions are read one by one from the code memory (<strong>Code</strong>) and loaded into the Instruction register (<strong>I</strong>).</p>
+<p>模拟器的核心是<code>do ... while</code>循环，其中从代码存储器（代码）中逐一读取指令，然后将其加载到指令寄存器（I）中。</p>
+<p>The operation code of the instruction contained in the instructions register is then used to a switch statement that allows to treat separately the simulation of different instructions.</p>
+<p>然后，将指令寄存器中包含的指令的操作代码用于<code>switch</code>语句，该语句允许分别处理不同指令的仿真。</p>
+<p>The execution simulated in the <strong><code>do ... while</code></strong> loop continues until the Boolean variable <strong><code>Running</code></strong> equals <strong>false</strong>, which corresponds to the simulated running the <strong><code>HLT</code></strong> instruction</p>
+<p>在<code>do ... while</code>循环中模拟的执行继续进行，直到布尔变量<code>Running</code>等于false，这与模拟的运行<code>HLT</code>指令相对应。</p>
+<h3 id="instruction-interpretation">4.4 Instruction Interpretation</h3>
+<blockquote>
+<p>显示的C代码在语法上不正确，因为不能将布尔值分配给int类型的变量。</p>
+<p>忽略这一点会使程序新手更容易阅读代码，语法错误将被忽略，有利于语义的清晰。</p>
+</blockquote>
+<p>The role of register T and the stack as the location for temporary variables will be illustrated.</p>
+<p>将说明寄存器T和堆栈作为临时变量的位置的作用。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// CHS: Change sign oftop of stack (tos)</span>
+<span class="token keyword">case</span> CHS<span class="token operator">:</span> D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span>D<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// EXC: Exchange two topmost elements of stack</span>
+<span class="token keyword">case</span> EXC<span class="token operator">:</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> D <span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D <span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// ADD: Add two topmost elements of stack sak</span>
+<span class="token keyword">case</span> ADD<span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D <span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">+</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>The <strong><code>CHS</code></strong> instruction changes the sign of the variable at the TOS</p>
+<p><code>CHS</code>指令在TOS处更改变量的符号</p></li>
+<li><p>The <strong><code>EXC</code></strong> instruction swaps the positions of the two elements that are at the TOS. Note that the variable just above the top of the stack is used as a temporary variable during the exchange.</p>
+<p><code>EXC</code>指令交换TOS上两个元素的位置。 请注意，在交换期间，堆栈顶部上方的变量将用作临时变量</p></li>
+<li><p>The <strong><code>ADD</code></strong> instruction adds the values of the two elements that are at the top of the stack and replaces them with the value of their sum. At the end of this operation, the total stack height has been reduced by one</p>
+<p><code>ADD</code>指令将位于堆栈顶部的两个元素的值相加，并用它们的总和值替换它们。 在该操作结束时，总堆叠高度已减小了一个</p></li>
+</ul>
+<h4 id="comparison-instruction">4.4.1 Comparison instruction</h4>
+<p>The implementation of three comparison instructions.</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// EQ?: Are two topmost elements equal ?</span>
+<span class="token keyword">case</span> EQ<span class="token operator">?</span><span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// NE?: Are two topmost elements different ?</span>
+<span class="token keyword">case</span> NE<span class="token operator">?</span><span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">!=</span> D<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// LT?: Is tos less than underlying element ?</span>
+<span class="token keyword">case</span> LT<span class="token operator">?</span><span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> D<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>The first one checks whether the values of the two elements situated at the TOS are equal. If equal the Boolean value <strong>true</strong> is put in the TOS<strong>,</strong> if not <strong>false</strong> is put in the TOS.</p>
+<p>第一个检查位于TOS的两个元素的值是否相等。 如果相等，则将布尔值true放入TOS，否则将false放入TOS。 其他比较指令也以类似的方式实现。</p></li>
+<li><p>The other comparison instructions are similarly implemented.</p>
+<p>由于将堆栈顶部的两个值替换为单个布尔值，因此通过执行比较指令，堆栈的总高度将减少1。</p></li>
+</ul>
+<h4 id="unconditional-and-conditional-jump-instructions">4.4.2 Unconditional and conditional jump instructions</h4>
+<p>The unconditional (<strong><code>JMP</code></strong>) and conditional (<strong><code>JPT</code></strong> and <strong><code>JPF</code></strong>) jump instructions use the operand to reference the code memory address to where the program (eventually) will be jumping to.</p>
+<p>无条件（<code>JMP</code>）和有条件（<code>JPT</code>和<code>JPF</code>）跳转指令使用操作数来引用代码存储地址，程序最终将跳转到该地址。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// JMP,a: Jump to specified address in code</span>
+<span class="token keyword">case</span> JMP<span class="token operator">:</span> P <span class="token operator">=</span> I<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// JPT,a: Jump ifthe value TRUE is on tos.</span>
+<span class="token keyword">case</span> JPT<span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>P <span class="token operator">=</span> I<span class="token punctuation">.</span>a<span class="token punctuation">;</span> 
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// JPF,a: Jump if the value FALSE is on tos</span>
+<span class="token keyword">case</span> JPF<span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span>D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">)</span>P <span class="token operator">=</span> I<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>In the case of unconditional jump (<strong><code>JMP</code></strong>) , execution replaces the contents of the program counter P by the address to which the programs jumps.</p>
+<p>在无条件跳转（<code>JMP</code>）的情况下，执行将程序计数器P的内容替换为程序跳转到的地址。</p></li>
+<li><p>In the case of conditional jump instructions (<strong><code>JPT</code></strong> and <strong><code>JPF</code></strong>) , the program counter P is only replaced if the stack top equals the specified Boolean value.</p>
+<p>对于条件跳转指令（<code>JPT</code>和<code>JPF</code>），仅当栈顶等于指定的布尔值时才替换程序计数器P。</p></li>
+</ul>
+<p>In every of the above cases, the Boolean value that was at the top of the stack is removed, (popped).</p>
+<p>在上述每种情况下，位于堆栈顶部的布尔值都将被删除（弹出）。</p>
+<h4 id="restricted-to-local-variables---如何存储">4.4.3 Restricted to local variables - 如何存储</h4>
+<blockquote>
+<p>介绍data memory如何存储：</p>
+<p>因为操作机只在栈顶操作，那么就需要把任意元素复制到栈顶的指令：</p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// LOD,0,a: copy walue from specified address to tos</span>
+<span class="token keyword">case</span> LOD<span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>B <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// STO,0,a: move value from tos to specified address</span>
+<span class="token keyword">case</span> STO<span class="token operator">:</span> D<span class="token punctuation">[</span>B <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+					T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>The <strong><code>LOD 0,a</code></strong> instruction places value of a local variable at the TOS.</p>
+<p><code>LOD 0,a</code>指令将局部变量的值放在TOS处。</p>
+<p>The address of this local variable is obtained by adding the contents of the base register <strong>(B)</strong> with the instruction’s operand.</p>
+<p>通过将基址寄存器（B）的内容与指令的操作数相加，可以获取此局部变量的地址。</p></li>
+<li><p>The <strong><code>STO 0,a</code></strong> instruction removes the value stored at the TOS and assigns it to the variable whose address is obtained by adding the contents of the base register <strong>(B)</strong> with the instruction’s operand.</p>
+<p><code>STO 0,a</code>指令删除存储在TOS上的值，并将其分配给通过将基址寄存器（B）的内容与指令的操作数相加而获得其地址的变量。</p></li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// LIT.a: load a constant on tos</span>
+<span class="token keyword">case</span> LIT<span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> I<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// INT,a: modify stack pointer (a pos. or neg. )</span>
+<span class="token keyword">case</span> INT<span class="token operator">:</span> T <span class="token operator">=</span> T <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>The <strong><code>LIT a</code></strong> instruction simply sets the value of the constant <strong>a</strong> at the TOS.</p>
+<p><code>LIT a</code>指令仅在TOS上设置常数a的值。</p></li>
+<li><p>The <strong><code>INT a</code></strong> instruction allows to reserve <strong>a</strong> places on the stack by adding value <strong>a</strong> to the content of the stack pointer.</p>
+<p><code>INT a</code>指令允许通过将值a添加到堆栈指针的内容来在堆栈上保留位置。</p>
+<p>The constant <strong>a</strong> may also be negative, it then frees up the space occupied by the stack.</p>
+<p>常数a也可以为负，然后释放堆栈所占用的空间。</p></li>
+</ul>
+<h4 id="subroutine-call-and-return-instructions">4.4.4 Subroutine call and return instructions</h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// JSR,l,a: Call subroutine at specified address in code</span>
+<span class="token keyword">case</span> JSR<span class="token operator">:</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span>l<span class="token punctuation">]</span> <span class="token operator">=</span> P<span class="token punctuation">;</span> 
+					P <span class="token operator">=</span> I<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">base</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token operator">:</span>
+					D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> B<span class="token punctuation">;</span>
+					B <span class="token operator">=</span> T <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// RET: Return from subroutine</span>
+<span class="token keyword">case</span> RET<span class="token operator">:</span> T <span class="token operator">=</span> B <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span>
+					B <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+					P <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The operation of call instructions and return from subroutines will be explained in three stages.</p>
+<p>调用指令的操作和从子例程返回的操作将分三个阶段进行说明。</p>
+<h5 id="jump-to-subroutine-jsr-and-return-ret">4.4.4.1 Jump to subroutine <code>JSR</code> and return <code>RET</code></h5>
+<p>The first of these steps: where the jump to subroutine and return from are treated.</p>
+<p>这些步骤中的第一步: 处理了跳转到子例程并从中返回的步骤。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// JSR,l,a: Call subroutine at specified address in code</span>
+<span class="token keyword">case</span> JSR<span class="token operator">:</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span>l<span class="token punctuation">]</span> <span class="token operator">=</span> P<span class="token punctuation">;</span> P <span class="token operator">=</span> I<span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// RET: Return from subroutine</span>
+<span class="token keyword">case</span> RET<span class="token operator">:</span> P <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>When calling the subroutine the content of the register P, which contains the address of the instruction following the call is placed on the stack and the starting address of the subroutine is copied to the P register in a way that the first statement of the subroutine is executed immediately after the call.</p>
+<p>调用子例程时，寄存器P的内容（包含调用后的指令地址）被放置在堆栈上，并且子例程的起始地址以如下方式复制到P寄存器： 调用后立即执行。</p></li>
+<li><p>Upon return, the return address is read from the stack and copied to the register P.</p>
+<p>返回时，从堆栈中读取返回地址并将其复制到寄存器P中。</p></li>
+</ul>
+<h5 id="subroutine-call-instruction">4.4.4.2 Subroutine call instruction</h5>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// JSR,l,a: Call subroutine at specified address in code</span>
+<span class="token keyword">case</span> JSR<span class="token operator">:</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> B<span class="token punctuation">;</span>
+					B <span class="token operator">=</span> T <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// RET: Return from subroutine</span>
+<span class="token keyword">case</span> RET<span class="token operator">:</span> T <span class="token operator">=</span> B <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span>
+					B <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The B content is written on the stack just above the return address and the address where the writing was performed is placed in the register B.</p>
+<p>将B内容写在返回地址正上方的堆栈上，并将执行写操作的地址放在寄存器B中。</p>
+<p>When executing the instruction to return from a subroutine begins by updating the contents of the register T, to release all the space on the stack that was used by the subroutine which one returns.</p>
+<p>Since, during the call, before the contents of the register T has been changed, the address equal to the contents of T increases 2 was placed in B, it now simply reload T in the B content decreased 2.</p>
+<p>当执行从子程序返回的指令时，首先更新寄存器T的内容，以释放该子程序返回的堆栈所使用的所有空间。</p>
+<p>由于在呼叫期间，在更改寄存器T的内容之前，将等于T的内容增加2的地址放置在B中，因此现在只需将B内容减少2中的T重新加载即可。</p>
+<p>Then it replaces the content of B by the address contained in the dynamic link.</p>
+<p>然后，它将B的内容替换为动态链接中包含的地址。</p>
+<h5 id="manage-static-links---base">4.4.4.3 Manage static links - <code>base</code></h5>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// JSR,l,a: Call subroutine at specified address in code</span>
+<span class="token keyword">case</span> JSR<span class="token operator">:</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">base</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token operator">:</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// RET: Return from subroutine</span>
+<span class="token keyword">case</span> RET<span class="token operator">:</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The function <strong>base</strong> can be used to manage static links. It is sufficient to observe that before the base register B has been updated for calling a subroutine, the <strong>base</strong> function, called with a current setting equal to 1 provides the address of the beginning of the global block.</p>
+<p>该函数<code>base</code>可用于管理静态链接。 足以观察到，在更新基址寄存器B以调用子例程之前，以当前设置等于1调用的base`函数提供了全局块开始的地址。</p>
+<h4 id="for-all-variables">4.4.5 For all variables</h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// LOD,1,a: copy walue from specified address to tos</span>
+<span class="token keyword">case</span> LOD<span class="token operator">:</span> T <span class="token operator">=</span> T<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span><span class="token function">base</span><span class="token punctuation">(</span>I<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// STO,1,a: move value from tos to specified address</span>
+<span class="token keyword">case</span> STO<span class="token operator">:</span> D<span class="token punctuation">[</span><span class="token function">base</span><span class="token punctuation">(</span>I<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+					T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We can now return to the data transfer instructions and no longer be limited to global variables as had been done previously. In the code that describes the execution of these instructions, simply replace <strong>B</strong> by <strong>base (LI)</strong>.</p>
+<p>现在，我们可以返回到数据传输指令，不再像以前那样局限于全局变量。 在描述这些指令执行的代码中，只需将B替换为基数（LI）。</p>
+<h4 id="data-transfer-for-indierct-addresses">4.4.6 Data transfer for indierct addresses</h4>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// LDL,l,a: copy value from indirect address to tos</span>
+<span class="token keyword">case</span> LDI<span class="token operator">:</span> T <span class="token operator">=</span> T <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>D<span class="token punctuation">[</span><span class="token function">base</span><span class="token punctuation">(</span>I<span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// STI,l,a: move value from tos to indirect address</span>
+<span class="token keyword">case</span> STI<span class="token operator">:</span> D<span class="token punctuation">[</span>D<span class="token punctuation">[</span><span class="token function">base</span><span class="token punctuation">(</span>I<span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> D<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+					T <span class="token operator">=</span> T<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// LAD.l.a: write address to tos</span>
+<span class="token keyword">case</span> LAD<span class="token operator">:</span> T <span class="token operator">=</span> T <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+					D<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">base</span><span class="token punctuation">(</span>I<span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> I<span class="token punctuation">.</span>a<span class="token operator">:</span> 
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The <strong>LDI</strong> and <strong>STI</strong> instructions are implemented as <strong>LOD</strong> and <strong>STO</strong> instructions but indirectly determine the operand’s address, not directly. In the <strong>LOD</strong> and <strong>STO</strong> instructions the operand’s address is directly in the instruction, while for <strong>LDI</strong> and <strong>STI</strong> instructions holds the address where the operand’s address can be found.</p>
+<p>LDI和STI指令实现为LOD和STO指令，但间接确定操作数的地址，而不是直接确定。在LOD和STO指令中，操作数的地址直接在指令中，而对于LDI和STI指令，则保留可找到操作数地址的地址。</p>
+<p>The address contained in the instruction is normally composed of two parts, the part <strong>I</strong> that indicates whether it is a local or global variable and the part <strong>a</strong> that determines the location of the variable within a specific activation block.</p>
+<p>On the other hand the addresses in the memory are <strong>absolute addresses</strong> that can reference to any location in data memory. The conversion of an address to two components into an absolute address is realised by adding the address of the start of the activation block to the address in this block.</p>
+<p>指令中包含的地址通常由两部分组成，部分I指示它是局部变量还是全局变量，部分a确定变量在特定激活块内的位置。</p>
+<p>另一方面，存储器中的地址是<strong>绝对地址</strong>，可以引用数据存储器中的任何位置。通过将激活块起点的地址添加到该块中的地址，可以实现将地址从两个部分转换为绝对地址。</p>
+<p>The instruction <strong>LAD</strong> converts the address in two components it contains absolute address space and the address at the top of the stack. It is used to place the address of the current passes through reference parameters on the stack before calling a function.</p>
+<p>指令LAD将地址分为两个部分，其中包含绝对地址空间和位于堆栈顶部的地址。它用于在调用函数之前将流经引用参数的当前地址放置在堆栈上。</p>
+<h3 id="compilation-pattern">4.5 Compilation pattern</h3>
+<blockquote>
+<p>With instructions explained so far it is already possible to show how a compiler might translate some common C language instructions to make them executable by the processor described in this chapter.</p>
+<p>到目前为止，已经解释了指令，已经有可能显示编译器如何翻译一些通用的C语言指令，以使其可由本章中描述的处理器执行。</p>
+</blockquote>
+<h4 id="if">4.5.1 <code>if</code></h4>
+<p><img src="/images/NET/image-20210901081822560.png" /></p>
+<blockquote>
+<p>这里先介绍一下Evaluate B：这个操作会直接得出栈顶的boolean值。</p>
+</blockquote>
+<p>First we must evaluate the Boolean expression B. This assessment will conclude with <strong>true</strong> or <strong>false</strong> at the stack top.</p>
+<p>首先，我们必须评估布尔表达式B。此评估将在堆栈顶部以true或false结束。</p>
+<ul>
+<li><p>If <strong>true</strong>, the <strong><code>JPF</code></strong> instruction will not cause jump and the code for the S1 block will be executed. After S1 there is an unconditional jump to the label L2, which is the result of the program beyond the <strong>if</strong> statement.</p>
+<p>如果为true，则JPF指令将不会引起跳转，并且将执行S1块的代码。 在S1之后，无条件跳转到标签L2，这是超出if语句的程序的结果。</p></li>
+<li><p>If instead the term B was false, the <strong><code>JPF</code></strong> statement will cause a jump to the L1 label above the code for the block S2. This code is immediately followed by the L2 label and rest of the program.</p></li>
+<li><p>相反，如果术语B为假，则<code>JPF</code>语句将导致跳转到块S2的代码上方的L1标签。 该代码后立即带有L2标签和程序的其余部分。</p></li>
+</ul>
+<h4 id="while-loop">4.5.2 <code>while</code> loop</h4>
+<p>The translation of a <strong>while</strong> loop is not much more complicated than the <strong>if</strong> selection:</p>
+<p>while循环的翻译并不比if选择复杂：</p>
+<p><img src="/images/NET/image-20210901081846222.png" /></p>
+<p>It also begins by evaluating the Boolean expression B which leaves a <strong>true</strong> or <strong>false</strong> at the stack top.</p>
+<p>它还从评估布尔表达式B开始，该表达式在堆栈顶部保留true或false。</p>
+<ul>
+<li><p>If the value at the stack top is false, and therefore the body of the loop should be executed, execution jumps to the L2 label that marks the beginning of the rest of the program with a conditional jump <strong><code>JPF</code></strong> .</p>
+<p>如果栈顶的值为false，因此应执行循环的主体，则执行将跳转到L2标签，并使用条件跳转<code>JPF</code>标记程序的其余部分的开始。</p></li>
+<li><p>If instead this value is true, which means that the body of the loop must be executed at least once more, the <strong><code>JPF</code></strong> instruction performs no bond and the code for S runs.</p>
+<p>At the end of S there is an unconditional jump to the start of the evaluation of B, possibly passing again through the loop.</p>
+<p>相反，如果该值为true，则意味着必须至少再次执行循环的主体，因此<code>JPF</code>指令不执行任何绑定，并且S的代码运行。</p>
+<p>在S的末尾，无条件跳转到B的评估开始，可能再次通过循环。</p></li>
+</ul>
+<h4 id="do-while-loop">4.5.3 <code>do while</code> loop</h4>
+<p>Compiling a <strong>do ... while</strong> loop is even simpler:</p>
+<p>编译do ... while循环更加简单：</p>
+<p><img src="/images/NET/image-20210901081913792.png" /></p>
+<p>The performance begins with the code corresponding to block S.</p>
+<p>性能从对应于块S的代码开始。</p>
+<p>Then the Boolean expression B is evaluated leaving the true or false at the top of the stack.</p>
+<p>然后，对布尔表达式B进行求值，而将true或false留在堆栈的顶部。</p>
+<ul>
+<li><p><strong><code>JPT</code></strong> a statement to jump if B is true, to the label L1 which is the beginning of the code block S.</p>
+<p><code>JPT</code>如果B为true，则跳转至标签L1的语句，该标签为代码块S的开头。</p></li>
+<li><p>If <strong><code>JPT</code></strong> instruction causes no jump, execution continues beyond this statement.</p>
+<p>如果<code>JPT</code>指令不引起跳转，则执行将超出此语句。</p></li>
+</ul>
+<h4 id="expression---如何运算">4.5.4 Expression - 如何运算</h4>
+<blockquote>
+<p>下面来看看它如何运算</p>
+</blockquote>
+<p>To illustrate the use of local variables and the stack, the expression’s evolution will be described in this picture.</p>
+<p>为了说明局部变量和堆栈的用法，此图将描述表达式expression的演变。</p>
+<p><img src="/images/NET/image-20210901082435551.png" /></p>
+<p>The compiler changes the arithmetic expressions notation. The traditional notation (algebraic) is replaced by the notation called "reverse Polish“ (RPN) in which the operator, instead of being between the operands is written after them.</p>
+<p>编译器更改算术表达式符号。传统的表示法（代数）被称为“反向波兰语”（RPN）的表示法代替，在该表示法中，运算符而不是出现在操作数之间，</p>
+<ul>
+<li><p>Thus the expression <strong>(a + 3) * b</strong> transforms into <strong>a 3 + b *</strong>. This notation, besides being easily translated into computer programs, has the advantage of never requiring parentheses <strong>( &amp; )</strong>.</p>
+<p>因此运算符 <strong>(a + 3) * b</strong> 转换为<strong>a 3 + b *</strong>。该符号除易于转换为计算机程序外，还具有不需要括号( &amp; )的优点。</p></li>
+</ul>
+<p>To translate a phrase written in reverse Polish notation into a program, one needs to read <u>from left to righ</u>t.</p>
+<p>The operands are placed at the TOS and the operators are applied to the two elements which are at the TOS.</p>
+<p>要将以反向波兰语表示的短语翻译成程序，需要<u>从左到右阅读</u>。</p>
+<p>操作数放在TOS上，运算符应用于在TOS上的两个元素。</p>
+<p>On the picture you can see the stack’s status in four successive evolution stages performed by the program shown at the right.</p>
+<p>When the final value of the expression is at the top of the stack, the value remains to be assigned to the variable x. It is the role of the instruction <code>STO,0, x</code> where x is the address of the variable x in the stack frame of the function.</p>
+<p>在图上，您可以在右侧显示的程序执行的四个连续演变阶段中查看堆栈的状态。</p>
+<p>当表达式的最终值在堆栈的顶部时，该值仍将分配给变量x。它是指令<code>STO,0,x</code>的角色，其中x是函数堆栈帧中变量x的地址。</p>
+<h4 id="for-loop">4.5.5 <code>for</code> loop</h4>
+<p>Another example showing how the local variables and the stack are used in conventional programming constructions is the assembler translation of a <strong>for</strong> loop.</p>
+<p>另一个显示局部变量和堆栈如何在常规编程构造中使用的示例是for循环的汇编程序翻译。</p>
+<p><img src="/images/NET/image-20210901082516739.png" /></p>
+<ul>
+<li><p>The picture shows the arrangement of the various operations during the execution of a for loop on the left, while on the right, the corresponding program in assembler is shown.</p>
+<p>左侧显示了执行for循环期间各种操作的安排，而右侧显示了汇编器中的相应程序。</p></li>
+</ul>
+<p>Note that the automation of the management of the stack are impractical in this example because it must regularly exchange the top two elements and modify the content of the stack pointer.</p>
+<p>注意，在此示例中，堆栈管理的自动化是不切实际的，因为它必须定期交换前两个元素并修改堆栈指针的内容。</p>
+<h2 id="static-and-dynamic-data-links">5. Static and dynamic data links</h2>
+<p>The stack is also used to keep subroutine return addresses and for dynamic and static links.</p>
+<p>堆栈还用于保留子例程返回地址以及用于动态和静态链接。</p>
+<h3 id="procedure-call">5.1 Procedure call</h3>
+<p><img src="/images/NET/image-20210901082548237.png" /></p>
+<p>Before calling a procedure the base register B points at the start of the activation block of the calling procedure while the stack pointer T points at the last place occupied by this block.</p>
+<p>在调用过程之前，基址寄存器B指向调用过程的激活块的开始，而堆栈指针T指向该块占用的最后一个位置。</p>
+<p>If the called instruction has no parameters, the first three available places above the active block of the calling procedure will be used for the return address, the dynamic and static link.</p>
+<p>如果被调用指令没有参数，则调用过程活动块上方的前三个可用位置将被用作返回地址，动态和静态链接。</p>
+<p>The following places will be used for the local variables of the called procedure’s (it’s active block).</p>
+<p>接下来下位置将用作被调用过程（其活动块）的局部变量。</p>
+<blockquote>
+<p>调用指令的操作和从子例程返回的操作将分三个阶段4.4.4进行说明，</p>
+<p>第一步处理了跳转到子例程并从中返回的步骤, 见4.4.4.1。</p>
+<ul>
+<li>调用子例程时，寄存器P的内容（包含调用后的指令地址）被放置在堆栈上，并且子例程的起始地址以如下方式复制到P寄存器： 调用后立即执行。</li>
+<li>返回时，从堆栈中读取返回地址并将其复制到寄存器P中。</li>
+</ul>
+</blockquote>
+<p>After managing the return address, the dynamic link is managed. The content of the base register should be copied just above the return address and place in the base register the address of the freshly created dynamic link.</p>
+<p>管理返回地址后，将管理动态链接。 应该将基址寄存器的内容复制到返回地址的正上方，并将新创建的动态链接的地址放置在基址寄存器中。</p>
+<p><img src="/images/NET/image-20210901082623357.png" /></p>
+<blockquote>
+<p>子例程调用指令的执行见4.4.4.2。</p>
+<p>将B内容写在返回地址正上方的堆栈上，并将执行写操作的地址放在寄存器B中。</p>
+<p>当执行从子程序返回的指令时，首先更新寄存器T的内容，以释放该子程序返回的堆栈所使用的所有空间。</p>
+<p>由于在呼叫期间，在更改寄存器T的内容之前，将等于T的内容增加2的地址放置在B中，因此现在只需将B内容减少2中的T重新加载即可。</p>
+<p>然后，它将B的内容替换为动态链接中包含的地址。</p>
+</blockquote>
+<h4 id="subroutine-call-instruction-1">5.1.1 Subroutine call instruction</h4>
+<p><img src="/images/NET/image-20210901083046013.png" /></p>
+<p>Note that the call instruction to a subroutine leaves the stack pointer T directed to the address above the return address.</p>
+<p>注意，对子例程的调用指令使堆栈指针T指向返回地址上方的地址。</p>
+<p>One may wonder why T is not incremented by this instruction.</p>
+<p>有人可能想知道<u>为什么该指令没有使T递增</u>。</p>
+<p>The reason is simple: since in any case the programmer of the subroutine must reserve space on the stack for the activation block of that subroutine, it will insert at the beginning of the subroutine an <strong><code>INT</code></strong> instruction . He needs to give the operand of this instruction a value equal to the size of the activation block plus three places for the return address, the dynamic and static link.</p>
+<p>原因很简单：由于在任何情况下，子例程的程序员都必须在堆栈上为该子例程的激活块保留空间，因此它将在子例程的开头插入<code>INT</code>指令。 他需要给该指令的操作数一个等于激活块大小的值，再加上三个用于返回地址的位置，即动态和静态链接。</p>
+<h4 id="procedure-parameters">5.1.2 Procedure parameters</h4>
+<p><img src="/images/NET/image-20210901083111437.png" /></p>
+<p>After reviewing the instructions to call a subroutine and back, it remains to consider the instructions that are specifically designed to <u>facilitate the <strong>transition of parameters</strong></u>.</p>
+<p>在查看了调用子例程并返回的指令之后，仍然需要考虑专门用于促进参数转换的指令。</p>
+<h5 id="parameter-passing">5.1.2.1 Parameter Passing</h5>
+<p>In previous chapter, it was explained that the transition of the parameters is made through the stack on which the calling function places the value or the address of the current parameters before calling the function.</p>
+<p>在上一章中，已经解释了参数的转换是通过调用函数在调用函数之前放置当前参数的值或地址的堆栈进行的。</p>
+<p><img src="/images/NET/image-20210901083134171.png" /></p>
+<p>When it comes to pass parameters by value, the necessary instructions have already been described: to place the value of a variable at the TOS, it can use the <strong>LOD I.a</strong> instruction, or any instruction that evaluates the value of an expression and leaves the result at the TOS.</p>
+<p>当涉及到按值传递参数时，已经描述了必要的指令：将变量的值放在TOS上，它可以使用LOD Ia指令，也可以使用任何评估表达式值并保留结果的指令 在TOS。</p>
+<p>The called function can use the values assigned formally assigned parameters only if it uses the instruction <strong><code>LOD 0,a,</code></strong> with negative values for <strong>a</strong>, to set the parameter value on the top of the stack.</p>
+<p>仅当被调用的函数使用指令<code>LOD 0,a,</code>（a的值为负）将参数值设置在堆栈顶部时，才可以使用形式分配的参数值。</p>
+<p>Using parameters passed by reference requires the use of indirect addressing (see below).</p>
+<p>使用通过引用传递的参数需要使用间接寻址（请参见下文）。</p>
+<h3 id="data-accessibility">5.2 Data accessibility</h3>
+<blockquote>
+<p>如图所示，这是一个block套block，那么此时先访问blue</p>
+</blockquote>
+<p><img src="/images/NET/image-20210901082826888.png" /></p>
+<blockquote>
+<p>再访问purple，就会有右图</p>
+<ul>
+<li>其中，blue和purple既建立static link也建立了dynamic link</li>
+</ul>
+</blockquote>
+<p><img src="/images/NET/image-20210901082657928.png" /></p>
+<blockquote>
+<p>接下来再访问green，会发现也是如此</p>
+</blockquote>
+<p><img src="/images/NET/image-20210901082709215.png" /></p>
+<blockquote>
+<p>再访问yellow，就会发现：</p>
+<ul>
+<li>它仅和green建立了dynamic link</li>
+<li>但是和blue建立了static link</li>
+</ul>
+<p>这是因为yellow只有在green call的时候才会和green建立dynamic link</p>
+<p>但是yellow一直处在blue的上头，所以天生就有static link</p>
+</blockquote>
+<p><img src="/images/NET/image-20210901082722355.png" /></p>
+<p><img src="C:\Users\heart\Desktop\Blog\source\images\NET\image-20210901082735867.png" /></p>
+<p><img src="/images/NET/image-20210901082748184.png" /></p>
+<p><img src="/images/NET/image-20210901082759898.png" /></p>
+<p><img src="/images/NET/image-20210901082813274.png" /></p>
+<p><img src="/images/NET/image-20210901082826888.png" /></p>
+<h3 id="static-links">5.3 Static Links</h3>
+<p>The management of static links is, as already stated in previous chapter, is quite simple when limited to programs initially written in C, C ++ or Java because in these languages all functions are set at the same level, which means that <u>a variable that is not local to a function belongs to the <strong>global block</strong></u>.</p>
+<p>This <strong>global block</strong> immediately surrounds the local blocks. All static links must return to the beginning of the global block.</p>
+<p>如上一章所述，静态链接的管理非常简单，仅限于最初使用C，C ++或Java编写的程序，因为在这些语言中所有功能都设置在同一级别，这意味着<u>不在函数本地的变量属于<strong>全局块</strong></u>。</p>
+<p><img src="/images/NET/image-20210901083009065.png" /></p>
+<p>该<strong>全局块</strong>立即围绕局部块。所有静态链接必须返回到全局块的开头。</p>
+<p>We have already seen that in the variable address the part 1 allows to distinguish local variables (<strong>I = 0</strong>) global variables (<strong>l = 1</strong>).</p>
+<p>In the call instructions to subroutines, a similar convention is used in the sense that besides of the operand <strong>a</strong> indicating the address in the memory for the start of the subroutine programs, it also provides the second operand which in the original programs written in the above mentioned languages, is always 1 to indicate the names of the called functions are still reported overall relative to the location from which they are called.</p>
+<p>我们已经看到，在变量地址中，第 1 部分允许区分局部变量（<strong>I = 0</strong>）和全局变量（<strong>l = 1</strong>）。</p>
+<p>在子程序的调用指令中，使用了类似的约定，即除了表示子程序开始在内存中的地址的操作数<strong>a</strong>外，还提供了原始程序中的第二个操作数以上述语言编写，始终为 1 以指示被调用函数的名称仍然相对于调用它们的位置整体报告。</p>
+<blockquote>
+<p>It may seem absurd to allow room for an operand that always has the same value. But a computer can be made to run programs that were originally written in a language where function declarations are not all done at the same level and for which the operand <strong>I</strong> is useful.</p>
+<p>为始终具有相同值的操作数留出空间似乎是荒谬的。但是可以使计算机运行最初以某种语言编写的程序，在该语言中，函数声明并非都在同一级别完成，并且操作数I很有用。</p>
+</blockquote>
+<blockquote>
+<p> 见4.4.4。3</p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> function <span class="token function">base</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> l <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// I level of globality relative to the present level of nesting , is always 0 or 1 in C programs.</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> btemp<span class="token punctuation">;</span>
+  btemp <span class="token operator">=</span> B<span class="token punctuation">;</span> <span class="token comment">// start @ current base pointer</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>I <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">do</span><span class="token punctuation">&#123;</span>
+    btemp <span class="token operator">=</span> D<span class="token punctuation">[</span>btemp <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    l <span class="token operator">=</span> l <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token comment">// skip static link 1 level up</span>
+  <span class="token keyword">return</span> btemp
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The function <strong>base</strong> described above is used to track the chain of static links. Simply, in the particular case of languages derived from C, one can observe that this function returns the address of the beginning of the global block if the l parameter is 1 and the start address of the local block if the parameter is 0.</p>
+<p>上述函数<code>base</code>用于跟踪静态链接链。 简单来说，在从C派生的语言的特定情况下，可以观察到，如果l参数为1，则此函数返回全局块的开始地址，如果参数为0，则返回本地块的开始地址。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// JSR,l,a: Call subroutine at specified address in code</span>
+<span class="token keyword">case</span> JSR<span class="token operator">:</span> D<span class="token punctuation">[</span>T<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">base</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token operator">:</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token comment">// RET: Return from subroutine</span>
+<span class="token keyword">case</span> RET<span class="token operator">:</span>
+<span class="token keyword">break</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The function <strong>base</strong> can be used to manage static links. It is sufficient to observe that before the base register B has been updated for calling a subroutine, the <strong>base</strong> function, called with a current setting equal to 1 provides the address of the beginning of the global block.</p>
+<p>该函数<code>base</code>可用于管理静态链接。 足以观察到，在更新基址寄存器B以调用子例程之前，以当前设置等于1调用的base`函数提供了全局块开始的地址。</p>
+<h2 id="function">6. Function</h2>
+<h3 id="function-definition">6.1 Function Definition</h3>
+<p>The picture shows the assembler translation of a simple C function that has three parameters, both x and y parameters are passed by value and parameter z is passed by reference.</p>
+<p>The function has no return value, but assigns to z the value equal to the sum of x and y values.</p>
+<p>下图显示了一个简单的C函数的汇编程序转换，该函数具有三个参数，x和y参数均通过值传递，而参数z则通过引用传递。</p>
+<p>该函数没有返回值，但为z分配的值等于x和y值之和。</p>
+<p><img src="/images/NET/image-20210901083223595.png" /></p>
+<p>The <strong>INT 3</strong> instruction by which the function begins reserves space on the stack for the return address, for the dynamic link and the static link but does not reserve space for the activation block since there are no local variables. Both instructions <strong>LOD</strong> places the values of x and y at the top of the stack, the <strong>ADD</strong> instruction removes these values from the stack but instead leaves the value of the sum and finally the <strong>STI</strong> instruction removes this result from the TOS and assigns it to variable z whose address is the third actual parameter of the procedure.</p>
+<p>函数开始使用的<code>INT 3</code>指令在堆栈上为返回地址，动态链接和静态链接保留了用于返回地址的空间，但由于没有局部变量，因此没有为激活块保留空间。</p>
+<p>两条指令<code>LOD</code>都将x和y的值放在堆栈的顶部，<code>ADD</code>指令从堆栈中删除这些值，但保留总和的值，最后<code>STI</code>指令从TOS中删除此结果并将其分配给变量 z其地址是该过程的第三个实际参数。</p>
+<h4 id="sum">6.1.1 Sum　</h4>
+<p>In the example shown in picture, a function that calculates the sum of the values of two parameters is shown as well, but instead of returning the value of the sum by a parameter passed by reference, it is the function itself returning the value of the sum. The function also uses a local variable t to temporarily retain the value of the sum and perform other operations that are not shown on the screen.</p>
+<p>下图所示的示例中，也显示了一个计算两个参数的值之和的函数，但是与其通过引用传递的参数返回总和的值，还不如说是函数本身返回该值的函数 总和。 该函数还使用局部变量t临时保留总和的值，并执行屏幕上未显示的其他操作。</p>
+<p><img src="/images/NET/image-20210901083332796.png" /></p>
+<p>Since there is a local variable, the function begins with <strong>INT 4</strong> instruction.</p>
+<p>由于存在局部变量，因此该函数以<code>INT 4</code>指令开头。</p>
+<p>Then, as in the previous example, the sum of the values of the parameters is calculated and the value of this amount is assigned to the local variable t that is stored right after the static link.</p>
+<p>然后，如前面的示例一样，计算参数值的总和，并将此数量的值分配给在静态链接之后立即存储的局部变量t。</p>
+<p>As explained in the section 7.1, a space is provided on the stack for the return value, just below the call parameters. Before the return of the function, the value of t is replaced temporarily on top of the stack to be copied in the space provided.</p>
+<p>如7.1节中所述，在调用参数的下方，堆栈上为返回值提供了一个空间。 在返回函数之前，将t的值临时替换在要复制的堆栈顶部，并将其复制到提供的空间中。</p>
+<h3 id="function-call">6.1 Function Call</h3>
+<p>The picture shows the assembler translation of a call to the function described in the previous screen.</p>
+<p>下图显示了对上一个屏幕中描述的函数的调用的汇编程序翻译。</p>
+<p><img src="/images/NET/image-20210901083248000.png" /></p>
+<p>The actual parameters for the call are constant 2 and the local variables <strong>b</strong> and <strong>c</strong> respectively. The parameter <strong>c</strong> is passed by reference, that is to say that the current parameter is a pointer to <strong>c</strong>.</p>
+<p>调用的实际参数分别为常数2和局部变量b和c。 参数c通过引用传递，也就是说，当前参数是指向c的指针。</p>
+<p>In the call sequence we first see the establishment of the constant 2 using the instruction <strong>LIT</strong>. Next the value b is placed on top of the stack by the instruction <strong>LOD 0, b</strong> and finally the address of c is load with the instruction <strong>LAD 0, c.</strong> The call sequence is followed by the actual call instruction <strong>JSR 1, P</strong>. It will be noticed, after the return of the function <strong>INT -3</strong> instruction serves to remove the parameters from the stack.</p>
+<p>在调用序列中，我们首先看到使用指令<code>LIT</code>建立常数2的过程。 接下来，值b由指令<code>LOD 0,b</code>放置在堆栈的顶部，最后，将c的地址装入指令<code>LAD 0,c</code>。 调用序列后面是实际的调用指令<code>JSR 1,P</code>。将注意到，在函数<code>INT -3</code>指令返回后，用于从堆栈中删除参数。</p>
+<h3 id="functions-use">6.2 Function's Use</h3>
+<h4 id="during-faction-execution">6.2.1 During faction execution</h4>
+<p><img src="/images/NET/image-20210901083422973.png" /></p>
+<p>This picture shows an example of the use of the function described in the previous picture in 7.1.1. We want to assign to the variable <strong>z</strong> the value obtained by adding the value of the variable x and the value returned by the function <strong>P</strong> when called with the current settings <strong>2</strong> and <strong>b</strong>. The program begins by placing the value of the local variable <strong>x</strong> to the top of the stack through the instruction <strong>LOD 0, x</strong>.</p>
+<p>该图显示了7.1.1图中描述的功能用法示例。 我们要为变量z分配通过将变量x的值与函数P在使用当前设置2和b调用时返回的值相加而获得的值。 程序首先通过指令<code>LOD 0,x</code>将局部变量x的值放在堆栈的顶部。</p>
+<p>Booking a room for the return value of the function is done by placing the value 0 to the top of the stack using the <strong>LIT 0</strong> instruction. Then the two parameters calling P are placed on the stack and the P function is called.</p>
+<p>通过使用<code>LIT 0</code>指令将值0放置在堆栈的顶部，可以为函数的返回值预订空间。 然后将调用P的两个参数放在堆栈上，并调用P函数。</p>
+<h4 id="just-after-return">6.2.2 Just after return</h4>
+<p><img src="/images/NET/image-20210901083500327.png" /></p>
+<p>After the return of the function the parameters of this stack is removed by the <strong>INT -2</strong> instruction. The value calculated by the function is found at the TOS, just above the value of <strong>x</strong>.</p>
+<p>函数返回后，此堆栈的参数由<code>INT -2</code>指令删除。 该函数计算出的值位于TOS上，正好在x值的上方。</p>
+<p>It therefore remains only to add these two values and assign the result to variable <strong>z</strong>.</p>
+<p>因此，仅需将这两个值相加并将结果分配给变量z。</p>
+<h3 id="recursive-function-example">6.3 Recursive function example</h3>
+<p>A recursive function is a function that can call itself.</p>
+<p>递归函数是可以调用自身的函数。</p>
+<p>Although for performance reasons it is not recommended to calculate the factorial function recursively, we can do it to have a very simple example of the use of recursion.</p>
+<p>尽管出于性能原因，不建议递归计算阶乘函数，但我们可以这样做，以得到一个非常简单的使用递归示例。</p>
+<p>The factorial function written in C is simple since it literally transposes the mathematical definition of the factorial function in the C language</p>
+<p>用C编写的阶乘函数很简单，因为它从字面上转换了C语言中阶乘函数的数学定义</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">fac</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> 
+    <span class="token keyword">return</span> n <span class="token operator">*</span> <span class="token function">fac</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">else</span> 
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/images/NET/image-20210901083518622.png" /></p>
+<blockquote>
+<p>The slide shows the translation in assembler, with comments, of the recursive factorial function.</p>
+<p>图显示了递归阶乘函数在汇编器中的翻译以及注释。</p>
+<p>It is strongly recommended to the reader to follow this function step by step when it has to calculate 3! or 4! It’s particularly important to draw the successive states of the stack during the execution to profoundly understand the performing mechanisms of a recursive function.</p>
+<p>强烈建议读者在必须计算3时逐步遵循此功能！ 或4！ 在执行过程中绘制堆栈的连续状态以深刻理解递归函数的执行机制尤为重要。</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/07/20/2021-07-20-SP0-A-Stack-Processor/">https://yintelligence.tech/2021/07/20/2021-07-20-SP0-A-Stack-Processor/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Computer-Systems/">
+                                    <span class="chip bg-color">Computer Systems</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/07/21/2021-07-21-CPU/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Instructions and Addresses for Sequential Computers">
+                        
+                        <span class="card-title">Instructions and Addresses for Sequential Computers</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            第三章，介绍CPU，并对应用进行评估
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Computer-Systems/" class="post-category">
+                                    Computer Systems
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Computer-Systems/">
+                        <span class="chip bg-color">Computer Systems</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/07/19/2021-07-19-Connecting%20to%20the%20Internet/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Connecting to the Internet">
+                        
+                        <span class="card-title">Connecting to the Internet</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Network/" class="post-category">
+                                    Network
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Advanced-IT-Networks/">
+                        <span class="chip bg-color">Advanced IT Networks</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
