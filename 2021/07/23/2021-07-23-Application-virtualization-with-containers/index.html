@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    10
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    6 Min
                 </div>
                 
 
@@ -502,6 +502,240 @@
             <div id="articleContent">
                 <h1 id="application-virtualization-with-containers">Application virtualization with containers</h1>
 <p><a href="https://yintelligence.tech/2021/02/09/2021-02-09-Course-Overview/">VUB 4011247EER Operating Systems and Security</a></p>
+<h2 id="containers-容器">1. Containers 容器</h2>
+<p>Containers virtualize the OS environment for an application, similar to how hypervisors (type 2) virtualize the hardware</p>
+<p>容器为应用程序虚拟化操作系统环境，类似于hypervisors (type 2) 如何虚拟化硬件</p>
+<ul>
+<li><p>Containers wrap up an application in a <strong>lightweight image</strong> that contains all essential binaries and libraries to operate.</p>
+<p>容器将应用程序封装在一个<strong>轻量级映像</strong>中，该映像包含所有必需的二进制文件和要操作的库</p>
+<blockquote>
+<p>类似集装箱</p>
+</blockquote></li>
+<li><p>Containers operate on top of the (Linux) kernel in combination with the container engine</p>
+<p>容器结合<strong>容器引擎container engine</strong>在（Linux）内核之上运行</p></li>
+</ul>
+<h3 id="features">1.1 Features</h3>
+<p><img src="/images/OP/image-20210902070953531.png" /></p>
+<ul>
+<li><p>Standardized <strong>packaging</strong> for software and dependencies</p>
+<p>软件和依赖项的标准化<strong>打包</strong></p>
+<ul>
+<li><p>Easy to distribute and deploy</p>
+<p>易于分发和部署</p></li>
+</ul></li>
+<li><p><strong>Isolate</strong> applications from each other</p>
+<p>相互<strong>隔离</strong>应用程序</p>
+<ul>
+<li><p>Eliminates issues with incompatible dependencies</p>
+<p>消除了不兼容的依赖关系的问题</p></li>
+</ul></li>
+<li><p><strong>Share</strong> the same underlying OS <strong>kernel</strong></p>
+<p><strong>共享</strong>相同的底层操作系统<strong>内核</strong></p></li>
+<li><p>Support for all major Linux distributions</p>
+<p>支持所有主要的 Linux 发行版</p>
+<ul>
+<li><p>VMs, Physical hosts, cloud instances</p></li>
+<li><p>Ability to move around between machines without any modification</p>
+<p>无需任何修改即可在机器之间移动的能力</p></li>
+<li><p>Ability of containers to work together</p>
+<p>容器协同工作的能力</p>
+<blockquote>
+<p>Docker is the most popular container environment today.</p>
+</blockquote></li>
+</ul></li>
+<li><p>Containers also native to Windows Server 2016</p>
+<p>容器也是 Windows Server 2016 的原生容器</p></li>
+</ul>
+<h3 id="containers-vs.-vms">1.2 Containers vs. VMS</h3>
+<p><img src="/images/OP/image-20210902071256815.png" /></p>
+<p>Containers ≠ VM</p>
+<ul>
+<li>Easy connection to make 易于连接</li>
+<li>Fundamentally different architectures 完全不同的架构</li>
+<li>Fundamentally different benefits 根本不同的好处</li>
+</ul>
+<h4 id="lightweight-轻量级">1.2.1 Lightweight 轻量级</h4>
+<h5 id="vms">VMs</h5>
+<p>Every app, every copy of an app, and every slight modification of the app requires a new virtual machine.</p>
+<p>每个应用程序、应用程序的每个副本以及应用程序的每个细微修改都需要一个新的虚拟机。</p>
+<h5 id="containers">Containers</h5>
+<p><img src="/images/OP/image-20210902071625836.png" /></p>
+<ul>
+<li><p>Original App</p>
+<ul>
+<li>No OS to take up resources &amp; start up</li>
+</ul></li>
+<li><p>Copies of App</p>
+<ul>
+<li><p>Can share storage of app and bins/libs via Overlay file system</p>
+<p>可以通过 Overlay 文件系统共享应用程序和 bins/libs 的存储</p></li>
+<li><p>Shared volumes 共享卷</p></li>
+</ul></li>
+<li><p>Modified App</p>
+<ul>
+<li><p>Copy on write capabilities allow to only save the diffs Between container A and container A’</p>
+<p>写入时复制功能只允许保存容器 A 和容器 A' 之间的差异</p></li>
+</ul></li>
+</ul>
+<h4 id="compatibility">1.2.2 Compatibility</h4>
+<p>Support for all major Linux distributions</p>
+<p>支持所有主要的 Linux 发行版</p>
+<ul>
+<li><p>VMs, Physical hosts, cloud instances</p></li>
+<li><p>Ability to move around between machines without any modification</p>
+<p>无需任何修改即可在机器之间移动的能力</p></li>
+<li><p>Ability of containers to work together</p>
+<p>容器协同工作的能力</p></li>
+</ul>
+<h3 id="isolation">1.3 Isolation</h3>
+<p>Containers share portions of the host kernel</p>
+<p>容器共享主机内核的一部分</p>
+<p><strong>Containers use</strong>:</p>
+<ul>
+<li><strong>Namespaces</strong>
+<ul>
+<li>per-process isolation of OS resources (filesystem, network and user ids)</li>
+</ul></li>
+<li><strong>Cgroups</strong>
+<ul>
+<li>resource management and accounting per process</li>
+</ul></li>
+</ul>
+<h3 id="images-and-containers">1.4 Images and containers</h3>
+<p><img src="/images/OP/image-20210902072522422.png" /></p>
+<h2 id="docker">2. Docker</h2>
+<p>Docker is a software platform that allows you to build, test, and deploy applications quickly, packaging software into standardized units called containers.</p>
+<p>Docker 是一个软件平台，可让您快速构建、测试和部署应用程序，将软件打包到称为容器的标准化单元中。</p>
+<ul>
+<li><p>Lightweight, open, secure platform</p></li>
+<li><p>Simplify building, shipping, running apps</p>
+<p>简化构建、传送、运行应用程序</p></li>
+<li><p>Runs natively on Linux or Windows Server</p></li>
+<li><p>Also runs on Windows 10 or Mac development machines</p>
+<ul>
+<li>Via Hyper-V (Windows 10) or via a Linux virtual machine</li>
+</ul></li>
+</ul>
+<h3 id="terminology">2.0 Terminology</h3>
+<ul>
+<li><p><strong>Docker Image</strong></p>
+<ul>
+<li>The basis of a Docker container</li>
+<li>Represents a full application 代表一个完整的应用程序</li>
+</ul></li>
+<li><p><strong>Docker Container</strong></p>
+<ul>
+<li><p>The standard unit in which the application service resides and executes</p>
+<p>应用服务驻留和执行的标准单元</p></li>
+</ul></li>
+<li><p><strong>Docker Engine</strong></p>
+<ul>
+<li><p>Creates, ships and runs Docker containers deployable on a physical or virtual, host locally, in a data center or cloud service provider</p>
+<p>创建、运送和运行可部署在物理或虚拟主机、本地主机、数据中心或云服务提供商的 Docker 容器</p></li>
+</ul></li>
+<li><p><strong>Registry Service</strong></p>
+<p>Cloud or server based storage and distribution service for your container images</p>
+<p>容器镜像的基于云或服务器的存储和分发服务</p>
+<ul>
+<li>Docker Hub (Public)</li>
+<li>Docker Trusted Registry (Private)</li>
+</ul></li>
+<li><p>Docker hub</p>
+<ul>
+<li>public docker images</li>
+</ul></li>
+</ul>
+<h3 id="workflow">2.1 Workflow</h3>
+<p><img src="/images/OP/image-20210902072620346.png" /></p>
+<h4 id="basics-of-the-docker-system">2.1.1 Basics of the docker system</h4>
+<p><img src="/images/OP/image-20210902072953309.png" /></p>
+<h4 id="changes-and-updates">2.1.2 Changes and updates</h4>
+<p><img src="/images/OP/image-20210902073048414.png" /></p>
+<h3 id="docker-images">2.2 Docker images</h3>
+<ul>
+<li>Docker hub
+<ul>
+<li>public docker images</li>
+</ul></li>
+<li>Docker images</li>
+<li>build docker images</li>
+</ul>
+<h4 id="get-public-docker-images">2.2.0 Get public docker images</h4>
+<p>Via Docker hub.</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Create image based on the official Node 6 image from dockerhub
+FROM node: latest
+# Create a directory where our app will be placed
+RUN mkdir-p &#x2F;usr&#x2F;src&#x2F;app
+
+# Change directory so that our commands run inside this new directory
+HORKDIR &#x2F;usr&#x2F;src&#x2F;app
+
+# Copy dependency definitions
+COPY package.json &#x2F;usr&#x2F;src&#x2F;app
+
+# Install dependecies
+RUN npm install
+
+# Get all the code needed to run the app
+COPY. &#x2F;usr&#x2F;src&#x2F;app
+
+# Expose the port the app runs in
+EXPOSE 4200
+
+# Serve the app
+CMD [&quot;npm&quot;,&quot;start&quot;]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="build-docker-images">2.2.1 Build docker images</h4>
+<p>Build Docker images by processing the instructions from a <strong>Dockerfile</strong></p>
+<ul>
+<li><p>Instructions on how to build a Docker image</p></li>
+<li><p>Very similar to “native” Linux commands</p></li>
+<li><p>Optimize the <strong>Dockerfile</strong> according to changes</p>
+<p>根据变化优化<strong>Dockerfile</strong></p>
+<ul>
+<li><p>Intermediate image built for each incremental step</p>
+<p>为每个增量步骤构建的中间映像</p></li>
+<li><p>Allows accelerating building of complete images</p>
+<p>允许加速构建完整图像</p></li>
+</ul></li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">FROM centos:7
+yum insta11 -y python-devel python-virtualenv
+RUN virtualenv&#x2F;opt&#x2F;indica&#x2F;venv
+RUN pip install indica
+COPY entrypoint.sh&#x2F;opt&#x2F;indic&#x2F;entrypoint.sh
+EXPOSE 8000
+ENTRYPOINT &#x2F;opt&#x2F;indica&#x2F;entrypoint.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="docker-compose">2.3 Docker compose</h3>
+<h4 id="manage-multiple-containers">2.3.1 Manage multiple containers</h4>
+<ul>
+<li><p><strong>Build</strong> &amp; <strong>run</strong> multi-container Docker applications reading instructions from a docker-compose.yml file</p>
+<p><strong>构建</strong>和<strong>运行</strong>多容器 Docker 应用程序，从 docker-compose.yml 文件中读取指令</p></li>
+<li><p>Supports specifying environment variables, volume mount points, network configuration, etc.</p>
+<p>支持指定环境变量、卷挂载点、网络配置等</p></li>
+<li><p>Creates user-defined <strong>network bridge</strong> for all containers specified in the dockercompose.yml</p>
+<p>为 dockercompose.yml 中指定的所有容器创建用户定义的<strong>网桥</strong></p></li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span> <span class="token punctuation">:</span> <span class="token number">2</span>
+<span class="token key atrule">services</span> <span class="token punctuation">:</span>
+	<span class="token key atrule">my-application</span><span class="token punctuation">:</span>
+		<span class="token key atrule">build</span><span class="token punctuation">:</span> ./
+		<span class="token key atrule">ports</span><span class="token punctuation">:</span>
+			<span class="token punctuation">-</span> "8000<span class="token punctuation">:</span>8000'
+		<span class="token key atrule">environment</span><span class="token punctuation">:</span>
+			<span class="token punctuation">-</span> CONFIG FILE
+	<span class="token key atrule">db</span><span class="token punctuation">:</span>
+		<span class="token key atrule">image</span><span class="token punctuation">:</span> postgres
+	<span class="token key atrule">redis</span><span class="token punctuation">:</span>
+		<span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+		<span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token key atrule">redis-server --save " " --appendonly no ports</span><span class="token punctuation">:</span> 
+			<span class="token punctuation">-</span><span class="token string">"6379"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="docker-bridge-networking">2.3.2 Docker bridge networking</h4>
+<h5 id="what-is-it">2.3.2.1 What is it?</h5>
+<p><img src="/images/OP/image-20210902073731438.png" /></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker network create -d bridge --name bridgenet1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="how-does-it-work">2.3.2.2 How does it work?</h5>
+<p><img src="/images/OP/image-20210902073826075.png" /></p>
+<p>Access to containerized app on host IP: mapped port 192.168.1.10:8080</p>
 
                 
             </div>
