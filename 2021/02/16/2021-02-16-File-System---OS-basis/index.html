@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    8 Min
                 </div>
                 
 
@@ -509,7 +509,7 @@
 <li>Information stored must survive the termination of the process using it</li>
 <li>Multiple processes must be able to access the information concurrently</li>
 </ul>
-<h2 id="files-301">Files 3:01</h2>
+<h2 id="files-301">1. Files 3:01</h2>
 <p>Just a few of the questions that quickly arise are:</p>
 <ol type="1">
 <li>How do you find information?</li>
@@ -521,11 +521,11 @@
 <p>A disk will usually contain thousands or even millions of them, each one independent of the others.</p>
 <p>Information stored in files must be <strong>persistent</strong>, that is, <u>not be affected by process creation and termination</u>.</p>
 <p><strong>Files are managed by the operating system</strong>. How they are structured, named, accessed, used, protected, implemented, and managed are major topics in operating system design.</p>
-<h3 id="file-naming-550">File naming 5:50</h3>
+<h3 id="file-naming-550">1.1 File naming 5:50</h3>
 <figure>
 <img src="/images/OP/1628366.png" alt="" /><figcaption>Typical file extensions</figcaption>
 </figure>
-<h3 id="file-structures-631">File structures 6:31</h3>
+<h3 id="file-structures-631">1.2 File structures 6:31</h3>
 <p>Three kinds of files:</p>
 <ol type="1">
 <li>byte sequence</li>
@@ -533,17 +533,17 @@
 <li>tree</li>
 </ol>
 <p><img src="/images/OP/1628367.png" /></p>
-<h3 id="file-types-857">File types 8:57</h3>
+<h3 id="file-types-857">1.3 File types 8:57</h3>
 <ol type="a">
 <li><p>An executable file</p></li>
 <li><p>An archive</p></li>
 </ol>
 <p><img src="/images/OP/1638375.png" /></p>
-<h3 id="file-attributes-1057">File attributes 10:57</h3>
+<h3 id="file-attributes-1057">1.4 File attributes 10:57</h3>
 <figure>
 <img src="/images/OP/1628365.png" alt="" /><figcaption>Possible file attributes</figcaption>
 </figure>
-<h3 id="file-operations-1251">File operations 12:51</h3>
+<h3 id="file-operations-1251">1.5 File operations 12:51</h3>
 <ol type="1">
 <li>Create</li>
 <li>Delete</li>
@@ -557,23 +557,31 @@
 <li>Set Attributes</li>
 <li>Rename</li>
 </ol>
-<h2 id="directories-1438">Directories 14:38</h2>
-<h3 id="single-level-directory-systems">Single-level directory systems</h3>
+<h2 id="directories-1438">2. Directories 14:38</h2>
+<blockquote>
+<p>You cannot have a directory and a file of the same name (regardless of extension), just like you cannot have two files of the same name.</p>
+<p>A directory is just a file, too.</p>
+<p>The difference is that a directory can contain other files. It does not matter how it is called, it can have an extension (or two). What makes it a directory is that it was created as such.</p>
+<p>您不能拥有同名的目录和文件（无论扩展名如何），就像您不能拥有两个同名的文件一样。</p>
+<p>目录也只是一个文件。</p>
+<p>不同之处在于目录可以包含其他文件。不管它如何调用，它可以有一个扩展名（或两个）。使它成为目录的原因是它是这样创建的。</p>
+</blockquote>
+<h3 id="single-level-directory-systems">2.1 Single-level directory systems</h3>
 <p>A single level directory system</p>
 <ul>
 <li>contains 4 files</li>
 <li>owned by 3 different people, A, B, and C</li>
 </ul>
 <p><img src="/images/OP/1638555.png" /></p>
-<h3 id="hierarchical-directory-systems-1549">Hierarchical directory systems 15:49</h3>
+<h3 id="hierarchical-directory-systems-1549">2.2 Hierarchical directory systems 15:49</h3>
 <figure>
 <img src="/images/OP/1638556.png" alt="" /><figcaption>A hierarchical directory system</figcaption>
 </figure>
-<h3 id="path-names-1631">Path names 16:31</h3>
+<h3 id="path-names-1631">2.3 Path names 16:31</h3>
 <figure>
 <img src="/images/OP/1638455.png" alt="" /><figcaption>A UNIX directory tree</figcaption>
 </figure>
-<h3 id="directory-operations-1713">Directory operations 17:13</h3>
+<h3 id="directory-operations-1713">2.4 Directory operations 17:13</h3>
 <ol type="1">
 <li>Create</li>
 <li>Delete</li>
@@ -584,12 +592,12 @@
 <li>Link</li>
 <li>Unlink</li>
 </ol>
-<h2 id="file-system-implementation-1940">File system implementation 19:40</h2>
-<h3 id="implementers-perspective">Implementer's perspective</h3>
+<h2 id="file-system-implementation-1940">3. File system implementation 19:40</h2>
+<h3 id="implementers-perspective">3.1 Implementer's perspective</h3>
 <figure>
 <img src="/images/OP/2638455.png" alt="" /><figcaption>A possible file system layout</figcaption>
 </figure>
-<h3 id="implementing-files-2128">Implementing files 21:28</h3>
+<h3 id="implementing-files-2128">3.2 Implementing files 21:28</h3>
 <ol type="a">
 <li><p>Contiguous allocation of disk space for 7 files</p></li>
 <li><p>State of the disk <strong><em>after files D and F</em></strong> have been removed</p></li>
@@ -602,7 +610,7 @@
 <figure>
 <img src="/images/OP/2638453.png" alt="" /><figcaption>An example i-node</figcaption>
 </figure>
-<h3 id="implementing-directories-2625">Implementing directories 26:25</h3>
+<h3 id="implementing-directories-2625">3.2 Implementing directories 26:25</h3>
 <ol type="a">
 <li>A simple directory</li>
 </ol>
@@ -622,19 +630,19 @@
 <figure>
 <img src="/images/OP/2638442.png" alt="" /><figcaption>(b) In a heap</figcaption>
 </figure>
-<h2 id="shared-files-2944">Shared files 29:44</h2>
+<h2 id="shared-files-2944">4. Shared files 29:44</h2>
 <p>File system containing a shared file</p>
 <figure>
 <img src="/images/OP/2638443.png" alt="" /><figcaption>Shared file</figcaption>
 </figure>
-<h3 id="problems-3118">Problems 31:18</h3>
+<h3 id="problems-3118">4.1 Problems 31:18</h3>
 <ol type="a">
 <li><p>Situation prior to linking</p></li>
 <li><p>After the link is created</p></li>
 <li><p>After the original owner removes the file</p></li>
 </ol>
 <p><img src="/images/OP/2638444.png" /></p>
-<h2 id="disk-space-management-3305">Disk space management 33:05</h2>
+<h2 id="disk-space-management-磁盘空间管理-3305">5. Disk space management 磁盘空间管理 33:05</h2>
 <p>Files are normally stored on disk, so management of disk space is a major concern to filesystem designers.</p>
 <p><strong>Strategies:</strong></p>
 <ol type="1">
@@ -644,7 +652,7 @@
 <p>The same trade-off is present in memory-management systems between pure segmentation and paging.</p>
 <p><strong>Problem:</strong> storing a file as a contiguous sequence of bytes has the obvious problem that if a file grows, it may have to be moved on the disk.</p>
 <p>For this reason, nearly all file systems chop files up into <strong>fixed-size blocks</strong> that need not be adjacent</p>
-<h3 id="size-block-3415">Size block 34:15</h3>
+<h3 id="size-block-3415">5.1 Size block 34:15</h3>
 <p>What is the most adequate block size?</p>
 <p>If the allocation unit is too large, we waste space; if it is too small, we waste time.</p>
 <figure>
@@ -659,7 +667,7 @@
 <p>What the curves show, however, is that performance and space utilization are inherently in <strong>conflict</strong>.</p>
 <p>Small blocks are bad for performance but good for diskspace utilization.</p>
 <p><img src="/images/OP/2638447.png" /></p>
-<h3 id="keeping-track-of-free-blocks-3847">Keeping track of free blocks 38:47</h3>
+<h3 id="keeping-track-of-free-blocks-3847">5.2 Keeping track of free blocks 38:47</h3>
 <p>Once a block size has been chosen, the next issue is how to keep track of free blocks.</p>
 <ol type="1">
 <li>Storing the free list on a linked list</li>
@@ -679,12 +687,12 @@
 </ul></li>
 </ol>
 <p><img src="/images/OP/2638449.png" /></p>
-<h3 id="disk-quota">Disk quota</h3>
+<h3 id="disk-quota">5.3 Disk quota</h3>
 <p><u>To prevent people from hogging too much disk space</u>, multiuser operating systems often provide a mechanism for enforcing disk quotas.</p>
 <p>Quotas for keeping track of each user’s disk use:</p>
 <p><img src="/images/OP/2628440.png" /></p>
-<h2 id="file-system-reliability-4217">File system reliability 42:17</h2>
-<h3 id="backups">Backups</h3>
+<h2 id="file-system-reliability-4217">6. File system reliability 42:17</h2>
+<h3 id="backups-备份">6.1 Backups 备份</h3>
 <ul>
 <li>Destruction of a file system is often a far greater disaster than destruction of a computer.</li>
 <li>Largely sub-estimated.</li>
@@ -704,7 +712,7 @@
 <li>a logical dump.</li>
 </ul></li>
 </ul>
-<h3 id="example-of-logical-dumpling-4503">Example of logical dumpling 45:03</h3>
+<h3 id="example-of-logical-dumpling-4503">6.2 Example of logical dumpling 45:03</h3>
 <p>A file system to be dumped</p>
 <ul>
 <li>squares are directories, circles are files</li>
@@ -716,9 +724,9 @@
 <p>Bit maps used by the logical dumping algorithm</p>
 <p>Four phases:</p>
 <p><img src="/images/OP/2628442.png" /></p>
-<h3 id="file-system-consistency-4729">File-system consistency 47:29</h3>
+<h3 id="file-system-consistency-4729">6.3 File-system consistency 47:29</h3>
 <p><img src="/images/OP/2628443.png" /></p>
-<h2 id="file-system-performance-5027">File system performance 50:27</h2>
+<h2 id="file-system-performance-5027">7. File system performance 50:27</h2>
 <p>Access to disk is much slower than access to memory.</p>
 <p>Three techniques to improve performance.</p>
 <ul>
@@ -726,13 +734,13 @@
 <li>Block read Ahead</li>
 <li>Reducing Disk-Arm Motion</li>
 </ul>
-<h3 id="caching-5047">Caching 50:47</h3>
+<h3 id="caching-5047">7.1 Caching 50:47</h3>
 <p>A cache is a collection of blocks that logically belong on the disk but are being kept in memory for performance reasons.</p>
 <p>The block cache data structures:</p>
 <p><img src="/images/OP/26284443.png" /></p>
 <p><strong>LRU: Least Recent Used</strong></p>
 <p><strong>MRU: Most Recent Used</strong></p>
-<h3 id="block-read-ahead-5240">Block read ahead 52:40</h3>
+<h3 id="block-read-ahead-5240">7.2 Block read ahead 52:40</h3>
 <p>A second technique for improving perceived file-system performance is to try to get blocks into the cache <strong>before</strong> they are needed to increase the hit rate.</p>
 <ul>
 <li>This read-ahead strategy works only for files that are actually being read sequentially</li>
@@ -743,7 +751,7 @@
 </ul></li>
 <li>Continuous monitoring of the file access pattern</li>
 </ul>
-<h3 id="another-important-technique-5345">Another important technique 53:45</h3>
+<h3 id="another-important-technique-5345">7.3 Another important technique 53:45</h3>
 <p>Another important technique is to reduce the amount of disk-arm motion by putting blocks that are likely to be accessed in sequence close to each other, preferably in the same cylinder.</p>
 <ol type="1">
 <li>I-nodes placed at the start of the disk</li>
@@ -753,7 +761,7 @@
 </ul></li>
 </ol>
 <p><img src="/images/OP/26284440.png" /></p>
-<h2 id="summary-5610">Summary 56:10</h2>
+<h2 id="summary-5610">8. Summary 56:10</h2>
 <ul>
 <li>Files and Directories
 <ul>

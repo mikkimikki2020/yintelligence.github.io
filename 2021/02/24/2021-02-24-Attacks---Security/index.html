@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    9 Min
                 </div>
                 
 
@@ -503,7 +503,7 @@
                 <h1 id="attacks">Attacks</h1>
 <p><a href="https://yintelligence.tech/2021/02/09/2021-02-09-Course-Overview/">VUB 4011247EER Operating Systems and Security</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9LUpaZmJ0dlgyRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20Lecture%203%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video</a></p>
-<h2 id="exploiting-code-bugs">Exploiting code bugs</h2>
+<h2 id="exploiting-code-bugs-利用代码错误">1. Exploiting code bugs 利用代码错误</h2>
 <p>Example steps to exploit a bug:</p>
 <ul>
 <li>Run port scan to find machines that accept telnet connections.</li>
@@ -513,7 +513,7 @@
 <li>Fetch and start a zombie program that listens to an IP port for cmds.</li>
 <li>Arrange that the zombie program is started when the system reboots.</li>
 </ul>
-<h2 id="exploiting-software">Exploiting software</h2>
+<h2 id="exploiting-software-利用软件">2. Exploiting software 利用软件</h2>
 <ul>
 <li><p>Buffer overflow attacks</p>
 <ul>
@@ -530,78 +530,105 @@
 <li><p>Command Injection Attacks</p></li>
 <li><p>Time of Check to Tome of Use Attacks</p></li>
 </ul>
-<h3 id="buffer-overflow-attacks">Buffer overflow attacks</h3>
+<h3 id="buffer-overflow-attacks-缓冲区溢出攻击">2.1 Buffer overflow attacks 缓冲区溢出攻击</h3>
 <p><img src="/images/OP/740047.png" /></p>
 <ol type="a">
 <li><p>Situation when the main program is running.</p></li>
 <li><p>After the procedure A has been called.</p></li>
 <li><p>Buffer overflow shown in gray.</p></li>
 </ol>
-<h4 id="defence-stack-canaries">Defence: stack canaries</h4>
+<h4 id="defence-stack-canaries">2.1.1 Defence: stack canaries</h4>
 <p>Modern computers use digital ‘canaries’ as an early warning system, detecting possible buffer overflow attack.</p>
 <p>In the code, at places where the program makes a function call, the compiler inserts code to save a random ‘canary’ value on the stack, just below the return address.</p>
+<p>在代码中，在程序进行函数调用的地方，编译器插入代码以在堆栈中保存一个随机的“金丝雀”值，就在返回地址的下方。</p>
 <p>The compiler inserts code at the return to check the canary value.</p>
 <p>If the canary has changed… trouble!</p>
-<h4 id="defence-data-execution-prevention">Defence: data execution prevention</h4>
+<p>编译器在返回处插入代码以检查金丝雀值。</p>
+<p>如果金丝雀变了……麻烦！</p>
+<h4 id="defence-data-execution-prevention">2.1.2 Defence: data execution prevention</h4>
 <p>Redefine the ‘real’ problem: The fact that the attacker can inject code and have it executed in the heap or stack!</p>
-<p>Defence: prevent the bytes provided by the attacker from being executed as legitimate code.</p>
+<p>重新定义“真正的”问题：攻击者可以注入代码并在堆或堆栈中执行这一事实！</p>
+<p><strong>Defence</strong>: prevent the bytes provided by the attacker from being executed as legitimate code.</p>
+<p>防御：防止攻击者提供的字节作为合法代码执行。</p>
 <p>Modern CPUs have a feature <strong>NX bit</strong> (No-eXecute bit):</p>
+<p>现代 CPU 有一个功能<strong>NX 位</strong>（No-eXecute 位）</p>
 <ul>
-<li>It distinguishes between data segments and the code segments.</li>
-<li>This ensures data segments are writable, but not executable.</li>
+<li><p>It distinguishes between data segments and the code segments.</p>
+<p>它区分数据段和代码段</p></li>
+<li><p>This ensures data segments are writable, but not executable</p>
+<p>这确保数据段可写，但不可执行</p></li>
 </ul>
-<h4 id="code-reuse-attacks">Code reuse attacks</h4>
+<h4 id="code-reuse-attacks-代码重用攻击">2.1.3 Code reuse attacks 代码重用攻击</h4>
 <p>Attacker constructs the necessary functions out of existing functions and instructions in the existing binaries and libraries</p>
+<p>攻击者从现有二进制文件和库中的现有函数和指令中构建必要的函数</p>
 <p><strong>Return to libc</strong></p>
 <p>Almost all c (C++) programs are linked with a shared library containing the function <em>system</em>.</p>
 <p><em>System</em> takes a string containing a command and passes it to the shell for execution.</p>
 <p>Attack: Place a string containing commands to be executed and divert control the <em>system</em> function via the return address.</p>
-<h5 id="return-oriented-programming-rop">Return-Oriented Programming (ROP)</h5>
+<p>攻击：放置一个包含要执行的命令的字符串，并通过返回地址转移控制<em>系统</em>功能。</p>
+<h5 id="return-oriented-programming-rop">2.1.3.1 Return-Oriented Programming (ROP)</h5>
 <p>The concept of Return-Oriented Programming is to return to the entry points of library functions.</p>
 <figure>
 <img src="/images/OP/740048.png" alt="" /><figcaption>Return-oriented programming: linking gadgets</figcaption>
 </figure>
-<h4 id="defence-address-space-layout-randomization-aslr">Defence: address space layout randomization (ASLR)</h4>
+<h4 id="defence-address-space-layout-randomization-aslr">2.1.4 Defence: address space layout randomization (ASLR)</h4>
 <ul>
-<li>Randomize the address of functions and data between every run of the program</li>
-<li>Supported with varying granularity.</li>
-<li>Few apply it to the system kernel</li>
+<li><p>Randomize the address of functions and data between every run of the program</p>
+<p>在程序的每次运行之间随机化函数和数据的地址</p></li>
+<li><p>Supported with varying granularity.</p>
+<p>支持不同的粒度</p></li>
+<li><p>Few apply it to the system kernel</p>
+<p>很少将其应用到系统内核</p></li>
 </ul>
-<h4 id="non-control-flow-attacks">Non-Control Flow Attacks</h4>
+<h4 id="non-control-flow-attacks-非控制流攻击">2.1.5 Non-Control Flow Attacks 非控制流攻击</h4>
 <p>Change the data instead of the return addresses!!</p>
+<p>更改数据而不是返回地址！！</p>
 <p>Possible use: change the security credentials granting more or less protection on objects.</p>
+<p>可能的用途：更改安全凭证以对对象授予或多或少的保护。</p>
 <p><img src="/images/OP/740049.png" /></p>
-<h3 id="memory-corruption-attacks">Memory Corruption Attacks</h3>
-<h4 id="format-string-attack">Format String Attack</h4>
+<h3 id="memory-corruption-attacks-内存损坏攻击">2.2 Memory Corruption Attacks 内存损坏攻击</h3>
+<h4 id="format-string-attack-格式化字符串攻击">2.2.1 Format String Attack 格式化字符串攻击</h4>
 <p>In a C functions that perform formatting, (printf), when the application doesn’t properly validate the input, the attacker can causes the submitted data to be compromised.</p>
 <p><img src="/images/OP/740046.png" /></p>
 <p>EX: By using exactly the right number of <strong>%08x</strong>, the attacker can use the first four characters of the format string as an address.</p>
 <p><img src="/images/OP/740045.png" /></p>
-<h4 id="dangling-pointers-attack">Dangling Pointers Attack</h4>
+<h4 id="dangling-pointers-attack-悬空指针攻击">2.2.2 Dangling Pointers Attack 悬空指针攻击</h4>
 <ul>
-<li>User frees memory. But later tries to access it with the pointer.</li>
-<li>Attacker places a specific heap object in the memory location the user frees and re-uses</li>
-<li>Techniques like <strong>heap feng shui</strong> help attackers pull this off.</li>
+<li><p>User frees memory. But later tries to access it with the pointer.</p>
+<p>用户释放内存。但后来尝试用指针访问它。</p></li>
+<li><p>Attacker places a specific heap object in the memory location the user frees and re-uses</p>
+<p>攻击者在用户释放和重用的内存位置放置一个特定的堆对象</p></li>
+<li><p>Techniques like <strong>heap feng shui</strong> help attackers pull this off.</p></li>
 </ul>
-<h3 id="null-pointer-dereference-attacks">Null Pointer Dereference Attacks</h3>
+<h3 id="null-pointer-dereference-attacks-空指针解引用攻击">2.3 Null Pointer Dereference Attacks 空指针解引用攻击</h3>
 <p>In linux, the kernel space is mapped to every process’ address space… and whenever the kernel executes it runs in a process’s address space.</p>
+<p>在 linux 中，内核空间被映射到每个进程的地址空间……每当内核执行时，它都在进程的地址空间中运行。</p>
 <p>If a buggy kernel dereferences a NULL pointer, it usually leads to a crash. Or attacker triggers a NULL pointer dereference from the user process.</p>
+<p>如果有问题的内核取消引用 NULL 指针，通常会导致崩溃。或者攻击者从用户进程触发一个空指针解引用。</p>
 <p>Crash occurs because there is no code at page 0.</p>
+<p>发生崩溃是因为第 0 页没有代码。</p>
 <p>Using a tool like mmap (Posix function that maps files into memory) attacker can map bad code at that location.</p>
-<p>Defence: mmap no longer makes it possible to map to page 0.</p>
-<h3 id="integer-overflow-attacks">Integer Overflow attacks</h3>
+<p>使用诸如 mmap（将文件映射到内存的 Posix 函数）之类的工具，攻击者可以在该位置映射错误代码。</p>
+<p><strong>Defence</strong>: mmap no longer makes it possible to map to page 0.</p>
+<p><strong>防御</strong>：mmap 不再可以映射到第 0 页。</p>
+<h3 id="integer-overflow-attacks-整数溢出攻击">2.4 Integer Overflow attacks 整数溢出攻击</h3>
 <p>Integer errors can happen when mathematical operations, and external input lead to a result that is too large to fit within the range of values that can be stored in variables of a given data type.</p>
+<p>当数学运算和外部输入导致结果太大而无法容纳在给定数据类型的变量中可以存储的值范围内时，可能会发生整数错误。</p>
 <p>Can be exploited to corrupt applications.</p>
 <p>Integer overflow attacks are possible largely due to incorrectly defining numerical data.</p>
-<h3 id="command-injection-attacks">Command Injection Attacks</h3>
+<p>可被利用来破坏应用程序。</p>
+<p>整数溢出攻击的可能主要是由于错误地定义了数字数据。</p>
+<h3 id="command-injection-attacks-命令注入攻击">2.5 Command Injection Attacks 命令注入攻击</h3>
 <p>The execution of arbitrary commands on the host operating system via a vulnerable application.</p>
+<p>通过易受攻击的应用程序在主机操作系统上执行任意命令。</p>
 <p>Command injection attacks are possible largely <strong>due to insufficient input validation</strong> (a complete part of the Defensive Programming approach).</p>
+<p>命令注入攻击的可能主要是<strong>由于输入验证不足</strong>（防御性编程方法的完整部分）</p>
 <p><img src="/images/OP/740044.png" /></p>
 <p>Suppose user enters for the destination file: ‘file2.txt; rm –rf</p>
 <p>Command excited is then: system(“cp file1 file 2; rm –rf”)</p>
 <p>Command injection attacks are possible largely due to insufficient input validation</p>
-<h3 id="time-of-check-to-tome-of-use-attacks">Time of Check to Tome of Use Attacks</h3>
-<p>Exploits a race condition</p>
+<h3 id="time-of-check-to-tome-of-use-attacks-攻击检查时间">2.6 Time of Check to Tome of Use Attacks 攻击检查时间</h3>
+<p>Exploits a race condition 利用竞争条件</p>
 <p>Example:</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fd;
 if(access(&quot;.&#x2F;my_document&quot;, W_OK)!&#x3D;0)
@@ -609,18 +636,23 @@ if(access(&quot;.&#x2F;my_document&quot;, W_OK)!&#x3D;0)
 fd &#x3D; open(&quot;.&#x2F;my_document&quot;, O_WRONGLY)
 write(fd, user_input, sizeof(user_input))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Between the statements, attacker creates a symbolic link with the same file name to the password file</p>
+<p>在语句之间，攻击者创建一个与密码文件具有相同文件名的符号链接</p>
 <p>Then user writes password information to attackers file.</p>
-<h4 id="insider-attacks">Insider Attacks</h4>
+<p>然后用户将密码信息写入攻击者文件</p>
+<h4 id="insider-attacks-内部攻击">2.6.1 Insider Attacks 内部攻击</h4>
 <p>Executed by programmers from within the company.</p>
 <p>Attackers have specialized knowledge</p>
+<p>由公司内部的程序员执行, 攻击者拥有专业知识</p>
 <p>Insider Attacks</p>
 <ul>
 <li>Logic Bomb</li>
 <li>Back Doors</li>
 <li>Login Spoofing</li>
 </ul>
-<h5 id="logic-bomb">Logic Bomb</h5>
+<h5 id="logic-bomb-逻辑炸弹">2.6.1.1 Logic Bomb 逻辑炸弹</h5>
+<p>甲<strong>逻辑炸</strong></p>
 <p>A <strong>logic bomb</strong> is a piece of code inserted into an operating system or software application that implements a malicious function after a certain time limit or specific conditions are met.</p>
+<p><strong>逻辑炸弹</strong>是插入到一个操作系统或软件应用程序实现之后的某一时间限制或特定条件恶意功能被满足的一段代码。</p>
 <p>Company programmer writes program:</p>
 <ul>
 <li>potential to do harm</li>
@@ -636,7 +668,7 @@ write(fd, user_input, sizeof(user_input))<span aria-hidden="true" class="line-nu
 <li>each year, the virus remained dormant until March 6, the birthday of Renaissance artist Michelangelo.</li>
 <li>The name was chosen by researchers who noticed the coincidence of the activation date</li>
 </ul>
-<h5 id="back-doors">Back Doors</h5>
+<h5 id="back-doors-后门">2.6.1.2 Back Doors 后门</h5>
 <figure>
 <img src="/images/OP/740043.png" alt="" /><figcaption>Defense: Code reviews</figcaption>
 </figure>
@@ -644,10 +676,12 @@ write(fd, user_input, sizeof(user_input))<span aria-hidden="true" class="line-nu
 <li><p>Normal code.</p></li>
 <li><p>Code with a back door inserted.</p></li>
 </ol>
-<h5 id="login-spoofing">Login Spoofing</h5>
+<h5 id="login-spoofing-登录欺骗">2.6.1.3 Login Spoofing 登录欺骗</h5>
 <p><img src="/images/OP/740042.png" /></p>
 <p>Legitimate user attempting to collect other people’s passwords.</p>
+<p>试图收集他人密码的合法用户。</p>
 <p><strong>Defence</strong>: have a login sequence start with a key combination the user programs can’t catch: CTLRALT-DEL in Windows cause the current user to log out and system login program started.</p>
+<p><strong>防御</strong>：登录序列以用户程序无法捕获的组合键开始：Windows 中的 CTLRALT-DEL 导致当前用户注销并启动系统登录程序。</p>
 
                 
             </div>

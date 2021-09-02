@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.7k
+                    2.8k
                 </div>
                 
 
@@ -500,11 +500,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="basis-of-os---process-management">Basis of OS - Process management</h1>
+                <h1 id="process-management">Process management</h1>
 <p><a href="https://yintelligence.tech/2021/02/09/2021-02-09-Course-Overview/">VUB 4011247EER Operating Systems and Security</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9U1pBOVNQVE4yRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20operating%20systems%20and%20security%20%2D%20lecture%201%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video 50:30 ~ 2:11:37</a></p>
-<h2 id="processes">Processes</h2>
-<h2 id="whats-in-a-process">What’s in a Process?</h2>
+<h2 id="processes">1. Processes</h2>
+<h3 id="whats-in-a-process">1.0 What’s in a Process?</h3>
 <p><strong>A process consists of:</strong></p>
 <ul>
 <li>Address Space</li>
@@ -516,7 +516,7 @@
 <li>…</li>
 </ul></li>
 </ul>
-<h3 id="the-process-model">The process model</h3>
+<h3 id="the-process-model">1.1 The process model</h3>
 <p><strong>A (sequential) process</strong> = an instance of an executing program, including the current values of the program counter, registers and variables.</p>
 <p>A sequential program, typically an <strong>infinite loop</strong></p>
 <ul>
@@ -524,7 +524,7 @@
 <li><p>We are about to enter the world of “concurrent programming”</p>
 <p><img src="/images/OP/052316.png" /></p></li>
 </ul>
-<h3 id="basic-operations-on-processes-5823">Basic operations on processes 58:23</h3>
+<h3 id="basic-operations-on-processes-5823">1.2 Basic operations on processes 58:23</h3>
 <ul>
 <li>Create and terminate
 <ul>
@@ -541,65 +541,65 @@
 <li>A process <strong>suspends</strong> until a particular child process finishes execution</li>
 </ul></li>
 </ul>
-<h4 id="process-creation-and-termination">Process creation and termination</h4>
-<h5 id="events-which-cause-process-creation">Events which cause process creation:</h5>
+<h4 id="process-creation-and-termination">1.2.1 Process creation and termination</h4>
+<h5 id="events-which-cause-process-creation">1.2.1.1 Events which cause process creation:</h5>
 <ul>
 <li>System initialization: launches <strong>foreground processes</strong> (interacting with users) and <strong>background processes</strong> (typically called daemons)</li>
 <li>Execution of a process creation system call by a running process.</li>
 <li>A user request to create a new process.</li>
 <li>Initiation of a batch job.</li>
 </ul>
-<h5 id="events-which-cause-process-termination">Events which cause process termination:</h5>
+<h5 id="events-which-cause-process-termination">1.2.1.2 Events which cause process termination:</h5>
 <ul>
 <li>Normal exit (voluntary).</li>
 <li>Error exit (voluntary).</li>
 <li>Fatal error (involuntary).</li>
 <li>Killed by another process (involuntary).</li>
 </ul>
-<h3 id="process-states-10536">Process states 1:05:36</h3>
+<h3 id="process-states-10536">1.3 Process states 1:05:36</h3>
 <ul>
 <li><p><strong>Running state</strong>: actually using the CPU at that instant</p></li>
 <li><p><strong>Ready state</strong>: runnable; temporarily stopped to let another process run</p></li>
 <li><p><strong>Blocked state</strong>: unable to run until some external event happens</p></li>
 </ul>
 <p><img src="/images/OP/053319.png" /></p>
-<h3 id="implementation-of-processes-1-0924">Implementation of processes 1: 09:24</h3>
+<h3 id="implementation-of-processes-1-0924">1.4 Implementation of processes 1: 09:24</h3>
 <p>The lowest layer of a process-structured operating system handles <strong>interrupts and scheduling</strong>.</p>
 <p>Above that layer are <strong>sequential processes</strong>.</p>
 <p><img src="/images/OP/053844.png" /></p>
 <p>The operating system maintains a table, called the <strong>process table</strong>.</p>
 <p>Contains one <strong>entry</strong> per process.</p>
 <p>Skeleton of what the lowest level of the operating system does when an <strong>interrupt</strong> occurs.</p>
-<h2 id="threads-11236">Threads 1:12:36</h2>
+<h2 id="threads-11236">2. Threads 1:12:36</h2>
 <p><strong>Thread</strong> = light-weight processes, created by a mother process (program) for pseudo-parallel processing.</p>
 <p><strong>No memory protection</strong>: share memory with each other and the mother process.</p>
-<h3 id="thread-usage">Thread usage</h3>
+<h3 id="thread-usage">2.0 Thread usage</h3>
 <p><img src="/images/OP/183428.png" /></p>
-<h3 id="the-classical-thread-model-11833">The classical thread model 1:18:33</h3>
+<h3 id="the-classical-thread-model-11833">2.1 The classical thread model 1:18:33</h3>
 <p><img src="/images/OP/83548.png" /></p>
 <p>The first column lists some items shared by all threads in a process.</p>
 <p>The second one lists some items private to each thread.</p>
 <p><img src="/images/OP/183727.png" /></p>
 <p><strong>Each thread has its own stack.</strong></p>
 <p><img src="/images/OP/183916.png" /></p>
-<h3 id="posix-threads-how-to-make-a-thread-12442">Posix Threads (How to make a thread? 1:24:42)</h3>
+<h3 id="posix-threads-how-to-make-a-thread-12442">2.2 Posix Threads (How to make a thread? 1:24:42)</h3>
 <p>IEEE standard 1003.1c: enables writing of portable threaded programs</p>
 <p>The threads package it defines is called <strong>Pthreads</strong></p>
 <p>The standard defines over 60 function calls, which is far too many to go over here.</p>
-<h3 id="implementing-threads-in-user-space-or-in-kernel-12917">Implementing threads in user space or in kernel 1:29:17</h3>
+<h3 id="implementing-threads-in-user-space-or-in-kernel-12917">2.3 Implementing threads in user space or in kernel 1:29:17</h3>
 <ol type="1">
 <li><p>A user-level threads package.</p></li>
 <li><p>A threads package managed by the kernel.</p>
 <p><img src="/images/OP/185004.png" /></p></li>
 </ol>
-<h3 id="processes-vs-threads"><strong>Processes vs Threads</strong></h3>
-<h4 id="regular-processes">Regular processes</h4>
+<h2 id="processes-vs-threads">3. <strong>Processes vs Threads</strong></h2>
+<p><strong>Regular processes</strong></p>
 <ul>
 <li>Heavyweight process</li>
 <li>Own virtual address space (stack, data, code)</li>
 <li>System resources (e.g., open files)</li>
 </ul>
-<h4 id="threads">Threads</h4>
+<p><strong>Threads</strong></p>
 <ul>
 <li>Lightweight process</li>
 <li>Sub-process within process</li>
@@ -614,12 +614,12 @@
 <li>Low cost switching between threads</li>
 </ul></li>
 </ul>
-<h2 id="interprocess-communication-ipc-13636">Interprocess communication (IPC) 1:36:36</h2>
-<h3 id="race-conditions">Race conditions</h3>
+<h2 id="interprocess-communication-ipc-13636">4. Interprocess communication (IPC) 1:36:36</h2>
+<h3 id="race-conditions">4.1 Race conditions</h3>
 <p>Two processes want to access shared memory at the same time.</p>
 <p><strong>Race condition if the CPU decides to switch from the just initiated Process A</strong>, that has just received the information that in=7, <strong>to Process B</strong> that will also observe in=7. Both will write their file at the same location in the printer spooler directory.</p>
 <p><img src="/images/OP/185758.png" /></p>
-<h3 id="critical-regions">Critical regions</h3>
+<h3 id="critical-regions">4.2 Critical regions</h3>
 <p>Conditions required to <u>avoid race condition</u>:</p>
 <ul>
 <li>No two processes may be simultaneously inside their <strong>critical regions</strong>.</li>
@@ -630,7 +630,7 @@
 <figure>
 <img src="/images/OP/190129.png" alt="" /><figcaption>1:40:37-1:41:13</figcaption>
 </figure>
-<h3 id="mutual-exclusion-with-busy-waiting">Mutual exclusion with busy waiting</h3>
+<h3 id="mutual-exclusion-with-busy-waiting">4.3 Mutual exclusion with busy waiting</h3>
 <p>Proposals for achieving mutual exclusion:</p>
 <ul>
 <li>Disabling interrupts
@@ -649,7 +649,7 @@
 <li>Peterson's solution</li>
 <li>The Test and Set Lock (TSL) instruction</li>
 </ul>
-<h3 id="communication-among-processes">Communication among processes</h3>
+<h3 id="communication-among-processes">4.4 Communication among processes</h3>
 <ul>
 <li><p>Processes need to communicate data and signals to <u>solve their computation problem</u>.</p>
 <p>​ -&gt; Processes that don’t communicate are just independent programs solving separate problems</p></li>
@@ -662,8 +662,9 @@
 <p><img src="/images/OP/91949.png" /></p>
 <p>The producer-consumer problem (or bounded-buffer problem) with a fatal race condition -&gt; Possible solution = wake-up waiting bits</p>
 <p><img src="/images/OP/92317.png" /></p>
-<h3 id="how-do-we-achieve-this-communication"><strong>How do we achieve this communication?</strong></h3>
-<h5 id="shared-memory-processes-read-and-write-shared-variables">Shared memory: Processes read and write shared variables</h5>
+<h3 id="how-do-we-achieve-this-communication">4.5 <strong>How do we achieve this communication?</strong></h3>
+<h4 id="shared-memory">4.5.1 Shared memory</h4>
+<p>Processes read and write shared variables</p>
 <ul>
 <li>No time overhead, easy to implement</li>
 <li>But, hard to use – mistakes are common</li>
@@ -713,7 +714,8 @@ void main() &#123;
   create_process(processB);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h5 id="message-passing-data-explicitly-sent-from-one-process-to-another">Message passing: Data explicitly sent from one process to another</h5>
+<h4 id="message-passing">4.5.2 Message passing</h4>
+<p>Data explicitly sent from one process to another</p>
 <p><strong>Safer model, but less flexible</strong></p>
 <ul>
 <li><p>Sending process performs special operation, <strong><em>send</em></strong></p></li>
@@ -740,8 +742,8 @@ void processB() &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/images/OP/195747.png" /></p></li>
 </ul>
-<h5 id="shared-memory-and-mutexes">Shared memory and mutexes</h5>
-<h6 id="mutual-exclusion">Mutual exclusion</h6>
+<h4 id="shared-memory-and-mutexes">4.5.3 Shared memory and mutexes</h4>
+<h5 id="mutual-exclusion">4.5.3.1 Mutual exclusion</h5>
 <ul>
 <li><p>Certain sections of code should not be performed concurrently</p>
 <p>Critical section:</p>
@@ -809,10 +811,10 @@ void main() &#123;
   create_process(processA);
   create_process(processB);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h6 id="semaphore">Semaphore</h6>
+<h4 id="semaphore">4.5.4 Semaphore</h4>
 <p>A <strong>semaphore</strong> is a variable or abstract data type that provides a simple but useful abstraction for controlling access by multiple processes to a common resource in a parallel programming environment.</p>
 <p><img src="/images/OP/195243.png" /></p>
-<h6 id="mutex-vs-semaphore">Mutex VS Semaphore</h6>
+<h4 id="mutex-vs-semaphore">4.5.5 Mutex VS Semaphore</h4>
 <ul>
 <li><p>A Mutex is different than a semaphore as it is a <strong>locking mechanism</strong> while a semaphore is a <strong>signaling mechanism</strong>.</p>
 <pre class="line-numbers language-none"><code class="language-none">wait (mutex);
@@ -833,7 +835,7 @@ signal(S)
 &#123;
   S++;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="synchronization-among-processes">Synchronization among processes</h2>
+<h2 id="synchronization-among-processes">5. Synchronization among processes</h2>
 <p>Sometimes concurrently running processes must synchronize their execution:</p>
 <p>​ When a process must wait for:</p>
 <ul>
@@ -859,7 +861,7 @@ signal(S)
 </ul></li>
 <li>Condition variables and monitors</li>
 </ul>
-<h3 id="condition-variables-15650">Condition variables 1:56:50</h3>
+<h3 id="condition-variables-15650">5.1 Condition variables 1:56:50</h3>
 <p>Condition variables are a synchronization mechanism available in Pthreads.</p>
 <p>A condition variable is an object that has 2 operations, signal and wait.</p>
 <p>When process performs a wait on a condition variable, the process is blocked until another process performs a signal on the same condition variable.</p>
@@ -938,7 +940,7 @@ void processB() &#123;
 void main() &#123;
   create_process(processA); create_process(processB);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="monitors-20037">Monitors 2:00:37</h3>
+<h3 id="monitors-20037">5.2 Monitors 2:00:37</h3>
 <p>Definition: Collection of data and methods or subroutines that operate on data similar to an object-oriented paradigm</p>
 <p>Monitor guarantees only 1 process can execute inside monitor at a time</p>
 <ol type="1">
@@ -1003,9 +1005,9 @@ void processB() &#123;
 void main() &#123;
   create_process(processA); create_process(processB);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="scheduling">Scheduling</h2>
+<h2 id="scheduling">6. Scheduling</h2>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9aFliRXdZM1MyRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20operating%20systems%20and%20security%20%2D%20lecture%202%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video 1:54:50 ~ 2:07:00</a></p>
-<h3 id="process-behaviour-15632">Process behaviour 1:56:32</h3>
+<h3 id="process-behaviour-15632">6.1 Process behaviour 1:56:32</h3>
 <ol type="a">
 <li><p>A CPU/Compute-bound process.</p></li>
 <li><p>An I/O-bound process.</p></li>
@@ -1038,10 +1040,10 @@ void main() &#123;
 <li>Only determines which process is next after current process finishes execution</li>
 </ul></li>
 </ul>
-<h3 id="scheduling-algorithms-and-their-goals-20041">Scheduling algorithms and their goals 2:00:41</h3>
+<h3 id="scheduling-algorithms-and-their-goals-20041">6.2 Scheduling algorithms and their goals 2:00:41</h3>
 <p>Some goals of different scheduling algorithms under different circumstances.</p>
 <p><img src="/images/OP/0934281.png" /></p>
-<h4 id="scheduling-in-batch-systems-20206">Scheduling in batch systems 2:02:06</h4>
+<h3 id="scheduling-in-batch-systems-20206">6.3 Scheduling in batch systems 2:02:06</h3>
 <p>First-come first-served</p>
 <p>Shortest job first</p>
 <p>Shortest remaining time next</p>
@@ -1052,14 +1054,14 @@ void main() &#123;
 <li><p>Running four jobs in the original order</p></li>
 <li><p>Running them in shortest job first order.</p></li>
 </ol>
-<h4 id="scheduling-in-interactive-systems-20312">Scheduling in interactive systems 2:03:12</h4>
-<h5 id="round-robin-scheduling">Round-robin scheduling</h5>
+<h3 id="scheduling-in-interactive-systems-20312">6.4 Scheduling in interactive systems 2:03:12</h3>
+<h4 id="round-robin-scheduling">6.4.1 Round-robin scheduling</h4>
 <p><img src="/images/OP/0934283.png" /></p>
 <ol type="a">
 <li><p>The list of runnable processes</p></li>
 <li><p>The list of runnable processes after B uses up its quantum</p></li>
 </ol>
-<h5 id="priority-scheduling-20410">Priority scheduling 2:04:10</h5>
+<h4 id="priority-scheduling-20410">6.4.2 Priority scheduling 2:04:10</h4>
 <p>Process with highest priority always selected first by scheduler</p>
 <ul>
 <li>Typically determined statically during creation and dynamically during execution</li>
@@ -1080,7 +1082,7 @@ void main() &#123;
 <figure>
 <img src="/images/OP/0934284.png" alt="" /><figcaption>A scheduling algorithm with four priority classes.</figcaption>
 </figure>
-<h4 id="scheduling-in-real-time-systems">Scheduling in real-time systems</h4>
+<h4 id="scheduling-in-real-time-systems">6.4.3 Scheduling in real-time systems</h4>
 
                 
             </div>
@@ -1446,13 +1448,6 @@ void main() &#123;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

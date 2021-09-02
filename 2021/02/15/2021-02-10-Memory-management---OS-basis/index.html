@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    9 Min
                 </div>
                 
 
@@ -504,6 +504,7 @@
 <p><a href="https://yintelligence.tech/2021/02/09/2021-02-09-Course-Overview/">VUB 4011247EER Operating Systems and Security</a></p>
 <p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9U1pBOVNQVE4yRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20operating%20systems%20and%20security%20%2D%20lecture%201%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video 2:11:37</a></p>
 <p>Parkinson’s Law: ‘‘Programs expand to fill the memory available to hold them.’’</p>
+<p>帕金森定律：“程序会扩展以填充可容纳它们的内存。”</p>
 <p>Ideally programmers want memory that is</p>
 <ul>
 <li>private</li>
@@ -511,7 +512,7 @@
 <li>fast</li>
 <li>non volatile</li>
 </ul>
-<p>Memory hierarchy</p>
+<h2 id="memory-hierarchy-内存层次结构">1. Memory hierarchy 内存层次结构</h2>
 <ul>
 <li>small amount of fast, expensive memory – cache</li>
 <li>some medium-speed, medium price main memory</li>
@@ -520,69 +521,96 @@
 <p>O.S. abstracts the memory management</p>
 <p>A memory manager handles the memory hierarchy.</p>
 <p><img src="/images/OP/045041.png" /></p>
-<h2 id="memory-abstraction">Memory Abstraction</h2>
-<h3 id="monoprogramming-without-memory-abstraction-21546">Monoprogramming without memory abstraction 2:15:46</h3>
+<h2 id="monoprogramming-without-memory-abstraction-21546">2. Monoprogramming without memory abstraction 2:15:46</h2>
 <ul>
 <li>No abstraction (early technologies)
 <ul>
-<li>Every program simply see the physical memory</li>
-<li>It is not possible to have two running programs in memory at the same time!</li>
+<li><p>Every program simply see the physical memory</p>
+<p>每个程序只看到物理内存</p></li>
+<li><p>It is not possible to have two running programs in memory at the same time!</p>
+<p>不可能同时在内存中有两个正在运行的程序！</p></li>
 </ul></li>
 <li>Basic memory organization (an operating system with one user process)</li>
 </ul>
 <p><img src="/images/OP/045042.png" /></p>
 <ol type="1">
-<li>The operating system may be at the bottom of memory in RAM -&gt; Early mainframes</li>
-<li>At the top of memory in ROM -&gt; Embedded systems</li>
-<li>The device drivers may be at the top of memory in a ROM and the rest of the system in RAM down below -&gt; early PCs</li>
+<li>The operating system may be at the bottom of memory in RAM -&gt; Early mainframes 早期大型机</li>
+<li>At the top of memory in ROM -&gt; Embedded systems 嵌入式系统</li>
+<li>The device drivers may be at the top of memory in a ROM and the rest of the system in RAM down below -&gt; early PCs 早期的 PC</li>
 </ol>
 <p>The core problem is <u>the use of absolute physical memory addresses</u>, which needs to be considered when running to programs</p>
+<p>核心问题是绝对物理内存地址的使用，这在运行程序时需要考虑。</p>
 <ul>
 <li>First, if user programs can address every byte of memory, they can <strong>easily trash</strong> the operating system, intentionally or by accident, bringing the system to a grinding halt.</li>
 <li>Second, with this model, it is difficult to have multiple programs running <strong>at once</strong> (taking turns, if there is only one CPU).</li>
 </ul>
 <p>Nonetheless, the lack of a memory abstraction is still common in embedded and smart card systems.</p>
-<h3 id="solution-address-space-21800">Solution :Address Space 2:18:00</h3>
+<h3 id="solution-address-space-21800">2.1 Solution :Address Space 2:18:00</h3>
 <p>An <strong>address space</strong> is <u>the set of addresses that a process can use to address memory</u>.</p>
 <p>Each process has its own address space, independent of those belonging to other processes</p>
 <p>Basic solution: <strong>Base</strong> and <strong>limit</strong> registers</p>
 <p><img src="/images/OP/045800.png" /></p>
-<h3 id="swapping-and-virtual-memory-21944">Swapping and virtual memory 2:19:44</h3>
-<p><strong>Problem</strong>: The total amount of RAM needed by all the processes is often much more than can fit in physical memory.</p>
+<h2 id="swapping-and-virtual-memory-交换和虚拟内存-21944">Swapping and virtual memory 交换和虚拟内存 2:19:44</h2>
+<p>Problem: The total amount of RAM needed by all the processes is often much more than can fit in physical memory.</p>
+<p><strong>问题</strong>：所有进程所需的 RAM 总量通常远远超过物理内存的容量。</p>
 <p>Two general approaches to dealing with memory overload have been developed over the years.</p>
 <ul>
-<li><strong>Swap memory</strong>: consists of bringing in each process in its entirety, running it for a while, then putting it back on the disk.</li>
-<li><strong>Virtual memory</strong>: allows programs to run even when they are only partially in main memory.</li>
+<li><p><strong>Swap memory</strong></p>
+<ul>
+<li><p>consists of bringing in each process in its entirety, running it for a while, then putting it back on the disk</p>
+<p>包括将每个进程整体引入，运行一段时间，然后将其放回磁盘。</p></li>
+</ul></li>
+<li><p><strong>Virtual memory</strong></p>
+<ul>
+<li><p>allows programs to run even when they are only partially in main memory</p>
+<p>即使程序仅部分位于主内存中，也允许程序运行</p></li>
+</ul></li>
 </ul>
-<h4 id="swapping-22047">Swapping 2:20:47</h4>
+<h2 id="swapping-memory-交换内存-22047">3. Swapping memory 交换内存 2:20:47</h2>
+<blockquote>
+<p>包括将每个进程整体引入，运行一段时间，然后将其放回磁盘。</p>
+</blockquote>
 <p>Memory allocation changes as</p>
 <ul>
-<li>processes come into memory</li>
-<li>leave memory</li>
+<li>processes come into memory 进程进入内存</li>
+<li>leave memory 留下记忆</li>
 </ul>
+<blockquote>
 <p>Shaded regions are unused memory</p>
+<p>阴影区域是未使用的内存</p>
+</blockquote>
 <p><img src="/images/OP/050227.png" /></p>
+<h3 id="problem">3.1.1 Problem</h3>
 <p><strong>Problem</strong>: If processes are created with a fixed size that never changes, then the allocation is simple. This is usually not the case!</p>
+<p><strong>问题</strong>：如果创建的进程具有从不改变的固定大小，则分配很简单。通常情况并非如此！</p>
 <p>By dynamically allocating memory from a heap, as in many programming languages, a problem occurs whenever a process tries to grow.</p>
+<p>通过从堆动态分配内存，就像在许多编程语言中一样，每当进程试图增长时就会出现问题。</p>
 <p>If a process cannot grow in memory and the swap area on the disk is full, the process will have to suspended until some space is freed up (or it can be killed)</p>
-<p><strong>Solution</strong>:</p>
+<p>如果进程不能在内存中增长并且磁盘上的交换区已满，则该进程将不得不暂停，直到释放一些空间</p>
+<h3 id="solution">3.1.1.2 Solution</h3>
 <ol type="1">
-<li>Allocating space for a <strong>growing</strong> data segment.</li>
-<li>Allocating space for a <strong>growing</strong> stack and a growing data segment.</li>
+<li><p>Allocating space for a <strong>growing</strong> data segment.</p>
+<p>为<strong>不断增长的</strong>数据段分配空间。</p></li>
+<li><p>Allocating space for a <strong>growing</strong> stack and a growing data segment.</p>
+<p>为<strong>不断增长的</strong>堆栈和不断增长的数据段分配空间。</p></li>
 </ol>
 <p><img src="/images/OP/050452.png" /></p>
-<h4 id="managing-free-memory-22320">Managing free memory 2:23:20</h4>
+<h2 id="managing-free-memory-22320">Managing free memory 2:23:20</h2>
 <p>When memory is assigned <strong>dynamically</strong>, the operating system must manage it.</p>
+<p><strong>动态</strong>分配内存时，操作系统必须对其进行管理。</p>
 <p>In general terms, there are two ways to keep track of memory usage:</p>
 <ul>
 <li>Bitmaps</li>
 <li>Linked Lists</li>
 </ul>
-<h5 id="managing-memory-management-with-bitmaps">Managing memory management with bitmaps</h5>
+<h3 id="bitmaps-位图">3.2.1 Bitmaps 位图</h3>
 <ul>
-<li>Memory is divided into allocation units as small as a few words and as large as several kilobytes</li>
-<li>The size of the allocation unit is an important design issue. <strong>The smaller the allocation unit, the larger the bitmap.</strong></li>
-<li>Searching a bitmap for a run of a given length is <u>a <strong>slow</strong> operation</u>!</li>
+<li><p>Memory is divided into allocation units as small as a few words and as large as several kilobytes</p>
+<p>内存分为小到几个字大到几千字节的分配单元</p></li>
+<li><p>The size of the allocation unit is an important design issue. <strong>The smaller the allocation unit, the larger the bitmap.</strong></p>
+<p>分配单元的大小是一个重要的设计问题。<strong>分配单元越小，位图越大</strong></p></li>
+<li><p>Searching a bitmap for a run of a given length is <u>a <strong>slow</strong> operation</u>!</p>
+<p>搜索给定长度的位图是一个<strong>缓慢的</strong>操作！</p></li>
 </ul>
 <p><img src="/images/OP/050751.png" /></p>
 <ol type="1">
@@ -594,8 +622,9 @@
 <li>Corresponding bit map</li>
 <li>Same information as a list</li>
 </ol>
-<h5 id="managing-memory-management-with-linked-lists">Managing memory management with linked lists</h5>
+<h3 id="linked-lists-链表">3.2.2 Linked lists 链表</h3>
 <p>An <strong>linked list</strong> of allocated and free memory segments: each segment either contains a process or is an empty hole between two processes</p>
+<p>已分配和空闲内存段的<strong>链表</strong>：每个段要么包含一个进程，要么是两个进程之间的空洞</p>
 <p>When the processes and holes are kept on a list sorted by address, <strong>several algorithms</strong> can be used to allocate memory for a created process (or an existing process being swapped in from disk).</p>
 <ul>
 <li>First fit</li>
@@ -607,14 +636,22 @@
 <figure>
 <img src="/images/OP/051124.png" alt="" /><figcaption>Four neighbour combinations for the terminating process X</figcaption>
 </figure>
-<h4 id="virtual-memory-22817">Virtual Memory 2:28:17</h4>
+<h2 id="virtual-memory-22817">4. Virtual Memory 2:28:17</h2>
+<blockquote>
+<p>即使程序仅部分位于主内存中，也允许程序运行</p>
+</blockquote>
 <ul>
-<li>There is a need to run programs that are too large to fit in memory</li>
-<li>Swapping can be <strong><u>too slow</u></strong> for certain applications</li>
-<li>The basic idea behind <strong>virtual memory</strong> is that each program has its own address space, which is broken up into chunks of fixed-size called <strong>pages</strong></li>
-<li>Each <strong>page</strong> is a contiguous range of addresses.</li>
-<li>These pages are mapped onto physical memory, but not all pages have to be in physical memory at the same time to run the program</li>
-<li>MMU (Memory Management Unit) that maps the <strong>virtual addresses</strong> onto the physical memory addresses</li>
+<li><p>There is a need to run programs that are too large to fit in memory</p>
+<p>需要运行太大而无法放入内存的程序</p></li>
+<li><p>Swapping can be <strong><u>too slow</u></strong> for certain applications</p>
+<p>对于某些应用程序，交换可能<strong>太慢</strong></p></li>
+<li><p>The basic idea behind <strong>virtual memory</strong> is that each program has its own address space, which is broken up into chunks of fixed-size called <strong>pages</strong></p>
+<p><strong>虚拟内存</strong>背后的基本思想是每个程序都有自己的地址空间，它被分成固定大小的块，称为<strong>页面</strong></p></li>
+<li><p>Each <strong>page</strong> is a contiguous range of addresses.</p>
+<p>每个<strong>页面</strong>都是一个连续的地址范围。</p></li>
+<li><p>These pages are mapped onto physical memory, but not all pages have to be in physical memory at the same time to run the program</p>
+<p>这些页面被映射到物理内存上，但并非所有页面都必须同时在物理内存中才能运行程序</p></li>
+<li><p><strong>MMU (Memory Management Unit)</strong> that maps the <strong>virtual addresses</strong> onto the physical memory addresses</p></li>
 </ul>
 <figure>
 <img src="/images/OP/051513.png" alt="" /><figcaption>2:29:30 - 2:29:49</figcaption>
@@ -624,7 +661,8 @@
 <p>A 32 KB main memory divided up into eight <strong>page</strong> frames of 4 KB each.</p>
 <p><strong>Allow the use of more memory than the amount of physical memory in the machine</strong></p>
 <p><img src="/images/OP/0515131.png" /></p>
-<h5 id="mapping-virtual-memory-pages-to-physical-memory-pages-23210">Mapping virtual memory pages to <strong>physical</strong> memory pages 2:32:10</h5>
+<h3 id="mapping-to-physical-memory-23210">4.1 Mapping to <strong>physical</strong> memory 2:32:10</h3>
+<p>Mapping virtual memory pages to <strong>physical</strong> memory pages</p>
 <ul>
 <li>Page table maps virtual/logical page numbers to physical page numbers.</li>
 <li>Contains for each logical page number:
@@ -637,12 +675,13 @@
 <li>If virtual page is unmapped and it is referenced (a logical address lying in the logical page is referenced), <strong>the page is loaded from disk (page file)</strong> into a free physical memory page in a transparent way.</li>
 </ul>
 <p><img src="/images/OP/051959.png" /></p>
-<h5 id="demand-paging-23250">Demand paging 2:32:50</h5>
+<h3 id="demand-paging-23250">4.2 Demand paging 2:32:50</h3>
 <p><img src="/images/OP/052205.png" /></p>
-<h5 id="address-translation-23326">Address translation 2:33:26</h5>
+<h3 id="address-translation-23326">4.3 Address translation 2:33:26</h3>
 <p><img src="/images/OP/052426.png" /></p>
-<h5 id="page-replacement-23352">Page replacement 2:33:52</h5>
+<h3 id="page-replacement-23352">4.4 Page replacement 2:33:52</h3>
 <p>Which page to be swapped out if there is a page fault and all physical pages are already in use?</p>
+<p>如果出现页面错误并且所有物理页面都已在使用中，要换出哪个页面？</p>
 <p>Algorithm</p>
 <ul>
 <li>The longest in the memory (First Come First Serve - FCFS)</li>
@@ -654,7 +693,7 @@
 <li>Usage count -&gt; FCFS</li>
 </ul>
 <p><img src="/images/OP/052630.png" /></p>
-<h4 id="segmented-memory-23645">Segmented memory 2:36:45</h4>
+<h2 id="segmented-memory-23645">5. Segmented memory 2:36:45</h2>
 <p><img src="/images/OP/052818.png" /></p>
 <p>Provides each Program / Process with one or more (code, data, stack) independent logical address spaces.</p>
 <ul>
@@ -667,15 +706,16 @@
 </ul></li>
 </ul>
 <p><img src="/images/OP/052945.png" /></p>
-<h5 id="segmentation-vs.-paging-23927">Segmentation VS. paging 2:39:27</h5>
+<h4 id="segmentation-vs.-paging-23927">5.1 Segmentation VS. paging 2:39:27</h4>
 <p><img src="/images/OP/053046.png" /></p>
-<h5 id="swapping-pure-segmentation-24011">Swapping (Pure segmentation) 2:40:11</h5>
+<h4 id="swapping-pure-segmentation-24011">5.2 Swapping (Pure segmentation) 2:40:11</h4>
 <p><img src="/images/OP/053152.png" /></p>
 <p>Issues:</p>
 <ul>
-<li>Management of free memory (bitmaps or linked lists)</li>
-<li>Memory compaction needed</li>
-<li>Slow mechanism -&gt; solution: combine with paging virtual memory</li>
+<li><p>Management of free memory (bitmaps or linked lists)</p></li>
+<li><p>Memory compaction needed 需要内存压缩</p></li>
+<li><p>Slow mechanism -&gt; solution: combine with paging virtual memory</p>
+<p>慢机制-&gt;解决办法：结合分页虚拟内存</p></li>
 </ul>
 
                 
@@ -1042,13 +1082,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-08-09
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    729
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    7 Min
                 </div>
                 
 
@@ -501,137 +501,170 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="protection">Protection</h1>
-<p><a href="https://yintelligence.tech/2021/02/09/2021-02-09-Course-Overview/">VUB 4011247EER Operating Systems and Security</a></p>
-<p><a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9LUpaZmJ0dlgyRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20Lecture%203%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video</a></p>
-<h2 id="computer-security-triad">Computer security triad</h2>
+<p><a href="https://yintelligence.tech/2021/02/09/2021-02-09-Course-Overview/">VUB 4011247EER Operating Systems and Security</a> + <a target="_blank" rel="noopener" href="https://vub-my.sharepoint.com/personal/bruno_da_silva_vub_be/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly92dWItbXkuc2hhcmVwb2ludC5jb20vOmY6L2cvcGVyc29uYWwvYnJ1bm9fZGFfc2lsdmFfdnViX2JlL0V1ZWdTdWlYa3JCSWhnNXhVMFgzZ2s4QjhSNlFQYkRFbVZLMFNCUmlIQXVTWVE%5FcnRpbWU9LUpaZmJ0dlgyRWc&amp;id=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings%2F%5BOSSEC%5D%20%2D%20Lecture%203%2Emp4&amp;parent=%2Fpersonal%2Fbruno%5Fda%5Fsilva%5Fvub%5Fbe%2FDocuments%2FCOURSES%2FOSSEC%2020%20%2D%2021%20Semester%202%2FRecordings">Video</a></p>
+<ul>
+<li><a href="https://yintelligence.tech/2021/02/23/2021-02-23-Security/">Protection</a></li>
+<li><a href="https://yintelligence.tech/2021/02/24/2021-02-24-Attacks---Security/">Attacks</a></li>
+</ul>
+<hr />
+<h2 id="computer-security-triad-安全三角形">1. Computer security triad 安全三角形</h2>
 <p>Three key objectives are at the heart of computer security</p>
 <p><img src="/images/OP/5943210.png" /></p>
-<h2 id="can-we-build-secure-systems">Can we build secure systems?</h2>
+<h2 id="can-we-build-secure-systems-我们可以建立安全的系统吗">2. Can we build secure systems 我们可以建立安全的系统吗？</h2>
 <p>Two questions concerning security:</p>
 <ol type="1">
 <li>Is it possible to build a secure computer system?</li>
 <li>If so, why is it not done?</li>
 </ol>
-<h2 id="trusted-computing-base">Trusted computing base</h2>
+<h3 id="trusted-computing-base">2.0 Trusted computing base</h3>
+<p><img src="/images/OP/5943211.png" /></p>
 <p><strong>Reference monitor</strong></p>
 <p>Accepts all system call security and makes security decisions</p>
-<p><img src="/images/OP/5943211.png" /></p>
-<h2 id="protection-domains">Protection domains</h2>
+<p>接受所有系统调用安全并做出安全决策</p>
+<h3 id="protection-domains-保护域">2.1 Protection domains 保护域</h3>
 <ul>
-<li><p>Domain is a collection of access rights</p></li>
-<li><p>Domain is a set of (object, rights)pairs.</p>
+<li><p>Domain is a collection of access rights</p>
+<p>域是访问权限的集合</p></li>
+<li><p>Domain is a set of <code>(object, rights)</code> pairs.</p>
 <ul>
-<li>Each pair specifies an object and some operation that can be preformed on it.</li>
-<li>Right, in this context, means the permission to perform one of the operations.</li>
+<li><p>Each pair specifies an <strong>object</strong> and some operation that can be preformed on it.</p>
+<p>每对指定一个<strong>对象</strong>和一些可以在其上执行的操作。</p></li>
+<li><p><strong>Right</strong>, in this context, means the permission to perform one of the operations.</p>
+<p><strong>权利</strong>，在这种情况下，意味着执行其中一项操作的权限。</p></li>
 </ul></li>
 </ul>
 <p><strong>Example:</strong></p>
 <figure>
 <img src="/images/OP/5943212.png" alt="" /><figcaption>Three protection domains.</figcaption>
 </figure>
-<h2 id="controlling-access-to-resources">Controlling access to resources</h2>
-<h3 id="principle-of-least-authorityprivilege">Principle of least authority/privilege</h3>
+<h3 id="controlling-access-to-resources-控制对资源的访问">2.2 Controlling access to resources 控制对资源的访问</h3>
+<h4 id="principle-of-least-authorityprivilege-最小权限原则">2.2.1 Principle of least authority/privilege 最小权限原则</h4>
 <p>In general, <strong>Security</strong> works best when each domain has the <strong>minimum</strong> objects and privileges to do its work and no more.</p>
+<p>一般来说，当每个域都拥有<strong>最少的</strong>对象和权限来完成其工作时，安全性的效果最好。</p>
 <p>At each abstraction layer, every element should be able to access only the resources necessary to perform its task.</p>
+<p>在每个抽象层，每个元素都应该只能访问执行其任务所需的资源。</p>
 <figure>
 <img src="/images/OP/5943213.png" alt="" /><figcaption>A protection matrix.</figcaption>
 </figure>
-<h3 id="two-methods-of-implementation">Two methods of implementation</h3>
+<h4 id="two-methods-of-implementation-实现方式">2.2.2 Two methods of implementation 实现方式</h4>
 <ul>
-<li>Access Control lists</li>
-<li>Capabilities list</li>
+<li>Access Control lists 访问控制列表</li>
+<li>Capabilities list 能力清单</li>
 </ul>
-<h4 id="access-control-lists">Access Control lists</h4>
+<h4 id="access-control-lists-访问控制列表">2.2.2.1 Access Control lists 访问控制列表</h4>
 <p><strong>Access control lists</strong> associate each object with an ordered list containing all the domains that may access the object and how.</p>
+<p><strong>访问控制列表将</strong>每个对象与一个有序列表相关联，该列表包含可以访问该对象的所有域以及访问方式。</p>
 <p><img src="/images/OP/5943214.png" /></p>
 <p>Many systems support the concept of a group of users. Groups have names and can be included in ACLs.</p>
-<h4 id="capabilities-list">Capabilities list</h4>
+<p>许多系统支持一组用户的概念。组具有名称并可包含在 ACL 中</p>
+<h4 id="capabilities-list-能力清单">2.2.2.2 Capabilities list 能力清单</h4>
+<blockquote>
+<p>Suited for distributed files</p>
+<p>适用于分布式文件</p>
+</blockquote>
+<p>Each element of this list is called <strong>capability</strong>, which grants the owner certain rights on a certain object.</p>
+<p>此列表的每个元素称为<strong>能力</strong>，它授予所有者对某个对象的某些权利。</p>
 <p>When capabilities are used, each process has a capability list.</p>
-<p>Each element of this list is called capability, which grants the owner certain rights on a certain object.</p>
+<p>当使用能力时，每个进程都有一个能力列表。</p>
 <p>Capability lists are themselves objects and may be pointed to from other capability lists, thus facilitating sharing of subdomains</p>
+<p>能力列表本身就是对象，可以从其他能力列表中指向，从而促进子域的共享</p>
 <p><img src="/images/OP/5943251.png" /></p>
 <p>Protect the list from tampering:</p>
+<p>保护列表不被篡改</p>
 <ul>
-<li>Tagged architecture</li>
-<li>C-list inside the operating system</li>
-<li>A cryptographically protected capability.</li>
+<li><p>Tagged architecture 标记架构</p></li>
+<li><p>C-list inside the operating system</p>
+<p>操作系统内部的C-list</p></li>
+<li><p>A cryptographically protected capability.</p>
+<p>受密码保护的功能</p></li>
 </ul>
-<p>Suited for distributed files</p>
-<h2 id="formal-models-of-secure-systems">Formal models of secure systems</h2>
+<h2 id="formal-models-of-secure-systems---protection-matrices-正式模型---保护矩阵">3. Formal models of secure systems - Protection matrices 正式模型 - 保护矩阵</h2>
 <p>Protection matrices are <strong>not static</strong>.</p>
+<p>保护矩阵<strong>不是静态的</strong>。</p>
 <ol type="a">
 <li><p>An authorized state.</p></li>
 <li><p>An unauthorized state.</p></li>
 </ol>
 <p><img src="/images/OP/5943215.png" /></p>
-<h2 id="multilevel-security">Multilevel security</h2>
-<p>Discretionary Access Control</p>
+<h2 id="multilevel-security-多级安全">4. Multilevel security 多级安全</h2>
+<p>Discretionary Access Control 自主访问控制 -自己决定</p>
 <ul>
 <li>Operating systems allow individual to determine who may read and write their files</li>
 </ul>
-<p>Mandatory Access Control</p>
+<p>Mandatory Access Control 强制访问控制 -组织决定</p>
 <ul>
 <li>Organizational rules state who can see and modify what.</li>
 </ul>
-<h3 id="bell-lapadula-model">Bell-LaPadula Model</h3>
+<h3 id="bell-lapadula-model-贝尔-拉帕杜拉模型">4.1 Bell-LaPadula Model 贝尔-拉帕杜拉模型</h3>
+<p>The Bell-LaPadula multilevel security model was devised to <strong>keep secrets</strong>, not guarantee the integrity of data.</p>
+<p>Bell-LaPadula 多级安全模型旨在<strong>保密</strong>，而不是保证数据的完整性。</p>
 <p>Bell-LaPadula Model rules for information flow:</p>
 <ol type="1">
-<li>The simple security property
+<li><p>The simple security property</p>
+<p>简单的安全属性</p>
 <ul>
-<li>Process running at security level k can read only objects at its level or lower</li>
+<li><p>Process running at security level k can read only objects at its level or lower</p>
+<p>运行在安全级别 k 的进程只能读取其级别或更低级别的对象</p></li>
 </ul></li>
-<li>The * property
+<li><p>The * property</p>
 <ul>
-<li>Process running at security level k can write only objects at its level or higher</li>
+<li><p>Process running at security level k can write only objects at its level or higher</p>
+<p>运行在安全级别 k 的进程只能写入其级别或更高级别的对象</p></li>
 </ul></li>
 </ol>
 <figure>
 <img src="/images/OP/5943216.png" alt="" /><figcaption>The Bell-LaPadula multilevel security model.</figcaption>
 </figure>
-<p>The Bell-LaPadula multilevel security model was devised to keep secrets, not guarantee the integrity of data.</p>
-<h3 id="biba-model">BIBA model</h3>
+<h3 id="biba-model">4.2 BIBA model</h3>
 <p>To guarantee the integrity of the data:</p>
 <ol type="1">
-<li>The simple integrity principle
+<li>The simple integrity principle 简单诚信原则
 <ul>
 <li>process running at security level k can write only objects at its level or lower (no write up).</li>
 </ul></li>
-<li>The integrity * property
+<li>The integrity * property <strong>完整性</strong>属性
 <ul>
 <li>process running at security level k can read only objects at its level or higher (no read down).</li>
 </ul></li>
 </ol>
 <p><em>BUT security leaks still can occur</em></p>
-<h2 id="convert-channels">Convert channels</h2>
+<h2 id="convert-channels-转换频道">5. Convert channels 转换频道</h2>
 <p><strong>Lampson’s model</strong>, showing how information leaks, was originally formulated in terms of a single timesharing system, but the same ideas can be adapted to applications running in the cloud.</p>
+<p><strong>Lampson 的模型</strong>展示了信息如何泄漏，最初是根据单个分时系统制定的，但同样的想法可以适用于在云中运行的应用程序。</p>
 <ol type="a">
-<li><p>The client, server, and collaborator processes.</p></li>
-<li><p>The encapsulated server can still leak to the collaborator via covert channels.</p></li>
+<li><p>The client, server, and collaborator processes 客户端、服务器和协作者进程</p></li>
+<li><p>The encapsulated server can still leak to the collaborator via covert channels</p></li>
 </ol>
+<p>封装的服务器仍然可以通过隐蔽渠道泄漏给合作者</p>
 <p><img src="/images/OP/5943217.png" /></p>
 <figure>
 <img src="/images/OP/5943218.png" alt="" /><figcaption>Figure 9-13. A covert channel using file locking.</figcaption>
 </figure>
-<h2 id="steganography">Steganography</h2>
-<h3 id="example">Example</h3>
+<h2 id="steganography-隐写术">6. Steganography 隐写术</h2>
+<h3 id="example">6.0 Example</h3>
 <p>The German Embassy in Washington, DC, sent these messages in telegrams to their headquarters in Berlin during World War I (Kahn 1996).</p>
 <pre class="line-numbers language-none"><code class="language-none">PRESIDENT&#39;S EMBARGO RULING SHOULD HAVE IMMEDIATE NOTICE.
 GRAVE SITUATION AFFECTING INTERNATIONAL LAW. STATEMENT
 FORESHADOWS RUIN OF MANY NEUTRALS. YELLOW JOURNALS
 UNIFYING NATIONAL EXCITEMENT IMMENSELY.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="stegtorrent">"Stegtorrent"</h3>
+<h3 id="stegtorrent">6.1 "Stegtorrent"</h3>
 <p>Bob sends messages through computers which he previously established control over.</p>
+<p>Bob 通过他之前建立控制的计算机发送消息。</p>
 <p>The order of the messages and which computer sends them, hides the secret.</p>
+<p>消息的顺序和哪台计算机发送它们，隐藏了秘密。</p>
 <ul>
-<li>Bob commands two computers to request a file from Alice</li>
-<li>Alice send message to computer 1 then computer 2</li>
+<li><p>Bob commands two computers to request a file from Alice</p>
+<p>Bob 命令两台计算机向 Alice 请求文件</p></li>
+<li><p>Alice send message to computer 1 then computer 2</p>
+<p>Alice 向计算机 1 然后向计算机 2 发送消息</p></li>
 </ul>
 <p><strong>➩ Binary 1</strong></p>
 <ul>
-<li>Alice sends message to computer 2 then compute 1</li>
+<li><p>Alice sends message to computer 2 then compute 1</p>
+<p>Alice 向计算机 2 发送消息，然后计算 1</p></li>
 </ul>
 <p><strong>➩ Binary 0</strong></p>
-<h4 id="skyde-skype-hide">Skyde (Skype Hide)</h4>
+<h4 id="skyde-skype-hide">6.1.1 Skyde (Skype Hide)</h4>
 <p>Skype packs data into audio packets while Alice is talking</p>
 <p>Skype <em>continues</em> to send audio packets when Alice is silent.</p>
 <ul>
@@ -639,7 +672,7 @@ UNIFYING NATIONAL EXCITEMENT IMMENSELY.<span aria-hidden="true" class="line-numb
 <p>‘Silent’ packets are hijacked contents are replaced with encrypted data</p></li>
 <li><p>Receiver application just assumes the original silent packets were lost 30% of silent packets can be compromised without notice</p></li>
 </ul>
-<h3 id="example-1">Example</h3>
+<h3 id="example-1">6.2 Example</h3>
 <ul>
 <li>Pictures appear the same</li>
 <li>Picture on right has text of 5 Shakespeare plays
@@ -1017,13 +1050,6 @@ UNIFYING NATIONAL EXCITEMENT IMMENSELY.<span aria-hidden="true" class="line-numb
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
