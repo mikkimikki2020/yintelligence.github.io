@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    383
+                    674
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -541,6 +541,16 @@ father(john,mary) :- parent(john,mary), male(john).<span aria-hidden="true" clas
 <li>Rules 可以有变量，它们以大写开头！</li>
 <li>以点结束！</li>
 </ul>
+<p>规则是推理方法，即如何从一个论断得到另一个论断。</p>
+<p>举例来说，我们定下一条规则：所有朋友关系都是相互的，规则写成下面这样。</p>
+<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">friend(X, Y) :- friend(Y,X).<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上面代码中，<code>X</code>和<code>Y</code>都是大写，表示这是两个变量。符号<code>:-</code>表示推理关系，含义是只要右边的表达式<code>friend(Y, X)</code>为<code>true</code>，那么左边的表达式<code>friend(X, Y)</code>也为<code>true</code>。因此，根据这条规则，<code>friend(jack, peter)</code>就可以推理得到<code>friend(peter, jack)</code>。</p>
+<p>如果一条规则取决于多个条件同时为<code>true</code>，则条件之间使用逗号分隔。</p>
+<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">mother(X, Y) :- child(Y,X), female(X).<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上面代码中，<code>X</code>是<code>Y</code>的母亲（<code>mother(X, Y)</code>）取决于两个条件：<code>Y</code>是<code>X</code>的小孩，<code>X</code>必须是女性。只有这两个条件都为<code>true</code>，<code>mother(X, Y)</code>才为<code>true</code>。</p>
+<p>如果一条规则取决于某个条件为<code>false</code>，则在条件之前加上<code>\+</code>表示否定。</p>
+<pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">onesidelove(X, Y) :- loves(X, Y), \+ loves(Y,X).<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上面代码中，<code>X</code>单相思<code>Y</code>，取决于两个条件。第一个条件是<code>X</code>喜欢<code>Y</code>，第二个条件是<code>Y</code>不喜欢<code>X</code>。</p>
 <h3 id="queries">Queries</h3>
 <p>check against facts and rules;</p>
 <pre class="line-numbers language-Prolog" data-language="Prolog"><code class="language-Prolog">male(X).

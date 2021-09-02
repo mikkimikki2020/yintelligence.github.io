@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    541
+                    579
                 </div>
                 
 
@@ -527,6 +527,18 @@ append([U|V],Y,[U|Z]) :- append(V,Y,Z).<span aria-hidden="true" class="line-numb
 </ul></li>
 </ol>
 <h3 id="steps">Steps</h3>
+<pre class="line-numbers language-none"><code class="language-none"># step 1
+U &#x3D; [1]
+V &#x3D; [2]
+Y &#x3D; [3,4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none"># step 2
+append([2],[3,4],Z).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none"># step 3
+U &#x3D; [2]
+V &#x3D; []
+Y &#x3D; [3,4]
+append([],[3,4],Z).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">Z &#x3D; [3,4]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="work-with-rule-1">Work with rule 1</h4>
 <p>1. Work with rule 1: <code>append([],D,D)</code></p>
 <p><img src="/images/CS61A/img116924.png" /></p>
