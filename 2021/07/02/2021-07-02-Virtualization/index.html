@@ -1,0 +1,2249 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Virtualization, Chaoqun Yin">
+    <meta name="description" content="Veni, Vidi, Vici">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Virtualization | Chaoqun Yin</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Chaoqun Yin</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Chaoqun Yin</div>
+        <div class="logo-desc">
+            
+            Veni, Vidi, Vici
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Virtualization</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Operating-Systems-and-Security/">
+                                <span class="chip bg-color">Operating Systems and Security</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Computer-Systems/" class="post-category">
+                                Computer Systems
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-07-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-09-02
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    9.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    42 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="virtualization">Virtualization</h1>
+<p><a href="https://yintelligence.tech/2021/02/09/2021-02-09-Course-Overview/">VUB 4011247EER Operating Systems and Security</a></p>
+<h2 id="definition-定义">1. Definition 定义</h2>
+<p>“Virtualization is the ability to <u>run <strong>multiple</strong> operating systems on a single physical system and <strong>share</strong> the underlying hardware resources</u>"</p>
+<p>“虚拟化是在单个物理系统上<u>运行<strong>多个</strong>操作系统并<strong>共享</strong>底层硬件资源</u>的能力。”</p>
+<p><img src="/images/OP/image-20210902025655990.png" /></p>
+<p>Virtualization refers to the act of creating a virtual (rather than actual) version of something, <u>including virtual computer hardware platforms</u>, computer network resources, etc.</p>
+<p>虚拟化是指创建某物的虚拟（而非实际）版本的行为，<u>包括虚拟计算机硬件平台</u>、计算机网络资源等。</p>
+<p><img src="/images/OP/image-20210902030507890.png" /></p>
+<h3 id="motivation-动机">1.0 Motivation 动机</h3>
+<p>Three <strong>fundamental abstractions</strong> are necessary to describe the operation of a computing systems:</p>
+<ol type="1">
+<li>processors</li>
+<li>memory</li>
+<li>communications</li>
+</ol>
+<blockquote>
+<p>As the scale of a system and the size of its users grows, it becomes very challenging to manage its recourses (see three points above)</p>
+<p>随着系统规模和用户规模的增长，管理其资源变得非常具有挑战性（参见以上三点）</p>
+</blockquote>
+<p><strong>Resource management issues:</strong></p>
+<ul>
+<li><p>provision for peak demands → overprovisioning</p>
+<p>提供高峰需求 → 过度供应</p></li>
+<li><p>heterogeneity of hardware and software 硬件和软件的异构性</p></li>
+<li><p>machine failures 机器故障</p></li>
+</ul>
+<p>Virtualization is a basic enabler of Cloud Computing, it simplifies the management of physical resources for the three abstractions</p>
+<p>虚拟化是云计算的基本推动者，它<u>简化了三个抽象的物理资源管理</u></p>
+<ul>
+<li><p>For example, the state of a virtual machine (VM) running under a virtual machine monitor (VMM) can de saved and migrated to another server to balance the load</p>
+<blockquote>
+<p>VMM 也称为<strong>管理程序hypervisor</strong>。</p>
+</blockquote>
+<p>例如，在虚拟机监视器（VMM）下运行的虚拟机（VM）的状态可以去保存并迁移到另一台服务器以平衡负载</p></li>
+<li><p>For example, virtualization allows users to operate in environments they are familiar with, rather than forcing them to specific ones</p>
+<p>例如，虚拟化允许用户在他们熟悉的环境中操作，而不是强迫他们使用特定的环境</p></li>
+</ul>
+<p>Virtualization is important for 虚拟化对于以下方面很重要:</p>
+<ul>
+<li><p><strong>Performance isolation 性能隔离</strong></p>
+<ul>
+<li><p>as we can dynamically assign and account for resources across different applications</p>
+<p>因为我们可以跨不同应用程序动态分配和说明资源</p></li>
+</ul></li>
+<li><p><strong>System security 系统安全</strong></p>
+<ul>
+<li><p>as it allows isolation of services running on the same hardware</p>
+<p>因为它允许隔离在同一硬件上运行的服务</p></li>
+</ul></li>
+<li><p><strong>Performance and reliability 性能和可靠性</strong></p>
+<ul>
+<li><p><strong>Reliability</strong></p>
+<ul>
+<li><p>By putting each service on a separate computer, if one of the servers crashes, at least the other ones are not affected</p>
+<p>通过将每个服务放在单独的计算机上，如果其中一个服务器崩溃，至少其他服务器不受影响</p></li>
+</ul></li>
+<li><p><strong>Security</strong></p>
+<ul>
+<li><p>Malevolent intruders affecting one service can be isolated from others (<strong>sandboxing</strong> concept)</p>
+<p>影响一项服务的恶意入侵者可以与其他服务隔离（<strong>沙盒sandboxing</strong>概念）</p></li>
+</ul></li>
+<li><p>as it allows applications to migrate from one platform to another</p>
+<p>因为它允许应用程序从一个平台迁移到另一个平台</p></li>
+</ul></li>
+<li><p>The development and management of services offered by a provider</p>
+<p>提供商提供的服务的开发和管理</p></li>
+</ul>
+<h3 id="advantages-优点">1.1 Advantages 优点</h3>
+<ul>
+<li><p><strong>Multi O.S. support 多系统支持</strong></p>
+<ul>
+<li>e.g. a Web server on Linux, a mail server on Windows, an ecommerce server for customers running on OS X</li>
+</ul></li>
+<li><p><strong>Isolation 隔离性</strong></p>
+<ul>
+<li><p>Virtual machines are isolated from each other as if they are physically separated</p>
+<p>虚拟机彼此隔离，就好像它们在物理上是分开的</p></li>
+</ul></li>
+<li><p><strong>Economical 经济性</strong></p>
+<ul>
+<li><p>Sharing of resources helps cost reduction</p>
+<p>资源共享有助于降低成本</p></li>
+<li><p>fewer physical machines saves money on hardware and electricity and takes up less rack space.</p>
+<p>更少的物理机可以节省硬件和电力，占用更少的机架空间。</p></li>
+</ul></li>
+<li><p><strong>Encapsulation 封装性</strong></p>
+<ul>
+<li><p>Virtual machines encapsulate a complete computing environment</p>
+<p>虚拟机封装了一个完整的计算环境</p></li>
+<li><p>experimentation, evaluation of security threads,…</p>
+<p>实验，安全线程的评估，...</p></li>
+</ul></li>
+<li><p><strong>Hardware Independence 硬件独立</strong></p>
+<ul>
+<li><p>Virtual machines <u>run independently of underlying hardware</u></p>
+<p>虚拟机<u>独立于底层硬件</u>运行</p></li>
+</ul></li>
+<li><p><strong>Portability 便携性</strong></p>
+<ul>
+<li><p>Virtual machines can be <strong>migrated</strong> between different hosts.</p>
+<p>虚拟机可以在不同主机之间<strong>迁移</strong>。</p></li>
+</ul></li>
+</ul>
+<h3 id="applications-应用">1.2 Applications 应用</h3>
+<p>Virtualization provides support for multiple services:</p>
+<ul>
+<li>Web server</li>
+<li>Mail server</li>
+<li>Database server</li>
+<li>File server</li>
+<li>Proxy server</li>
+<li>Application server</li>
+<li>…and many others</li>
+</ul>
+<h3 id="types-类型">1.3 Types 类型</h3>
+<ul>
+<li><p>Virtual memory</p></li>
+<li><p>Desktop virtualization</p></li>
+<li><p><strong>Platform virtualization</strong></p>
+<blockquote>
+<p>At</p>
+<ul>
+<li>Hardware level</li>
+<li>Operating system level</li>
+<li>Application level</li>
+</ul>
+</blockquote>
+<ul>
+<li>Full virtualization</li>
+<li>Binary translation</li>
+<li>Paravirtualization</li>
+<li>Hardware-assisted virtualization</li>
+<li>Partial virtualization</li>
+<li>OS-level virtualization</li>
+<li>Hosted environment (e.g. User-mode Linux)</li>
+</ul></li>
+<li><p>Storage virtualization</p></li>
+<li><p>Network virtualization</p></li>
+<li><p><strong>Application virtualization</strong></p></li>
+<li><p><strong>Portable application</strong></p>
+<ul>
+<li>Cross-platform virtualization</li>
+<li>Emulation or simulation</li>
+<li>Hosted Virtual Desktop</li>
+</ul></li>
+</ul>
+<h3 id="example-virtual-disk">1.4 Example: Virtual disk</h3>
+<ul>
+<li><p>Partition a single hard disk to multiple virtual disks</p>
+<p>将单个硬盘分区到多个虚拟磁盘</p>
+<ul>
+<li><p>Virtual disk has virtual tracks &amp; sectors</p>
+<p>虚拟磁盘具有虚拟磁道和扇区</p></li>
+</ul></li>
+<li><p>Implement virtual disk by <strong>file</strong></p>
+<p>按<u><strong>文件</strong></u>实现虚拟磁盘</p></li>
+<li><p><strong>Map</strong> between virtual disk and real disk contents</p>
+<p>虚拟磁盘和真实磁盘内容之间的<strong>映射</strong></p></li>
+<li><p>Virtual disk <u>write/read</u> <strong>mapped</strong> to file <u>write/read</u> in host system</p>
+<p>虚拟磁盘<u>写入/读取</u><strong>映射</strong>到主机系统中的文件<u>写入/读取</u></p></li>
+</ul>
+<p><img src="/images/OP/image-20210902031754885.png" /></p>
+<h2 id="history-历史">2 History 历史</h2>
+<ul>
+<li>Popular research idea in 60s and 70s
+<ul>
+<li>Entire conferences on virtual machine monitor</li>
+<li>Hardware/VMM/OS designed together</li>
+</ul></li>
+<li>60s: IBM CP/CMS control program, a virtual machine operating system for the IBM System/360 Model 67
+<ul>
+<li>Run different OS instances</li>
+<li>Desirable when few machines is around</li>
+</ul></li>
+<li>70s: Popek and Golberg from UCLA published “Formal Requirements for Virtualizable Third Generation Architectures” in 1974
+<ul>
+<li>List of conditions that a computer architecture should satisfy to support virtualization efficiently.</li>
+<li>The popular x86 architecture that originated in the 1970s did not support these requirements for decades.</li>
+</ul></li>
+<li>Interest died out in the 80s</li>
+<li>90’s
+<ul>
+<li>VMware: Researchers developed a new hypervisor and founded VMware, the biggest virtualization company of today’s. First virtualization solution was is 1999 for x86.</li>
+<li>Disco: Stanford research project (SOSP’97)
+<ul>
+<li>By Edouard Bugnion, Scott Devine, and Mendel Rosenblum
+<ul>
+<li>Rosenblum is the author of log-structured file system</li>
+</ul></li>
+<li>So OS developers won’t change their code for new hardware</li>
+</ul></li>
+</ul></li>
+<li>2000’s
+<ul>
+<li>IBM: z-series with 64-bit virtual address spaces and backward compatible with the System/360</li>
+<li>Research virtual machines: <strong>Xen</strong> (SOSP’03)</li>
+<li>Hardware support: Intel VT-x and AMD’s AMD-V (2005)</li>
+</ul></li>
+<li>Today many virtualization solutions: Xen from Cambridge, KVM, Hyper-V, …</li>
+<li>IBM was the first to produce and sell virtualization for the mainframe. But, VMware popularised virtualization for the masses.</li>
+</ul>
+<h3 id="hardware-evolution-硬件进化">2.1 Hardware evolution 硬件进化</h3>
+<ul>
+<li><u>Faster CPU clock</u> than ever
+<ul>
+<li>Though almost hit its top</li>
+</ul></li>
+<li><u>More CPU cores</u> in a single chip
+<ul>
+<li>4-core CPUs already in the market</li>
+<li>6- or 8-core CPUs will be there soon</li>
+</ul></li>
+<li>Multi-core architectures make <strong><u>parallel processing more realizable</u></strong></li>
+<li>Virtualization <u>support</u> on chip <u>from CPU manufacturers</u> (e.g., Intel, AMD)</li>
+</ul>
+<h3 id="software-maturity-软件成熟度">2.2 Software maturity 软件成熟度</h3>
+<ul>
+<li>More than one credible player in the market</li>
+<li>Available and stable open-sourced software</li>
+<li>OS, DB, Web server, Java, PHP, gcc, etc.</li>
+<li>Established and mature software standards</li>
+<li>Web service, XML, SOAP, COM, etc.</li>
+<li>Cloud computing</li>
+</ul>
+<h2 id="implementation-实现">2 Implementation 实现</h2>
+<p>Virtualization simulates the interface to a physical object by:</p>
+<p>虚拟化通过以下方式模拟物理对象的接口：</p>
+<ul>
+<li><p><strong>Multiplexing 多路复用</strong></p>
+<ul>
+<li><p>creates multiple virtual objects from one instance of a physical object.</p>
+<p><strong>Many virtual objects to one physical.</strong></p>
+<p>从一个物理对象的一个实例创建多个虚拟对象。</p>
+<p><strong>许多虚拟对象到一个物理对象。</strong></p></li>
+<li><p>Example - a processor is multiplexed among a number of processes or threads.</p>
+<p>示例 - 处理器在多个进程或线程之间多路复用。</p></li>
+</ul></li>
+<li><p><strong>Aggregation 聚合</strong></p>
+<ul>
+<li><p>creates one virtual object from multiple physical objects.</p>
+<p><strong>One virtual object to many physical objects.</strong></p>
+<p>从多个物理对象创建一个虚拟对象。</p>
+<p><strong>一个虚拟对象到多个物理对象。</strong></p></li>
+<li><p>Example - a number of physical disks are aggregated into a RAID disk.</p>
+<p>示例 - 多个物理磁盘聚合为一个 RAID 磁盘。</p></li>
+</ul></li>
+<li><p><strong>Emulation 仿真</strong></p>
+<ul>
+<li><p>constructs a virtual object of a certain type from a <strong>different</strong> type of a physical object.</p>
+<p>从<strong>不同</strong>类型的物理对象构造<strong>特定</strong>类型的虚拟对象。</p></li>
+<li><p>Example - a physical disk emulates a Random Access Memory (RAM).</p>
+<p>物理磁盘模拟随机存取存储器 (RAM)。</p></li>
+</ul></li>
+<li><p><strong>Multiplexing and emulation 多路复用和仿真</strong></p>
+<ul>
+<li><p>Examples</p>
+<ul>
+<li><p>virtual memory with <strong>paging multiplexes</strong> real memory and disk</p>
+<p>带<strong>分页</strong>的虚拟内存多路复用实内存和磁盘</p></li>
+<li><p>a <strong>virtual address</strong> emulates a real address.</p>
+<p><strong>虚拟地址</strong>模拟真实地址</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="requirements-需求---hypervisors">3. Requirements 需求 - Hypervisors</h2>
+<p>The main idea is that a VMM (Virtual Machine Monitor) creates the illusion of multiple (virtual) machines on the same physical hardware. A VMM is also known as a <strong>hypervisor</strong>.</p>
+<p>主要思想是 VMM（虚拟机监视器）在<u>同一物理硬件上创建多个（虚拟）机器</u>的错觉。 VMM 也称为<strong>管理程序hypervisor</strong>。</p>
+<p>Hypervisors should score well in three dimensions:</p>
+<ol type="1">
+<li><p><strong>Safety 安全</strong></p>
+<ul>
+<li><p>the hypervisor should have full control of the virtualized resources.</p>
+<p>管理程序应该完全控制虚拟化资源。</p></li>
+</ul></li>
+<li><p><strong>Fidelity 保真度</strong></p>
+<ul>
+<li><p>the behaviour of a program on a virtual machine should be identical to that of the same program running on bare hardware.</p>
+<p>一个程序在虚拟机上的行为应该与在裸硬件上运行的同一个程序的行为相同。</p></li>
+</ul></li>
+<li><p><strong>Efficiency 效率</strong></p>
+<ul>
+<li><p>much of the code in the virtual machine should run without intervention by the hypervisor.</p>
+<p>虚拟机中的大部分代码应该在没有管理程序干预的情况下运行。</p></li>
+</ul></li>
+</ol>
+<p>Every CPU with kernel mode and user mode has a set of instructions that behave differently when executed in kernel mode than when executed in user mode.</p>
+<p>每个具有内核模式和用户模式的 CPU 都有一组指令，这些指令在内核模式下执行时的行为与在用户模式下执行时的行为不同。</p>
+<h2 id="types-of-platform-virtualization-平台虚拟化类型">4. Types of platform virtualization 平台虚拟化类型</h2>
+<ul>
+<li>Full virtualization</li>
+<li>Binary translation</li>
+<li>Paravirtualization</li>
+<li>Hardware-assisted virtualization</li>
+<li>Partial virtualization</li>
+<li>OS-level virtualization</li>
+<li>Hosted environment (e.g. User-mode Linux)</li>
+</ul>
+<p>At</p>
+<ul>
+<li>Hardware level</li>
+<li>Operating system level</li>
+<li>Application level</li>
+</ul>
+<h3 id="full-virtualization-完全虚拟化">4.1 Full virtualization 完全虚拟化</h3>
+<p><img src="/images/OP/image-20210902045718448.png" /></p>
+<ul>
+<li><p>The result is a system in which <strong>all</strong> software (including all OS’s) capable of execution on the raw hardware can be run in the virtual machine.</p>
+<p>结果是一个能够在原始硬件上<u>执行</u>的<strong>所有</strong>软件（包括所有操作系统）都可以在虚拟机中运行的系统。</p></li>
+<li><p><strong>Comprehensively simulate</strong> all computing elements as instruction set, main memory, interrupts, exceptions, and device access.</p>
+<p><strong>全面模拟</strong>指令集、主存、中断、异常、设备访问等所有计算元素。</p></li>
+<li><p>Full virtualization is only possible given the <u><strong>right combination</strong> of hardware and software elements</u>.</p>
+<p>只有在<u>硬件和软件元素的<strong>正确组合</strong></u>下才能实现完全虚拟化。</p></li>
+<li><p>Allows the <strong>sharing</strong> a computer system among multiple users</p>
+<p>允许多个用户<strong>共享</strong>一个计算机系统</p>
+<ul>
+<li><p>Isolating users from each other (and from the control program)</p>
+<p>将用户彼此隔离（以及与控制程序）</p></li>
+<li><p>Emulating new hardware to achieve improved reliability, security and productivity</p>
+<p>模拟新硬件以提高可靠性、安全性和生产力</p></li>
+</ul></li>
+<li><p>It needs a single machine that could be <strong>multiplexed</strong> among many users.</p>
+<p>Each such virtual machine had the complete capabilities of the underlying machine, and (for its user) the virtual machine was indistinguishable from a private system.</p>
+<p>它需要一台可以在许多用户之间<strong>复用</strong>的机器。</p>
+<p>每个这样的虚拟机都具有底层机器的完整功能，并且（对于它的用户）虚拟机与私有系统没有区别。</p></li>
+</ul>
+<h4 id="examples-例子">4.1.1 Examples 例子</h4>
+<ul>
+<li>First demonstrated with IBM's CP-40 research system in 1967</li>
+<li>Re-implemented CP/CMS in IBM's VM family from 1972 to the present.</li>
+<li>Each CP/CMS user was provided a simulated, stand-alone computer.</li>
+</ul>
+<h4 id="challenge-挑战">4.1.2 Challenge 挑战</h4>
+<blockquote>
+<p>不是所有指令都可以直接运行；不是所有硬件都适合完全虚拟化；同时也要考虑到安全和IO操作问题。</p>
+</blockquote>
+<h5 id="software">4.1.2.1 Software</h5>
+<p>The effects of every operation performed within a given virtual machine must be kept <strong>within</strong> that virtual machine – <u>virtual operations <strong>cannot</strong> be allowed to alter the state of any other virtual machine, the control program, or the hardware</u></p>
+<p>在给定虚拟机内执行的每个操作的效果<u>必须保留在该虚拟机<strong>内</strong></u>——<u><strong>不允许</strong>虚拟操作<strong>改变任何其他</strong>虚拟机、控制程序或硬件的状态</u></p>
+<ul>
+<li>Security issues 安全问题 – Interception 拦截</li>
+<li>Simulation of privileged operations 模拟特权操作 -- I/O instructions</li>
+</ul>
+<h5 id="hardware">4.1.2.2 Hardware</h5>
+<ul>
+<li><p>Some machine instructions can be executed directly by the hardware</p>
+<p>有些机器指令可以由硬件直接执行，</p>
+<ul>
+<li><p>E.g., memory locations and arithmetic registers.</p>
+<p>例如，内存位置和算术寄存器。</p></li>
+</ul></li>
+<li><p>But other instructions that would "<strong>pierce the virtual machine</strong>" cannot be allowed to execute directly</p>
+<p>但是其他会“<strong>刺穿虚拟机pierce the virtual machine</strong>”的指令<u>不能直接执行</u></p>
+<ul>
+<li><p>they must instead be trapped and simulated.</p>
+<p>相反，他们必须被困住和模拟。</p></li>
+<li><p>Such instructions either access or affect state information that is outside the virtual machine.</p>
+<p>此类指令访问或影响虚拟机外部的状态信息。</p></li>
+</ul></li>
+<li><p>Some hardware is not easy to be used for full virtualization, e.g., x86</p>
+<p>一些硬件不容易用于完全虚拟化，例如，x86</p></li>
+</ul>
+<h3 id="binary-translation-二进制翻译">4.2 Binary translation 二进制翻译</h3>
+<blockquote>
+<p>Used by VMware at one point</p>
+</blockquote>
+<p>Binary translation <strong>rewrites</strong> parts of the code on the fly to replace sensitive but not privileged instructions with <u>safe code</u> to emulate the original instruction</p>
+<p>二进制翻译即时<u><strong>重写</strong>部分代码</u>，用<u>安全代码</u>替换敏感但非特权指令以模拟原始指令</p>
+<p><img src="/images/OP/image-20210902045918894.png" /></p>
+<h4 id="steps-步骤">4.2.1 Steps 步骤</h4>
+<p><strong>Replace problematic calls dynamically</strong>:</p>
+<p>动态替换有问题的调用：</p>
+<ol type="1">
+<li><p>Read in code, looking for basic blocks</p>
+<p>读入代码，寻找基本块</p></li>
+<li><p>Then inspect basic block to find problematic instructions. If found, replace with VM call (process called binary translation).</p>
+<p>然后检查基本块以查找有问题的指令。 如果找到，则替换为 VM 调用（称为二进制转换的过程）</p></li>
+<li><p>Then, cache block and execute.</p>
+<p>然后，缓存块并执行</p></li>
+<li><p>Eventually, most basic blocks will not be modified and cached, and will run at near native speed.</p>
+<p>最终，大多数基本块将不会被修改和缓存，并将以接近本机的速度运行。</p></li>
+<li><p>Can force traps on sensitive non-privileged instructions</p>
+<p>可以对敏感的非特权指令强制陷阱</p></li>
+</ol>
+<h4 id="challenge-挑战-1">4.2.2 Challenge 挑战</h4>
+<p>Imperfect hardware (x86) doesn’t allow perfect trap-and-emulate</p>
+<ul>
+<li><p><strong>popf (pop flags)</strong></p>
+<ul>
+<li><p>might modify interrupt flag (IF) when executed in kernel mode, but suppress the attempt to modify IF when executed in user mode</p>
+<p>在内核模式下执行时可能会修改中断标志 (IF)，但在用户模式下执行时禁止尝试修改 IF</p></li>
+</ul></li>
+<li><p>Code segment selector (%cs) have two bits storing the kernel/user mode, can be read by user mode</p>
+<p>代码段选择器（%cs）有两位存储内核/用户模式，可以被用户模式读取</p></li>
+</ul>
+<p><strong>No longer used today because of more powerful H/W support</strong></p>
+<h4 id="advantages">4.2.3 Advantages</h4>
+<ul>
+<li>No hardware assistance,</li>
+<li>No modifications of the guest OS</li>
+<li>Isolation, Security</li>
+</ul>
+<h4 id="disadvantages">4.2.4 Disadvantages</h4>
+<ul>
+<li>Speed of execution</li>
+<li>Portability</li>
+</ul>
+<h3 id="paravirtualization-半虚拟化">4.3 Paravirtualization 半虚拟化</h3>
+<blockquote>
+<p>It is very difficult to build sophisticated binary translation support necessary for full virtualization.</p>
+<p>构建完全虚拟化所需的复杂二进制转换支持非常困难。</p>
+<p>Examples: Xen, Denali</p>
+</blockquote>
+<p>A recent approach (paravirtualization) is to <u><strong>modify</strong> the source code of the guest OS</u> such that it <strong>makes hypervisor calls</strong> instead of executing “privileged instructions”.</p>
+<p>最近的一种方法（半虚拟化）是<u>修改来宾操作系统的源代码</u>，使其<strong>调用管理程序hypervisor</strong>而不是执行“特权指令”。</p>
+<p><img src="/images/OP/image-20210902051542590.png" /></p>
+<ul>
+<li><p>Paravirtualization does not aims to present a virtual machine that looks just like the actual underlying hardware</p>
+<p>半虚拟化的目的不是提供看起来像实际底层硬件的虚拟机</p></li>
+<li><p>Paravirtualization involves modifying the OS kernel to <u>replace non-virtualizable instructions with hypercells that communicate directly with the virtualization layer hypervisor</u>.</p></li>
+<li><p>半虚拟化涉及修改操作系统内核，用与虚拟化层管理程序直接通信的超级调用替换不可虚拟化的指令。</p></li>
+<li><p>Much easier to modify source code than to emulate hardware instructions (as in binary translation).</p>
+<p>修改源代码比模拟硬件指令要容易得多（如在二进制翻译中）。</p></li>
+<li><p>Paravirtualization cannot support unmodified OS</p>
+<p>半虚拟化不能支持未修改的操作系统</p>
+<ul>
+<li><p>Paravirtualization is different from full virtualization, where the unmodified OS <strong>does not know it is virtualized</strong> and <u>sensitive OS calls are trapped using binary translation.</u></p>
+<p>半虚拟化与完全虚拟化不同，其中未修改的操作系统<strong>不知道它已虚拟化</strong>，<u>敏感的操作系统调用使用二进制转换被捕获</u>。</p></li>
+<li><p>Both type 1 and type 2 hypervisors work with unmodified guest OS’s:</p>
+<blockquote>
+<p>见6.3 Hypervisor - Approach</p>
+</blockquote>
+<ul>
+<li><p>Avoid calls to non-privileged sensitive instructions (changed to hypervisor calls).</p>
+<p>避免调用非特权敏感指令（更改为管理程序调用）。</p></li>
+<li><p>Can include optimizations.</p>
+<p>可以包括优化。</p></li>
+<li><p>Use real hardware resources.</p>
+<p>使用真实的硬件资源。</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="hypercalls">4.3.1 Hypercalls</h4>
+<p>Present machine-like software interface that explicitly exposes the fact that it is a virtualized environment:</p>
+<p>呈现类似机器的软件界面，明确暴露了它是一个虚拟化环境的事实:</p>
+<ul>
+<li><p>Hypercalls</p>
+<ul>
+<li><p>allow the guest to send explicit requests to the hypervisor (much as a system call offers kernel services to applications).</p>
+<p>允许来宾向管理程序发送显式请求（就像系统调用向应用程序提供内核服务一样）。</p></li>
+<li><p>provides hypercall interfaces for other critical kernel operations such as memory management, interrupt handling and time keeping.</p>
+<p>为其他关键内核操作（如内存管理、中断处理和计时）提供超级调用接口。</p></li>
+<li><p>are used for privileged sensitive operations like updating the page tables, but because they do it explicitly in cooperation with the hypervisor, the overall system can be simpler and faster</p>
+<p>用于像更新页表这样的特权敏感操作，但因为它们明确地与管理程序合作，所以整个系统可以更简单、更快</p></li>
+</ul></li>
+</ul>
+<figure>
+<img src="/images/OP/image-20210902051802031.png" alt="" /><figcaption>A hypervisor supporting both true virtualization and paravirtualization.</figcaption>
+</figure>
+<p>For this the hypervisors have to define an API, as an interface to the guest OS’s.</p>
+<ul>
+<li><p>But this approach is similar to the <strong>microkernel approach</strong>.</p>
+<p>但这种方法类似于<strong>微内核方法</strong>。</p></li>
+<li><p>A guest OS whose “privileged instructions” are replaced with hypervisor calls is said to be para-virtualized.</p>
+<p>将“特权指令”替换为管理程序调用的来宾操作系统称为半虚拟化。</p></li>
+</ul>
+<h4 id="advantage">4.3.2 Advantage</h4>
+<ul>
+<li>faster execution</li>
+<li>lower virtualization overhead</li>
+</ul>
+<h4 id="disadvantage">4.3.3 Disadvantage</h4>
+<ul>
+<li>poor portability</li>
+<li>Para-virtualized systems won’t run on native hardware (needs hypervisor).</li>
+</ul>
+<h3 id="hardware-assisted-virtualization-future-direction">4.4 Hardware Assisted Virtualization (future direction)</h3>
+<blockquote>
+<p>Examples: Intel VT-x, Xen 3.x</p>
+</blockquote>
+<ul>
+<li><p>Hardware switch supported by CPU.</p>
+<p>CPU 支持的硬件切换</p></li>
+<li><p>Also known as:</p>
+<ul>
+<li>accelerated virtualization 加速虚拟化,</li>
+<li>hardware virtual machine 硬件虚拟机 (Xen)</li>
+<li>native virtualization 原生虚拟化 (Virtual iron)</li>
+</ul></li>
+</ul>
+<p>A new CPU execution mode feature that allows the VMM to run in a new root mode below ring 0.</p>
+<p>新的 CPU 执行模式功能，允许 VMM 在环 0 以下的新根模式下运行。</p>
+<p>As depicted in figure, privileged and sensitive calls are set to automatically trap to the hypervisor, removing the need for either binary translation or paravirtualization.</p>
+<p>如图所示，特权和敏感调用设置为自动捕获到管理程序，无需二进制转换或半虚拟化</p>
+<p><img src="/images/OP/image-20210902052400227.png" /></p>
+<ul>
+<li><p>The guest state is stored in Virtual Machine Control Structures (VT-x) or Virtual Machine Control Blocks (AMD-V).</p>
+<p>来宾状态存储在虚拟机控制结构 (VT-x) 或虚拟机控制块 (AMD-V) 中。</p></li>
+<li><p>High hypervisor to guest transition overhead and a rigid programming model</p>
+<p>高管理程序到客户转换开销和严格的编程模型</p></li>
+<li><p>Even with VM hardware support binary translation can still be used to improve performance.</p>
+<p>即使有 VM 硬件支持，二进制转换仍然可以用来提高性能。</p></li>
+</ul>
+<h4 id="implement---vmcs">4.4.1 Implement - VMCS</h4>
+<p>AMD SVM (Secure Virtual Machine) and Intel VT (Virtualization Technology) CPU’s have created virtualization support after 2005</p>
+<p>AMD SVM（安全虚拟机）和 Intel VT（虚拟化技术）CPU 在 2005 年之后创建了虚拟化支持</p>
+<ul>
+<li><p>New assembly commands to enter VM mode</p>
+<p>用于进入 VM 模式的新程序集命令</p></li>
+<li><p>Hypervisor (VMM) runs on ring 0 under root mode</p>
+<p>管理程序 (VMM) 在 root 模式下在环 0 上运行</p></li>
+<li><p>Guest OS runs in ring 0 under non-root mode</p>
+<p>来宾操作系统在非 root 模式下在 ring 0 中运行</p></li>
+<li><p>Changes are done within VM specific state called <strong>VMCS (Virtual Machine Control Structure)</strong></p>
+<p>更改在称为 VMCS（虚拟机控制结构）的 VM 特定状态内完成</p></li>
+</ul>
+<h4 id="advantage-1">4.4.2 Advantage</h4>
+<p>Even faster execution</p>
+<h4 id="intel-vt-x">4.4.3 Intel VT-X</h4>
+<p>In 2005 Intel released two Pentium 4 models supporting VT-x.</p>
+<p>VT-x supports two modes of operations:</p>
+<ul>
+<li>VMX root - for VMM operations.</li>
+<li>VMX non-root - support a VM.</li>
+</ul>
+<p><img src="/images/OP/image-20210902053352332.png" /></p>
+<p>And a new data structure called the Virtual Machine Control Structure including host-state and guest-state area.</p>
+<p>以及一种称为虚拟机控制结构的新数据结构，包括主机状态和来宾状态区域。</p>
+<ul>
+<li><p>VM entry</p>
+<ul>
+<li><p>the processor state is loaded from the guest-state of the VM scheduled to run; then the control is transferred from VMM to the VM.</p>
+<p>处理器状态从预定运行的虚拟机的来宾状态加载； 然后控制权从 VMM 转移到 VM</p></li>
+</ul></li>
+<li><p>VM exit</p>
+<ul>
+<li><p>saves the processor state in the guest-state area of the running VM; then it loads the processor state from the host-state area, finally transfers control to the VMM.</p>
+<p>将处理器状态保存在正在运行的 VM 的来宾状态区域中； 然后它从主机状态区加载处理器状态，最后将控制权转移到 VMM。</p></li>
+</ul></li>
+</ul>
+<p><img src="/images/OP/image-20210902053520795.png" /></p>
+<h3 id="summary-总结">4.4.5 Summary 总结</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Full Virtualization with Binary Translation</th>
+<th>Hardware Assisted Virtualization</th>
+<th>OS Assisted Virtualization / Paravirtualization</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Technique</td>
+<td>Binary Translation and Direct Execution</td>
+<td>Exit to Root Mode on Privileged Instructions</td>
+<td>Hypercalls</td>
+</tr>
+<tr class="even">
+<td>Guest Modification / Compatibility</td>
+<td>Unmodified Guest OS Excellent compatibility</td>
+<td>Unmodified Guest OS Excellent compatibility</td>
+<td>Guest OS codified to issue Hypercalls so it can't run on Native Hardware or other Hypervisors Poor compatibility; Not available on Windows OSes</td>
+</tr>
+<tr class="odd">
+<td>Performance</td>
+<td>Good</td>
+<td>Fair Current performance lags Binary Translation virtualization on various workloads but will improve over time</td>
+<td>Better in certain cases</td>
+</tr>
+<tr class="even">
+<td>Used By</td>
+<td>VMware, Microsoft, Parallels</td>
+<td>VMware, Microsoft, Parallels, Xen</td>
+<td>VMware, Xen</td>
+</tr>
+<tr class="odd">
+<td>Guest OS Hypervisor Independent?</td>
+<td>yes</td>
+<td>yes</td>
+<td>XenLinux runs only on Xen Hypervisor VMI-Linux is Hypervisor agnostic</td>
+</tr>
+</tbody>
+</table>
+<h2 id="virtualization-of-the-cpu">5. Virtualization of the CPU</h2>
+<h3 id="recap-kernel-mode-vs.-user-mode">5.0 (Recap) Kernel mode vs. User Mode</h3>
+<ul>
+<li><p>Dual-mode operation allows OS to protect itself and other system components</p>
+<p>双模式操作允许操作系统保护自身和其他系统组件</p>
+<ul>
+<li>User mode</li>
+<li>Kernel mode</li>
+</ul></li>
+<li><p><strong>Mode bit</strong> provided by hardware</p>
+<p>硬件提供的<strong>模式位</strong></p>
+<ul>
+<li><p>Ability to distinguish when system is running user or kernel code</p>
+<p>能够区分系统何时运行用户或内核代码</p></li>
+<li><p>Some instructions are privileged, only executable in kernel mode</p>
+<p>一些指令是特权指令，只能在内核模式下执行</p></li>
+<li><p>System call changes mode to kernel, return resets it to user</p>
+<p>系统<u><strong>调用</strong>将模式更改为内核，<strong>返回</strong>将其重置为用户</u></p></li>
+</ul></li>
+</ul>
+<p><img src="/images/OP/image-20210902040420836.png" /></p>
+<h4 id="hardware-enforced-protection-mechanism-硬件强制保护机制">5.0.1 Hardware-enforced protection mechanism 硬件强制保护机制</h4>
+<ul>
+<li><p>Kernel-code (in particular, <strong>interrupt handlers</strong>) runs in kernel mode</p>
+<p>内核代码（特别是<strong>中断处理程序IH</strong>）在内核模式下运行</p>
+<ul>
+<li><p>the hardware allows all machine instructions to be executed and allows unrestricted access to memory and I/O ports</p>
+<p>硬件允许执行所有机器指令，并允许不受限制地访问内存和 I/O 端口</p></li>
+</ul></li>
+<li><p>Everything else runs in user mode 其他一切都在用户模式下运行</p></li>
+<li><p>Therefore, since our VM does not run in kernel mode, we cannot run sensitive instructions in it, since those must trap to kernel space.</p>
+<p>因此，由于我们的 VM 不在内核模式下运行，我们不能在其中运行敏感指令，因为这些指令必须捕获到内核空间。</p></li>
+</ul>
+<h4 id="cpu-protection-ring">5.0.2 CPU protection ring</h4>
+<p>Four layers of privilege execution → CPU protection ring.</p>
+<p><img src="/images/OP/image-20210902041021159.png" /></p>
+<p>Normally:</p>
+<ul>
+<li><p>User applications run in ring 3</p>
+<p>用户应用程序在环 3 中运行</p></li>
+<li><p>OS runs in ring 0</p>
+<p>操作系统在环 0 中运行</p></li>
+</ul>
+<p>In which ring should the VMM run?</p>
+<p>VMM 应该在哪个环中运行？</p>
+<ul>
+<li><p>In ring 0, then, same privileges as an OS → wrong</p>
+<p>在环 0 中，与操作系统相同的权限 → 错误</p></li>
+<li><p>In rings 1,2,3, then OS has higher privileges → wrong</p>
+<p>在环 1,2,3 中，则操作系统具有更高的权限 → 错误</p></li>
+<li><p><strong>Move the OS to ring 1 and the VMM in ring 0 → OK</strong></p>
+<p><strong>将操作系统移至环 1 并将 VMM 移至环 0 → OK</strong></p></li>
+</ul>
+<p><strong>Supervisor mode</strong></p>
+<ul>
+<li><p>User programs use ring 3 用户程序使用环 3</p></li>
+<li><p><strong>Hypervisor</strong> runs on ring 0</p>
+<ul>
+<li><p>Can run any instruction (ring 0).</p>
+<p>可以运行任何指令（环 0）。</p></li>
+<li><p>Trusted to not fail, in case of failure the system crashes.</p>
+<p>万一出现故障系统崩溃被认为不会失败。</p></li>
+</ul></li>
+<li><p>Guest OS runs on ring 1</p></li>
+</ul>
+<h4 id="machine-instructions-机器指令">5.0.3 Machine instructions 机器指令</h4>
+<ul>
+<li><p><strong>Privileged instructions 特权指令</strong></p>
+<ul>
+<li><p>can be executed in <strong>kernel mode</strong>.</p>
+<p>可以在<strong>内核模式</strong>下执行。</p></li>
+<li><p>When attempted to be executed in user mode, they cause a trap and so executed in kernel mode.</p>
+<p>当试图在用户模式下执行时，它们会导致陷阱并因此在内核模式下执行。</p></li>
+</ul></li>
+<li><p><strong>Non-privileged instructions 非特权指令</strong></p>
+<ul>
+<li><p>the ones that can be executed in <strong>user mode</strong></p>
+<p>可以在<strong>用户模式</strong>下执行的指令</p></li>
+</ul></li>
+<li><p><strong>Assembly sensitive instructions 组装敏感指令</strong></p>
+<ul>
+<li><p><strong>I/O, MMU control, etc.</strong></p></li>
+<li><p>can be executed in either kernel or user but they behave differently.</p>
+<p>可以在内核或用户中执行，但它们的行为不同。</p>
+<p>Sensitive instructions <u>require special <strong>precautions</strong> at execution time</u>.</p>
+<p>敏感指令在<u>执行时需要特殊的<strong>预防措施</strong></u>。</p></li>
+</ul></li>
+</ul>
+<p><strong>Sensitive</strong> and <strong>non-privileged</strong> instructions are hard to virtualize</p>
+<p>敏感和非特权指令难以虚拟化</p>
+<p>A machine is virtualizable <u>only if</u> the sensitive instructions are a <strong>subset</strong> of the privileged instructions.</p>
+<p>仅当敏感指令是特权指令的<strong>子集</strong>时，机器<u>才可虚拟化</u>。</p>
+<h3 id="trap-and-emulate-approach-捕获模拟方法">5.1 Trap-and-emulate approach 捕获模拟方法</h3>
+<p><strong>Trap-and-emulate</strong> the “<u>privileged instructions</u>” in the <strong>user mode</strong></p>
+<p>在<strong>用户模式</strong>下<u>捕获Trap并模拟emulate“特权指令privileged instructions”</u></p>
+<ul>
+<li><p>Hypervisor responsible to assist with sensitive instructions.</p>
+<p>Hypervisor负责协助处理敏感指令</p></li>
+<li><p>typically related to kernel functions, such as I/O instructions or instructions that changes MMU settings</p>
+<p>通常与内核功能相关，例如 I/O 指令或更改 MMU 设置的指令</p></li>
+<li><p>emulate them within the guest OS</p>
+<p>在Guest操作系统中模拟它们</p></li>
+<li><p>H/W support (kernel + user mode)</p>
+<p>硬件支持（内核 + 用户模式）</p></li>
+<li><p>Modern CPUs have virtualization support</p>
+<p>现代 CPU 具有虚拟化支持</p>
+<ul>
+<li>3 modes: kernel, supervisor, user</li>
+</ul></li>
+</ul>
+<p><strong>Trap-and-emulate approach:</strong></p>
+<ul>
+<li><p>Containers in which virtual machines can run</p>
+<p>可以运行虚拟机的容器</p></li>
+<li><p>The program runs until it creates a trap</p>
+<p>程序运行直到它创建一个陷阱</p></li>
+<li><p>Traps handled by the hypervisor to emulate the desired behaviour</p>
+<p>由管理程序处理的陷阱以模拟所需的行为</p></li>
+</ul>
+<h2 id="beyond-cpu-virtualization">6. Beyond CPU Virtualization</h2>
+<ul>
+<li><p>Memory virtualization 内存虚拟化</p>
+<ul>
+<li><p>How to integrate the paging of the host OS with the paging of the guest OS</p>
+<p>如何将主机操作系统的分页与来宾操作系统的分页结合起来</p></li>
+</ul></li>
+<li><p>I/O virtualization</p>
+<ul>
+<li><p>Do we use the device drivers of the host OS or the guest OS?</p>
+<p>我们使用主机操作系统还是客户操作系统的设备驱动程序？</p></li>
+</ul></li>
+<li><p>Multi-core 多核</p>
+<ul>
+<li><p>Each core can run a number of virtual machines</p>
+<p>每个核心可以运行多个虚拟机</p></li>
+<li><p>Sharing memory among virtual machines?</p>
+<p>在虚拟机之间共享内存？</p></li>
+</ul></li>
+<li><p>Licensing 许可</p>
+<ul>
+<li><p>Some software is licensed per-CPU basis.</p>
+<p>某些软件是按 CPU 许可的</p></li>
+<li><p>What is you run multiple virtual machines?</p>
+<p>什么是你运行多个虚拟机z</p></li>
+</ul></li>
+</ul>
+<h3 id="memory-virtualization-内存虚拟化">6.1 Memory virtualization 内存虚拟化</h3>
+<p>How to integrate the paging of the host OS with the paging of the guest OS</p>
+<p>如何将主机操作系统的分页与来宾操作系统的分页结合起来</p>
+<h4 id="challenge">6.1.1 Challenge</h4>
+<ul>
+<li><p>Not only virtual memory 不仅是虚拟内存</p></li>
+<li><p>To run multiple virtual machines on a single system, another level of memory virtualization is required.</p>
+<p>要在单个系统上运行多个虚拟机，需要另一个级别的内存虚拟化</p></li>
+<li><p>OS tracks mapping of virtual memory pages to physical memory page frames.</p>
+<p>操作系统跟踪虚拟内存页面到物理内存页面框架的映射</p>
+<ul>
+<li><p>But VM’s do not share mapping information.</p>
+<p>但是 VM 不共享映射信息</p></li>
+</ul></li>
+<li><p>Can cause a collision upon page reference.</p>
+<p>可能会导致页面引用发生冲突</p>
+<ul>
+<li><p>For example, VM1 maps VP12 into PP6 for some process.</p>
+<p>例如，对于某些进程，VM1 将 VP12 映射到 PP6</p></li>
+<li><p>VM 2 maps VP7 into PP6 for some process.</p>
+<p>VM 2 将 VP7 映射到 PP6 以用于某些进程</p></li>
+<li><p>Referencing the page is sensitive op. Who will own physical page #6?</p>
+<p>引用页面是敏感操作。 谁将拥有实体页面 #6？</p></li>
+</ul></li>
+</ul>
+<h4 id="shadow-pages-影子页表">6.1.2 Shadow pages 影子页表</h4>
+<p><img src="/images/OP/image-20210902055843220.png" /></p>
+<ul>
+<li><p>Allow hypervisor to manage page mapping</p>
+<p>允许管理程序管理页面映射</p>
+<ul>
+<li><p>Use Shadow Page Tables for the VMs.</p>
+<p>为 VM 使用影子页表</p></li>
+</ul></li>
+<li><p>The hypervisor is responsible for mapping guest physical memory to the actual machine memory, and it uses shadow page tables to accelerate the mappings.</p>
+<p>管理程序负责将客户物理内存映射到实际机器内存，并使用影子页表来加速映射。</p></li>
+</ul>
+<h4 id="hw-support-for-nestedextended-page-tables">6.1.3 HW support for nested/extended page tables</h4>
+<p>Requires hardware support.</p>
+<ul>
+<li><p>Two “CR3”s (CR3 and EPTP).</p>
+<blockquote>
+<p>CR3, an x86 microprocessor <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Control_register">control register</a></p>
+</blockquote></li>
+<li><p>MMU translates each guest mapping level</p>
+<p>MMU 翻译每个来宾映射级别</p></li>
+</ul>
+<p><img src="/images/OP/image-20210902060035651.png" /></p>
+<p>Extended/nested page tables are walked every time a guest physical address is accessed, including the accesses for each level of the guest’s page tables.</p>
+<p>每次访问来宾物理地址时都会遍历扩展/嵌套页表，包括对来宾页表每个级别的访问。</p>
+<ul>
+<li>Guest page table map 访客页面表图: Guest VA → Guest PA</li>
+<li>Nested page table map 访客页面表图: Guest PA → Host PA</li>
+</ul>
+<p><img src="/images/OP/image-20210902060253413.png" /></p>
+<h3 id="device-and-io-virtualization">6.2 Device and I/O virtualization</h3>
+<ul>
+<li><p>VMM supports all device/IO drivers</p></li>
+<li><p>Physically/virtually existed 物理/虚拟存在</p></li>
+<li><p>Trap-and-emulate on every hardware access</p>
+<p>在每次硬件访问时进行陷阱和模拟</p></li>
+<li><p>Too slow, so modify the device driver to use special “<strong>monitor call</strong>” (similar to syscall)</p>
+<p>太慢了，所以修改设备驱动程序使用特殊的“<strong>监视器调用</strong>”（类似于系统调用）</p></li>
+</ul>
+<p>Each guest OS holds its own “partition分区”</p>
+<ul>
+<li><p>Typically implemented as a file or region on disk.</p>
+<p>通常实现为磁盘上的文件或区域。</p></li>
+<li><p>Hypervisor must convert guest OS address (block #) into physical address in region.</p>
+<p>管理程序必须将客户操作系统地址（块#）转换为区域中的物理地址。</p></li>
+<li><p>May convert between storage types.</p>
+<p>可以在存储类型之间转换。</p></li>
+</ul>
+<h2 id="hypervisors">7. Hypervisors</h2>
+<h3 id="cpu">7.1 CPU</h3>
+<p>The VMM/hypervisor partitions the resources of computer system into one or more virtual machines (VMs).</p>
+<p>llows several operating systems to run concurrently on a single hardware platform</p>
+<p>VMM/管理程序将计算机系统的资源划分为一个或多个虚拟机（VM）。</p>
+<p>允许多个操作系统在单个硬件平台上同时运行。</p>
+<ul>
+<li><p>A VM is an execution environment that runs an OS</p>
+<p>VM 是运行 OS 的执行环境</p></li>
+<li><p>VM – an isolated environment that appears to be a whole computer, but actually <u>only has access to a <strong>portion of</strong> the computer resources</u></p>
+<p>一个孤立的环境，看似是整台计算机，但实际上<u>只能访问<strong>部分</strong>计算机资源</u></p></li>
+</ul>
+<p>A VMM allows:</p>
+<ul>
+<li><p>Multiple services to <strong>share</strong> the same platform</p>
+<p>多个服务<strong>共享</strong>同一个平台</p></li>
+<li><p><strong>Live migration</strong> - the movement of a server from one platform to another</p>
+<p><strong>实时迁移</strong> - 服务器从一个平台移动到另一个平台</p></li>
+<li><p>System modification while maintaining <strong>backward compatibility</strong> with the original system</p>
+<p>系统修改同时保持与原系统的<strong>向后兼容性</strong></p></li>
+<li><p><strong>Enforces isolation</strong> among the systems, thus security</p>
+<p>在系统之间<strong>强制隔离</strong>，从而确保安全</p></li>
+</ul>
+<p>A <strong>guest operating system</strong> is an OS that runs in a VM under the control of the VMM.</p>
+<h3 id="layers-of-privilege-execution-权限执行">7.2 Layers of privilege execution 权限执行</h3>
+<blockquote>
+<p>引用5.0.2 CPU protection ring</p>
+</blockquote>
+<p><strong>Supervisor mode</strong></p>
+<ul>
+<li><p>User programs use ring 3 用户程序使用环 3</p></li>
+<li><p><strong>Hypervisor</strong> runs on ring 0</p>
+<ul>
+<li><p>Can run any instruction (ring 0).</p>
+<p>可以运行任何指令（环 0）。</p></li>
+<li><p>Trusted to not fail, in case of failure the system crashes.</p>
+<p>万一出现故障系统崩溃被认为不会失败。</p></li>
+</ul></li>
+<li><p>Guest OS runs on ring 1</p></li>
+</ul>
+<h3 id="approach-方法">7.3 Approach 方法</h3>
+<blockquote>
+<p>Type 1 hypervisors run on the bare metal</p>
+<p>Type 2 hypervisors use the services of an existing host operating system.</p>
+</blockquote>
+<p>两种实现方式</p>
+<p><img src="/images/OP/image-20210902043446381.png" /></p>
+<ul>
+<li><p><strong>Type 1 hypervisor</strong> - kernel level</p>
+<ul>
+<li><p>Virtualization is implemented as part of the hosting OS at the kernel level.</p>
+<p>虚拟化在<strong>内核级别</strong>作为托管操作系统的一部分实施。</p></li>
+<li><p>Support multiple copies of the actual machine, called <strong>virtual machines</strong>.</p>
+<p>支持实际机器的多个副本，称为<strong>虚拟机</strong>。</p></li>
+</ul></li>
+<li><p><strong>Type 2 hypervisor</strong> - user level</p>
+<ul>
+<li><p>Virtualization is implemented as a user program running at the user level.</p>
+<p>虚拟化作为在<strong>用户级别</strong>运行的用户程序来实现。</p></li>
+<li><p>It “interprets” the machine’s instruction set which also creates a <strong>virtual machine</strong>.</p>
+<p>它“解释”机器的指令集，这也创建了一个<strong>虚拟机</strong>。</p></li>
+</ul></li>
+</ul>
+<h4 id="type-1-hypervisor">7.3.1 Type 1 hypervisor</h4>
+<p><img src="/images/OP/image-20210902043809170.png" /></p>
+<ul>
+<li><p>The hypervisor runs <strong>on the bare hardware</strong> as part of the OS.</p>
+<p>管理程序作为操作系统的一部分<strong>在裸硬件</strong>上运行。</p></li>
+<li><p>The virtual machine runs as a user process in <strong>user mode</strong>.</p>
+<p>虚拟机在<strong>用户模式</strong>下作为用户进程运行。</p>
+<ul>
+<li>Is not allowed to execute “privileged instructions”.</li>
+<li>不允许执行“特权指令”。</li>
+</ul></li>
+<li><p>The guest OS thinks it is running in kernel mode, although it is in user mode. (<strong>virtual kernel mode</strong>)</p>
+<p>来宾操作系统认为它在内核模式下运行，尽管它是在用户模式下。 （<strong>虚拟内核模式</strong>）</p>
+<ul>
+<li><p>When the guest OS executes a “privileged instruction” , it generates a trap (thanks to the VT support from hardware) in the host OS kernel.</p>
+<p>当客户操作系统执行“<strong>特权指令privileged instruction</strong>”时，它会在主机操作系统内核中生成一个陷阱（感谢硬件的 VT 支持）。</p></li>
+<li><p>The hypervisor inspects the instruction if it was issued by the guest OS running in the virtual machine.</p>
+<p>管理程序hypervisor检查指令是否由在虚拟机中运行的来宾操作系统发出。</p>
+<ul>
+<li><p>If so, the hypervisor emulates what the real hardware would do when confronted with that “privileged instruction” executed in user mode</p>
+<p>如果是这样，当遇到在用户模式下执行的“特权指令”时，虚拟机管理程序会模拟真实硬件会做什么</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h4 id="type-2-hypervisor">7.3.2 Type 2 hypervisor</h4>
+<p><img src="/images/OP/image-20210902044319935.png" /></p>
+<ul>
+<li><p>The hypervisor runs as a user process on the <strong>host OS</strong>.</p>
+<p>管理程序作为<strong>主机操作系统</strong>上的用户进程运行。</p></li>
+<li><p>The virtual machine runs as a user process in user mode.</p>
+<p>虚拟机在用户模式下作为用户进程运行。</p>
+<ul>
+<li><p>Is not allowed to execute “privileged instructions”.</p>
+<p>不允许执行“特权指令”。</p></li>
+</ul></li>
+<li><p>The guest OS thinks it is running in kernel mode, although it is in user mode. (virtual kernel mode)</p>
+<p>来宾操作系统认为它在内核模式下运行，尽管它是在用户模式下。 （虚拟内核模式）</p>
+<ul>
+<li><p>When the guest OS executes a “privileged instruction”, the hypervisor emulates it.</p>
+<p>当来宾操作系统执行“特权指令”时，虚拟机管理程序会模拟它。</p></li>
+</ul></li>
+</ul>
+<h4 id="type-1-vs.-type-2-hypervisors-比较">7.3.3 Type 1 vs. Type 2 hypervisors 比较</h4>
+<blockquote>
+<p>与所期望的不同，类型 1 并非始终都是赢家。</p>
+</blockquote>
+<p>It turns our that trap-and-emulate approach creates a lot of overhead due to the handling of the traps (including context switches) and that the binary translation approach (combined with caching of translated blocks) can run faster.</p>
+<p>由于处理陷阱（包括上下文切换context switches），并且二进制转换binary translation方法（结合转换块的缓存）可以运行得更快，因此我们的trap-and-emulate方法会产生大量开销。</p>
+<p>For this reason, some type 1 hypervisors also perform binary translation for speeding up.</p>
+<p>出于这个原因，一些类型 1 管理程序也执行二进制转换以加快速度。</p>
+<h2 id="process-virtualization-进程虚拟化">8. Process virtualization 进程虚拟化</h2>
+<blockquote>
+<p>Non-full system virtualization</p>
+</blockquote>
+<p>Not all virtualization technology tries to trick the guest into believing that it has the entire system.</p>
+<p>并非所有虚拟化技术都试图诱使客户相信它拥有整个系统。</p>
+<p>Process-Level Virtualization allows a process to run that was originally written for a different operating system and/or architecture.</p>
+<p>进程级虚拟化允许运行最初为不同操作系统和/或体系结构编写的进程。</p>
+<p>Well-known examples:</p>
+<ul>
+<li><p>WINE</p>
+<ul>
+<li><p>compatibility layer that allow Windows applications to run on Linux.</p>
+<p>允许 Windows 应用程序在 Linux 上运行的兼容层</p></li>
+</ul></li>
+<li><p>QEMU</p>
+<ul>
+<li><p>emulator that allows applications for one architecture to run on another</p>
+<p>允许一种架构的应用程序在另一种架构上运行的模拟器</p></li>
+</ul></li>
+</ul>
+<h2 id="x86">9. x86</h2>
+<p>Virtualization has long been a problem on the x86 architecture due to defects in the Intel 386 architecture that were slavishly carried forward into new CPUs for 20 years in the name of backward compatibility.</p>
+<p>由于 Intel 386 架构中的缺陷，虚拟化长期以来一直是 x86 架构上的一个问题，20 年来，这些缺陷以向后兼容性的名义在新 CPU 中被盲目地推进。</p>
+<p><strong>On x86, some instructions are sensitive but not privileged.</strong></p>
+<p>在 x86 上，一些指令是<u>敏感的但没有特权</u>。</p>
+<blockquote>
+<p>机器指令详细见 5.0.3 Machine instructions</p>
+</blockquote>
+<h3 id="example-popf-on-intel-386">9.0 Example: POPF (on Intel 386)</h3>
+<ul>
+<li><p>POPF replaces the flags register, which changes the bit that enables/disables interrupt. POPF 替换了标志寄存器，它改变了启用/禁用中断的位。</p></li>
+<li><p>In user mode, this bit is simply not changed.</p>
+<p>在用户模式下，该位根本不会改变。</p></li>
+<li><p>Is not privileged (does not trap).</p>
+<p>没有特权（不陷阱）。</p></li>
+<li><p>Intel 386 and its successors could not be virtualized.</p>
+<p>Intel 386 及其后继产品无法虚拟化。</p></li>
+</ul>
+<h3 id="techniques-for-virtualization-on-x86">9.1 Techniques for virtualization on x86</h3>
+<blockquote>
+<p>具体见 4. Types</p>
+</blockquote>
+<p>Solutions to Full virtualization of x86 CPU</p>
+<ul>
+<li><p>Full description of operations of all x86 hardware (but they evolve)</p>
+<ul>
+<li><p>A guest OS can run unchanged under the VMM as if it was running directly on the hardware platform. Each VM runs an exact copy of the actual hardware.</p>
+<p>来宾操作系统可以在 VMM 下原样运行，就像直接在硬件平台上运行一样。 每个 VM 都运行实际硬件的精确副本。</p></li>
+</ul></li>
+<li><p>Binary translation (almost established)</p>
+<ul>
+<li><p>rewrites parts of the code on the fly to replace sensitive but not privileged instructions with safe code to emulate the original instruction</p>
+<p>二进制翻译即时<u><strong>重写</strong>部分代码</u>，用<u>安全代码</u>替换敏感但非特权指令以模拟原始指令</p></li>
+<li><p>It is very difficult to build sophisticated binary translation support necessary for full virtualization.</p>
+<p>构建完全虚拟化所需的复杂二进制转换支持非常困难。</p></li>
+</ul></li>
+<li><p>OS-assisted or paravirtualization</p>
+<ul>
+<li><p>Paravirtualization is to <u>modify the source code of the guest OS</u> such that it <strong>makes hypervisor calls</strong> instead of executing “privileged instructions”.</p>
+<p>半虚拟化是<u>修改来宾操作系统的源代码</u>，使其<strong>调用管理程序hypervisor</strong>而不是执行“特权指令”。</p></li>
+</ul></li>
+<li><p>Hardware-assisted (future direction)</p>
+<ul>
+<li><p>Hardware switch supported by CPU.</p>
+<p>CPU 支持的硬件切换</p></li>
+<li><p>Privileged and sensitive calls are set to automatically trap to the hypervisor, removing the need for either binary translation or paravirtualization.</p>
+<p>特权和敏感调用被设置为自动捕获到管理程序，消除对二进制转换或半虚拟化的需要。</p></li>
+</ul></li>
+</ul>
+<h3 id="summary">9.2 Summary</h3>
+<ul>
+<li><p>Binary translation is the most established technology for full virtualization</p>
+<p>二进制翻译是完全虚拟化最成熟的技术</p></li>
+<li><p>Paravirtualization delivers performance benefits with maintenance costs</p>
+<p>半虚拟化以维护成本提供性能优势</p></li>
+<li><p>Hardware assist is the future of virtualization, but it still has a long way to go</p>
+<p>硬件辅助是虚拟化的未来，但仍有很长的路要走</p></li>
+</ul>
+<p>Popular Hypervisors:</p>
+<ul>
+<li>Xen</li>
+<li>KVM</li>
+<li>QEMU</li>
+<li>virtualBox</li>
+<li>VMWare</li>
+</ul>
+<h2 id="summary-总结-1">10. Summary 总结</h2>
+<h3 id="techniques-for-x86-virtualization">10.1 Techniques for x86 virtualization</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Full Virtualization with Binary Translation</th>
+<th>Hardware Assisted Virtualization</th>
+<th>OS Assisted Virtualization / Paravirtualization</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Technique</td>
+<td>Binary Translation and Direct Execution</td>
+<td>Exit to Root Mode on Privileged Instructions</td>
+<td>Hypercalls</td>
+</tr>
+<tr class="even">
+<td>Guest Modification / Compatibility</td>
+<td>Unmodified Guest OS Excellent compatibility</td>
+<td>Unmodified Guest OS Excellent compatibility</td>
+<td>Guest OS codified to issue Hypercalls so it can't run on Native Hardware or other Hypervisors Poor compatibility; Not available on Windows OSes</td>
+</tr>
+<tr class="odd">
+<td>Performance</td>
+<td>Good</td>
+<td>Fair Current performance lags Binary Translation virtualization on various workloads but will improve over time</td>
+<td>Better in certain cases</td>
+</tr>
+<tr class="even">
+<td>Used By</td>
+<td>VMware, Microsoft, Parallels</td>
+<td>VMware, Microsoft, Parallels, Xen</td>
+<td>VMware, Xen</td>
+</tr>
+<tr class="odd">
+<td>Guest OS Hypervisor Independent?</td>
+<td>yes</td>
+<td>yes</td>
+<td>XenLinux runs only on Xen Hypervisor VMI-Linux is Hypervisor agnostic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="type-of-virtualization">10.2 Type of virtualization</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Virtualization method</th>
+<th>Type 1 hypervisor</th>
+<th>Type 2 hypervisor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Without HW support</td>
+<td>ESX Server 1.0</td>
+<td>VMware Workstation 1</td>
+</tr>
+<tr class="even">
+<td>Para-virtualization</td>
+<td>Xen 1.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>With HW support</td>
+<td>vSphere, Xen, Hyper-V</td>
+<td>VMware Fusion, KVM, Parallels</td>
+</tr>
+<tr class="even">
+<td>Process virtualization</td>
+<td></td>
+<td>Wine</td>
+</tr>
+</tbody>
+</table>
+<p>Examples of hypervisors. Type 1 hypervisors run on the bare metal whereas type 2 hypervisors use the services of an existing host operating system.</p>
+<h3 id="vmm-virtualizes-the-cpu-and-the-memory">10.3 VMM virtualizes the CPU and the memory</h3>
+<p><strong>Hypervisors/VMM:</strong></p>
+<ul>
+<li><p>Traps the privileged instructions executed by a guest OS and enforces the correctness and safety of the operation</p>
+<p>捕获由来宾操作系统执行的特权指令并强制执行操作的正确性和安全性</p></li>
+<li><p>Traps interrupts and dispatches them to the individual guest operating systems</p>
+<p>捕获中断并将它们分派到各个客户操作系统</p></li>
+<li><p>Controls the virtual memory management</p>
+<p>控制虚拟内存管理</p></li>
+<li><p>Maintains a <strong>shadow page table</strong> for each guest OS and replicates any modification made by the guest OS in its own shadow page table.</p>
+<p>This shadow page table points to the actual page frame and it is used by the <strong>Memory Management Unit (MMU)</strong> for dynamic address translation.</p>
+<p>为每个来宾 OS 维护一个<strong>影子页表</strong>，并在其自己的影子页表中复制来宾 OS 所做的任何修改。</p>
+<p>这个影子页表指向实际的页框，它被<strong>内存管理单元 (MMU)</strong> 用于动态地址转换。</p></li>
+<li><p>Monitors the system performance and takes corrective actions to avoid performance degradation. For example, the VMM may swap out a VM to avoid thrashing</p>
+<p>监控系统性能并采取纠正措施以避免性能下降。 例如，VMM 可能会换出 VM 以避免颠簸</p></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Chaoqun Yin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yintelligence.tech/2021/07/02/2021-07-02-Virtualization/">https://yintelligence.tech/2021/07/02/2021-07-02-Virtualization/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Chaoqun Yin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Operating-Systems-and-Security/">
+                                    <span class="chip bg-color">Operating Systems and Security</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2021/07/03/2021-07-03-List-Comprehensions/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="List Comprehensions">
+                        
+                        <span class="card-title">List Comprehensions</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                    Programming Language
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python-Advanced/">
+                        <span class="chip bg-color">Python Advanced</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/07/01/2021-07-01-ToyProlog/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="ToyProlog">
+                        
+                        <span class="card-title">ToyProlog</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Programming-Language/" class="post-category">
+                                    Programming Language
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python-Advanced/">
+                        <span class="chip bg-color">Python Advanced</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Chaoqun Yin<br />'
+            + 'Author: Chaoqun Yin<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Chaoqun Yin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "1";
+                    var startDate = "28";
+                    var startHour = "2";
+                    var startMinute = "1";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yintelligence" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Yintelligence@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
