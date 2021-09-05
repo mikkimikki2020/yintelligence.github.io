@@ -758,7 +758,7 @@ void processB() &#123;
 <li>These processes will then be placed in runnable state and will compete for lock again</li>
 </ul></li>
 </ul>
-<h6 id="correct-solution-15132--15329">Correct solution 1:51:32 -1:53:29</h6>
+<h6 id="correct-solution-15132--15329">4.5.3.1.1 Correct solution 1:51:32 -1:53:29</h6>
 <p>The primitive <strong><em>mutex</em></strong> is used to ensure critical sections are executed in mutual exclusion of each other</p>
 <p>Following the same execution sequence as before:</p>
 <ol type="1">
@@ -865,7 +865,7 @@ signal(S)
 <p>Condition variables are a synchronization mechanism available in Pthreads.</p>
 <p>A condition variable is an object that has 2 operations, signal and wait.</p>
 <p>When process performs a wait on a condition variable, the process is blocked until another process performs a signal on the same condition variable.</p>
-<h4 id="how-is-this-done">How is this done?</h4>
+<h4 id="how-is-this-done">5.1.1 How is this done?</h4>
 <ul>
 <li>Process A acquires lock on a mutex</li>
 <li>Process A performs wait, passing this mutex
@@ -883,7 +883,7 @@ signal(S)
 <li>Process A becomes runnable</li>
 </ul></li>
 </ul>
-<h4 id="example-15856">Example 1:58:56</h4>
+<h4 id="example-15856">5.1.2 Example 1:58:56</h4>
 <p>2 condition variables:</p>
 <ol type="1">
 <li><strong><em>buffer_empty</em></strong> : Signals at least 1 free location available in buffer</li>
@@ -960,7 +960,7 @@ void main() &#123;
 </ul></li>
 </ol>
 <p><img src="/images/OP/200611.png" /></p>
-<h4 id="example-20257-20437">Example 2:02:57-2:04:37</h4>
+<h4 id="example-20257-20437">5.2.1 Example 2:02:57-2:04:37</h4>
 <p>Single monitor encapsulates both processes along with <em>buffer</em> and <em>count</em></p>
 <p>One process will be allowed to begin executing firs</p>
 <p>If process B allowed to execute first:</p>
